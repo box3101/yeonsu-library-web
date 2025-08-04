@@ -22,3 +22,5 @@ pnpm-debug.log*
 20231108_1.zip
 20231115_1.zip
 20231120_1.zip
+
+.env
