@@ -1,15 +1,17 @@
+@use 'sass:math';
+
 // ============================================
 // Functions
 // ============================================
 
 // rem 변환 함수
 @function to-rem($px) {
-  @return #{$px / 16}rem;
+  @return math.div($px, 16) * 1rem;
 }
 
 // px에서 vw 변환 (1920px 기준)
 @function vw($px, $base: 1920) {
-  @return #{($px / $base) * 100}vw;
+  @return math.div($px, $base) * 100vw;
 }
 
 // 색상 투명도 조절
@@ -20,7 +22,7 @@
 // 반응형 폰트 크기 계산
 @function fluid-font($min-size, $max-size, $min-width: 320, $max-width: 1920) {
   @return calc(
-    #{rem($min-size)} + #{$max-size - $min-size} * (100vw - #{rem($min-width)}) / #{$max-width -
-      $min-width}
+    #{to-rem($min-size)} + #{$max-size - $min-size} * (100vw - #{to-rem($min-width)}) /
+      #{$max-width - $min-width}
   );
 }

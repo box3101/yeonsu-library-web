@@ -1,6 +1,16 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
+  // 개발 중 소스맵 속성 제거
+  compilerOptions: {
+    sourcemap: false
+  },
+
+  // Astro 4.0+ 에서 개발 툴바 비활성화 (선택사항)
+  devToolbar: {
+    enabled: false
+  },
+
   build: {
     format: 'file',
     assets: 'assets',

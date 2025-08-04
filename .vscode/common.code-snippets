@@ -1,0 +1,18 @@
+{
+  "img": {
+    "prefix": "img",
+    "body": [
+      "<img",
+      "  src=\"../assets/images/$1\"",
+      "  alt=\"$2\"",
+      "  class=\"$3\"",
+      "/>",
+    ],
+    "description": "이미지를 삽입하는 img 태그 스니펫",
+  },
+  "bg-image": {
+    "prefix": "bg",
+    "body": ["@include bg-image('#{$image-path}building-image.png');"],
+    "description": "배경 이미지를 building-image.png로 설정하는 SCSS mixin",
+  },
+}
