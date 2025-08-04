@@ -1,69 +1,102 @@
+@use '../abstracts' as *;
+@use '../variables/layout' as *;
+
+// ============================================
+// Main Container
+// ============================================
 .main-container {
-  margin: 40px 0;
+  margin: to-rem(40) 0;
+
+  @include mobile {
+    margin: to-rem(20) 0;
+  }
 }
+
 // ============================================
 // Banner Component SCSS
 // ============================================
-
 .banner {
-  position: relative;
+  @include relative;
   width: 100%;
-  height: 468px;
+  height: to-rem(468);
+
+  @include tablet {
+    height: to-rem(350);
+  }
+
+  @include mobile {
+    height: to-rem(280);
+  }
 
   &__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url('../assets/images/building-image.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include absolute(0, null, null, 0);
+    @include bg-image('#{$image-path}building-image.png');
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: to-rem(12);
   }
 
   &__mask-group {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include absolute(0, null, null, 0);
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: alpha(#000, 0.2);
+    border-radius: to-rem(12);
   }
 
   &__content {
+    @include flex-column-center;
     width: 100%;
-    max-width: 800px;
+    max-width: to-rem(800);
     margin: 0 auto;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    gap: to-rem(10);
     position: relative;
     z-index: 10;
+    padding: 0 to-rem(20);
+
     h1 {
-      color: #fff;
-      font-size: 40px;
-      font-style: normal;
+      color: white;
+      @include font-size(40, 1.5);
       font-weight: 700;
-      line-height: 150%;
-      letter-spacing: 1px;
+      letter-spacing: to-rem(1);
+      text-align: center;
+
+      @include tablet {
+        @include font-size(32);
+      }
+
+      @include mobile {
+        @include font-size(24);
+        letter-spacing: to-rem(0.5);
+      }
     }
+
     p {
-      color: #fff;
-      font-size: 19px;
-      font-style: normal;
+      color: white;
+      @include font-size(19, 1.5);
       font-weight: 700;
-      line-height: 150%;
+      text-align: center;
+
+      @include tablet {
+        @include font-size(17);
+      }
+
+      @include mobile {
+        @include font-size(16);
+      }
     }
   }
 
   &__search-container {
     width: 100%;
-    border-radius: 12px;
-    background: #fff;
+    border-radius: to-rem(12);
+    background: white;
+    @include shadow(2);
+
+    @include mobile {
+      margin: 0 to-rem(20);
+      width: calc(100% - #{to-rem(40)});
+    }
   }
 }

@@ -1,12 +1,15 @@
-// 변수들 먼저 import
-@use 'variables/colors';
-@use 'variables/typography';
-@use 'variables/layout';
+// Variables
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins) 먼저
+@use 'abstracts' as *;
 
 // 공통 스타일
 @use 'common';
 
-// 유틸리티들 (이 줄 추가)
+// 유틸리티들
 @use 'utilities/flex';
 
 // 컴포넌트 스타일들

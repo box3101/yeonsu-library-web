@@ -1,0 +1,26 @@
+// ============================================
+// Functions
+// ============================================
+
+// rem 변환 함수
+@function to-rem($px) {
+  @return #{$px / 16}rem;
+}
+
+// px에서 vw 변환 (1920px 기준)
+@function vw($px, $base: 1920) {
+  @return #{($px / $base) * 100}vw;
+}
+
+// 색상 투명도 조절
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// 반응형 폰트 크기 계산
+@function fluid-font($min-size, $max-size, $min-width: 320, $max-width: 1920) {
+  @return calc(
+    #{rem($min-size)} + #{$max-size - $min-size} * (100vw - #{rem($min-width)}) / #{$max-width -
+      $min-width}
+  );
+}
