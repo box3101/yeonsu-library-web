@@ -1,1 +1,130 @@
-33
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="main-container">
+    <!--  비쥬얼 영역 -->
+    <section class="banner container">
+      <!-- 배경 이미지 컨테이너 -->
+      <div class="banner__background"></div>
+      <div class="banner__mask-group"></div>
+
+      <!-- 메인 콘텐츠 -->
+      <div class="banner__content">
+        <!-- 제목 영역 -->
+        <div class="banner__text-group">
+          <div class="banner__title-section">
+            <h1 class="banner__main-title">
+              마음의 문을 여는 첫 번째 공간, 연수구립도서관!
+            </h1>
+            <p class="banner__sub-title">
+              연수구립도서관에서 다양한 책을 만나보세요!
+            </p>
+          </div>
+        </div>
+
+        <!-- 검색 영역 -->
+        <div class="banner__search-container">
+          <form class="banner__search-form">
+            <!-- 라디오 버튼 그룹 -->
+            <div class="banner__radio-group">
+              <div class="radio-button">
+                <input
+                  type="radio"
+                  id="book-search"
+                  name="search-type"
+                  value="book"
+                  class="radio-button__input"
+                />
+                <label for="book-search" class="radio-button__label">
+                  <span class="radio-button__item"></span>
+                  <span class="radio-button__text">도서검색</span>
+                </label>
+              </div>
+
+              <div class="radio-button">
+                <input
+                  type="radio"
+                  id="total-search"
+                  name="search-type"
+                  value="total"
+                  class="radio-button__input"
+                  checked
+                />
+                <label for="total-search" class="radio-button__label">
+                  <span class="radio-button__item radio-button__item--checked"
+                  ></span>
+                  <span class="radio-button__text">통합검색</span>
+                </label>
+              </div>
+
+              <!-- 구분선 -->
+              <div class="banner__divider"></div>
+
+              <!-- 검색 입력 영역 -->
+              <div class="banner__input-container">
+                <input
+                  type="text"
+                  class="banner__search-input"
+                  placeholder="검색어를 입력해주세요."
+                  aria-label="검색어 입력"
+                />
+              </div>
+
+              <!-- 버튼 그룹 -->
+              <div class="banner__button-group">
+                <button
+                  type="button"
+                  class="banner__clear-btn"
+                  aria-label="입력 내용 지우기"
+                >
+                  <svg
+                    class="icon icon--delete"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M15 5L5 15M5 5L15 15"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"></path>
+                  </svg>
+                </button>
+
+                <button
+                  type="submit"
+                  class="banner__search-btn"
+                  aria-label="검색"
+                >
+                  <svg
+                    class="icon icon--search"
+                    width="31"
+                    height="31"
+                    viewBox="0 0 31 31"
+                    fill="none"
+                  >
+                    <circle
+                      cx="14"
+                      cy="14"
+                      r="12.5"
+                      stroke="currentColor"
+                      stroke-width="3"></circle>
+                    <path
+                      d="m22 22 6 6"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- // 비쥬얼 영역 -->
+  </div>
+</Layout>
