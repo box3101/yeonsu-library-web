@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="banner__text-group">
           <div class="banner__title-section">
             <h1 class="banner__main-title">
-              마음의 문을 여는 첫 번째 공간, 연수구립도서관!
+              마음의 문을 여는 첫 번째 공간, <span>연수구립도서관!</span>
             </h1>
             <p class="banner__sub-title">
               연수구립도서관에서 다양한 책을 만나보세요!
@@ -50,15 +50,14 @@ import Layout from '../layouts/Layout.astro';
                   name="search-type"
                   value="total"
                   class="radio-button__input"
-                  checked
                 />
                 <label for="total-search" class="radio-button__label">
-                  <span class="radio-button__item radio-button__item--checked"
-                  ></span>
+                  <span class="radio-button__item"></span>
                   <span class="radio-button__text">통합검색</span>
                 </label>
               </div>
-
+            </div>
+            <div class="banner__search-input-container">
               <!-- 구분선 -->
               <div class="banner__divider"></div>
 

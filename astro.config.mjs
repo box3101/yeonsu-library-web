@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // 개발 중 소스맵 속성 제거
+  // 개발 중에는 소스맵 활성화, 프로덕션에서는 HTML 속성만 제거
   compilerOptions: {
-    sourcemap: false
+    sourcemap: 'external' // 또는 true
   },
 
   // Astro 4.0+ 에서 개발 툴바 비활성화 (선택사항)
@@ -18,7 +18,22 @@ export default defineConfig({
   },
 
   vite: {
+    // CSS 소스맵 설정
+    css: {
+      devSourcemap: true, // 개발 중 CSS 소스맵 활성화
+      preprocessorOptions: {
+        scss: {
+          // SCSS 소스맵 활성화
+          sourceMap: true,
+          sourceMapContents: true
+        }
+      }
+    },
+
     build: {
+      // 프로덕션 빌드 시에도 소스맵 생성 (선택사항)
+      sourcemap: true,
+
       rollupOptions: {
         output: {
           assetFileNames: (assetInfo) => {
@@ -26,7 +41,6 @@ export default defineConfig({
             const ext = info[info.length - 1];
 
             if (ext === 'css') {
-              // 해시 제거하고 css 폴더에 배치
               return `css/[name].[ext]`;
             }
 
