@@ -1,0 +1,19 @@
+// 변수들 먼저 import
+@import 'variables/colors';
+@import 'variables/typography';
+@import 'variables/layout';
+
+// 공통 스타일
+@import 'common';
+
+// 유틸리티들 (이 줄 추가)
+@import 'utilities/flex';
+
+// 컴포넌트 스타일들
+@import 'components/header';
+@import 'components/footer';
+@import 'components/buttons';
+@import 'components/icon';
+
+// 페이지별 스타일
+@import 'pages/home';

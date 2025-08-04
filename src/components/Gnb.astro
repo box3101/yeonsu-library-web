@@ -1,0 +1,26 @@
+---
+const gnbItems = [
+  { href: '#', text: '도서검색' },
+  { href: '#', text: '책 읽는 연수구' },
+  { href: '#', text: '안내마당' },
+  { href: '#', text: '도서서비스' },
+  { href: '#', text: '열린참여마당' },
+  { href: '#', text: '문화마당' },
+  { href: '#', text: '도서관소개' },
+];
+---
+
+<nav class="gnb">
+  <ul class="gnb-list container">
+    {
+      gnbItems.map((item) => (
+        <li class="gnb-item">
+          <a href={item.href} class="gnb-link">
+            <span>{item.text}</span>
+            <i class="icon icon-xsm icon-arrow-down" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

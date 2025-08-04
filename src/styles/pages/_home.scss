@@ -1,0 +1,69 @@
+.main-container {
+  margin: 40px 0;
+}
+// ============================================
+// Banner Component SCSS
+// ============================================
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 468px;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../../assets/images/building-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  &__mask-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+    h1 {
+      color: #fff;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 1px;
+    }
+    p {
+      color: #fff;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+    }
+  }
+
+  &__search-container {
+    width: 100%;
+    border-radius: 12px;
+    background: #fff;
+  }
+}
