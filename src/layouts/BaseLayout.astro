@@ -1,0 +1,46 @@
+---
+import Header from '../components/Hedaer.astro';
+import Footer from '../components/Footer.astro';
+import UiRadio from '../components/UiRadio.astro';
+import '../styles/main.scss';
+
+export interface Props {
+  title?: string;
+  // 자주 사용하는 컴포넌트들을 props로 전달
+  withRadio?: boolean;
+}
+
+const { title = '연수구립도서관', withRadio = false } = Astro.props;
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot name="main" />
+
+      {/* 컴포넌트가 필요한 페이지에서만 사용 */}
+      {
+        withRadio && (
+          <div class="ui-components">
+            <slot name="radio-components" {UiRadio} />
+          </div>
+        )
+      }
+
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .ui-components {
+    display: contents;
+  }
+</style>

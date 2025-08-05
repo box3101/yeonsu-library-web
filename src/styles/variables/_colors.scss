@@ -10,8 +10,25 @@ $header-text: #333;
 
 // Gray 색상 팔레트
 $white: #ffffff;
+$black: #000000;
+$gray-20: #e5e7eb;
+$gray-30: #d1d5db;
+$gray-40: #9ca3af;
+$gray-50: #6b7280;
+$gray-60: #4b5563;
+$gray-70: #374151;
 $gray-90: #191a1a;
+$gray-200: #e5e7eb;
 $gray-300: #d1d5db;
 $gray-600: #6b7280;
 $gray-700: #374151;
 $gray-800: #1f2937;
+
+// Radio 컴포넌트 색상
+$radio-primary: #256ef4;
+$radio-border-default: #58616a;
+$radio-border-disabled: #8a949e;
+$radio-bg-disabled: #cdd1d5;
+$radio-text-primary: #131416;
+$radio-text-secondary: #464c53;
+$radio-text-disabled: #8a949e;

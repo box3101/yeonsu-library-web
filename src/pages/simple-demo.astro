@@ -1,0 +1,42 @@
+---
+// 🎉 한 번에 여러 컴포넌트 import!
+import { UiRadio } from '@components';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="container">
+    <h1>간편한 컴포넌트 사용</h1>
+
+    <!-- import 한 번으로 여러 컴포넌트 사용 -->
+    <UiRadio
+      name="demo1"
+      value="option1"
+      size="large"
+      label="간편하게 사용하는 라디오버튼"
+      description="한 번 import로 모든 UI 컴포넌트 사용!"
+    />
+
+    <UiRadio
+      name="demo1"
+      value="option2"
+      size="medium"
+      checked
+      label="선택된 라디오버튼"
+      description="깔끔하고 효율적인 방법!"
+    />
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: #131416;
+    margin-bottom: 2rem;
+  }
+</style>

@@ -4,23 +4,43 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --host",
+    "dev:turbo": "concurrently \"astro dev --host\" \"npm run watch:scss\"",
+    "dev:full": "concurrently \"astro dev --host\" \"npm run watch:scss\" \"npm run watch:files\"",
+    "start": "astro dev --host",
+    "watch:scss": "chokidar \"src/**/*.scss\" -c \"echo SCSS 파일 변경 감지: {path}\"",
+    "watch:files": "chokidar \"src/**/*.{astro,ts,js}\" -c \"echo 파일 변경 감지: {path}\"",
     "build": "astro check && astro build && npm run format:dist",
     "build:clean": "astro build && npm run format:dist && npm run postbuild",
     "format:dist": "prettier --write \"dist/**/*.{html,css,js}\" --ignore-path .prettierignore",
     "format:src": "prettier --write \"src/**/*.{astro,ts,js,scss}\"",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "astro": "^4.15.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
-    "typescript": "^5.0.0",
-    "sass": "^1.69.0",
+    "@testing-library/dom": "^10.4.1",
+    "@vitest/ui": "^3.2.4",
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.0",
+    "happy-dom": "^18.0.1",
+    "jsdom": "^26.1.0",
     "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.0"
+    "prettier-plugin-astro": "^0.12.0",
+    "sass": "^1.69.0",
+    "typescript": "^5.0.0",
+    "unplugin-auto-import": "^19.3.0",
+    "vitest": "^3.2.4"
   }
 }

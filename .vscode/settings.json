@@ -1,13 +1,47 @@
 {
+  // 파일 저장 시 자동 포맷팅
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
- "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+
+  // Astro 파일 연결
+  "files.associations": {
+    "*.astro": "astro"
   },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+  // 자동 저장 설정
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  // SCSS/CSS 실시간 미리보기
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "liveSassCompile.settings.generateMap": true,
+
+  // 파일 감시 제외 (성능 향상)
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/dist/**": true,
+    "**/.astro/**": true
+  },
+
+  // Astro 언어 서버 설정
+  "astro.typescript.allowArbitraryAttributes": true,
+
+  // CSS 자동완성 향상
+  "css.validate": true,
+  "scss.validate": true,
+
+  // 컴포넌트 자동완성 향상
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+
+  // 스니펫 우선순위 설정
+  "editor.snippetSuggestions": "top",
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": false,
+    "other": true
   }
 }

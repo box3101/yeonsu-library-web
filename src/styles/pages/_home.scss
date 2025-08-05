@@ -41,7 +41,7 @@
     @include absolute(0, null, null, 0);
     width: 100%;
     height: 100%;
-    background-color: alpha(#000, 0.2);
+    background-color: alpha(#000, 0.1);
     border-radius: to-rem(12);
   }
 
@@ -105,8 +105,8 @@
     border-radius: to-rem(12);
     background: $white;
     @include shadow(2);
-    padding: to-rem(24);
-    margin-top: to-rem(32);
+    padding: to-rem(16) to-rem(12) to-rem(16) to-rem(24);
+    margin-top: to-rem(0);
 
     @include tablet {
       padding: to-rem(20);
@@ -178,12 +178,11 @@
   &__search-input {
     width: 100%;
     border: none;
-    outline: none;
-    font-size: to-rem(16);
-    font-weight: 400;
-    color: $text-color;
-    background: transparent;
-    padding: to-rem(12) to-rem(16);
+    color: $gray-600;
+    font-size: to-rem(20);
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0;
 
     &::placeholder {
       color: $gray-600;
@@ -234,22 +233,10 @@
     @include flex-center;
     width: to-rem(60);
     height: to-rem(48);
-    background: $primary-color;
     border: none;
-    border-radius: to-rem(8);
-    color: $white;
     cursor: pointer;
     transition: all 0.2s ease;
-
-    &:hover {
-      background: darken($primary-color, 8%);
-      transform: translateY(to-rem(-1));
-    }
-
-    &:focus {
-      outline: to-rem(2) solid $primary-color;
-      outline-offset: to-rem(2);
-    }
+    background: transparent;
 
     &:active {
       transform: translateY(0);
@@ -262,110 +249,347 @@
 }
 
 // ============================================
-// 라디오 버튼 컴포넌트
+// Notice Section SCSS
 // ============================================
-.radio-button {
-  @include flex;
-  align-items: center;
-  cursor: pointer;
+.notice-section {
+  width: 100%;
+  padding: to-rem(60) 0;
 
-  &__input {
-    display: none;
+  @include tablet {
+    padding: to-rem(40) 0;
   }
 
-  &__label {
+  @include mobile {
+    padding: to-rem(32) 0;
+  }
+
+  &__content {
     @include flex;
+    gap: to-rem(24);
+    align-items: flex-start;
+
+    @include tablet {
+      flex-direction: column;
+      gap: to-rem(32);
+    }
+  }
+
+  // 좌측 공지사항 영역
+  &__left {
+    flex: 1;
+    max-width: to-rem(737);
+
+    @include tablet {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  // 우측 자주찾는 페이지 영역
+  &__right {
+    width: to-rem(519);
+    border-radius: to-rem(12);
+
+    @include tablet {
+      width: 100%;
+    }
+
+    .quick-links {
+      border-radius: 12px;
+      background: #f3f3f3;
+    }
+  }
+
+  // 상단 헤더
+  &__header {
+    @include flex;
+    justify-content: space-between;
     align-items: center;
-    gap: to-rem(8);
-    cursor: pointer;
-    transition: all 0.2s ease;
+    margin-bottom: to-rem(24);
 
-    &:hover {
-      .radio-button__item {
-        border-color: $primary-color;
-        background-color: rgba($primary-color, 0.05);
-      }
+    @include tablet {
+      margin-bottom: to-rem(24);
     }
-  }
-
-  &__item {
-    position: relative;
-    width: to-rem(20);
-    height: to-rem(20);
-    border: to-rem(2) solid $gray-300;
-    border-radius: 50%;
-    background: $white;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-
-    &--checked {
-      border-color: $primary-color;
-      background-color: $white;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: to-rem(10);
-        height: to-rem(10);
-        background: $primary-color;
-        border-radius: 50%;
-      }
-    }
-  }
-
-  &__text {
-    font-size: to-rem(16);
-    font-weight: 500;
-    color: $text-color;
-    line-height: 1.4;
-    user-select: none;
 
     @include mobile {
-      font-size: to-rem(15);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: to-rem(16);
     }
   }
 
-  &__input:checked + &__label {
-    .radio-button__item {
-      border-color: $primary-color;
-      background-color: $white;
+  &__titles {
+    @include flex;
+    align-items: center;
+    gap: to-rem(4);
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: to-rem(10);
-        height: to-rem(10);
-        background: $primary-color;
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: to-rem(8);
+    }
+  }
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(32);
+    font-weight: 700;
+    line-height: 1.5;
+    color: $text-color;
+
+    @include mobile {
+      font-size: to-rem(24);
+    }
+
+    &--notice {
+      position: relative;
+
+      .notice-section__indicator {
+        display: inline-block;
+        width: to-rem(8);
+        height: to-rem(8);
+        background: transparent;
         border-radius: 50%;
+        margin-left: to-rem(4);
       }
     }
   }
 
-  &__input:focus + &__label {
-    .radio-button__item {
+  &__more-btn {
+    @include flex;
+    align-items: center;
+    gap: to-rem(4);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(17);
+    font-weight: 500;
+    color: $text-color;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
       outline: to-rem(2) solid $primary-color;
       outline-offset: to-rem(2);
     }
   }
-}
 
-// 검색 영역 아이콘
-.icon {
-  &--search {
-    width: to-rem(31);
-    height: to-rem(31);
-    color: currentColor;
+  &__more-icon {
+    width: to-rem(24);
+    height: to-rem(24);
   }
 
-  &--delete {
-    width: to-rem(20);
-    height: to-rem(20);
-    color: currentColor;
+  // 필터 및 네비게이션
+  &__controls {
+    margin-bottom: to-rem(16);
+  }
+
+  &__filter {
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(16);
+    }
+  }
+
+  &__nav {
+    @include flex;
+    gap: to-rem(4);
+  }
+
+  // 공지사항 목록
+  &__list {
+    @include flex;
+    flex-direction: column;
+    gap: to-rem(12.5);
+  }
+}
+
+// 공지사항 아이템
+.notice-item {
+  padding: 0 to-rem(24);
+  height: to-rem(60);
+  border: 1px solid #c3c9c9;
+  border-radius: to-rem(12);
+  background: $white;
+  @include flex;
+  align-items: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #3c79c2;
+  }
+
+  &__content {
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: to-rem(12);
+  }
+
+  &__info {
+    @include flex;
+    align-items: center;
+    gap: to-rem(13);
+    flex: 1;
+    min-width: 0;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: to-rem(8);
+    }
+  }
+
+  &__tag {
+    @include flex-center;
+    height: to-rem(32);
+    padding: 0 to-rem(16);
+    border-radius: to-rem(32);
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(15);
+    font-weight: 700;
+    color: $white;
+    flex-shrink: 0;
+
+    &--pink {
+      background: #ffacc1;
+    }
+
+    &--gray {
+      background: #666666;
+    }
+
+    &--orange {
+      background: #ef6601;
+    }
+
+    &--navy {
+      background: #40548c;
+    }
+  }
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(19);
+    font-weight: 400;
+    line-height: 1.5;
+    color: $text-color;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    @include mobile {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: initial;
+    }
+  }
+
+  &__date {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(15);
+    font-weight: 400;
+    line-height: 1.5;
+    color: $text-color;
+    flex-shrink: 0;
+  }
+}
+
+// 자주찾는 페이지
+.quick-links {
+  padding: to-rem(16);
+  box-sizing: border-box;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: to-rem(16);
+
+    @include mobile {
+      grid-template-columns: repeat(3, 1fr);
+      gap: to-rem(12);
+    }
+  }
+}
+
+.quick-link {
+  @include flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: to-rem(152);
+  height: to-rem(152);
+  background: $white;
+  border: 1px solid #dddddd;
+  border-radius: to-rem(12);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #f9f9f9;
+    border-color: #c0c0c0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &--primary {
+    border-color: #6494ce;
+    border-width: to-rem(2);
+  }
+
+  &__icon {
+    @include flex-center;
+    width: to-rem(67);
+    height: to-rem(50);
+    margin-bottom: to-rem(18);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(19);
+    font-weight: 600;
+    text-align: center;
+    color: #7d8181;
+  }
+
+  &--primary &__text {
+    color: #30619b;
+  }
+
+  @include mobile {
+    width: 100%;
+    min-height: to-rem(120);
+    height: auto;
+
+    &__icon {
+      width: to-rem(40);
+      height: to-rem(30);
+      margin-bottom: to-rem(12);
+    }
+
+    &__text {
+      font-size: to-rem(14);
+    }
   }
 }

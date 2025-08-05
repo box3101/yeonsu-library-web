@@ -1,0 +1,65 @@
+{
+  "Import UI Components": {
+    "prefix": "ui",
+    "body": ["import { UiRadio$1 } from '@components';"],
+    "description": "UI 컴포넌트 한 번에 import",
+    "scope": "astro",
+  },
+
+  "UiRadio Component": {
+    "prefix": "radio",
+    "body": [
+      "<UiRadio",
+      "  name=\"$1\"",
+      "  value=\"$2\"",
+      "  size=\"${3|medium,large|}\"",
+      "  ${4:checked}",
+      "  label=\"$5\"",
+      "  description=\"$6\"",
+      "/>",
+    ],
+    "description": "UiRadio 컴포넌트 자동 완성",
+    "scope": "astro",
+  },
+
+  "Radio Group": {
+    "prefix": "radiogroup",
+    "body": [
+      "<div class=\"radio-group\">",
+      "  <UiRadio name=\"$1\" value=\"option1\" label=\"$2\" />",
+      "  <UiRadio name=\"$1\" value=\"option2\" label=\"$3\" />",
+      "  <UiRadio name=\"$1\" value=\"option3\" label=\"$4\" />",
+      "</div>",
+    ],
+    "description": "라디오 그룹 자동 생성",
+    "scope": "astro",
+  },
+
+  "Page with UI Components": {
+    "prefix": "page-ui",
+    "body": [
+      "---",
+      "import { UiRadio } from '@components';",
+      "import Layout from '@layouts/Layout.astro';",
+      "---",
+      "",
+      "<Layout>",
+      "  <div class=\"container\">",
+      "    <h1>$1</h1>",
+      "    ",
+      "    $0",
+      "  </div>",
+      "</Layout>",
+      "",
+      "<style>",
+      "  .container {",
+      "    max-width: 800px;",
+      "    margin: 0 auto;",
+      "    padding: 2rem;",
+      "  }",
+      "</style>",
+    ],
+    "description": "UI 컴포넌트가 포함된 페이지 템플릿",
+    "scope": "astro",
+  },
+}

@@ -1,0 +1,12 @@
+{
+  "watch": ["src/**/*.astro", "src/**/*.scss", "src/**/*.ts", "src/**/*.js"],
+  "ext": "astro,scss,ts,js",
+  "ignore": ["node_modules", "dist", ".astro"],
+  "delay": 200,
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "colours": true,
+  "legacyWatch": false,
+  "verbose": true
+}

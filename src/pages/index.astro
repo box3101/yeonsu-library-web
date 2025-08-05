@@ -1,5 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+import UiRadio from '@components/UiRadio.astro';
+import UiSelect from '@components/UiSelect.astro';
+import UiNavButton from '@components/UiNavButton.astro';
+
+// 셀렉트 옵션 데이터
+const selectOptions = [
+  { value: 'all', label: '전체' },
+  { value: 'central', label: '중앙도서관' },
+  { value: 'branch', label: '분관' },
+];
 ---
 
 <Layout>
@@ -30,31 +40,18 @@ import Layout from '../layouts/Layout.astro';
             <!-- 라디오 버튼 그룹 -->
             <div class="banner__radio-group">
               <div class="radio-button">
-                <input
-                  type="radio"
-                  id="book-search"
-                  name="search-type"
-                  value="book"
-                  class="radio-button__input"
+                <UiRadio
+                  name="large-demo"
+                  value="option1"
+                  size="large"
+                  label="도서검색"
                 />
-                <label for="book-search" class="radio-button__label">
-                  <span class="radio-button__item"></span>
-                  <span class="radio-button__text">도서검색</span>
-                </label>
-              </div>
-
-              <div class="radio-button">
-                <input
-                  type="radio"
-                  id="total-search"
-                  name="search-type"
-                  value="total"
-                  class="radio-button__input"
+                <UiRadio
+                  name="large-demo"
+                  value="option2"
+                  size="large"
+                  label="통합검색"
                 />
-                <label for="total-search" class="radio-button__label">
-                  <span class="radio-button__item"></span>
-                  <span class="radio-button__text">통합검색</span>
-                </label>
               </div>
             </div>
             <div class="banner__search-input-container">
@@ -78,19 +75,10 @@ import Layout from '../layouts/Layout.astro';
                   class="banner__clear-btn"
                   aria-label="입력 내용 지우기"
                 >
-                  <svg
-                    class="icon icon--delete"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M15 5L5 15M5 5L15 15"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"></path>
-                  </svg>
+                  <img
+                    src="../assets/images/icon/search-delete.svg"
+                    alt="입력 내용 지우기"
+                  />
                 </button>
 
                 <button
@@ -98,25 +86,7 @@ import Layout from '../layouts/Layout.astro';
                   class="banner__search-btn"
                   aria-label="검색"
                 >
-                  <svg
-                    class="icon icon--search"
-                    width="31"
-                    height="31"
-                    viewBox="0 0 31 31"
-                    fill="none"
-                  >
-                    <circle
-                      cx="14"
-                      cy="14"
-                      r="12.5"
-                      stroke="currentColor"
-                      stroke-width="3"></circle>
-                    <path
-                      d="m22 22 6 6"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"></path>
-                  </svg>
+                  <img src="../assets/images/icon/icon-search.svg" alt="검색" />
                 </button>
               </div>
             </div>
@@ -125,5 +95,227 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
     <!-- // 비쥬얼 영역 -->
+
+    <!-- 공지사항, 자주 찾는 페이지 -->
+    <section class="notice-section container">
+      <div class="inner">
+        <div class="notice-section__content">
+          <!-- 좌측 공지사항 영역 -->
+          <div class="notice-section__left">
+            <!-- 상단 헤더 -->
+            <div class="notice-section__header">
+              <div class="notice-section__titles">
+                <h2 class="notice-section__title">자주찾는 페이지</h2>
+              </div>
+              <button class="notice-section__more-btn">
+                <span>더보기</span>
+                <svg
+                  class="notice-section__more-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M12 5V19M5 12L19 12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- 필터 및 네비게이션 -->
+            <div class="notice-section__controls">
+              <div class="notice-section__filter">
+                <UiSelect
+                  name="library-filter"
+                  options={selectOptions}
+                  value="all"
+                  width={180}
+                  height={56}
+                />
+                <div class="notice-section__nav">
+                  <UiNavButton
+                    direction="prev"
+                    size={40}
+                    ariaLabel="이전 공지사항"
+                  />
+                  <UiNavButton
+                    direction="next"
+                    size={40}
+                    ariaLabel="다음 공지사항"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- 공지사항 목록 -->
+            <div class="notice-section__list">
+              {
+                Array.from({ length: 4 }, (_, i) => {
+                  const items = [
+                    {
+                      tag: '선학별빛',
+                      tagClass: 'notice-item__tag--pink',
+                      title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05)',
+                      date: '07.05',
+                      isBold: false,
+                    },
+                    {
+                      tag: '동춘나래',
+                      tagClass: 'notice-item__tag--gray',
+                      title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
+                      date: '07.05',
+                      isBold: true,
+                    },
+                    {
+                      tag: '해돋이',
+                      tagClass: 'notice-item__tag--orange',
+                      title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
+                      date: '07.05',
+                      isBold: false,
+                    },
+                    {
+                      tag: '솔안공원',
+                      tagClass: 'notice-item__tag--navy',
+                      title:
+                        '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
+                      date: '07.05',
+                      isBold: false,
+                    },
+                  ];
+                  const item = items[i];
+                  return (
+                    <a href="#" class="notice-item">
+                      <div class="notice-item__content">
+                        <div class="notice-item__info">
+                          <span class={`notice-item__tag ${item.tagClass}`}>
+                            {item.tag}
+                          </span>
+                          <h3 class={`notice-item__title`}>{item.title}</h3>
+                        </div>
+                        <span class="notice-item__date">{item.date}</span>
+                      </div>
+                    </a>
+                  );
+                })
+              }
+            </div>
+          </div>
+
+          <!-- 우측 자주 찾는 페이지 영역 -->
+          <div class="notice-section__right">
+            <div class="notice-section__header">
+              <div class="notice-section__titles">
+                <h2 class="notice-section__title">자주찾는 페이지</h2>
+              </div>
+            </div>
+            <div class="quick-links">
+              <div class="quick-links__grid">
+                <a href="#" class="quick-link">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 51 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <path
+                          d="M1.51 13.03v34h45v-34M11.22 7.53V1M32.27 7.53V1"
+                        ></path>
+                      </g>
+                      <path
+                        d="M18.26 35.66h15.53"
+                        stroke="#FBBC53"
+                        stroke-width="3"></path>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">반납연기</span>
+                </a>
+                <a href="#" class="quick-link">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 46 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <path
+                          d="M1.39 42.4h41.83V6.7H1.39v35.7zM1.39 42.4h41.83"
+                        ></path>
+                      </g>
+                      <path
+                        d="M21 19.25h16.22"
+                        stroke="#FBBC53"
+                        stroke-width="3"></path>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">희망자료신청</span>
+                </a>
+                <a href="#" class="quick-link quick-link--primary">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 67 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <path
+                          d="M6.32 14.83h13.44v13.34H6.32zM49.43 14.83h13.44v13.34H49.43zM1.76 39.37h21.34v21.13H1.76zM41.89 39.37h21.34v21.13H41.89z"
+                        ></path>
+                      </g>
+                      <g stroke="#FBBC53" stroke-width="3">
+                        <path
+                          d="M27.79 20.22h13.44v13.34H27.79zM23.24 45.89h21.81v21.13H23.24z"
+                        ></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">문화행사신청</span>
+                </a>
+                <a href="#" class="quick-link">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 51 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <g>
+                          <path
+                            d="M1.5 22.58h36.67v24.45H1.5zM1.5 39.28h36.67M1.5 15.37v-8.2"
+                          ></path>
+                        </g>
+                        <path d="M9.46 16.87h28.72"></path>
+                      </g>
+                      <path
+                        d="M18.1 31.56h31.4v7.33H18.1z"
+                        stroke="#6494CE"
+                        stroke-width="3"></path>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">프로그램신청</span>
+                </a>
+                <a href="#" class="quick-link">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 43 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <path d="M9.74 49.73h21.79M2.54 42.63h35.38"></path>
+                      </g>
+                      <g stroke="#FBBC53" stroke-width="3">
+                        <circle cx="21.24" cy="11.89" r="10.89"></circle>
+                        <path d="M27.39 19.01h7.97v6.27h-7.97z"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">열람실좌석현황</span>
+                </a>
+                <a href="#" class="quick-link">
+                  <div class="quick-link__icon">
+                    <svg viewBox="0 0 41 50" fill="none">
+                      <g stroke="#6494CE" stroke-width="3">
+                        <path d="M7.99 37.51h27.64v15.16H7.99z"></path>
+                        <g stroke="#FBBC53" stroke-width="3">
+                          <path d="M17.16 10.75h8.32v8.4h-8.32z"></path>
+                        </g>
+                      </g>
+                      <path
+                        d="M2.61 49.41h37.78M16.59 42.9h9.44"
+                        stroke="#FBBC53"
+                        stroke-width="3"></path>
+                    </svg>
+                  </div>
+                  <span class="quick-link__text">도서관안내</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // 공지사항, 자주 찾는 페이지 -->
   </div>
 </Layout>
