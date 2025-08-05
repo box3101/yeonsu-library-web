@@ -6,7 +6,10 @@
       "Bash(npm run dev:*)",
       "Bash(curl:*)",
       "Bash(env)",
-      "Bash(clear)"
+      "Bash(clear)",
+      "Bash(echo $MCP_TIMEOUT)",
+      "Bash(claude config list)",
+      "Bash(claude config --help)"
     ],
     "deny": []
   }

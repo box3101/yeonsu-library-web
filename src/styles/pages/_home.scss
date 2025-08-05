@@ -262,7 +262,7 @@
   }
 
   &__content {
-    @include flex;
+    display: flex;
     gap: to-rem(24);
     align-items: flex-start;
 
@@ -275,8 +275,7 @@
   // 좌측 공지사항 영역
   &__left {
     flex: 1;
-    max-width: to-rem(600);
-
+    max-width: to-rem(689);
     @include tablet {
       width: 100%;
       max-width: none;
@@ -530,7 +529,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: to-rem(152);
+  width: 100%;
   height: to-rem(152);
   background: $white;
   border: 1px solid #dddddd;
@@ -544,11 +543,11 @@
     border-color: #c0c0c0;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  &:hover {
     border-color: #6494ce;
-    border-width: to-rem(2);
+
+    .quick-link__text {
+      color: #3c79c2 !important;
+    }
   }
 
   &__icon {
@@ -569,10 +568,6 @@
     font-weight: 600;
     text-align: center;
     color: #7d8181;
-  }
-
-  &--primary &__text {
-    color: #30619b;
   }
 
   @include mobile {
@@ -655,151 +650,227 @@
 
     // 이벤트 카드
     .event-card {
+      margin-bottom: to-rem(16);
+
       &__link {
-        display: block;
+        @include flex;
         text-decoration: none;
         color: inherit;
-        display: flex;
-        border-radius: 12px;
-        border: 1px solid var(--color-gray-gray03, #9da2a2);
-        min-height: 120px;
+        border-radius: to-rem(12);
+        border: to-rem(2) solid transparent;
         background: $white;
-        overflow: hidden;
+        padding: to-rem(24);
+        gap: to-rem(12);
+        transition: all 0.2s ease;
         position: relative;
 
         &:hover {
-          border: 2px solid var(--color-primary-primary04, #6494ce);
+          border-color: #6494ce;
         }
       }
 
-      &__left {
-        height: max-content;
+      &__tag {
+        @include flex-center;
+        color: $white;
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(15);
+        font-weight: 700;
+        line-height: 1.5;
+        height: to-rem(32);
+        padding: 0 to-rem(12);
+        border-radius: to-rem(32);
+        flex-shrink: 0;
+        min-width: to-rem(84);
       }
 
-      &__right {
+      &__content {
+        @include flex;
+        flex-direction: column;
+        gap: to-rem(16);
         flex: 1;
-        padding: 16px 20px 16px 12px;
-        position: relative;
-        z-index: 2;
-
-        @media (max-width: 575px) {
-          padding: 12px 16px 12px 8px;
-        }
+        min-width: 0;
       }
 
       &__title {
-        font-size: to-rem(16);
-        line-height: 1.4;
-        font-weight: $font-semibold;
-        color: $text-color;
-        line-height: $line-height-tight;
-        margin-bottom: 12px;
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(19);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #191a1a;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
-        @media (max-width: 575px) {
-          font-size: to-rem(14);
-          line-height: 1.4;
-          margin-bottom: 8px;
+        @include mobile {
+          font-size: to-rem(16);
         }
       }
 
       &__info {
-        display: flex;
+        @include flex;
+        gap: to-rem(73);
+
+        @include mobile {
+          flex-direction: column;
+          gap: to-rem(16);
+        }
+      }
+
+      &__info-left,
+      &__info-right {
+        @include flex;
         flex-direction: column;
-        gap: 4px;
+        gap: to-rem(8);
+        flex: 1;
       }
 
       &__info-item {
-        display: flex;
-        justify-content: space-between;
+        @include flex;
+        gap: to-rem(12);
         align-items: center;
-
-        @media (max-width: 575px) {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 2px;
-        }
       }
 
       &__label {
-        font-size: to-rem(13);
-        line-height: 1.4;
-        color: $gray-600;
-        font-weight: $font-medium;
-        min-width: 60px;
-
-        @media (max-width: 575px) {
-          font-size: to-rem(12);
-          line-height: 1.4;
-          min-width: auto;
-        }
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(17);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #191a1a;
+        flex-shrink: 0;
+        min-width: to-rem(68);
       }
 
       &__value {
-        font-size: to-rem(13);
-        line-height: 1.4;
-        color: $text-color;
-        font-weight: $font-normal;
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(17);
+        font-weight: 500;
+        line-height: 1.5;
+        color: #4b4d4d;
+        flex: 1;
+      }
 
-        @media (max-width: 575px) {
-          font-size: to-rem(12);
-          line-height: 1.4;
-        }
+      &__highlight {
+        font-weight: 700;
+        color: #fcc975;
       }
     }
   }
   .event-section__right {
     flex: 1;
-    max-width: to-rem(360);
+    max-width: to-rem(410);
 
     // 신규 컨텐츠 바로가기
     .new-content-shortcuts {
-      background: $white;
-      border-radius: to-rem(12);
-      @include shadow(1);
-      padding: to-rem(24);
+      &__title {
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(24);
+        font-weight: 700;
+        color: $text-color;
+        margin-bottom: to-rem(24);
+        text-align: left;
+      }
+
+      &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: to-rem(16);
+      }
+    }
+
+    // 신규 컨텐츠 아이템
+    .new-content-item {
+      @include flex;
+      align-items: center;
+      padding: to-rem(20);
+      border-radius: to-rem(16);
+      text-decoration: none;
+      color: $white;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      height: to-rem(164);
+
+      &:hover {
+        transform: translateY(to-rem(-2));
+        @include shadow(2);
+      }
+
+      &__image {
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        width: to-rem(164);
+        height: to-rem(164);
+        flex-shrink: 0;
+        margin-right: to-rem(16);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &__content {
+        @include flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        position: relative;
+      }
 
       &__title {
-        @include font-size(18);
-        font-weight: $font-semibold;
-        color: $text-color;
-        margin-bottom: to-rem(20);
-        border-bottom: 1px solid $gray-200;
-        padding-bottom: to-rem(12);
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(24);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: 0;
+        color: #191a1a;
+        padding-right: to-rem(90);
+
+        @include mobile {
+          font-size: to-rem(16);
+        }
       }
 
-      &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: to-rem(12);
+      &__arrow {
+        position: absolute;
+        right: to-rem(16);
+        top: 50%;
+        transform: translateY(-50%);
+        width: to-rem(32);
+        height: to-rem(32);
+        @include flex-center;
+        background: alpha($white, 0.2);
+        border-radius: 50%;
+        color: $white;
+
+        svg {
+          width: to-rem(16);
+          height: to-rem(16);
+        }
       }
 
-      &__item {
-      }
-
-      &__link {
-        display: block;
+      @include mobile {
+        height: to-rem(100);
         padding: to-rem(16);
-        background: $gray-50;
-        border-radius: to-rem(8);
-        text-decoration: none;
-        color: $text-color;
-        @include font-size(14);
-        font-weight: $font-medium;
-        text-align: center;
-        transition: all 0.2s ease;
 
-        &:hover {
-          background: $primary-color;
-          color: $white;
-          transform: translateY(to-rem(-1));
+        &__image {
+          width: to-rem(60);
+          height: to-rem(60);
+          margin-right: to-rem(12);
         }
 
-        span {
-          display: block;
+        &__arrow {
+          width: to-rem(28);
+          height: to-rem(28);
+          right: to-rem(12);
+
+          svg {
+            width: to-rem(14);
+            height: to-rem(14);
+          }
         }
       }
     }
