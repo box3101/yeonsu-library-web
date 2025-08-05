@@ -31,7 +31,7 @@
     align-items: center;
     position: relative;
     padding: 1rem 1.5rem;
-    font-size: 1rem;
+    font-size: to-rem(16);
     font-weight: 500;
     color: #666;
     background: transparent;
@@ -82,7 +82,7 @@
 
     @media (max-width: 768px) {
       padding: 0.75rem 1rem;
-      font-size: 0.875rem;
+      font-size: to-rem(14);
     }
   }
 }

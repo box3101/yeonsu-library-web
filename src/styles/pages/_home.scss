@@ -58,19 +58,19 @@
 
     h1 {
       color: $white;
-      font-size: 32px;
+      font-size: to-rem(32);
       font-weight: 700;
       line-height: 150%;
 
       span {
         color: $white;
-        font-size: 40px;
+        font-size: to-rem(40);
         font-weight: 700;
         line-height: 150%;
         letter-spacing: 1px;
 
         @include tablet {
-          font-size: 32px;
+          font-size: to-rem(32);
         }
 
         @include mobile {
@@ -81,7 +81,7 @@
 
     p {
       color: $white;
-      font-size: 19px;
+      font-size: to-rem(19);
       font-weight: 700;
       line-height: 150%;
 
@@ -659,11 +659,10 @@
         display: block;
         text-decoration: none;
         color: inherit;
-        @include flex;
+        display: flex;
         border-radius: 12px;
         border: 1px solid var(--color-gray-gray03, #9da2a2);
-
-        min-height: to-rem(120);
+        min-height: 120px;
         background: $white;
         overflow: hidden;
         position: relative;
@@ -679,63 +678,72 @@
 
       &__right {
         flex: 1;
-        padding: to-rem(16) to-rem(20) to-rem(16) to-rem(12);
+        padding: 16px 20px 16px 12px;
         position: relative;
         z-index: 2;
 
-        @include mobile {
-          padding: to-rem(12) to-rem(16) to-rem(12) to-rem(8);
+        @media (max-width: 575px) {
+          padding: 12px 16px 12px 8px;
         }
       }
 
       &__title {
-        @include font-size(16);
+        font-size: to-rem(16);
+        line-height: 1.4;
         font-weight: $font-semibold;
         color: $text-color;
         line-height: $line-height-tight;
-        margin-bottom: to-rem(12);
+        margin-bottom: 12px;
 
-        @include mobile {
-          @include font-size(14);
-          margin-bottom: to-rem(8);
+        @media (max-width: 575px) {
+          font-size: to-rem(14);
+          line-height: 1.4;
+          margin-bottom: 8px;
         }
       }
 
       &__info {
-        @include flex-column;
-        gap: to-rem(4);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
       }
 
       &__info-item {
-        @include flex-between;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
 
-        @include mobile {
-          @include flex-column;
+        @media (max-width: 575px) {
+          display: flex;
+          flex-direction: column;
           align-items: flex-start;
-          gap: to-rem(2);
+          gap: 2px;
         }
       }
 
       &__label {
-        @include font-size(13);
+        font-size: to-rem(13);
+        line-height: 1.4;
         color: $gray-600;
         font-weight: $font-medium;
-        min-width: to-rem(60);
+        min-width: 60px;
 
-        @include mobile {
-          @include font-size(12);
+        @media (max-width: 575px) {
+          font-size: to-rem(12);
+          line-height: 1.4;
           min-width: auto;
         }
       }
 
       &__value {
-        @include font-size(13);
+        font-size: to-rem(13);
+        line-height: 1.4;
         color: $text-color;
         font-weight: $font-normal;
 
-        @include mobile {
-          @include font-size(12);
+        @media (max-width: 575px) {
+          font-size: to-rem(12);
+          line-height: 1.4;
         }
       }
     }

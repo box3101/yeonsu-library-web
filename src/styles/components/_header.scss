@@ -10,7 +10,7 @@
       gap: 8px;
       padding: 0 8px;
       color: #797d7d;
-      font-size: 15px;
+      font-size: to-rem(15);
       font-weight: 500;
       line-height: 150%;
       letter-spacing: 0;
@@ -36,7 +36,7 @@
     &-item {
       flex: 1;
       color: #464c53;
-      font-size: 18px;
+      font-size: to-rem(18);
       font-weight: 700;
       line-height: 150%;
       .gnb-link {

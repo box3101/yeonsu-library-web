@@ -5,7 +5,8 @@
       "WebFetch(domain:www.figma.com)",
       "Bash(npm run dev:*)",
       "Bash(curl:*)",
-      "Bash(env)"
+      "Bash(env)",
+      "Bash(clear)"
     ],
     "deny": []
   }
