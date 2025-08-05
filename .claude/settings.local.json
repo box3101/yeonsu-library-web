@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(env)"
+    ],
+    "deny": []
+  }
+}

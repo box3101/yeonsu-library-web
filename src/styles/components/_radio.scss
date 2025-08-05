@@ -1,6 +1,4 @@
-@use '../abstracts' as *;
-@use '../variables/colors' as *;
-@use '../variables/typography' as *;
+@use '../globals' as *;
 
 .radio-button {
   display: flex;

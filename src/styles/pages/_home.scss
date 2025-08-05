@@ -1,6 +1,4 @@
-@use '../abstracts' as *;
-@use '../variables/layout' as *;
-@use '../variables/colors' as *;
+@use '../globals' as *;
 
 // ============================================
 // Main Container
@@ -602,4 +600,200 @@
   padding: to-rem(60) 0;
   min-height: 968px;
   @include bg-image('#{$image-path}bg-event-section.png');
+
+  .container {
+    @include flex;
+    gap: to-rem(24);
+  }
+
+  .event-section__left {
+    flex: 1;
+    max-width: to-rem(798);
+
+    // 헤더 영역
+    .event-section__header {
+      @include flex-between;
+      margin-bottom: to-rem(24);
+
+      @include mobile {
+        flex-direction: column;
+        gap: to-rem(16);
+        align-items: flex-start;
+      }
+    }
+
+    // 필터 영역
+    .event-section__filter {
+      @include flex-between;
+      margin-bottom: to-rem(32);
+
+      @include mobile {
+        flex-direction: column;
+        gap: to-rem(16);
+        align-items: flex-start;
+      }
+    }
+
+    // 네비게이션 버튼 컨테이너
+    .event-section__nav {
+      @include flex;
+      gap: to-rem(16);
+      align-items: center;
+    }
+
+    // 컨텐츠 영역
+    .event-section__content {
+      margin-top: to-rem(24);
+    }
+
+    // 이벤트 카드 목록
+    .event-cards {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    // 이벤트 카드
+    .event-card {
+      &__link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        @include flex;
+        border-radius: 12px;
+        border: 1px solid var(--color-gray-gray03, #9da2a2);
+
+        min-height: to-rem(120);
+        background: $white;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+          border: 2px solid var(--color-primary-primary04, #6494ce);
+        }
+      }
+
+      &__left {
+        height: max-content;
+      }
+
+      &__right {
+        flex: 1;
+        padding: to-rem(16) to-rem(20) to-rem(16) to-rem(12);
+        position: relative;
+        z-index: 2;
+
+        @include mobile {
+          padding: to-rem(12) to-rem(16) to-rem(12) to-rem(8);
+        }
+      }
+
+      &__title {
+        @include font-size(16);
+        font-weight: $font-semibold;
+        color: $text-color;
+        line-height: $line-height-tight;
+        margin-bottom: to-rem(12);
+
+        @include mobile {
+          @include font-size(14);
+          margin-bottom: to-rem(8);
+        }
+      }
+
+      &__info {
+        @include flex-column;
+        gap: to-rem(4);
+      }
+
+      &__info-item {
+        @include flex-between;
+        align-items: center;
+
+        @include mobile {
+          @include flex-column;
+          align-items: flex-start;
+          gap: to-rem(2);
+        }
+      }
+
+      &__label {
+        @include font-size(13);
+        color: $gray-600;
+        font-weight: $font-medium;
+        min-width: to-rem(60);
+
+        @include mobile {
+          @include font-size(12);
+          min-width: auto;
+        }
+      }
+
+      &__value {
+        @include font-size(13);
+        color: $text-color;
+        font-weight: $font-normal;
+
+        @include mobile {
+          @include font-size(12);
+        }
+      }
+    }
+  }
+  .event-section__right {
+    flex: 1;
+    max-width: to-rem(360);
+
+    // 신규 컨텐츠 바로가기
+    .new-content-shortcuts {
+      background: $white;
+      border-radius: to-rem(12);
+      @include shadow(1);
+      padding: to-rem(24);
+
+      &__title {
+        @include font-size(18);
+        font-weight: $font-semibold;
+        color: $text-color;
+        margin-bottom: to-rem(20);
+        border-bottom: 1px solid $gray-200;
+        padding-bottom: to-rem(12);
+      }
+
+      &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: to-rem(12);
+      }
+
+      &__item {
+      }
+
+      &__link {
+        display: block;
+        padding: to-rem(16);
+        background: $gray-50;
+        border-radius: to-rem(8);
+        text-decoration: none;
+        color: $text-color;
+        @include font-size(14);
+        font-weight: $font-medium;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: $primary-color;
+          color: $white;
+          transform: translateY(to-rem(-1));
+        }
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
 }

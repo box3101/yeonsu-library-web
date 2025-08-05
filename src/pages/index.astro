@@ -3,12 +3,20 @@ import Layout from '@layouts/Layout.astro';
 import UiRadio from '@components/UiRadio.astro';
 import UiSelect from '@components/UiSelect.astro';
 import UiNavButton from '@components/UiNavButton.astro';
+import UiTab from '@components/UiTab.astro';
 
 // 셀렉트 옵션 데이터
 const selectOptions = [
   { value: 'all', label: '전체' },
   { value: 'central', label: '중앙도서관' },
   { value: 'branch', label: '분관' },
+];
+
+// 탭 데이터
+const eventTabs = [
+  { id: 'culture', label: '문화행사', active: true },
+  { id: 'program', label: '프로그램', active: false },
+  { id: 'movie', label: '영화상영', active: false },
 ];
 ---
 
@@ -285,17 +293,9 @@ const selectOptions = [
       <div class="container">
         <div class="event-section__left">
           <div class="event-section__header flex justify-between items-center">
-            <ul class="com-tabs">
-              <li class="com-tabs__item">
-                <button class="com-tabs__btn active">문화행사</button>
-              </li>
-              <li class="com-tabs__item">
-                <button class="com-tabs__btn">프로그램</button>
-              </li>
-              <li class="com-tabs__item">
-                <button class="com-tabs__btn">영화상영</button>
-              </li>
-            </ul>
+            <!-- 공통탭 -->
+            <UiTab tabs={eventTabs} className="event-section__tabs" />
+            <!-- 공통탭 EEE-->
             <button class="com-more-btn">
               <span>더보기</span>
               <svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
@@ -306,6 +306,92 @@ const selectOptions = [
                   stroke-linecap="round"></path>
               </svg>
             </button>
+          </div>
+          <div class="event-section__filter flex justify-between items-center">
+            <UiSelect
+              name="library-filter"
+              options={selectOptions}
+              value="all"
+              width={180}
+              height={56}
+            />
+            <div class="event-section__nav flex items-center gap-4">
+              <UiNavButton
+                direction="prev"
+                size={40}
+                ariaLabel="이전 공지사항"
+              />
+              <UiNavButton
+                direction="next"
+                size={40}
+                ariaLabel="다음 공지사항"
+              />
+            </div>
+          </div>
+          <!-- 탭 컨텐츠 영역 -->
+          <div class="event-section__content">
+            <!-- 문화행사 탭 패널 -->
+            <div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
+              <ul class="event-cards">
+                <li class="event-card">
+                  <a href="#" class="event-card__link">
+                    <div class="event-card__left">연수꿈달</div>
+                    <div class="event-card__right">
+                      <h4 class="event-card__title">
+                        [여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개)
+                        (초등 3~4학년)
+                      </h4>
+                      <div class="event-card__info">
+                        <div class="event-card__info-item">
+                          <span class="event-card__label">교육기간</span>
+                          <span class="event-card__value"
+                            >2025-07-30 ~ 2025-08-02</span
+                          >
+                        </div>
+                        <div class="event-card__info-item">
+                          <span class="event-card__label">접수기간</span>
+                          <span class="event-card__value"
+                            >2025-07-17 ~ 2025-07-17</span
+                          >
+                        </div>
+                        <div class="event-card__info-item">
+                          <span class="event-card__label">모집인원</span>
+                          <span class="event-card__value">50/50</span>
+                        </div>
+                        <div class="event-card__info-item">
+                          <span class="event-card__label">예비인원</span>
+                          <span class="event-card__value">0/50</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="event-section__right">
+          <!-- 신규 컨텐츠 바로가기 -->
+          <div class="new-content-shortcuts">
+            <h3 class="new-content-shortcuts__title">신규 컨텐츠 바로가기</h3>
+            <ul class="new-content-shortcuts__list">
+              <li class="new-content-shortcuts__item">
+                <a href="#" class="new-content-shortcuts__link">인생서가</a>
+              </li>
+              <li class="new-content-shortcuts__item">
+                <a href="#" class="new-content-shortcuts__link">스쿨북스</a>
+              </li>
+              <li class="new-content-shortcuts__item">
+                <a href="#" class="new-content-shortcuts__link">
+                  <span>영유아</span><br />전집 대여
+                </a>
+              </li>
+              <li class="new-content-shortcuts__item">
+                <a href="#" class="new-content-shortcuts__link">
+                  출석체크<br />이벤트
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
