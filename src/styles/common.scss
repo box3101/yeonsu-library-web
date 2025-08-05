@@ -1,4 +1,11 @@
+// Variables
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+@use 'abstracts' as *;
+
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css');
+
 // 글로벌 리셋
 * {
   margin: 0;
@@ -64,4 +71,56 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+// 공통 탭 버튼
+.com-tabs {
+  display: flex;
+  gap: to-rem(20);
+}
+
+.com-tabs__btn {
+  color: #7d8181;
+  font-size: to-rem(32);
+  font-weight: 700;
+  line-height: 150%;
+  padding-bottom: to-rem(5);
+  border-bottom: 4px solid transparent;
+  &:hover {
+    border-bottom: 4px solid #244874;
+    color: #244874;
+  }
+  &.active {
+    border-bottom: 4px solid #244874;
+    color: #244874;
+  }
+}
+
+//  공통 더보기 버튼
+.com-more-btn {
+  display: flex;
+  align-items: center;
+  gap: to-rem(10);
+  span {
+    color: #191a1a;
+    font-family: 'Pretendard GOV';
+    font-size: to-rem(17);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+  &__icon {
+    width: to-rem(24);
+    height: to-rem(24);
+    color: #191a1a;
+  }
+
+  &:hover {
+    span {
+      color: #244874;
+    }
+    &__icon {
+      color: #244874;
+    }
+  }
 }

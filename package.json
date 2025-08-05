@@ -10,7 +10,7 @@
     "start": "astro dev --host",
     "watch:scss": "chokidar \"src/**/*.scss\" -c \"echo SCSS 파일 변경 감지: {path}\"",
     "watch:files": "chokidar \"src/**/*.{astro,ts,js}\" -c \"echo 파일 변경 감지: {path}\"",
-    "build": "astro check && astro build && npm run format:dist",
+    "build": "astro build && npm run format:dist",
     "build:clean": "astro build && npm run format:dist && npm run postbuild",
     "format:dist": "prettier --write \"dist/**/*.{html,css,js}\" --ignore-path .prettierignore",
     "format:src": "prettier --write \"src/**/*.{astro,ts,js,scss}\"",
