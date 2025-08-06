@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/common/Breadcrumb.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '도서검색', href: '/search' },
+  { label: '소장도서검색', href: '/search/collection' },
+  { label: '검색결과' }, // 현재 페이지 (href 없음)
+];
+---
+
+<Layout>
+  <Breadcrumb items={breadcrumbItems} />
+  
+  <div class="container">
+    <div style="padding: 2rem;">
+      <h1>브레드크럼 데모</h1>
+      <p>위의 브레드크럼 네비게이션을 확인해보세요.</p>
+      
+      <div style="margin-top: 2rem;">
+        <h2>브레드크럼 특징:</h2>
+        <ul>
+          <li>홈 아이콘으로 시작</li>
+          <li>각 단계별 구분자 (화살표)</li>
+          <li>현재 페이지는 링크 없이 강조 표시</li>
+          <li>호버 효과 및 포커스 표시</li>
+          <li>반응형 디자인</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

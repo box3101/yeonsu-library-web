@@ -1,4 +1,6 @@
-@use '../abstracts' as *;
+@use '@styles/abstracts' as *;
+@use '@styles/variables/colors' as *;
+@use '@styles/variables/typography' as *;
 
 .left-menu {
   flex: 0 0 to-rem(280);
@@ -23,7 +25,6 @@
       padding: to-rem(16) to-rem(20);
       font-size: to-rem(16);
       font-weight: $font-medium;
-      background: #f8f9fa;
       border: none;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
@@ -37,6 +38,7 @@
       &.expanded {
         background: #e3f2fd;
         color: $primary-color;
+        border-bottom: 3px solid $primary-color;
 
         .menu-arrow {
           transform: rotate(180deg);
@@ -84,7 +86,7 @@
           }
 
           &.active {
-            background-color: lighten($primary-color, 48%);
+            background-color: #e1effc;
             color: $primary-color;
             font-weight: $font-medium;
             position: relative;

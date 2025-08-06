@@ -1,12 +1,29 @@
-@use '@styles/abstracts' as *;
-@use '@styles/variables/colors' as *;
-@use '@styles/variables/typography' as *;
+@use '../abstracts' as *;
 
 // Breadcrumb 컴포넌트 스타일
 // SCSS 7-1 아키텍처에 따른 컴포넌트별 스타일 정의
 
 .breadcrumb {
   margin-bottom: to-rem(24);
+  padding: to-rem(16) 0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+
+  .breadcrumb-container {
+    display: flex;
+    align-items: center;
+    gap: to-rem(8);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 to-rem(20);
+  }
+
+  .breadcrumb-home-icon {
+    color: $primary-color;
+    flex-shrink: 0;
+    width: to-rem(16);
+    height: to-rem(16);
+  }
 
   .breadcrumb-list {
     display: flex;
@@ -15,7 +32,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: to-rem(8);
+    gap: to-rem(4);
 
     .breadcrumb-item {
       display: flex;
@@ -27,12 +44,13 @@
       .breadcrumb-link {
         color: $gray-600;
         text-decoration: none;
-        transition: color 0.2s ease-in-out;
-        border-radius: to-rem(2);
+        transition: all 0.2s ease-in-out;
+        border-radius: to-rem(4);
+        padding: to-rem(4) to-rem(6);
 
         &:hover {
           color: $primary-color;
-          text-decoration: underline;
+          background-color: alpha($primary-color, 0.08);
         }
 
         &:focus {
@@ -42,15 +60,17 @@
       }
 
       .breadcrumb-current {
-        color: $gray-90;
+        color: $gray-900;
         font-weight: $font-semibold;
+        padding: to-rem(4) to-rem(6);
       }
 
       .breadcrumb-separator {
-        color: $gray-40;
+        color: $gray-400;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0 to-rem(2);
 
         svg {
           width: to-rem(6);
@@ -66,19 +86,47 @@
 @include mobile {
   .breadcrumb {
     margin-bottom: to-rem(16);
+    padding: to-rem(12) 0;
+
+    .breadcrumb-container {
+      padding: 0 to-rem(16);
+      gap: to-rem(6);
+    }
+
+    .breadcrumb-home-icon {
+      width: to-rem(14);
+      height: to-rem(14);
+    }
 
     .breadcrumb-list {
-      gap: to-rem(6);
+      gap: to-rem(2);
 
       .breadcrumb-item {
         font-size: to-rem(13);
         gap: to-rem(6);
 
-        .breadcrumb-separator svg {
-          width: to-rem(5);
-          height: to-rem(8);
+        .breadcrumb-link,
+        .breadcrumb-current {
+          padding: to-rem(2) to-rem(4);
+        }
+
+        .breadcrumb-separator {
+          margin: 0 to-rem(1);
+          
+          svg {
+            width: to-rem(5);
+            height: to-rem(8);
+          }
         }
       }
+    }
+  }
+}
+
+@include tablet {
+  .breadcrumb {
+    .breadcrumb-container {
+      padding: 0 to-rem(16);
     }
   }
 }
@@ -115,6 +163,39 @@
     .breadcrumb-list {
       .breadcrumb-item {
         max-width: to-rem(120);
+      }
+    }
+  }
+}
+
+// 다크 모드 대응 (향후 확장성을 위해)
+@media (prefers-color-scheme: dark) {
+  .breadcrumb {
+    background: #1f2937;
+    border-bottom-color: #374151;
+    
+    .breadcrumb-home-icon {
+      color: #60a5fa;
+    }
+    
+    .breadcrumb-list {
+      .breadcrumb-item {
+        .breadcrumb-link {
+          color: #9ca3af;
+          
+          &:hover {
+            color: #60a5fa;
+            background-color: rgba(96, 165, 250, 0.1);
+          }
+        }
+        
+        .breadcrumb-current {
+          color: #f9fafb;
+        }
+        
+        .breadcrumb-separator {
+          color: #6b7280;
+        }
       }
     }
   }

@@ -3,5 +3,7 @@
 // ============================================
 // 모든 abstracts 파일들을 한번에 불러오기
 
+@forward '../variables/colors';
+@forward '../variables/typography';
 @forward 'functions';
 @forward 'mixins';
