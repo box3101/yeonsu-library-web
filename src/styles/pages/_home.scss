@@ -750,6 +750,7 @@
   }
   .event-section__right {
     flex: 1;
+    max-width: to-rem(410);
 
     // 신규 컨텐츠 바로가기
     .new-content-shortcuts {
@@ -818,6 +819,10 @@
         letter-spacing: 0;
         color: #191a1a;
         padding-right: to-rem(90);
+
+        span {
+          color: #f98512;
+        }
 
         @include mobile {
           font-size: to-rem(16);
