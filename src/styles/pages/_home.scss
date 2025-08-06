@@ -585,7 +585,6 @@
 .event-section {
   width: 100%;
   padding: to-rem(60) 0;
-  min-height: 968px;
   @include bg-image('#{$image-path}bg-event-section.png');
 
   .container {
@@ -1114,6 +1113,7 @@
 .library-hours {
   background: $white;
   padding: 20px 0;
+  padding-bottom: 0;
 
   &__title {
     font-family: 'Pretendard GOV', sans-serif;
