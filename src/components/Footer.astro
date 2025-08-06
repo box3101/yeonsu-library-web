@@ -1,5 +1,136 @@
 ---
+import UiRelatedSiteButton from './UiRelatedSiteButton.astro';
+
+const libraries = [
+  {
+    name: '연수청학도서관',
+    address: '인천광역시 연수구 솔샘로 146',
+    phone: '032-749-8270',
+    extra: '정보를 입력해주세요',
+  },
+  {
+    name: '연수꿈단도서관',
+    address: '인천광역시 연수구 연우금로 164',
+    phone: '032-749-8200',
+    fax: '032-749-8209',
+  },
+  {
+    name: '송도국제어린이도서관',
+    address: '인천광역시 연수구 컨벤시아대로 43',
+    phone: '032-749-8220',
+    fax: '032-749-8229',
+  },
+  {
+    name: '해돋이도서관',
+    address: '인천광역시 연수구 해돋이로 7',
+    phone: '032-749-6710',
+    fax: '032-749-6959',
+  },
+  {
+    name: '선학벚빛도서관',
+    address: '인천광역시 연수구 봉재산로54번길 30',
+    phone: '032-749-6710',
+    fax: '032-749-6719',
+  },
+  {
+    name: '동춘나래도서관',
+    address: '인천광역시 연수구 봉재산로54번길 30',
+    phone: '032-749-8240',
+    fax: '032-811-2908',
+  },
+  {
+    name: '함박비류도서관',
+    address: '인천광역시 연수구 함박안로 217',
+    phone: '032-749-6970',
+    fax: '032.749.6979',
+  },
+];
+
+const copyrightLinks = [
+  { href: '/privacy-policy', text: '개인정보처리방침', bold: true },
+  { href: '#', text: '이용약관' },
+  { href: '#', text: '찾아오시는 길' },
+];
 ---
-<footer>
-    <h1>Footer</h1>
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__related-site">
+      <div class="inner">
+        <UiRelatedSiteButton />
+      </div>
+    </div>
+
+    <div class="footer__main">
+      <div class="footer__main-container">
+        <div class="footer__logo">
+          <div class="footer__logo-container">
+            <img src="/assets/images/logo.svg" alt="연수구립도서관 로고" />
+          </div>
+        </div>
+
+        <div class="footer__libraries">
+          <div class="footer__libraries-column">
+            <div class="footer__business-number">
+              사업자등록번호: 715-83-00032
+            </div>
+
+            <div class="footer__library">
+              {
+                libraries.map(library => (
+                  <div class="footer__library-item">
+                    <div class="footer__library-item-name">{library.name}</div>
+                    <div class="footer__library-item-details">
+                      <div class="footer__library-item-details-text">
+                        {library.address}
+                      </div>
+                      <div class="footer__library-item-details-divider" />
+                      <div
+                        class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
+                      >
+                        전화: {library.phone}
+                      </div>
+                      {(library.fax || library.extra) && (
+                        <>
+                          <div class="footer__library-item-details-divider" />
+                          <div
+                            class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
+                          >
+                            {library.fax
+                              ? `팩스: ${library.fax}`
+                              : library.extra}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <div class="footer__copyright-container">
+          <div class="footer__copyright-links">
+            {
+              copyrightLinks.map(link => (
+                <a href={link.href} class="footer__copyright-links-button">
+                  <div
+                    class={`footer__copyright-links-button-text ${link.bold ? 'footer__copyright-links-button-text--bold' : ''}`}
+                  >
+                    {link.text}
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+          <div class="footer__copyright-text">
+            <span>COPYRIGHT(C) 인천연수구립도서관. ALL RIGHT RESERVED.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

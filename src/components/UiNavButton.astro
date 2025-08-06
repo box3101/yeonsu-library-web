@@ -59,9 +59,11 @@ const iconWhiteClass = hasPrimaryBg ? 'icon-white' : '';
       <i class={`icon icon-sm icon-arr-left ${iconWhiteClass}`} />
     ) : direction === 'next' ? (
       <i class={`icon icon-sm icon-arr-right ${iconWhiteClass}`} />
-    ) : (
+    ) : direction === 'stop' ? (
       <i class={`icon icon-sm icon-stop ${iconWhiteClass}`} />
-    )
+    ) : direction === 'stop-bold' ? (
+      <i class={`icon icon-sm icon-stop-bold ${iconWhiteClass}`} />
+    ) : null
   }
 </button>
 
@@ -76,9 +78,11 @@ const iconWhiteClass = hasPrimaryBg ? 'icon-white' : '';
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 0;
+    border: 1px solid var(--color-border-gray-light, #cdd1d5);
 
     &.bg-primary {
       background: $primary-color;
+      border: none;
 
       &:hover {
         background: $primary-color !important;

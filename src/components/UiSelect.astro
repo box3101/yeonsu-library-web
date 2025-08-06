@@ -29,6 +29,10 @@ export interface Props {
    */
   required?: boolean;
   /**
+   * 스타일 variant
+   */
+  variant?: 'default' | 'ghost';
+  /**
    * 추가 CSS 클래스
    */
   class?: string;
@@ -50,6 +54,7 @@ const {
   height = 56,
   disabled = false,
   required = false,
+  variant = 'default',
   class: className = '',
   options = [],
   ...rest
@@ -58,7 +63,7 @@ const {
 const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class={`ui-select ${className}`}>
+<div class={`ui-select ui-select--${variant} ${className}`}>
   <div class="ui-select__wrapper">
     <select
       id={selectId}
@@ -135,6 +140,30 @@ const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
     &:hover:not(:disabled) {
       border-color: #404040;
     }
+  }
+
+  // Ghost variant
+  &--ghost &__element {
+    border: none;
+    background: transparent;
+    color: #1e2124;
+    font-weight: 600;
+    padding: 0 to-rem(24) 0 0;
+
+    &:focus {
+      outline: none;
+      background: rgba(60, 121, 194, 0.1);
+      border-radius: to-rem(4);
+    }
+
+    &:hover:not(:disabled) {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: to-rem(4);
+    }
+  }
+
+  &--ghost &__arrow {
+    right: 0;
   }
 
   &__arrow {

@@ -1,7 +1,9 @@
 // 모든 UI 컴포넌트를 한 번에 export
+export { default as UiButton } from './UiButton.astro';
 export { default as UiRadio } from './UiRadio.astro';
 export { default as UiSelect } from './UiSelect.astro';
 export { default as UiNavButton } from './UiNavButton.astro';
+export { default as UiRelatedSiteButton } from './UiRelatedSiteButton.astro';
 export { default as UiTab } from './UiTab.astro';
 
 // 앞으로 추가될 컴포넌트들

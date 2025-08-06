@@ -136,7 +136,12 @@ button {
     gap: to-rem(12);
   }
 }
-
+.w10 {
+  flex: 0 0 10%;
+}
+.w15 {
+  flex: 0 0 15%;
+}
 .w20 {
   flex: 0 0 20%;
 }
@@ -163,6 +168,15 @@ button {
 }
 .w80 {
   flex: 0 0 80%;
+}
+.w85 {
+  flex: 0 0 85%;
+}
+.w90 {
+  flex: 0 0 90%;
+}
+.w100 {
+  flex: 0 0 100%;
 }
 
 @media (max-width: 768px) {

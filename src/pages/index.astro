@@ -4,7 +4,8 @@ import UiRadio from '@components/UiRadio.astro';
 import UiSelect from '@components/UiSelect.astro';
 import UiNavButton from '@components/UiNavButton.astro';
 import UiTab from '@components/UiTab.astro';
-import { value } from 'happy-dom/lib/PropertySymbol.js';
+import UiRelatedSiteButton from '@components/UiRelatedSiteButton.astro';
+import UiButton from '@components/UiButton.astro';
 
 // 셀렉트 옵션 데이터
 const selectOptions = [
@@ -214,7 +215,7 @@ const eventCards = [
                   options={selectOptions}
                   value="all"
                   width={180}
-                  height={56}
+                  height={48}
                 />
                 <div class="notice-section__nav">
                   <UiNavButton
@@ -394,7 +395,7 @@ const eventCards = [
                   options={selectOptions}
                   value="all"
                   width={180}
-                  height={56}
+                  height={48}
                 />
                 <div class="event-section__nav flex items-center gap-4">
                   <UiNavButton
@@ -509,24 +510,213 @@ const eventCards = [
     <!-- 연수구도서관 한눈에 보기, 도서관 이용시간 -->
     <section class="info-section">
       <div class="inner">
-        <div class="flex-cnt">
-          <div class="w50">
-            <div class="header flex justify-between items-center">
-              <div class="com-title">
-                연수구도서관 <span>한눈에 보기</span>
-              </div>
-              <UiSelect
-                name="select-name"
-                options={[{ value: '', label: '연수청학도서관' }]}
-                value="default"
-                width={180}
-                height={56}
+        <div class="info-section__header">
+          <div class="info-section__left">
+            <h2 class="info-section__title">
+              연수구도서관 <span>한눈에 보기</span>
+            </h2>
+            <UiSelect
+              name="library-select"
+              options={[
+                { value: 'yeonsu', label: '연수청학도서관' },
+                { value: 'ggumdan', label: '연수꿈단도서관' },
+                { value: 'songdo', label: '송도국제어린이도서관' },
+              ]}
+              value="yeonsu"
+              width={180}
+              height={48}
+            />
+          </div>
+          <div class="info-section__right">
+            <h2 class="info-section__title">도서관 <span>이용시간</span></h2>
+            <UiButton
+              text="도서관 소개 바로가기"
+              variant="primary"
+              size="large"
+              width="250px"
+              href="#"
+            />
+          </div>
+        </div>
+
+        <div class="info-section__content">
+          <div class="info-section__map-area">
+            <!-- 지도 영역 -->
+            <div class="library-map">
+              <img
+                src="/assets/images/building-image.png"
+                alt="연수구 도서관 지도"
+                class="library-map__image"
               />
             </div>
           </div>
-          <div class="w50">
-            <div class="hedaer flex justify-between items-center">
-              <div class="com-title">도서관 <span>이용시간</span></div>
+
+          <div class="info-section__schedule-area">
+            <!-- 휴관일 안내 -->
+            <div class="holiday-notice flex justify-between items-center">
+              <div class="holiday-notice__left flex gap-2 items-center">
+                <div class="holiday-notice__icon">
+                  <i class="icon icon-md icon-calendar"></i>
+                </div>
+                <span class="holiday-notice__text">휴관일 안내</span>
+              </div>
+              <div class="holiday-notice__legends">
+                <div class="holiday-notice__legend">
+                  <div class="holiday-notice__dot holiday-notice__dot--red">
+                  </div>
+                  <span>법정공휴일</span>
+                </div>
+                <div class="holiday-notice__legend">
+                  <div class="holiday-notice__dot holiday-notice__dot--orange">
+                  </div>
+                  <span>정기휴관</span>
+                </div>
+                <div class="holiday-notice__legend">
+                  <div class="holiday-notice__dot holiday-notice__dot--gray">
+                  </div>
+                  <span>개관일</span>
+                </div>
+              </div>
+            </div>
+            <!-- 캘린더 -->
+            <div class="calendar">
+              <div class="calendar__header">
+                <UiNavButton direction="prev" size={40} ariaLabel="이전 달" />
+                <div class="calendar__selects">
+                  <UiSelect
+                    name="calendar-year"
+                    options={[
+                      { value: '2024', label: '2024년' },
+                      { value: '2025', label: '2025년' },
+                      { value: '2026', label: '2026년' },
+                    ]}
+                    value="2025"
+                    width={100}
+                    height={36}
+                    variant="ghost"
+                  />
+                  <UiSelect
+                    name="calendar-month"
+                    options={[
+                      { value: '1', label: '1월' },
+                      { value: '2', label: '2월' },
+                      { value: '3', label: '3월' },
+                      { value: '4', label: '4월' },
+                      { value: '5', label: '5월' },
+                      { value: '6', label: '6월' },
+                      { value: '7', label: '7월' },
+                      { value: '8', label: '8월' },
+                      { value: '9', label: '9월' },
+                      { value: '10', label: '10월' },
+                      { value: '11', label: '11월' },
+                      { value: '12', label: '12월' },
+                    ]}
+                    value="5"
+                    width={80}
+                    height={36}
+                    variant="ghost"
+                  />
+                </div>
+                <UiNavButton direction="next" size={40} ariaLabel="다음 달" />
+              </div>
+              <div class="calendar__grid">
+                <div class="calendar__weekdays">
+                  <div class="calendar__weekday">일</div>
+                  <div class="calendar__weekday">월</div>
+                  <div class="calendar__weekday">화</div>
+                  <div class="calendar__weekday">수</div>
+                  <div class="calendar__weekday">목</div>
+                  <div class="calendar__weekday">금</div>
+                  <div class="calendar__weekday">토</div>
+                </div>
+                <div class="calendar__days">
+                  <!-- 5월 달력 예시 -->
+                  <div class="calendar__day calendar__day--prev">27</div>
+                  <div class="calendar__day calendar__day--prev">28</div>
+                  <div class="calendar__day calendar__day--prev">29</div>
+                  <div class="calendar__day calendar__day--prev">30</div>
+                  <div class="calendar__day calendar__day--open">1</div>
+                  <div class="calendar__day calendar__day--open">2</div>
+                  <div class="calendar__day calendar__day--open">3</div>
+                  <div class="calendar__day calendar__day--open">4</div>
+                  <div class="calendar__day calendar__day--holiday">5</div>
+                  <div class="calendar__day calendar__day--closed">6</div>
+                  <div class="calendar__day calendar__day--open">7</div>
+                  <div class="calendar__day calendar__day--open">8</div>
+                  <div class="calendar__day calendar__day--open">9</div>
+                  <div class="calendar__day calendar__day--open">10</div>
+                  <div class="calendar__day calendar__day--open">11</div>
+                  <div class="calendar__day calendar__day--closed">12</div>
+                  <div class="calendar__day calendar__day--open">13</div>
+                  <div class="calendar__day calendar__day--open">14</div>
+                  <div class="calendar__day calendar__day--open">15</div>
+                  <div class="calendar__day calendar__day--open">16</div>
+                  <div class="calendar__day calendar__day--open">17</div>
+                  <div class="calendar__day calendar__day--open">18</div>
+                  <div class="calendar__day calendar__day--closed">19</div>
+                  <div class="calendar__day calendar__day--open">20</div>
+                  <div class="calendar__day calendar__day--open">21</div>
+                  <div class="calendar__day calendar__day--open">22</div>
+                  <div class="calendar__day calendar__day--open">23</div>
+                  <div class="calendar__day calendar__day--today">24</div>
+                  <div class="calendar__day calendar__day--open">25</div>
+                  <div class="calendar__day calendar__day--closed">26</div>
+                  <div class="calendar__day calendar__day--open">27</div>
+                  <div class="calendar__day calendar__day--open">28</div>
+                  <div class="calendar__day calendar__day--open">29</div>
+                  <div class="calendar__day calendar__day--open">30</div>
+                  <div class="calendar__day calendar__day--open">31</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 이용시간 -->
+            <div class="library-hours">
+              <div class="holiday-notice__left flex gap-2 items-center">
+                <div class="holiday-notice__icon">
+                  <i class="icon icon-md icon-calendar"></i>
+                </div>
+                <span class="holiday-notice__text">이용시간</span>
+              </div>
+              <div class="library-hours__grid">
+                <div class="library-hours__section">
+                  <h5 class="library-hours__section-title">
+                    유아자료실 <span class="library-hours__floor">1층</span>
+                  </h5>
+                  <div class="library-hours__time">
+                    화-일 <span>09:00-18:00</span>
+                  </div>
+                </div>
+                <div class="library-hours__section">
+                  <h5 class="library-hours__section-title">
+                    종합자료실 <span class="library-hours__floor">3층</span>
+                  </h5>
+                  <div class="library-hours__time">
+                    화-일 <span>09:00-22:00</span>
+                  </div>
+                  <div class="library-hours__time">
+                    토-일 <span>09:00-18:00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 페이지네이션 -->
+              <div class="library-hours__pagination">
+                <span class="library-hours__page-info">
+                  <span class="library-hours__page-info-current"> 1</span> / <span
+                    class="library-hours__page-info-total">3</span
+                  >
+                </span>
+                <div class="library-hours__nav">
+                  <UiNavButton
+                    direction="stop-bold"
+                    size={40}
+                    ariaLabel="정지"
+                  />
+                  <UiNavButton direction="prev" size={40} ariaLabel="이전" />
+                  <UiNavButton direction="next" size={40} ariaLabel="다음" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -536,8 +726,8 @@ const eventCards = [
     <!-- 배너영역 -->
     <section class="banner-section">
       <div class="inner">
-        <div class="flex-cnt">
-          <div class="w10">
+        <div class="flex-cnt gap-0">
+          <div class="w15">
             <div class="banner-section__left flex gap-4">
               <UiNavButton
                 class="bg-primary"
@@ -560,7 +750,7 @@ const eventCards = [
               />
             </div>
           </div>
-          <div class="w90">
+          <div class="w85">
             <div class="banner-section__right">
               <ul class="banner-section__list">
                 <li>

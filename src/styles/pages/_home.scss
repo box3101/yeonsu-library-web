@@ -1,16 +1,8 @@
 @use '../globals' as *;
 
-// ============================================
-// Main Container
-// ============================================
 .main-container {
-  margin: to-rem(40) 0;
-
-  @include mobile {
-    margin: to-rem(20) 0;
-  }
+  margin-top: 41px;
 }
-
 // ============================================
 // Banner Component SCSS
 // ============================================
@@ -602,7 +594,7 @@
   }
 
   .event-section__left {
-    flex: 1;
+    flex: 1 1 798px;
     max-width: to-rem(798);
 
     // 헤더 영역
@@ -878,6 +870,391 @@
 
 .info-section {
   padding: 64px 0;
+  background: $white;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    gap: 40px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(28);
+    font-weight: 700;
+    line-height: 1.4;
+    color: $text-color;
+    margin: 0;
+
+    @include mobile {
+      font-size: to-rem(24);
+    }
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__map-area {
+    position: relative;
+  }
+
+  &__schedule-area {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+  }
+}
+
+// 도서관 지도
+.library-map {
+  position: relative;
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 400px;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// 휴관일 안내
+.holiday-notice {
+  border-radius: 8px;
+  margin-bottom: 24px;
+
+  &__icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: to-rem(24);
+    font-weight: 700;
+    color: $primary-color-light;
+  }
+
+  &__legends {
+    display: flex;
+    gap: to-rem(12);
+    color: #000;
+    font-size: to-rem(15);
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+
+    &--red {
+      background: #ff5252;
+    }
+
+    &--orange {
+      background: #fcce82;
+    }
+
+    &--gray {
+      background: #e0e0e0;
+    }
+  }
+}
+
+// 캘린더
+.calendar {
+  background: $white;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__selects {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__weekday {
+    padding: to-rem(8) 0;
+    border: 1px solid #e0e0e0;
+    border-right: none;
+    background: #f8f9fa;
+    color: #191a1a;
+    text-align: center;
+    font-family: 'Pretendard GOV';
+    font-size: to-rem(15);
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0;
+    border-bottom: none;
+
+    &:last-child {
+      border-right: 1px solid #e0e0e0;
+    }
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 8px 0;
+    border: 1px solid #e0e0e0;
+    margin-left: -1px;
+    margin-top: -1px;
+
+    // 첫 번째 열은 왼쪽 마진 제거
+    &:nth-child(7n + 1) {
+      margin-left: 0;
+    }
+
+    // 첫 번째 행은 위쪽 마진 제거
+    &:nth-child(-n + 7) {
+      margin-top: 0;
+    }
+
+    &--prev {
+      color: #d1d5db;
+    }
+
+    &--today {
+      background: $primary-color;
+      color: $white;
+      font-weight: 600;
+    }
+
+    &--holiday {
+      background: #ff5252;
+      color: $white;
+    }
+
+    &--closed {
+      background: #fcce82;
+      color: #000;
+    }
+
+    &--open {
+      background: #f8f9fa;
+      color: #000;
+    }
+
+    &:hover:not(&--prev):not(&--today):not(&--holiday):not(&--closed) {
+      background: #f3f4f6;
+    }
+  }
+}
+
+// 도서관 이용시간
+.library-hours {
+  background: $white;
+  padding: 20px 0;
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-color;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    margin-top: 24px;
+  }
+
+  &__section {
+    flex: 1;
+    padding: 16px;
+    background: #ecf2f9;
+    border-radius: 8px;
+  }
+
+  &__section-title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-color;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__floor {
+    background: $primary-color;
+    color: #fff;
+    text-align: center;
+    font-size: to-rem(17);
+    font-weight: 700;
+    line-height: 100%;
+    padding: to-rem(8) to-rem(15);
+    border-radius: 16px;
+    margin-left: auto;
+  }
+
+  &__time {
+    color: #191a1a;
+    font-family: 'Pretendard GOV';
+    font-size: to-rem(15);
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0;
+
+    span {
+      color: #244874;
+      font-size: to-rem(15);
+      font-weight: 500;
+      line-height: 150%;
+      letter-spacing: 0;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  &__page-info {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    border-radius: var(--radius-max, 1000px);
+    border: 1px solid var(--color-border-gray-light, #cdd1d5);
+    background: var(--color-surface-white, #fff);
+    width: 80px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e2124;
+    font-family: 'Pretendard GOV';
+    font-size: to-rem(17);
+    font-weight: 700;
+    line-height: 150%;
+    gap: 5px;
+    .library-hours__page-info-current {
+      color: var(--color-blue-BU600, #0071ba);
+
+      font-family: 'Pretendard GOV';
+      font-size: to-rem(17);
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 25.5px */
+      letter-spacing: var(--typo-font-New-group-New-group-0, 0);
+    }
+    .library-hours__page-info-total {
+      color: var(--color-text-basic, #1e2124);
+
+      /* text style/txt-bold-17 */
+      font-family: 'Pretendard GOV';
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 25.5px */
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__nav-btn {
+    background: none;
+    border: 1px solid #d1d5db;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+  }
 }
 
 section.banner-section {
@@ -889,7 +1266,7 @@ section.banner-section {
     div.flex-cnt {
       display: flex;
       align-items: center;
-      div.w10 {
+      div.w15 {
         opacity: 1;
         div.banner-section__left.flex.gap-4 {
           opacity: 1;
@@ -905,26 +1282,32 @@ section.banner-section {
         }
       }
 
-      div.w90 {
+      div.w85 {
         opacity: 1;
         div.banner-section__right {
           opacity: 1;
+          flex: 1;
           ul.banner-section__list {
             display: flex;
             align-content: center;
             gap: 16px;
+            width: 100%;
             li {
               border-radius: 8px;
               border: 1px solid #c9cccc;
               background: #fff;
               opacity: 1;
-              width: 220px;
+              flex: 1;
               display: flex;
               align-items: center;
               justify-content: center;
               opacity: 1;
               a {
                 opacity: 1;
+                display: flex;
+                padding: 5px 0;
+                align-items: center;
+                justify-content: center;
                 img {
                   opacity: 1;
                 }

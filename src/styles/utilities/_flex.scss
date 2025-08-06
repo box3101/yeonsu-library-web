@@ -105,12 +105,11 @@
 }
 
 // Gap (간격)
-@for $i from 1 through 100 {
+@for $i from 0 through 100 {
   .gap-#{$i} {
     gap: #{$i}px;
   }
 }
-
 
 // 자주 사용하는 조합
 .flex-center {
