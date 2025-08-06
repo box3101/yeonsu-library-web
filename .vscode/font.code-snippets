@@ -1,0 +1,12 @@
+{
+  "Title Style": {
+    "prefix": "fz",
+    "body": [
+      "font-size: to-rem(${1:32});",
+      "font-weight: 700;",
+      "color: \\$gray-90;",
+    ],
+    "description": "타이틀 스타일 (폰트 크기, 굵기, 색상) 자동 완성",
+    "scope": "scss",
+  },
+}

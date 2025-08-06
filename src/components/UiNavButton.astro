@@ -3,7 +3,7 @@ export interface Props {
   /**
    * 버튼 방향
    */
-  direction: 'prev' | 'next';
+  direction: 'prev' | 'next' | 'stop';
   /**
    * 버튼 크기 (rem 단위)
    */
@@ -36,8 +36,13 @@ const {
   ...rest
 } = Astro.props;
 
-const defaultAriaLabel = direction === 'prev' ? '이전' : '다음';
+const defaultAriaLabel =
+  direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
 const buttonAriaLabel = ariaLabel || defaultAriaLabel;
+
+// bg-primary 클래스가 있으면 아이콘에 white 클래스 추가
+const hasPrimaryBg = className.includes('bg-primary');
+const iconWhiteClass = hasPrimaryBg ? 'icon-white' : '';
 ---
 
 <button
@@ -49,83 +54,80 @@ const buttonAriaLabel = ariaLabel || defaultAriaLabel;
   onclick={onClick}
   {...rest}
 >
-  <svg viewBox="0 0 24 24" fill="none" class="ui-nav-button__icon">
-    {direction === 'prev' ? (
-      <path 
-        d="M15 18L9 12L15 6" 
-        stroke="currentColor" 
-        stroke-width="2" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-      />
+  {
+    direction === 'prev' ? (
+      <i class={`icon icon-sm icon-arr-left ${iconWhiteClass}`} />
+    ) : direction === 'next' ? (
+      <i class={`icon icon-sm icon-arr-right ${iconWhiteClass}`} />
     ) : (
-      <path 
-        d="M9 18L15 12L9 6" 
-        stroke="currentColor" 
-        stroke-width="2" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-      />
-    )}
-  </svg>
+      <i class={`icon icon-sm icon-stop ${iconWhiteClass}`} />
+    )
+  }
 </button>
 
 <style lang="scss">
-@use '../styles/abstracts' as *;
-@use '../styles/variables/colors' as *;
+  @use '../styles/abstracts' as *;
+  @use '../styles/variables/colors' as *;
 
-.ui-nav-button {
-  @include flex-center;
-  border: 1px solid #c3c9c9;
-  border-radius: to-rem(12);
-  background: $white;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
+  .ui-nav-button {
+    @include flex-center;
+    border-radius: to-rem(12);
+    background: $white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
 
-  &:hover:not(:disabled) {
-    background: #f3f3f3;
-    border-color: #a0a0a0;
+    &.bg-primary {
+      background: $primary-color;
+
+      &:hover {
+        background: $primary-color !important;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      background: #f3f3f3;
+      border-color: #a0a0a0;
+    }
+
+    &:focus {
+      outline: to-rem(2) solid $primary-color;
+      outline-offset: to-rem(2);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: #f5f5f5;
+      border-color: #ddd;
+    }
+
+    &__icon {
+      width: to-rem(24);
+      height: to-rem(24);
+      color: $gray-600;
+      transition: color 0.2s ease;
+    }
+
+    &:hover:not(:disabled) &__icon {
+      color: $text-color;
+    }
+
+    &:disabled &__icon {
+      color: #999;
+    }
+
+    // 특정 방향별 추가 스타일링이 필요한 경우
+    &--prev {
+      // 이전 버튼 전용 스타일
+    }
+
+    &--next {
+      // 다음 버튼 전용 스타일
+    }
   }
-
-  &:focus {
-    outline: to-rem(2) solid $primary-color;
-    outline-offset: to-rem(2);
-  }
-
-  &:active:not(:disabled) {
-    transform: scale(0.98);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: #f5f5f5;
-    border-color: #ddd;
-  }
-
-  &__icon {
-    width: to-rem(24);
-    height: to-rem(24);
-    color: $gray-600;
-    transition: color 0.2s ease;
-  }
-
-  &:hover:not(:disabled) &__icon {
-    color: $text-color;
-  }
-
-  &:disabled &__icon {
-    color: #999;
-  }
-
-  // 특정 방향별 추가 스타일링이 필요한 경우
-  &--prev {
-    // 이전 버튼 전용 스타일
-  }
-
-  &--next {
-    // 다음 버튼 전용 스타일
-  }
-}
 </style>

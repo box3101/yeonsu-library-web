@@ -36,7 +36,8 @@ body {
 }
 
 // 공통 컨테이너
-.container {
+.container,
+.inner {
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -122,5 +123,69 @@ button {
     &__icon {
       color: #244874;
     }
+  }
+}
+
+.flex-cnt {
+  display: flex;
+  gap: to-rem(16);
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: to-rem(12);
+  }
+}
+
+.w20 {
+  flex: 0 0 20%;
+}
+.w25 {
+  flex: 0 0 25%;
+}
+.w30 {
+  flex: 0 0 30%;
+}
+.w40 {
+  flex: 0 0 40%;
+}
+.w50 {
+  flex: 0 0 50%;
+}
+.w60 {
+  flex: 0 0 60%;
+}
+.w70 {
+  flex: 0 0 70%;
+}
+.w75 {
+  flex: 0 0 75%;
+}
+.w80 {
+  flex: 0 0 80%;
+}
+
+@media (max-width: 768px) {
+  .w20,
+  .w25,
+  .w30,
+  .w40,
+  .w50,
+  .w60,
+  .w70,
+  .w75,
+  .w80 {
+    flex: 1 1 100%;
+  }
+}
+
+// comTitle
+.com-title {
+  font-size: to-rem(32);
+  font-weight: 700;
+  color: $gray-90;
+
+  span {
+    color: #244874;
   }
 }

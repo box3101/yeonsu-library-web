@@ -4,6 +4,7 @@ import UiRadio from '@components/UiRadio.astro';
 import UiSelect from '@components/UiSelect.astro';
 import UiNavButton from '@components/UiNavButton.astro';
 import UiTab from '@components/UiTab.astro';
+import { value } from 'happy-dom/lib/PropertySymbol.js';
 
 // 셀렉트 옵션 데이터
 const selectOptions = [
@@ -499,6 +500,109 @@ const eventCards = [
                   </a>
                 ))
               }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 연수구도서관 한눈에 보기, 도서관 이용시간 -->
+    <section class="info-section">
+      <div class="inner">
+        <div class="flex-cnt">
+          <div class="w50">
+            <div class="header flex justify-between items-center">
+              <div class="com-title">
+                연수구도서관 <span>한눈에 보기</span>
+              </div>
+              <UiSelect
+                name="select-name"
+                options={[{ value: '', label: '연수청학도서관' }]}
+                value="default"
+                width={180}
+                height={56}
+              />
+            </div>
+          </div>
+          <div class="w50">
+            <div class="hedaer flex justify-between items-center">
+              <div class="com-title">도서관 <span>이용시간</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 배너영역 -->
+    <section class="banner-section">
+      <div class="inner">
+        <div class="flex-cnt">
+          <div class="w10">
+            <div class="banner-section__left flex gap-4">
+              <UiNavButton
+                class="bg-primary"
+                direction="prev"
+                size={40}
+                ariaLabel="이전 공지사항"
+              />
+              <UiNavButton
+                class="bg-primary"
+                direction="stop"
+                size={40}
+                ariaLabel="이전 공지사항"
+              />
+
+              <UiNavButton
+                class="bg-primary"
+                direction="next"
+                size={40}
+                ariaLabel="이전 공지사항"
+              />
+            </div>
+          </div>
+          <div class="w90">
+            <div class="banner-section__right">
+              <ul class="banner-section__list">
+                <li>
+                  <a href="#">
+                    <img
+                      src="./assets/images/banner/banner01.png"
+                      alt="배너01"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="./assets/images/banner/banner02.png"
+                      alt="배너02"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="./assets/images/banner/banner03.png"
+                      alt="배너02"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="./assets/images/banner/banner04.png"
+                      alt="배너02"
+                    />
+                  </a>
+                </li><li>
+                  <a href="#">
+                    <img
+                      src="./assets/images/banner/banner05.png"
+                      alt="배너02"
+                    />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

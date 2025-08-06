@@ -1,0 +1,30 @@
+{
+  "UiSelect Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "select",
+    "body": [
+      "<UiSelect",
+      "  name=\"${1:select-name}\"",
+      "  options={[{ value: '${2:}', label: '${3:연수청학도서관}' }]}",
+      "  value=\"${4:default}\"",
+      "  width={${5:180}}",
+      "  height={${6:56}}",
+      "/>",
+      "$0",
+    ],
+    "description": "UiSelect 컴포넌트를 생성합니다",
+  },
+  "UiNavButton Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "navbtn",
+    "body": [
+      "<UiNavButton",
+      "  direction=\"${1|prev,next,stop|}\"",
+      "  size={${2:40}}",
+      "  ariaLabel=\"${3:이전 공지사항}\"",
+      "/>",
+      "$0",
+    ],
+    "description": "UiNavButton 컴포넌트를 생성합니다",
+  },
+}

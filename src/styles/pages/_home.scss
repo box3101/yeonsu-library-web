@@ -620,7 +620,7 @@
     // 필터 영역
     .event-section__filter {
       @include flex-between;
-      margin-bottom: to-rem(32);
+      margin-bottom: to-rem(16);
 
       @include mobile {
         flex-direction: column;
@@ -632,7 +632,7 @@
     // 네비게이션 버튼 컨테이너
     .event-section__nav {
       @include flex;
-      gap: to-rem(16);
+      gap: to-rem(4);
       align-items: center;
     }
 
@@ -659,10 +659,11 @@
         border-radius: to-rem(12);
         border: to-rem(2) solid transparent;
         background: $white;
-        padding: to-rem(24);
+        padding: to-rem(20.5);
         gap: to-rem(12);
         transition: all 0.2s ease;
         position: relative;
+        border: 1px solid var(--color-gray-gray03, #9da2a2);
 
         &:hover {
           border-color: #6494ce;
@@ -700,6 +701,7 @@
         margin: 0;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
 
         @include mobile {
           font-size: to-rem(16);
@@ -726,7 +728,7 @@
 
       &__info-item {
         @include flex;
-        gap: to-rem(12);
+        gap: to-rem(5);
         align-items: center;
       }
 
@@ -757,17 +759,14 @@
   }
   .event-section__right {
     flex: 1;
-    max-width: to-rem(410);
 
     // 신규 컨텐츠 바로가기
     .new-content-shortcuts {
       &__title {
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(24);
+        font-size: to-rem(32);
         font-weight: 700;
-        color: $text-color;
-        margin-bottom: to-rem(24);
-        text-align: left;
+        color: $gray-90;
+        margin-bottom: 28px;
       }
 
       &__grid {
@@ -870,6 +869,67 @@
           svg {
             width: to-rem(14);
             height: to-rem(14);
+          }
+        }
+      }
+    }
+  }
+}
+
+.info-section {
+  padding: 64px 0;
+}
+
+section.banner-section {
+  padding: 24px 0;
+  border-top: 1px solid #cdd1d5;
+  border-bottom: 1px solid #cdd1d5;
+  div.inner {
+    opacity: 1;
+    div.flex-cnt {
+      display: flex;
+      align-items: center;
+      div.w10 {
+        opacity: 1;
+        div.banner-section__left.flex.gap-4 {
+          opacity: 1;
+          uinavbutton.bg-primary {
+            opacity: 1;
+            uinavbutton.bg-primary {
+              opacity: 1;
+              uinavbutton.bg-primary {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      div.w90 {
+        opacity: 1;
+        div.banner-section__right {
+          opacity: 1;
+          ul.banner-section__list {
+            display: flex;
+            align-content: center;
+            gap: 16px;
+            li {
+              border-radius: 8px;
+              border: 1px solid #c9cccc;
+              background: #fff;
+              opacity: 1;
+              width: 220px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              opacity: 1;
+              a {
+                opacity: 1;
+                img {
+                  opacity: 1;
+                }
+              }
+            }
           }
         }
       }
