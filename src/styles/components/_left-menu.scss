@@ -1,0 +1,126 @@
+@use '../abstracts' as *;
+
+.left-menu {
+  flex: 0 0 to-rem(280);
+}
+.left-menu-nav {
+  height: 100%;
+  overflow-y: auto;
+  margin-top: to-rem(41);
+
+  .menu-section {
+    border-bottom: 1px solid #e5e8eb;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .menu-section-title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: to-rem(16) to-rem(20);
+      font-size: to-rem(16);
+      font-weight: $font-medium;
+      background: #f8f9fa;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-align: left;
+
+      &:hover {
+        background: #e9ecef;
+        color: $primary-color;
+      }
+
+      &.expanded {
+        background: #e3f2fd;
+        color: $primary-color;
+
+        .menu-arrow {
+          transform: rotate(180deg);
+        }
+      }
+
+      .menu-title-text {
+        flex: 1;
+      }
+
+      .menu-arrow {
+        flex-shrink: 0;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+
+    .menu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+      background: #ffffff;
+
+      &.expanded {
+        max-height: to-rem(500); // 충분한 높이 설정
+      }
+
+      .menu-item {
+        .menu-link {
+          display: flex;
+          align-items: center;
+          padding: to-rem(12) to-rem(40);
+          color: $gray-700;
+          text-decoration: none;
+          font-size: to-rem(14);
+          line-height: $line-height-normal;
+          transition: all 0.15s ease-out;
+          background: #ffffff;
+
+          &:hover {
+            background-color: #f3f4f6;
+            color: $primary-color;
+          }
+
+          &.active {
+            background-color: lighten($primary-color, 48%);
+            color: $primary-color;
+            font-weight: $font-medium;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              width: 3px;
+              background: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 스크롤바 스타일링
+.left-menu-nav {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-300;
+    border-radius: 2px;
+
+    &:hover {
+      background: $gray-400;
+    }
+  }
+}

@@ -1,42 +1,78 @@
-/**
- * 연수구 도서관 웹사이트 공통 JavaScript
- */
+// 공통 기능 관리자
+const LibraryCommon = {
+  // 기능별 초기화 맵
+  features: {
+    accordion: {
+      selector: '[data-menu-toggle]',
+      init: function () {
+        const toggles = document.querySelectorAll(this.selector);
+        if (toggles.length === 0) return false;
 
-// 전역 네임스페이스 (Swiper 기능 제거)
-var YeonsuLibrary = {
-  utils: {},
-  initialized: false
+        toggles.forEach((toggle) => {
+          toggle.addEventListener('click', function () {
+            const index = this.getAttribute('data-menu-toggle');
+            const content = document.querySelector(`[data-menu-content="${index}"]`);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            if (!content || !index) return;
+
+            this.setAttribute('aria-expanded', (!isExpanded).toString());
+            this.classList.toggle('expanded');
+            content.classList.toggle('expanded');
+          });
+        });
+
+        console.log('✅ Accordion initialized');
+        return true;
+      }
+    },
+
+    // 향후 추가될 기능들
+    tabs: {
+      selector: '[data-tab-trigger]',
+      init: function () {
+        const triggers = document.querySelectorAll(this.selector);
+        if (triggers.length === 0) return false;
+
+        // 탭 로직
+        console.log('✅ Tabs initialized');
+        return true;
+      }
+    },
+
+    modal: {
+      selector: '[data-modal-trigger]',
+      init: function () {
+        const triggers = document.querySelectorAll(this.selector);
+        if (triggers.length === 0) return false;
+
+        // 모달 로직
+        console.log('✅ Modal initialized');
+        return true;
+      }
+    }
+  },
+
+  // 전체 초기화
+  init() {
+    console.log('🚀 LibraryCommon initializing...');
+
+    Object.entries(this.features).forEach(([name, feature]) => {
+      try {
+        const result = feature.init.call(feature);
+        if (!result) {
+          console.log(`⚠️ ${name} skipped - no elements found`);
+        }
+      } catch (error) {
+        console.error(`❌ ${name} initialization failed:`, error);
+      }
+    });
+
+    console.log('✨ LibraryCommon ready!');
+  }
 };
 
-/**
- * 공통 유틸리티 함수들
- */
-YeonsuLibrary.utils.toggleMenu = function () {
-  // 메뉴 토글 기능
-  console.log('Menu toggled');
-};
-
-YeonsuLibrary.utils.handleSearch = function () {
-  // 검색 기능
-  console.log('Search handled');
-};
-
-/**
- * 공통 초기화 함수
- */
-function initYeonsuLibrary() {
-  YeonsuLibrary.initialized = true;
-  console.log('YeonsuLibrary common functions initialized');
-}
-
-// DOM 로드 완료 후 초기화
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initYeonsuLibrary);
-} else {
-  initYeonsuLibrary();
-}
-
-// 전역에서 접근 가능하도록 설정
-if (typeof window !== 'undefined') {
-  window.YeonsuLibrary = YeonsuLibrary;
-}
+// DOM 로드 후 초기화
+document.addEventListener('DOMContentLoaded', function () {
+  LibraryCommon.init();
+});

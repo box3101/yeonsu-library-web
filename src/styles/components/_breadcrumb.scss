@@ -1,0 +1,121 @@
+@use '@styles/abstracts' as *;
+@use '@styles/variables/colors' as *;
+@use '@styles/variables/typography' as *;
+
+// Breadcrumb 컴포넌트 스타일
+// SCSS 7-1 아키텍처에 따른 컴포넌트별 스타일 정의
+
+.breadcrumb {
+  margin-bottom: to-rem(24);
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: to-rem(8);
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      gap: to-rem(8);
+      font-size: to-rem(14);
+      line-height: $line-height-normal;
+
+      .breadcrumb-link {
+        color: $gray-600;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+        border-radius: to-rem(2);
+
+        &:hover {
+          color: $primary-color;
+          text-decoration: underline;
+        }
+
+        &:focus {
+          outline: 2px solid $primary-color;
+          outline-offset: 2px;
+        }
+      }
+
+      .breadcrumb-current {
+        color: $gray-90;
+        font-weight: $font-semibold;
+      }
+
+      .breadcrumb-separator {
+        color: $gray-40;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: to-rem(6);
+          height: to-rem(10);
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+// 반응형 처리
+@include mobile {
+  .breadcrumb {
+    margin-bottom: to-rem(16);
+
+    .breadcrumb-list {
+      gap: to-rem(6);
+
+      .breadcrumb-item {
+        font-size: to-rem(13);
+        gap: to-rem(6);
+
+        .breadcrumb-separator svg {
+          width: to-rem(5);
+          height: to-rem(8);
+        }
+      }
+    }
+  }
+}
+
+// 접근성 향상을 위한 추가 스타일
+.breadcrumb {
+  .breadcrumb-list {
+    .breadcrumb-item {
+      .breadcrumb-link {
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
+      }
+    }
+  }
+}
+
+// 긴 텍스트 처리
+.breadcrumb {
+  .breadcrumb-list {
+    .breadcrumb-item {
+      max-width: to-rem(200);
+
+      .breadcrumb-link,
+      .breadcrumb-current {
+        @include text-truncate;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .breadcrumb {
+    .breadcrumb-list {
+      .breadcrumb-item {
+        max-width: to-rem(120);
+      }
+    }
+  }
+}

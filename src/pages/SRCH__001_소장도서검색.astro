@@ -1,0 +1,161 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '고객센터', href: '/support' },
+  { label: '자주 묻는 질문' },
+];
+---
+
+<Layout title="자주 묻는 질문 - 연수구립도서관">
+  <SubLayout title="자주 묻는 질문" breadcrumbItems={breadcrumbItems}>
+    <div class="faq-content">
+      <div class="faq-intro">
+        <p>도서관 이용에 관한 자주 묻는 질문들을 모아두었습니다.</p>
+        <p>궁금한 사항이 있으시면 먼저 이곳을 확인해보세요.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">도서관 회원가입은 어떻게 하나요?</h3>
+          <div class="faq-answer">
+            <p>
+              신분증을 지참하여 도서관 2층 종합안내데스크에서 회원가입 신청서를
+              작성하시면 됩니다.
+            </p>
+            <p>
+              온라인으로도 사전 신청이 가능하며, 도서관 방문 시 신분 확인 후
+              바로 이용하실 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">도서 대출 기간은 얼마나 되나요?</h3>
+          <div class="faq-answer">
+            <p>일반 도서는 14일, 최신 인기 도서는 7일입니다.</p>
+            <p>
+              1회에 한해 연장이 가능하며, 온라인 또는 도서관 방문을 통해
+              연장하실 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">휴관일은 언제인가요?</h3>
+          <div class="faq-answer">
+            <p>매주 월요일, 법정공휴일, 임시휴관일에는 휴관합니다.</p>
+            <p>자세한 휴관일 정보는 도서관 홈페이지 공지사항을 확인해주세요.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">분실한 도서는 어떻게 처리하나요?</h3>
+          <div class="faq-answer">
+            <p>
+              분실 도서는 동일한 도서로 변상하거나 도서정가로 변상하실 수
+              있습니다.
+            </p>
+            <p>분실 신고는 종합안내데스크에서 접수 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-contact">
+        <h3>더 궁금한 사항이 있으신가요?</h3>
+        <p>
+          전화: <a href="tel:032-000-0000">032-000-0000</a><br />
+          이메일: <a href="mailto:library@yeonsu.go.kr">library@yeonsu.go.kr</a>
+        </p>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
+
+<style lang="scss">
+  .faq-content {
+    .faq-intro {
+      background-color: var(--color-gray-50);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+
+      p {
+        margin: 0;
+        color: var(--color-gray-700);
+
+        &:first-child {
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    .faq-list {
+      .faq-item {
+        border: 1px solid var(--color-gray-200);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+
+        .faq-question {
+          background-color: var(--color-primary-50);
+          padding: 1.25rem;
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: var(--color-primary-800);
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--color-primary-100);
+          }
+        }
+
+        .faq-answer {
+          padding: 1.5rem 1.25rem;
+          background-color: white;
+
+          p {
+            margin: 0 0 1rem 0;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .faq-contact {
+      background-color: var(--color-primary-50);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 3rem;
+
+      h3 {
+        margin: 0 0 1rem 0;
+        color: var(--color-primary-800);
+      }
+
+      p {
+        margin: 0;
+        color: var(--color-gray-700);
+
+        a {
+          color: var(--color-primary-600);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+</style>

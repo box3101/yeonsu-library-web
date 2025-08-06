@@ -1,6 +1,6 @@
 ---
 const gnbItems = [
-  { href: '#', text: '도서검색' },
+  { href: 'SRCH__001_소장도서검색', text: '도서검색' },
   { href: '#', text: '책 읽는 연수구' },
   { href: '#', text: '안내마당' },
   { href: '#', text: '도서서비스' },
@@ -13,7 +13,7 @@ const gnbItems = [
 <nav class="gnb">
   <ul class="gnb-list container">
     {
-      gnbItems.map((item) => (
+      gnbItems.map(item => (
         <li class="gnb-item">
           <a href={item.href} class="gnb-link">
             <span>{item.text}</span>

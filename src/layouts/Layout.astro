@@ -2,6 +2,22 @@
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import '../styles/main.scss';
+
+// 전역 컴포넌트 import
+import UiButton from '@ui/UiButton.astro';
+import UiRadio from '@ui/UiRadio.astro';
+import UiSelect from '@ui/UiSelect.astro';
+import UiNavButton from '@ui/UiNavButton.astro';
+import UiTab from '@ui/UiTab.astro';
+
+// 전역 등록
+if (typeof globalThis !== 'undefined') {
+  globalThis.UiButton = UiButton;
+  globalThis.UiRadio = UiRadio;
+  globalThis.UiSelect = UiSelect;
+  globalThis.UiNavButton = UiNavButton;
+  globalThis.UiTab = UiTab;
+}
 ---
 
 <html>

@@ -29,15 +29,6 @@ export default defineConfig({
         '@styles': path.resolve('./src/styles'),
       },
     },
-    // Auto-import 설정
-    define: {
-      // 전역 컴포넌트 등록
-      'global.UiButton': path.resolve('./src/components/UI/UiButton.astro'),
-      'global.UiRadio': path.resolve('./src/components/UI/UiRadio.astro'),
-      'global.UiSelect': path.resolve('./src/components/UI/UiSelect.astro'),
-      'global.UiNavButton': path.resolve('./src/components/UI/UiNavButton.astro'),
-      'global.UiTab': path.resolve('./src/components/UI/UiTab.astro'),
-    },
 
     // CSS 소스맵 설정
     css: {

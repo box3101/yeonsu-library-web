@@ -1,0 +1,79 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import LeftMenu from '../components/layout/LeftMenu.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  
+  <main class="main-container">
+    <div class="container">
+      <div class="search-layout">
+        <!-- 좌측 메뉴 -->
+        <aside class="search-layout__sidebar">
+          <LeftMenu />
+        </aside>
+        
+        <!-- 메인 콘텐츠 영역 -->
+        <div class="search-layout__content">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style lang="scss">
+@use '../styles/abstracts' as *;
+
+.main-container {
+  min-height: calc(100vh - 200px); // 헤더와 푸터 높이 제외
+}
+
+.search-layout {
+  display: flex;
+  gap: to-rem(32);
+  align-items: flex-start;
+  min-height: calc(100vh - 300px);
+  
+  &__sidebar {
+    flex: 0 0 to-rem(280);
+    
+    @include mobile {
+      display: none; // 모바일에서는 사이드바 숨김
+    }
+  }
+  
+  &__content {
+    flex: 1;
+    min-width: 0; // Flexbox에서 콘텐츠 오버플로우 방지
+    padding: to-rem(24) 0;
+    
+    @include mobile {
+      padding: to-rem(16) 0;
+    }
+  }
+}
+
+// 반응형 처리
+@include tablet {
+  .search-layout {
+    gap: to-rem(24);
+    
+    &__sidebar {
+      flex: 0 0 to-rem(240);
+    }
+  }
+}
+</style>

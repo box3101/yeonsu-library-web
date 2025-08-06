@@ -1,0 +1,28 @@
+---
+const { title = '', breadcrumbItems = [] } = Astro.props;
+
+import LeftMenu from '@/components/common/LeftMenu.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+---
+
+<div class="sub-layout inner">
+  <aside class="left-menu">
+    <LeftMenu />
+  </aside>
+
+  <main class="sub-content">
+    {breadcrumbItems.length > 0 && <Breadcrumb items={breadcrumbItems} />}
+    <h2 class="sub-title">{title}</h2>
+    <slot />
+  </main>
+</div>
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+  @use '@styles/variables/typography' as *;
+
+  .sub-layout {
+    display: flex;
+    min-height: calc(100vh - #{to-rem(80)});
+  }
+</style>

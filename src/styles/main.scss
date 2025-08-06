@@ -19,6 +19,9 @@
 @use 'components/icon';
 @use 'components/radio';
 @use 'components/tabs';
+@use 'components/sub-layout';
+@use 'components/left-menu';
+@use 'components/breadcrumb';
 
 // 페이지별 스타일
 @use 'pages/home';
