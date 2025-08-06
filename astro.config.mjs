@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import path from 'path';
 
 export default defineConfig({
   // 개발 중에는 소스맵 활성화, 프로덕션에서는 HTML 속성만 제거
@@ -18,14 +19,14 @@ export default defineConfig({
   },
 
   vite: {
-    // Path alias 설정 - 컴포넌트 import 간소화
     resolve: {
       alias: {
-        '@': '/src',
-        '@components': '/src/components',
-        '@ui': '/src/components/ui',
-        '@styles': '/src/styles',
-        '@layouts': '/src/layouts',
+        '@': path.resolve('./src'),
+        '@components': path.resolve('./src/components'),
+        '@ui': path.resolve('./src/components/UI'),
+        '@layout': path.resolve('./src/components/layout'),
+        '@layouts': path.resolve('./src/layouts'),
+        '@styles': path.resolve('./src/styles'),
       },
     },
 
