@@ -1,0 +1,43 @@
+// 탭 기능
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.ui-tab__button');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabContainer = tab.closest('.ui-tab');
+      const allTabs = tabContainer?.querySelectorAll('.ui-tab__button');
+      const targetId = tab.getAttribute('data-tab-target');
+
+      // 모든 탭에서 active 제거
+      allTabs?.forEach(t => {
+        t.classList.remove('ui-tab__button--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      // 클릭한 탭에 active 추가
+      tab.classList.add('ui-tab__button--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      // 탭 패널 제어
+      const allPanels = document.querySelectorAll('.ui-tab-panel');
+      const targetPanel = document.getElementById(`panel-${targetId}`);
+
+      // 모든 패널 숨기기
+      allPanels.forEach(panel => {
+        panel.classList.remove('ui-tab-panel--active');
+      });
+
+      // 선택된 패널 보이기
+      if (targetPanel) {
+        targetPanel.classList.add('ui-tab-panel--active');
+      }
+
+      // 커스텀 이벤트 발생
+      document.dispatchEvent(
+        new CustomEvent('tab-change', {
+          detail: { targetId, tab },
+        })
+      );
+    });
+  });
+});
