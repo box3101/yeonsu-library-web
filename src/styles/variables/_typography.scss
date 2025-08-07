@@ -20,3 +20,31 @@ $font-extrabold: 800;
 $line-height-tight: 1.25;
 $line-height-normal: 1.5;
 $line-height-relaxed: 1.75;
+
+// 페이지 타이틀 시스템
+$page-title-sizes: (
+  'h1': 40,  // 메인 페이지 타이틀 (도서검색)
+  'h2': 28,  // 섹션 타이틀 (소장도서검색)
+  'h3': 24,  // 서브섹션 타이틀
+  'h4': 20,  // 카테고리 타이틀
+  'h5': 18,  // 소제목
+  'h6': 16   // 일반 제목
+);
+
+$page-title-weights: (
+  'h1': $font-bold,
+  'h2': $font-semibold,
+  'h3': $font-semibold,
+  'h4': $font-medium,
+  'h5': $font-medium,
+  'h6': $font-normal,
+);
+
+$page-title-line-heights: (
+  'h1': $line-height-tight,
+  'h2': $line-height-tight,
+  'h3': $line-height-normal,
+  'h4': $line-height-normal,
+  'h5': $line-height-normal,
+  'h6': $line-height-normal,
+);

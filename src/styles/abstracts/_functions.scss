@@ -6,7 +6,12 @@
 
 // rem 변환 함수
 @function to-rem($px) {
-  @return math.div($px, 16) * 1rem;
+  // 단위 제거 (px가 붙어있을 경우)
+  $value: $px;
+  @if math.unit($px) == 'px' {
+    $value: math.div($px, 1px);
+  }
+  @return math.div($value, 16) * 1rem;
 }
 
 // px에서 vw 변환 (1920px 기준)

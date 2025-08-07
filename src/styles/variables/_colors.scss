@@ -1,7 +1,7 @@
 // 기본 색상
-$primary-color: #30619b;
-$primary-color-light: #3c79c2;
-$secondary-color: #6c757d;
+$primary-color: #007ccc; // blue-500
+$primary-color-light: #3396d6; // blue-400
+$secondary-color: #fbbc53; // orange-500
 $text-color: #333;
 $background-color: #fff;
 
@@ -19,6 +19,7 @@ $gray-50: #6b7280;
 $gray-60: #4b5563;
 $gray-70: #374151;
 $gray-90: #191a1a;
+$gray-100: #f3f4f6;
 $gray-200: #e5e7eb;
 $gray-300: #d1d5db;
 $gray-600: #6b7280;
@@ -28,6 +29,36 @@ $gray-900: #111827;
 $gray-400: #9ca3af;
 $gray-500: #6b7280;
 $gray-50: #f9fafb;
+
+// Blue 색상 팔레트
+$blue-50: #e6f2fa;
+$blue-100: #b0d6ef;
+$blue-200: #8ac3e8;
+$blue-300: #54a7dd;
+$blue-400: #3396d6;
+$blue-500: #007ccc;
+$blue-600: #0071ba;
+$blue-700: #244874;
+$blue-800: #004470;
+$blue-900: #003456;
+
+// Orange 색상 팔레트
+$orange-50: #fff8ee;
+$orange-100: #feeaca;
+$orange-200: #fde0b0;
+$orange-300: #fcd28c;
+$orange-400: #fcc975;
+$orange-500: #fbbc53;
+$orange-600: #e4ab4c;
+$orange-700: #b2853b;
+$orange-800: #8a672e;
+$orange-900: #694f23;
+
+// 상태 색상
+$success-color: #10b981;
+$error-color: #ef4444;
+$warning-color: $orange-600; // #e4ab4c
+$info-color: $blue-500; // #007ccc
 
 // Radio 컴포넌트 색상
 $radio-primary: #256ef4;

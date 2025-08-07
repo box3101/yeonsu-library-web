@@ -1,0 +1,150 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+
+// 테스트: 직접 rem 값 사용
+.test-title {
+  font-size: 2.5rem; // 40px를 직접 rem으로 변환
+}
+
+// ============================================
+// Typography Utilities
+// ============================================
+
+// 페이지 타이틀 클래스들
+.page-title {
+  &--h1 {
+    @include page-title('h1', $gray-900);
+    
+    & {
+      margin-bottom: to-rem(32);
+    }
+  }
+
+  &--h2 {
+    @include page-title('h2', $gray-900);
+    
+    & {
+      margin-bottom: to-rem(24);
+    }
+  }
+
+  &--h3 {
+    @include page-title('h3', $gray-800);
+    
+    & {
+      margin-bottom: to-rem(20);
+    }
+  }
+
+  &--h4 {
+    @include page-title('h4', $gray-800);
+    
+    & {
+      margin-bottom: to-rem(16);
+    }
+  }
+
+  &--h5 {
+    @include page-title('h5', $gray-700);
+    
+    & {
+      margin-bottom: to-rem(12);
+    }
+  }
+
+  &--h6 {
+    @include page-title('h6', $gray-700);
+    
+    & {
+      margin-bottom: to-rem(8);
+    }
+  }
+}
+
+// 섹션 타이틀 (도서검색, 소장도서검색 등)
+.section-title {
+  @include page-title('h1', $primary-color);
+  margin-bottom: to-rem(40);
+  padding-bottom: to-rem(16);
+  border-bottom: 3px solid $primary-color;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: to-rem(60);
+    height: 3px;
+    background: $secondary-color;
+  }
+}
+
+// 서브 섹션 타이틀
+.sub-section-title {
+  @include page-title('h2', $gray-900);
+  margin-bottom: to-rem(24);
+  padding-left: to-rem(16);
+  border-left: 4px solid $primary-color;
+}
+
+// 카테고리 타이틀
+.category-title {
+  @include page-title('h3', $gray-800);
+  margin-bottom: to-rem(16);
+  display: flex;
+  align-items: center;
+  gap: to-rem(8);
+
+  &::before {
+    content: '';
+    width: to-rem(4);
+    height: to-rem(20);
+    background: $primary-color;
+    border-radius: to-rem(2);
+  }
+}
+
+// 기본 heading 재정의 (시멘틱 태그용)
+h1 {
+  @include page-title('h1', $gray-900);
+}
+h2 {
+  @include page-title('h2', $gray-900);
+}
+h3 {
+  @include page-title('h3', $gray-800);
+}
+h4 {
+  @include page-title('h4', $gray-800);
+}
+h5 {
+  @include page-title('h5', $gray-700);
+}
+h6 {
+  @include page-title('h6', $gray-700);
+}
+
+// 유틸리티 클래스들
+.text-primary {
+  color: $primary-color !important;
+}
+.text-secondary {
+  color: $secondary-color !important;
+}
+.text-muted {
+  color: $gray-500 !important;
+}
+
+.font-bold {
+  font-weight: $font-bold !important;
+}
+.font-semibold {
+  font-weight: $font-semibold !important;
+}
+.font-medium {
+  font-weight: $font-medium !important;
+}
+.font-normal {
+  font-weight: $font-normal !important;
+}

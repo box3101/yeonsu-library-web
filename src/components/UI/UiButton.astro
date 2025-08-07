@@ -1,156 +1,385 @@
 ---
 export interface Props {
   text?: string;
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'small' | 'medium' | 'large';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info'
+    | 'ghost'
+    | 'outline';
+  color?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info'
+    | 'gray';
+  size?: 'xs' | 'small' | 'medium' | 'large' | 'xl';
   width?: string;
   height?: string;
   disabled?: boolean;
+  loading?: boolean;
   href?: string;
   target?: string;
-  iconSrc?: string;
+  icon?: string;
   iconPosition?: 'left' | 'right';
+  iconOnly?: boolean;
+  rounded?: boolean;
   class?: string;
 }
 
 const {
   text = '버튼',
   variant = 'primary',
+  color = 'primary',
   size = 'medium',
   width,
-  height = '56px',
+  height,
   disabled = false,
+  loading = false,
   href,
   target,
-  iconSrc = '/assets/images/icon/icon-arr-right.svg',
+  icon,
   iconPosition = 'right',
+  iconOnly = false,
+  rounded = false,
   class: className = '',
 } = Astro.props;
 
 const Tag = href ? 'a' : 'button';
 const linkProps = href ? { href, target } : {};
-const buttonProps = href ? {} : { type: 'button', disabled };
+const buttonProps = href
+  ? {}
+  : { type: 'button', disabled: disabled || loading };
+
+const hasIcon = icon && icon.length > 0;
+const hasText = text && text.length > 0 && !iconOnly;
+
+const buttonClasses = [
+  'ui-button',
+  `ui-button--${variant}`,
+  `ui-button--${color}`,
+  `ui-button--${size}`,
+  iconOnly ? 'ui-button--icon-only' : '',
+  rounded ? 'ui-button--rounded' : '',
+  loading ? 'ui-button--loading' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const buttonStyle = [
+  width ? `width: ${typeof width === 'number' ? width + 'px' : width}` : '',
+  height
+    ? `height: ${typeof height === 'number' ? height + 'px' : height}`
+    : '',
+]
+  .filter(Boolean)
+  .join('; ');
 ---
 
 <Tag
-  class={`ui-button ui-button--${variant} ui-button--${size} ${className}`}
-  style={width || height
-    ? `${width ? `width: ${width};` : ''} ${height ? `height: ${height};` : ''}`
-    : undefined}
+  class={buttonClasses}
+  style={buttonStyle || undefined}
+  aria-disabled={disabled || loading}
   {...linkProps}
   {...buttonProps}
 >
   {
-    iconPosition === 'left' && iconSrc && (
-      <div class="ui-button__icon ui-button__icon--left">
-        <img src={iconSrc} alt="" />
+    loading && (
+      <div class="ui-button__spinner">
+        <svg class="ui-button__spinner-icon" viewBox="0 0 24 24">
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"
+            stroke-dasharray="32"
+            stroke-dashoffset="32"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              dur="1s"
+              values="32;0;32"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </svg>
       </div>
     )
   }
 
-  <span class="ui-button__text">{text}</span>
+  {
+    hasIcon && iconPosition === 'left' && !loading && (
+      <div class="ui-button__icon ui-button__icon--left">
+        <img src={`./assets/images/icon/${icon}.svg`} alt="" />
+      </div>
+    )
+  }
+
+  {hasText && <span class="ui-button__text">{text}</span>}
 
   {
-    iconPosition === 'right' && iconSrc && (
+    hasIcon && iconPosition === 'right' && !loading && (
       <div class="ui-button__icon ui-button__icon--right">
-        <img src={iconSrc} alt="" />
+        <i class={`icon-sm ${icon}`} />
       </div>
     )
   }
 </Tag>
 
 <style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+
   .ui-button {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-weight: 400;
+    gap: to-rem(8);
+    border: 1px solid transparent;
+    border-radius: to-rem(8);
+    font-family: inherit;
+    font-weight: $font-medium;
     line-height: 1.5;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease;
     box-sizing: border-box;
+    white-space: nowrap;
+    outline: none;
 
-    &:focus {
-      outline: 2px solid #3c79c2;
+    &:focus-visible {
+      outline: 2px solid $primary-color;
       outline-offset: 2px;
     }
 
-    &:disabled {
-      opacity: 0.5;
+    &:disabled,
+    &[aria-disabled='true'] {
+      opacity: 0.6;
       cursor: not-allowed;
     }
 
-    // 사이즈 variants
+    // 크기 variants
+    &--xs {
+      padding: to-rem(6) to-rem(12);
+      font-size: 0.75rem;
+      min-height: to-rem(28);
+    }
+
     &--small {
-      padding: 8px 16px;
-      font-size: 14px;
-      height: 32px;
+      padding: to-rem(8) to-rem(16);
+      font-size: 0.875rem;
+      min-height: to-rem(36);
     }
 
     &--medium {
-      padding: 12px 20px;
-      font-size: 16px;
-      height: 48px;
+      padding: to-rem(12) to-rem(20);
+      font-size: 1rem;
+      min-height: to-rem(44);
     }
 
     &--large {
-      padding: 16px 24px;
-      font-size: 19px;
-      height: 56px;
+      padding: to-rem(16) to-rem(24);
+      font-size: 1.125rem;
+      min-height: to-rem(52);
     }
 
-    // 색상 variants
-    &--primary {
-      background: #244874;
-      color: #ffffff;
+    &--xl {
+      padding: to-rem(20) to-rem(28);
+      font-size: 1.25rem;
+      min-height: to-rem(60);
+    }
 
-      &:hover:not(:disabled) {
-        background: #1e3a5f;
+    // 스타일 variants
+    &--primary {
+      background: var(--btn-bg, $primary-color);
+      color: $white;
+      border-color: var(--btn-bg, $primary-color);
+
+      &:hover:not(:disabled):not([aria-disabled='true']) {
+        background: var(--btn-bg-hover, darken($primary-color, 8%));
+        border-color: var(--btn-bg-hover, darken($primary-color, 8%));
       }
 
-      &:active:not(:disabled) {
-        background: #162d47;
+      &:active {
+        background: var(--btn-bg-active, darken($primary-color, 12%));
+        border-color: var(--btn-bg-active, darken($primary-color, 12%));
       }
     }
 
     &--secondary {
-      background: #ffffff;
-      color: #244874;
-      border: 1px solid #244874;
+      background: $blue-700;
+      color: $white;
+      border-color: $blue-700;
 
-      &:hover:not(:disabled) {
-        background: #f8f9fa;
+      &:hover:not(:disabled):not([aria-disabled='true']) {
+        background: $blue-600;
+        border-color: $blue-600;
       }
 
-      &:active:not(:disabled) {
-        background: #e9ecef;
+      &:active {
+        background: $blue-700;
+        border-color: $blue-700;
       }
     }
 
     &--ghost {
       background: transparent;
-      color: #244874;
+      color: var(--btn-color, $primary-color);
+      border-color: transparent;
 
-      &:hover:not(:disabled) {
-        background: rgba(36, 72, 116, 0.1);
+      &:hover:not(:disabled):not([aria-disabled='true']) {
+        background: var(--btn-bg-hover, rgba($primary-color, 0.08));
       }
 
-      &:active:not(:disabled) {
-        background: rgba(36, 72, 116, 0.2);
+      &:active {
+        background: var(--btn-bg-active, rgba($primary-color, 0.12));
+      }
+    }
+
+    &--outline {
+      background: transparent;
+      color: var(--btn-color, $primary-color);
+      border-color: var(--btn-color, $primary-color);
+
+      &:hover:not(:disabled):not([aria-disabled='true']) {
+        background: var(--btn-color, $primary-color);
+        color: $white;
+      }
+    }
+
+    // 색상 variants - 새로운 색상 팔레트 사용
+    &--primary {
+      --btn-bg: #{$blue-500};
+      --btn-bg-hover: #{$blue-600};
+      --btn-bg-active: #{$blue-700};
+      --btn-color: #{$blue-500};
+    }
+
+    &--secondary {
+      --btn-bg: #{$orange-500};
+      --btn-bg-hover: #{$orange-600};
+      --btn-bg-active: #{$orange-700};
+      --btn-color: #{$orange-500};
+    }
+
+    // &--success {
+    //   --btn-bg: #{$success-color};
+    //   --btn-bg-hover: #{darken($success-color, 8%)};
+    //   --btn-bg-active: #{darken($success-color, 12%)};
+    //   --btn-color: #{$success-color};
+    // }
+
+    &--warning {
+      --btn-bg: #{$orange-600};
+      --btn-bg-hover: #{$orange-700};
+      --btn-bg-active: #{$orange-800};
+      --btn-color: #{$orange-600};
+    }
+
+    &--error {
+      --btn-bg: #{$error-color};
+      --btn-bg-hover: #{darken($error-color, 8%)};
+      --btn-bg-active: #{darken($error-color, 12%)};
+      --btn-color: #{$error-color};
+    }
+
+    &--info {
+      --btn-bg: #{$blue-500};
+      --btn-bg-hover: #{$blue-600};
+      --btn-bg-active: #{$blue-700};
+      --btn-color: #{$blue-500};
+    }
+
+    &--gray {
+      --btn-bg: #{$gray-600};
+      --btn-bg-hover: #{$gray-700};
+      --btn-bg-active: #{$gray-800};
+      --btn-color: #{$gray-600};
+    }
+
+    // 아이콘 전용 버튼
+    &--icon-only {
+      aspect-ratio: 1;
+      padding: to-rem(12);
+
+      &.ui-button--xs {
+        padding: to-rem(6);
+      }
+      &.ui-button--small {
+        padding: to-rem(8);
+      }
+      &.ui-button--medium {
+        padding: to-rem(12);
+      }
+      &.ui-button--large {
+        padding: to-rem(16);
+      }
+      &.ui-button--xl {
+        padding: to-rem(20);
+      }
+    }
+
+    // 둥근 모서리
+    &--rounded {
+      border-radius: to-rem(24);
+    }
+
+    // 로딩 상태
+    &--loading {
+      pointer-events: none;
+
+      .ui-button__text,
+      .ui-button__icon {
+        opacity: 0;
+      }
+    }
+
+    // 스피너
+    &__spinner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-icon {
+        width: to-rem(16);
+        height: to-rem(16);
+        color: currentColor;
+
+        .ui-button--large & {
+          width: to-rem(20);
+          height: to-rem(20);
+        }
+
+        .ui-button--xl & {
+          width: to-rem(24);
+          height: to-rem(24);
+        }
       }
     }
 
     // 텍스트
     &__text {
       flex: 1;
+      min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      .ui-button--icon-only & {
+        display: none;
+      }
     }
 
     // 아이콘
@@ -164,6 +393,7 @@ const buttonProps = href ? {} : { type: 'button', disabled };
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: contain;
       }
 
       &--left {
@@ -175,23 +405,33 @@ const buttonProps = href ? {} : { type: 'button', disabled };
       }
     }
 
-    // 사이즈별 아이콘 크기
+    // 크기별 아이콘 크기
+    &--xs &__icon {
+      width: to-rem(12);
+      height: to-rem(12);
+    }
+
     &--small &__icon {
-      width: 16px;
-      height: 16px;
+      width: to-rem(14);
+      height: to-rem(14);
     }
 
     &--medium &__icon {
-      width: 20px;
-      height: 20px;
+      width: to-rem(16);
+      height: to-rem(16);
     }
 
     &--large &__icon {
-      width: 24px;
-      height: 24px;
+      width: to-rem(20);
+      height: to-rem(20);
     }
 
-    // 링크 스타일링
+    &--xl &__icon {
+      width: to-rem(24);
+      height: to-rem(24);
+    }
+
+    // 링크로 사용될 때
     &[href] {
       display: inline-flex;
     }

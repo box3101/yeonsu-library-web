@@ -1,0 +1,302 @@
+---
+import { UiCheckbox } from '@components';
+
+export interface LibraryItem {
+  id: string;
+  name: string;
+  checked?: boolean;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  libraries: LibraryItem[];
+  allChecked?: boolean;
+  expanded?: boolean;
+  gridColumns?: number;
+  class?: string;
+}
+
+const {
+  title = '전체도서관',
+  subtitle = '도서관 분류',
+  libraries = [],
+  allChecked = false,
+  expanded = true,
+  gridColumns = 4,
+  class: className = '',
+} = Astro.props;
+
+const filterId = `filter-${Math.random().toString(36).substr(2, 9)}`;
+const toggleId = `toggle-${filterId}`;
+---
+
+<section class={`ui-library-filter ${className}`}>
+  <div class="ui-library-filter__box">
+    <!-- Header with toggle -->
+    <div class="ui-library-filter__header">
+      <div class="ui-library-filter__main-control">
+        <UiCheckbox
+          id={`all-${filterId}`}
+          name={`all-${filterId}`}
+          label={title}
+          checked={allChecked}
+          class="ui-library-filter__main-checkbox"
+        />
+        <button
+          type="button"
+          class="ui-library-filter__toggle"
+          id={toggleId}
+          aria-expanded={expanded}
+          aria-controls={`content-${filterId}`}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            class="ui-library-filter__toggle-icon"
+          >
+            <path
+              d="M6 8l4 4 4-4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapsible content -->
+    <div
+      class="ui-library-filter__content"
+      id={`content-${filterId}`}
+      data-expanded={expanded}
+    >
+      <div class="ui-library-filter__subtitle">
+        {subtitle}
+      </div>
+      <div
+        class="ui-library-filter__grid"
+        style={`grid-template-columns: repeat(${gridColumns}, 1fr);`}
+      >
+        {
+          libraries.map(library => (
+            <div class="ui-library-filter__item">
+              <UiCheckbox
+                id={`library-${library.id}`}
+                name={`library-${library.id}`}
+                value={library.id}
+                label={library.name}
+                checked={library.checked || false}
+                size="medium"
+                class="ui-library-filter__item-checkbox"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ filterId, toggleId }}>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById(toggleId);
+    const content = document.getElementById(`content-${filterId}`);
+    const mainCheckbox = document.getElementById(`all-${filterId}`);
+
+    if (!toggle || !content || !mainCheckbox) return;
+
+    // Toggle functionality
+    toggle.addEventListener('click', function () {
+      const isExpanded = content.dataset.expanded === 'true';
+      const newExpanded = !isExpanded;
+
+      content.dataset.expanded = newExpanded.toString();
+      toggle.setAttribute('aria-expanded', newExpanded.toString());
+
+      if (newExpanded) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0';
+      }
+    });
+
+    // Set initial state
+    if (content.dataset.expanded === 'true') {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    } else {
+      content.style.maxHeight = '0';
+    }
+
+    // Main checkbox functionality
+    mainCheckbox.addEventListener('change', function () {
+      const libraryCheckboxes = content.querySelectorAll(
+        '.ui-library-filter__item-checkbox input[type="checkbox"]'
+      );
+      libraryCheckboxes.forEach(checkbox => {
+        checkbox.checked = mainCheckbox.checked;
+      });
+    });
+
+    // Individual checkbox functionality
+    const libraryCheckboxes = content.querySelectorAll(
+      '.ui-library-filter__item-checkbox input[type="checkbox"]'
+    );
+    libraryCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        const totalCheckboxes = libraryCheckboxes.length;
+        const checkedCheckboxes = content.querySelectorAll(
+          '.ui-library-filter__item-checkbox input[type="checkbox"]:checked'
+        ).length;
+
+        if (checkedCheckboxes === totalCheckboxes) {
+          mainCheckbox.checked = true;
+          mainCheckbox.indeterminate = false;
+        } else if (checkedCheckboxes === 0) {
+          mainCheckbox.checked = false;
+          mainCheckbox.indeterminate = false;
+        } else {
+          mainCheckbox.checked = false;
+          mainCheckbox.indeterminate = true;
+        }
+      });
+    });
+
+    // Initialize main checkbox state
+    const initialChecked = content.querySelectorAll(
+      '.ui-library-filter__item-checkbox input[type="checkbox"]:checked'
+    ).length;
+    const totalLibraries = libraryCheckboxes.length;
+
+    if (initialChecked === totalLibraries && totalLibraries > 0) {
+      mainCheckbox.checked = true;
+    } else if (initialChecked > 0) {
+      mainCheckbox.indeterminate = true;
+    }
+  });
+</script>
+
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+
+  .ui-library-filter {
+    margin-bottom: to-rem(32);
+
+    &__box {
+      border: 1px solid $gray-500;
+      border-radius: to-rem(8);
+      padding: to-rem(24) to-rem(20);
+      background-color: $gray-100;
+    }
+
+    &__header {
+      margin-bottom: to-rem(12);
+    }
+
+    &__main-control {
+      @include flex(row, flex-start, center);
+      gap: to-rem(8);
+    }
+
+    &__main-checkbox {
+      :global(.ui-checkbox__title) {
+        font-weight: $font-semibold;
+        color: $gray-800;
+        font-size: to-rem(16);
+      }
+    }
+
+    &__toggle {
+      background: none;
+      border: none;
+      color: $gray-800;
+      cursor: pointer;
+      padding: to-rem(4);
+      border-radius: to-rem(4);
+      transition: all 0.2s ease;
+      @include flex-center;
+
+      &:hover {
+        background-color: $gray-100;
+      }
+
+      &:focus {
+        outline: 2px solid $gray-500;
+        outline-offset: 2px;
+      }
+
+      &[aria-expanded='false'] .ui-library-filter__toggle-icon {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &__toggle-icon {
+      transition: transform 0.2s ease;
+    }
+
+    &__content {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &[data-expanded='false'] {
+        max-height: 0;
+      }
+    }
+
+    &__subtitle {
+      color: $gray-500;
+      font-size: to-rem(15);
+      margin-bottom: to-rem(8);
+      padding-top: to-rem(4);
+    }
+
+    &__grid {
+      display: grid;
+      gap: to-rem(8) to-rem(24);
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: to-rem(6) to-rem(16);
+      }
+
+      @include tablet {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: to-rem(8) to-rem(20);
+      }
+    }
+
+    &__item {
+      :global(.ui-checkbox) {
+        gap: to-rem(6);
+      }
+
+      :global(.ui-checkbox__title) {
+        font-size: to-rem(14);
+        color: $gray-700;
+        line-height: 1.4;
+      }
+
+      :global(.ui-checkbox__control) {
+        .ui-checkbox__input:checked + & {
+          background-color: $gray-500;
+          border-color: $gray-500;
+        }
+
+        .ui-checkbox__input:focus + & {
+          border-color: $gray-500;
+          box-shadow: 0 0 0 3px alpha($gray-500, 0.1);
+        }
+      }
+
+      :global(
+        .ui-checkbox:hover:not(.ui-checkbox--disabled) .ui-checkbox__control
+      ) {
+        border-color: $gray-400;
+      }
+    }
+  }
+</style>

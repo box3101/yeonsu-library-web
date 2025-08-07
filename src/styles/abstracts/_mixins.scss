@@ -1,4 +1,6 @@
 @use '../variables/layout' as *;
+@use '../variables/typography' as *;
+@use 'sass:map';
 
 // ============================================
 // Mixins
@@ -147,4 +149,63 @@
   background-size: $size;
   background-position: $position;
   background-repeat: no-repeat;
+}
+
+// 페이지 타이틀 mixin
+@mixin page-title($level: 'h2', $color: null) {
+  // 직접 rem 값 매핑
+  @if $level == 'h1' {
+    font-size: 2.5rem; // 40px
+  } @else if $level == 'h2' {
+    font-size: 1.75rem; // 28px
+  } @else if $level == 'h3' {
+    font-size: 1.5rem; // 24px
+  } @else if $level == 'h4' {
+    font-size: 1.25rem; // 20px
+  } @else if $level == 'h5' {
+    font-size: 1.125rem; // 18px
+  } @else {
+    font-size: 1rem; // 16px
+  }
+  
+  font-weight: map.get($page-title-weights, $level);
+  line-height: map.get($page-title-line-heights, $level);
+  margin: 0;
+  
+  @if $color {
+    color: $color;
+  }
+  
+  // 반응형 폰트 크기 조정
+  @include mobile {
+    @if $level == 'h1' {
+      font-size: 2.125rem; // 40px * 0.85
+    } @else if $level == 'h2' {
+      font-size: 1.5rem; // 28px * 0.85
+    } @else if $level == 'h3' {
+      font-size: 1.275rem; // 24px * 0.85
+    } @else if $level == 'h4' {
+      font-size: 1.0625rem; // 20px * 0.85
+    } @else if $level == 'h5' {
+      font-size: 0.95625rem; // 18px * 0.85
+    } @else {
+      font-size: 0.85rem; // 16px * 0.85
+    }
+  }
+  
+  @include tablet {
+    @if $level == 'h1' {
+      font-size: 2.25rem; // 40px * 0.9
+    } @else if $level == 'h2' {
+      font-size: 1.575rem; // 28px * 0.9
+    } @else if $level == 'h3' {
+      font-size: 1.35rem; // 24px * 0.9
+    } @else if $level == 'h4' {
+      font-size: 1.125rem; // 20px * 0.9
+    } @else if $level == 'h5' {
+      font-size: 1.0125rem; // 18px * 0.9
+    } @else {
+      font-size: 0.9rem; // 16px * 0.9
+    }
+  }
 }

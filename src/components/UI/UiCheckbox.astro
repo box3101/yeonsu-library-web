@@ -1,0 +1,335 @@
+---
+export interface Props {
+  name?: string;
+  value?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  indeterminate?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'default' | 'filled' | 'outlined';
+  state?: 'default' | 'success' | 'error' | 'warning';
+  label?: string;
+  helperText?: string;
+  errorMessage?: string;
+  id?: string;
+  class?: string;
+}
+
+const {
+  name,
+  value,
+  checked = false,
+  disabled = false,
+  indeterminate = false,
+  size = 'medium',
+  variant = 'default',
+  state = 'default',
+  label,
+  helperText,
+  errorMessage,
+  id,
+  class: className = '',
+} = Astro.props;
+
+const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+const hasLabel = label && label.length > 0;
+const hasHelperText = helperText && helperText.length > 0;
+const hasErrorMessage = errorMessage && errorMessage.length > 0;
+const isError = state === 'error';
+
+const checkboxClasses = [
+  'ui-checkbox',
+  `ui-checkbox--${size}`,
+  `ui-checkbox--${variant}`,
+  `ui-checkbox--${state}`,
+  disabled ? 'ui-checkbox--disabled' : '',
+  indeterminate ? 'ui-checkbox--indeterminate' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class="ui-checkbox-container">
+  <div class={checkboxClasses}>
+    <div class="ui-checkbox__item">
+      <input
+        type="checkbox"
+        id={checkboxId}
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled}
+        class="ui-checkbox__input"
+        aria-invalid={isError}
+        aria-describedby={hasHelperText || hasErrorMessage
+          ? `${checkboxId}-help`
+          : undefined}
+      />
+      <div class="ui-checkbox__control">
+        <div class="ui-checkbox__checkmark">
+          <svg viewBox="0 0 16 12" class="ui-checkbox__check-icon">
+            <path
+              d="M1 6L5.5 10.5L15 1"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+          <div class="ui-checkbox__indeterminate-icon"></div>
+        </div>
+      </div>
+    </div>
+
+    {
+      hasLabel && (
+        <label for={checkboxId} class="ui-checkbox__label">
+          <span class="ui-checkbox__title">{label}</span>
+        </label>
+      )
+    }
+  </div>
+
+  {
+    (hasHelperText || hasErrorMessage) && (
+      <div id={`${checkboxId}-help`} class="ui-checkbox__help">
+        {isError && hasErrorMessage ? errorMessage : helperText}
+      </div>
+    )
+  }
+</div>
+
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+
+  .ui-checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+  }
+
+  .ui-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: to-rem(12);
+    cursor: pointer;
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  .ui-checkbox__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .ui-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .ui-checkbox__control {
+    position: relative;
+    border: 2px solid $gray-300;
+    border-radius: to-rem(4);
+    background-color: $white;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ui-checkbox--small & {
+      width: to-rem(16);
+      height: to-rem(16);
+      border-radius: to-rem(3);
+    }
+
+    .ui-checkbox--medium & {
+      width: to-rem(20);
+      height: to-rem(20);
+      border-radius: to-rem(4);
+    }
+
+    .ui-checkbox--large & {
+      width: to-rem(24);
+      height: to-rem(24);
+      border-radius: to-rem(6);
+    }
+
+    .ui-checkbox:hover:not(.ui-checkbox--disabled) & {
+      border-color: $blue-400;
+    }
+
+    .ui-checkbox__input:focus + & {
+      border-color: $blue-500;
+      box-shadow: 0 0 0 3px rgba(0, 124, 204, 0.1);
+    }
+
+    .ui-checkbox__input:checked + & {
+      background-color: $blue-500;
+      border-color: $blue-500;
+      color: $white;
+    }
+
+    .ui-checkbox__input:indeterminate + & {
+      background-color: $blue-500;
+      border-color: $blue-500;
+      color: $white;
+    }
+
+    // State variants
+    .ui-checkbox--success .ui-checkbox__input:checked + & {
+      background-color: $success-color;
+      border-color: $success-color;
+    }
+
+    .ui-checkbox--error & {
+      border-color: $error-color;
+    }
+
+    .ui-checkbox--error .ui-checkbox__input:checked + & {
+      background-color: $error-color;
+      border-color: $error-color;
+    }
+
+    .ui-checkbox--warning .ui-checkbox__input:checked + & {
+      background-color: $warning-color;
+      border-color: $warning-color;
+    }
+
+    // Style variants
+    .ui-checkbox--filled & {
+      background-color: $gray-50;
+      border-color: $gray-200;
+    }
+
+    .ui-checkbox--outlined & {
+      border-width: 2px;
+      background-color: transparent;
+    }
+  }
+
+  .ui-checkbox__checkmark {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ui-checkbox__check-icon {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.15s ease;
+
+    .ui-checkbox--small & {
+      width: to-rem(10);
+      height: to-rem(8);
+    }
+
+    .ui-checkbox--medium & {
+      width: to-rem(12);
+      height: to-rem(10);
+    }
+
+    .ui-checkbox--large & {
+      width: to-rem(14);
+      height: to-rem(12);
+    }
+
+    .ui-checkbox__input:checked ~ .ui-checkbox__control & {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .ui-checkbox__indeterminate-icon {
+    position: absolute;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+
+    .ui-checkbox--small & {
+      width: to-rem(8);
+      height: to-rem(2);
+      border-radius: to-rem(1);
+    }
+
+    .ui-checkbox--medium & {
+      width: to-rem(10);
+      height: to-rem(2);
+      border-radius: to-rem(1);
+    }
+
+    .ui-checkbox--large & {
+      width: to-rem(12);
+      height: to-rem(2);
+      border-radius: to-rem(1);
+    }
+
+    .ui-checkbox__input:indeterminate ~ .ui-checkbox__control & {
+      opacity: 1;
+    }
+  }
+
+  .ui-checkbox__label {
+    cursor: pointer;
+    user-select: none;
+
+    .ui-checkbox--disabled & {
+      cursor: not-allowed;
+      color: $gray-400;
+    }
+  }
+
+  .ui-checkbox__title {
+    font-size: 0.875rem;
+    font-weight: $font-medium;
+    color: $gray-700;
+    line-height: 1.4;
+
+    .ui-checkbox--small & {
+      font-size: 0.8125rem;
+    }
+
+    .ui-checkbox--large & {
+      font-size: 1rem;
+    }
+  }
+
+  .ui-checkbox__help {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: $gray-500;
+    margin-left: to-rem(32);
+
+    .ui-checkbox--small + & {
+      margin-left: to-rem(28);
+    }
+
+    .ui-checkbox--large + & {
+      margin-left: to-rem(36);
+    }
+
+    .ui-checkbox--error + & {
+      color: $error-color;
+    }
+
+    .ui-checkbox--warning + & {
+      color: $warning-color;
+    }
+
+    .ui-checkbox--success + & {
+      color: $success-color;
+    }
+  }
+</style>
