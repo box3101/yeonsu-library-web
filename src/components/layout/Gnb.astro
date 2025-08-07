@@ -1,26 +1,639 @@
 ---
-const gnbItems = [
-  { href: 'SRCH__001_소장도서검색', text: '도서검색' },
-  { href: '#', text: '책 읽는 연수구' },
-  { href: '#', text: '안내마당' },
-  { href: '#', text: '도서서비스' },
-  { href: '#', text: '열린참여마당' },
-  { href: '#', text: '문화마당' },
-  { href: '#', text: '도서관소개' },
+const menuData = [
+  { 
+    title: '도서검색', 
+    type: '2depth',
+    categories: [
+      {
+        title: '도서검색',
+        items: [
+          { label: '소장도서검색', href: '/SRCH__001_소장도서검색' },
+          { label: '스마트도서관비치도서', href: '/SRCH__007_스마트도서관비치도서' },
+          { label: '신착도서', href: '/new-books' },
+          { label: '추천도서', href: '/recommended-books' },
+          { label: '베스트셀러', href: '/bestsellers' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '책 읽는 연수구', 
+    type: '3depth',
+    categories: [
+      {
+        title: '독서진흥',
+        items: [
+          { label: '독서의 달', href: '/reading-month' },
+          { label: '책 읽는 연수구 만들기', href: '/reading-yeonsu', isSelected: true },
+          { label: '시민추천도서', href: '/citizen-books' },
+          { label: '독서동아리', href: '/reading-clubs' },
+          { label: '원북원시티', href: '/one-book-one-city' }
+        ]
+      }
+    ],
+    subCategories: [
+      {
+        title: '책 읽는 연수구 만들기',
+        items: [
+          { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
+          { label: '참여방법', href: '/reading-yeonsu/participate' },
+          { label: '독서후기', href: '/reading-yeonsu/reviews' },
+          { label: '우수작 선정', href: '/reading-yeonsu/awards' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '안내마당', 
+    type: '3depth',
+    categories: [
+      {
+        title: '도서관안내',
+        items: [
+          { label: '도서관소개', href: '/info/about' },
+          { label: '이용안내', href: '/info/guide', isSelected: true },
+          { label: '층별안내', href: '/info/floor-guide' },
+          { label: '찾아오시는 길', href: '/info/location' },
+          { label: '시설현황', href: '/info/facilities' }
+        ]
+      }
+    ],
+    subCategories: [
+      {
+        title: '이용안내',
+        items: [
+          { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
+          { label: '회원가입안내', href: '/info/guide/membership' },
+          { label: '이용시간', href: '/info/guide/hours' },
+          { label: '휴관일안내', href: '/info/guide/holidays' },
+          { label: '이용규칙', href: '/info/guide/rules' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '도서서비스', 
+    type: '2depth',
+    categories: [
+      {
+        title: '디지털서비스',
+        items: [
+          { label: '전자책', href: '/service/ebooks' },
+          { label: '오디오북', href: '/service/audiobooks' },
+          { label: '디지털컬렉션', href: '/service/digital-collection' },
+          { label: '온라인DB', href: '/service/database' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '열린참여마당', 
+    type: '3depth',
+    categories: [
+      {
+        title: '참여마당',
+        items: [
+          { label: '도서관에 바란다', href: '/BBS_USER_REG1_LIST_도서관에바란다' },
+          { label: '자원봉사', href: '/volunteer' },
+          { label: '도서관 견학', href: '/tour', isSelected: true },
+          { label: '도서기증', href: '/donation' },
+          { label: '독서마라톤', href: '/reading-marathon' },
+          { label: '독서왕', href: '/reading-king' },
+          { label: '출석체크 이벤트', href: '/attendance-event' }
+        ]
+      }
+    ],
+    subCategories: [
+      {
+        title: '도서관 견학',
+        items: [
+          { label: '견학신청', href: '/tour/application', isSelected: true },
+          { label: '견학안내', href: '/tour/guide' },
+          { label: '견학후기', href: '/tour/reviews' },
+          { label: '견학일정조회', href: '/tour/schedule' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '문화마당', 
+    type: '3depth',
+    categories: [
+      {
+        title: '문화프로그램',
+        items: [
+          { label: '문화행사', href: '/culture/events' },
+          { label: '강좌신청', href: '/culture/lectures', isSelected: true },
+          { label: '전시안내', href: '/culture/exhibitions' },
+          { label: '공연안내', href: '/culture/performances' },
+          { label: '작은도서관', href: '/culture/small-library' }
+        ]
+      }
+    ],
+    subCategories: [
+      {
+        title: '강좌신청',
+        items: [
+          { label: '성인강좌', href: '/culture/lectures/adult', isSelected: true },
+          { label: '어린이강좌', href: '/culture/lectures/children' },
+          { label: '청소년강좌', href: '/culture/lectures/youth' },
+          { label: '온라인강좌', href: '/culture/lectures/online' }
+        ]
+      }
+    ]
+  },
+  { 
+    title: '도서관소개', 
+    type: '2depth',
+    categories: [
+      {
+        title: '도서관정보',
+        items: [
+          { label: '관장인사말', href: '/about/greeting' },
+          { label: '연혁', href: '/about/history' },
+          { label: '조직도', href: '/about/organization' },
+          { label: '도서관현황', href: '/about/status' },
+          { label: '연간운영계획', href: '/about/plan' }
+        ]
+      }
+    ]
+  }
 ];
+
+// 현재 활성화된 메뉴 찾기
+const activeMenu = menuData.find(menu => 
+  menu.categories?.some(cat => 
+    cat.items.some(item => item.isSelected)
+  )
+);
 ---
 
-<nav class="gnb">
-  <ul class="gnb-list container">
-    {
-      gnbItems.map(item => (
-        <li class="gnb-item">
-          <a href={item.href} class="gnb-link">
-            <span>{item.text}</span>
-            <i class="icon icon-xsm icon-arrow-down" />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<nav class="gnb" id="gnb">
+  <!-- 메인 메뉴 바 -->
+  <div class="gnb-main">
+    <div class="gnb-container">
+      <ul class="gnb-main-list">
+        {menuData.map((menu, index) => (
+          <li class="gnb-main-item" data-menu-index={index}>
+            <button 
+              class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
+            >
+              <span class="gnb-main-text">{menu.title}</span>
+              {menu.type !== '1depth' && (
+                <svg class="gnb-main-arrow" viewBox="0 0 12 8" width="12" height="8">
+                  <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" 
+                        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              )}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- 서브 메뉴 (동적으로 표시) -->
+  {menuData.map((menu, index) => 
+    menu.type !== '1depth' && (
+      <div class="gnb-sub" data-menu-target={index} >
+        <div class="gnb-container">
+          <div class="gnb-sub-content">
+            <!-- 1depth 제목 -->
+            <div class="gnb-sub-title">
+              <h2 class="gnb-sub-title-text">{menu.title}</h2>
+            </div>
+
+            <!-- 2depth 메뉴 -->
+            <div class="gnb-sub-menu">
+              {menu.categories?.[0]?.items.map(item => (
+                <div class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}>
+                  <a href={item.href} class="gnb-sub-link">
+                    <span class="gnb-sub-text">{item.label}</span>
+                    {menu.type === '3depth' && (
+                      <svg class="gnb-sub-arrow" viewBox="0 0 12 8" width="12" height="8">
+                        <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" 
+                              stroke-linecap="round" stroke-linejoin="round" fill="none" 
+                              transform="rotate(90 6 4)"/>
+                      </svg>
+                    )}
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <!-- 3depth 메뉴 -->
+            {menu.type === '3depth' && menu.subCategories && (
+              <div class="gnb-third">
+                <div class="gnb-third-title">
+                  <h3 class="gnb-third-title-text">{menu.subCategories[0].title}</h3>
+                </div>
+                <div class="gnb-third-items">
+                  <div class="gnb-third-column">
+                    {menu.subCategories[0].items.map(item => (
+                      <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
+                        <a href={item.href} class="gnb-third-link">
+                          <div class="gnb-third-bullet"></div>
+                          <span class="gnb-third-text">{item.label}</span>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  )}
 </nav>
+
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+
+  .gnb {
+    position: relative;
+    z-index: 1000;
+    
+    &-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 to-rem(80);
+    }
+  }
+
+  // 메인 메뉴 바 (1depth)
+  .gnb-main {
+    background: #ffffff;
+    border-top: 1px solid #cdd1d5;
+    border-bottom: 1px solid #cdd1d5;
+    
+    &-list {
+      @include flex(row, flex-start, stretch);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: to-rem(16);
+      height: to-rem(56);
+    }
+
+    &-item {
+      position: relative;
+    }
+
+    &-link {
+      @include flex(row, space-between, center);
+      gap: to-rem(8);
+      padding: 0 to-rem(16);
+      height: to-rem(56);
+      width: to-rem(169);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(19);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #464c53;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f8fafc;
+      }
+
+      &.selected {
+        border-bottom: 4px solid #244874;
+        background: #ffffff;
+      }
+    }
+
+    &-text {
+      flex: 1;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    &-arrow {
+      width: to-rem(20);
+      height: to-rem(20);
+      color: #33363d;
+      opacity: 0.6;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  // 서브 메뉴 영역 (2depth + 3depth)
+  .gnb-sub {
+    background: #ffffff;
+    border-top: 1px solid #cdd1d5;
+    border-bottom: 1px solid #cdd1d5;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    &-content {
+      @include flex(row, flex-start, flex-start);
+      padding: to-rem(16) 0;
+      gap: to-rem(24);
+    }
+
+    // 1depth 제목
+    &-title {
+      width: to-rem(306);
+      padding-right: to-rem(24);
+
+      &-text {
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(24);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #1e2124;
+        margin: 0;
+        padding: to-rem(16) to-rem(4);
+      }
+    }
+
+    // 2depth 메뉴
+    &-menu {
+      width: to-rem(306);
+      padding-top: to-rem(8);
+      padding-right: to-rem(24);
+      @include flex(column, flex-start, stretch);
+      gap: to-rem(4);
+    }
+
+    &-item {
+      border-radius: to-rem(8);
+      transition: all 0.2s ease;
+
+      &.selected {
+        background: #ecf2f9;
+      }
+
+      &:hover {
+        background: #f8fafc;
+      }
+    }
+
+    &-link {
+      @include flex(row, space-between, center);
+      width: 100%;
+      padding: to-rem(16);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: to-rem(8);
+    }
+
+    &-text {
+      flex: 1;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #1e2124;
+      text-align: left;
+
+      .selected & {
+        font-weight: 700;
+        color: #052b57;
+      }
+    }
+
+    &-arrow {
+      width: to-rem(20);
+      height: to-rem(20);
+      color: #33363d;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+  }
+
+  // 3depth 메뉴
+  .gnb-third {
+    flex: 1;
+    border-left: 1px solid #cdd1d5;
+    padding: to-rem(8) to-rem(24);
+
+    &-title {
+      margin-bottom: to-rem(16);
+
+      &-text {
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(17);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #052b57;
+        margin: 0;
+        padding: to-rem(4) to-rem(8);
+      }
+    }
+
+    &-items {
+      @include flex(row, flex-start, flex-start);
+      gap: to-rem(24);
+    }
+
+    &-column {
+      @include flex(column, flex-start, stretch);
+      gap: to-rem(8);
+      width: to-rem(298);
+    }
+
+    &-item {
+      border-radius: to-rem(6);
+      transition: all 0.2s ease;
+
+      &.selected {
+        background: #d8e4f3;
+      }
+
+      &:hover {
+        background: #f1f5f9;
+      }
+    }
+
+    &-link {
+      @include flex(row, flex-start, center);
+      width: 100%;
+      padding: to-rem(10) to-rem(8);
+      text-decoration: none;
+      gap: to-rem(10);
+    }
+
+    &-bullet {
+      width: to-rem(4);
+      height: to-rem(4);
+      background: #33363d;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: to-rem(2);
+    }
+
+    &-text {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #1e2124;
+    }
+  }
+
+  // 반응형
+  @include tablet {
+    .gnb {
+      &-container {
+        padding: 0 to-rem(24);
+      }
+    }
+
+    .gnb-main {
+      &-list {
+        flex-wrap: wrap;
+        height: auto;
+        gap: to-rem(8);
+      }
+
+      &-link {
+        width: auto;
+        min-width: to-rem(120);
+        font-size: to-rem(16);
+        padding: 0 to-rem(12);
+        height: to-rem(48);
+      }
+    }
+
+    .gnb-sub {
+      &-content {
+        flex-direction: column;
+        gap: to-rem(16);
+      }
+
+      &-title,
+      &-menu {
+        width: 100%;
+      }
+    }
+
+    .gnb-third {
+      border-left: none;
+      border-top: 1px solid #cdd1d5;
+      padding: to-rem(16) 0 0 0;
+
+      &-column {
+        width: 100%;
+      }
+    }
+  }
+
+  @include mobile {
+    .gnb {
+      display: none;
+    }
+  }
+
+  // 호버 상태
+  .gnb-main-item:hover {
+    .gnb-sub[data-menu-target] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .gnb-sub:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const gnbItems = document.querySelectorAll('.gnb-main-item[data-menu-index]');
+    const gnbSubs = document.querySelectorAll('.gnb-sub[data-menu-target]');
+    let currentTimeout: number | null = null;
+
+    gnbItems.forEach((item, index) => {
+      const menuIndex = item.getAttribute('data-menu-index');
+      const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`) as HTMLElement;
+      
+      if (!correspondingSub) return;
+
+      // 메인 메뉴 호버
+      item.addEventListener('mouseenter', () => {
+        if (currentTimeout) {
+          clearTimeout(currentTimeout);
+          currentTimeout = null;
+        }
+
+        // 모든 서브메뉴 숨기기
+        gnbSubs.forEach(sub => {
+          (sub as HTMLElement).style.opacity = '0';
+          (sub as HTMLElement).style.visibility = 'hidden';
+          (sub as HTMLElement).style.transform = 'translateY(-10px)';
+        });
+
+        // 현재 메뉴의 서브메뉴 보이기
+        correspondingSub.style.opacity = '1';
+        correspondingSub.style.visibility = 'visible';
+        correspondingSub.style.transform = 'translateY(0)';
+      });
+
+      // 메인 메뉴에서 나갈 때
+      item.addEventListener('mouseleave', (e) => {
+        const relatedTarget = e.relatedTarget as Element;
+        
+        // 서브메뉴로 이동하지 않는 경우에만 숨기기
+        if (!correspondingSub.contains(relatedTarget)) {
+          currentTimeout = window.setTimeout(() => {
+            correspondingSub.style.opacity = '0';
+            correspondingSub.style.visibility = 'hidden';
+            correspondingSub.style.transform = 'translateY(-10px)';
+          }, 100);
+        }
+      });
+
+      // 서브메뉴 호버
+      correspondingSub.addEventListener('mouseenter', () => {
+        if (currentTimeout) {
+          clearTimeout(currentTimeout);
+          currentTimeout = null;
+        }
+      });
+
+      // 서브메뉴에서 나갈 때
+      correspondingSub.addEventListener('mouseleave', (e) => {
+        const relatedTarget = e.relatedTarget as Element;
+        
+        // 메인 메뉴로 돌아가지 않는 경우에만 숨기기
+        if (!item.contains(relatedTarget)) {
+          correspondingSub.style.opacity = '0';
+          correspondingSub.style.visibility = 'hidden';
+          correspondingSub.style.transform = 'translateY(-10px)';
+        }
+      });
+    });
+
+    // 전체 GNB 영역 벗어나면 모든 서브메뉴 숨기기
+    const gnbElement = document.getElementById('gnb');
+    if (gnbElement) {
+      gnbElement.addEventListener('mouseleave', () => {
+        gnbSubs.forEach(sub => {
+          (sub as HTMLElement).style.opacity = '0';
+          (sub as HTMLElement).style.visibility = 'hidden';
+          (sub as HTMLElement).style.transform = 'translateY(-10px)';
+        });
+      });
+    }
+  });
+</script>
