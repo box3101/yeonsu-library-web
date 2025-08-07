@@ -106,4 +106,29 @@
     ],
     "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end",
   },
+  "bbs-actions": {
+    "prefix": "bbs",
+    "body": [
+      "<div class=\"bbs-actions\">",
+      "  <UiButton variant=\"primary\" text=\"$1\" />",
+      "  <UiButton variant=\"secondary\" text=\"$2\" />",
+      "</div>",
+    ],
+    "description": "게시판 액션 버튼 그룹 - 기본 2개 버튼",
+  },
+  "pagination": {
+    "prefix": "page",
+    "body": [
+      "<div class=\"pagination-section\">",
+      "  <UiPagination",
+      "    currentPage={$1}",
+      "    totalPages={$2}",
+      "    maxVisiblePages={$3}",
+      "    onPageChange={page => console.log('Page changed to:', page)}",
+      "  />",
+      "</div>",
+    ],
+    "description": "페이지네이션 컴포넌트 - UiPagination 래퍼",
+  },
+
 }

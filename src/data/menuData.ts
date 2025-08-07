@@ -22,11 +22,7 @@ export const menuConfig: Record<string, MenuConfig> = {
       {
         title: '소장도서검색',
         isExpanded: true,
-        items: [
-          { label: '통합검색', href: '/search/integrated' },
-          { label: '상세검색', href: '/search/detailed' },
-          { label: '신착도서', href: '/search/new-arrivals' },
-        ],
+        href: '/SRCH__001_소장도서검색',
       },
       {
         title: '통합검색',
@@ -77,11 +73,7 @@ export const menuConfig: Record<string, MenuConfig> = {
       {
         title: '스마트도서관비치도서',
         isExpanded: false,
-        items: [
-          { label: '스마트도서관 안내', href: '/smart-library/info' },
-          { label: '비치도서 목록', href: '/smart-library/books' },
-          { label: '이용현황', href: '/smart-library/status' },
-        ],
+        href: '/SRCH__007_스마트도서관비치도서',
       },
     ],
   },
@@ -95,7 +87,7 @@ export const menuConfig: Record<string, MenuConfig> = {
       {
         title: '희망도서신청',
         items: [
-          { label: '희망도서신청', href: '/BBS_USER_REG1_LIST_도서관에바란다' },
+          { label: '희망도서신청', href: '/' },
         ],
       },
       {

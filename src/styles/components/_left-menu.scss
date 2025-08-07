@@ -56,11 +56,17 @@
       &.expanded {
         background: #e3f2fd;
         color: $primary-color;
-        border-bottom: 3px solid $primary-color;
+        // border-bottom: 3px solid $primary-color;
 
         .menu-arrow {
           transform: rotate(180deg);
         }
+      }
+
+      &.active {
+        background: #e3f2fd;
+        color: #007ccc;
+        border-bottom: 3px solid #007ccc;
       }
 
       .menu-title-text {

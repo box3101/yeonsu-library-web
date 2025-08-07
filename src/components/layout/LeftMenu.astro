@@ -8,11 +8,17 @@ export interface Props {
 // Props에서 menuType을 받거나, URL 기반으로 자동 감지
 const { menuType } = Astro.props;
 const currentPath = Astro.url.pathname;
+const decodedCurrentPath = decodeURIComponent(currentPath); // URL 디코딩
 const detectedMenuType = menuType || getMenuTypeFromPath(currentPath);
 
 // 해당하는 메뉴 데이터 가져오기
 const currentMenu = menuConfig[detectedMenuType];
 const menuItems = currentMenu?.sections || [];
+
+// URL 비교 함수
+const isActivePath = (href: string) => {
+  return currentPath === href || decodedCurrentPath === href || currentPath === encodeURIComponent(href);
+};
 ---
 
 <nav class="left-menu-nav">
@@ -26,7 +32,7 @@ const menuItems = currentMenu?.sections || [];
           <!-- 2depth만 있는 경우: 직접 링크 -->
           <a
             href={section.href}
-            class={`menu-section-title direct-link ${currentPath === section.href ? 'active' : ''}`}
+            class={`menu-section-title direct-link ${isActivePath(section.href) ? 'active' : ''}`}
           >
             <span class="menu-title-text">{section.title}</span>
           </a>
@@ -63,7 +69,7 @@ const menuItems = currentMenu?.sections || [];
                 <li class="menu-item">
                   <a
                     href={item.href}
-                    class={`menu-link ${currentPath === item.href ? 'active' : ''}`}
+                    class={`menu-link ${isActivePath(item.href) ? 'active' : ''}`}
                   >
                     {item.label}
                   </a>

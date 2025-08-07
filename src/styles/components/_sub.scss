@@ -704,3 +704,60 @@
   line-height: 1.5;
   @include flex(row, flex-end, flex-end);
 }
+
+.bbs-list-container {
+  margin-top: to-rem(24);
+}
+
+.notice-box {
+  display: flex;
+  padding: to-rem(32);
+  border-radius: 12px;
+  border: 1px solid var(--color-gray-gy-20, #cbcccc);
+  background: var(--color-gray-wt, #fff);
+
+  .notice-icon {
+    display: inline-block;
+    margin-right: to-rem(12);
+  }
+
+  .notice-content {
+    flex: 1;
+    margin-top: to-rem(6);
+
+    .notice-title {
+      font-size: to-rem(19);
+      font-weight: 700;
+      color: $gray-90;
+      margin-bottom: to-rem(12);
+    }
+
+    .notice-text {
+      font-size: to-rem(17);
+      font-weight: 500;
+      color: $gray-90;
+    }
+  }
+}
+
+.bbs-header {
+  @include flex(row, space-between, center);
+  margin: to-rem(24) 0;
+  padding: to-rem(16) 0;
+  border-bottom: 1px solid $gray-300;
+
+  .bbs-total {
+    font-size: to-rem(16);
+    color: $gray-700;
+
+    strong {
+      color: $primary-color;
+      font-weight: $font-bold;
+    }
+  }
+
+  .bbs-actions {
+    @include flex(row, flex-end, center);
+    gap: to-rem(8);
+  }
+}
