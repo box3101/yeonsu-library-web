@@ -99,4 +99,11 @@
     ],
     "description": "2컬럼 플렉스 레이아웃 - 25:75 비율",
   },
+  "flex": {
+    "prefix": "flex",
+    "body": [
+      "@include flex(row, $1, $2);",
+    ],
+    "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end",
+  },
 }

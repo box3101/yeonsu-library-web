@@ -141,79 +141,39 @@ const breadcrumbItems = [
 
       <!-- 카드 -->
       <div class="card-container card-container--col-2">
-        <div class="card-container__item">
-          <UiSmartLibraryBookCard
-            index={1}
-            title="초등학생이 알아야 할 과학 상식 100가지"
-            author="박과학 지음"
-            publisher="과학나라"
-            publishYear="2024"
-            library="송도2동 스마트도서관"
-            status="available"
-            imageUrl="/assets/images/content-infant-books.png"
-          />
-        </div>
-        <div class="card-container__item">
-          <UiSmartLibraryBookCard
-            index={2}
-            title="초등학생이 알아야 할 과학 상식 100가지"
-            author="박과학 지음"
-            publisher="과학나라"
-            publishYear="2024"
-            library="송도2동 스마트도서관"
-            status="available"
-            imageUrl="/assets/images/content-infant-books.png"
-          />
-        </div>
-        <div class="card-container__item">
-          <UiSmartLibraryBookCard
-            index={3}
-            title="초등학생이 알아야 할 과학 상식 100가지"
-            author="박과학 지음"
-            publisher="과학나라"
-            publishYear="2024"
-            library="송도2동 스마트도서관"
-            status="available"
-            imageUrl="/assets/images/content-infant-books.png"
-          />
-          <UiSmartLibraryBookCard
-            index={4}
-            title="초등학생이 알아야 할 과학 상식 100가지"
-            author="박과학 지음"
-            publisher="과학나라"
-            publishYear="2024"
-            library="송도2동 스마트도서관"
-            status="available"
-            imageUrl="/assets/images/content-infant-books.png"
-          />
-        </div>
-        <div class="card-container__item">
-          <UiSmartLibraryBookCard
-            index={4}
-            title="초등학생이 알아야 할 과학 상식 100가지"
-            author="박과학 지음"
-            publisher="과학나라"
-            publishYear="2024"
-            library="송도2동 스마트도서관"
-            status="available"
-            imageUrl="/assets/images/content-infant-books.png"
-          />
-        </div>
+        {
+          Array.from({ length: 4 }, (_, i) => (
+            <div class="card-container__item">
+              <UiSmartLibraryBookCard
+                index={i + 1}
+                title="초등학생이 알아야 할 과학 상식 100가지"
+                author="박과학 지음"
+                publisher="과학나라"
+                publishYear="2024"
+                library="송도2동 스마트도서관"
+                status="available"
+                imageUrl="/assets/images/content-infant-books.png"
+              />
+            </div>
+          ))
+        }
       </div>
 
       <!-- 도서표지제공 -->
-      <div class="book-cover-info flex items-center gap-2 justify-end">
+      <div class="book-cover-info mt23 flex items-center gap-2 justify-end">
         도서 표지 제공 :
         <img src="/assets/images/book-img.png" alt="알라딘" />
       </div>
 
       <!-- 페이징네비게이션 -->
-      <UiPagination
-        currentPage={1}
-        totalPages={10}
-        maxVisiblePages={8}
-        onPageChange={page => console.log('Page changed to:', page)}
-      />
+      <div class="pagination-section">
+        <UiPagination
+          currentPage={1}
+          totalPages={10}
+          maxVisiblePages={8}
+          onPageChange={page => console.log('Page changed to:', page)}
+        />
+      </div>
     </div>
   </SubLayout>
 </Layout>

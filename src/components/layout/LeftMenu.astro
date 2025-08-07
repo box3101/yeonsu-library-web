@@ -1,120 +1,77 @@
 ---
-// 도서검색 페이지용 메뉴 데이터
-const menuItems = [
-  {
-    title: '소장도서검색',
-    isExpanded: true, // 기본 확장
-    items: [
-      { label: '통합검색', href: '/search/integrated' },
-      { label: '상세검색', href: '/search/detailed' },
-      { label: '신착도서', href: '/search/new-arrivals' },
-    ],
-  },
-  {
-    title: '통합검색',
-    isExpanded: false,
-    items: [
-      { label: '도서', href: '/search/books' },
-      { label: '연속간행물', href: '/search/serials' },
-      { label: '비도서자료', href: '/search/non-books' },
-    ],
-  },
-  {
-    title: '인기/신착/추천도서',
-    isExpanded: false,
-    items: [
-      { label: '인기도서', href: '/search/popular' },
-      { label: '신착도서', href: '/search/new' },
-      { label: '추천도서', href: '/search/recommended' },
-      { label: '사서추천', href: '/search/librarian-pick' },
-    ],
-  },
-  {
-    title: '인생서가',
-    isExpanded: false,
-    items: [
-      { label: '내 서재', href: '/mypage/bookshelf' },
-      { label: '독서기록', href: '/mypage/reading-log' },
-      { label: '관심도서', href: '/mypage/wishlist' },
-    ],
-  },
-  {
-    title: '스쿨북스',
-    isExpanded: false,
-    items: [
-      { label: '교과서', href: '/schoolbooks/textbooks' },
-      { label: '참고서', href: '/schoolbooks/reference' },
-      { label: '문제집', href: '/schoolbooks/workbooks' },
-    ],
-  },
-  {
-    title: '도서탐색',
-    isExpanded: false,
-    items: [
-      { label: '주제별 탐색', href: '/browse/subjects' },
-      { label: '저자별 탐색', href: '/browse/authors' },
-      { label: '출판사별 탐색', href: '/browse/publishers' },
-    ],
-  },
-  {
-    title: '스마트도서관비치도서',
-    isExpanded: false,
-    items: [
-      { label: '스마트도서관 안내', href: '/smart-library/info' },
-      { label: '비치도서 목록', href: '/smart-library/books' },
-      { label: '이용현황', href: '/smart-library/status' },
-    ],
-  },
-];
+import { menuConfig, getMenuTypeFromPath } from '@/data/menuData';
 
-// 현재 경로 확인을 위한 URL 파싱
+export interface Props {
+  menuType?: string;
+}
+
+// Props에서 menuType을 받거나, URL 기반으로 자동 감지
+const { menuType } = Astro.props;
 const currentPath = Astro.url.pathname;
+const detectedMenuType = menuType || getMenuTypeFromPath(currentPath);
+
+// 해당하는 메뉴 데이터 가져오기
+const currentMenu = menuConfig[detectedMenuType];
+const menuItems = currentMenu?.sections || [];
 ---
 
 <nav class="left-menu-nav">
   <div class="left-menu-title">
-    <h2 class="left-menu-title-text">도서검색</h2>
+    <h2 class="left-menu-title-text">{currentMenu?.title || '메뉴'}</h2>
   </div>
   {
     menuItems.map((section, index) => (
       <div class="menu-section">
-        <button
-          class={`menu-section-title ${section.isExpanded ? 'expanded' : ''}`}
-          data-menu-toggle={index}
-          aria-expanded={section.isExpanded}
-        >
-          <span class="menu-title-text">{section.title}</span>
-          <svg
-            class="menu-arrow"
-            width="12"
-            height="8"
-            viewBox="0 0 12 8"
-            fill="none"
+        {section.href ? (
+          <!-- 2depth만 있는 경우: 직접 링크 -->
+          <a
+            href={section.href}
+            class={`menu-section-title direct-link ${currentPath === section.href ? 'active' : ''}`}
           >
-            <path
-              d="M1 1L6 6L11 1"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-        <ul
-          class={`menu-list ${section.isExpanded ? 'expanded' : ''}`}
-          data-menu-content={index}
-        >
-          {section.items.map(item => (
-            <li class="menu-item">
-              <a
-                href={item.href}
-                class={`menu-link ${currentPath === item.href ? 'active' : ''}`}
+            <span class="menu-title-text">{section.title}</span>
+          </a>
+        ) : (
+          <!-- 3depth가 있는 경우: 토글 버튼 -->
+          <>
+            <button
+              class={`menu-section-title ${section.isExpanded ? 'expanded' : ''}`}
+              data-menu-toggle={index}
+              aria-expanded={section.isExpanded}
+            >
+              <span class="menu-title-text">{section.title}</span>
+              <svg
+                class="menu-arrow"
+                width="12"
+                height="8"
+                viewBox="0 0 12 8"
+                fill="none"
               >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+                <path
+                  d="M1 1L6 6L11 1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul
+              class={`menu-list ${section.isExpanded ? 'expanded' : ''}`}
+              data-menu-content={index}
+            >
+              {section.items?.map(item => (
+                <li class="menu-item">
+                  <a
+                    href={item.href}
+                    class={`menu-link ${currentPath === item.href ? 'active' : ''}`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     ))
   }

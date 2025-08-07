@@ -11,12 +11,12 @@
   border: 1px solid $gray-300;
   border-radius: 12px;
   padding: 32px;
+  width: 100%;
 
   // 카드 내용 영역
   &__content {
     display: flex;
     gap: 20px;
-    width: 100%;
   }
 
   // 왼쪽 영역 (인덱스 + 도서 이미지)
@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 16px;
+    gap: 10px;
     flex: 1;
   }
 
@@ -91,6 +91,10 @@
     color: $black;
     width: 250px;
     margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   // 상세 정보 영역
@@ -147,6 +151,7 @@
     line-height: 1.5;
     border-radius: 4px;
     padding: 0 12px;
+    margin-top: 5px;
 
     // 대출가능 상태
     &--available {

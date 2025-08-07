@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '열림참여마당', href: '/support' },
+  { label: '도서관에 바란다' },
+];
+---
+
+<Layout title="도서관에 바란다">
+  <SubLayout title="도서관에 바란다" breadcrumbItems={breadcrumbItems} />
+</Layout>
