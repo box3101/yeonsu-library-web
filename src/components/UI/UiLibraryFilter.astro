@@ -130,6 +130,7 @@ const popularSearches = [
           name="search"
           placeholder="검색어를 입력해주세요."
           size="medium"
+          clearable={true}
           class="ui-library-filter__search-input"
         />
       </div>
@@ -199,7 +200,13 @@ const popularSearches = [
               labelPosition="right"
             />
           </div>
-          <button type="button" class="option-button"> 자동완성 켜기</button>
+          <UiSwitch
+            id="search-save-toggle"
+            size="small"
+            checked={false}
+            label="자동완성 켜기"
+            labelPosition="right"
+          />
         </div>
       </div>
 
@@ -355,18 +362,6 @@ const popularSearches = [
         const targetContent = document.getElementById(`${targetTab}-searches`);
         if (targetContent) {
           targetContent.classList.add('active');
-        }
-      });
-    });
-
-    // 검색어 항목 클릭 시 검색 입력란에 반영
-    searchItems.forEach(item => {
-      item.addEventListener('click', function () {
-        const term = this.dataset.term;
-        if (searchInput && term) {
-          searchInput.value = term;
-          searchDropdown.classList.remove('is-open');
-          searchInput.focus();
         }
       });
     });

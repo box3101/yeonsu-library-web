@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import UiPagination from '../components/UI/UiPagination.astro';
+---
+
+<Layout title="페이지네이션 컴포넌트 데모">
+  <div class="demo-container">
+    <h1 class="demo-title">페이지네이션 컴포넌트 데모</h1>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">기본 페이지네이션 (1/99)</h2>
+      <UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">중간 페이지 (15/99)</h2>
+      <UiPagination currentPage={15} totalPages={99} maxVisiblePages={8} />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">마지막 페이지 (99/99)</h2>
+      <UiPagination currentPage={99} totalPages={99} maxVisiblePages={8} />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">적은 페이지 수 (3/5)</h2>
+      <UiPagination currentPage={3} totalPages={5} maxVisiblePages={8} />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">페이지 수 제한 (10/50, 최대 5개 표시)</h2>
+      <UiPagination currentPage={10} totalPages={50} maxVisiblePages={5} />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">단일 페이지 (1/1)</h2>
+      <UiPagination currentPage={1} totalPages={1} maxVisiblePages={8} />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .demo-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #1e2124;
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+  }
+
+  .demo-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #191a1a;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .demo-container {
+      padding: 1rem;
+    }
+
+    .demo-title {
+      font-size: 2rem;
+    }
+
+    .demo-section-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

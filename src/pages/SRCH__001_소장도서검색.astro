@@ -1,7 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiLibraryFilter } from '@components';
+import {
+  UiLibraryFilter,
+  UiTab,
+  UiSelect,
+  UiBookCard,
+  UiPagination,
+  UiCollectionModal,
+} from '@components';
 
 const breadcrumbItems = [
   { label: '홈', href: '/' },
@@ -11,29 +18,266 @@ const breadcrumbItems = [
 
 // 도서관 데이터 정의
 const libraries = [
-  { id: 'cheonghak', name: '연수청학도서관', checked: true },
-  { id: 'kkummaru', name: '연수꿈마루도서관', checked: false },
-  { id: 'songdo-kids', name: '송도국제어린이도서관', checked: false },
-  { id: 'haedoji', name: '해돋이도서관', checked: false },
-  { id: 'sunhak', name: '선학별빛도서관', checked: true },
-  { id: 'dongchun', name: '동춘나래도서관', checked: false },
-  { id: 'hambak', name: '함박마루도서관', checked: false },
-  { id: 'oknyon1', name: '옥련1동책뜰도서관', checked: false },
-  { id: 'yeongeon2', name: '연건2동어린이작은도서관', checked: true },
-  { id: 'yeonsu1', name: '연수1동작은도서관', checked: false },
-  { id: 'songdo2', name: '송도2동작은도서관', checked: false },
+  { name: '연수청학도서관' },
+  { name: '연수꿈담도서관' },
+  { name: '송도국제어린이도서관' },
+  { name: '해돋이도서관' },
+  { name: '선학별빛도서관' },
+  { name: '동춘나래도서관' },
+  { name: '함박비류도서관' },
+  { name: '옥련1동작은도서관' },
+  { name: '옥련2동어린이작은도서관' },
+  { name: '연수1동작은도서관' },
+  { name: '송도2동작은도서관' },
+  { name: '송도3동작은도서관' },
+  { name: '송도5동작은도서관' },
+  { name: '솔안공원작은도서관' },
+  { name: '해찬솔공원작은도서관' },
+  { name: '누리공원작은도서관' },
+  { name: '송도4동스마트도서관' },
+  { name: '스퀘어원스마트도서관' },
+  { name: '연수구청스마트도서관' },
+  { name: '선학역스마트도서관' },
+];
+
+// 셀렉트 옵션 데이터 정의
+const majorClassificationOptions = [
+  { value: '', label: '대분류' },
+  { value: '000', label: '000 총류' },
+  { value: '100', label: '100 철학' },
+  { value: '200', label: '200 종교' },
+  { value: '300', label: '300 사회과학' },
+  { value: '400', label: '400 언어' },
+  { value: '500', label: '500 순수과학' },
+  { value: '600', label: '600 기술과학' },
+  { value: '700', label: '700 예술' },
+  { value: '800', label: '800 문학' },
+  { value: '900', label: '900 역사' },
+];
+
+const middleClassificationOptions = [{ value: '', label: '중분류' }];
+
+const minorClassificationOptions = [{ value: '', label: '소분류' }];
+
+const sortCriteriaOptions = [
+  { value: '', label: '정렬기준' },
+  { value: 'title', label: '제목순' },
+  { value: 'author', label: '저자순' },
+  { value: 'publisher', label: '출판사순' },
+  { value: 'publication-date', label: '발행년도순' },
+  { value: 'registration-date', label: '등록일순' },
+];
+
+const sortOrderOptions = [
+  { value: '', label: '정렬순서' },
+  { value: 'asc', label: '오름차순' },
+  { value: 'desc', label: '내림차순' },
+];
+
+const outputCountOptions = [
+  { value: '', label: '출력건수' },
+  { value: '10', label: '10건' },
+  { value: '20', label: '20건' },
+  { value: '50', label: '50건' },
+  { value: '100', label: '100건' },
+];
+
+// 소장정보 모달 데이터
+const collectionLibraries = [
+  { name: '연수청학', shortName: '청학', count: 1 },
+  { name: '연수꿈담', shortName: '꿈담', count: 1 },
+  { name: '선학별빛', shortName: '선학', count: 1 },
+];
+
+const collectionData = [
+  {
+    library: '청학',
+    readingRoom: '어린이자료실',
+    loanStatus: '비치중',
+    service: 'reservation' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'CJ0000036641',
+  },
+  {
+    library: '선학',
+    readingRoom: '어린이자료실',
+    loanStatus: '비치중',
+    service: 'interlibrary' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'GJ0000027414',
+  },
+  {
+    library: '꿈담',
+    readingRoom: '어린이자료실',
+    loanStatus: '대출중',
+    returnDate: '2025.07.31',
+    service: 'reservation' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'QJ0000028625',
+    reservationCount: 0,
+  },
 ];
 ---
 
 <Layout title="소장도서검색 - 연수구립도서관">
   <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
     <!-- 도서관 필터 섹션 -->
-    <UiLibraryFilter 
+    <UiLibraryFilter
       title="전체도서관"
       subtitle="도서관 분류"
       libraries={libraries}
       gridColumns={4}
       expanded={true}
+    />
+
+    <section class="search-detail-section">
+      <!-- 상세검색 헤더 -->
+      <div class="search-detail-header">
+        <h2 class="search-detail-title">상세검색</h2>
+      </div>
+
+      <!-- 자료유형 탭 -->
+      <UiTab
+        tabs={[
+          { id: 'all', label: '전체', count: 0, active: true },
+          { id: 'book', label: '단행본', count: 0 },
+          { id: 'serial', label: '연속간행물', count: 0 },
+          { id: 'dvd', label: 'DVD', count: 0 },
+          { id: 'ebook', label: '전자책', count: 0 },
+        ]}
+        variant="default"
+        size="medium"
+        className="mb-4 search-type-tabs"
+      />
+
+      <!-- 검색 정보 요약 -->
+      <div class="search-info-summary mb-4">
+        <span
+          >검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</span
+        >
+        <span class="search-keyword-info ml-2">
+          [키워드: <span class="text-blue-600">홍길동</span>, <span
+            class="text-blue-600">발행처: 2222</span
+          >]
+        </span>
+      </div>
+
+      <!-- 상세 필터 섹션 -->
+      <div class="search-filter-section">
+        <!-- 한국십진분류 필터 -->
+        <div class="filter-row">
+          <div class="filter-group filter-group--classification">
+            <span class="filter-badge">한국십진분류</span>
+            <UiSelect
+              options={majorClassificationOptions}
+              name="major-classification"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+            <UiSelect
+              options={middleClassificationOptions}
+              name="middle-classification"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+            <UiSelect
+              options={minorClassificationOptions}
+              name="minor-classification"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+          </div>
+        </div>
+
+        <!-- 정렬 옵션 필터 -->
+        <div class="filter-row">
+          <div class="filter-group filter-group--sort">
+            <UiSelect
+              options={sortCriteriaOptions}
+              name="sort-criteria"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+            <UiSelect
+              options={sortOrderOptions}
+              name="sort-order"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+            <UiSelect
+              options={outputCountOptions}
+              name="output-count"
+              class="filter-select"
+              width={125}
+              height={48}
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 검색 결과 목록 -->
+      <div class="search-result-list mt24">
+        <!-- 예시 도서 아이템 -->
+        <UiBookCard
+          index={1}
+          imageUrl="/assets/images/default-book.png"
+          badges={[
+            { label: 'DVD', type: 'success', size: 'large' },
+            { label: '대출불가', type: 'warning' },
+          ]}
+          title="서점탐정 유동인. 2, 리턴즈"
+          titleHighlights={['탐정', '리턴즈']}
+          author="조성희 감독"
+          details={{
+            callNumber: 'DV 688.2-조54ㅌ',
+            publishYear: '2017',
+            library: '연수청학',
+            readingRoom: 'OOO자료실',
+            registrationNumber: 'HV0000000881',
+          }}
+        />
+        <UiBookCard
+          index={2}
+          imageUrl="/assets/images/default-book.png"
+          badges={[
+            { label: 'DVD', type: 'success', size: 'large' },
+            { label: '대출불가', type: 'warning' },
+          ]}
+          title="서점탐정 유동인. 2, 리턴즈"
+          titleHighlights={['탐정', '리턴즈']}
+          author="조성희 감독"
+          details={{
+            callNumber: 'DV 688.2-조54ㅌ',
+            publishYear: '2017',
+            library: '연수청학',
+            readingRoom: 'OOO자료실',
+            registrationNumber: 'HV0000000881',
+          }}
+        />
+      </div>
+    </section>
+
+    <!-- 페이징네이션 -->
+    <section class="pagination-section">
+      <UiPagination
+        currentPage={1}
+        totalPages={99}
+        maxVisiblePages={8}
+        onPageChange={page => console.log('Page changed to:', page)}
+      />
+    </section>
+
+    <!-- 소장정보 모달 -->
+    <UiCollectionModal
+      title="서점탐정 유동인. 2, 리턴즈"
+      totalCount={3}
+      libraries={collectionLibraries}
+      collections={collectionData}
     />
   </SubLayout>
 </Layout>

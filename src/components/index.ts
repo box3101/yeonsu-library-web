@@ -9,6 +9,9 @@ export { default as UiSwitch } from './UI/UiSwitch.astro';
 export { default as UiNavButton } from './UI/UiNavButton.astro';
 export { default as UiTab } from './UI/UiTab.astro';
 export { default as UiRelatedSiteButton } from './UI/UiRelatedSiteButton.astro';
+export { default as UiBookCard } from './UI/UiBookCard.astro';
+export { default as UiPagination } from './UI/UiPagination.astro';
+export { default as UiCollectionModal } from './UI/UiCollectionModal.astro';
 
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';

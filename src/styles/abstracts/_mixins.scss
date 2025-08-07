@@ -93,17 +93,34 @@
   left: $left;
 }
 
+// 버튼 리셋 mixin
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
 // 버튼 mixin
 @mixin button($bg-color, $text-color: white, $padding: to-rem(12) to-rem(24)) {
+  @include button-reset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: $padding;
   background-color: $bg-color;
   color: $text-color;
-  border: none;
   border-radius: to-rem(8);
-  cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
@@ -167,15 +184,15 @@
   } @else {
     font-size: 1rem; // 16px
   }
-  
+
   font-weight: map.get($page-title-weights, $level);
   line-height: map.get($page-title-line-heights, $level);
   margin: 0;
-  
+
   @if $color {
     color: $color;
   }
-  
+
   // 반응형 폰트 크기 조정
   @include mobile {
     @if $level == 'h1' {
@@ -192,7 +209,7 @@
       font-size: 0.85rem; // 16px * 0.85
     }
   }
-  
+
   @include tablet {
     @if $level == 'h1' {
       font-size: 2.25rem; // 40px * 0.9

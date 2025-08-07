@@ -1,5 +1,18 @@
 // 폰트 패밀리
 $font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-primary:
+  'Pretendard GOV Variable',
+  'Pretendard GOV',
+  -apple-system,
+  BlinkMacSystemFont,
+  system-ui,
+  Roboto,
+  'Helvetica Neue',
+  'Segoe UI',
+  'Apple SD Gothic Neo',
+  'Noto Sans KR',
+  'Malgun Gothic',
+  sans-serif;
 $font-secondary: Georgia, serif;
 
 // 폰트 크기
@@ -23,12 +36,17 @@ $line-height-relaxed: 1.75;
 
 // 페이지 타이틀 시스템
 $page-title-sizes: (
-  'h1': 40,  // 메인 페이지 타이틀 (도서검색)
-  'h2': 28,  // 섹션 타이틀 (소장도서검색)
-  'h3': 24,  // 서브섹션 타이틀
-  'h4': 20,  // 카테고리 타이틀
-  'h5': 18,  // 소제목
-  'h6': 16   // 일반 제목
+  'h1': 40,
+  // 메인 페이지 타이틀 (도서검색)
+  'h2': 28,
+  // 섹션 타이틀 (소장도서검색)
+  'h3': 24,
+  // 서브섹션 타이틀
+  'h4': 20,
+  // 카테고리 타이틀
+  'h5': 18,
+  // 소제목
+  'h6': 16, // 일반 제목
 );
 
 $page-title-weights: (

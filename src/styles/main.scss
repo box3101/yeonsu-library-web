@@ -25,6 +25,9 @@
 @use 'components/left-menu';
 @use 'components/breadcrumb';
 @use 'components/sub';
+@use 'components/book-card';
+@use 'components/pagination';
+@use 'components/collection-modal';
 
 // 페이지별 스타일
 @use 'pages/home';

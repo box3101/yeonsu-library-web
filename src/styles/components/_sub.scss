@@ -1,6 +1,8 @@
 @use '@styles/abstracts' as *;
 @use '@styles/variables/colors' as *;
-
+.sub-content {
+  flex: 1;
+}
 // 소장도서 검색
 .ui-library-filter {
   margin-bottom: to-rem(32);
@@ -245,6 +247,7 @@
 
   // 검색어 드롭다운 스타일
   &-dropdown {
+    padding: 24px;
     position: absolute;
     top: 100%;
     left: 0;
@@ -254,7 +257,6 @@
     border-radius: to-rem(8);
     box-shadow: 0 4px 6px -1px alpha($black, 0.1);
     margin-top: to-rem(4);
-    width: to-rem(340);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4px);
@@ -277,7 +279,7 @@
 
     button {
       flex: 1;
-      padding: to-rem(8) to-rem(16);
+      padding: to-rem(16) to-rem(16);
       background: $white;
       border: none;
       color: $gray-500;
@@ -293,8 +295,8 @@
 
       &.active,
       &[data-active='true'] {
-        background: $blue-50;
-        color: $blue-700;
+        background: $blue-500;
+        color: #fff;
         border-bottom: 2px solid $blue-500;
       }
 
@@ -324,7 +326,6 @@
       justify-content: space-between;
       align-items: center;
       padding: to-rem(8) 0;
-      border-bottom: 1px solid $gray-100;
       cursor: pointer;
       transition: background-color 0.2s ease;
 
@@ -363,10 +364,10 @@
   &-options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: to-rem(16);
     padding: to-rem(10) to-rem(16);
     border-top: 1px solid $gray-100;
-    background: $gray-50;
     border-radius: 0 0 to-rem(8) to-rem(8);
     width: to-rem(340);
 
@@ -410,6 +411,167 @@
         color: $blue-700;
       }
     }
+  }
+}
+
+.search-detail-header {
+  @include flex-center;
+  height: to-rem(48);
+  border-radius: var(--radius-medium2, 6px);
+  border: 1px solid var(--color-primary-pr05, #3c79c2);
+  background: var(--color-primary-pr00, #ecf2f9);
+
+  .search-detail-title {
+    color: var(--color-text-primary, #0b50d0);
+    text-align: center;
+    font-family: var(--typo-font-type, 'Pretendard GOV');
+    font-size: var(--font-size-label-medium, 17px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: var(--typo-font-New-group-New-group-0, 0);
+  }
+}
+
+// 자료유형 탭 커스텀 스타일
+.search-type-tabs {
+  margin-top: to-rem(24);
+  &.ui-tab {
+    .ui-tab__list {
+      border-bottom: none;
+      gap: 0; // 연결된 탭을 위해 간격 제거
+      border: 1px solid #b1b8be;
+      border-radius: to-rem(8);
+      overflow: hidden; // 연결된 탭을 위한 overflow 처리
+    }
+
+    .ui-tab__button {
+      background: transparent;
+      border: none;
+      border-right: 1px solid #b1b8be;
+      border-radius: 0;
+      padding: to-rem(12) to-rem(16);
+      font-size: to-rem(19);
+      font-weight: 700;
+      color: #7d8181;
+      transition: all 0.2s ease;
+      flex: 1; // 균등한 너비 분배
+
+      // 첫 번째 탭
+      &:first-child {
+        border-left: none;
+      }
+
+      // 마지막 탭
+      &:last-child {
+        border-right: none;
+      }
+
+      &:hover:not(.ui-tab__button--active) {
+        background: rgba(255, 255, 255, 0.5);
+
+        .ui-tab__label {
+          color: #5a5a5a;
+        }
+      }
+
+      &--active {
+        background: #003456;
+        color: $white;
+
+        .ui-tab__label {
+          color: $white;
+          font-size: to-rem(17); // 활성 탭은 더 작은 폰트
+        }
+
+        .ui-tab__count {
+          color: $white;
+        }
+
+        // 기본 하단 선 제거
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .ui-tab__label {
+      color: inherit;
+    }
+
+    .ui-tab__count {
+      color: inherit;
+      font-size: inherit;
+    }
+  }
+}
+
+// 검색 필터 섹션
+.search-filter-section {
+  margin-top: to-rem(24);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .filter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: to-rem(30);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: to-rem(8);
+
+    &--classification {
+      flex: 1;
+    }
+
+    &--sort {
+      flex: 0 0 auto;
+      gap: to-rem(8);
+    }
+  }
+
+  .filter-badge {
+    background: #228738;
+    color: $white;
+    padding: to-rem(8) to-rem(8);
+    border-radius: to-rem(4);
+    font-size: to-rem(17);
+    font-weight: 400;
+    line-height: 1.5;
+    white-space: nowrap;
+    min-height: to-rem(48);
+    display: flex;
+    align-items: center;
+    font-family: 'Pretendard GOV', sans-serif;
+  }
+}
+
+// 검색 정보 요약 스타일
+.search-info-summary {
+  display: flex;
+  align-items: center;
+  font-family: 'Pretendard GOV', sans-serif;
+  font-size: to-rem(17);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1e2124;
+  margin-top: 42px;
+
+  .search-keyword-info {
+    margin-left: 0; // ml-2 클래스 대신 직접 스타일 적용
+  }
+
+  .text-blue-600 {
+    color: #2563eb;
   }
 }
 

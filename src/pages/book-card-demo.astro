@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import UiBookCard from '../components/UI/UiBookCard.astro';
+
+const sampleBookData = {
+  index: 1,
+  imageUrl: '/assets/images/default-book.png',
+  badges: [
+    { label: 'DVD', type: 'success', size: 'large' },
+    { label: '대출불가', type: 'warning', size: 'medium' },
+    { label: '예약 0명', type: 'tertiary', size: 'medium' },
+  ],
+  title: '서점탐정 유동인. 2, 리턴즈: 김재희 장편소설',
+  titleHighlights: ['탐정', '리턴즈'],
+  author: '조성희 감독',
+  details: {
+    callNumber: 'DV 688.2-조54ㅌ',
+    publishYear: '2017',
+    library: '연수청학',
+    readingRoom: 'OOO자료실',
+    registrationNumber: 'HV0000000881',
+  },
+};
+
+const sampleBookData2 = {
+  index: 2,
+  imageUrl: '/assets/images/default-book.png',
+  badges: [
+    { label: '일반도서', type: 'success', size: 'large' },
+    { label: '대출가능', type: 'success', size: 'medium' },
+    { label: '예약 2명', type: 'warning', size: 'medium' },
+  ],
+  title: '자바스크립트 완벽 가이드',
+  titleHighlights: ['자바스크립트'],
+  author: '데이비드 플래너건 저',
+  details: {
+    callNumber: '005.133-플292ㅈ',
+    publishYear: '2022',
+    library: '연수중앙',
+    readingRoom: '일반자료실',
+    registrationNumber: 'EM0000001234',
+  },
+};
+---
+
+<Layout title="도서 카드 컴포넌트 데모">
+  <div class="demo-container">
+    <h1 class="demo-title">도서 카드 컴포넌트 데모</h1>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">기본 도서 카드 (DVD)</h2>
+      <UiBookCard
+        index={sampleBookData.index}
+        imageUrl={sampleBookData.imageUrl}
+        badges={sampleBookData.badges}
+        title={sampleBookData.title}
+        titleHighlights={sampleBookData.titleHighlights}
+        author={sampleBookData.author}
+        details={sampleBookData.details}
+      />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">일반 도서 카드</h2>
+      <UiBookCard
+        index={sampleBookData2.index}
+        imageUrl={sampleBookData2.imageUrl}
+        badges={sampleBookData2.badges}
+        title={sampleBookData2.title}
+        titleHighlights={sampleBookData2.titleHighlights}
+        author={sampleBookData2.author}
+        details={sampleBookData2.details}
+      />
+    </div>
+
+    <div class="demo-section">
+      <h2 class="demo-section-title">카드 리스트 형태</h2>
+      <div class="demo-card-list">
+        <UiBookCard
+          index={1}
+          imageUrl="/assets/images/default-book.png"
+          badges={[
+            { label: '전자책', type: 'tertiary', size: 'large' },
+            { label: '대출가능', type: 'success', size: 'medium' },
+          ]}
+          title="프로그래밍 언어론"
+          titleHighlights={['프로그래밍']}
+          author="김영한 저"
+          details={{
+            callNumber: '005.1-김54ㅍ',
+            publishYear: '2023',
+            library: '연수중앙',
+            readingRoom: '전자자료실',
+          }}
+        />
+
+        <UiBookCard
+          index={2}
+          imageUrl="/assets/images/default-book.png"
+          badges={[
+            { label: '신간', type: 'success', size: 'large' },
+            { label: '대출중', type: 'warning', size: 'medium' },
+            { label: '예약 5명', type: 'tertiary', size: 'medium' },
+          ]}
+          title="웹 개발자를 위한 실무 가이드"
+          titleHighlights={['웹', '개발자']}
+          author="박민수 저"
+          details={{
+            callNumber: '004.678-박23ㅇ',
+            publishYear: '2024',
+            library: '연수청학',
+            readingRoom: '컴퓨터자료실',
+          }}
+        />
+
+        <UiBookCard
+          index={3}
+          imageUrl="/assets/images/default-book.png"
+          badges={[{ label: '추천도서', type: 'success', size: 'large' }]}
+          title="클린 코드: 애자일 소프트웨어 장인 정신"
+          titleHighlights={['클린', '코드']}
+          author="로버트 C. 마틴 저"
+          details={{
+            callNumber: '005.1-마887ㅋ',
+            publishYear: '2013',
+            library: '연수중앙',
+            readingRoom: '일반자료실',
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .demo-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #1e2124;
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+  }
+
+  .demo-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #191a1a;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .demo-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .demo-container {
+      padding: 1rem;
+    }
+
+    .demo-title {
+      font-size: 2rem;
+    }
+
+    .demo-section-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

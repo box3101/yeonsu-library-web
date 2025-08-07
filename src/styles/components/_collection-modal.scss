@@ -1,0 +1,339 @@
+@use '../globals' as *;
+
+// 소장정보 모달 스타일
+.ui-collection-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // 모달 배경
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  // 모달 컨테이너
+  &__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: to-rem(1000);
+    max-height: 90vh;
+    background: $white;
+    border-radius: to-rem(8);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+
+    .ui-collection-modal:not(.is-open) & {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+  }
+
+  // 모달 내용
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 90vh;
+  }
+
+  // 모달 헤더
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: to-rem(20) to-rem(24);
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  &__title {
+    font-size: to-rem(18);
+    font-weight: $font-semibold;
+    color: #111827;
+    margin: 0;
+  }
+
+  &__close {
+    padding: to-rem(8);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    border-radius: to-rem(4);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  // 도서관 필터 탭
+  &__tabs {
+    padding: 0 to-rem(24);
+    border-bottom: 1px solid #e5e7eb;
+
+    .tab-list {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE
+
+      &::-webkit-scrollbar {
+        display: none; // Chrome, Safari
+      }
+    }
+
+    .tab-button {
+      padding: to-rem(12) to-rem(16);
+      background: none;
+      border: none;
+      font-size: to-rem(14);
+      font-weight: $font-medium;
+      color: #6b7280;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #374151;
+      }
+
+      &.is-active {
+        color: #2563eb;
+        border-bottom-color: #2563eb;
+      }
+    }
+  }
+
+  // 안내 메시지
+  &__notice {
+    padding: to-rem(16) to-rem(24);
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: to-rem(12);
+
+      li {
+        font-size: to-rem(12);
+        color: #059669;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  // 테이블 래퍼
+  &__table-wrapper {
+    flex: 1;
+    overflow: auto;
+    padding: to-rem(24);
+  }
+
+  // 테이블
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: to-rem(14);
+
+    th,
+    td {
+      padding: to-rem(12) to-rem(8);
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: $font-semibold;
+      color: #374151;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    td {
+      color: #111827;
+    }
+
+    // 도서관 정보
+    .library-info {
+      .library-name {
+        color: #059669;
+        font-weight: $font-medium;
+        margin-right: to-rem(4);
+      }
+
+      .reading-room {
+        color: #6b7280;
+      }
+    }
+
+    // 대출상태
+    .loan-status {
+      .status-text {
+        font-weight: $font-medium;
+      }
+
+      .reservation-info {
+        color: #6b7280;
+        font-size: to-rem(12);
+      }
+    }
+
+    // 반납예정일
+    .return-date {
+      color: #dc2626;
+      font-weight: $font-medium;
+    }
+
+    // 서비스 버튼
+    .service-button {
+      padding: to-rem(6) to-rem(12);
+      border: 1px solid transparent;
+      border-radius: to-rem(4);
+      font-size: to-rem(12);
+      font-weight: $font-medium;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &--reservation {
+        background: #dbeafe;
+        color: #1e40af;
+        border-color: #bfdbfe;
+
+        &:hover {
+          background: #bfdbfe;
+        }
+      }
+
+      &--interlibrary {
+        background: #fef3c7;
+        color: #92400e;
+        border-color: #fde68a;
+
+        &:hover {
+          background: #fde68a;
+        }
+      }
+    }
+
+    // 청구기호, 등록번호
+    .call-number,
+    .registration-number {
+      font-family: monospace;
+      font-size: to-rem(13);
+      color: #6b7280;
+    }
+
+    // 출력 버튼
+    .print-button {
+      padding: to-rem(6);
+      background: none;
+      border: 1px solid #d1d5db;
+      border-radius: to-rem(4);
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f3f4f6;
+        border-color: #9ca3af;
+        color: #374151;
+      }
+
+      svg {
+        display: block;
+      }
+    }
+  }
+}
+
+// 모달이 열렸을 때 body 스크롤 방지
+body.modal-open {
+  overflow: hidden;
+}
+
+// 반응형 대응
+@include respond-to(tablet-down) {
+  .ui-collection-modal {
+    &__container {
+      width: 95%;
+      max-height: 95vh;
+    }
+
+    &__table-wrapper {
+      padding: to-rem(16);
+    }
+
+    &__table {
+      font-size: to-rem(12);
+
+      th,
+      td {
+        padding: to-rem(8) to-rem(6);
+      }
+    }
+
+    &__notice ul {
+      flex-direction: column;
+      gap: to-rem(8);
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .ui-collection-modal {
+    &__container {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      border-radius: 0;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__table {
+      th,
+      td {
+        padding: to-rem(6) to-rem(4);
+        font-size: to-rem(11);
+      }
+    }
+
+    &__tabs .tab-button {
+      padding: to-rem(10) to-rem(12);
+      font-size: to-rem(12);
+    }
+  }
+}

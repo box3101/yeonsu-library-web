@@ -1,0 +1,159 @@
+---
+export interface Props {
+  currentPage: number;
+  totalPages: number;
+  maxVisiblePages?: number; // 한번에 보여줄 페이지 수 (기본값: 8)
+  showFirstLast?: boolean; // 첫 페이지/마지막 페이지 표시 여부
+  onPageChange?: (page: number) => void;
+  className?: string;
+}
+
+const {
+  currentPage,
+  totalPages,
+  maxVisiblePages = 8,
+  showFirstLast = false,
+  onPageChange,
+  className = '',
+} = Astro.props;
+
+// 페이지네이션 로직
+function generatePageNumbers(
+  current: number,
+  total: number,
+  maxVisible: number
+) {
+  const pages: (number | 'ellipsis')[] = [];
+
+  if (total <= maxVisible) {
+    // 총 페이지가 maxVisible보다 적으면 모든 페이지 표시
+    for (let i = 1; i <= total; i++) {
+      pages.push(i);
+    }
+  } else {
+    const half = Math.floor(maxVisible / 2);
+    let start = Math.max(1, current - half);
+    let end = Math.min(total, current + half);
+
+    // 시작 부분 조정
+    if (end - start + 1 < maxVisible) {
+      if (start === 1) {
+        end = Math.min(total, start + maxVisible - 1);
+      } else {
+        start = Math.max(1, end - maxVisible + 1);
+      }
+    }
+
+    // 앞쪽 생략 처리
+    if (start > 1) {
+      pages.push(1);
+      if (start > 2) {
+        pages.push('ellipsis');
+      }
+    }
+
+    // 중간 페이지들
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    // 뒤쪽 생략 처리
+    if (end < total) {
+      if (end < total - 1) {
+        pages.push('ellipsis');
+      }
+      pages.push(total);
+    }
+  }
+
+  return pages;
+}
+
+const pageNumbers = generatePageNumbers(
+  currentPage,
+  totalPages,
+  maxVisiblePages
+);
+const isPrevDisabled = currentPage <= 1;
+const isNextDisabled = currentPage >= totalPages;
+---
+
+<div class={`ui-pagination ${className}`}>
+  <div class="ui-pagination__container">
+    <!-- 이전 버튼 -->
+    <button
+      class={`ui-pagination__button ui-pagination__button--prev ${isPrevDisabled ? 'ui-pagination__button--disabled' : ''}`}
+      onclick={onPageChange && !isPrevDisabled
+        ? `(${onPageChange.toString()})(${currentPage - 1})`
+        : undefined}
+      disabled={isPrevDisabled}
+      type="button"
+    >
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M12.5 15L7.5 10L12.5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      <span>이전</span>
+    </button>
+
+    <!-- 페이지 번호들 -->
+    <div class="ui-pagination__pages">
+      {
+        pageNumbers.map((page, index) => {
+          if (page === 'ellipsis') {
+            return (
+              <div class="ui-pagination__ellipsis" key={`ellipsis-${index}`}>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="4" cy="10" r="1.5" fill="currentColor" />
+                  <circle cx="10" cy="10" r="1.5" fill="currentColor" />
+                  <circle cx="16" cy="10" r="1.5" fill="currentColor" />
+                </svg>
+              </div>
+            );
+          }
+
+          const isActive = page === currentPage;
+          return (
+            <button
+              class={`ui-pagination__button ui-pagination__button--page ${isActive ? 'ui-pagination__button--active' : 'ui-pagination__button--inactive'}`}
+              onclick={
+                onPageChange && !isActive
+                  ? `(${onPageChange.toString()})(${page})`
+                  : undefined
+              }
+              disabled={isActive}
+              type="button"
+              key={`page-${page}`}
+            >
+              <span>{page}</span>
+            </button>
+          );
+        })
+      }
+    </div>
+
+    <!-- 다음 버튼 -->
+    <button
+      class={`ui-pagination__button ui-pagination__button--next ${isNextDisabled ? 'ui-pagination__button--disabled' : ''}`}
+      onclick={onPageChange && !isNextDisabled
+        ? `(${onPageChange.toString()})(${currentPage + 1})`
+        : undefined}
+      disabled={isNextDisabled}
+      type="button"
+    >
+      <span>다음</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M7.5 15L12.5 10L7.5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </div>
+</div>

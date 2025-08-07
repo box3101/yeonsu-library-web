@@ -36,7 +36,7 @@ $blue-100: #b0d6ef;
 $blue-200: #8ac3e8;
 $blue-300: #54a7dd;
 $blue-400: #3396d6;
-$blue-500: #007ccc;
+$blue-500: #3c79c2;
 $blue-600: #0071ba;
 $blue-700: #244874;
 $blue-800: #004470;
@@ -55,9 +55,9 @@ $orange-800: #8a672e;
 $orange-900: #694f23;
 
 // 상태 색상
-$success-color: #10b981;
+$success-color: #228738; // Figma에서 사용하는 초록색
 $error-color: #ef4444;
-$warning-color: $orange-600; // #e4ab4c
+$warning-color: #ffb114; // Figma에서 사용하는 주황색
 $info-color: $blue-500; // #007ccc
 
 // Radio 컴포넌트 색상

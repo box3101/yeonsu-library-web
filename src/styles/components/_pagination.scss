@@ -1,0 +1,219 @@
+// Pagination Component Styles
+// Based on SCSS 7-1 Architecture and BEM methodology
+
+@use '../globals' as *;
+
+.ui-pagination {
+  // Layout
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: to-rem(8);
+  }
+
+  // 페이지 번호 컨테이너
+  &__pages {
+    display: flex;
+    align-items: center;
+    gap: to-rem(8);
+  }
+
+  // 기본 버튼 스타일
+  &__button {
+    @include button-reset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem(4);
+    padding: 0 to-rem(8);
+    min-width: to-rem(40);
+    height: to-rem(40);
+    border-radius: to-rem(6);
+    font-family: $font-family-primary;
+    font-weight: 500;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    // 이전/다음 버튼
+    &--prev,
+    &--next {
+      padding: 0 to-rem(8) 0 to-rem(4);
+      color: $gray-700;
+      background-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: $gray-100;
+        color: $gray-900;
+      }
+
+      svg {
+        flex-shrink: 0;
+        width: to-rem(20);
+        height: to-rem(20);
+      }
+    }
+
+    &--next {
+      padding: 0 to-rem(4) 0 to-rem(8);
+    }
+
+    // 페이지 번호 버튼
+    &--page {
+      width: to-rem(40);
+      height: to-rem(40);
+      padding: 0;
+      border-radius: to-rem(6);
+
+      span {
+        font-weight: 500;
+        line-height: 1;
+      }
+    }
+
+    // 비활성 상태 (일반 페이지)
+    &--inactive {
+      background-color: transparent;
+      color: $gray-700;
+
+      &:hover:not(:disabled) {
+        background-color: $gray-100;
+        color: $gray-900;
+      }
+    }
+
+    // 활성 상태 (현재 페이지)
+    &--active {
+      background-color: $primary-color;
+      color: $white;
+
+      span {
+        font-weight: 700;
+        color: $white;
+      }
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+      }
+    }
+
+    // 비활성화 상태
+    &--disabled {
+      color: $gray-400;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: transparent;
+        color: $gray-400;
+      }
+
+      svg {
+        color: $gray-400;
+      }
+    }
+  }
+
+  // 생략 표시 (...)
+  &__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: to-rem(40);
+    height: to-rem(40);
+    color: $gray-500;
+
+    svg {
+      width: to-rem(20);
+      height: to-rem(20);
+    }
+  }
+
+  // 반응형 처리
+  @include mobile {
+    &__container {
+      gap: to-rem(4);
+    }
+
+    &__pages {
+      gap: to-rem(4);
+    }
+
+    &__button {
+      min-width: to-rem(36);
+      height: to-rem(36);
+      font-size: to-rem(15);
+
+      &--page {
+        width: to-rem(36);
+        height: to-rem(36);
+      }
+
+      &--prev,
+      &--next {
+        padding: 0 to-rem(6);
+
+        span {
+          display: none; // 모바일에서는 텍스트 숨김
+        }
+
+        svg {
+          width: to-rem(18);
+          height: to-rem(18);
+        }
+      }
+    }
+
+    &__ellipsis {
+      width: to-rem(36);
+      height: to-rem(36);
+
+      svg {
+        width: to-rem(18);
+        height: to-rem(18);
+      }
+    }
+  }
+
+  @include tablet {
+    &__button {
+      &--prev,
+      &--next {
+        span {
+          display: inline; // 태블릿에서는 텍스트 표시
+        }
+      }
+    }
+  }
+}
+
+// 페이지네이션 유틸리티 클래스
+.pagination-center {
+  justify-content: center;
+}
+
+.pagination-left {
+  justify-content: flex-start;
+}
+
+.pagination-right {
+  justify-content: flex-end;
+}
+
+// 페이지네이션 섹션 스타일
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: to-rem(24) 0;
+  margin-top: to-rem(40);
+
+  @include mobile {
+    padding: to-rem(16) 0;
+    margin-top: to-rem(24);
+  }
+}

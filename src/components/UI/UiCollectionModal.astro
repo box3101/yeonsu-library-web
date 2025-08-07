@@ -1,0 +1,248 @@
+---
+export interface CollectionInfo {
+  library: string;
+  readingRoom: string;
+  loanStatus: string;
+  returnDate?: string;
+  service: 'reservation' | 'interlibrary';
+  callNumber: string;
+  registrationNumber: string;
+  reservationCount?: number;
+}
+
+export interface Props {
+  isOpen?: boolean;
+  title: string;
+  totalCount: number;
+  collections: CollectionInfo[];
+  libraries: Array<{
+    name: string;
+    shortName: string;
+    count: number;
+  }>;
+  onClose?: () => void;
+  className?: string;
+}
+
+const {
+  isOpen = false,
+  title,
+  totalCount,
+  collections,
+  libraries,
+  onClose,
+  className = '',
+} = Astro.props;
+
+// 전체 라이브러리 정보 생성
+const allLibraries = [
+  { name: '전체', shortName: '전체', count: totalCount },
+  ...libraries,
+];
+---
+
+<div
+  class={`ui-collection-modal ${isOpen ? 'is-open' : ''} ${className}`}
+  data-modal="collection"
+>
+  <!-- 모달 배경 -->
+  <div class="ui-collection-modal__backdrop" data-modal-close></div>
+
+  <!-- 모달 컨테이너 -->
+  <div class="ui-collection-modal__container">
+    <div class="ui-collection-modal__content">
+      <!-- 모달 헤더 -->
+      <div class="ui-collection-modal__header">
+        <h3 class="ui-collection-modal__title">{title}</h3>
+        <button
+          type="button"
+          class="ui-collection-modal__close"
+          data-modal-close
+          aria-label="모달 닫기"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6 6L18 18M6 18L18 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 도서관 필터 탭 -->
+      <div class="ui-collection-modal__tabs">
+        <div class="tab-list" role="tablist">
+          {
+            allLibraries.map((library, index) => (
+              <button
+                type="button"
+                class={`tab-button ${index === 0 ? 'is-active' : ''}`}
+                role="tab"
+                data-tab={library.shortName}
+                aria-selected={index === 0}
+              >
+                {library.name}({library.count})
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 안내 메시지 -->
+      <div class="ui-collection-modal__notice">
+        <ul>
+          <li>* 전체가 기본으로 선택됩니다.</li>
+          <li>* 도서관 목록이 약칭으로 들어갑니다.</li>
+          <li>* 최대 20개의 도서관 목록이 들어갑니다.</li>
+          <li>* 추후에 2~3개가 추가될 예정입니다.</li>
+        </ul>
+      </div>
+
+      <!-- 소장정보 테이블 -->
+      <div class="ui-collection-modal__table-wrapper">
+        <table class="ui-collection-modal__table">
+          <thead>
+            <tr>
+              <th>도서관</th>
+              <th>대출상태</th>
+              <th>반납예정일</th>
+              <th>서비스</th>
+              <th>청구기호</th>
+              <th>등록번호</th>
+              <th>정보출력</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              collections.map(item => (
+                <tr>
+                  <td>
+                    <div class="library-info">
+                      <span class="library-name">[{item.library}]</span>
+                      <span class="reading-room">{item.readingRoom}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="loan-status">
+                      <span class="status-text">{item.loanStatus}</span>
+                      {item.reservationCount !== undefined && (
+                        <span class="reservation-info">
+                          - 예약 {item.reservationCount}명
+                        </span>
+                      )}
+                    </div>
+                  </td>
+                  <td class="return-date">{item.returnDate || ''}</td>
+                  <td>
+                    <button
+                      type="button"
+                      class={`service-button service-button--${item.service}`}
+                    >
+                      {item.service === 'reservation' ? '예약하기' : '상호대차'}
+                    </button>
+                  </td>
+                  <td class="call-number">{item.callNumber}</td>
+                  <td class="registration-number">{item.registrationNumber}</td>
+                  <td>
+                    <button type="button" class="print-button" title="정보출력">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 9V2H18V9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 18H4C3.44772 18 3 17.5523 3 17V11C3 10.4477 3.44772 10 4 10H20C20.5523 10 21 10.4477 21 11V17C21 17.5523 20.5523 18 20 18H18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M18 14H6V22H18V14Z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 모달 제어 스크립트
+  function initCollectionModal() {
+    const modal = document.querySelector('[data-modal="collection"]');
+    if (!modal) return;
+
+    const openTriggers = document.querySelectorAll(
+      '[data-modal-open="collection"]'
+    );
+    const closeTriggers = modal.querySelectorAll('[data-modal-close]');
+    const tabButtons = modal.querySelectorAll('.tab-button');
+
+    // 모달 열기
+    openTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+      });
+    });
+
+    // 모달 닫기
+    closeTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      });
+    });
+
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    // 탭 전환
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // 모든 탭 비활성화
+        tabButtons.forEach(tab => {
+          tab.classList.remove('is-active');
+          tab.setAttribute('aria-selected', 'false');
+        });
+
+        // 클릭된 탭 활성화
+        button.classList.add('is-active');
+        button.setAttribute('aria-selected', 'true');
+
+        // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
+        const selectedLibrary = button.dataset.tab;
+        console.log('Selected library:', selectedLibrary);
+      });
+    });
+  }
+
+  // DOM이 로드되면 초기화
+  document.addEventListener('DOMContentLoaded', initCollectionModal);
+</script>

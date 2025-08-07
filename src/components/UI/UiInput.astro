@@ -18,6 +18,7 @@ export interface Props {
   errorMessage?: string;
   width?: string | number;
   maxlength?: number;
+  clearable?: boolean;
   class?: string;
 }
 
@@ -40,6 +41,7 @@ const {
   errorMessage,
   width,
   maxlength,
+  clearable = false,
   class: className = '',
 } = Astro.props;
 
@@ -56,6 +58,7 @@ const inputClasses = [
   `ui-input--${variant}`,
   `ui-input--${state}`,
   hasIcon ? `ui-input--icon-${iconPosition}` : '',
+  clearable ? 'ui-input--clearable' : '',
   disabled ? 'ui-input--disabled' : '',
   readonly ? 'ui-input--readonly' : '',
   className,
@@ -109,6 +112,14 @@ const containerStyle = width
         <div class="ui-input__icon ui-input__icon--right">
           <img src={`./assets/images/icon/${icon}.svg`} alt="" />
         </div>
+      )
+    }
+
+    {
+      clearable && (
+        <button class="ui-input__clear">
+          <i class="icon icon-xsm icon-input-clear" />
+        </button>
       )
     }
   </div>
@@ -293,6 +304,21 @@ const containerStyle = width
       background-color: $gray-50;
       cursor: default;
     }
+
+    // Clear 버튼이 있을 때 패딩 조정
+    &--clearable {
+      &.ui-input--small {
+        padding-right: to-rem(36);
+      }
+
+      &.ui-input--medium {
+        padding-right: to-rem(44);
+      }
+
+      &.ui-input--large {
+        padding-right: to-rem(52);
+      }
+    }
   }
 
   .ui-input__icon {
@@ -319,6 +345,50 @@ const containerStyle = width
     }
   }
 
+  .ui-input__clear {
+    position: absolute;
+    right: to-rem(14);
+    top: 42%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: to-rem(4);
+    border-radius: to-rem(4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 2;
+    width: to-rem(20);
+    height: to-rem(20);
+
+    &:hover {
+      background-color: alpha($gray-500, 0.1);
+    }
+
+    &:focus {
+      outline: 2px solid $blue-500;
+      outline-offset: 2px;
+    }
+
+    // Input에 값이 있을 때만 표시
+    .ui-input-container:hover &,
+    .ui-input:focus ~ &,
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ui-input--disabled ~ & {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .ui-input--readonly ~ & {
+      display: none;
+    }
+  }
+
   .ui-input__help {
     font-size: 0.75rem;
     line-height: 1.4;
@@ -337,3 +407,45 @@ const containerStyle = width
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 모든 clearable input에 대해 기능 추가
+    const clearableInputs = document.querySelectorAll('.ui-input--clearable');
+
+    clearableInputs.forEach(input => {
+      const container = input.closest('.ui-input-container');
+      const clearButton = container?.querySelector('.ui-input__clear');
+
+      if (!clearButton) return;
+
+      // Input 값 변경 시 clear 버튼 표시/숨김
+      function toggleClearButton() {
+        if (input.value.length > 0) {
+          clearButton.classList.add('is-visible');
+        } else {
+          clearButton.classList.remove('is-visible');
+        }
+      }
+
+      // Clear 버튼 클릭 시 input 내용 지우기
+      clearButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        input.value = '';
+        input.focus();
+        toggleClearButton();
+
+        // Input 이벤트 발생시키기 (다른 JavaScript가 반응할 수 있도록)
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+
+      // Input 이벤트 리스너
+      input.addEventListener('input', toggleClearButton);
+      input.addEventListener('keyup', toggleClearButton);
+
+      // 초기 상태 설정
+      toggleClearButton();
+    });
+  });
+</script>

@@ -1,0 +1,211 @@
+---
+export interface Props {
+  index?: number;
+  imageUrl?: string;
+  badges?: Array<{
+    label: string;
+    type: 'success' | 'warning' | 'tertiary';
+    size?: 'large' | 'medium';
+  }>;
+  title: string;
+  titleHighlights?: string[]; // 검색어 하이라이팅을 위한 키워드들
+  author: string;
+  details: {
+    callNumber?: string;
+    publishYear?: string;
+    library?: string;
+    readingRoom?: string;
+    registrationNumber?: string;
+  };
+  onAddToMyLibrary?: () => void;
+  onViewDetails?: () => void;
+  onViewHoldings?: () => void;
+}
+
+const {
+  index,
+  imageUrl = '/assets/images/default-book.png',
+  badges = [],
+  title,
+  titleHighlights = [],
+  author,
+  details,
+  onAddToMyLibrary,
+  onViewDetails,
+  onViewHoldings,
+} = Astro.props;
+
+// 제목에서 검색어 하이라이팅 처리
+function highlightTitle(title: string, highlights: string[]): string {
+  if (!highlights.length) return title;
+
+  let highlightedTitle = title;
+  highlights.forEach(keyword => {
+    const regex = new RegExp(`(${keyword})`, 'gi');
+    highlightedTitle = highlightedTitle.replace(
+      regex,
+      '<span class="text-primary">$1</span>'
+    );
+  });
+
+  return highlightedTitle;
+}
+
+const highlightedTitle = highlightTitle(title, titleHighlights);
+---
+
+<div class="ui-book-card">
+  <div class="ui-book-card__container">
+    <!-- 왼쪽: 인덱스 + 이미지 영역 -->
+    <div class="ui-book-card__left">
+      {
+        index && (
+          <div class="ui-book-card__index">
+            <span class="ui-book-card__index-number">{index}.</span>
+          </div>
+        )
+      }
+
+      <div class="ui-book-card__image-wrapper">
+        <div class="ui-book-card__image-container">
+          <div class="ui-book-card__image-mask">
+            <img src={imageUrl} alt={title} class="ui-book-card__image" />
+          </div>
+          <div class="ui-book-card__image-overlay">
+            <button
+              class="ui-book-card__add-button"
+              onclick={onAddToMyLibrary}
+              type="button"
+            >
+              <span>내책장담기</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M10 4V16M4 10H16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 오른쪽: 콘텐츠 영역 -->
+    <div class="ui-book-card__content">
+      <!-- 상단: 배지들 -->
+      {
+        badges.length > 0 && (
+          <div class="ui-book-card__badges">
+            {badges.map(badge => (
+              <span
+                class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}
+              >
+                {badge.label}
+              </span>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- 메인 콘텐츠 -->
+      <div class="ui-book-card__main">
+        <!-- 제목 및 메타 정보 -->
+        <div class="ui-book-card__title-section">
+          <h3 class="ui-book-card__title" set:html={highlightedTitle} />
+          <p class="ui-book-card__author">{author}</p>
+
+          <!-- 상세 정보 그리드 -->
+          <div class="ui-book-card__details">
+            <div class="ui-book-card__details-row">
+              <div class="ui-book-card__details-column">
+                {
+                  details.callNumber && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">청구기호</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.callNumber}
+                      </span>
+                    </div>
+                  )
+                }
+                {
+                  details.publishYear && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">발행연도</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.publishYear}
+                      </span>
+                    </div>
+                  )
+                }
+                {
+                  details.library && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">도서관</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.library}
+                      </span>
+                    </div>
+                  )
+                }
+              </div>
+
+              <div class="ui-book-card__details-column">
+                {
+                  details.readingRoom && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">자료실</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.readingRoom}
+                      </span>
+                    </div>
+                  )
+                }
+                {
+                  details.callNumber && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">청구기호</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.callNumber}
+                      </span>
+                    </div>
+                  )
+                }
+                {
+                  details.registrationNumber && (
+                    <div class="ui-book-card__detail-item">
+                      <span class="ui-book-card__detail-label">등록번호</span>
+                      <span class="ui-book-card__detail-value">
+                        {details.registrationNumber}
+                      </span>
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 하단 버튼들 -->
+        <div class="ui-book-card__actions">
+          <button
+            class="ui-book-card__action-button ui-book-card__action-button--secondary"
+            onclick={onViewDetails}
+            type="button"
+          >
+            도서정보
+          </button>
+          <button
+            class="ui-book-card__action-button ui-book-card__action-button--primary"
+            onclick={onViewHoldings}
+            data-modal-open="collection"
+            type="button"
+          >
+            소장정보
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

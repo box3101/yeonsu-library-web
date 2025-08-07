@@ -1,0 +1,381 @@
+// Book Card Component Styles
+// Based on SCSS 7-1 Architecture and BEM methodology
+
+@use '../globals' as *;
+
+.ui-book-card {
+  margin-bottom: to-rem(24);
+  &:last-child {
+    margin-bottom: 0;
+  }
+  // Layout
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    gap: to-rem(24);
+    padding: to-rem(32);
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-radius: to-rem(12);
+    height: to-rem(342);
+  }
+
+  // 왼쪽 영역 (인덱스 + 이미지)
+  &__left {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-shrink: 0;
+  }
+
+  &__index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: to-rem(24);
+    height: to-rem(24);
+    padding: 0 to-rem(7);
+
+    &-number {
+      font-family: $font-family-primary;
+      font-weight: 700;
+      font-size: to-rem(15);
+      line-height: 1.5;
+      color: $black;
+      text-align: center;
+    }
+  }
+
+  &__image-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  &__image-container {
+    position: relative;
+    width: to-rem(200);
+    height: 100%;
+  }
+
+  &__image-mask {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $gray-200;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__image-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &__add-button {
+    @include button-reset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: to-rem(4);
+    padding: 0 to-rem(16);
+    height: to-rem(48);
+    background-color: $gray-600;
+    color: $white;
+    border-radius: 0 0 to-rem(6) to-rem(6);
+    font-family: $font-family-primary;
+    font-weight: 400;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    transition: background-color 0.2s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: $gray-700;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  // 오른쪽 콘텐츠 영역
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+    flex: 1;
+    min-width: 0; // flex item이 줄어들 수 있도록
+  }
+
+  // 배지 영역
+  &__badges {
+    display: flex;
+    align-items: center;
+    gap: to-rem(4);
+    flex-wrap: wrap;
+  }
+
+  &__badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 to-rem(12);
+    border-radius: to-rem(16);
+    font-family: $font-family-primary;
+    font-weight: 400;
+    white-space: nowrap;
+
+    // 기본 사이즈 (medium)
+    height: to-rem(28);
+    font-size: to-rem(15);
+    line-height: 1.5;
+
+    // 큰 사이즈
+    &--large {
+      height: to-rem(32);
+      font-size: to-rem(17);
+    }
+
+    // 타입별 색상
+    &--success {
+      background-color: $success-color;
+      color: $white;
+    }
+
+    &--warning {
+      background-color: $warning-color;
+      color: $white;
+    }
+
+    &--tertiary {
+      background-color: $gray-500;
+      color: $white;
+    }
+  }
+
+  // 메인 콘텐츠
+  &__main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: stretch;
+  }
+
+  // 제목 섹션
+  &__title-section {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(12);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: to-rem(2);
+    flex-wrap: wrap;
+    font-family: $font-family-primary;
+    font-weight: 700;
+    font-size: to-rem(24);
+    line-height: 1.5;
+    color: $gray-900;
+    margin: 0;
+
+    // 하이라이팅된 텍스트
+    .text-primary {
+      color: $primary-color;
+    }
+  }
+
+  &__author {
+    font-family: $font-family-primary;
+    font-weight: 500;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    color: $black;
+    margin: 0;
+  }
+
+  // 상세 정보
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+  }
+
+  &__details-row {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+    justify-content: stretch;
+    align-items: stretch;
+  }
+
+  &__details-column {
+    display: flex;
+    flex-direction: row;
+    gap: to-rem(16);
+    flex: 1;
+  }
+
+  &__detail-item {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__detail-label {
+    display: block;
+    width: to-rem(60);
+    font-family: $font-family-primary;
+    font-weight: 700;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    color: $gray-800;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  &__detail-value {
+    font-family: $font-family-primary;
+    font-weight: 500;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    color: $gray-600;
+    word-break: break-all;
+  }
+
+  // 액션 버튼들
+  &__actions {
+    display: flex;
+    gap: to-rem(16);
+    align-self: flex-start;
+  }
+
+  &__action-button {
+    @include button-reset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: to-rem(4);
+    padding: 0 to-rem(16);
+    height: to-rem(48);
+    border-radius: to-rem(6);
+    font-family: $font-family-primary;
+    font-weight: 400;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &--secondary {
+      background-color: transparent;
+      color: $gray-900;
+      border: 1px solid $gray-400;
+
+      &:hover {
+        background-color: $gray-100;
+      }
+    }
+
+    &--primary {
+      background-color: $gray-100;
+      color: $gray-900;
+      border: 1px solid $gray-400;
+
+      &:hover {
+        background-color: $gray-200;
+      }
+    }
+  }
+
+  // 반응형 처리
+  @include tablet {
+    &__container {
+      flex-direction: column;
+      gap: to-rem(16);
+      padding: to-rem(24);
+      height: auto;
+    }
+
+    &__left {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: to-rem(16);
+    }
+
+    &__image-container {
+      width: to-rem(120);
+      height: to-rem(150);
+    }
+
+    &__main {
+      flex-direction: column;
+      gap: to-rem(24);
+    }
+
+    &__details-row {
+      flex-direction: column;
+    }
+
+    &__details-column {
+      flex-direction: column;
+      gap: to-rem(8);
+    }
+
+    &__detail-item {
+      flex-direction: row;
+      gap: to-rem(8);
+      align-items: flex-start;
+    }
+
+    &__actions {
+      flex-wrap: wrap;
+    }
+  }
+
+  @include mobile {
+    &__container {
+      padding: to-rem(16);
+    }
+
+    &__title {
+      font-size: to-rem(20);
+    }
+
+    &__author {
+      font-size: to-rem(15);
+    }
+
+    &__detail-label,
+    &__detail-value {
+      font-size: to-rem(15);
+    }
+
+    &__action-button {
+      font-size: to-rem(15);
+      height: to-rem(44);
+    }
+
+    &__add-button {
+      font-size: to-rem(15);
+      height: to-rem(44);
+    }
+  }
+}
