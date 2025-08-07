@@ -1,0 +1,319 @@
+---
+// smart-library-book-card-demo.astro
+// 스마트도서관 도서 카드 컴포넌트 데모 페이지
+
+import Layout from '../layouts/Layout.astro';
+import { UiSmartLibraryBookCard } from '../components';
+
+// 샘플 도서 데이터
+const sampleBooks = [
+  {
+    index: 1,
+    title: '(읽으면서 바로 써먹는)\n어린이 세계 여행',
+    author: '한날 지음',
+    publisher: '파란정원',
+    publishYear: '2024',
+    library: '송도4동 스마트도서관',
+    status: 'checked-out' as const,
+    imageUrl: '/assets/images/content-school-books.png',
+  },
+  {
+    index: 2,
+    title: '어린이를 위한 동물 백과사전',
+    author: '김동물 지음',
+    publisher: '자연출판사',
+    publishYear: '2023',
+    library: '연수1동 스마트도서관',
+    status: 'available' as const,
+  },
+  {
+    index: 3,
+    title: '초등학생이 알아야 할 과학 상식 100가지',
+    author: '박과학 지음',
+    publisher: '과학나라',
+    publishYear: '2024',
+    library: '송도2동 스마트도서관',
+    status: 'available' as const,
+    imageUrl: '/assets/images/content-infant-books.png',
+  },
+];
+---
+
+<Layout title="스마트도서관 도서 카드 데모">
+  <main class="demo-page">
+    <div class="demo-container">
+      <h1 class="demo-title">스마트도서관 도서 카드 컴포넌트</h1>
+      <p class="demo-description">
+        스마트도서관에서 사용되는 도서 정보 카드 컴포넌트입니다. 도서의 기본
+        정보와 대출 상태를 표시합니다.
+      </p>
+
+      <section class="demo-section">
+        <h2 class="demo-section-title">기본 예제</h2>
+        <div class="demo-grid">
+          {
+            sampleBooks.map(book => (
+              <UiSmartLibraryBookCard
+                index={book.index}
+                title={book.title}
+                author={book.author}
+                publisher={book.publisher}
+                publishYear={book.publishYear}
+                library={book.library}
+                status={book.status}
+                imageUrl={book.imageUrl}
+              />
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="demo-section-title">인덱스 없는 카드</h2>
+        <div class="demo-grid">
+          <UiSmartLibraryBookCard
+            title="인덱스 번호가 없는 도서 카드"
+            author="테스트 작가"
+            publisher="테스트 출판사"
+            publishYear="2024"
+            library="테스트 도서관"
+            status="available"
+          />
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="demo-section-title">이미지 없는 카드</h2>
+        <div class="demo-grid">
+          <UiSmartLibraryBookCard
+            index={4}
+            title="이미지가 없는 도서 카드 예제"
+            author="플레이스홀더 작가"
+            publisher="플레이스홀더 출판사"
+            publishYear="2024"
+            library="플레이스홀더 도서관"
+            status="checked-out"
+          />
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="demo-section-title">컴포넌트 사용법</h2>
+        <div class="demo-code">
+          <pre><code>{`<UiSmartLibraryBookCard
+  index={1}
+  title="도서 제목"
+  author="저자명"
+  publisher="출판사"
+  publishYear="2024"
+  library="도서관명"
+  status="available" // 또는 "checked-out"
+  imageUrl="/path/to/image.png" // 선택사항
+  className="custom-class" // 선택사항
+/>`}</code></pre>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="demo-section-title">Props 설명</h2>
+        <div class="demo-props">
+          <table class="props-table">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>타입</th>
+                <th>필수</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>index</td>
+                <td>number</td>
+                <td>선택</td>
+                <td>도서 순번 (표시되지 않으면 인덱스 영역 생략)</td>
+              </tr>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>필수</td>
+                <td>도서 제목</td>
+              </tr>
+              <tr>
+                <td>author</td>
+                <td>string</td>
+                <td>필수</td>
+                <td>저자명</td>
+              </tr>
+              <tr>
+                <td>publisher</td>
+                <td>string</td>
+                <td>필수</td>
+                <td>출판사</td>
+              </tr>
+              <tr>
+                <td>publishYear</td>
+                <td>string</td>
+                <td>필수</td>
+                <td>발행년도</td>
+              </tr>
+              <tr>
+                <td>library</td>
+                <td>string</td>
+                <td>필수</td>
+                <td>소장자료실</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td>'available' | 'checked-out'</td>
+                <td>필수</td>
+                <td>대출 상태</td>
+              </tr>
+              <tr>
+                <td>imageUrl</td>
+                <td>string</td>
+                <td>선택</td>
+                <td>도서 이미지 URL (없으면 플레이스홀더 표시)</td>
+              </tr>
+              <tr>
+                <td>className</td>
+                <td>string</td>
+                <td>선택</td>
+                <td>추가 CSS 클래스</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .demo-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .demo-container {
+    width: 100%;
+  }
+
+  .demo-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e2124;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .demo-description {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .demo-section {
+    margin-bottom: 60px;
+  }
+
+  .demo-section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e2124;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+  }
+
+  .demo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .demo-code {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  .demo-code pre {
+    margin: 0;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .demo-code code {
+    color: #495057;
+  }
+
+  .demo-props {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  .props-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .props-table th,
+  .props-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .props-table th {
+    background-color: #e9ecef;
+    font-weight: 600;
+    color: #495057;
+  }
+
+  .props-table td {
+    color: #6c757d;
+  }
+
+  .props-table tr:hover {
+    background-color: #f1f3f4;
+  }
+
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .demo-page {
+      padding: 20px 16px;
+    }
+
+    .demo-title {
+      font-size: 2rem;
+    }
+
+    .demo-section-title {
+      font-size: 1.5rem;
+    }
+
+    .demo-code {
+      font-size: 12px;
+    }
+
+    .props-table {
+      font-size: 12px;
+    }
+
+    .props-table th,
+    .props-table td {
+      padding: 8px;
+    }
+  }
+</style>

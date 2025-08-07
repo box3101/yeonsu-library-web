@@ -1,0 +1,693 @@
+---
+// 연수구립도서관 가이드 페이지
+const currentDate = new Date().toLocaleDateString('ko-KR');
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>연수구립도서관 - 작업 가이드</title>
+    <meta
+      name="description"
+      content="연수구립도서관 웹사이트 개발 작업 가이드 및 페이지 인덱스"
+    />
+    <meta name="author" content="Development Team" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css"
+    />
+
+    <style>
+      body {
+        background: #1e1f26;
+        color: #aaa;
+        font:
+          14px/2 NanumSquareRound,
+          'Apple SD Gothic Neo',
+          '맑은 고딕',
+          'Malgun Gothic',
+          Helvetica,
+          Arial,
+          sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .indexWrap {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #252525;
+        box-shadow: 0 0 3px 0 #666;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      h1 {
+        font-weight: 100;
+        font-size: 28px;
+        margin: 0;
+      }
+
+      h1 strong {
+        display: inline-block;
+        position: relative;
+        color: #4a9eff;
+      }
+
+      h1 strong:after {
+        content: ' ';
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #4a9eff, #00d4ff);
+      }
+
+      h1 small {
+        display: block;
+        font-size: 14px;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      h1 b {
+        display: block;
+        font-size: 12px;
+        color: #666;
+        margin-top: 3px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        color: #4a9eff;
+        margin: 40px 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #42444e;
+      }
+
+      table {
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      table thead th {
+        background: #2a2d37;
+        border-bottom: 2px solid #42444e;
+        text-align: left;
+        font-size: 13px;
+        color: #ccc;
+        padding: 12px 8px;
+        font-weight: 600;
+      }
+
+      table tbody td {
+        border-bottom: 1px solid #42444e;
+        padding: 10px 8px;
+        font-size: 12px;
+        vertical-align: middle;
+      }
+
+      table tbody td:first-child {
+        color: #4a9eff;
+        font-weight: 600;
+        text-align: center;
+        width: 60px;
+      }
+
+      a {
+        color: #4a9eff;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: #00d4ff;
+        text-decoration: underline;
+      }
+
+      .status-complete {
+        color: #28a745;
+        font-weight: 600;
+      }
+
+      .status-progress {
+        color: #ffc107;
+        font-weight: 600;
+      }
+
+      .status-pending {
+        color: #6c757d;
+        font-weight: 600;
+      }
+
+      .note {
+        font-size: 11px;
+        color: #666;
+        font-style: italic;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .stat-card {
+        background: rgba(74, 158, 255, 0.1);
+        border: 1px solid #42444e;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #4a9eff;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      .footer {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #42444e;
+        text-align: center;
+        color: #666;
+        font-size: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .indexWrap {
+          padding: 15px;
+        }
+
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        table {
+          font-size: 11px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="indexWrap">
+      <div class="header">
+        <div class="avatar">연수</div>
+        <div>
+          <h1>
+            <strong>연수구립도서관</strong>
+            <small>개발 작업 가이드 & 페이지 인덱스</small>
+            <b>ver.{currentDate}</b>
+          </h1>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">완성된 페이지</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">UI 컴포넌트</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">반응형 지원</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Astro</div>
+          <div class="stat-label">프레임워크</div>
+        </div>
+      </div>
+
+      <div class="section-title">📚 메인 페이지</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>메인 홈페이지</td>
+            <td><a href="/" target="_blank">index.astro</a></td>
+            <td><span class="status-complete">완료</span></td>
+            <td>도서관 메인 페이지, 배너 슬라이더, 퀵링크, 이벤트 섹션</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🔍 검색 시스템</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S01</td>
+            <td>소장도서검색</td>
+            <td
+              ><a href="/SRCH__001_소장도서검색" target="_blank"
+                >SRCH__001_소장도서검색.astro</a
+              ></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>도서관 필터, 상세검색, 자료유형 탭, 소장정보 모달</td>
+          </tr>
+          <tr>
+            <td>S02</td>
+            <td>스마트도서관비치도서</td>
+            <td
+              ><a href="/SRCH__007_스마트도서관비치도서" target="_blank"
+                >SRCH__007_스마트도서관비치도서.astro</a
+              ></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>스마트도서관 전용 검색 페이지</td>
+          </tr>
+          <tr>
+            <td>S03</td>
+            <td>검색 데모</td>
+            <td><a href="/search-demo" target="_blank">search-demo.astro</a></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>검색 기능 테스트 페이지</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🧩 UI 컴포넌트 데모</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>컴포넌트명</th>
+            <th>데모 URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C01</td>
+            <td>페이지네이션</td>
+            <td
+              ><a href="/pagination-demo" target="_blank"
+                >pagination-demo.astro</a
+              ></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>UiPagination 컴포넌트 사용 예시</td>
+          </tr>
+          <tr>
+            <td>C02</td>
+            <td>라디오 버튼</td>
+            <td><a href="/radio-demo" target="_blank">radio-demo.astro</a></td>
+            <td><span class="status-complete">완료</span></td>
+            <td>UiRadio 컴포넌트 다양한 스타일</td>
+          </tr>
+          <tr>
+            <td>C03</td>
+            <td>브레드크럼</td>
+            <td
+              ><a href="/breadcrumb-demo" target="_blank"
+                >breadcrumb-demo.astro</a
+              ></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>Breadcrumb 네비게이션 컴포넌트</td>
+          </tr>
+          <tr>
+            <td>C04</td>
+            <td>심플 데모</td>
+            <td><a href="/simple-demo" target="_blank">simple-demo.astro</a></td
+            >
+            <td><span class="status-complete">완료</span></td>
+            <td>기본 레이아웃 및 컴포넌트 조합</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🎨 UI 컴포넌트 라이브러리</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>컴포넌트</th>
+            <th>파일</th>
+            <th>기능</th>
+            <th>스타일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>U01</td>
+            <td>UiButton</td>
+            <td>UiButton.astro</td>
+            <td>다양한 버튼 스타일 (primary, secondary, outline)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U02</td>
+            <td>UiInput</td>
+            <td>UiInput.astro</td>
+            <td>텍스트 입력 필드, 검색 필드</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U03</td>
+            <td>UiSelect</td>
+            <td>UiSelect.astro</td>
+            <td>드롭다운 선택 박스</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U04</td>
+            <td>UiTab</td>
+            <td>UiTab.astro</td>
+            <td>탭 네비게이션 (기본, 연결형)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U05</td>
+            <td>UiRadio</td>
+            <td>UiRadio.astro</td>
+            <td>라디오 버튼 그룹</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U06</td>
+            <td>UiCheckbox</td>
+            <td>UiCheckbox.astro</td>
+            <td>체크박스</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U07</td>
+            <td>UiSwitch</td>
+            <td>UiSwitch.astro</td>
+            <td>토글 스위치</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U08</td>
+            <td>UiLibraryFilter</td>
+            <td>UiLibraryFilter.astro</td>
+            <td>도서관 필터 (확장/축소 기능)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U09</td>
+            <td>UiBookCard</td>
+            <td>UiBookCard.astro</td>
+            <td>도서 정보 카드</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U10</td>
+            <td>UiPagination</td>
+            <td>UiPagination.astro</td>
+            <td>페이지네이션</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U11</td>
+            <td>UiCollectionModal</td>
+            <td>UiCollectionModal.astro</td>
+            <td>소장정보 팝업 모달</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U12</td>
+            <td>UiNavButton</td>
+            <td>UiNavButton.astro</td>
+            <td>네비게이션 버튼</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U13</td>
+            <td>UiRelatedSiteButton</td>
+            <td>UiRelatedSiteButton.astro</td>
+            <td>관련사이트 버튼</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🏗️ 레이아웃 컴포넌트</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>컴포넌트</th>
+            <th>파일</th>
+            <th>용도</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>L01</td>
+            <td>Header</td>
+            <td>Header.astro</td>
+            <td>사이트 헤더, 로고, 주 메뉴</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>L02</td>
+            <td>Footer</td>
+            <td>Footer.astro</td>
+            <td>사이트 푸터, 링크, 저작권</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>L03</td>
+            <td>Gnb</td>
+            <td>Gnb.astro</td>
+            <td>글로벌 네비게이션</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>L04</td>
+            <td>LeftMenu</td>
+            <td>LeftMenu.astro</td>
+            <td>서브페이지 좌측 메뉴</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>L05</td>
+            <td>SubLayout</td>
+            <td>SubLayout.astro</td>
+            <td>서브페이지 레이아웃</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>L06</td>
+            <td>Breadcrumb</td>
+            <td>Breadcrumb.astro</td>
+            <td>브레드크럼 네비게이션</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">💻 기술 스택 & 아키텍처</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>기술</th>
+            <th>버전</th>
+            <th>용도</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>T01</td>
+            <td>Astro</td>
+            <td>4.15.0</td>
+            <td>정적 사이트 생성 프레임워크</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>T02</td>
+            <td>SCSS</td>
+            <td>Latest</td>
+            <td>CSS 전처리기 (7-1 아키텍처)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>T03</td>
+            <td>TypeScript</td>
+            <td>Latest</td>
+            <td>타입 안전성</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>T04</td>
+            <td>Swiper.js</td>
+            <td>Latest</td>
+            <td>슬라이더 컴포넌트</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>T05</td>
+            <td>Netlify</td>
+            <td>-</td>
+            <td>배포 플랫폼</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">📐 SCSS 아키텍처 (7-1 Pattern)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>폴더</th>
+            <th>용도</th>
+            <th>파일 예시</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>abstracts/</td>
+            <td>함수, 믹스인</td>
+            <td>_functions.scss, _mixins.scss</td>
+            <td>to-rem(), vw(), flex 믹스인, 반응형 브레이크포인트</td>
+          </tr>
+          <tr>
+            <td>variables/</td>
+            <td>변수 정의</td>
+            <td>_colors.scss, _typography.scss</td>
+            <td>색상 팔레트, 폰트 설정, 레이아웃 변수</td>
+          </tr>
+          <tr>
+            <td>utilities/</td>
+            <td>유틸리티 클래스</td>
+            <td>_flex.scss, _spacing.scss</td>
+            <td>Tailwind 스타일 원자 단위 클래스</td>
+          </tr>
+          <tr>
+            <td>components/</td>
+            <td>컴포넌트별 스타일</td>
+            <td>_buttons.scss, _tabs.scss</td>
+            <td>BEM 방법론 적용, 모듈화된 컴포넌트 스타일</td>
+          </tr>
+          <tr>
+            <td>pages/</td>
+            <td>페이지별 스타일</td>
+            <td>_home.scss</td>
+            <td>특정 페이지만의 고유 스타일</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🚀 배포 정보</div>
+      <table>
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>정보</th>
+            <th>상태</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>배포 플랫폼</td>
+            <td>Netlify</td>
+            <td><span class="status-complete">완료</span></td>
+            <td>자동 배포 설정 완료</td>
+          </tr>
+          <tr>
+            <td>빌드 명령어</td>
+            <td>npm run build</td>
+            <td><span class="status-complete">완료</span></td>
+            <td>netlify.toml 설정 완료</td>
+          </tr>
+          <tr>
+            <td>출력 디렉토리</td>
+            <td>dist</td>
+            <td><span class="status-complete">완료</span></td>
+            <td>정적 파일 생성</td>
+          </tr>
+          <tr>
+            <td>Node.js 버전</td>
+            <td>18</td>
+            <td><span class="status-complete">완료</span></td>
+            <td>환경 변수 설정</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">
+        <p>
+          <strong>연수구립도서관 웹사이트</strong><br />
+          Astro + SCSS + TypeScript<br />
+          개발일: {currentDate} |
+          <a
+            href="https://github.com/box3101/yeonsu-library-web"
+            target="_blank">GitHub Repository</a
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

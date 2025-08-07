@@ -1,0 +1,135 @@
+---
+// UiSmartLibraryBookCard.astro
+// 스마트도서관 도서 정보 카드 컴포넌트
+
+export interface Props {
+  index?: number;
+  title: string;
+  author: string;
+  publisher: string;
+  publishYear: string;
+  library: string;
+  status: 'available' | 'checked-out';
+  imageUrl?: string | undefined;
+  className?: string;
+}
+
+const {
+  index,
+  title,
+  author,
+  publisher,
+  publishYear,
+  library,
+  status,
+  imageUrl,
+  className = '',
+} = Astro.props;
+
+// 상태에 따른 클래스와 텍스트 설정
+const statusConfig = {
+  available: {
+    class: 'ui-smart-library-book-card__status--available',
+    text: '대출가능',
+  },
+  'checked-out': {
+    class: 'ui-smart-library-book-card__status--checked-out',
+    text: '대출중',
+  },
+};
+
+const currentStatus = statusConfig[status];
+---
+
+<div class={`ui-smart-library-book-card ${className}`}>
+  <div class="ui-smart-library-book-card__content">
+    <!-- 인덱스 번호와 도서 이미지 -->
+    <div class="ui-smart-library-book-card__left">
+      {
+        index && (
+          <div class="ui-smart-library-book-card__index">
+            <span class="ui-smart-library-book-card__index-number">
+              {index}.
+            </span>
+          </div>
+        )
+      }
+
+      <div class="ui-smart-library-book-card__image">
+        {
+          imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={title}
+              class="ui-smart-library-book-card__book-image"
+            />
+          ) : (
+            <div class="ui-smart-library-book-card__book-placeholder" />
+          )
+        }
+      </div>
+    </div>
+
+    <!-- 도서 정보 -->
+    <div class="ui-smart-library-book-card__info">
+      <!-- 도서 제목 -->
+      <div class="ui-smart-library-book-card__title-wrapper">
+        <h3 class="ui-smart-library-book-card__title">{title}</h3>
+      </div>
+
+      <!-- 도서 상세 정보 -->
+      <div class="ui-smart-library-book-card__details">
+        <div class="ui-smart-library-book-card__detail-section">
+          <!-- 저자명 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">저자명</span>
+            <span class="ui-smart-library-book-card__detail-value"
+              >{author}</span
+            >
+          </div>
+
+          <!-- 발행처 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">발행처</span>
+            <span class="ui-smart-library-book-card__detail-value"
+              >{publisher}</span
+            >
+          </div>
+
+          <!-- 발행년 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">발행년</span>
+            <span class="ui-smart-library-book-card__detail-value"
+              >{publishYear}</span
+            >
+          </div>
+
+          <!-- 소장자료실 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label"
+              >소장자료실</span
+            >
+            <span class="ui-smart-library-book-card__detail-value"
+              >{library}</span
+            >
+          </div>
+
+          <!-- 대출 상태 -->
+          <div class="ui-smart-library-book-card__status-wrapper">
+            <div class="ui-smart-library-book-card__detail-item">
+              <span
+                class={`ui-smart-library-book-card__status ${currentStatus.class}`}
+              >
+                {currentStatus.text}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* 컴포넌트 스타일은 별도 SCSS 파일에서 관리 */
+</style>

@@ -576,3 +576,333 @@
 }
 
 // 소장도서 검색 EEE
+
+// 인포박스 스타일
+.infobox {
+  background-color: $gray-100; // #F4F5F6
+  border: 1px solid $gray-400; // #CDD1D5
+  border-radius: to-rem(12);
+  padding: to-rem(16);
+  @include flex(column, flex-start, stretch);
+  gap: to-rem(8);
+  margin-bottom: to-rem(24);
+
+  &--secondary {
+    background-color: $gray-100;
+    border-color: $gray-400;
+  }
+
+  &__header {
+    @include flex(row, flex-start, center);
+    gap: to-rem(8);
+  }
+
+  &__icon {
+    @include flex(column, center, center);
+    gap: to-rem(8);
+    flex-shrink: 0;
+
+    svg {
+      width: to-rem(32);
+      height: to-rem(32);
+    }
+  }
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 700;
+    font-size: to-rem(19);
+    line-height: 1.5;
+    color: $text-color; // #191A1A
+    margin: 0;
+    flex: 1;
+  }
+
+  &__content {
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(12);
+    padding-left: to-rem(28); // 아이콘 너비 + 간격을 고려한 들여쓰기
+  }
+
+  &__list {
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list-item {
+    @include flex(row, flex-start, flex-start);
+    gap: to-rem(4);
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 400;
+    font-size: to-rem(15);
+    line-height: 1.5;
+    color: $text-color; // #191A1A
+
+    &::before {
+      content: '';
+      margin-right: to-rem(6);
+      width: to-rem(6);
+      height: to-rem(6);
+      background-color: #464c53;
+      border-radius: to-rem(4);
+      flex-shrink: 0;
+      margin-top: to-rem(
+        9
+      ); // 텍스트 첫 줄 중앙 정렬을 위한 조정 (line-height 1.5 * font-size 15px / 2 - bullet height / 2)
+    }
+  }
+}
+
+// 스마트도서관 비치도서 페이지 전용 스타일
+.search-container {
+  @include flex(column, flex-start, stretch);
+  gap: to-rem(24);
+  width: 100%;
+}
+
+// 라디오 컨테이너 스타일
+.radio-container {
+  &__item {
+    @include flex(row, space-around, center);
+    gap: to-rem(12);
+    width: 100%;
+
+    @include mobile {
+      @include flex(column, flex-start, stretch);
+      gap: to-rem(16);
+    }
+
+    @include tablet {
+      @include flex(row, space-between, center);
+      flex-wrap: wrap;
+      gap: to-rem(16);
+    }
+  }
+}
+
+// 검색 결과 영역 스타일
+.search-result {
+  min-height: to-rem(200);
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-bottom: to-rem(24);
+    gap: to-rem(24);
+
+    @include mobile {
+      @include flex(column, flex-start, stretch);
+      gap: to-rem(16);
+    }
+  }
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 700;
+    font-size: to-rem(19);
+    line-height: 1.5;
+    color: #1e2124;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__controls {
+    @include flex(row, flex-end, center);
+    gap: to-rem(12);
+
+    @include mobile {
+      @include flex(column, flex-start, stretch);
+      gap: to-rem(12);
+    }
+  }
+
+  &__checkbox {
+    @include flex(row, flex-start, center);
+    gap: to-rem(8);
+
+    :global(.ui-checkbox__title) {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-weight: 400;
+      font-size: to-rem(19);
+      color: #131416;
+    }
+
+    :global(.ui-checkbox__control) {
+      width: to-rem(24);
+      height: to-rem(24);
+      border-radius: to-rem(4);
+      border: 2px solid #256ef4;
+      background-color: #256ef4;
+
+      .ui-checkbox__input:checked + & {
+        background-color: #256ef4;
+        border-color: #256ef4;
+      }
+
+      .ui-checkbox__input:focus + & {
+        border-color: #256ef4;
+        box-shadow: 0 0 0 3px alpha(#256ef4, 0.1);
+      }
+
+      &::after {
+        content: '';
+        width: to-rem(16);
+        height: to-rem(16);
+        background-color: #d9d9d9;
+        border-radius: to-rem(2);
+      }
+
+      .ui-checkbox__input:checked + &::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__select {
+    width: to-rem(150);
+
+    :global(.ui-select) {
+      .ui-select__control {
+        background-color: $white;
+        border: 1px solid #58616a;
+        border-radius: to-rem(6);
+        padding: 0 to-rem(16);
+        height: to-rem(40);
+        font-family: 'Pretendard GOV', sans-serif;
+        font-size: to-rem(17);
+        color: #8a949e;
+
+        &:focus {
+          border-color: #256ef4;
+          box-shadow: 0 0 0 3px alpha(#256ef4, 0.1);
+        }
+      }
+
+      .ui-select__dropdown-indicator {
+        color: #33363d;
+        padding: 0;
+        width: to-rem(20);
+        height: to-rem(20);
+      }
+    }
+  }
+
+  &__content {
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(24);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(to-rem(280), 1fr));
+    gap: to-rem(24);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: to-rem(16);
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: to-rem(20);
+    }
+  }
+
+  // 빈 상태 스타일
+  &__empty {
+    @include flex(column, center, center);
+    padding: to-rem(80) to-rem(24);
+    text-align: center;
+    color: $gray-500;
+
+    .empty-icon {
+      width: to-rem(80);
+      height: to-rem(80);
+      margin-bottom: to-rem(16);
+      opacity: 0.5;
+    }
+
+    .empty-title {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-weight: 600;
+      font-size: to-rem(18);
+      margin-bottom: to-rem(8);
+      color: $gray-700;
+    }
+
+    .empty-description {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-weight: 400;
+      font-size: to-rem(15);
+      color: $gray-500;
+      line-height: 1.5;
+    }
+  }
+
+  // 로딩 상태 스타일
+  &__loading {
+    @include flex(column, center, center);
+    padding: to-rem(60) to-rem(24);
+
+    .loading-spinner {
+      width: to-rem(40);
+      height: to-rem(40);
+      border: 3px solid $gray-200;
+      border-top: 3px solid #256ef4;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: to-rem(16);
+    }
+
+    .loading-text {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-weight: 400;
+      font-size: to-rem(16);
+      color: $gray-600;
+    }
+  }
+}
+
+// 스마트도서관 검색바 커스텀 스타일
+.smart-library-searchbar {
+  margin-bottom: to-rem(24);
+
+  :global(.ui-searchbar) {
+    .ui-searchbar__container {
+      border-radius: to-rem(8);
+      border: 1px solid $gray-400;
+      background-color: $white;
+    }
+
+    .ui-searchbar__input {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      padding: to-rem(16);
+    }
+
+    .ui-searchbar__button {
+      background-color: #256ef4;
+      color: $white;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-weight: 600;
+      border-radius: 0 to-rem(8) to-rem(8) 0;
+
+      &:hover {
+        background-color: darken(#256ef4, 10%);
+      }
+    }
+  }
+}
+
+// 애니메이션 키프레임
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

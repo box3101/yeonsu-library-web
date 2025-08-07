@@ -203,3 +203,188 @@ button {
     color: #244874;
   }
 }
+
+// =====================================================
+// 카드 컨테이너 유틸리티 클래스
+// =====================================================
+
+// 기본 카드 컨테이너
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+
+  // 카드 아이템들
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // 1열 (100% 너비)
+  &--col-1 {
+    .card-container__item {
+      flex: 1 1 100%;
+    }
+  }
+
+  // 2열 (50% 너비)
+  &--col-2 {
+    .card-container__item {
+      flex: 1 1 calc(50% - 12px);
+    }
+  }
+
+  // 3열 (33.3% 너비)
+  &--col-3 {
+    .card-container__item {
+      flex: 1 1 calc(33.333% - 16px);
+    }
+  }
+
+  // 4열 (25% 너비)
+  &--col-4 {
+    .card-container__item {
+      flex: 1 1 calc(25% - 18px);
+    }
+  }
+
+  // 5열 (20% 너비)
+  &--col-5 {
+    .card-container__item {
+      flex: 1 1 calc(20% - 19.2px);
+    }
+  }
+
+  // 6열 (16.6% 너비)
+  &--col-6 {
+    .card-container__item {
+      flex: 1 1 calc(16.666% - 20px);
+    }
+  }
+
+  // 중앙 정렬
+  &--center {
+    justify-content: center;
+  }
+
+  // 시작점 정렬
+  &--start {
+    justify-content: flex-start;
+  }
+
+  // 끝점 정렬
+  &--end {
+    justify-content: flex-end;
+  }
+
+  // 균등 분배
+  &--space-between {
+    justify-content: space-between;
+  }
+
+  // 균등 분배 (여백 포함)
+  &--space-around {
+    justify-content: space-around;
+  }
+
+  // 균등 분배 (동일한 여백)
+  &--space-evenly {
+    justify-content: space-evenly;
+  }
+
+  // 간격 조정 모디파이어
+  &--gap-small {
+    gap: 12px;
+  }
+
+  &--gap-medium {
+    gap: 24px;
+  }
+
+  &--gap-large {
+    gap: 32px;
+  }
+
+  &--gap-xlarge {
+    gap: 48px;
+  }
+
+  // 타블릿 반응형 (768px 이하)
+  @include respond-to(tablet) {
+    &--col-3,
+    &--col-4,
+    &--col-5,
+    &--col-6 {
+      .card-container__item {
+        flex: 1 1 calc(50% - 12px);
+      }
+    }
+  }
+
+  // 모바일 반응형 (480px 이하)
+  @include respond-to(mobile) {
+    gap: 16px;
+
+    &--col-2,
+    &--col-3,
+    &--col-4,
+    &--col-5,
+    &--col-6 {
+      .card-container__item {
+        flex: 1 1 100%;
+      }
+    }
+
+    &--gap-small {
+      gap: 8px;
+    }
+
+    &--gap-medium {
+      gap: 16px;
+    }
+
+    &--gap-large {
+      gap: 24px;
+    }
+
+    &--gap-xlarge {
+      gap: 32px;
+    }
+  }
+}
+
+// 간단한 플렉스 유틸리티 (기존 시스템과의 호환성)
+.flex-50 {
+  flex: 1 1 calc(50% - 12px);
+}
+
+.flex-33 {
+  flex: 1 1 calc(33.333% - 16px);
+}
+
+.flex-25 {
+  flex: 1 1 calc(25% - 18px);
+}
+
+.flex-20 {
+  flex: 1 1 calc(20% - 19.2px);
+}
+
+// 반응형 플렉스 유틸리티
+@include respond-to(tablet) {
+  .flex-33,
+  .flex-25,
+  .flex-20 {
+    flex: 1 1 calc(50% - 12px);
+  }
+}
+
+@include respond-to(mobile) {
+  .flex-50,
+  .flex-33,
+  .flex-25,
+  .flex-20 {
+    flex: 1 1 100%;
+  }
+}

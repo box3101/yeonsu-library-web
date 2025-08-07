@@ -12,6 +12,8 @@ export { default as UiRelatedSiteButton } from './UI/UiRelatedSiteButton.astro';
 export { default as UiBookCard } from './UI/UiBookCard.astro';
 export { default as UiPagination } from './UI/UiPagination.astro';
 export { default as UiCollectionModal } from './UI/UiCollectionModal.astro';
+export { default as UiSearchbar } from './UI/UiSearchbar.astro';
+export { default as UiSmartLibraryBookCard } from './UI/UiSmartLibraryBookCard.astro';
 
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';

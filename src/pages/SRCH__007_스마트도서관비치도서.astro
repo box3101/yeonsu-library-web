@@ -1,0 +1,219 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+  UiSelect,
+  UiSearchbar,
+  UiRadio,
+  UiCheckbox,
+  UiPagination,
+  UiSmartLibraryBookCard,
+} from '@components';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '도서검색', href: '/support' },
+  { label: '스마트 도서관 비치도서' },
+];
+---
+
+<Layout title="스마트 도서관 비치도서">
+  <SubLayout title="스마트 도서관 비치도서" breadcrumbItems={breadcrumbItems}>
+    <div class="search-container">
+      <!-- 스마트도서관 이용방법 인포박스 -->
+      <div class="infobox infobox--secondary">
+        <div class="infobox__header">
+          <div class="infobox__icon">
+            <img src="./assets/images/icon/figma_library.svg" alt="" />
+          </div>
+          <h3 class="infobox__title">스마트도서관 비치도서 이용방법</h3>
+        </div>
+        <div class="infobox__content">
+          <ul class="infobox__list">
+            <li class="infobox__list-item">
+              스마트도서관 비치도서는 해당 기기에서만 대출/반납이 가능합니다.(타
+              도서관 반납 불가)
+            </li>
+            <li class="infobox__list-item">
+              1인당 3권까지 15일간 대출(1회 연장 가능)
+            </li>
+            <li class="infobox__list-item">
+              스마트도서관으로 상호대차 신청은 1인 2권까지 가능합니다.(해당 기기
+              및 타 도서관 반납 가능)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 공통 검색바 -->
+      <UiSearchbar
+        selectOptions={[
+          { value: '', label: '전체' },
+          { value: 'title', label: '제목' },
+          { value: 'author', label: '저자' },
+          { value: 'publisher', label: '출판사' },
+          { value: 'isbn', label: 'ISBN' },
+        ]}
+        placeholder="검색어를 입력해주세요."
+        buttonText="검색"
+        fullWidth={true}
+        class="smart-library-searchbar"
+      />
+
+      <!-- 라디오 컨테이너 -->
+      <div class="radio-container">
+        <div class="radio-container__item flex justify-around">
+          <UiRadio
+            name="radio"
+            value="송도4동 스마트도서관"
+            label="송도4동 스마트도서관"
+          />
+          <UiRadio
+            name="radio"
+            value="스퀘어원스마트도서관"
+            label="스퀘어원스마트도서관"
+          />
+          <UiRadio
+            name="radio"
+            value="연수구청 스마트도서관"
+            label="연수구청 스마트도서관"
+          />
+          <UiRadio
+            name="radio"
+            value="선학역 스마트도서관"
+            label="선학역 스마트도서관"
+          />
+        </div>
+      </div>
+
+      <!-- 검색결과 -->
+      <div class="search-result">
+        <div class="search-result__header">
+          <h3 class="search-result__title">
+            <strong class="text-primary">[홍길동]</strong> 에 대한 검색 결과 총
+            <span class="text-primary">190</span>건
+          </h3>
+          <div class="search-result__controls">
+            <div class="search-result__checkbox">
+              <UiCheckbox
+                name="availableOnly"
+                value="available"
+                size="large"
+                label="대출 가능 도서만 보기"
+                class="search-result__checkbox-input"
+              />
+            </div>
+            <div class="search-result__select">
+              <UiSelect
+                options={[
+                  { value: '10', label: '10건' },
+                  { value: '20', label: '20건' },
+                  { value: '50', label: '50건' },
+                  { value: '100', label: '100건' },
+                ]}
+                value="10"
+                class="search-result__select-input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="search-result__content">
+          <!-- 검색결과가 있을 때 -->
+          <div class="search-result__grid">
+            <!-- UiBookCard 컴포넌트들이 여기에 추가될 예정 -->
+          </div>
+
+          <!-- 검색결과가 없을 때 -->
+          <!-- <div class="search-result__empty">
+            <div class="empty-icon">📚</div>
+            <div class="empty-title">검색 결과가 없습니다</div>
+            <div class="empty-description">다른 검색어로 다시 시도해보세요.</div>
+          </div> -->
+
+          <!-- 로딩 중일 때 -->
+          <!-- <div class="search-result__loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">검색 중...</div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- 카드 -->
+      <div class="card-container card-container--col-2">
+        <div class="card-container__item">
+          <UiSmartLibraryBookCard
+            index={1}
+            title="초등학생이 알아야 할 과학 상식 100가지"
+            author="박과학 지음"
+            publisher="과학나라"
+            publishYear="2024"
+            library="송도2동 스마트도서관"
+            status="available"
+            imageUrl="/assets/images/content-infant-books.png"
+          />
+        </div>
+        <div class="card-container__item">
+          <UiSmartLibraryBookCard
+            index={2}
+            title="초등학생이 알아야 할 과학 상식 100가지"
+            author="박과학 지음"
+            publisher="과학나라"
+            publishYear="2024"
+            library="송도2동 스마트도서관"
+            status="available"
+            imageUrl="/assets/images/content-infant-books.png"
+          />
+        </div>
+        <div class="card-container__item">
+          <UiSmartLibraryBookCard
+            index={3}
+            title="초등학생이 알아야 할 과학 상식 100가지"
+            author="박과학 지음"
+            publisher="과학나라"
+            publishYear="2024"
+            library="송도2동 스마트도서관"
+            status="available"
+            imageUrl="/assets/images/content-infant-books.png"
+          />
+          <UiSmartLibraryBookCard
+            index={4}
+            title="초등학생이 알아야 할 과학 상식 100가지"
+            author="박과학 지음"
+            publisher="과학나라"
+            publishYear="2024"
+            library="송도2동 스마트도서관"
+            status="available"
+            imageUrl="/assets/images/content-infant-books.png"
+          />
+        </div>
+        <div class="card-container__item">
+          <UiSmartLibraryBookCard
+            index={4}
+            title="초등학생이 알아야 할 과학 상식 100가지"
+            author="박과학 지음"
+            publisher="과학나라"
+            publishYear="2024"
+            library="송도2동 스마트도서관"
+            status="available"
+            imageUrl="/assets/images/content-infant-books.png"
+          />
+        </div>
+      </div>
+
+      <!-- 도서표지제공 -->
+      <div class="book-cover-info flex items-center gap-2 justify-end">
+        도서 표지 제공 :
+        <img src="/assets/images/book-img.png" alt="알라딘" />
+      </div>
+
+      <!-- 페이징네비게이션 -->
+      <UiPagination
+        currentPage={1}
+        totalPages={10}
+        maxVisiblePages={8}
+        onPageChange={page => console.log('Page changed to:', page)}
+      />
+    </div>
+  </SubLayout>
+</Layout>

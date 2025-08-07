@@ -1,0 +1,300 @@
+---
+export interface SearchOption {
+  value: string;
+  label: string;
+}
+
+export interface Props {
+  /**
+   * 검색바 컨테이너 id
+   */
+  id?: string;
+  /**
+   * 셀렉트박스 옵션들
+   */
+  selectOptions?: SearchOption[];
+  /**
+   * 셀렉트박스 기본값
+   */
+  selectValue?: string;
+  /**
+   * 셀렉트박스 너비 (px)
+   */
+  selectWidth?: number;
+  /**
+   * 텍스트 입력 placeholder
+   */
+  placeholder?: string;
+  /**
+   * 텍스트 입력 기본값
+   */
+  inputValue?: string;
+  /**
+   * 텍스트 입력 너비 (px)
+   */
+  inputWidth?: number;
+  /**
+   * 검색 버튼 텍스트
+   */
+  buttonText?: string;
+  /**
+   * 검색 버튼 클릭 핸들러 함수명
+   */
+  onSearch?: string;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+  /**
+   * 전체 너비 설정
+   */
+  fullWidth?: boolean;
+}
+
+const {
+  id,
+  selectOptions = [{ value: '', label: '전체' }],
+  selectValue = '',
+  selectWidth = 120,
+  placeholder = '검색어를 입력해주세요.',
+  inputValue = '',
+  inputWidth = 360,
+  buttonText = '검색',
+  onSearch = 'handleSearch',
+  class: className = '',
+  fullWidth = false,
+  ...rest
+} = Astro.props;
+
+const searchbarId =
+  id || `searchbar-${Math.random().toString(36).substr(2, 9)}`;
+const selectId = `${searchbarId}-select`;
+const inputId = `${searchbarId}-input`;
+---
+
+<div
+  class={`ui-searchbar ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
+  id={searchbarId}
+  {...rest}
+>
+  <div class="ui-searchbar__content">
+    <!-- 셀렉트박스 -->
+    <div class="ui-searchbar__select-wrapper">
+      <select
+        id={selectId}
+        name="searchType"
+        class="ui-searchbar__select"
+        style={`width: ${selectWidth}px;`}
+      >
+        {
+          selectOptions.map(option => (
+            <option
+              value={option.value}
+              selected={selectValue === option.value}
+            >
+              {option.label}
+            </option>
+          ))
+        }
+      </select>
+      <div class="ui-searchbar__select-arrow">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.83 8L10 11.17L13.17 8"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 텍스트 입력 -->
+    <div class="ui-searchbar__input-wrapper">
+      <input
+        type="text"
+        id={inputId}
+        name="searchQuery"
+        class="ui-searchbar__input"
+        placeholder={placeholder}
+        value={inputValue}
+        style={`width: ${inputWidth}px;`}
+      />
+    </div>
+
+    <!-- 검색 버튼 -->
+    <button
+      type="button"
+      class="ui-searchbar__button"
+      onclick={onSearch ? `${onSearch}()` : undefined}
+    >
+      {buttonText}
+    </button>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+  @use '@styles/variables/colors' as *;
+
+  .ui-searchbar {
+    background-color: #eef2f7;
+    border-radius: to-rem(12);
+    padding: to-rem(22) to-rem(32);
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &__content {
+      @include flex(row, flex-end, center);
+      gap: to-rem(10);
+      width: 100%;
+    }
+
+    // 셀렉트박스 스타일
+    &__select-wrapper {
+      position: relative;
+      @include flex(column, center, center);
+      gap: to-rem(8);
+    }
+
+    &__select {
+      height: to-rem(48);
+      padding: 0 to-rem(40) 0 to-rem(16);
+      border: 1px solid #58616a;
+      border-radius: to-rem(6);
+      background: $white;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      font-weight: 400;
+      color: #6f6f6f;
+      appearance: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: to-rem(2) solid $primary-color;
+        outline-offset: to-rem(2);
+        border-color: $primary-color;
+      }
+
+      &:hover {
+        border-color: #404040;
+      }
+    }
+
+    &__select-arrow {
+      position: absolute;
+      right: to-rem(16);
+      top: 50%;
+      transform: translateY(-50%);
+      width: to-rem(20);
+      height: to-rem(20);
+      color: #33363d;
+      pointer-events: none;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // 텍스트 입력 스타일
+    &__input-wrapper {
+      @include flex(column, stretch, stretch);
+      gap: to-rem(8);
+      flex: 1;
+      max-width: to-rem(360);
+    }
+
+    &__input {
+      height: to-rem(48);
+      padding: 0 to-rem(16);
+      border: 1px solid #58616a;
+      border-radius: to-rem(6);
+      background: $white;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      font-weight: 400;
+      color: #6f6f6f;
+      transition: all 0.2s ease;
+
+      &::placeholder {
+        color: #6f6f6f;
+      }
+
+      &:focus {
+        outline: to-rem(2) solid $primary-color;
+        outline-offset: to-rem(2);
+        border-color: $primary-color;
+        color: $text-color;
+      }
+
+      &:hover {
+        border-color: #404040;
+      }
+    }
+
+    // 검색 버튼 스타일
+    &__button {
+      height: to-rem(48);
+      padding: 0 to-rem(16);
+      background: #244874;
+      border: none;
+      border-radius: to-rem(6);
+      color: $white;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(17);
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      @include flex(row, center, center);
+      gap: to-rem(4);
+
+      &:hover {
+        background: #1e3a5f;
+      }
+
+      &:focus {
+        outline: to-rem(2) solid $primary-color;
+        outline-offset: to-rem(2);
+      }
+
+      &:active {
+        background: #142a42;
+      }
+    }
+
+    // 반응형 스타일
+    @include mobile {
+      padding: to-rem(16);
+
+      &__content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: to-rem(12);
+      }
+
+      &__select-wrapper,
+      &__input-wrapper {
+        width: 100%;
+      }
+
+      &__select,
+      &__input {
+        width: 100% !important;
+      }
+    }
+
+    @include tablet {
+      &__content {
+        gap: to-rem(8);
+      }
+
+      &__input-wrapper {
+        max-width: to-rem(280);
+      }
+    }
+  }
+</style>

@@ -28,6 +28,7 @@
 @use 'components/book-card';
 @use 'components/pagination';
 @use 'components/collection-modal';
+@use 'components/smart-library-book-card';
 
 // 페이지별 스타일
 @use 'pages/home';
