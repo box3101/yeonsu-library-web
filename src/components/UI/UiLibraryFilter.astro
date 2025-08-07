@@ -312,13 +312,9 @@ const popularSearches = [
     }
 
     // 검색어 드롭다운 기능
-    console.log('searchInput:', searchInput);
-    console.log('searchDropdown:', searchDropdown);
-
     if (searchInput && searchDropdown) {
       // 검색 입력 시 드롭다운 표시
       searchInput.addEventListener('focus', function () {
-        console.log('Search input focused - showing dropdown');
         searchDropdown.classList.add('is-open');
       });
 
