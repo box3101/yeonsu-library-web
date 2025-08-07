@@ -1,24 +1,9 @@
 [build]
-  # Astro 빌드 명령어
   command = "npm run build"
-  # 빌드 결과물이 생성되는 디렉토리
   publish = "dist"
 
 [build.environment]
-  # Node.js 버전 설정
   NODE_VERSION = "18"
-  # npm 패키지 매니저 버전
-  NPM_FLAGS = "--version"
-
-# 배포 브랜치 설정
-[context.production]
-  command = "npm run build"
-
-[context.deploy-preview]
-  command = "npm run build"
-
-[context.branch-deploy]
-  command = "npm run build"
 
 # 리다이렉트 설정 (SPA 라우팅 지원)
 [[redirects]]
