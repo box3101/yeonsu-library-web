@@ -246,20 +246,20 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
       <div class="stats">
         <div class="stat-card">
-          <div class="stat-number">8</div>
-          <div class="stat-label">완성된 페이지</div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">운영중인 페이지</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">15+</div>
+          <div class="stat-number">17</div>
           <div class="stat-label">UI 컴포넌트</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">반응형 지원</div>
+          <div class="stat-number">동적메뉴</div>
+          <div class="stat-label">1depth 기반</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">Astro</div>
-          <div class="stat-label">프레임워크</div>
+          <div class="stat-number">TypeScript</div>
+          <div class="stat-label">타입 안전성</div>
         </div>
       </div>
 
@@ -321,67 +321,18 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
           <tr>
             <td>S03</td>
-            <td>BBS_USER_REG1_LIST_도서관에바란다</td>
+            <td>도서관에 바란다</td>
             <td
               ><a href="/BBS_USER_REG1_LIST_도서관에바란다" target="_blank"
                 >BBS_USER_REG1_LIST_도서관에바란다.astro</a
               ></td
             >
+            <td><span class="status-complete">완료</span></td>
+            <td>건의사항 게시판, 테이블 기반 목록</td>
           </tr>
         </tbody>
       </table>
 
-      <div class="section-title">🧩 UI 컴포넌트 데모</div>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>컴포넌트명</th>
-            <th>데모 URL</th>
-            <th>상태</th>
-            <th>설명</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>C01</td>
-            <td>페이지네이션</td>
-            <td
-              ><a href="/pagination-demo" target="_blank"
-                >pagination-demo.astro</a
-              ></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>UiPagination 컴포넌트 사용 예시</td>
-          </tr>
-          <tr>
-            <td>C02</td>
-            <td>라디오 버튼</td>
-            <td><a href="/radio-demo" target="_blank">radio-demo.astro</a></td>
-            <td><span class="status-complete">완료</span></td>
-            <td>UiRadio 컴포넌트 다양한 스타일</td>
-          </tr>
-          <tr>
-            <td>C03</td>
-            <td>브레드크럼</td>
-            <td
-              ><a href="/breadcrumb-demo" target="_blank"
-                >breadcrumb-demo.astro</a
-              ></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>Breadcrumb 네비게이션 컴포넌트</td>
-          </tr>
-          <tr>
-            <td>C04</td>
-            <td>심플 데모</td>
-            <td><a href="/simple-demo" target="_blank">simple-demo.astro</a></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>기본 레이아웃 및 컴포넌트 조합</td>
-          </tr>
-        </tbody>
-      </table>
 
       <div class="section-title">🎨 UI 컴포넌트 라이브러리</div>
       <table>
@@ -486,6 +437,27 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
             <td>관련사이트 버튼</td>
             <td><span class="status-complete">완료</span></td>
           </tr>
+          <tr>
+            <td>U14</td>
+            <td>UiSearchbar</td>
+            <td>UiSearchbar.astro</td>
+            <td>3개 셀렉트박스 검색바 (검색타입, 도서관, 제목)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U15</td>
+            <td>UiSmartLibraryBookCard</td>
+            <td>UiSmartLibraryBookCard.astro</td>
+            <td>스마트도서관 전용 도서 카드</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
+          <tr>
+            <td>U16</td>
+            <td>UiTable</td>
+            <td>UiTable.astro</td>
+            <td>게시판용 테이블 (체크박스, 정렬, 상태배지)</td>
+            <td><span class="status-complete">완료</span></td>
+          </tr>
         </tbody>
       </table>
 
@@ -526,7 +498,7 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
             <td>L04</td>
             <td>LeftMenu</td>
             <td>LeftMenu.astro</td>
-            <td>서브페이지 좌측 메뉴</td>
+            <td>1depth 기반 동적 좌측 메뉴 (2/3depth 지원)</td>
             <td><span class="status-complete">완료</span></td>
           </tr>
           <tr>
@@ -542,6 +514,49 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
             <td>Breadcrumb.astro</td>
             <td>브레드크럼 네비게이션</td>
             <td><span class="status-complete">완료</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">🎨 최신 개선사항</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>개선내용</th>
+            <th>설명</th>
+            <th>적용일</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R01</td>
+            <td>동적 메뉴 시스템</td>
+            <td>1depth에 따라 자동 변경되는 좌측 메뉴, URL 기반 감지</td>
+            <td>2024.12</td>
+            <td><span class="status-complete">적용완료</span></td>
+          </tr>
+          <tr>
+            <td>R02</td>
+            <td>다중 셀렉트 검색바</td>
+            <td>검색타입, 도서관, 제목 3개 필터 동시 지원</td>
+            <td>2024.12</td>
+            <td><span class="status-complete">적용완료</span></td>
+          </tr>
+          <tr>
+            <td>R03</td>
+            <td>테이블 컴포넌트</td>
+            <td>게시판 전용, 제목 링크, 상태 배지, 반응형 지원</td>
+            <td>2024.12</td>
+            <td><span class="status-complete">적용완료</span></td>
+          </tr>
+          <tr>
+            <td>R04</td>
+            <td>한글 URL 인코딩</td>
+            <td>한글 페이지명 URL 자동 매칭 처리</td>
+            <td>2024.12</td>
+            <td><span class="status-complete">적용완료</span></td>
           </tr>
         </tbody>
       </table>
@@ -596,14 +611,52 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
         </tbody>
       </table>
 
+      <div class="section-title">📁 데이터 구조 & 설정</div>
+      <table>
+        <thead>
+          <tr>
+            <th>파일</th>
+            <th>용도</th>
+            <th>구조</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>menuData.ts</td>
+            <td>메뉴 설정</td>
+            <td>MenuConfig 타입, URL 자동감지</td>
+            <td>1depth별 좌측메뉴 정의</td>
+          </tr>
+          <tr>
+            <td>CLAUDE.md</td>
+            <td>개발 가이드</td>
+            <td>명령어, 아키텍처, 규칙</td>
+            <td>AI 개발 지침서</td>
+          </tr>
+          <tr>
+            <td>components/index.ts</td>
+            <td>컴포넌트 관리</td>
+            <td>중앙집중식 export</td>
+            <td>17개 UI 컴포넌트</td>
+          </tr>
+          <tr>
+            <td>astro.config.mjs</td>
+            <td>프레임워크 설정</td>
+            <td>Path aliases, 빌드옵션</td>
+            <td>@/ 경로 설정</td>
+          </tr>
+        </tbody>
+      </table>
+
       <div class="section-title">📐 SCSS 아키텍처 (7-1 Pattern)</div>
       <table>
         <thead>
           <tr>
             <th>폴더</th>
             <th>용도</th>
-            <th>파일 예시</th>
-            <th>설명</th>
+            <th>주요 파일</th>
+            <th>실제 사용 예시</th>
           </tr>
         </thead>
         <tbody>
@@ -611,31 +664,25 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
             <td>abstracts/</td>
             <td>함수, 믹스인</td>
             <td>_functions.scss, _mixins.scss</td>
-            <td>to-rem(), vw(), flex 믹스인, 반응형 브레이크포인트</td>
+            <td>to-rem(16), @include flex-center, @include mobile</td>
           </tr>
           <tr>
             <td>variables/</td>
-            <td>변수 정의</td>
+            <td>디자인 토큰</td>
             <td>_colors.scss, _typography.scss</td>
-            <td>색상 팔레트, 폰트 설정, 레이아웃 변수</td>
-          </tr>
-          <tr>
-            <td>utilities/</td>
-            <td>유틸리티 클래스</td>
-            <td>_flex.scss, _spacing.scss</td>
-            <td>Tailwind 스타일 원자 단위 클래스</td>
+            <td>$primary-color, $font-bold, $gray-900</td>
           </tr>
           <tr>
             <td>components/</td>
-            <td>컴포넌트별 스타일</td>
-            <td>_buttons.scss, _tabs.scss</td>
-            <td>BEM 방법론 적용, 모듈화된 컴포넌트 스타일</td>
+            <td>컴포넌트 스타일</td>
+            <td>_left-menu.scss, _buttons.scss</td>
+            <td>.menu-section-title.active 스타일</td>
           </tr>
           <tr>
-            <td>pages/</td>
-            <td>페이지별 스타일</td>
-            <td>_home.scss</td>
-            <td>특정 페이지만의 고유 스타일</td>
+            <td>utilities/</td>
+            <td>유틸리티</td>
+            <td>_flex.scss, _spacing.scss</td>
+            <td>.mt24, .flex-center 클래스</td>
           </tr>
         </tbody>
       </table>
