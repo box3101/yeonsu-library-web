@@ -11,6 +11,7 @@
 
 // 유틸리티들
 @use 'utilities/flex';
+@use 'utilities/spacing';
 @use 'utilities/typography';
 
 // 컴포넌트 스타일들
@@ -23,6 +24,7 @@
 @use 'components/sub-layout';
 @use 'components/left-menu';
 @use 'components/breadcrumb';
+@use 'components/sub';
 
 // 페이지별 스타일
 @use 'pages/home';

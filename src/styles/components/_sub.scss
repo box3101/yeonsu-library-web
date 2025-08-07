@@ -1,0 +1,417 @@
+@use '@styles/abstracts' as *;
+@use '@styles/variables/colors' as *;
+
+// 소장도서 검색
+.ui-library-filter {
+  margin-bottom: to-rem(32);
+
+  &__box {
+    border: 1px solid $gray-500;
+    border-radius: to-rem(8);
+    padding: to-rem(24) to-rem(20);
+    background-color: $gray-100;
+  }
+
+  &__header {
+    margin-bottom: to-rem(12);
+  }
+
+  &__main-control {
+    @include flex(row, flex-start, center);
+    gap: to-rem(8);
+  }
+
+  &__main-checkbox {
+    :global(.ui-checkbox__title) {
+      font-weight: $font-semibold;
+      color: $gray-800;
+      font-size: to-rem(16);
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: none;
+    color: $gray-800;
+    cursor: pointer;
+    padding: to-rem(4);
+    border-radius: to-rem(4);
+    transition: all 0.2s ease;
+    @include flex-center;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+
+    &:focus {
+      outline: 2px solid $gray-500;
+      outline-offset: 2px;
+    }
+
+    &[aria-expanded='false'] .ui-library-filter__toggle-icon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__toggle-icon {
+    transition: transform 0.2s ease;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &[data-expanded='false'] {
+      max-height: 0;
+    }
+  }
+
+  &__subtitle {
+    color: $text-color;
+    font-weight: 700;
+    font-size: to-rem(15);
+    margin-bottom: to-rem(8);
+    padding-top: to-rem(4);
+  }
+
+  &__grid {
+    display: grid;
+    gap: to-rem(8) to-rem(24);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: to-rem(6) to-rem(16);
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: to-rem(8) to-rem(20);
+    }
+  }
+
+  &__item {
+    :global(.ui-checkbox) {
+      gap: to-rem(6);
+    }
+
+    :global(.ui-checkbox__title) {
+      font-size: to-rem(14);
+      color: $gray-700;
+      line-height: 1.4;
+    }
+
+    :global(.ui-checkbox__control) {
+      .ui-checkbox__input:checked + & {
+        background-color: $gray-500;
+        border-color: $gray-500;
+      }
+
+      .ui-checkbox__input:focus + & {
+        border-color: $gray-500;
+        box-shadow: 0 0 0 3px alpha($gray-500, 0.1);
+      }
+    }
+
+    :global(.ui-checkbox:hover:not(.ui-checkbox--disabled) .ui-checkbox__control) {
+      border-color: $gray-400;
+    }
+  }
+}
+.ui-sub {
+  margin-bottom: to-rem(32);
+
+  &__box {
+    border: 1px solid $gray-500;
+    border-radius: to-rem(8);
+    padding: to-rem(24) to-rem(20);
+    background-color: $gray-100;
+  }
+
+  &__header {
+    margin-bottom: to-rem(12);
+  }
+
+  &__main-control {
+    @include flex(row, flex-start, center);
+    gap: to-rem(8);
+  }
+
+  &__main-checkbox {
+    :global(.ui-checkbox__title) {
+      font-weight: $font-semibold;
+      color: $gray-800;
+      font-size: to-rem(16);
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: none;
+    color: $gray-800;
+    cursor: pointer;
+    padding: to-rem(4);
+    border-radius: to-rem(4);
+    transition: all 0.2s ease;
+    @include flex-center;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+
+    &:focus {
+      outline: 2px solid $gray-500;
+      outline-offset: 2px;
+    }
+
+    &[aria-expanded='false'] .ui-library-filter__toggle-icon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__toggle-icon {
+    transition: transform 0.2s ease;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &[data-expanded='false'] {
+      max-height: 0;
+    }
+  }
+
+  &__subtitle {
+    color: $text-color;
+    font-weight: 700;
+    font-size: to-rem(15);
+    margin-bottom: to-rem(8);
+    padding-top: to-rem(4);
+  }
+
+  &__grid {
+    display: grid;
+    gap: to-rem(8) to-rem(24);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: to-rem(6) to-rem(16);
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: to-rem(8) to-rem(20);
+    }
+  }
+
+  &__item {
+    :global(.ui-checkbox) {
+      gap: to-rem(6);
+    }
+
+    :global(.ui-checkbox__title) {
+      font-size: to-rem(14);
+      color: $gray-700;
+      line-height: 1.4;
+    }
+
+    :global(.ui-checkbox__control) {
+      .ui-checkbox__input:checked + & {
+        background-color: $gray-500;
+        border-color: $gray-500;
+      }
+
+      .ui-checkbox__input:focus + & {
+        border-color: $gray-500;
+        box-shadow: 0 0 0 3px alpha($gray-500, 0.1);
+      }
+    }
+
+    :global(.ui-checkbox:hover:not(.ui-checkbox--disabled) .ui-checkbox__control) {
+      border-color: $gray-400;
+    }
+  }
+}
+// 검색 영역 스타일
+.ui-library-filter__search {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: to-rem(8);
+
+  &-input {
+    flex: 1;
+  }
+
+  // 검색어 드롭다운 스타일
+  &-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background: $white;
+    border: 1px solid $gray-200;
+    border-radius: to-rem(8);
+    box-shadow: 0 4px 6px -1px alpha($black, 0.1);
+    margin-top: to-rem(4);
+    width: to-rem(340);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  // 탭 버튼 스타일
+  &-tabs {
+    display: flex;
+    border: 1px solid $gray-200;
+    border-radius: to-rem(8) to-rem(8) 0 0;
+    overflow: hidden;
+    width: to-rem(340);
+
+    button {
+      flex: 1;
+      padding: to-rem(8) to-rem(16);
+      background: $white;
+      border: none;
+      color: $gray-500;
+      font-weight: $font-semibold;
+      font-size: to-rem(14);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:not(:last-child) {
+        border-right: 1px solid $gray-200;
+      }
+
+      &.active,
+      &[data-active='true'] {
+        background: $blue-50;
+        color: $blue-700;
+        border-bottom: 2px solid $blue-500;
+      }
+
+      &:hover:not(.active) {
+        background: $gray-50;
+        color: $gray-700;
+      }
+    }
+  }
+
+  // 검색어 목록 스타일
+  &-list {
+    background: $white;
+    padding: to-rem(16);
+    width: to-rem(340);
+
+    .search-content {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .search-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: to-rem(8) 0;
+      border-bottom: 1px solid $gray-100;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .search-term {
+        color: $gray-900;
+        font-size: to-rem(14);
+
+        &.is-recent {
+          font-weight: $font-semibold;
+        }
+      }
+
+      .search-date {
+        color: $gray-400;
+        font-size: to-rem(12);
+        font-weight: $font-normal;
+      }
+
+      .search-rank {
+        background: $blue-500;
+        color: $white;
+        font-size: to-rem(11);
+        font-weight: $font-bold;
+        padding: to-rem(2) to-rem(6);
+        border-radius: to-rem(10);
+        min-width: to-rem(16);
+        text-align: center;
+      }
+    }
+  }
+
+  // 하단 옵션 스타일
+  &-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: to-rem(10) to-rem(16);
+    border-top: 1px solid $gray-100;
+    background: $gray-50;
+    border-radius: 0 0 to-rem(8) to-rem(8);
+    width: to-rem(340);
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: to-rem(4);
+
+      .option-icon {
+        width: to-rem(20);
+        height: to-rem(20);
+        border-radius: 50%;
+        background: $gray-400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        font-size: to-rem(10);
+
+        &::before {
+          content: '×';
+        }
+      }
+
+      .option-text {
+        color: $gray-500;
+        font-size: to-rem(13);
+      }
+    }
+
+    .option-button {
+      background: none;
+      border: none;
+      color: $blue-600;
+      font-size: to-rem(13);
+      font-weight: $font-semibold;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: $blue-700;
+      }
+    }
+  }
+}
+
+// 소장도서 검색 EEE

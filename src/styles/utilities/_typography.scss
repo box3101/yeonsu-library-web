@@ -64,10 +64,13 @@
 // 섹션 타이틀 (도서검색, 소장도서검색 등)
 .section-title {
   @include page-title('h1', $primary-color);
-  margin-bottom: to-rem(40);
-  padding-bottom: to-rem(16);
-  border-bottom: 3px solid $primary-color;
-  position: relative;
+  
+  & {
+    margin-bottom: to-rem(40);
+    padding-bottom: to-rem(16);
+    border-bottom: 3px solid $primary-color;
+    position: relative;
+  }
 
   &::after {
     content: '';

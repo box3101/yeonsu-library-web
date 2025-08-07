@@ -119,7 +119,7 @@ const buttonStyle = [
   {
     hasIcon && iconPosition === 'left' && !loading && (
       <div class="ui-button__icon ui-button__icon--left">
-        <img src={`./assets/images/icon/${icon}.svg`} alt="" />
+        <i class={`icon icon-md ${icon}`} />
       </div>
     )
   }
@@ -353,8 +353,6 @@ const buttonStyle = [
       justify-content: center;
 
       &-icon {
-        width: to-rem(16);
-        height: to-rem(16);
         color: currentColor;
 
         .ui-button--large & {
@@ -412,13 +410,13 @@ const buttonStyle = [
     }
 
     &--small &__icon {
-      width: to-rem(14);
-      height: to-rem(14);
+      width: to-rem(20);
+      height: to-rem(20);
     }
 
     &--medium &__icon {
-      width: to-rem(16);
-      height: to-rem(16);
+      width: to-rem(20);
+      height: to-rem(20);
     }
 
     &--large &__icon {

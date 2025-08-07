@@ -5,6 +5,7 @@ export { default as UiInput } from './UI/UiInput.astro';
 export { default as UiLibraryFilter } from './UI/UiLibraryFilter.astro';
 export { default as UiRadio } from './UI/UiRadio.astro';
 export { default as UiSelect } from './UI/UiSelect.astro';
+export { default as UiSwitch } from './UI/UiSwitch.astro';
 export { default as UiNavButton } from './UI/UiNavButton.astro';
 export { default as UiTab } from './UI/UiTab.astro';
 export { default as UiRelatedSiteButton } from './UI/UiRelatedSiteButton.astro';
