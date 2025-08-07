@@ -4,11 +4,27 @@
 
 .left-menu {
   flex: 0 0 to-rem(280);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 .left-menu-nav {
   height: 100%;
   overflow-y: auto;
   margin-top: to-rem(41);
+
+  .left-menu-title {
+    padding: to-rem(32) 0;
+    .left-menu-title-text {
+      color: $gray-900;
+      font-size: to-rem(24);
+      font-weight: $font-bold;
+      line-height: 150%;
+      letter-spacing: 0;
+      margin-left: 10px;
+    }
+  }
 
   .menu-section {
     border-bottom: 1px solid #e5e8eb;

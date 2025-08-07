@@ -33,6 +33,24 @@
   "css.validate": true,
   "scss.validate": true,
 
+  // CSS Peek 설정
+  "css_peek.searchFileExtensions": [
+    ".css",
+    ".scss",
+    ".sass",
+    ".less"
+  ],
+  "css_peek.peekFromLanguages": [
+    "html",
+    "astro",
+    "javascript",
+    "typescript"
+  ],
+
+  // CSS Navigation 설정
+  "cssNavigation.activeHTMLFileExtensions": ["html", "astro", "vue"],
+  "cssNavigation.activeCSSFileExtensions": ["css", "scss", "sass", "less"],
+
   // 컴포넌트 자동완성 향상
   "typescript.suggest.autoImports": true,
   "typescript.preferences.includePackageJsonAutoImports": "auto",

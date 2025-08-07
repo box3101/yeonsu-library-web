@@ -4,10 +4,8 @@
 // SCSS 7-1 아키텍처에 따른 컴포넌트별 스타일 정의
 
 .breadcrumb {
+  margin-top: to-rem(40);
   margin-bottom: to-rem(24);
-  padding: to-rem(16) 0;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
 
   .breadcrumb-container {
     display: flex;
@@ -112,7 +110,7 @@
 
         .breadcrumb-separator {
           margin: 0 to-rem(1);
-          
+
           svg {
             width: to-rem(5);
             height: to-rem(8);
@@ -163,39 +161,6 @@
     .breadcrumb-list {
       .breadcrumb-item {
         max-width: to-rem(120);
-      }
-    }
-  }
-}
-
-// 다크 모드 대응 (향후 확장성을 위해)
-@media (prefers-color-scheme: dark) {
-  .breadcrumb {
-    background: #1f2937;
-    border-bottom-color: #374151;
-    
-    .breadcrumb-home-icon {
-      color: #60a5fa;
-    }
-    
-    .breadcrumb-list {
-      .breadcrumb-item {
-        .breadcrumb-link {
-          color: #9ca3af;
-          
-          &:hover {
-            color: #60a5fa;
-            background-color: rgba(96, 165, 250, 0.1);
-          }
-        }
-        
-        .breadcrumb-current {
-          color: #f9fafb;
-        }
-        
-        .breadcrumb-separator {
-          color: #6b7280;
-        }
       }
     }
   }

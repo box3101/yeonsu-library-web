@@ -71,50 +71,51 @@ const menuItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="left-menu">
-  <nav class="left-menu-nav">
-    {
-      menuItems.map((section, index) => (
-        <div class="menu-section">
-          <button
-            class={`menu-section-title ${section.isExpanded ? 'expanded' : ''}`}
-            data-menu-toggle={index}
-            aria-expanded={section.isExpanded}
+<nav class="left-menu-nav">
+  <div class="left-menu-title">
+    <h2 class="left-menu-title-text">도서검색</h2>
+  </div>
+  {
+    menuItems.map((section, index) => (
+      <div class="menu-section">
+        <button
+          class={`menu-section-title ${section.isExpanded ? 'expanded' : ''}`}
+          data-menu-toggle={index}
+          aria-expanded={section.isExpanded}
+        >
+          <span class="menu-title-text">{section.title}</span>
+          <svg
+            class="menu-arrow"
+            width="12"
+            height="8"
+            viewBox="0 0 12 8"
+            fill="none"
           >
-            <span class="menu-title-text">{section.title}</span>
-            <svg
-              class="menu-arrow"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-            >
-              <path
-                d="M1 1L6 6L11 1"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <ul
-            class={`menu-list ${section.isExpanded ? 'expanded' : ''}`}
-            data-menu-content={index}
-          >
-            {section.items.map(item => (
-              <li class="menu-item">
-                <a
-                  href={item.href}
-                  class={`menu-link ${currentPath === item.href ? 'active' : ''}`}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
-  </nav>
-</div>
+            <path
+              d="M1 1L6 6L11 1"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <ul
+          class={`menu-list ${section.isExpanded ? 'expanded' : ''}`}
+          data-menu-content={index}
+        >
+          {section.items.map(item => (
+            <li class="menu-item">
+              <a
+                href={item.href}
+                class={`menu-link ${currentPath === item.href ? 'active' : ''}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</nav>
