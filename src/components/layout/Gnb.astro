@@ -23,22 +23,54 @@ const menuData = [
       {
         title: '독서진흥',
         items: [
-          { label: '독서의 달', href: '/reading-month' },
-          { label: '책 읽는 연수구 만들기', href: '/reading-yeonsu', isSelected: true },
-          { label: '시민추천도서', href: '/citizen-books' },
-          { label: '독서동아리', href: '/reading-clubs' },
-          { label: '원북원시티', href: '/one-book-one-city' }
-        ]
-      }
-    ],
-    subCategories: [
-      {
-        title: '책 읽는 연수구 만들기',
-        items: [
-          { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
-          { label: '참여방법', href: '/reading-yeonsu/participate' },
-          { label: '독서후기', href: '/reading-yeonsu/reviews' },
-          { label: '우수작 선정', href: '/reading-yeonsu/awards' }
+          { 
+            label: '독서의 달', 
+            href: '/reading-month',
+            subItems: [
+              { label: '독서의 달 소개', href: '/reading-month/intro' },
+              { label: '참여 이벤트', href: '/reading-month/events' },
+              { label: '독서 캠페인', href: '/reading-month/campaign' },
+              { label: '우수 참여자', href: '/reading-month/winners' }
+            ]
+          },
+          { 
+            label: '책 읽는 연수구 만들기', 
+            href: '/reading-yeonsu', 
+            isSelected: true,
+            subItems: [
+              { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
+              { label: '참여방법', href: '/reading-yeonsu/participate' },
+              { label: '독서후기', href: '/reading-yeonsu/reviews' },
+              { label: '우수작 선정', href: '/reading-yeonsu/awards' }
+            ]
+          },
+          { 
+            label: '시민추천도서', 
+            href: '/citizen-books',
+            subItems: [
+              { label: '추천도서 목록', href: '/citizen-books/list' },
+              { label: '도서 추천하기', href: '/citizen-books/recommend' },
+              { label: '추천 후기', href: '/citizen-books/reviews' }
+            ]
+          },
+          { 
+            label: '독서동아리', 
+            href: '/reading-clubs',
+            subItems: [
+              { label: '동아리 소개', href: '/reading-clubs/intro' },
+              { label: '가입신청', href: '/reading-clubs/join' },
+              { label: '활동현황', href: '/reading-clubs/activities' }
+            ]
+          },
+          { 
+            label: '원북원시티', 
+            href: '/one-book-one-city',
+            subItems: [
+              { label: '선정도서', href: '/one-book-one-city/book' },
+              { label: '참여방법', href: '/one-book-one-city/how-to' },
+              { label: '독서토론', href: '/one-book-one-city/discussion' }
+            ]
+          }
         ]
       }
     ]
@@ -50,23 +82,54 @@ const menuData = [
       {
         title: '도서관안내',
         items: [
-          { label: '도서관소개', href: '/info/about' },
-          { label: '이용안내', href: '/info/guide', isSelected: true },
-          { label: '층별안내', href: '/info/floor-guide' },
-          { label: '찾아오시는 길', href: '/info/location' },
-          { label: '시설현황', href: '/info/facilities' }
-        ]
-      }
-    ],
-    subCategories: [
-      {
-        title: '이용안내',
-        items: [
-          { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
-          { label: '회원가입안내', href: '/info/guide/membership' },
-          { label: '이용시간', href: '/info/guide/hours' },
-          { label: '휴관일안내', href: '/info/guide/holidays' },
-          { label: '이용규칙', href: '/info/guide/rules' }
+          { 
+            label: '도서관소개', 
+            href: '/info/about',
+            subItems: [
+              { label: '관장인사말', href: '/info/about/greeting' },
+              { label: '운영방침', href: '/info/about/policy' },
+              { label: '연혁', href: '/info/about/history' }
+            ]
+          },
+          { 
+            label: '이용안내', 
+            href: '/info/guide', 
+            isSelected: true,
+            subItems: [
+              { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
+              { label: '회원가입안내', href: '/info/guide/membership' },
+              { label: '이용시간', href: '/info/guide/hours' },
+              { label: '휴관일안내', href: '/info/guide/holidays' },
+              { label: '이용규칙', href: '/info/guide/rules' }
+            ]
+          },
+          { 
+            label: '층별안내', 
+            href: '/info/floor-guide',
+            subItems: [
+              { label: '1층 안내', href: '/info/floor-guide/1f' },
+              { label: '2층 안내', href: '/info/floor-guide/2f' },
+              { label: '3층 안내', href: '/info/floor-guide/3f' }
+            ]
+          },
+          { 
+            label: '찾아오시는 길', 
+            href: '/info/location',
+            subItems: [
+              { label: '교통편 안내', href: '/info/location/transport' },
+              { label: '주차 안내', href: '/info/location/parking' },
+              { label: '지도', href: '/info/location/map' }
+            ]
+          },
+          { 
+            label: '시설현황', 
+            href: '/info/facilities',
+            subItems: [
+              { label: '열람실', href: '/info/facilities/reading-room' },
+              { label: '디지털자료실', href: '/info/facilities/digital' },
+              { label: '문화공간', href: '/info/facilities/culture' }
+            ]
+          }
         ]
       }
     ]
@@ -222,14 +285,19 @@ const activeMenu = menuData.find(menu =>
             </div>
 
             <!-- 3depth 메뉴 -->
-            {menu.type === '3depth' && menu.subCategories && (
+            {menu.type === '3depth' && (
               <div class="gnb-third">
                 <div class="gnb-third-title">
-                  <h3 class="gnb-third-title-text">{menu.subCategories[0].title}</h3>
+                  <h3 class="gnb-third-title-text" data-third-title>{
+                    menu.categories?.[0]?.items.find(item => item.isSelected)?.label || 
+                    menu.categories?.[0]?.items[0]?.label || 
+                    '3depth 메뉴'
+                  }</h3>
                 </div>
                 <div class="gnb-third-items">
-                  <div class="gnb-third-column">
-                    {menu.subCategories[0].items.map(item => (
+                  <div class="gnb-third-column" data-third-items>
+                    {(menu.categories?.[0]?.items.find(item => item.isSelected)?.subItems || 
+                      menu.categories?.[0]?.items[0]?.subItems || []).map(item => (
                       <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
                         <a href={item.href} class="gnb-third-link">
                           <div class="gnb-third-bullet"></div>
@@ -255,6 +323,10 @@ const activeMenu = menuData.find(menu =>
   .gnb {
     position: relative;
     z-index: 1000;
+    
+    // CSS 변수 정의
+    --radius-medium2: #{to-rem(6)};
+    --color-primary-pr01: #d8e4f3;
     
     &-container {
       max-width: 1280px;
@@ -450,11 +522,12 @@ const activeMenu = menuData.find(menu =>
     }
 
     &-item {
-      border-radius: to-rem(6);
+      border-radius: var(--radius-medium2, #{to-rem(6)});
       transition: all 0.2s ease;
 
       &.selected {
-        background: #d8e4f3;
+        border-radius: var(--radius-medium2, #{to-rem(6)});
+        background: var(--color-primary-pr01, #d8e4f3);
       }
 
       &:hover {
@@ -468,6 +541,15 @@ const activeMenu = menuData.find(menu =>
       padding: to-rem(10) to-rem(8);
       text-decoration: none;
       gap: to-rem(10);
+      color: inherit;
+      
+      .gnb-third-text {
+        font-family: 'Pretendard GOV', sans-serif !important;
+        font-size: to-rem(17) !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        color: #1e2124 !important;
+      }
     }
 
     &-bullet {
@@ -480,12 +562,28 @@ const activeMenu = menuData.find(menu =>
     }
 
     &-text {
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(17);
-      font-weight: 400;
-      line-height: 1.5;
-      color: #1e2124;
+      font-family: 'Pretendard GOV', sans-serif !important;
+      font-size: to-rem(17) !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: #1e2124 !important;
+      display: inline-block;
+      vertical-align: top;
     }
+  }
+
+  // 강력한 선택자로 gnb-third-text 스타일 강제 적용
+  .gnb .gnb-sub .gnb-third .gnb-third-text,
+  .gnb-third-text,
+  .gnb-third .gnb-third-text,
+  .gnb-third-link .gnb-third-text {
+    font-family: 'Pretendard GOV', sans-serif !important;
+    font-size: #{to-rem(17)} !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #1e2124 !important;
+    display: inline-block !important;
+    vertical-align: top !important;
   }
 
   // 반응형
@@ -563,6 +661,220 @@ const activeMenu = menuData.find(menu =>
     const gnbSubs = document.querySelectorAll('.gnb-sub[data-menu-target]');
     let currentTimeout: number | null = null;
 
+    // 메뉴 데이터 (JavaScript용)
+    const menuData = [
+      { 
+        title: '도서검색', 
+        type: '2depth',
+        categories: [{ title: '도서검색', items: [
+          { label: '소장도서검색', href: '/SRCH__001_소장도서검색' },
+          { label: '스마트도서관비치도서', href: '/SRCH__007_스마트도서관비치도서' },
+          { label: '신착도서', href: '/new-books' },
+          { label: '추천도서', href: '/recommended-books' },
+          { label: '베스트셀러', href: '/bestsellers' }
+        ]}]
+      },
+      { 
+        title: '책 읽는 연수구', 
+        type: '3depth',
+        categories: [{ title: '독서진흥', items: [
+          { 
+            label: '독서의 달', 
+            href: '/reading-month',
+            subItems: [
+              { label: '독서의 달 소개', href: '/reading-month/intro' },
+              { label: '참여 이벤트', href: '/reading-month/events' },
+              { label: '독서 캠페인', href: '/reading-month/campaign' },
+              { label: '우수 참여자', href: '/reading-month/winners' }
+            ]
+          },
+          { 
+            label: '책 읽는 연수구 만들기', 
+            href: '/reading-yeonsu', 
+            isSelected: true,
+            subItems: [
+              { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
+              { label: '참여방법', href: '/reading-yeonsu/participate' },
+              { label: '독서후기', href: '/reading-yeonsu/reviews' },
+              { label: '우수작 선정', href: '/reading-yeonsu/awards' }
+            ]
+          },
+          { 
+            label: '시민추천도서', 
+            href: '/citizen-books',
+            subItems: [
+              { label: '추천도서 목록', href: '/citizen-books/list' },
+              { label: '도서 추천하기', href: '/citizen-books/recommend' },
+              { label: '추천 후기', href: '/citizen-books/reviews' }
+            ]
+          },
+          { 
+            label: '독서동아리', 
+            href: '/reading-clubs',
+            subItems: [
+              { label: '동아리 소개', href: '/reading-clubs/intro' },
+              { label: '가입신청', href: '/reading-clubs/join' },
+              { label: '활동현황', href: '/reading-clubs/activities' }
+            ]
+          },
+          { 
+            label: '원북원시티', 
+            href: '/one-book-one-city',
+            subItems: [
+              { label: '선정도서', href: '/one-book-one-city/book' },
+              { label: '참여방법', href: '/one-book-one-city/how-to' },
+              { label: '독서토론', href: '/one-book-one-city/discussion' }
+            ]
+          }
+        ]}]
+      },
+      { 
+        title: '안내마당', 
+        type: '3depth',
+        categories: [{ title: '도서관안내', items: [
+          { 
+            label: '도서관소개', 
+            href: '/info/about',
+            subItems: [
+              { label: '관장인사말', href: '/info/about/greeting' },
+              { label: '운영방침', href: '/info/about/policy' },
+              { label: '연혁', href: '/info/about/history' }
+            ]
+          },
+          { 
+            label: '이용안내', 
+            href: '/info/guide', 
+            isSelected: true,
+            subItems: [
+              { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
+              { label: '회원가입안내', href: '/info/guide/membership' },
+              { label: '이용시간', href: '/info/guide/hours' },
+              { label: '휴관일안내', href: '/info/guide/holidays' },
+              { label: '이용규칙', href: '/info/guide/rules' }
+            ]
+          },
+          { 
+            label: '층별안내', 
+            href: '/info/floor-guide',
+            subItems: [
+              { label: '1층 안내', href: '/info/floor-guide/1f' },
+              { label: '2층 안내', href: '/info/floor-guide/2f' },
+              { label: '3층 안내', href: '/info/floor-guide/3f' }
+            ]
+          },
+          { 
+            label: '찾아오시는 길', 
+            href: '/info/location',
+            subItems: [
+              { label: '교통편 안내', href: '/info/location/transport' },
+              { label: '주차 안내', href: '/info/location/parking' },
+              { label: '지도', href: '/info/location/map' }
+            ]
+          },
+          { 
+            label: '시설현황', 
+            href: '/info/facilities',
+            subItems: [
+              { label: '열람실', href: '/info/facilities/reading-room' },
+              { label: '디지털자료실', href: '/info/facilities/digital' },
+              { label: '문화공간', href: '/info/facilities/culture' }
+            ]
+          }
+        ]}]
+      },
+      { 
+        title: '도서서비스', 
+        type: '2depth',
+        categories: [{ title: '디지털서비스', items: [
+          { label: '전자책', href: '/service/ebooks' },
+          { label: '오디오북', href: '/service/audiobooks' },
+          { label: '디지털컬렉션', href: '/service/digital-collection' },
+          { label: '온라인DB', href: '/service/database' }
+        ]}]
+      },
+      { 
+        title: '열린참여마당', 
+        type: '3depth',
+        categories: [{ title: '참여마당', items: [
+          { label: '도서관에 바란다', href: '/BBS_USER_REG1_LIST_도서관에바란다' },
+          { label: '자원봉사', href: '/volunteer' },
+          { label: '도서관 견학', href: '/tour', isSelected: true },
+          { label: '도서기증', href: '/donation' },
+          { label: '독서마라톤', href: '/reading-marathon' },
+          { label: '독서왕', href: '/reading-king' },
+          { label: '출석체크 이벤트', href: '/attendance-event' }
+        ]}]
+      },
+      { 
+        title: '문화마당', 
+        type: '3depth',
+        categories: [{ title: '문화프로그램', items: [
+          { label: '문화행사', href: '/culture/events' },
+          { label: '강좌신청', href: '/culture/lectures', isSelected: true },
+          { label: '전시안내', href: '/culture/exhibitions' },
+          { label: '공연안내', href: '/culture/performances' },
+          { label: '작은도서관', href: '/culture/small-library' }
+        ]}]
+      },
+      { 
+        title: '도서관소개', 
+        type: '2depth',
+        categories: [{ title: '도서관정보', items: [
+          { label: '관장인사말', href: '/about/greeting' },
+          { label: '연혁', href: '/about/history' },
+          { label: '조직도', href: '/about/organization' },
+          { label: '도서관현황', href: '/about/status' },
+          { label: '연간운영계획', href: '/about/plan' }
+        ]}]
+      }
+    ];
+
+    // 3depth 메뉴 업데이트 함수
+    function updateThirdDepthMenu(menuIndex: number, secondDepthItem: any) {
+      const submenu = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`);
+      if (!submenu) return;
+
+      const thirdTitle = submenu.querySelector('[data-third-title]') as HTMLElement;
+      const thirdItems = submenu.querySelector('[data-third-items]') as HTMLElement;
+
+      if (thirdTitle && secondDepthItem) {
+        thirdTitle.textContent = secondDepthItem.label;
+      }
+
+      if (thirdItems && secondDepthItem?.subItems) {
+        thirdItems.innerHTML = '';
+        secondDepthItem.subItems.forEach((item: any) => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'gnb-third-item';
+          if (item.isSelected) {
+            itemDiv.classList.add('selected');
+          }
+          
+          const link = document.createElement('a');
+          link.href = item.href;
+          link.className = 'gnb-third-link';
+          
+          const bullet = document.createElement('div');
+          bullet.className = 'gnb-third-bullet';
+          
+          const text = document.createElement('span');
+          text.className = 'gnb-third-text';
+          text.textContent = item.label;
+          // 스타일이 적용되지 않는 경우를 대비해 직접 스타일 적용
+          text.style.fontFamily = "'Pretendard GOV', sans-serif";
+          text.style.fontSize = '17px';
+          text.style.fontWeight = '400';
+          text.style.lineHeight = '1.5';
+          text.style.color = '#1e2124';
+          
+          link.appendChild(bullet);
+          link.appendChild(text);
+          itemDiv.appendChild(link);
+          thirdItems.appendChild(itemDiv);
+        });
+      }
+    }
+
     gnbItems.forEach((item, index) => {
       const menuIndex = item.getAttribute('data-menu-index');
       const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`) as HTMLElement;
@@ -622,6 +934,39 @@ const activeMenu = menuData.find(menu =>
           correspondingSub.style.transform = 'translateY(-10px)';
         }
       });
+
+      // 2depth 메뉴 아이템들에 호버 이벤트 추가 (3depth 메뉴 변경용)
+      const menuData_ = menuData[parseInt(menuIndex!)];
+      if (menuData_?.type === '3depth') {
+        const subItems = correspondingSub.querySelectorAll('.gnb-sub-item');
+        subItems.forEach((subItem, subIndex) => {
+          subItem.addEventListener('mouseenter', () => {
+            const secondDepthItem = menuData_.categories?.[0]?.items?.[subIndex];
+            if (secondDepthItem?.subItems) {
+              // 2depth 아이템들의 selected 상태 업데이트
+              subItems.forEach((item, idx) => {
+                if (idx === subIndex) {
+                  item.classList.add('selected');
+                } else {
+                  item.classList.remove('selected');
+                }
+              });
+              
+              updateThirdDepthMenu(parseInt(menuIndex!), secondDepthItem);
+            }
+          });
+        });
+        
+        // 초기 로드 시 선택된 2depth 항목의 3depth 메뉴 표시
+        const selectedSubIndex = menuData_.categories?.[0]?.items?.findIndex((item: any) => item.isSelected) || 0;
+        const selectedSecondDepthItem = menuData_.categories?.[0]?.items?.[selectedSubIndex];
+        if (selectedSecondDepthItem?.subItems) {
+          // 페이지 로드 후 약간의 지연을 두고 실행
+          setTimeout(() => {
+            updateThirdDepthMenu(parseInt(menuIndex!), selectedSecondDepthItem);
+          }, 50);
+        }
+      }
     });
 
     // 전체 GNB 영역 벗어나면 모든 서브메뉴 숨기기
