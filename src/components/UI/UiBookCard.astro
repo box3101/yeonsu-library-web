@@ -1,4 +1,41 @@
 ---
+import { UiCollectionAccordion } from '@components';
+// 소장정보 모달 데이터
+const collectionLibraries = [
+  { name: '연수청학', shortName: '청학', count: 1 },
+  { name: '연수꿈담', shortName: '꿈담', count: 1 },
+  { name: '선학별빛', shortName: '선학', count: 1 },
+];
+
+const collectionData = [
+  {
+    library: '청학',
+    readingRoom: '어린이자료실',
+    loanStatus: '비치중',
+    service: 'reservation' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'CJ0000036641',
+  },
+  {
+    library: '선학',
+    readingRoom: '어린이자료실',
+    loanStatus: '비치중',
+    service: 'interlibrary' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'GJ0000027414',
+  },
+  {
+    library: '꿈담',
+    readingRoom: '어린이자료실',
+    loanStatus: '대출중',
+    returnDate: '2025.07.31',
+    service: 'reservation' as const,
+    callNumber: '아동 813.5-김18ㅎ',
+    registrationNumber: 'QJ0000028625',
+    reservationCount: 0,
+  },
+];
+
 export interface Props {
   index?: number;
   imageUrl?: string;
@@ -197,9 +234,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
             도서정보
           </button>
           <button
-            class="ui-book-card__action-button ui-book-card__action-button--primary"
-            onclick={onViewHoldings}
-            data-modal-open="collection"
+            class="ui-book-card__action-button ui-book-card__action-button--primary collection-toggle-button"
             type="button"
           >
             소장정보
@@ -208,4 +243,62 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       </div>
     </div>
   </div>
+  <!-- 소장정보 아코디언 -->
+  <div class="ui-book-card__collection-wrapper" style="display: none;">
+    <UiCollectionAccordion
+      title={title}
+      totalCount={3}
+      libraries={collectionLibraries}
+      collections={collectionData}
+      isExpanded={true}
+      iconType="close"
+      className="book-card-accordion"
+    />
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 소장정보 버튼들에 이벤트 리스너 추가
+    const buttons = document.querySelectorAll('.collection-toggle-button');
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        // 해당 버튼이 속한 북카드의 소장정보 래퍼 찾기
+        const bookCard = this.closest('.ui-book-card');
+        const wrapper = bookCard.querySelector('.ui-book-card__collection-wrapper');
+
+        if (!wrapper) return;
+
+        // 소장정보 표시 (항상 펼쳐진 상태로)
+        wrapper.style.display = 'block';
+        
+        // 아코디언을 펼친 상태로 강제 설정
+        setTimeout(() => {
+          const accordion = wrapper.querySelector('.book-card-accordion');
+          if (accordion) {
+            const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
+            const content = accordion.querySelector('.ui-collection-accordion__content');
+            
+            if (trigger && content) {
+              trigger.setAttribute('aria-expanded', 'true');
+              content.dataset.expanded = 'true';
+              content.style.maxHeight = content.scrollHeight + 'px';
+            }
+          }
+        }, 50);
+      });
+    });
+  });
+</script>
+
+<style lang="scss">
+  .ui-book-card__collection-wrapper {
+    margin-top: 16px;
+
+    .ui-collection-accordion {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>

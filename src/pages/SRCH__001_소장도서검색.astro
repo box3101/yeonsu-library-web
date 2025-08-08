@@ -7,7 +7,6 @@ import {
   UiSelect,
   UiBookCard,
   UiPagination,
-  UiCollectionModal,
 } from '@components';
 
 const breadcrumbItems = [
@@ -80,42 +79,6 @@ const outputCountOptions = [
   { value: '20', label: '20건' },
   { value: '50', label: '50건' },
   { value: '100', label: '100건' },
-];
-
-// 소장정보 모달 데이터
-const collectionLibraries = [
-  { name: '연수청학', shortName: '청학', count: 1 },
-  { name: '연수꿈담', shortName: '꿈담', count: 1 },
-  { name: '선학별빛', shortName: '선학', count: 1 },
-];
-
-const collectionData = [
-  {
-    library: '청학',
-    readingRoom: '어린이자료실',
-    loanStatus: '비치중',
-    service: 'reservation' as const,
-    callNumber: '아동 813.5-김18ㅎ',
-    registrationNumber: 'CJ0000036641',
-  },
-  {
-    library: '선학',
-    readingRoom: '어린이자료실',
-    loanStatus: '비치중',
-    service: 'interlibrary' as const,
-    callNumber: '아동 813.5-김18ㅎ',
-    registrationNumber: 'GJ0000027414',
-  },
-  {
-    library: '꿈담',
-    readingRoom: '어린이자료실',
-    loanStatus: '대출중',
-    returnDate: '2025.07.31',
-    service: 'reservation' as const,
-    callNumber: '아동 813.5-김18ㅎ',
-    registrationNumber: 'QJ0000028625',
-    reservationCount: 0,
-  },
 ];
 ---
 
@@ -271,13 +234,5 @@ const collectionData = [
         onPageChange={page => console.log('Page changed to:', page)}
       />
     </section>
-
-    <!-- 소장정보 모달 -->
-    <UiCollectionModal
-      title="서점탐정 유동인. 2, 리턴즈"
-      totalCount={3}
-      libraries={collectionLibraries}
-      collections={collectionData}
-    />
   </SubLayout>
 </Layout>
