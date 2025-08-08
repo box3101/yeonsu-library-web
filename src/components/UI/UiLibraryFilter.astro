@@ -1,5 +1,5 @@
 ---
-import { UiCheckbox, UiInput, UiButton, UiTab, UiSwitch } from '@components';
+import { UiCheckbox, UiInput, UiButton, UiTab, UiSwitch, UiKeyboard } from '@components';
 
 export interface LibraryItem {
   id: string;
@@ -211,13 +211,20 @@ const popularSearches = [
       </div>
 
       <div class="flex gap-5">
-        <UiButton
-          text="다국어입력기"
-          size="medium"
-          icon="icon-language"
-          iconPosition="left"
-          class="ui-library-filter__search-button"
-        />
+        <div class="ui-keyboard-container">
+          <UiButton
+            text="다국어입력기"
+            size="medium"
+            icon="icon-language"
+            iconPosition="left"
+            class="ui-library-filter__search-button ui-keyboard-trigger"
+          />
+          <UiKeyboard
+            id="search-keyboard"
+            targetInputId="search"
+            class="ui-search-keyboard"
+          />
+        </div>
         <UiButton
           text="검색"
           variant="secondary"
@@ -247,6 +254,7 @@ const popularSearches = [
     const searchTabs = document.querySelectorAll('.search-tab-button');
     const searchContents = document.querySelectorAll('.search-content');
     const searchItems = document.querySelectorAll('.search-item');
+    const keyboardTrigger = document.querySelector('.ui-keyboard-trigger');
 
     if (!toggle || !content || !mainCheckbox) return;
 
@@ -366,6 +374,17 @@ const popularSearches = [
       });
     });
 
+    // 다국어입력기 버튼 클릭 이벤트
+    if (keyboardTrigger) {
+      keyboardTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 전역 함수 호출로 키보드 열기
+        if (typeof window.openKeyboard === 'function') {
+          window.openKeyboard();
+        }
+      });
+    }
+
     // ESC 키로 드롭다운 닫기
     document.addEventListener('keydown', function (e) {
       if (
@@ -381,3 +400,18 @@ const popularSearches = [
     });
   });
 </script>
+
+<style lang="scss">
+@use '@styles/abstracts' as *;
+
+.ui-keyboard-container {
+  position: relative;
+}
+
+.ui-search-keyboard {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+</style>
