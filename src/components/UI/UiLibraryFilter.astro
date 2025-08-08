@@ -1,5 +1,12 @@
 ---
-import { UiCheckbox, UiInput, UiButton, UiTab, UiSwitch, UiKeyboard } from '@components';
+import {
+  UiCheckbox,
+  UiInput,
+  UiButton,
+  UiTab,
+  UiSwitch,
+  UiKeyboard,
+} from '@components';
 
 export interface LibraryItem {
   id: string;
@@ -215,7 +222,7 @@ const popularSearches = [
           <UiButton
             text="다국어입력기"
             size="medium"
-            icon="icon-language"
+            icon="icon-language icon-white"
             iconPosition="left"
             class="ui-library-filter__search-button ui-keyboard-trigger"
           />
@@ -376,7 +383,7 @@ const popularSearches = [
 
     // 다국어입력기 버튼 클릭 이벤트
     if (keyboardTrigger) {
-      keyboardTrigger.addEventListener('click', function(e) {
+      keyboardTrigger.addEventListener('click', function (e) {
         e.preventDefault();
         // 전역 함수 호출로 키보드 열기
         if (typeof window.openKeyboard === 'function') {
@@ -402,16 +409,16 @@ const popularSearches = [
 </script>
 
 <style lang="scss">
-@use '@styles/abstracts' as *;
+  @use '@styles/abstracts' as *;
 
-.ui-keyboard-container {
-  position: relative;
-}
+  .ui-keyboard-container {
+    position: relative;
+  }
 
-.ui-search-keyboard {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-}
+  .ui-search-keyboard {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
 </style>

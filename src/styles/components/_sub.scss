@@ -300,6 +300,7 @@
   border-radius: to-rem(6);
   border: 1px solid #3c79c2;
   background: #ecf2f9;
+  margin-bottom: to-rem(24);
 
   .search-detail-title {
     color: #0b50d0;
@@ -312,8 +313,6 @@
 
 // 자료유형 탭 커스텀 스타일
 .search-type-tabs {
-  margin-top: to-rem(24);
-
   &.ui-tab {
     .ui-tab__list {
       border-bottom: none;

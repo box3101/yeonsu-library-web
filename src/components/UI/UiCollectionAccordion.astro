@@ -41,6 +41,13 @@ const allLibraries = [
   { name: '전체', shortName: '전체', count: totalCount },
   ...libraries,
 ];
+
+// UiTabs용 데이터 변환
+const tabItems: TabItem[] = allLibraries.map(library => ({
+  id: library.shortName,
+  label: library.name,
+  count: library.count,
+}));
 ---
 
 <div class={`ui-collection-accordion ${className}`}>
@@ -50,10 +57,7 @@ const allLibraries = [
     aria-expanded={isExpanded}
     aria-controls={accordionId}
   >
-    <div class="ui-collection-accordion__trigger-content">
-      <span class="ui-collection-accordion__title">소장정보</span>
-      <span class="ui-collection-accordion__count">({totalCount}권)</span>
-    </div>
+    <div class="ui-collection-accordion__trigger-content"></div>
     {
       iconType === 'arrow' ? (
         <svg
@@ -97,39 +101,19 @@ const allLibraries = [
     data-expanded={isExpanded}
   >
     <div class="ui-collection-accordion__inner">
-      <!-- 도서 제목 -->
-      <div class="ui-collection-accordion__book-title">
-        <h4>{title}</h4>
-      </div>
-
       <!-- 도서관 필터 탭 -->
-      <div class="ui-collection-accordion__tabs">
-        <div class="tab-list" role="tablist">
-          {
-            allLibraries.map((library, index) => (
-              <button
-                type="button"
-                class={`tab-button ${index === 0 ? 'is-active' : ''}`}
-                role="tab"
-                data-tab={library.shortName}
-                aria-selected={index === 0}
-              >
-                {library.name}({library.count})
-              </button>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- 안내 메시지 -->
-      <div class="ui-collection-accordion__notice">
-        <ul>
-          <li>* 전체가 기본으로 선택됩니다.</li>
-          <li>* 도서관 목록이 약칭으로 들어갑니다.</li>
-          <li>* 최대 20개의 도서관 목록이 들어갑니다.</li>
-          <li>* 추후에 2~3개가 추가될 예정입니다.</li>
-        </ul>
-      </div>
+      <UiTab
+        tabs={[
+          { id: 'all', label: '전체', count: 0, active: true },
+          { id: 'book', label: '단행본', count: 0 },
+          { id: 'serial', label: '연속간행물', count: 0 },
+          { id: 'dvd', label: 'DVD', count: 0 },
+          { id: 'ebook', label: '전자책', count: 0 },
+        ]}
+        variant="default"
+        size="medium"
+        className="mb-4 search-type-tabs"
+      />
 
       <!-- 소장정보 테이블 -->
       <div class="ui-collection-accordion__table-wrapper">
@@ -223,26 +207,25 @@ const allLibraries = [
     const accordion = document.querySelector(`.ui-collection-accordion`);
     if (!accordion) return;
 
-    const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
-    const content = accordion.querySelector('.ui-collection-accordion__content');
-    const tabButtons = accordion.querySelectorAll('.tab-button');
+    const trigger = accordion.querySelector(
+      '.ui-collection-accordion__trigger'
+    );
+    const content = accordion.querySelector(
+      '.ui-collection-accordion__content'
+    );
+    const tabsContainer = accordion.querySelector('.ui-tabs');
 
     if (!trigger || !content) return;
 
     // 아코디언 토글 (X 아이콘일 때는 전체 숨김)
     trigger.addEventListener('click', function () {
-      console.log('Trigger clicked');
-      console.log('Accordion classes:', accordion.className);
       const isCloseIcon = accordion.classList.contains('book-card-accordion');
-      console.log('Is close icon:', isCloseIcon);
-      
+
       if (isCloseIcon) {
         // X 아이콘인 경우: 전체 래퍼를 숨김
         const wrapper = accordion.closest('.ui-book-card__collection-wrapper');
-        console.log('Found wrapper:', wrapper);
         if (wrapper) {
           wrapper.style.display = 'none';
-          console.log('Wrapper hidden');
         }
       } else {
         // 화살표 아이콘인 경우: 기존 토글 동작
@@ -267,24 +250,16 @@ const allLibraries = [
       content.style.maxHeight = '0';
     }
 
-    // 탭 전환
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // 모든 탭 비활성화
-        tabButtons.forEach(tab => {
-          tab.classList.remove('is-active');
-          tab.setAttribute('aria-selected', 'false');
-        });
-
-        // 클릭된 탭 활성화
-        button.classList.add('is-active');
-        button.setAttribute('aria-selected', 'true');
+    // 탭 변경 이벤트 처리
+    if (tabsContainer) {
+      tabsContainer.addEventListener('tabchange', event => {
+        const selectedLibrary = event.detail.activeTab;
+        console.log('Selected library:', selectedLibrary);
 
         // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
-        const selectedLibrary = button.dataset.tab;
-        console.log('Selected library:', selectedLibrary);
+        // 예: filterCollectionsByLibrary(selectedLibrary);
       });
-    });
+    }
   });
 </script>
 
@@ -306,11 +281,6 @@ const allLibraries = [
       background: none;
       border: none;
       cursor: pointer;
-      transition: background-color 0.2s ease;
-
-      &:hover {
-        background-color: #f8f9fa;
-      }
 
       &[aria-expanded='true'] {
         .ui-collection-accordion__icon--arrow {
@@ -356,7 +326,6 @@ const allLibraries = [
 
     &__content {
       transition: max-height 0.3s ease;
-      border-top: 1px solid #e5e5e5;
       max-height: max-content !important;
 
       &[data-expanded='false'] {
@@ -365,7 +334,7 @@ const allLibraries = [
     }
 
     &__inner {
-      padding: to-rem(20);
+      padding: to-rem(0) to-rem(20);
     }
 
     &__book-title {
@@ -381,35 +350,6 @@ const allLibraries = [
 
     &__tabs {
       margin-bottom: to-rem(16);
-
-      .tab-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: to-rem(4);
-        border-bottom: 1px solid #e5e5e5;
-      }
-
-      .tab-button {
-        padding: to-rem(12) to-rem(16);
-        background: none;
-        border: none;
-        border-bottom: 2px solid transparent;
-        color: #666;
-        font-size: to-rem(14);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-
-        &:hover {
-          color: #007bff;
-        }
-
-        &.is-active {
-          color: #007bff;
-          border-bottom-color: #007bff;
-          font-weight: 600;
-        }
-      }
     }
 
     &__notice {
@@ -436,6 +376,7 @@ const allLibraries = [
     }
 
     &__table-wrapper {
+      margin-top: to-rem(20);
       overflow-x: auto;
       border: 1px solid #e5e5e5;
       border-radius: to-rem(4);
@@ -569,11 +510,6 @@ const allLibraries = [
 
       &__inner {
         padding: to-rem(16);
-      }
-
-      &__tabs .tab-button {
-        padding: to-rem(8) to-rem(12);
-        font-size: to-rem(13);
       }
 
       &__table {

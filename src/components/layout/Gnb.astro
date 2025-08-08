@@ -1,7 +1,7 @@
 ---
 const menuData = [
-  { 
-    title: '도서검색', 
+  {
+    title: '도서검색',
     type: '2depth',
     categories: [
       {
@@ -16,15 +16,15 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '책 읽는 연수구', 
+  {
+    title: '책 읽는 연수구',
     type: '3depth',
     categories: [
       {
         title: '독서진흥',
         items: [
-          { 
-            label: '독서의 달', 
+          {
+            label: '독서의 달',
             href: '/reading-month',
             subItems: [
               { label: '독서의 달 소개', href: '/reading-month/intro' },
@@ -33,9 +33,9 @@ const menuData = [
               { label: '우수 참여자', href: '/reading-month/winners' }
             ]
           },
-          { 
-            label: '책 읽는 연수구 만들기', 
-            href: '/reading-yeonsu', 
+          {
+            label: '책 읽는 연수구 만들기',
+            href: '/reading-yeonsu',
             isSelected: true,
             subItems: [
               { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
@@ -44,8 +44,8 @@ const menuData = [
               { label: '우수작 선정', href: '/reading-yeonsu/awards' }
             ]
           },
-          { 
-            label: '시민추천도서', 
+          {
+            label: '시민추천도서',
             href: '/citizen-books',
             subItems: [
               { label: '추천도서 목록', href: '/citizen-books/list' },
@@ -53,8 +53,8 @@ const menuData = [
               { label: '추천 후기', href: '/citizen-books/reviews' }
             ]
           },
-          { 
-            label: '독서동아리', 
+          {
+            label: '독서동아리',
             href: '/reading-clubs',
             subItems: [
               { label: '동아리 소개', href: '/reading-clubs/intro' },
@@ -62,8 +62,8 @@ const menuData = [
               { label: '활동현황', href: '/reading-clubs/activities' }
             ]
           },
-          { 
-            label: '원북원시티', 
+          {
+            label: '원북원시티',
             href: '/one-book-one-city',
             subItems: [
               { label: '선정도서', href: '/one-book-one-city/book' },
@@ -75,15 +75,15 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '안내마당', 
+  {
+    title: '안내마당',
     type: '3depth',
     categories: [
       {
         title: '도서관안내',
         items: [
-          { 
-            label: '도서관소개', 
+          {
+            label: '도서관소개',
             href: '/info/about',
             subItems: [
               { label: '관장인사말', href: '/info/about/greeting' },
@@ -91,9 +91,9 @@ const menuData = [
               { label: '연혁', href: '/info/about/history' }
             ]
           },
-          { 
-            label: '이용안내', 
-            href: '/info/guide', 
+          {
+            label: '이용안내',
+            href: '/info/guide',
             isSelected: true,
             subItems: [
               { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
@@ -103,8 +103,8 @@ const menuData = [
               { label: '이용규칙', href: '/info/guide/rules' }
             ]
           },
-          { 
-            label: '층별안내', 
+          {
+            label: '층별안내',
             href: '/info/floor-guide',
             subItems: [
               { label: '1층 안내', href: '/info/floor-guide/1f' },
@@ -112,8 +112,8 @@ const menuData = [
               { label: '3층 안내', href: '/info/floor-guide/3f' }
             ]
           },
-          { 
-            label: '찾아오시는 길', 
+          {
+            label: '찾아오시는 길',
             href: '/info/location',
             subItems: [
               { label: '교통편 안내', href: '/info/location/transport' },
@@ -121,8 +121,8 @@ const menuData = [
               { label: '지도', href: '/info/location/map' }
             ]
           },
-          { 
-            label: '시설현황', 
+          {
+            label: '시설현황',
             href: '/info/facilities',
             subItems: [
               { label: '열람실', href: '/info/facilities/reading-room' },
@@ -134,8 +134,8 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '도서서비스', 
+  {
+    title: '도서서비스',
     type: '2depth',
     categories: [
       {
@@ -149,8 +149,8 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '열린참여마당', 
+  {
+    title: '열린참여마당',
     type: '3depth',
     categories: [
       {
@@ -178,8 +178,8 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '문화마당', 
+  {
+    title: '문화마당',
     type: '3depth',
     categories: [
       {
@@ -205,8 +205,8 @@ const menuData = [
       }
     ]
   },
-  { 
-    title: '도서관소개', 
+  {
+    title: '도서관소개',
     type: '2depth',
     categories: [
       {
@@ -224,8 +224,8 @@ const menuData = [
 ];
 
 // 현재 활성화된 메뉴 찾기
-const activeMenu = menuData.find(menu => 
-  menu.categories?.some(cat => 
+const activeMenu = menuData.find(menu =>
+  menu.categories?.some(cat =>
     cat.items.some(item => item.isSelected)
   )
 );
@@ -238,15 +238,12 @@ const activeMenu = menuData.find(menu =>
       <ul class="gnb-main-list">
         {menuData.map((menu, index) => (
           <li class="gnb-main-item" data-menu-index={index}>
-            <button 
+            <button
               class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
             >
               <span class="gnb-main-text">{menu.title}</span>
               {menu.type !== '1depth' && (
-                <svg class="gnb-main-arrow" viewBox="0 0 12 8" width="12" height="8">
-                  <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" 
-                        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </svg>
+                <i class="icon icon-sm icon-arrow-down"></i>
               )}
             </button>
           </li>
@@ -256,7 +253,7 @@ const activeMenu = menuData.find(menu =>
   </div>
 
   <!-- 서브 메뉴 (동적으로 표시) -->
-  {menuData.map((menu, index) => 
+  {menuData.map((menu, index) =>
     menu.type !== '1depth' && (
       <div class="gnb-sub" data-menu-target={index} >
         <div class="gnb-container">
@@ -273,11 +270,7 @@ const activeMenu = menuData.find(menu =>
                   <a href={item.href} class="gnb-sub-link">
                     <span class="gnb-sub-text">{item.label}</span>
                     {menu.type === '3depth' && (
-                      <svg class="gnb-sub-arrow" viewBox="0 0 12 8" width="12" height="8">
-                        <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" 
-                              stroke-linecap="round" stroke-linejoin="round" fill="none" 
-                              transform="rotate(90 6 4)"/>
-                      </svg>
+                      <i class="icon icon-xsm icon-arrow-right"></i>
                     )}
                   </a>
                 </div>
@@ -289,14 +282,14 @@ const activeMenu = menuData.find(menu =>
               <div class="gnb-third">
                 <div class="gnb-third-title">
                   <h3 class="gnb-third-title-text" data-third-title>{
-                    menu.categories?.[0]?.items.find(item => item.isSelected)?.label || 
-                    menu.categories?.[0]?.items[0]?.label || 
+                    menu.categories?.[0]?.items.find(item => item.isSelected)?.label ||
+                    menu.categories?.[0]?.items[0]?.label ||
                     '3depth 메뉴'
                   }</h3>
                 </div>
                 <div class="gnb-third-items">
                   <div class="gnb-third-column" data-third-items>
-                    {(menu.categories?.[0]?.items.find(item => item.isSelected)?.subItems || 
+                    {(menu.categories?.[0]?.items.find(item => item.isSelected)?.subItems ||
                       menu.categories?.[0]?.items[0]?.subItems || []).map(item => (
                       <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
                         <a href={item.href} class="gnb-third-link">
@@ -323,11 +316,11 @@ const activeMenu = menuData.find(menu =>
   .gnb {
     position: relative;
     z-index: 1000;
-    
+
     // CSS 변수 정의
     --radius-medium2: #{to-rem(6)};
     --color-primary-pr01: #d8e4f3;
-    
+
     &-container {
       max-width: 1280px;
       margin: 0 auto;
@@ -340,7 +333,7 @@ const activeMenu = menuData.find(menu =>
     background: #ffffff;
     border-top: 1px solid #cdd1d5;
     border-bottom: 1px solid #cdd1d5;
-    
+
     &-list {
       @include flex(row, flex-start, stretch);
       list-style: none;
@@ -388,10 +381,9 @@ const activeMenu = menuData.find(menu =>
     }
 
     &-arrow {
-      width: to-rem(20);
-      height: to-rem(20);
-      color: #33363d;
-      opacity: 0.6;
+      width: to-rem(12);
+      height: to-rem(12);
+      color: #000000;
       transition: transform 0.2s ease;
     }
   }
@@ -412,7 +404,7 @@ const activeMenu = menuData.find(menu =>
     transition: all 0.3s ease;
 
     &-content {
-      @include flex(row, flex-start, flex-start);
+      @include flex(row, flex-start, stretch);
       padding: to-rem(16) 0;
       gap: to-rem(24);
     }
@@ -492,10 +484,10 @@ const activeMenu = menuData.find(menu =>
 
   // 3depth 메뉴
   .gnb-third {
-    flex: 1;
-    border-left: 1px solid #cdd1d5;
-    padding: to-rem(8) to-rem(24);
-
+  flex: 1;
+  align-self: stretch; /* 항목 개별 스트레치 */
+  border-left: 1px solid #cdd1d5;
+  padding: to-rem(8) to-rem(24);
     &-title {
       margin-bottom: to-rem(16);
 
@@ -542,7 +534,7 @@ const activeMenu = menuData.find(menu =>
       text-decoration: none;
       gap: to-rem(10);
       color: inherit;
-      
+
       .gnb-third-text {
         font-family: 'Pretendard GOV', sans-serif !important;
         font-size: to-rem(17) !important;
@@ -663,8 +655,8 @@ const activeMenu = menuData.find(menu =>
 
     // 메뉴 데이터 (JavaScript용)
     const menuData = [
-      { 
-        title: '도서검색', 
+      {
+        title: '도서검색',
         type: '2depth',
         categories: [{ title: '도서검색', items: [
           { label: '소장도서검색', href: '/SRCH__001_소장도서검색' },
@@ -674,12 +666,12 @@ const activeMenu = menuData.find(menu =>
           { label: '베스트셀러', href: '/bestsellers' }
         ]}]
       },
-      { 
-        title: '책 읽는 연수구', 
+      {
+        title: '책 읽는 연수구',
         type: '3depth',
         categories: [{ title: '독서진흥', items: [
-          { 
-            label: '독서의 달', 
+          {
+            label: '독서의 달',
             href: '/reading-month',
             subItems: [
               { label: '독서의 달 소개', href: '/reading-month/intro' },
@@ -688,9 +680,9 @@ const activeMenu = menuData.find(menu =>
               { label: '우수 참여자', href: '/reading-month/winners' }
             ]
           },
-          { 
-            label: '책 읽는 연수구 만들기', 
-            href: '/reading-yeonsu', 
+          {
+            label: '책 읽는 연수구 만들기',
+            href: '/reading-yeonsu',
             isSelected: true,
             subItems: [
               { label: '사업소개', href: '/reading-yeonsu/intro', isSelected: true },
@@ -699,8 +691,8 @@ const activeMenu = menuData.find(menu =>
               { label: '우수작 선정', href: '/reading-yeonsu/awards' }
             ]
           },
-          { 
-            label: '시민추천도서', 
+          {
+            label: '시민추천도서',
             href: '/citizen-books',
             subItems: [
               { label: '추천도서 목록', href: '/citizen-books/list' },
@@ -708,8 +700,8 @@ const activeMenu = menuData.find(menu =>
               { label: '추천 후기', href: '/citizen-books/reviews' }
             ]
           },
-          { 
-            label: '독서동아리', 
+          {
+            label: '독서동아리',
             href: '/reading-clubs',
             subItems: [
               { label: '동아리 소개', href: '/reading-clubs/intro' },
@@ -717,8 +709,8 @@ const activeMenu = menuData.find(menu =>
               { label: '활동현황', href: '/reading-clubs/activities' }
             ]
           },
-          { 
-            label: '원북원시티', 
+          {
+            label: '원북원시티',
             href: '/one-book-one-city',
             subItems: [
               { label: '선정도서', href: '/one-book-one-city/book' },
@@ -728,12 +720,12 @@ const activeMenu = menuData.find(menu =>
           }
         ]}]
       },
-      { 
-        title: '안내마당', 
+      {
+        title: '안내마당',
         type: '3depth',
         categories: [{ title: '도서관안내', items: [
-          { 
-            label: '도서관소개', 
+          {
+            label: '도서관소개',
             href: '/info/about',
             subItems: [
               { label: '관장인사말', href: '/info/about/greeting' },
@@ -741,9 +733,9 @@ const activeMenu = menuData.find(menu =>
               { label: '연혁', href: '/info/about/history' }
             ]
           },
-          { 
-            label: '이용안내', 
-            href: '/info/guide', 
+          {
+            label: '이용안내',
+            href: '/info/guide',
             isSelected: true,
             subItems: [
               { label: '대출/반납안내', href: '/info/guide/loan', isSelected: true },
@@ -753,8 +745,8 @@ const activeMenu = menuData.find(menu =>
               { label: '이용규칙', href: '/info/guide/rules' }
             ]
           },
-          { 
-            label: '층별안내', 
+          {
+            label: '층별안내',
             href: '/info/floor-guide',
             subItems: [
               { label: '1층 안내', href: '/info/floor-guide/1f' },
@@ -762,8 +754,8 @@ const activeMenu = menuData.find(menu =>
               { label: '3층 안내', href: '/info/floor-guide/3f' }
             ]
           },
-          { 
-            label: '찾아오시는 길', 
+          {
+            label: '찾아오시는 길',
             href: '/info/location',
             subItems: [
               { label: '교통편 안내', href: '/info/location/transport' },
@@ -771,8 +763,8 @@ const activeMenu = menuData.find(menu =>
               { label: '지도', href: '/info/location/map' }
             ]
           },
-          { 
-            label: '시설현황', 
+          {
+            label: '시설현황',
             href: '/info/facilities',
             subItems: [
               { label: '열람실', href: '/info/facilities/reading-room' },
@@ -782,8 +774,8 @@ const activeMenu = menuData.find(menu =>
           }
         ]}]
       },
-      { 
-        title: '도서서비스', 
+      {
+        title: '도서서비스',
         type: '2depth',
         categories: [{ title: '디지털서비스', items: [
           { label: '전자책', href: '/service/ebooks' },
@@ -792,8 +784,8 @@ const activeMenu = menuData.find(menu =>
           { label: '온라인DB', href: '/service/database' }
         ]}]
       },
-      { 
-        title: '열린참여마당', 
+      {
+        title: '열린참여마당',
         type: '3depth',
         categories: [{ title: '참여마당', items: [
           { label: '도서관에 바란다', href: '/BBS_USER_REG1_LIST_도서관에바란다' },
@@ -805,8 +797,8 @@ const activeMenu = menuData.find(menu =>
           { label: '출석체크 이벤트', href: '/attendance-event' }
         ]}]
       },
-      { 
-        title: '문화마당', 
+      {
+        title: '문화마당',
         type: '3depth',
         categories: [{ title: '문화프로그램', items: [
           { label: '문화행사', href: '/culture/events' },
@@ -816,8 +808,8 @@ const activeMenu = menuData.find(menu =>
           { label: '작은도서관', href: '/culture/small-library' }
         ]}]
       },
-      { 
-        title: '도서관소개', 
+      {
+        title: '도서관소개',
         type: '2depth',
         categories: [{ title: '도서관정보', items: [
           { label: '관장인사말', href: '/about/greeting' },
@@ -849,14 +841,14 @@ const activeMenu = menuData.find(menu =>
           if (item.isSelected) {
             itemDiv.classList.add('selected');
           }
-          
+
           const link = document.createElement('a');
           link.href = item.href;
           link.className = 'gnb-third-link';
-          
+
           const bullet = document.createElement('div');
           bullet.className = 'gnb-third-bullet';
-          
+
           const text = document.createElement('span');
           text.className = 'gnb-third-text';
           text.textContent = item.label;
@@ -866,7 +858,7 @@ const activeMenu = menuData.find(menu =>
           text.style.fontWeight = '400';
           text.style.lineHeight = '1.5';
           text.style.color = '#1e2124';
-          
+
           link.appendChild(bullet);
           link.appendChild(text);
           itemDiv.appendChild(link);
@@ -878,7 +870,7 @@ const activeMenu = menuData.find(menu =>
     gnbItems.forEach((item, index) => {
       const menuIndex = item.getAttribute('data-menu-index');
       const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`) as HTMLElement;
-      
+
       if (!correspondingSub) return;
 
       // 메인 메뉴 호버
@@ -904,7 +896,7 @@ const activeMenu = menuData.find(menu =>
       // 메인 메뉴에서 나갈 때
       item.addEventListener('mouseleave', (e) => {
         const relatedTarget = e.relatedTarget as Element;
-        
+
         // 서브메뉴로 이동하지 않는 경우에만 숨기기
         if (!correspondingSub.contains(relatedTarget)) {
           currentTimeout = window.setTimeout(() => {
@@ -926,7 +918,7 @@ const activeMenu = menuData.find(menu =>
       // 서브메뉴에서 나갈 때
       correspondingSub.addEventListener('mouseleave', (e) => {
         const relatedTarget = e.relatedTarget as Element;
-        
+
         // 메인 메뉴로 돌아가지 않는 경우에만 숨기기
         if (!item.contains(relatedTarget)) {
           correspondingSub.style.opacity = '0';
@@ -951,12 +943,12 @@ const activeMenu = menuData.find(menu =>
                   item.classList.remove('selected');
                 }
               });
-              
+
               updateThirdDepthMenu(parseInt(menuIndex!), secondDepthItem);
             }
           });
         });
-        
+
         // 초기 로드 시 선택된 2depth 항목의 3depth 메뉴 표시
         const selectedSubIndex = menuData_.categories?.[0]?.items?.findIndex((item: any) => item.isSelected) || 0;
         const selectedSecondDepthItem = menuData_.categories?.[0]?.items?.[selectedSubIndex];
