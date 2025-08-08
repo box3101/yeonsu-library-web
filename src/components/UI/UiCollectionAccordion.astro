@@ -1,53 +1,97 @@
 ---
-export interface CollectionInfo {
-  library: string;
-  readingRoom: string;
-  loanStatus: string;
-  returnDate?: string;
-  service: 'reservation' | 'interlibrary';
-  callNumber: string;
-  registrationNumber: string;
-  reservationCount?: number;
-}
+import { UiTab, UiTable } from '@components';
+
+const columns = [
+  {
+    key: 'title',
+    label: '도서관',
+    width: '145px',
+    headerAlign: 'center',
+    align: 'center',
+  },
+  { key: 'status', label: '대출상태', width: '100px', align: 'center' },
+  { key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
+  {
+    key: 'service',
+    label: '서비스',
+    width: '200px',
+    align: 'center',
+    type: 'buttons',
+  },
+  { key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
+  { key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
+  { key: 'readingRoom', label: '정보 출력', width: '100px', align: 'center' },
+];
+
+const rows = [
+  {
+    id: 1,
+    title: '[동춘]일반자료실',
+    status: '비치중',
+    dueDate: '2025.07.31',
+    service: [
+      { text: '예약하기', variant: 'secondary' },
+      { text: '상호대차', variant: 'default' },
+    ],
+    callNumber: '아동 808.9-시15ㅅ-v.2-18',
+    regNumber: 'NE0000014319',
+    readingRoom: '일반자료실',
+    // 필요시 href, isNew 등 추가 가능
+  },
+  {
+    id: 1,
+    title: '내용',
+    status: '비치중',
+    dueDate: '2025.07.31',
+    service: [
+      { text: '예약하기', variant: 'secondary' },
+      { text: '상호대차', variant: 'default' },
+    ],
+    callNumber: '아동 808.9-시15ㅅ-v.2-18',
+    regNumber: 'NE0000014319',
+    readingRoom: '일반자료실',
+    // 필요시 href, isNew 등 추가 가능
+  },
+  {
+    id: 1,
+    title: '내용',
+    status: '비치중',
+    dueDate: '2025.07.31',
+    service: [
+      { text: '예약하기', variant: 'secondary' },
+      { text: '상호대차', variant: 'default' },
+    ],
+    callNumber: '아동 808.9-시15ㅅ-v.2-18',
+    regNumber: 'NE0000014319',
+    readingRoom: '일반자료실',
+    // 필요시 href, isNew 등 추가 가능
+  },
+  {
+    id: 1,
+    title: '내용',
+    status: '비치중',
+    dueDate: '2025.07.31',
+    service: [
+      { text: '예약하기', variant: 'secondary' },
+      { text: '상호대차', variant: 'default' },
+    ],
+    callNumber: '아동 808.9-시15ㅅ-v.2-18',
+    regNumber: 'NE0000014319',
+    readingRoom: '일반자료실',
+    // 필요시 href, isNew 등 추가 가능
+  },
+];
 
 export interface Props {
   title: string;
-  totalCount: number;
-  collections: CollectionInfo[];
-  libraries: Array<{
-    name: string;
-    shortName: string;
-    count: number;
-  }>;
   isExpanded?: boolean;
   iconType?: 'arrow' | 'close'; // 화살표 또는 닫기 아이콘 선택
   className?: string;
 }
 
-const {
-  title,
-  totalCount,
-  collections,
-  libraries,
-  isExpanded = false,
-  iconType = 'arrow',
-  className = '',
-} = Astro.props;
+const { isExpanded = false, iconType = 'arrow', className = '' } = Astro.props;
 
 const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
-
-// 전체 라이브러리 정보 생성
-const allLibraries = [
-  { name: '전체', shortName: '전체', count: totalCount },
-  ...libraries,
-];
-
-// UiTabs용 데이터 변환
-const tabItems: TabItem[] = allLibraries.map(library => ({
-  id: library.shortName,
-  label: library.name,
-  count: library.count,
-}));
 ---
 
 <div class={`ui-collection-accordion ${className}`}>
@@ -104,100 +148,33 @@ const tabItems: TabItem[] = allLibraries.map(library => ({
       <!-- 도서관 필터 탭 -->
       <UiTab
         tabs={[
-          { id: 'all', label: '전체', count: 0, active: true },
-          { id: 'book', label: '단행본', count: 0 },
-          { id: 'serial', label: '연속간행물', count: 0 },
-          { id: 'dvd', label: 'DVD', count: 0 },
-          { id: 'ebook', label: '전자책', count: 0 },
+          { id: 'all', label: '전체(3)', active: true },
+          { id: 'okryeon2', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-2', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-3', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-4', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-5', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-6', label: '옥련2동어린이작은도서관' },
+          { id: 'okryeon2-7', label: '옥련2동어린이작은도서관' },
         ]}
         variant="default"
         size="medium"
+        showCount={false}
+        layout="grid"
+        gridColumns={4}
         className="mb-4 search-type-tabs"
       />
 
       <!-- 소장정보 테이블 -->
-      <div class="ui-collection-accordion__table-wrapper">
-        <table class="ui-collection-accordion__table">
-          <thead>
-            <tr>
-              <th>도서관</th>
-              <th>대출상태</th>
-              <th>반납예정일</th>
-              <th>서비스</th>
-              <th>청구기호</th>
-              <th>등록번호</th>
-              <th>정보출력</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              collections.map(item => (
-                <tr>
-                  <td>
-                    <div class="library-info">
-                      <span class="library-name">[{item.library}]</span>
-                      <span class="reading-room">{item.readingRoom}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="loan-status">
-                      <span class="status-text">{item.loanStatus}</span>
-                      {item.reservationCount !== undefined && (
-                        <span class="reservation-info">
-                          - 예약 {item.reservationCount}명
-                        </span>
-                      )}
-                    </div>
-                  </td>
-                  <td class="return-date">{item.returnDate || ''}</td>
-                  <td>
-                    <button
-                      type="button"
-                      class={`service-button service-button--${item.service}`}
-                    >
-                      {item.service === 'reservation' ? '예약하기' : '상호대차'}
-                    </button>
-                  </td>
-                  <td class="call-number">{item.callNumber}</td>
-                  <td class="registration-number">{item.registrationNumber}</td>
-                  <td>
-                    <button type="button" class="print-button" title="정보출력">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M6 9V2H18V9"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M6 18H4C3.44772 18 3 17.5523 3 17V11C3 10.4477 3.44772 10 4 10H20C20.5523 10 21 10.4477 21 11V17C21 17.5523 20.5523 18 20 18H18"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M18 14H6V22H18V14Z"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+      <UiTable
+        columns={columns as any}
+        rows={rows}
+        caption="공지사항 목록"
+        showIndex={false}
+        showCheckbox={false}
+        stickyHeader={true}
+        maxHeight="280px"
+      />
     </div>
   </div>
 </div>

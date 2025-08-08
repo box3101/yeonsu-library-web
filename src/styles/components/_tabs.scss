@@ -28,6 +28,55 @@
     }
   }
 
+  // Grid Layout Modifier
+  &--grid {
+    .ui-tab__list {
+      display: grid;
+      grid-template-columns: repeat(var(--grid-columns, 4), minmax(0, 1fr));
+      gap: to-rem(12);
+      overflow: visible;
+      width: 100%;
+
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: to-rem(8);
+      }
+    }
+
+    .ui-tab__button {
+      width: 100%;
+      min-width: 0; // 그리드 아이템이 축소될 수 있도록
+      justify-content: flex-start;
+      padding: 0 to-rem(12);
+      overflow: hidden; // 내용이 넘치지 않도록
+
+      // 작은 화면 또는 긴 텍스트를 위한 폰트 크기 조정
+      font-size: to-rem(14);
+      height: auto;
+      min-height: to-rem(48);
+      padding: to-rem(8) to-rem(12);
+
+      @media (min-width: 1024px) {
+        font-size: to-rem(16);
+      }
+
+      // 긴 텍스트 처리
+      .ui-tab__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+        min-width: 0; // flexbox에서 텍스트가 축소될 수 있도록
+      }
+
+      // 카운트 스타일
+      .ui-tab__count {
+        flex-shrink: 0; // 카운트는 축소되지 않도록
+        margin-left: to-rem(4);
+      }
+    }
+  }
+
   // Tab Button
   &__button {
     display: flex;

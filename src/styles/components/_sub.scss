@@ -3,6 +3,7 @@
 
 .sub-content {
   flex: 1;
+  max-width: 976px;
 }
 
 // 소장도서 검색
@@ -315,35 +316,29 @@
 .search-type-tabs {
   &.ui-tab {
     .ui-tab__list {
-      border-bottom: none;
       gap: 0;
-      border: 1px solid #b1b8be;
-      border-radius: to-rem(8);
-      overflow: hidden;
     }
 
     .ui-tab__button {
       background: transparent;
-      border: none;
-      border-right: 1px solid #b1b8be;
-      border-radius: 0;
+      border: 1px solid #b1b8be;
+      margin-left: -1px; // 왼쪽 border 겹치기
+      margin-top: -1px;
       padding: to-rem(12) to-rem(16);
       font-size: to-rem(19);
       font-weight: 700;
       color: #7d8181;
       transition: all 0.2s ease;
       flex: 1;
+      position: relative; // z-index 제어를 위해
 
       &:first-child {
-        border-left: none;
-      }
-
-      &:last-child {
-        border-right: none;
+        margin-left: 0; // 첫 번째 버튼은 마진 제거
       }
 
       &:hover:not(.ui-tab__button--active) {
         background: rgba(255, 255, 255, 0.5);
+        z-index: 1; // hover 시 위로 올리기
 
         .ui-tab__label {
           color: #5a5a5a;
@@ -353,29 +348,12 @@
       &--active {
         background: #003456;
         color: $white;
+        z-index: 2; // active 버튼을 가장 위로
 
         .ui-tab__label {
           color: $white;
-          font-size: to-rem(17);
-        }
-
-        .ui-tab__count {
-          color: $white;
-        }
-
-        &::after {
-          display: none;
         }
       }
-    }
-
-    .ui-tab__label {
-      color: inherit;
-    }
-
-    .ui-tab__count {
-      color: inherit;
-      font-size: inherit;
     }
   }
 }

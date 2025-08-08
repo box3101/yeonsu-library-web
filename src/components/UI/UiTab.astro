@@ -8,6 +8,9 @@ export interface Props {
   }>;
   variant?: 'default' | 'pills' | 'minimal';
   size?: 'small' | 'medium' | 'large';
+  layout?: 'row' | 'grid'; // 레이아웃 타입 추가
+  gridColumns?: number; // 그리드 열 개수 (layout이 'grid'일 때 사용)
+  showCount?: boolean; // count 표시 여부 추가
   className?: string;
 }
 
@@ -15,6 +18,9 @@ const {
   tabs,
   variant = 'default',
   size = 'medium',
+  layout = 'row',
+  gridColumns = 4,
+  showCount = true, // 기본값 true (기존 동작 유지)
   className = '',
 } = Astro.props;
 
@@ -22,14 +28,23 @@ const tabClasses = [
   'ui-tab',
   `ui-tab--${variant}`,
   `ui-tab--${size}`,
+  `ui-tab--${layout}`,
   className,
 ]
   .filter(Boolean)
   .join(' ');
+
+// 그리드 레이아웃일 때 인라인 스타일 설정
+const listStyles =
+  layout === 'grid'
+    ? {
+        '--grid-columns': gridColumns,
+      }
+    : {};
 ---
 
 <div class={tabClasses}>
-  <div class="ui-tab__list" role="tablist">
+  <div class="ui-tab__list" role="tablist" style={listStyles}>
     {
       tabs.map(tab => (
         <button
@@ -41,7 +56,7 @@ const tabClasses = [
           data-tab-target={tab.id}
         >
           <span class="ui-tab__label">{tab.label}</span>
-          {tab.count !== undefined && (
+          {showCount && tab.count !== undefined && (
             <span class="ui-tab__count">
               ({tab.count.toString().padStart(4, '0')})
             </span>
