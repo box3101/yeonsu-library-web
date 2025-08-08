@@ -331,6 +331,11 @@
       transition: all 0.2s ease;
       flex: 1;
       position: relative; // z-index 제어를 위해
+      border-right: none;
+      // 4번째마다 오른쪽 border 추가 (그리드 레이아웃에서 행 구분)
+      &:nth-child(4n) {
+        border-right: 1px solid #b1b8be;
+      }
 
       &:first-child {
         margin-left: 0; // 첫 번째 버튼은 마진 제거
