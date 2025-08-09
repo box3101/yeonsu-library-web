@@ -3,22 +3,10 @@ export interface Props {
   text?: string;
   variant?:
     | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info'
-    | 'ghost'
-    | 'outline';
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info'
-    | 'gray';
-  size?: 'xs' | 'small' | 'medium' | 'large' | 'xl';
+    | 'secondary' 
+    | 'tertiary'
+    | 'text';
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   width?: string;
   height?: string;
   disabled?: boolean;
@@ -28,14 +16,12 @@ export interface Props {
   icon?: string;
   iconPosition?: 'left' | 'right';
   iconOnly?: boolean;
-  rounded?: boolean;
   class?: string;
 }
 
 const {
   text = '버튼',
   variant = 'primary',
-  color = 'primary',
   size = 'medium',
   width,
   height,
@@ -46,7 +32,6 @@ const {
   icon,
   iconPosition = 'right',
   iconOnly = false,
-  rounded = false,
   class: className = '',
 } = Astro.props;
 
@@ -62,11 +47,10 @@ const hasText = text && text.length > 0 && !iconOnly;
 const buttonClasses = [
   'ui-button',
   `ui-button--${variant}`,
-  `ui-button--${color}`,
   `ui-button--${size}`,
   iconOnly ? 'ui-button--icon-only' : '',
-  rounded ? 'ui-button--rounded' : '',
   loading ? 'ui-button--loading' : '',
+  disabled ? 'ui-button--disabled' : '',
   className,
 ]
   .filter(Boolean)
@@ -144,11 +128,11 @@ const buttonStyle = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: to-rem(8);
-    border: 1px solid transparent;
+    gap: to-rem(4);
+    border: to-rem(1) solid transparent;
     border-radius: to-rem(8);
-    font-family: inherit;
-    font-weight: $font-medium;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 400;
     line-height: 1.5;
     cursor: pointer;
     text-decoration: none;
@@ -158,180 +142,134 @@ const buttonStyle = [
     outline: none;
 
     &:focus-visible {
-      outline: 2px solid $primary-color;
+      outline: 2px solid #256ef4;
       outline-offset: 2px;
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
-      opacity: 0.6;
+    &[aria-disabled='true'],
+    &--disabled {
+      color: #6d7882;
+      background: #cdd1d5;
+      border-color: #cdd1d5;
       cursor: not-allowed;
+      pointer-events: none;
     }
 
-    // 크기 variants
-    &--xs {
-      padding: to-rem(6) to-rem(12);
-      font-size: 0.75rem;
-      min-height: to-rem(28);
+    // 크기 variants - Figma 디자인 시스템 기준
+    &--xsmall {
+      padding: to-rem(10) to-rem(12);
+      font-size: to-rem(15);
+      height: to-rem(32);
+      border-radius: to-rem(4);
     }
 
     &--small {
-      padding: to-rem(8) to-rem(16);
-      font-size: 0.875rem;
-      min-height: to-rem(36);
+      padding: to-rem(12) to-rem(16);
+      font-size: to-rem(15);
+      height: to-rem(40);
+      border-radius: to-rem(6);
     }
 
     &--medium {
-      padding: to-rem(12) to-rem(20);
-      font-size: 1rem;
-      min-height: to-rem(44);
+      padding: to-rem(16) to-rem(20);
+      font-size: to-rem(17);
+      height: to-rem(48);
+      border-radius: to-rem(6);
     }
 
     &--large {
-      padding: to-rem(16) to-rem(24);
-      font-size: 1.125rem;
-      min-height: to-rem(52);
+      padding: to-rem(20) to-rem(24);
+      font-size: to-rem(19);
+      height: to-rem(56);
+      border-radius: to-rem(8);
     }
 
-    &--xl {
-      padding: to-rem(20) to-rem(28);
-      font-size: 1.25rem;
-      min-height: to-rem(60);
+    &--xlarge {
+      padding: to-rem(24) to-rem(32);
+      font-size: to-rem(19);
+      height: to-rem(64);
+      border-radius: to-rem(8);
     }
 
-    // 스타일 variants
+    // 스타일 variants - Figma 디자인 시스템 기준
     &--primary {
-      background: var(--btn-bg, $primary-color);
-      color: $white;
-      border-color: var(--btn-bg, $primary-color);
+      background: #256ef4;
+      color: #ffffff;
+      border-color: #256ef4;
 
-      &:hover:not(:disabled):not([aria-disabled='true']) {
-        background: var(--btn-bg-hover, darken($primary-color, 8%));
-        border-color: var(--btn-bg-hover, darken($primary-color, 8%));
+      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+        background: #0b50d0;
+        border-color: #0b50d0;
       }
 
       &:active {
-        background: var(--btn-bg-active, darken($primary-color, 12%));
-        border-color: var(--btn-bg-active, darken($primary-color, 12%));
+        background: #083891;
+        border-color: #083891;
       }
     }
 
     &--secondary {
       background: #ecf2fe;
-      color: #0b50d0;
+      color: #256ef4;
       border-color: #256ef4;
 
-      &:hover:not(:disabled):not([aria-disabled='true']) {
-        background: #dbe4ff;
-        border-color: #dbe4ff;
+      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+        background: #d8e5fd;
       }
 
       &:active {
-        background: #c7d2ff;
-        border-color: #c7d2ff;
+        background: #b1cefb;
       }
     }
 
-    &--ghost {
+    &--tertiary {
       background: transparent;
-      color: var(--btn-color, $primary-color);
+      color: #58616a;
+      border-color: #58616a;
+
+      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+        background: #f4f5f6;
+      }
+
+      &:active {
+        background: #e6e8ea;
+      }
+    }
+
+    &--text {
+      background: transparent;
+      color: #256ef4;
       border-color: transparent;
 
-      &:hover:not(:disabled):not([aria-disabled='true']) {
-        background: var(--btn-bg-hover, rgba($primary-color, 0.08));
+      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+        background: #eef2f7;
       }
 
       &:active {
-        background: var(--btn-bg-active, rgba($primary-color, 0.12));
+        background: #d6e0eb;
       }
-    }
-
-    &--outline {
-      background: transparent;
-      color: var(--btn-color, $primary-color);
-      border-color: var(--btn-color, $primary-color);
-
-      &:hover:not(:disabled):not([aria-disabled='true']) {
-        background: var(--btn-color, $primary-color);
-        color: $white;
-      }
-    }
-
-    // 색상 variants - 새로운 색상 팔레트 사용
-    &--primary {
-      --btn-bg: #{$blue-500};
-      --btn-bg-hover: #{$blue-600};
-      --btn-bg-active: #{$blue-700};
-      --btn-color: #{$blue-500};
-    }
-
-    &--secondary {
-      --btn-bg: #{$orange-500};
-      --btn-bg-hover: #{$orange-600};
-      --btn-bg-active: #{$orange-700};
-      --btn-color: #{$orange-500};
-    }
-
-    // &--success {
-    //   --btn-bg: #{$success-color};
-    //   --btn-bg-hover: #{darken($success-color, 8%)};
-    //   --btn-bg-active: #{darken($success-color, 12%)};
-    //   --btn-color: #{$success-color};
-    // }
-
-    &--warning {
-      --btn-bg: #{$orange-600};
-      --btn-bg-hover: #{$orange-700};
-      --btn-bg-active: #{$orange-800};
-      --btn-color: #{$orange-600};
-    }
-
-    &--error {
-      --btn-bg: #{$error-color};
-      --btn-bg-hover: #{darken($error-color, 8%)};
-      --btn-bg-active: #{darken($error-color, 12%)};
-      --btn-color: #{$error-color};
-    }
-
-    &--info {
-      --btn-bg: #{$blue-500};
-      --btn-bg-hover: #{$blue-600};
-      --btn-bg-active: #{$blue-700};
-      --btn-color: #{$blue-500};
-    }
-
-    &--gray {
-      --btn-bg: #{$gray-600};
-      --btn-bg-hover: #{$gray-700};
-      --btn-bg-active: #{$gray-800};
-      --btn-color: #{$gray-600};
     }
 
     // 아이콘 전용 버튼
     &--icon-only {
       aspect-ratio: 1;
-      padding: to-rem(12);
-
-      &.ui-button--xs {
-        padding: to-rem(6);
-      }
-      &.ui-button--small {
+      
+      &.ui-button--xsmall {
         padding: to-rem(8);
       }
-      &.ui-button--medium {
+      &.ui-button--small {
         padding: to-rem(12);
       }
-      &.ui-button--large {
-        padding: to-rem(16);
+      &.ui-button--medium {
+        padding: to-rem(14);
       }
-      &.ui-button--xl {
+      &.ui-button--large {
+        padding: to-rem(18);
+      }
+      &.ui-button--xlarge {
         padding: to-rem(20);
       }
-    }
-
-    // 둥근 모서리
-    &--rounded {
-      border-radius: to-rem(24);
     }
 
     // 로딩 상태
@@ -354,13 +292,15 @@ const buttonStyle = [
 
       &-icon {
         color: currentColor;
+        width: to-rem(16);
+        height: to-rem(16);
 
         .ui-button--large & {
           width: to-rem(20);
           height: to-rem(20);
         }
 
-        .ui-button--xl & {
+        .ui-button--xlarge & {
           width: to-rem(24);
           height: to-rem(24);
         }
@@ -404,14 +344,14 @@ const buttonStyle = [
     }
 
     // 크기별 아이콘 크기
-    &--xs &__icon {
-      width: to-rem(12);
-      height: to-rem(12);
+    &--xsmall &__icon {
+      width: to-rem(16);
+      height: to-rem(16);
     }
 
     &--small &__icon {
-      width: to-rem(20);
-      height: to-rem(20);
+      width: to-rem(16);
+      height: to-rem(16);
     }
 
     &--medium &__icon {
@@ -424,7 +364,7 @@ const buttonStyle = [
       height: to-rem(20);
     }
 
-    &--xl &__icon {
+    &--xlarge &__icon {
       width: to-rem(24);
       height: to-rem(24);
     }

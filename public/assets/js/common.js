@@ -54,31 +54,6 @@ const LibraryCommon = {
         return true;
       },
     },
-
-    // 향후 추가될 기능들
-    tabs: {
-      selector: '[data-tab-trigger]',
-      init: function () {
-        const triggers = document.querySelectorAll(this.selector);
-        if (triggers.length === 0) return false;
-
-        // 탭 로직
-        console.log('✅ Tabs initialized');
-        return true;
-      },
-    },
-
-    modal: {
-      selector: '[data-modal-trigger]',
-      init: function () {
-        const triggers = document.querySelectorAll(this.selector);
-        if (triggers.length === 0) return false;
-
-        // 모달 로직
-        console.log('✅ Modal initialized');
-        return true;
-      },
-    },
   },
 
   // 전체 초기화

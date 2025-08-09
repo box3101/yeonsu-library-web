@@ -1,6 +1,374 @@
 ---
 // 연수구립도서관 가이드 페이지
 const currentDate = new Date().toLocaleDateString('ko-KR');
+
+// 통계 정보
+const stats = [
+  { number: '3', label: '운영중인 페이지' },
+  { number: '17', label: 'UI 컴포넌트' },
+  { number: '동적메뉴', label: '1depth 기반' },
+  { number: 'TypeScript', label: '타입 안전성' },
+];
+
+// 메인 페이지
+const mainPages = [
+  {
+    id: '01',
+    name: '메인 홈페이지',
+    url: '/',
+    file: 'index.astro',
+    status: '완료',
+    description: '도서관 메인 페이지, 배너 슬라이더, 퀵링크, 이벤트 섹션',
+  },
+];
+
+// 검색 시스템
+const searchPages = [
+  {
+    id: 'S01',
+    name: '소장도서검색',
+    url: '/01_소장도서검색',
+    file: '01_소장도서검색.astro',
+    status: '완료',
+    description: '도서관 필터, 상세검색, 자료유형 탭, 소장정보 모달',
+  },
+  {
+    id: 'S02',
+    name: '스마트도서관비치도서',
+    url: '/02_스마트도서관비치도서',
+    file: '02_스마트도서관비치도서.astro',
+    status: '완료',
+    description: '스마트도서관 전용 검색 페이지',
+  },
+  {
+    id: 'S03',
+    name: '도서관에 바란다',
+    url: '/03_도서관에바란다',
+    file: '03_도서관에바란다.astro',
+    status: '완료',
+    description: '건의사항 게시판, 테이블 기반 목록',
+  },
+  {
+    id: 'S04',
+    name: '도서관에 바란다',
+    url: '/04_공지사항',
+    file: '04_공지사항.astro',
+    status: '완료',
+    description: '공지사항 게시판, 테이블 기반 목록',
+  },
+];
+
+// UI 컴포넌트 라이브러리
+const uiComponents = [
+  {
+    id: 'U01',
+    name: 'UiButton',
+    file: 'UiButton.astro',
+    feature: '다양한 버튼 스타일 (primary, secondary, outline)',
+    status: '완료',
+  },
+  {
+    id: 'U02',
+    name: 'UiInput',
+    file: 'UiInput.astro',
+    feature: '텍스트 입력 필드, 검색 필드',
+    status: '완료',
+  },
+  {
+    id: 'U03',
+    name: 'UiSelect',
+    file: 'UiSelect.astro',
+    feature: '드롭다운 선택 박스',
+    status: '완료',
+  },
+  {
+    id: 'U04',
+    name: 'UiTab',
+    file: 'UiTab.astro',
+    feature: '탭 네비게이션 (기본, 연결형)',
+    status: '완료',
+  },
+  {
+    id: 'U05',
+    name: 'UiRadio',
+    file: 'UiRadio.astro',
+    feature: '라디오 버튼 그룹',
+    status: '완료',
+  },
+  {
+    id: 'U06',
+    name: 'UiCheckbox',
+    file: 'UiCheckbox.astro',
+    feature: '체크박스',
+    status: '완료',
+  },
+  {
+    id: 'U07',
+    name: 'UiSwitch',
+    file: 'UiSwitch.astro',
+    feature: '토글 스위치',
+    status: '완료',
+  },
+  {
+    id: 'U08',
+    name: 'UiLibraryFilter',
+    file: 'UiLibraryFilter.astro',
+    feature: '도서관 필터 (확장/축소 기능)',
+    status: '완료',
+  },
+  {
+    id: 'U09',
+    name: 'UiBookCard',
+    file: 'UiBookCard.astro',
+    feature: '도서 정보 카드',
+    status: '완료',
+  },
+  {
+    id: 'U10',
+    name: 'UiPagination',
+    file: 'UiPagination.astro',
+    feature: '페이지네이션',
+    status: '완료',
+  },
+  {
+    id: 'U11',
+    name: 'UiCollectionModal',
+    file: 'UiCollectionModal.astro',
+    feature: '소장정보 팝업 모달',
+    status: '완료',
+  },
+  {
+    id: 'U12',
+    name: 'UiNavButton',
+    file: 'UiNavButton.astro',
+    feature: '네비게이션 버튼',
+    status: '완료',
+  },
+  {
+    id: 'U13',
+    name: 'UiRelatedSiteButton',
+    file: 'UiRelatedSiteButton.astro',
+    feature: '관련사이트 버튼',
+    status: '완료',
+  },
+  {
+    id: 'U14',
+    name: 'UiSearchbar',
+    file: 'UiSearchbar.astro',
+    feature: '3개 셀렉트박스 검색바 (검색타입, 도서관, 제목)',
+    status: '완료',
+  },
+  {
+    id: 'U15',
+    name: 'UiSmartLibraryBookCard',
+    file: 'UiSmartLibraryBookCard.astro',
+    feature: '스마트도서관 전용 도서 카드',
+    status: '완료',
+  },
+  {
+    id: 'U16',
+    name: 'UiTable',
+    file: 'UiTable.astro',
+    feature: '게시판용 테이블 (체크박스, 정렬, 상태배지)',
+    status: '완료',
+  },
+];
+
+// 레이아웃 컴포넌트
+const layoutComponents = [
+  {
+    id: 'L01',
+    name: 'Header',
+    file: 'Header.astro',
+    purpose: '사이트 헤더, 로고, 주 메뉴',
+    status: '완료',
+  },
+  {
+    id: 'L02',
+    name: 'Footer',
+    file: 'Footer.astro',
+    purpose: '사이트 푸터, 링크, 저작권',
+    status: '완료',
+  },
+  {
+    id: 'L03',
+    name: 'Gnb',
+    file: 'Gnb.astro',
+    purpose: '글로벌 네비게이션',
+    status: '완료',
+  },
+  {
+    id: 'L04',
+    name: 'LeftMenu',
+    file: 'LeftMenu.astro',
+    purpose: '1depth 기반 동적 좌측 메뉴 (2/3depth 지원)',
+    status: '완료',
+  },
+  {
+    id: 'L05',
+    name: 'SubLayout',
+    file: 'SubLayout.astro',
+    purpose: '서브페이지 레이아웃',
+    status: '완료',
+  },
+  {
+    id: 'L06',
+    name: 'Breadcrumb',
+    file: 'Breadcrumb.astro',
+    purpose: '브레드크럼 네비게이션',
+    status: '완료',
+  },
+];
+
+// 최신 개선사항
+const improvements = [
+  {
+    id: 'R01',
+    title: '동적 메뉴 시스템',
+    description: '1depth에 따라 자동 변경되는 좌측 메뉴, URL 기반 감지',
+    date: '2024.12',
+    status: '적용완료',
+  },
+  {
+    id: 'R02',
+    title: '다중 셀렉트 검색바',
+    description: '검색타입, 도서관, 제목 3개 필터 동시 지원',
+    date: '2024.12',
+    status: '적용완료',
+  },
+  {
+    id: 'R03',
+    title: '테이블 컴포넌트',
+    description: '게시판 전용, 제목 링크, 상태 배지, 반응형 지원',
+    date: '2024.12',
+    status: '적용완료',
+  },
+  {
+    id: 'R04',
+    title: '한글 URL 인코딩',
+    description: '한글 페이지명 URL 자동 매칭 처리',
+    date: '2024.12',
+    status: '적용완료',
+  },
+];
+
+// 기술 스택
+const techStack = [
+  {
+    id: 'T01',
+    tech: 'Astro',
+    version: '4.15.0',
+    purpose: '정적 사이트 생성 프레임워크',
+    status: '완료',
+  },
+  {
+    id: 'T02',
+    tech: 'SCSS',
+    version: 'Latest',
+    purpose: 'CSS 전처리기 (7-1 아키텍처)',
+    status: '완료',
+  },
+  {
+    id: 'T03',
+    tech: 'TypeScript',
+    version: 'Latest',
+    purpose: '타입 안전성',
+    status: '완료',
+  },
+  {
+    id: 'T04',
+    tech: 'Swiper.js',
+    version: 'Latest',
+    purpose: '슬라이더 컴포넌트',
+    status: '완료',
+  },
+  {
+    id: 'T05',
+    tech: 'Netlify',
+    version: '-',
+    purpose: '배포 플랫폼',
+    status: '완료',
+  },
+];
+
+// 데이터 구조 & 설정
+const dataStructure = [
+  {
+    file: 'menuData.ts',
+    purpose: '메뉴 설정',
+    structure: 'MenuConfig 타입, URL 자동감지',
+    note: '1depth별 좌측메뉴 정의',
+  },
+  {
+    file: 'CLAUDE.md',
+    purpose: '개발 가이드',
+    structure: '명령어, 아키텍처, 규칙',
+    note: 'AI 개발 지침서',
+  },
+  {
+    file: 'components/index.ts',
+    purpose: '컴포넌트 관리',
+    structure: '중앙집중식 export',
+    note: '17개 UI 컴포넌트',
+  },
+  {
+    file: 'astro.config.mjs',
+    purpose: '프레임워크 설정',
+    structure: 'Path aliases, 빌드옵션',
+    note: '@/ 경로 설정',
+  },
+];
+
+// SCSS 아키텍처
+const scssArchitecture = [
+  {
+    folder: 'abstracts/',
+    purpose: '함수, 믹스인',
+    files: '_functions.scss, _mixins.scss',
+    example: 'to-rem(16), @include flex-center, @include mobile',
+  },
+  {
+    folder: 'variables/',
+    purpose: '디자인 토큰',
+    files: '_colors.scss, _typography.scss',
+    example: '$primary-color, $font-bold, $gray-900',
+  },
+  {
+    folder: 'components/',
+    purpose: '컴포넌트 스타일',
+    files: '_left-menu.scss, _buttons.scss',
+    example: '.menu-section-title.active 스타일',
+  },
+  {
+    folder: 'utilities/',
+    purpose: '유틸리티',
+    files: '_flex.scss, _spacing.scss',
+    example: '.mt24, .flex-center 클래스',
+  },
+];
+
+// 배포 정보
+const deployInfo = [
+  {
+    item: '배포 플랫폼',
+    info: 'Netlify',
+    status: '완료',
+    note: '자동 배포 설정 완료',
+  },
+  {
+    item: '빌드 명령어',
+    info: 'npm run build',
+    status: '완료',
+    note: 'netlify.toml 설정 완료',
+  },
+  {
+    item: '출력 디렉토리',
+    info: 'dist',
+    status: '완료',
+    note: '정적 파일 생성',
+  },
+  { item: 'Node.js 버전', info: '18', status: '완료', note: '환경 변수 설정' },
+];
 ---
 
 <!doctype html>
@@ -245,22 +613,14 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
       </div>
 
       <div class="stats">
-        <div class="stat-card">
-          <div class="stat-number">3</div>
-          <div class="stat-label">운영중인 페이지</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">17</div>
-          <div class="stat-label">UI 컴포넌트</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">동적메뉴</div>
-          <div class="stat-label">1depth 기반</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">TypeScript</div>
-          <div class="stat-label">타입 안전성</div>
-        </div>
+        {
+          stats.map(stat => (
+            <div class="stat-card">
+              <div class="stat-number">{stat.number}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))
+        }
       </div>
 
       <div class="section-title">📚 메인 페이지</div>
@@ -275,13 +635,23 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>01</td>
-            <td>메인 홈페이지</td>
-            <td><a href="/" target="_blank">index.astro</a></td>
-            <td><span class="status-complete">완료</span></td>
-            <td>도서관 메인 페이지, 배너 슬라이더, 퀵링크, 이벤트 섹션</td>
-          </tr>
+          {
+            mainPages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -297,42 +667,25 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>S01</td>
-            <td>소장도서검색</td>
-            <td
-              ><a href="/SRCH__001_소장도서검색" target="_blank"
-                >SRCH__001_소장도서검색.astro</a
-              ></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>도서관 필터, 상세검색, 자료유형 탭, 소장정보 모달</td>
-          </tr>
-          <tr>
-            <td>S02</td>
-            <td>스마트도서관비치도서</td>
-            <td
-              ><a href="/SRCH__007_스마트도서관비치도서" target="_blank"
-                >SRCH__007_스마트도서관비치도서.astro</a
-              ></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>스마트도서관 전용 검색 페이지</td>
-          </tr>
-          <tr>
-            <td>S03</td>
-            <td>도서관에 바란다</td>
-            <td
-              ><a href="/BBS_USER_REG1_LIST_도서관에바란다" target="_blank"
-                >BBS_USER_REG1_LIST_도서관에바란다.astro</a
-              ></td
-            >
-            <td><span class="status-complete">완료</span></td>
-            <td>건의사항 게시판, 테이블 기반 목록</td>
-          </tr>
+          {
+            searchPages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
-
 
       <div class="section-title">🎨 UI 컴포넌트 라이브러리</div>
       <table>
@@ -346,118 +699,19 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>U01</td>
-            <td>UiButton</td>
-            <td>UiButton.astro</td>
-            <td>다양한 버튼 스타일 (primary, secondary, outline)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U02</td>
-            <td>UiInput</td>
-            <td>UiInput.astro</td>
-            <td>텍스트 입력 필드, 검색 필드</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U03</td>
-            <td>UiSelect</td>
-            <td>UiSelect.astro</td>
-            <td>드롭다운 선택 박스</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U04</td>
-            <td>UiTab</td>
-            <td>UiTab.astro</td>
-            <td>탭 네비게이션 (기본, 연결형)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U05</td>
-            <td>UiRadio</td>
-            <td>UiRadio.astro</td>
-            <td>라디오 버튼 그룹</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U06</td>
-            <td>UiCheckbox</td>
-            <td>UiCheckbox.astro</td>
-            <td>체크박스</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U07</td>
-            <td>UiSwitch</td>
-            <td>UiSwitch.astro</td>
-            <td>토글 스위치</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U08</td>
-            <td>UiLibraryFilter</td>
-            <td>UiLibraryFilter.astro</td>
-            <td>도서관 필터 (확장/축소 기능)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U09</td>
-            <td>UiBookCard</td>
-            <td>UiBookCard.astro</td>
-            <td>도서 정보 카드</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U10</td>
-            <td>UiPagination</td>
-            <td>UiPagination.astro</td>
-            <td>페이지네이션</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U11</td>
-            <td>UiCollectionModal</td>
-            <td>UiCollectionModal.astro</td>
-            <td>소장정보 팝업 모달</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U12</td>
-            <td>UiNavButton</td>
-            <td>UiNavButton.astro</td>
-            <td>네비게이션 버튼</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U13</td>
-            <td>UiRelatedSiteButton</td>
-            <td>UiRelatedSiteButton.astro</td>
-            <td>관련사이트 버튼</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U14</td>
-            <td>UiSearchbar</td>
-            <td>UiSearchbar.astro</td>
-            <td>3개 셀렉트박스 검색바 (검색타입, 도서관, 제목)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U15</td>
-            <td>UiSmartLibraryBookCard</td>
-            <td>UiSmartLibraryBookCard.astro</td>
-            <td>스마트도서관 전용 도서 카드</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>U16</td>
-            <td>UiTable</td>
-            <td>UiTable.astro</td>
-            <td>게시판용 테이블 (체크박스, 정렬, 상태배지)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
+          {
+            uiComponents.map(component => (
+              <tr>
+                <td>{component.id}</td>
+                <td>{component.name}</td>
+                <td>{component.file}</td>
+                <td>{component.feature}</td>
+                <td>
+                  <span class="status-complete">{component.status}</span>
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -473,48 +727,19 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>L01</td>
-            <td>Header</td>
-            <td>Header.astro</td>
-            <td>사이트 헤더, 로고, 주 메뉴</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>L02</td>
-            <td>Footer</td>
-            <td>Footer.astro</td>
-            <td>사이트 푸터, 링크, 저작권</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>L03</td>
-            <td>Gnb</td>
-            <td>Gnb.astro</td>
-            <td>글로벌 네비게이션</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>L04</td>
-            <td>LeftMenu</td>
-            <td>LeftMenu.astro</td>
-            <td>1depth 기반 동적 좌측 메뉴 (2/3depth 지원)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>L05</td>
-            <td>SubLayout</td>
-            <td>SubLayout.astro</td>
-            <td>서브페이지 레이아웃</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>L06</td>
-            <td>Breadcrumb</td>
-            <td>Breadcrumb.astro</td>
-            <td>브레드크럼 네비게이션</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
+          {
+            layoutComponents.map(component => (
+              <tr>
+                <td>{component.id}</td>
+                <td>{component.name}</td>
+                <td>{component.file}</td>
+                <td>{component.purpose}</td>
+                <td>
+                  <span class="status-complete">{component.status}</span>
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -530,34 +755,19 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>R01</td>
-            <td>동적 메뉴 시스템</td>
-            <td>1depth에 따라 자동 변경되는 좌측 메뉴, URL 기반 감지</td>
-            <td>2024.12</td>
-            <td><span class="status-complete">적용완료</span></td>
-          </tr>
-          <tr>
-            <td>R02</td>
-            <td>다중 셀렉트 검색바</td>
-            <td>검색타입, 도서관, 제목 3개 필터 동시 지원</td>
-            <td>2024.12</td>
-            <td><span class="status-complete">적용완료</span></td>
-          </tr>
-          <tr>
-            <td>R03</td>
-            <td>테이블 컴포넌트</td>
-            <td>게시판 전용, 제목 링크, 상태 배지, 반응형 지원</td>
-            <td>2024.12</td>
-            <td><span class="status-complete">적용완료</span></td>
-          </tr>
-          <tr>
-            <td>R04</td>
-            <td>한글 URL 인코딩</td>
-            <td>한글 페이지명 URL 자동 매칭 처리</td>
-            <td>2024.12</td>
-            <td><span class="status-complete">적용완료</span></td>
-          </tr>
+          {
+            improvements.map(improvement => (
+              <tr>
+                <td>{improvement.id}</td>
+                <td>{improvement.title}</td>
+                <td>{improvement.description}</td>
+                <td>{improvement.date}</td>
+                <td>
+                  <span class="status-complete">{improvement.status}</span>
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -573,41 +783,19 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>T01</td>
-            <td>Astro</td>
-            <td>4.15.0</td>
-            <td>정적 사이트 생성 프레임워크</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>T02</td>
-            <td>SCSS</td>
-            <td>Latest</td>
-            <td>CSS 전처리기 (7-1 아키텍처)</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>T03</td>
-            <td>TypeScript</td>
-            <td>Latest</td>
-            <td>타입 안전성</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>T04</td>
-            <td>Swiper.js</td>
-            <td>Latest</td>
-            <td>슬라이더 컴포넌트</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
-          <tr>
-            <td>T05</td>
-            <td>Netlify</td>
-            <td>-</td>
-            <td>배포 플랫폼</td>
-            <td><span class="status-complete">완료</span></td>
-          </tr>
+          {
+            techStack.map(tech => (
+              <tr>
+                <td>{tech.id}</td>
+                <td>{tech.tech}</td>
+                <td>{tech.version}</td>
+                <td>{tech.purpose}</td>
+                <td>
+                  <span class="status-complete">{tech.status}</span>
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -622,30 +810,16 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>menuData.ts</td>
-            <td>메뉴 설정</td>
-            <td>MenuConfig 타입, URL 자동감지</td>
-            <td>1depth별 좌측메뉴 정의</td>
-          </tr>
-          <tr>
-            <td>CLAUDE.md</td>
-            <td>개발 가이드</td>
-            <td>명령어, 아키텍처, 규칙</td>
-            <td>AI 개발 지침서</td>
-          </tr>
-          <tr>
-            <td>components/index.ts</td>
-            <td>컴포넌트 관리</td>
-            <td>중앙집중식 export</td>
-            <td>17개 UI 컴포넌트</td>
-          </tr>
-          <tr>
-            <td>astro.config.mjs</td>
-            <td>프레임워크 설정</td>
-            <td>Path aliases, 빌드옵션</td>
-            <td>@/ 경로 설정</td>
-          </tr>
+          {
+            dataStructure.map(data => (
+              <tr>
+                <td>{data.file}</td>
+                <td>{data.purpose}</td>
+                <td>{data.structure}</td>
+                <td>{data.note}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -660,30 +834,16 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>abstracts/</td>
-            <td>함수, 믹스인</td>
-            <td>_functions.scss, _mixins.scss</td>
-            <td>to-rem(16), @include flex-center, @include mobile</td>
-          </tr>
-          <tr>
-            <td>variables/</td>
-            <td>디자인 토큰</td>
-            <td>_colors.scss, _typography.scss</td>
-            <td>$primary-color, $font-bold, $gray-900</td>
-          </tr>
-          <tr>
-            <td>components/</td>
-            <td>컴포넌트 스타일</td>
-            <td>_left-menu.scss, _buttons.scss</td>
-            <td>.menu-section-title.active 스타일</td>
-          </tr>
-          <tr>
-            <td>utilities/</td>
-            <td>유틸리티</td>
-            <td>_flex.scss, _spacing.scss</td>
-            <td>.mt24, .flex-center 클래스</td>
-          </tr>
+          {
+            scssArchitecture.map(scss => (
+              <tr>
+                <td>{scss.folder}</td>
+                <td>{scss.purpose}</td>
+                <td>{scss.files}</td>
+                <td>{scss.example}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -698,30 +858,18 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>배포 플랫폼</td>
-            <td>Netlify</td>
-            <td><span class="status-complete">완료</span></td>
-            <td>자동 배포 설정 완료</td>
-          </tr>
-          <tr>
-            <td>빌드 명령어</td>
-            <td>npm run build</td>
-            <td><span class="status-complete">완료</span></td>
-            <td>netlify.toml 설정 완료</td>
-          </tr>
-          <tr>
-            <td>출력 디렉토리</td>
-            <td>dist</td>
-            <td><span class="status-complete">완료</span></td>
-            <td>정적 파일 생성</td>
-          </tr>
-          <tr>
-            <td>Node.js 버전</td>
-            <td>18</td>
-            <td><span class="status-complete">완료</span></td>
-            <td>환경 변수 설정</td>
-          </tr>
+          {
+            deployInfo.map(deploy => (
+              <tr>
+                <td>{deploy.item}</td>
+                <td>{deploy.info}</td>
+                <td>
+                  <span class="status-complete">{deploy.status}</span>
+                </td>
+                <td>{deploy.note}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
