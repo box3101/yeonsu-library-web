@@ -3,19 +3,15 @@
 .main-container {
   margin-top: 41px;
 }
+
 // ============================================
 // Banner Component SCSS
 // ============================================
 .banner {
   @include relative;
-  width: 100%;
   height: to-rem(468);
 
   @include tablet {
-    height: to-rem(350);
-  }
-
-  @include mobile {
     height: to-rem(280);
   }
 
@@ -62,10 +58,6 @@
         letter-spacing: 1px;
 
         @include tablet {
-          font-size: to-rem(32);
-        }
-
-        @include mobile {
           font-size: 24px;
         }
       }
@@ -78,10 +70,6 @@
       line-height: 150%;
 
       @include tablet {
-        font-size: 17px;
-      }
-
-      @include mobile {
         font-size: 16px;
       }
     }
@@ -99,11 +87,6 @@
     margin-top: to-rem(0);
 
     @include tablet {
-      padding: to-rem(20);
-      margin-top: to-rem(24);
-    }
-
-    @include mobile {
       margin: to-rem(20) to-rem(20) 0;
       width: calc(100% - #{to-rem(40)});
       padding: to-rem(16);
@@ -116,7 +99,7 @@
     gap: to-rem(16);
     width: 100%;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column;
       gap: to-rem(12);
     }
@@ -128,7 +111,7 @@
     gap: to-rem(24);
     flex-shrink: 0;
 
-    @include mobile {
+    @include tablet {
       width: 100%;
       justify-content: center;
       gap: to-rem(32);
@@ -149,7 +132,7 @@
     background: var(--color-gray-90, #191a1a);
     flex-shrink: 0;
 
-    @include mobile {
+    @include tablet {
       display: none;
     }
   }
@@ -160,7 +143,7 @@
     flex: 1;
     min-width: 0;
 
-    @include mobile {
+    @include tablet {
       width: 100%;
     }
   }
@@ -191,7 +174,7 @@
     gap: to-rem(8);
     flex-shrink: 0;
 
-    @include mobile {
+    @include tablet {
       width: 100%;
       justify-content: center;
     }
@@ -232,7 +215,7 @@
       transform: translateY(0);
     }
 
-    @include mobile {
+    @include tablet {
       width: to-rem(80);
     }
   }
@@ -246,10 +229,6 @@
   padding: to-rem(60) 0;
 
   @include tablet {
-    padding: to-rem(40) 0;
-  }
-
-  @include mobile {
     padding: to-rem(32) 0;
   }
 
@@ -257,20 +236,15 @@
     display: flex;
     gap: to-rem(24);
     align-items: flex-start;
-
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(32);
-    }
   }
 
   // 좌측 공지사항 영역
   &__left {
     flex: 1;
     max-width: to-rem(689);
+
     @include tablet {
-      width: 100%;
-      max-width: none;
+      max-width: 100%;
     }
   }
 
@@ -280,7 +254,7 @@
     border-radius: to-rem(12);
 
     @include tablet {
-      width: 100%;
+      max-width: 100%;
     }
 
     .quick-links {
@@ -295,28 +269,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: to-rem(24);
-
-    @include tablet {
-      margin-bottom: to-rem(24);
-    }
-
-    @include mobile {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: to-rem(16);
-    }
   }
 
   &__titles {
     @include flex;
     align-items: center;
     gap: to-rem(4);
-
-    @include mobile {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: to-rem(8);
-    }
   }
 
   &__title {
@@ -326,7 +284,7 @@
     line-height: 1.5;
     color: $text-color;
 
-    @include mobile {
+    @include tablet {
       font-size: to-rem(24);
     }
 
@@ -381,11 +339,6 @@
     @include flex;
     justify-content: space-between;
     align-items: center;
-
-    @include mobile {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
   }
 
   &__nav {
@@ -412,6 +365,12 @@
   align-items: center;
   transition: all 0.2s ease;
 
+  @include tablet {
+    height: auto;
+    min-height: to-rem(80);
+    padding: to-rem(16) to-rem(20);
+  }
+
   &:hover {
     border-color: #3c79c2;
   }
@@ -422,6 +381,12 @@
     align-items: center;
     width: 100%;
     gap: to-rem(12);
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: to-rem(12);
+    }
   }
 
   &__info {
@@ -431,10 +396,11 @@
     flex: 1;
     min-width: 0;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column;
       align-items: flex-start;
       gap: to-rem(8);
+      width: 100%;
     }
   }
 
@@ -482,10 +448,11 @@
       font-weight: 700;
     }
 
-    @include mobile {
+    @include tablet {
       white-space: normal;
       overflow: visible;
       text-overflow: initial;
+      font-size: to-rem(16);
     }
   }
 
@@ -496,6 +463,11 @@
     line-height: 1.5;
     color: $text-color;
     flex-shrink: 0;
+
+    @include tablet {
+      align-self: flex-end;
+      font-size: to-rem(14);
+    }
   }
 }
 
@@ -509,9 +481,9 @@
     grid-template-columns: repeat(3, 1fr);
     gap: to-rem(16);
 
-    @include mobile {
+    @include tablet {
       grid-template-columns: repeat(3, 1fr);
-      gap: to-rem(12);
+      gap: to-rem(8);
     }
   }
 }
@@ -529,6 +501,11 @@
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
+
+  @include tablet {
+    height: to-rem(120);
+    padding: to-rem(12);
+  }
 
   &:hover {
     background: #f9f9f9;
@@ -548,6 +525,12 @@
     height: to-rem(50);
     margin-bottom: to-rem(18);
 
+    @include tablet {
+      width: to-rem(40);
+      height: to-rem(30);
+      margin-bottom: to-rem(10);
+    }
+
     svg {
       width: 100%;
       height: 100%;
@@ -560,21 +543,10 @@
     font-weight: 600;
     text-align: center;
     color: #7d8181;
-  }
 
-  @include mobile {
-    width: 100%;
-    min-height: to-rem(120);
-    height: auto;
-
-    &__icon {
-      width: to-rem(40);
-      height: to-rem(30);
-      margin-bottom: to-rem(12);
-    }
-
-    &__text {
+    @include tablet {
       font-size: to-rem(14);
+      line-height: 1.3;
     }
   }
 }
@@ -587,6 +559,10 @@
   padding: to-rem(60) 0;
   @include bg-image('#{$image-path}bg-event-section.png');
 
+  @include tablet {
+    padding: to-rem(32) 0;
+  }
+
   .container {
     @include flex;
     gap: to-rem(24);
@@ -596,15 +572,17 @@
     flex: 1 1 798px;
     max-width: to-rem(798);
 
+    @include tablet {
+      max-width: 100%;
+    }
+
     // 헤더 영역
     .event-section__header {
       @include flex-between;
       margin-bottom: to-rem(24);
 
-      @include mobile {
-        flex-direction: column;
+      @include tablet {
         gap: to-rem(16);
-        align-items: flex-start;
       }
     }
 
@@ -613,10 +591,8 @@
       @include flex-between;
       margin-bottom: to-rem(16);
 
-      @include mobile {
-        flex-direction: column;
+      @include tablet {
         gap: to-rem(16);
-        align-items: flex-start;
       }
     }
 
@@ -656,6 +632,12 @@
         position: relative;
         border: 1px solid var(--color-gray-gray03, #9da2a2);
 
+        @include tablet {
+          flex-direction: column;
+          padding: to-rem(16);
+          gap: to-rem(16);
+        }
+
         &:hover {
           border-color: #6494ce;
         }
@@ -673,6 +655,10 @@
         border-radius: to-rem(32);
         flex-shrink: 0;
         min-width: to-rem(84);
+
+        @include tablet {
+          align-self: flex-start;
+        }
       }
 
       &__content {
@@ -694,8 +680,11 @@
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @include mobile {
+        @include tablet {
           font-size: to-rem(16);
+          white-space: normal;
+          overflow: visible;
+          text-overflow: initial;
         }
       }
 
@@ -703,7 +692,7 @@
         @include flex;
         gap: to-rem(73);
 
-        @include mobile {
+        @include tablet {
           flex-direction: column;
           gap: to-rem(16);
         }
@@ -721,6 +710,10 @@
         @include flex;
         gap: to-rem(5);
         align-items: center;
+
+        @include tablet {
+          flex-wrap: wrap;
+        }
       }
 
       &__label {
@@ -731,6 +724,11 @@
         color: #191a1a;
         flex-shrink: 0;
         min-width: to-rem(68);
+
+        @include tablet {
+          font-size: to-rem(15);
+          min-width: to-rem(60);
+        }
       }
 
       &__value {
@@ -740,6 +738,10 @@
         line-height: 1.5;
         color: #4b4d4d;
         flex: 1;
+
+        @include tablet {
+          font-size: to-rem(15);
+        }
       }
 
       &__highlight {
@@ -748,9 +750,13 @@
       }
     }
   }
+
   .event-section__right {
     flex: 1;
-    max-width: to-rem(410);
+
+    @include tablet {
+      max-width: 100%;
+    }
 
     // 신규 컨텐츠 바로가기
     .new-content-shortcuts {
@@ -759,6 +765,10 @@
         font-weight: 700;
         color: $gray-90;
         margin-bottom: 28px;
+
+        @include tablet {
+          font-size: to-rem(24);
+        }
       }
 
       &__grid {
@@ -781,6 +791,11 @@
       overflow: hidden;
       height: to-rem(164);
 
+      @include tablet {
+        height: to-rem(120);
+        padding: to-rem(16);
+      }
+
       &:hover {
         transform: translateY(to-rem(-2));
         @include shadow(2);
@@ -794,6 +809,12 @@
         height: to-rem(164);
         flex-shrink: 0;
         margin-right: to-rem(16);
+
+        @include tablet {
+          width: to-rem(80);
+          height: to-rem(80);
+          margin-right: to-rem(12);
+        }
 
         img {
           width: 100%;
@@ -824,8 +845,8 @@
           color: #f98512;
         }
 
-        @include mobile {
-          font-size: to-rem(16);
+        @include tablet {
+          font-size: to-rem(20);
         }
       }
 
@@ -841,28 +862,17 @@
         border-radius: 50%;
         color: $white;
 
-        svg {
-          width: to-rem(16);
-          height: to-rem(16);
-        }
-      }
-
-      @include mobile {
-        height: to-rem(100);
-        padding: to-rem(16);
-
-        &__image {
-          width: to-rem(60);
-          height: to-rem(60);
-          margin-right: to-rem(12);
-        }
-
-        &__arrow {
+        @include tablet {
           width: to-rem(28);
           height: to-rem(28);
           right: to-rem(12);
+        }
 
-          svg {
+        svg {
+          width: to-rem(16);
+          height: to-rem(16);
+
+          @include tablet {
             width: to-rem(14);
             height: to-rem(14);
           }
@@ -876,6 +886,10 @@
   padding: 64px 0;
   background: $white;
 
+  @include tablet {
+    padding: 32px 0;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -883,9 +897,9 @@
     margin-bottom: 28px;
     gap: 40px;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
     }
   }
 
@@ -897,7 +911,7 @@
     align-items: center;
     gap: 16px;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
@@ -912,7 +926,7 @@
     color: $text-color;
     margin: 0;
 
-    @include mobile {
+    @include tablet {
       font-size: to-rem(24);
     }
 
@@ -926,7 +940,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 
-    @include mobile {
+    @include tablet {
       grid-template-columns: 1fr;
       gap: 32px;
     }
@@ -942,6 +956,10 @@
     padding: 32px;
     border-radius: 12px;
     border: 1px solid #ddd;
+
+    @include tablet {
+      padding: 20px;
+    }
   }
 }
 
@@ -952,6 +970,10 @@
   border-radius: 12px;
   overflow: hidden;
   height: 400px;
+
+  @include tablet {
+    height: 300px;
+  }
 
   &__image {
     width: 100%;
@@ -975,6 +997,10 @@
     font-size: to-rem(24);
     font-weight: 700;
     color: $primary-color-light;
+
+    @include tablet {
+      font-size: to-rem(20);
+    }
   }
 
   &__legends {
@@ -985,6 +1011,12 @@
     font-weight: 500;
     line-height: 150%;
     letter-spacing: 0;
+
+    @include tablet {
+      flex-wrap: wrap;
+      gap: to-rem(8);
+      font-size: to-rem(14);
+    }
   }
 
   &__legend {
@@ -997,6 +1029,11 @@
     width: 16px;
     height: 16px;
     border-radius: 4px;
+
+    @include tablet {
+      width: 14px;
+      height: 14px;
+    }
 
     &--red {
       background: #ff5252;
@@ -1023,12 +1060,22 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
   }
 
   &__selects {
     display: flex;
     gap: 4px;
     align-items: center;
+
+    @include tablet {
+      justify-content: center;
+    }
   }
 
   &__weekdays {
@@ -1049,6 +1096,11 @@
     line-height: 150%;
     letter-spacing: 0;
     border-bottom: none;
+
+    @include tablet {
+      font-size: to-rem(14);
+      padding: to-rem(6) 0;
+    }
 
     &:last-child {
       border-right: 1px solid #e0e0e0;
@@ -1072,6 +1124,11 @@
     border: 1px solid #e0e0e0;
     margin-left: -1px;
     margin-top: -1px;
+
+    @include tablet {
+      padding: 6px 0;
+      font-size: 12px;
+    }
 
     // 첫 번째 열은 왼쪽 마진 제거
     &:nth-child(7n + 1) {
@@ -1129,6 +1186,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @include tablet {
+      font-size: 16px;
+    }
   }
 
   &__grid {
@@ -1136,6 +1197,11 @@
     gap: 16px;
     margin-bottom: 20px;
     margin-top: 24px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 
   &__section {
@@ -1143,6 +1209,10 @@
     padding: 16px;
     background: #ecf2f9;
     border-radius: 8px;
+
+    @include tablet {
+      padding: 12px;
+    }
   }
 
   &__section-title {
@@ -1154,6 +1224,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @include tablet {
+      font-size: 14px;
+    }
   }
 
   &__floor {
@@ -1166,6 +1240,11 @@
     padding: to-rem(8) to-rem(15);
     border-radius: 16px;
     margin-left: auto;
+
+    @include tablet {
+      font-size: to-rem(14);
+      padding: to-rem(6) to-rem(12);
+    }
   }
 
   &__time {
@@ -1176,6 +1255,10 @@
     line-height: 150%;
     letter-spacing: 0;
 
+    @include tablet {
+      font-size: to-rem(14);
+    }
+
     span {
       color: #244874;
       font-size: to-rem(15);
@@ -1184,6 +1267,11 @@
       letter-spacing: 0;
       display: inline-block;
       margin-left: 10px;
+
+      @include tablet {
+        font-size: to-rem(14);
+        margin-left: 5px;
+      }
     }
   }
 
@@ -1194,6 +1282,10 @@
     align-items: center;
     padding-top: 16px;
     border-top: 1px solid #e5e7eb;
+
+    @include tablet {
+      justify-content: center;
+    }
   }
 
   &__page-info {
@@ -1215,25 +1307,37 @@
     font-weight: 700;
     line-height: 150%;
     gap: 5px;
+
+    @include tablet {
+      width: 70px;
+      font-size: to-rem(15);
+    }
+
     .library-hours__page-info-current {
       color: var(--color-blue-BU600, #0071ba);
-
       font-family: 'Pretendard GOV';
       font-size: to-rem(17);
       font-style: normal;
       font-weight: 700;
-      line-height: 150%; /* 25.5px */
+      line-height: 150%;
       letter-spacing: var(--typo-font-New-group-New-group-0, 0);
+
+      @include tablet {
+        font-size: to-rem(15);
+      }
     }
+
     .library-hours__page-info-total {
       color: var(--color-text-basic, #1e2124);
-
-      /* text style/txt-bold-17 */
       font-family: 'Pretendard GOV';
       font-size: 17px;
       font-style: normal;
       font-weight: 700;
-      line-height: 150%; /* 25.5px */
+      line-height: 150%;
+
+      @include tablet {
+        font-size: to-rem(15);
+      }
     }
   }
 
@@ -1255,6 +1359,11 @@
     color: #6b7280;
     transition: all 0.2s;
 
+    @include tablet {
+      width: 28px;
+      height: 28px;
+    }
+
     &:hover {
       background: #f3f4f6;
       border-color: #9ca3af;
@@ -1267,55 +1376,76 @@ section.banner-section {
   padding: 24px 0;
   border-top: 1px solid #cdd1d5;
   border-bottom: 1px solid #cdd1d5;
+
+  @include tablet {
+    padding: 16px 0;
+  }
+
   div.inner {
-    opacity: 1;
     div.flex-cnt {
       display: flex;
       align-items: center;
+
+      @include tablet {
+        flex-direction: column;
+        gap: 16px;
+      }
+
       div.w15 {
-        opacity: 1;
-        div.banner-section__left.flex.gap-4 {
-          opacity: 1;
-          uinavbutton.bg-primary {
-            opacity: 1;
-            uinavbutton.bg-primary {
-              opacity: 1;
-              uinavbutton.bg-primary {
-                opacity: 1;
-              }
-            }
-          }
+        @include tablet {
+          width: 100%;
+          text-align: center;
         }
       }
 
       div.w85 {
-        opacity: 1;
+        @include tablet {
+          width: 100%;
+        }
+
         div.banner-section__right {
-          opacity: 1;
           flex: 1;
+
           ul.banner-section__list {
             display: flex;
             align-content: center;
             gap: 16px;
             width: 100%;
+
+            @include tablet {
+              flex-direction: column;
+              gap: 8px;
+            }
+
             li {
               border-radius: 8px;
               border: 1px solid #c9cccc;
               background: #fff;
-              opacity: 1;
               flex: 1;
               display: flex;
               align-items: center;
               justify-content: center;
-              opacity: 1;
+
+              @include tablet {
+                min-height: 60px;
+              }
+
               a {
-                opacity: 1;
                 display: flex;
                 padding: 5px 0;
                 align-items: center;
                 justify-content: center;
+
+                @include tablet {
+                  padding: 12px 0;
+                  width: 100%;
+                }
+
                 img {
-                  opacity: 1;
+                  @include tablet {
+                    max-width: 120px;
+                    height: auto;
+                  }
                 }
               }
             }
