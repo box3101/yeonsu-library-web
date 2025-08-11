@@ -29,11 +29,7 @@ const {
   id = `book-slider-${Math.random().toString(36).substr(2, 9)}`,
 } = Astro.props;
 
-const sliderClasses = [
-  'ui-book-slider',
-  'swiper',
-  className,
-]
+const sliderClasses = ['ui-book-slider', 'swiper', className]
   .filter(Boolean)
   .join(' ');
 ---
@@ -41,146 +37,70 @@ const sliderClasses = [
 <div class={`ui-book-slider-container ${className}`}>
   <div class={sliderClasses} id={id}>
     <div class="swiper-wrapper">
-      {books.map((book) => (
-        <div class="swiper-slide">
-          <div class="ui-book-slider__item">
-            <div class="ui-book-slider__image-wrapper">
-              {book.href ? (
-                <a href={book.href} class="ui-book-slider__image-link">
+      {
+        books.map(book => (
+          <div class="swiper-slide">
+            <div class="ui-book-slider__item">
+              <div class="ui-book-slider__image-wrapper">
+                {book.href ? (
+                  <a href={book.href} class="ui-book-slider__image-link">
+                    <img
+                      src={book.imageUrl}
+                      alt={book.title}
+                      class="ui-book-slider__image"
+                    />
+                  </a>
+                ) : (
                   <img
                     src={book.imageUrl}
                     alt={book.title}
                     class="ui-book-slider__image"
                   />
-                </a>
-              ) : (
-                <img
-                  src={book.imageUrl}
-                  alt={book.title}
-                  class="ui-book-slider__image"
-                />
-              )}
-            </div>
-            <div class="ui-book-slider__info">
-              <h3 class="ui-book-slider__title">
-                {book.href ? (
-                  <a href={book.href} class="ui-book-slider__title-link">
-                    {book.title}
-                  </a>
-                ) : (
-                  book.title
                 )}
-              </h3>
-              <p class="ui-book-slider__author">{book.author}</p>
+              </div>
+              <div class="ui-book-slider__info">
+                <h3 class="ui-book-slider__title">
+                  {book.href ? (
+                    <a href={book.href} class="ui-book-slider__title-link">
+                      {book.title}
+                    </a>
+                  ) : (
+                    book.title
+                  )}
+                </h3>
+                <p class="ui-book-slider__author">{book.author}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <!-- Navigation buttons -->
-    {navigation && (
-      <>
-        <button
-          class={`ui-book-slider__nav ui-book-slider__nav--prev ${id}-btn-prev`}
-          type="button"
-          aria-label="이전 도서"
-        >
-          <i class="icon icon-arrow-left"></i>
-        </button>
-        <button
-          class={`ui-book-slider__nav ui-book-slider__nav--next ${id}-btn-next`}
-          type="button"
-          aria-label="다음 도서"
-        >
-          <i class="icon icon-arrow-right"></i>
-        </button>
-      </>
-    )}
+    {
+      navigation && (
+        <>
+          <button
+            class={`ui-book-slider__nav ui-book-slider__nav--prev ${id}-btn-prev`}
+            type="button"
+            aria-label="이전 도서"
+          >
+            <i class="icon icon-arrow-left" />
+          </button>
+          <button
+            class={`ui-book-slider__nav ui-book-slider__nav--next ${id}-btn-next`}
+            type="button"
+            aria-label="다음 도서"
+          >
+            <i class="icon icon-arrow-right" />
+          </button>
+        </>
+      )
+    }
   </div>
 </div>
 
-<script define:vars={{ id, slidesPerView, spaceBetween, loop, autoplay, navigation }}>
-  document.addEventListener('DOMContentLoaded', function() {
-    function initBookSlider() {
-      // Swiper 라이브러리 로드 확인
-      if (typeof Swiper === 'undefined') {
-        console.warn('Swiper library not loaded yet, retrying in 100ms...');
-        setTimeout(initBookSlider, 100);
-        return;
-      }
-
-      const sliderElement = document.getElementById(id);
-      if (!sliderElement) {
-        console.warn(`Book slider element with id "${id}" not found`);
-        return;
-      }
-
-      const slides = sliderElement.querySelectorAll('.swiper-slide');
-      console.log(`Book slider "${id}" slides count:`, slides.length);
-
-      // Swiper 옵션 설정
-      const swiperOptions = {
-        slidesPerView: slidesPerView,
-        spaceBetween: spaceBetween,
-        loop: loop && slides.length > slidesPerView,
-        speed: 600,
-        
-        // 반응형 설정
-        breakpoints: {
-          320: {
-            slidesPerView: Math.min(2, slidesPerView),
-            spaceBetween: 12,
-          },
-          640: {
-            slidesPerView: Math.min(3, slidesPerView),
-            spaceBetween: 14,
-          },
-          768: {
-            slidesPerView: Math.min(4, slidesPerView),
-            spaceBetween: 16,
-          },
-          1024: {
-            slidesPerView: slidesPerView,
-            spaceBetween: spaceBetween,
-          },
-        },
-
-        // 네비게이션 설정
-        navigation: navigation ? {
-          nextEl: `.${id}-btn-next`,
-          prevEl: `.${id}-btn-prev`,
-        } : false,
-
-        // 자동재생 설정
-        autoplay: autoplay ? (
-          typeof autoplay === 'object' ? autoplay : {
-            delay: 4000,
-            disableOnInteraction: false,
-          }
-        ) : false,
-
-        // 이벤트 핸들러
-        on: {
-          init: function() {
-            console.log(`Book slider "${id}" initialized with ${this.slides.length} slides`);
-          },
-          slideChange: function() {
-            console.log(`Book slider "${id}" slide changed to:`, this.activeIndex);
-          }
-        }
-      };
-
-      // Swiper 인스턴스 생성
-      const swiper = new Swiper(`#${id}`, swiperOptions);
-      
-      console.log(`Book slider "${id}" setup complete`);
-    }
-
-    // 초기화 실행
-    initBookSlider();
-  });
-</script>
+<!-- 외부 JS 파일에서 처리: swiper.js -->
 
 <style lang="scss" is:global>
   @use '@styles/abstracts' as *;

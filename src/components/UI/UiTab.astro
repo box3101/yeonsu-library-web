@@ -54,39 +54,4 @@ const tabClasses = [
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // 모든 탭 버튼에 클릭 이벤트 추가
-    const tabButtons = document.querySelectorAll('.ui-tab__button');
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        const tabContainer = this.closest('.ui-tab');
-        const targetId = this.dataset.tabTarget;
-
-        // 같은 컨테이너의 모든 탭 비활성화
-        const allButtons = tabContainer.querySelectorAll('.ui-tab__button');
-        allButtons.forEach(btn => {
-          btn.classList.remove('ui-tab__button--active');
-          btn.setAttribute('aria-selected', 'false');
-        });
-
-        // 클릭된 탭 활성화
-        this.classList.add('ui-tab__button--active');
-        this.setAttribute('aria-selected', 'true');
-
-        // 커스텀 이벤트 발생
-        const customEvent = new CustomEvent('tab-change', {
-          detail: {
-            tabId: targetId,
-            tabElement: this,
-            tabContainer: tabContainer,
-          },
-          bubbles: true,
-        });
-
-        tabContainer.dispatchEvent(customEvent);
-      });
-    });
-  });
-</script>
+<!-- 외부 JS 파일에서 처리: tab.js -->

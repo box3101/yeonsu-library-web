@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import path from 'path';
 
 export default defineConfig({
+  // 로그 레벨 설정으로 경고 메시지 최소화
+  logLevel: 'error',
+
   // 개발 중에는 소스맵 활성화, 프로덕션에서는 HTML 속성만 제거
   compilerOptions: {
     sourcemap: true, // 인라인 소스맵으로 변경
@@ -22,6 +25,9 @@ export default defineConfig({
   },
 
   vite: {
+    // Vite 로그 레벨 설정
+    logLevel: 'error',
+
     resolve: {
       alias: {
         '@': path.resolve('./src'),

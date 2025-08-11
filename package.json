@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --host",
-    "dev:turbo": "concurrently \"astro dev --host\" \"npm run watch:scss\"",
-    "dev:full": "concurrently \"astro dev --host\" \"npm run watch:scss\" \"npm run watch:files\"",
+    "dev:quiet": "astro dev --host --silent",
+    "dev:turbo": "concurrently --kill-others-on-fail \"astro dev --host --silent\" \"npm run watch:scss\"",
+    "dev:full": "concurrently --kill-others-on-fail \"astro dev --host --silent\" \"npm run watch:scss\" \"npm run watch:files\"",
     "start": "astro dev --host",
     "watch:scss": "chokidar \"src/**/*.scss\" -c \"echo SCSS 파일 변경 감지: {path}\"",
     "watch:files": "chokidar \"src/**/*.{astro,ts,js}\" -c \"echo 파일 변경 감지: {path}\"",

@@ -93,122 +93,7 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
   </div>
 </div>
 
-<script is:inline define:vars={{ accordionId, iconType }}>
-  // UiCollectionAccordion 초기화
-  (function (accordionId, iconType) {
-    function initAccordion() {
-      console.log(
-        'Initializing accordion:',
-        accordionId,
-        'iconType:',
-        iconType
-      );
-
-      const accordion = document.querySelector(
-        `[data-accordion-id="${accordionId}"]`
-      );
-      if (!accordion) {
-        console.error('Accordion not found:', accordionId);
-        return;
-      }
-
-      const trigger = accordion.querySelector(
-        '.ui-collection-accordion__trigger'
-      );
-      const content = accordion.querySelector(
-        '.ui-collection-accordion__content'
-      );
-      const tabsContainer = accordion.querySelector('.ui-tabs');
-
-      if (!trigger || !content) {
-        console.error('Accordion trigger or content not found');
-        return;
-      }
-
-      // 이미 이벤트가 등록되었는지 확인
-      if (trigger.hasAttribute('data-accordion-initialized')) {
-        console.log('Accordion already initialized');
-        return;
-      }
-      trigger.setAttribute('data-accordion-initialized', 'true');
-
-      console.log('Setting up accordion events');
-
-      // 아이콘 타입에 따른 클릭 동작 구분
-      trigger.addEventListener('click', function (e) {
-        console.log('Accordion trigger clicked, iconType:', iconType);
-        e.preventDefault();
-
-        if (iconType === 'close') {
-          console.log('Closing accordion (X button)');
-          // X 아이콘인 경우: 전체 아코디언을 완전히 숨김
-          accordion.style.display = 'none';
-
-          // 만약 특정 래퍼가 있다면 그것도 숨김 (기존 로직 유지)
-          const wrapper = accordion.closest(
-            '.ui-book-card__collection-wrapper'
-          );
-          if (wrapper) {
-            wrapper.style.display = 'none';
-          }
-        } else {
-          console.log('Toggling accordion (arrow button)');
-          // 화살표 아이콘인 경우: 아코디언 토글 동작
-          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-          const newExpanded = !isExpanded;
-
-          trigger.setAttribute('aria-expanded', newExpanded.toString());
-          content.setAttribute('data-expanded', newExpanded.toString());
-
-          if (newExpanded) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            console.log('Accordion expanded, height:', content.scrollHeight);
-          } else {
-            content.style.maxHeight = '0';
-            console.log('Accordion collapsed');
-          }
-        }
-      });
-
-      // 초기 상태 설정
-      if (content.getAttribute('data-expanded') === 'true') {
-        content.style.maxHeight = content.scrollHeight + 'px';
-        console.log(
-          'Initial expanded state set, height:',
-          content.scrollHeight
-        );
-      } else {
-        content.style.maxHeight = 'max-content';
-        console.log('Initial collapsed state set');
-      }
-
-      // 탭 변경 이벤트 처리
-      if (tabsContainer) {
-        tabsContainer.addEventListener('tabchange', function (event) {
-          const selectedLibrary = event.detail.activeTab;
-          console.log('Selected library:', selectedLibrary);
-
-          // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
-          // 예: filterCollectionsByLibrary(selectedLibrary);
-        });
-      }
-
-      console.log('Accordion initialization complete');
-    }
-
-    // DOM이 준비되었는지 확인하고 초기화
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAccordion);
-    } else {
-      initAccordion();
-    }
-
-    // 안전장치: 페이지 로드 후에도 실행
-    window.addEventListener('load', function () {
-      setTimeout(initAccordion, 200);
-    });
-  })(accordionId, iconType);
-</script>
+<!-- 외부 JS 파일에서 처리: accordion.js -->
 
 <style lang="scss">
   @use '@styles/abstracts' as *;
@@ -234,7 +119,6 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       .ui-collection-accordion__trigger {
         justify-content: flex-start;
         padding: 0;
-        margin-bottom: to-rem(24);
       }
       .ui-collection-accordion__trigger-content {
         flex: none;
@@ -268,8 +152,16 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       background: none;
       border: none;
       cursor: pointer;
+      transition: all 0.2s ease;
+      padding: to-rem(16) to-rem(0) !important;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
 
       &[aria-expanded='true'] {
+        background-color: rgba(0, 0, 0, 0.05);
+
         .icon-arrow-down {
           transform: rotate(180deg);
         }
