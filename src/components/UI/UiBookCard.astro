@@ -243,13 +243,11 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       </div>
     </div>
   </div>
-  <!-- 소장정보 아코디언 -->
+  <!-- 소장정보 내용 -->
   <div class="ui-book-card__collection-wrapper" style="display: none;">
     <UiCollectionAccordion
-      title={title}
-      totalCount={3}
       libraries={collectionLibraries}
-      collections={collectionData}
+      rows={collectionData}
       isExpanded={true}
       iconType="close"
       className="book-card-accordion"
@@ -266,20 +264,26 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       button.addEventListener('click', function () {
         // 해당 버튼이 속한 북카드의 소장정보 래퍼 찾기
         const bookCard = this.closest('.ui-book-card');
-        const wrapper = bookCard.querySelector('.ui-book-card__collection-wrapper');
+        const wrapper = bookCard.querySelector(
+          '.ui-book-card__collection-wrapper'
+        );
 
         if (!wrapper) return;
 
         // 소장정보 표시 (항상 펼쳐진 상태로)
         wrapper.style.display = 'block';
-        
+
         // 아코디언을 펼친 상태로 강제 설정
         setTimeout(() => {
           const accordion = wrapper.querySelector('.book-card-accordion');
           if (accordion) {
-            const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
-            const content = accordion.querySelector('.ui-collection-accordion__content');
-            
+            const trigger = accordion.querySelector(
+              '.ui-collection-accordion__trigger'
+            );
+            const content = accordion.querySelector(
+              '.ui-collection-accordion__content'
+            );
+
             if (trigger && content) {
               trigger.setAttribute('aria-expanded', 'true');
               content.dataset.expanded = 'true';

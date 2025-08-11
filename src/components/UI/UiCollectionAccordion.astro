@@ -98,19 +98,29 @@ export interface Props {
   className?: string;
 }
 
-const { isExpanded = false, iconType = 'arrow', className = '' } = Astro.props;
+const {
+  title,
+  isExpanded = false,
+  iconType = 'arrow',
+  className = '',
+} = Astro.props;
 
 const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class={`ui-collection-accordion ${className}`} data-accordion-id={accordionId}>
+<div
+  class={`ui-collection-accordion ${className}`}
+  data-accordion-id={accordionId}
+>
   <button
     type="button"
     class="ui-collection-accordion__trigger"
     aria-expanded={isExpanded}
     aria-controls={accordionId}
   >
-    <div class="ui-collection-accordion__trigger-content"></div>
+    <div class="ui-collection-accordion__trigger-content">
+      <span class="ui-collection-accordion__title">{title}</span>
+    </div>
     {
       iconType === 'arrow' ? (
         <svg
@@ -188,9 +198,11 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
   </div>
 </div>
 
-<script define:vars={{ accordionId }}>
+<script define:vars={{ accordionId, iconType }}>
   document.addEventListener('DOMContentLoaded', function () {
-    const accordion = document.querySelector(`[data-accordion-id="${accordionId}"]`);
+    const accordion = document.querySelector(
+      `[data-accordion-id="${accordionId}"]`
+    );
     if (!accordion) return;
 
     const trigger = accordion.querySelector(
@@ -203,18 +215,19 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 
     if (!trigger || !content) return;
 
-    // 아코디언 토글 (X 아이콘일 때는 전체 숨김)
+    // 아이콘 타입에 따른 클릭 동작 구분
     trigger.addEventListener('click', function () {
-      const isCloseIcon = accordion.classList.contains('book-card-accordion');
+      if (iconType === 'close') {
+        // X 아이콘인 경우: 전체 아코디언을 완전히 숨김
+        accordion.style.display = 'none';
 
-      if (isCloseIcon) {
-        // X 아이콘인 경우: 전체 래퍼를 숨김
+        // 만약 특정 래퍼가 있다면 그것도 숨김 (기존 로직 유지)
         const wrapper = accordion.closest('.ui-book-card__collection-wrapper');
         if (wrapper) {
           wrapper.style.display = 'none';
         }
       } else {
-        // 화살표 아이콘인 경우: 기존 토글 동작
+        // 화살표 아이콘인 경우: 아코디언 토글 동작
         const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
         const newExpanded = !isExpanded;
 
@@ -258,6 +271,26 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
     background: white;
     margin-bottom: to-rem(16);
 
+    &.custom-accordion {
+      display: block !important;
+      border: none;
+      border-radius: 0;
+      background: none;
+      padding: 0;
+
+      .ui-collection-accordion__title {
+        font-size: to-rem(24);
+        font-weight: 700;
+        color: #000;
+        position: relative;
+
+        &::before {
+          content: '';
+          @include icon('book', to-rem(20), to-rem(20));
+        }
+      }
+    }
+
     &__trigger {
       display: flex;
       align-items: center;
@@ -274,7 +307,7 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
         }
 
         .ui-collection-accordion__icon--close {
-          transform: none; // 닫기 아이콘은 회전하지 않음
+          transform: none;
         }
       }
     }
@@ -283,12 +316,14 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       display: flex;
       align-items: center;
       gap: to-rem(8);
+      flex: 1;
     }
 
     &__title {
       font-size: to-rem(16);
       font-weight: 600;
       color: #333;
+      text-align: left;
     }
 
     &__count {
@@ -311,11 +346,12 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
     }
 
     &__content {
+      overflow: hidden;
       transition: max-height 0.3s ease;
-      max-height: max-content !important;
+      max-height: 0;
 
-      &[data-expanded='false'] {
-        max-height: 526px;
+      &[data-expanded='true'] {
+        max-height: 1000px; // 충분한 높이 설정
       }
     }
 

@@ -98,142 +98,145 @@ const outputCountOptions = [
       <!-- 상세검색 아코디언언 -->
       <UiAccordion title="상세검색" isExpanded={false}>
         <div class="accordion-cnt">
-          <!-- 자료유형 탭 -->
-          <UiTab
-            tabs={[
-              { id: 'all', label: '전체', count: 0, active: true },
-              { id: 'book', label: '단행본', count: 0 },
-              { id: 'serial', label: '연속간행물', count: 0 },
-              { id: 'dvd', label: 'DVD', count: 0 },
-              { id: 'ebook', label: '전자책', count: 0 },
-            ]}
-            variant="default"
-            size="medium"
-            className="mb-4 search-type-tabs"
-          />
 
-          <!-- 검색 정보 요약 -->
-          <div class="search-info-summary mb-4">
-            <span
-              >검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</span
-            >
-            <span class="search-keyword-info ml-2">
-              [키워드: <span class="text-blue-600">홍길동</span>, <span
-                class="text-blue-600">발행처: 2222</span
-              >]
-            </span>
-          </div>
-
-          <!-- 상세 필터 섹션 -->
-          <div class="search-filter-section">
-            <!-- 한국십진분류 필터 -->
-            <div class="filter-row">
-              <div class="filter-group filter-group--classification">
-                <span class="filter-badge">한국십진분류</span>
-                <UiSelect
-                  options={majorClassificationOptions}
-                  name="major-classification"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-                <UiSelect
-                  options={middleClassificationOptions}
-                  name="middle-classification"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-                <UiSelect
-                  options={minorClassificationOptions}
-                  name="minor-classification"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-              </div>
-            </div>
-
-            <!-- 정렬 옵션 필터 -->
-            <div class="filter-row">
-              <div class="filter-group filter-group--sort">
-                <UiSelect
-                  options={sortCriteriaOptions}
-                  name="sort-criteria"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-                <UiSelect
-                  options={sortOrderOptions}
-                  name="sort-order"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-                <UiSelect
-                  options={outputCountOptions}
-                  name="output-count"
-                  class="filter-select"
-                  width={125}
-                  height={48}
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- 검색 결과 목록 -->
-          <div class="search-result-list mt24">
-            <!-- 예시 도서 아이템 -->
-            <UiBookCard
-              index={1}
-              imageUrl="/assets/images/default-book.png"
-              badges={[
-                { label: 'DVD', type: 'success', size: 'large' },
-                { label: '대출불가', type: 'warning' },
-              ]}
-              title="서점탐정 유동인. 2, 리턴즈"
-              titleHighlights={['탐정', '리턴즈']}
-              author="조성희 감독"
-              details={{
-                callNumber: 'DV 688.2-조54ㅌ',
-                publishYear: '2017',
-                library: '연수청학',
-                readingRoom: 'OOO자료실',
-                registrationNumber: 'HV0000000881',
-              }}
-            />
-            <UiBookCard
-              index={2}
-              imageUrl="/assets/images/default-book.png"
-              badges={[
-                { label: 'DVD', type: 'success', size: 'large' },
-                { label: '대출불가', type: 'warning' },
-              ]}
-              title="서점탐정 유동인. 2, 리턴즈"
-              titleHighlights={['탐정', '리턴즈']}
-              author="조성희 감독"
-              details={{
-                callNumber: 'DV 688.2-조54ㅌ',
-                publishYear: '2017',
-                library: '연수청학',
-                readingRoom: 'OOO자료실',
-                registrationNumber: 'HV0000000881',
-              }}
-            />
-          </div>
-
-          <!-- 페이징네이션 -->
-          <div class="pagination-section">
-            <UiPagination
-              currentPage={1}
-              totalPages={99}
-              maxVisiblePages={8}
-              onPageChange={page => console.log('Page changed to:', page)}
-            />
-          </div>
         </div>
       </UiAccordion>
+      <div class="search-detail-section__content">
+        <!-- 자료유형 탭 -->
+        <UiTab
+          tabs={[
+            { id: 'all', label: '전체', count: 0, active: true },
+            { id: 'book', label: '단행본', count: 0 },
+            { id: 'serial', label: '연속간행물', count: 0 },
+            { id: 'dvd', label: 'DVD', count: 0 },
+            { id: 'ebook', label: '전자책', count: 0 },
+          ]}
+          variant="default"
+          size="medium"
+          className="mb-4 search-type-tabs"
+        />
+
+        <!-- 검색 정보 요약 -->
+        <div class="search-info-summary mb-4">
+          <span
+            >검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</span
+          >
+          <span class="search-keyword-info ml-2">
+            [키워드: <span class="text-blue-600">홍길동</span>, <span
+              class="text-blue-600">발행처: 2222</span
+            >]
+          </span>
+        </div>
+
+        <!-- 상세 필터 섹션 -->
+        <div class="search-filter-section">
+          <!-- 한국십진분류 필터 -->
+          <div class="filter-row">
+            <div class="filter-group filter-group--classification">
+              <span class="filter-badge">한국십진분류</span>
+              <UiSelect
+                options={majorClassificationOptions}
+                name="major-classification"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+              <UiSelect
+                options={middleClassificationOptions}
+                name="middle-classification"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+              <UiSelect
+                options={minorClassificationOptions}
+                name="minor-classification"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+            </div>
+          </div>
+
+          <!-- 정렬 옵션 필터 -->
+          <div class="filter-row">
+            <div class="filter-group filter-group--sort">
+              <UiSelect
+                options={sortCriteriaOptions}
+                name="sort-criteria"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+              <UiSelect
+                options={sortOrderOptions}
+                name="sort-order"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+              <UiSelect
+                options={outputCountOptions}
+                name="output-count"
+                class="filter-select"
+                width={125}
+                height={48}
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 검색 결과 목록 -->
+        <div class="search-result-list mt24">
+          <!-- 예시 도서 아이템 -->
+          <UiBookCard
+            index={1}
+            imageUrl="/assets/images/default-book.png"
+            badges={[
+              { label: 'DVD', type: 'success', size: 'large' },
+              { label: '대출불가', type: 'warning' },
+            ]}
+            title="서점탐정 유동인. 2, 리턴즈"
+            titleHighlights={['탐정', '리턴즈']}
+            author="조성희 감독"
+            details={{
+              callNumber: 'DV 688.2-조54ㅌ',
+              publishYear: '2017',
+              library: '연수청학',
+              readingRoom: 'OOO자료실',
+              registrationNumber: 'HV0000000881',
+            }}
+          />
+          <UiBookCard
+            index={2}
+            imageUrl="/assets/images/default-book.png"
+            badges={[
+              { label: 'DVD', type: 'success', size: 'large' },
+              { label: '대출불가', type: 'warning' },
+            ]}
+            title="서점탐정 유동인. 2, 리턴즈"
+            titleHighlights={['탐정', '리턴즈']}
+            author="조성희 감독"
+            details={{
+              callNumber: 'DV 688.2-조54ㅌ',
+              publishYear: '2017',
+              library: '연수청학',
+              readingRoom: 'OOO자료실',
+              registrationNumber: 'HV0000000881',
+            }}
+          />
+        </div>
+
+        <!-- 페이징네이션 -->
+        <div class="pagination-section">
+          <UiPagination
+            currentPage={1}
+            totalPages={99}
+            maxVisiblePages={8}
+            onPageChange={page => console.log('Page changed to:', page)}
+          />
+        </div>
+      </div>
     </section>
   </SubLayout>
 </Layout>

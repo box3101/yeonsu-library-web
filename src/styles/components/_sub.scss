@@ -1,12 +1,17 @@
 @use '@styles/abstracts' as *;
 @use '@styles/variables/colors' as *;
 
+/* ========================================
+   기본 레이아웃
+======================================== */
 .sub-content {
   flex: 1;
   max-width: 976px;
 }
 
-// 소장도서 검색
+/* ========================================
+   소장도서 검색
+======================================== */
 .ui-library-filter {
   margin-bottom: to-rem(32);
 
@@ -122,7 +127,7 @@
     }
   }
 
-  // 검색 영역 스타일
+  /* 검색 영역 스타일 */
   &__search {
     position: relative;
     display: flex;
@@ -133,7 +138,7 @@
       flex: 1;
     }
 
-    // 검색어 드롭다운 스타일
+    /* 검색어 드롭다운 */
     &-dropdown {
       padding: 24px;
       position: absolute;
@@ -157,7 +162,7 @@
       }
     }
 
-    // 탭 버튼 스타일
+    /* 탭 버튼 */
     &-tabs {
       display: flex;
       border: 1px solid $gray-200;
@@ -195,7 +200,7 @@
       }
     }
 
-    // 검색어 목록 스타일
+    /* 검색어 목록 */
     &-list {
       background: $white;
       padding: to-rem(16);
@@ -244,7 +249,7 @@
       }
     }
 
-    // 하단 옵션 스타일
+    /* 하단 옵션 */
     &-options {
       display: flex;
       align-items: center;
@@ -299,6 +304,9 @@
   }
 }
 
+/* ========================================
+   상세검색 헤더
+======================================== */
 .search-detail-header {
   @include flex-center;
   height: to-rem(48);
@@ -316,18 +324,21 @@
   }
 }
 
-// 자료유형 탭 커스텀 스타일
+/* ========================================
+   검색 타입 탭
+======================================== */
 .search-type-tabs {
   &.ui-tab {
     .ui-tab__list {
       gap: 0;
+      border-top: 1px solid #b1b8be;
       border-right: 1px solid #b1b8be;
     }
 
     .ui-tab__button {
       background: transparent;
       border: 1px solid #b1b8be;
-      margin-left: -1px; // 왼쪽 border 겹치기
+      margin-left: -1px;
       margin-top: -1px;
       padding: to-rem(12) to-rem(16);
       font-size: to-rem(19);
@@ -335,20 +346,12 @@
       color: #7d8181;
       transition: all 0.2s ease;
       flex: 1;
-      position: relative; // z-index 제어를 위해
+      position: relative;
       border-right: none;
-      // 4번째마다 오른쪽 border 추가 (그리드 레이아웃에서 행 구분)
-      &:nth-child(4n) {
-        border-right: 1px solid #b1b8be;
-      }
-
-      &:first-child {
-        margin-left: 0; // 첫 번째 버튼은 마진 제거
-      }
 
       &:hover:not(.ui-tab__button--active) {
         background: rgba(255, 255, 255, 0.5);
-        z-index: 1; // hover 시 위로 올리기
+        z-index: 1;
 
         .ui-tab__label {
           color: #5a5a5a;
@@ -358,7 +361,7 @@
       &--active {
         background: #003456;
         color: $white;
-        z-index: 2; // active 버튼을 가장 위로
+        z-index: 2;
 
         .ui-tab__label {
           color: $white;
@@ -368,7 +371,9 @@
   }
 }
 
-// 검색 필터 섹션
+/* ========================================
+   검색 필터 섹션
+======================================== */
 .search-filter-section {
   margin-top: to-rem(24);
   display: flex;
@@ -415,7 +420,9 @@
   }
 }
 
-// 검색 정보 요약 스타일
+/* ========================================
+   검색 정보 요약
+======================================== */
 .search-info-summary {
   display: flex;
   align-items: center;
@@ -449,7 +456,9 @@
   }
 }
 
-// 인포박스 스타일
+/* ========================================
+   인포박스
+======================================== */
 .infobox {
   background-color: $gray-100;
   border: 1px solid $gray-400;
@@ -524,13 +533,15 @@
   }
 }
 
-// 스마트도서관 비치도서 페이지 전용 스타일
+/* ========================================
+   스마트도서관 비치도서
+======================================== */
 .search-container {
   @include flex(column, flex-start, stretch);
   width: 100%;
 }
 
-// 라디오 컨테이너 스타일
+/* 라디오 컨테이너 */
 .radio-container {
   &__item {
     @include flex(row, space-between, center);
@@ -550,7 +561,9 @@
   }
 }
 
-// 검색 결과 영역 스타일
+/* ========================================
+   검색 결과 영역
+======================================== */
 .search-result {
   &__header {
     @include flex(row, space-between, center);
@@ -602,7 +615,7 @@
     }
   }
 
-  // 빈 상태 스타일
+  /* 빈 상태 */
   &__empty {
     @include flex(column, center, center);
     padding: to-rem(80) to-rem(24);
@@ -631,7 +644,7 @@
     }
   }
 
-  // 로딩 상태 스타일
+  /* 로딩 상태 */
   &__loading {
     @include flex(column, center, center);
     padding: to-rem(60) to-rem(24);
@@ -654,7 +667,9 @@
   }
 }
 
-// 스마트도서관 검색바 커스텀 스타일
+/* ========================================
+   스마트도서관 검색바 커스텀
+======================================== */
 .smart-library-searchbar {
   margin-bottom: to-rem(24);
 
@@ -683,17 +698,9 @@
   }
 }
 
-// 애니메이션 키프레임
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-// 도서 표지 제공 스타일
+/* ========================================
+   도서 표지 제공 정보
+======================================== */
 .book-cover-info {
   font-size: to-rem(17);
   font-weight: 700;
@@ -702,10 +709,14 @@
   @include flex(row, flex-end, flex-end);
 }
 
+/* ========================================
+   게시판 목록
+======================================== */
 .bbs-list-container {
   margin-top: to-rem(24);
 }
 
+/* 공지사항 박스 */
 .notice-box {
   display: flex;
   padding: to-rem(32);
@@ -759,11 +770,14 @@
   }
 }
 
+/* ========================================
+   글로벌 네비게이션(GNB)
+======================================== */
 .gnb {
   position: relative;
   z-index: 1000;
 
-  // CSS 변수 정의
+  /* CSS 변수 정의 */
   --radius-medium2: #{to-rem(6)};
   --color-primary-pr01: #d8e4f3;
 
@@ -773,7 +787,7 @@
   }
 }
 
-// 메인 메뉴 바 (1depth)
+/* 메인 메뉴 바 (1depth) */
 .gnb-main {
   background: #ffffff;
   border-top: 1px solid #cdd1d5;
@@ -834,7 +848,7 @@
   }
 }
 
-// 서브 메뉴 영역 (2depth + 3depth)
+/* 서브 메뉴 영역 (2depth + 3depth) */
 .gnb-sub {
   background: #ffffff;
   border-top: 1px solid #cdd1d5;
@@ -855,7 +869,7 @@
     gap: to-rem(24);
   }
 
-  // 1depth 제목
+  /* 1depth 제목 */
   &-title {
     width: to-rem(306);
     padding-right: to-rem(24);
@@ -871,7 +885,7 @@
     }
   }
 
-  // 2depth 메뉴
+  /* 2depth 메뉴 */
   &-menu {
     width: to-rem(306);
     padding-top: to-rem(8);
@@ -928,7 +942,7 @@
   }
 }
 
-// 3depth 메뉴
+/* 3depth 메뉴 */
 .gnb-third {
   flex: 1;
   border-left: 1px solid #cdd1d5;
@@ -1010,7 +1024,32 @@
   }
 }
 
-// 반응형
+/* ========================================
+   기타 컴포넌트
+======================================== */
+.search-detail-section {
+  margin-bottom: to-rem(24);
+
+  .search-detail-section__content {
+    margin-top: to-rem(24);
+  }
+}
+
+/* ========================================
+   애니메이션
+======================================== */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   반응형
+======================================== */
 @include tablet {
   .gnb {
     &-container {
@@ -1063,7 +1102,9 @@
   }
 }
 
-// 호버 상태
+/* ========================================
+   호버 상태
+======================================== */
 .gnb-main-item:hover {
   .gnb-sub[data-menu-target] {
     opacity: 1;
