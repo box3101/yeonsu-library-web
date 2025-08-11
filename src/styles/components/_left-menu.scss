@@ -1,6 +1,4 @@
-@use '@styles/abstracts' as *;
-@use '@styles/variables/colors' as *;
-@use '@styles/variables/typography' as *;
+@use '../globals' as *;
 
 .left-menu {
   flex: 0 0 to-rem(280);
@@ -8,7 +6,12 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
+
+  @include tablet {
+    display: none;
+  }
 }
+
 .left-menu-nav {
   height: 100%;
   overflow-y: auto;
@@ -16,15 +19,18 @@
 
   .left-menu-title {
     padding: to-rem(32) 0;
-    border-bottom: 1px solid $gray-500;
+    border-bottom: 1px solid #e5e8eb;
 
     .left-menu-title-text {
-      color: $gray-900;
+      color: #1e2124;
       font-size: to-rem(24);
-      font-weight: $font-bold;
-      line-height: 150%;
-      letter-spacing: 0;
-      margin-left: 10px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-left: to-rem(10);
+
+      @include tablet {
+        font-size: to-rem(20);
+      }
     }
   }
 
@@ -37,26 +43,25 @@
 
     .menu-section-title {
       width: 100%;
-      display: flex;
+      @include flex;
       align-items: center;
       justify-content: space-between;
       padding: to-rem(16) to-rem(20);
       font-size: to-rem(16);
-      font-weight: $font-medium;
+      font-weight: 500;
       border: none;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
       text-align: left;
 
       &:hover {
-        background: #e9ecef;
-        color: $primary-color;
+        background: #f3f4f6;
+        color: #3c79c2;
       }
 
       &.expanded {
         background: #e3f2fd;
-        color: $primary-color;
-        // border-bottom: 3px solid $primary-color;
+        color: #3c79c2;
 
         .menu-arrow {
           transform: rotate(180deg);
@@ -65,15 +70,15 @@
 
       &.active {
         background: #e3f2fd;
-        color: #007ccc;
-        border-bottom: 3px solid #007ccc;
+        color: #3c79c2;
+        border-bottom: 3px solid #3c79c2;
       }
 
       .menu-title-text {
         flex: 1;
         font-size: to-rem(17);
         font-weight: 700;
-        color: $text-color;
+        color: #1e2124;
       }
 
       .menu-arrow {
@@ -92,30 +97,30 @@
       background: #ffffff;
 
       &.expanded {
-        max-height: to-rem(500); // 충분한 높이 설정
+        max-height: to-rem(500);
       }
 
       .menu-item {
         .menu-link {
-          display: flex;
+          @include flex;
           align-items: center;
           padding: to-rem(12) to-rem(40);
-          color: $gray-700;
+          color: #464c53;
           text-decoration: none;
           font-size: to-rem(14);
-          line-height: $line-height-normal;
+          line-height: 1.5;
           transition: all 0.15s ease-out;
           background: #ffffff;
 
           &:hover {
             background-color: #f3f4f6;
-            color: $primary-color;
+            color: #3c79c2;
           }
 
           &.active {
             background-color: #e1effc;
-            color: $primary-color;
-            font-weight: $font-medium;
+            color: #3c79c2;
+            font-weight: 500;
             position: relative;
 
             &::before {
@@ -125,7 +130,7 @@
               top: 0;
               bottom: 0;
               width: 3px;
-              background: $primary-color;
+              background: #3c79c2;
             }
           }
         }
@@ -134,7 +139,6 @@
   }
 }
 
-// 스크롤바 스타일링
 .left-menu-nav {
   &::-webkit-scrollbar {
     width: 4px;
@@ -145,11 +149,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $gray-300;
+    background: #cdd1d5;
     border-radius: 2px;
 
     &:hover {
-      background: $gray-400;
+      background: #b2b8bd;
     }
   }
 }

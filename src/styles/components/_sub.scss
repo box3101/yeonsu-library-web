@@ -8,6 +8,10 @@
 .sub-content {
   flex: 1;
   max-width: 976px;
+
+  @include tablet {
+    max-width: 100%;
+  }
 }
 
 /* ========================================
@@ -16,8 +20,16 @@
 .ui-library-filter {
   margin-bottom: to-rem(32);
 
+  @include tablet {
+    margin-bottom: to-rem(24);
+  }
+
   &__search-result {
     margin-top: to-rem(24);
+
+    @include tablet {
+      margin-top: to-rem(16);
+    }
   }
 
   &__box {
@@ -25,10 +37,18 @@
     border-radius: to-rem(8);
     padding: to-rem(24) to-rem(20);
     background-color: $gray-100;
+
+    @include tablet {
+      padding: to-rem(16);
+    }
   }
 
   &__header {
     margin-bottom: to-rem(12);
+
+    @include tablet {
+      margin-bottom: to-rem(8);
+    }
   }
 
   &__main-control {
@@ -41,6 +61,10 @@
       font-weight: $font-semibold;
       color: $gray-800;
       font-size: to-rem(16);
+
+      @include tablet {
+        font-size: to-rem(14);
+      }
     }
   }
 
@@ -83,20 +107,19 @@
     font-size: to-rem(15);
     margin-bottom: to-rem(8);
     padding-top: to-rem(4);
+
+    @include tablet {
+      font-size: to-rem(14);
+    }
   }
 
   &__grid {
     display: grid;
     gap: to-rem(8) to-rem(24);
 
-    @include mobile {
+    @include tablet {
       grid-template-columns: repeat(2, 1fr);
       gap: to-rem(6) to-rem(16);
-    }
-
-    @include tablet {
-      grid-template-columns: repeat(3, 1fr);
-      gap: to-rem(8) to-rem(20);
     }
   }
 
@@ -109,6 +132,10 @@
       font-size: to-rem(14);
       color: $gray-700;
       line-height: 1.4;
+
+      @include tablet {
+        font-size: to-rem(13);
+      }
     }
 
     :global(.ui-checkbox__control) {
@@ -156,6 +183,18 @@
       transform: translateY(-4px);
       transition: all 0.2s ease;
 
+      @include tablet {
+        padding: to-rem(16);
+        left: 50%;
+        transform: translateX(-50%) translateY(-4px);
+        width: 90vw;
+        max-width: to-rem(340);
+
+        &.is-open {
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+
       &.is-open {
         opacity: 1;
         visibility: visible;
@@ -171,6 +210,10 @@
       overflow: hidden;
       width: to-rem(340);
 
+      @include tablet {
+        width: 100%;
+      }
+
       button {
         flex: 1;
         padding: to-rem(16) to-rem(16);
@@ -182,6 +225,11 @@
         cursor: pointer;
         transition: all 0.2s ease;
         position: relative;
+
+        @include tablet {
+          padding: to-rem(12) to-rem(8);
+          font-size: to-rem(13);
+        }
 
         &:not(:last-child) {
           border-right: 1px solid $gray-200;
@@ -207,6 +255,11 @@
       padding: to-rem(16);
       width: to-rem(340);
 
+      @include tablet {
+        width: 100%;
+        padding: to-rem(12);
+      }
+
       .search-content {
         display: none;
 
@@ -223,9 +276,17 @@
         cursor: pointer;
         transition: background-color 0.2s ease;
 
+        @include tablet {
+          padding: to-rem(6) 0;
+        }
+
         .search-term {
           color: $gray-900;
           font-size: to-rem(14);
+
+          @include tablet {
+            font-size: to-rem(13);
+          }
 
           &.is-recent {
             font-weight: $font-semibold;
@@ -236,6 +297,10 @@
           color: $gray-400;
           font-size: to-rem(12);
           font-weight: $font-normal;
+
+          @include tablet {
+            font-size: to-rem(11);
+          }
         }
 
         .search-rank {
@@ -246,6 +311,11 @@
           border-radius: to-rem(10);
           min-width: to-rem(16);
           text-align: center;
+
+          @include tablet {
+            font-size: to-rem(10);
+            padding: to-rem(1) to-rem(4);
+          }
         }
       }
     }
@@ -260,6 +330,12 @@
       border-top: 1px solid $gray-100;
       border-radius: 0 0 to-rem(8) to-rem(8);
       width: to-rem(340);
+
+      @include tablet {
+        width: 100%;
+        padding: to-rem(8) to-rem(12);
+        gap: to-rem(12);
+      }
 
       .option-item {
         display: flex;
@@ -277,6 +353,12 @@
           color: $white;
           font-size: to-rem(10);
 
+          @include tablet {
+            width: to-rem(16);
+            height: to-rem(16);
+            font-size: to-rem(8);
+          }
+
           &::before {
             content: '×';
           }
@@ -285,6 +367,10 @@
         .option-text {
           color: $gray-500;
           font-size: to-rem(13);
+
+          @include tablet {
+            font-size: to-rem(12);
+          }
         }
       }
 
@@ -296,6 +382,10 @@
         font-weight: $font-semibold;
         cursor: pointer;
         text-decoration: underline;
+
+        @include tablet {
+          font-size: to-rem(12);
+        }
 
         &:hover {
           color: $blue-700;
@@ -316,12 +406,21 @@
   background: #ecf2f9;
   margin-bottom: to-rem(24);
 
+  @include tablet {
+    height: to-rem(40);
+    margin-bottom: to-rem(16);
+  }
+
   .search-detail-title {
     color: #0b50d0;
     text-align: center;
     font-size: to-rem(17);
     font-weight: 400;
     line-height: 1.5;
+
+    @include tablet {
+      font-size: to-rem(15);
+    }
   }
 }
 
@@ -329,8 +428,6 @@
    검색 타입 탭
 ======================================== */
 .search-type-tabs {
-  // 6개 열 그리드 레이아웃 옵션
-
   &.ui-tab--grid-6 {
     .ui-tab__list {
       gap: 0;
@@ -356,10 +453,14 @@
       flex: none;
       width: 100%;
       border-bottom: none;
-
-      // 최대 6개까지 한 줄에 표시
       flex: 1 1 calc(100% / min(6, var(--total-tabs, 6)));
       min-width: 0;
+
+      @include tablet {
+        padding: to-rem(8) to-rem(12);
+        font-size: to-rem(14);
+        flex: 1 1 calc(100% / 3);
+      }
 
       &:nth-child(6n) {
         border-right: none;
@@ -369,7 +470,7 @@
         border-top: 1px solid #b1b8be;
       }
 
-      @media (max-width: 768px) {
+      @include tablet {
         &:nth-child(6n) {
           border-right: 1px solid #b1b8be;
         }
@@ -379,20 +480,6 @@
         }
 
         &:nth-child(n + 4) {
-          border-top: 1px solid #b1b8be;
-        }
-      }
-
-      @media (max-width: 480px) {
-        &:nth-child(3n) {
-          border-right: 1px solid #b1b8be;
-        }
-
-        &:nth-child(2n) {
-          border-right: none;
-        }
-
-        &:nth-child(n + 3) {
           border-top: 1px solid #b1b8be;
         }
       }
@@ -440,22 +527,37 @@
       transition: all 0.2s ease;
       position: relative;
       white-space: nowrap;
-
-      // 최대 6개까지 한 줄에 표시
       flex: 1 1 calc(100% / min(4, var(--total-tabs, 4)));
       min-width: 0;
 
-      // 6개까지는 한 줄, 그 이상은 다음 줄로
+      @include tablet {
+        padding: to-rem(8) to-rem(12);
+        font-size: to-rem(14);
+        flex: 1 1 calc(100% / 2);
+      }
+
       &:nth-child(4n) {
         border-right: none;
       }
 
-      // 두 번째 줄부터는 위쪽 border 추가
       &:nth-child(n + 5) {
         border-top: 1px solid #b1b8be;
       }
 
-      // 마지막 탭의 오른쪽 border 제거
+      @include tablet {
+        &:nth-child(4n) {
+          border-right: 1px solid #b1b8be;
+        }
+
+        &:nth-child(2n) {
+          border-right: none;
+        }
+
+        &:nth-child(n + 3) {
+          border-top: 1px solid #b1b8be;
+        }
+      }
+
       &:last-child {
         border-right: none;
       }
@@ -491,11 +593,23 @@
   justify-content: space-between;
   align-items: center;
 
+  @include tablet {
+    margin-top: to-rem(16);
+    flex-direction: column;
+    align-items: stretch;
+    gap: to-rem(16);
+  }
+
   .filter-row {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     gap: to-rem(30);
+
+    @include tablet {
+      flex-direction: column;
+      gap: to-rem(12);
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -514,6 +628,10 @@
     &--sort {
       flex: 0 0 auto;
       gap: to-rem(8);
+
+      @include tablet {
+        justify-content: flex-start;
+      }
     }
   }
 
@@ -528,6 +646,11 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
+
+    @include tablet {
+      font-size: to-rem(15);
+      padding: to-rem(6) to-rem(8);
+    }
   }
 }
 
@@ -543,6 +666,13 @@
   color: #1e2124;
   margin-top: 42px;
 
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: to-rem(15);
+    margin-top: to-rem(24);
+  }
+
   strong {
     color: #3c79c2;
     font-weight: 700;
@@ -554,10 +684,18 @@
     font-weight: 700;
     color: #1e2124;
 
+    @include tablet {
+      font-size: to-rem(15);
+    }
+
     span {
       font-size: to-rem(17);
       font-weight: 500;
       color: #191a1a;
+
+      @include tablet {
+        font-size: to-rem(15);
+      }
     }
 
     .text-blue-600 {
@@ -579,6 +717,11 @@
   gap: to-rem(8);
   margin-bottom: to-rem(24);
 
+  @include tablet {
+    padding: to-rem(12);
+    margin-bottom: to-rem(16);
+  }
+
   &--secondary {
     background-color: $gray-100;
     border-color: $gray-400;
@@ -597,6 +740,11 @@
     svg {
       width: to-rem(32);
       height: to-rem(32);
+
+      @include tablet {
+        width: to-rem(24);
+        height: to-rem(24);
+      }
     }
   }
 
@@ -607,12 +755,21 @@
     color: $text-color;
     margin: 0;
     flex: 1;
+
+    @include tablet {
+      font-size: to-rem(16);
+    }
   }
 
   &__content {
     @include flex(column, flex-start, stretch);
     gap: to-rem(12);
     padding-left: to-rem(28);
+
+    @include tablet {
+      padding-left: to-rem(20);
+      gap: to-rem(8);
+    }
   }
 
   &__list {
@@ -621,6 +778,10 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @include tablet {
+      gap: to-rem(6);
+    }
   }
 
   &__list-item {
@@ -631,6 +792,10 @@
     line-height: 1.5;
     color: $text-color;
 
+    @include tablet {
+      font-size: to-rem(14);
+    }
+
     &::before {
       content: '';
       margin-right: to-rem(6);
@@ -640,34 +805,12 @@
       border-radius: to-rem(4);
       flex-shrink: 0;
       margin-top: to-rem(9);
-    }
-  }
-}
 
-/* ========================================
-   스마트도서관 비치도서
-======================================== */
-.search-container {
-  @include flex(column, flex-start, stretch);
-  width: 100%;
-}
-
-/* 라디오 컨테이너 */
-.radio-container {
-  &__item {
-    @include flex(row, space-between, center);
-    gap: to-rem(12);
-    width: 100%;
-
-    @include mobile {
-      @include flex(column, flex-start, stretch);
-      gap: to-rem(16);
-    }
-
-    @include tablet {
-      @include flex(row, space-between, center);
-      flex-wrap: wrap;
-      gap: to-rem(16);
+      @include tablet {
+        width: to-rem(4);
+        height: to-rem(4);
+        margin-top: to-rem(7);
+      }
     }
   }
 }
@@ -682,9 +825,11 @@
     margin-bottom: to-rem(24);
     gap: to-rem(24);
 
-    @include mobile {
+    @include tablet {
       @include flex(column, flex-start, stretch);
       gap: to-rem(16);
+      margin-top: to-rem(16);
+      margin-bottom: to-rem(16);
     }
   }
 
@@ -695,6 +840,10 @@
     color: #1e2124;
     margin: 0;
     flex: 1;
+
+    @include tablet {
+      font-size: to-rem(16);
+    }
   }
 
   &__controls {
@@ -703,11 +852,20 @@
     align-items: center;
     flex: 1;
     gap: to-rem(12);
+
+    @include tablet {
+      justify-content: flex-start;
+      gap: to-rem(8);
+    }
   }
 
   &__content {
     @include flex(column, flex-start, stretch);
     gap: to-rem(24);
+
+    @include tablet {
+      gap: to-rem(16);
+    }
   }
 
   &__grid {
@@ -715,14 +873,9 @@
     grid-template-columns: repeat(auto-fill, minmax(to-rem(280), 1fr));
     gap: to-rem(24);
 
-    @include mobile {
-      grid-template-columns: 1fr;
-      gap: to-rem(16);
-    }
-
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
-      gap: to-rem(20);
+      gap: to-rem(16);
     }
   }
 
@@ -733,11 +886,20 @@
     text-align: center;
     color: $gray-500;
 
+    @include tablet {
+      padding: to-rem(60) to-rem(16);
+    }
+
     .empty-icon {
       width: to-rem(80);
       height: to-rem(80);
       margin-bottom: to-rem(16);
       opacity: 0.5;
+
+      @include tablet {
+        width: to-rem(60);
+        height: to-rem(60);
+      }
     }
 
     .empty-title {
@@ -745,6 +907,10 @@
       font-size: to-rem(18);
       margin-bottom: to-rem(8);
       color: $gray-700;
+
+      @include tablet {
+        font-size: to-rem(16);
+      }
     }
 
     .empty-description {
@@ -752,6 +918,10 @@
       font-size: to-rem(15);
       color: $gray-500;
       line-height: 1.5;
+
+      @include tablet {
+        font-size: to-rem(14);
+      }
     }
   }
 
@@ -759,6 +929,10 @@
   &__loading {
     @include flex(column, center, center);
     padding: to-rem(60) to-rem(24);
+
+    @include tablet {
+      padding: to-rem(40) to-rem(16);
+    }
 
     .loading-spinner {
       width: to-rem(40);
@@ -768,12 +942,21 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin-bottom: to-rem(16);
+
+      @include tablet {
+        width: to-rem(32);
+        height: to-rem(32);
+      }
     }
 
     .loading-text {
       font-weight: 400;
       font-size: to-rem(16);
       color: $gray-600;
+
+      @include tablet {
+        font-size: to-rem(14);
+      }
     }
   }
 }
@@ -783,6 +966,10 @@
 ======================================== */
 .smart-library-searchbar {
   margin-bottom: to-rem(24);
+
+  @include tablet {
+    margin-bottom: to-rem(16);
+  }
 
   :global(.ui-searchbar) {
     .ui-searchbar__container {
@@ -794,6 +981,11 @@
     .ui-searchbar__input {
       font-size: to-rem(17);
       padding: to-rem(16);
+
+      @include tablet {
+        font-size: to-rem(15);
+        padding: to-rem(12);
+      }
     }
 
     .ui-searchbar__button {
@@ -801,6 +993,10 @@
       color: $white;
       font-weight: 600;
       border-radius: 0 to-rem(8) to-rem(8) 0;
+
+      @include tablet {
+        padding: to-rem(12);
+      }
 
       &:hover {
         background-color: color.adjust(#256ef4, $lightness: -10%);
@@ -818,6 +1014,10 @@
   color: #191a1a;
   line-height: 1.5;
   @include flex(row, flex-end, flex-end);
+
+  @include tablet {
+    font-size: to-rem(15);
+  }
 }
 
 /* ========================================
@@ -825,6 +1025,10 @@
 ======================================== */
 .bbs-list-container {
   margin-top: to-rem(24);
+
+  @include tablet {
+    margin-top: to-rem(16);
+  }
 }
 
 /* 공지사항 박스 */
@@ -835,26 +1039,50 @@
   border: 1px solid var(--color-gray-gy-20, #cbcccc);
   background: var(--color-gray-wt, #fff);
 
+  @include tablet {
+    padding: to-rem(20);
+    flex-direction: column;
+    gap: to-rem(12);
+  }
+
   .notice-icon {
     display: inline-block;
     margin-right: to-rem(12);
+
+    @include tablet {
+      margin-right: 0;
+      align-self: flex-start;
+    }
   }
 
   .notice-content {
     flex: 1;
     margin-top: to-rem(6);
 
+    @include tablet {
+      margin-top: 0;
+    }
+
     .notice-title {
       font-size: to-rem(19);
       font-weight: 700;
       color: $gray-90;
       margin-bottom: to-rem(12);
+
+      @include tablet {
+        font-size: to-rem(16);
+        margin-bottom: to-rem(8);
+      }
     }
 
     .notice-text {
       font-size: to-rem(17);
       font-weight: 500;
       color: $gray-90;
+
+      @include tablet {
+        font-size: to-rem(15);
+      }
     }
   }
 }
@@ -865,9 +1093,19 @@
   padding: to-rem(16) 0;
   border-bottom: 1px solid $gray-300;
 
+  @include tablet {
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(12);
+    margin: to-rem(16) 0;
+  }
+
   .bbs-total {
     font-size: to-rem(16);
     color: $gray-700;
+
+    @include tablet {
+      font-size: to-rem(14);
+    }
 
     strong {
       color: $primary-color;
@@ -878,271 +1116,32 @@
   .bbs-actions {
     @include flex(row, flex-end, center);
     gap: to-rem(8);
+
+    @include tablet {
+      justify-content: flex-start;
+    }
   }
 }
 
-/* ========================================
-   글로벌 네비게이션(GNB)
-======================================== */
-.gnb {
-  position: relative;
-  z-index: 1000;
+// book-description
+.book-description {
+  border-radius: var(--radius-medium3, 8px);
+  border: var(--border-width-static-regular, 1px) solid var(--color-border-gray-light, #cdd1d5);
+  background: var(--color-surface-gray-subtler, #f4f5f6);
+  padding: 16px;
 
-  /* CSS 변수 정의 */
-  --radius-medium2: #{to-rem(6)};
-  --color-primary-pr01: #d8e4f3;
-
-  &-container {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-}
-
-/* 메인 메뉴 바 (1depth) */
-.gnb-main {
-  background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
-
-  &-list {
-    @include flex(row, flex-start, stretch);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: to-rem(16);
-    height: to-rem(56);
+  @include tablet {
+    padding: 12px;
   }
 
-  &-item {
-    position: relative;
-  }
-
-  &-link {
-    @include flex(row, space-between, center);
-    gap: to-rem(8);
-    padding: 0 to-rem(16);
-    height: to-rem(56);
-    width: to-rem(169);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(19);
-    font-weight: 700;
-    line-height: 1.5;
-    color: #464c53;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: #f8fafc;
-    }
-
-    &.selected {
-      border-bottom: 4px solid #244874;
-      background: #ffffff;
-    }
-  }
-
-  &-text {
-    flex: 1;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  &-arrow {
-    width: to-rem(20);
-    height: to-rem(20);
-    color: #33363d;
-    opacity: 0.6;
-    transition: transform 0.2s ease;
-  }
-}
-
-/* 서브 메뉴 영역 (2depth + 3depth) */
-.gnb-sub {
-  background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-
-  &-content {
-    @include flex(row, flex-start, flex-start);
-    padding: to-rem(16) 0;
-    gap: to-rem(24);
-  }
-
-  /* 1depth 제목 */
-  &-title {
-    width: to-rem(306);
-    padding-right: to-rem(24);
-
-    &-text {
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(24);
-      font-weight: 700;
-      line-height: 1.5;
-      color: #1e2124;
-      margin: 0;
-      padding: to-rem(16) to-rem(4);
-    }
-  }
-
-  /* 2depth 메뉴 */
-  &-menu {
-    width: to-rem(306);
-    padding-top: to-rem(8);
-    padding-right: to-rem(24);
-    @include flex(column, flex-start, stretch);
-    gap: to-rem(4);
-  }
-
-  &-item {
-    border-radius: to-rem(8);
-    transition: all 0.2s ease;
-
-    &.selected {
-      background: #ecf2f9;
-    }
-
-    &:hover {
-      background: #f8fafc;
-    }
-  }
-
-  &-link {
-    @include flex(row, space-between, center);
-    width: 100%;
-    padding: to-rem(16);
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-radius: to-rem(8);
-  }
-
-  &-text {
-    flex: 1;
-    font-family: 'Pretendard GOV', sans-serif;
+  p {
     font-size: to-rem(17);
-    font-weight: 400;
-    line-height: 1.5;
-    color: #1e2124;
-    text-align: left;
+    font-weight: 500;
+    color: #212121;
 
-    .selected & {
-      font-weight: 700;
-      color: #052b57;
+    @include tablet {
+      font-size: to-rem(15);
     }
-  }
-
-  &-arrow {
-    width: to-rem(20);
-    height: to-rem(20);
-    color: #33363d;
-    opacity: 0.6;
-    flex-shrink: 0;
-  }
-}
-
-/* 3depth 메뉴 */
-.gnb-third {
-  flex: 1;
-  border-left: 1px solid #cdd1d5;
-  padding: to-rem(8) to-rem(24);
-
-  &-title {
-    margin-bottom: to-rem(16);
-
-    &-text {
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(17);
-      font-weight: 700;
-      line-height: 1.5;
-      color: #052b57;
-      margin: 0;
-      padding: to-rem(4) to-rem(8);
-    }
-  }
-
-  &-items {
-    @include flex(row, flex-start, flex-start);
-    gap: to-rem(24);
-  }
-
-  &-column {
-    @include flex(column, flex-start, stretch);
-    gap: to-rem(8);
-    width: to-rem(298);
-  }
-
-  &-item {
-    border-radius: var(--radius-medium2, #{to-rem(6)});
-    transition: all 0.2s ease;
-
-    &.selected {
-      border-radius: var(--radius-medium2, #{to-rem(6)});
-      background: var(--color-primary-pr01, #d8e4f3);
-    }
-
-    &:hover {
-      background: #f1f5f9;
-    }
-  }
-
-  &-link {
-    @include flex(row, flex-start, center);
-    width: 100%;
-    padding: to-rem(10) to-rem(8);
-    text-decoration: none;
-    gap: to-rem(10);
-    color: inherit;
-
-    .gnb-third-text {
-      font-family: 'Pretendard GOV', sans-serif !important;
-      font-size: to-rem(17) !important;
-      font-weight: 400 !important;
-      line-height: 1.5 !important;
-      color: #1e2124 !important;
-    }
-  }
-
-  &-bullet {
-    width: to-rem(4);
-    height: to-rem(4);
-    background: #33363d;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: to-rem(2);
-  }
-
-  &-text {
-    font-family: 'Pretendard GOV', sans-serif !important;
-    font-size: to-rem(17) !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-    color: #1e2124 !important;
-    display: inline-block;
-    vertical-align: top;
-  }
-}
-
-/* ========================================
-   기타 컴포넌트
-======================================== */
-.search-detail-section {
-  margin-bottom: to-rem(24);
-
-  .search-detail-section__content {
-    margin-top: to-rem(24);
   }
 }
 
@@ -1155,91 +1154,5 @@
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-/* ========================================
-   반응형
-======================================== */
-@include tablet {
-  .gnb {
-    &-container {
-      padding: 0 to-rem(24);
-    }
-  }
-
-  .gnb-main {
-    &-list {
-      flex-wrap: wrap;
-      height: auto;
-      gap: to-rem(8);
-    }
-
-    &-link {
-      width: auto;
-      min-width: to-rem(120);
-      font-size: to-rem(16);
-      padding: 0 to-rem(12);
-      height: to-rem(48);
-    }
-  }
-
-  .gnb-sub {
-    &-content {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
-
-    &-title,
-    &-menu {
-      width: 100%;
-    }
-  }
-
-  .gnb-third {
-    border-left: none;
-    border-top: 1px solid #cdd1d5;
-    padding: to-rem(16) 0 0 0;
-
-    &-column {
-      width: 100%;
-    }
-  }
-}
-
-@include mobile {
-  .gnb {
-    display: none;
-  }
-}
-
-/* ========================================
-   호버 상태
-======================================== */
-.gnb-main-item:hover {
-  .gnb-sub[data-menu-target] {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-}
-
-.gnb-sub:hover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-// book-description
-
-.book-description {
-  border-radius: var(--radius-medium3, 8px);
-  border: var(--border-width-static-regular, 1px) solid var(--color-border-gray-light, #cdd1d5);
-  background: var(--color-surface-gray-subtler, #f4f5f6);
-  padding: 16px;
-  p {
-    font-size: to-rem(17);
-    font-weight: 500;
-    color: #212121;
   }
 }

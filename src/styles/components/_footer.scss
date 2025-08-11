@@ -1,62 +1,69 @@
+@use '../globals' as *;
+
 .footer {
-  display: flex;
+  @include flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: relative;
   width: 100%;
-  height: 100%;
 
   &__content {
-    display: flex;
+    @include flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-    position: relative;
     width: 100%;
   }
 
   &__related-site {
     width: 100%;
     border-bottom: 1px solid #cdd1d5;
+
     .inner {
-      height: 56px;
-      display: flex;
+      height: to-rem(56);
+      @include flex;
       align-items: center;
-      justify-content: end;
+      justify-content: flex-end;
+
+      @include tablet {
+        height: to-rem(48);
+        padding: 0 to-rem(16);
+      }
     }
 
     &-box {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
+      @include flex;
+      gap: to-rem(8);
       height: 100%;
       align-items: center;
-      justify-content: flex-start;
-      padding: 0 24px;
-      position: relative;
+      padding: 0 to-rem(24);
       flex-grow: 1;
       border: 1px solid #cdd1d5;
       border-left: 0;
 
+      @include tablet {
+        padding: 0 to-rem(16);
+        gap: to-rem(6);
+      }
+
       &-text {
-        font-family: 'Pretendard GOV', sans-serif;
         font-weight: 400;
-        font-size: 17px;
+        font-size: to-rem(17);
         line-height: 1.5;
         color: #1e2124;
         flex-grow: 1;
+
+        @include tablet {
+          font-size: to-rem(15);
+        }
       }
 
       &-icon {
-        width: 20px;
-        height: 20px;
-        position: relative;
+        width: to-rem(20);
+        height: to-rem(20);
+
+        @include tablet {
+          width: to-rem(18);
+          height: to-rem(18);
+        }
 
         img {
-          display: block;
-          max-width: none;
           width: 100%;
           height: 100%;
         }
@@ -66,42 +73,51 @@
 
   &__main {
     background: #f4f5f6;
-    display: flex;
+    @include flex;
     flex-direction: column;
-    gap: 40px;
+    gap: to-rem(40);
     align-items: center;
-    justify-content: flex-start;
-    padding: 40px 0 24px;
-    position: relative;
+    padding: to-rem(40) 0 to-rem(24);
     width: 100%;
 
+    @include tablet {
+      padding: to-rem(32) to-rem(16) to-rem(16);
+      gap: to-rem(24);
+    }
+
     &-container {
-      display: flex;
+      @include flex;
       flex-direction: column;
-      gap: 40px;
+      gap: to-rem(40);
       align-items: flex-start;
-      justify-content: flex-start;
-      max-width: 1200px;
+      max-width: to-rem(1200);
       width: 100%;
+
+      @include tablet {
+        gap: to-rem(24);
+      }
     }
   }
 
   &__logo {
-    display: flex;
+    @include flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    width: 250px;
+    width: to-rem(250);
+
+    @include tablet {
+      width: to-rem(200);
+    }
 
     &-container {
-      height: 48px;
-      overflow: hidden;
-      position: relative;
+      height: to-rem(48);
       width: 100%;
 
+      @include tablet {
+        height: to-rem(40);
+      }
+
       img {
-        display: block;
-        max-width: none;
         width: 100%;
         height: 100%;
       }
@@ -109,66 +125,89 @@
   }
 
   &__libraries {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
+    @include flex;
+    gap: to-rem(24);
     align-items: flex-start;
-    justify-content: flex-start;
-    width: 1200px;
+    width: 100%;
+    max-width: to-rem(1200);
+
+    @include tablet {
+      flex-direction: column;
+      gap: to-rem(16);
+    }
 
     &-column {
-      display: flex;
+      @include flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: flex-start;
       flex-grow: 1;
     }
   }
 
   &__business-number {
-    font-family: 'Pretendard GOV', sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: to-rem(17);
     line-height: 1;
     color: #1e2124;
-    margin-bottom: 16px;
+    margin-bottom: to-rem(16);
+
+    @include tablet {
+      font-size: to-rem(15);
+      margin-bottom: to-rem(12);
+    }
   }
 
   &__library {
-    display: flex;
+    @include flex;
     flex-direction: column;
-    gap: 8px;
+    gap: to-rem(8);
     align-items: flex-start;
-    justify-content: flex-start;
+
+    @include tablet {
+      gap: to-rem(6);
+    }
 
     &-item {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
+      @include flex;
+      gap: to-rem(8);
       align-items: center;
-      justify-content: flex-start;
+
+      @include tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: to-rem(4);
+      }
 
       &-name {
-        font-family: 'Pretendard GOV', sans-serif;
         font-weight: 700;
-        font-size: 17px;
+        font-size: to-rem(17);
         line-height: 1.5;
         color: #1e2124;
+
+        @include tablet {
+          font-size: to-rem(15);
+        }
       }
 
       &-details {
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
+        @include flex;
+        gap: to-rem(8);
         align-items: center;
-        justify-content: flex-start;
+
+        @include tablet {
+          flex-wrap: wrap;
+          gap: to-rem(6);
+        }
 
         &-text {
-          font-family: 'Pretendard GOV', sans-serif;
           font-weight: 400;
-          font-size: 17px;
+          font-size: to-rem(17);
           line-height: 1.5;
           color: #1e2124;
+
+          @include tablet {
+            font-size: to-rem(14);
+          }
 
           &--medium {
             font-weight: 500;
@@ -177,57 +216,78 @@
 
         &-divider {
           background: #6d7882;
-          height: 12px;
+          height: to-rem(12);
           width: 1px;
+
+          @include tablet {
+            height: to-rem(10);
+          }
         }
       }
     }
   }
 
   &__copyright {
-    display: flex;
-    flex-direction: row;
+    @include flex;
     align-items: flex-end;
     justify-content: center;
-    max-width: 1200px;
-    padding: 16px 0 0;
-    position: relative;
+    max-width: to-rem(1200);
+    padding: to-rem(16) 0 0;
     width: 100%;
     border-top: 1px solid #cdd1d5;
 
+    @include tablet {
+      padding: to-rem(12) 0 0;
+    }
+
     &-container {
-      display: flex;
-      flex-direction: row;
-      gap: 40px;
+      @include flex;
+      gap: to-rem(40);
       align-items: center;
       justify-content: center;
-      max-width: 1200px;
+      max-width: to-rem(1200);
       flex-grow: 1;
+
+      @include tablet {
+        flex-direction: column;
+        gap: to-rem(16);
+        align-items: flex-start;
+      }
     }
 
     &-links {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
+      @include flex;
+      gap: to-rem(8);
       align-items: flex-start;
-      justify-content: flex-start;
       flex-grow: 1;
 
+      @include tablet {
+        flex-wrap: wrap;
+        gap: to-rem(6);
+        flex-grow: 0;
+      }
+
       &-button {
-        display: flex;
-        flex-direction: row;
-        gap: 2px;
-        height: 24px;
+        @include flex;
+        gap: to-rem(2);
+        height: to-rem(24);
         align-items: center;
         justify-content: center;
-        padding: 0 2px;
-        border-radius: 4px;
+        padding: 0 to-rem(2);
+        border-radius: to-rem(4);
+
+        @include tablet {
+          height: to-rem(20);
+        }
 
         &-text {
-          font-family: 'Pretendard GOV', sans-serif;
-          font-size: 15px;
+          font-size: to-rem(15);
           line-height: 1.5;
           color: #1e2124;
+
+          @include tablet {
+            font-size: to-rem(13);
+          }
 
           &--bold {
             font-weight: 700;
@@ -238,18 +298,23 @@
     }
 
     &-text {
-      display: flex;
-      flex-direction: row;
-      height: 24px;
+      @include flex;
+      height: to-rem(24);
       align-items: center;
-      justify-content: flex-start;
+
+      @include tablet {
+        height: to-rem(20);
+      }
 
       span {
-        font-family: 'Pretendard GOV', sans-serif;
         font-weight: 400;
-        font-size: 15px;
+        font-size: to-rem(15);
         line-height: 1.5;
         color: #464c53;
+
+        @include tablet {
+          font-size: to-rem(13);
+        }
       }
     }
   }
