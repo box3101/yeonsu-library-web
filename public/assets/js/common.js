@@ -59,19 +59,6 @@ const LibraryCommon = {
   // 전체 초기화
   init() {
     console.log('🚀 LibraryCommon initializing...');
-
-    Object.entries(this.features).forEach(([name, feature]) => {
-      try {
-        const result = feature.init.call(feature);
-        if (!result) {
-          console.log(`⚠️ ${name} skipped - no elements found`);
-        }
-      } catch (error) {
-        console.error(`❌ ${name} initialization failed:`, error);
-      }
-    });
-
-    console.log('✨ LibraryCommon ready!');
   },
 };
 
