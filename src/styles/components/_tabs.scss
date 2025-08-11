@@ -9,7 +9,6 @@
 // ==========================================================================
 
 .ui-tab {
-  // Tab List Container
   &__list {
     display: flex;
     flex-direction: row;
@@ -56,6 +55,9 @@
       min-height: to-rem(48);
       padding: to-rem(8) to-rem(12);
 
+      display: flex;
+      justify-content: center;
+
       @media (min-width: 1024px) {
         font-size: to-rem(16);
       }
@@ -65,7 +67,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        flex: 1;
+        flex: none;
         min-width: 0; // flexbox에서 텍스트가 축소될 수 있도록
       }
 

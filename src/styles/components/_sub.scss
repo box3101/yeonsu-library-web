@@ -328,26 +328,136 @@
    검색 타입 탭
 ======================================== */
 .search-type-tabs {
-  &.ui-tab {
+  // 6개 열 그리드 레이아웃 옵션
+
+  &.ui-tab--grid-6 {
     .ui-tab__list {
       gap: 0;
-      border-top: 1px solid #b1b8be;
-      border-right: 1px solid #b1b8be;
+      border: 1px solid #b1b8be;
+      border-radius: to-rem(4);
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
     }
 
     .ui-tab__button {
       background: transparent;
-      border: 1px solid #b1b8be;
-      margin-left: -1px;
-      margin-top: -1px;
+      border: none;
+      border-right: 1px solid #b1b8be;
       padding: to-rem(12) to-rem(16);
-      font-size: to-rem(19);
+      font-size: to-rem(17);
       font-weight: 700;
       color: #7d8181;
       transition: all 0.2s ease;
-      flex: 1;
       position: relative;
-      border-right: none;
+      white-space: nowrap;
+      flex: none;
+      width: 100%;
+      border-bottom: none;
+
+      // 최대 6개까지 한 줄에 표시
+      flex: 1 1 calc(100% / min(6, var(--total-tabs, 6)));
+      min-width: 0;
+
+      &:nth-child(6n) {
+        border-right: none;
+      }
+
+      &:nth-child(n + 7) {
+        border-top: 1px solid #b1b8be;
+      }
+
+      @media (max-width: 768px) {
+        &:nth-child(6n) {
+          border-right: 1px solid #b1b8be;
+        }
+
+        &:nth-child(3n) {
+          border-right: none;
+        }
+
+        &:nth-child(n + 4) {
+          border-top: 1px solid #b1b8be;
+        }
+      }
+
+      @media (max-width: 480px) {
+        &:nth-child(3n) {
+          border-right: 1px solid #b1b8be;
+        }
+
+        &:nth-child(2n) {
+          border-right: none;
+        }
+
+        &:nth-child(n + 3) {
+          border-top: 1px solid #b1b8be;
+        }
+      }
+
+      &:hover:not(.ui-tab__button--active) {
+        background: rgba(255, 255, 255, 0.5);
+        z-index: 1;
+
+        .ui-tab__label {
+          color: #5a5a5a;
+        }
+      }
+
+      &--active {
+        background: #003456;
+        color: $white;
+        z-index: 2;
+
+        .ui-tab__label {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &.ui-tab:not(.ui-tab--grid-6) {
+    .ui-tab__list {
+      gap: 0;
+      border: 1px solid #b1b8be;
+      border-radius: to-rem(4);
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .ui-tab__button {
+      background: transparent;
+      border: none;
+      border-right: 1px solid #b1b8be;
+      padding: to-rem(12) to-rem(16);
+      font-size: to-rem(17);
+      font-weight: 700;
+      color: #7d8181;
+      transition: all 0.2s ease;
+      position: relative;
+      white-space: nowrap;
+
+      // 최대 6개까지 한 줄에 표시
+      flex: 1 1 calc(100% / min(4, var(--total-tabs, 4)));
+      min-width: 0;
+
+      // 6개까지는 한 줄, 그 이상은 다음 줄로
+      &:nth-child(4n) {
+        border-right: none;
+      }
+
+      // 두 번째 줄부터는 위쪽 border 추가
+      &:nth-child(n + 5) {
+        border-top: 1px solid #b1b8be;
+      }
+
+      // 마지막 탭의 오른쪽 border 제거
+      &:last-child {
+        border-right: none;
+      }
 
       &:hover:not(.ui-tab__button--active) {
         background: rgba(255, 255, 255, 0.5);

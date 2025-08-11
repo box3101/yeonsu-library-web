@@ -1,6 +1,6 @@
 ---
 import { UiCollectionAccordion } from '@components';
-// 소장정보 모달 데이터
+// 소장정보 데이터
 const collectionLibraries = [
   { name: '연수청학', shortName: '청학', count: 1 },
   { name: '연수꿈담', shortName: '꿈담', count: 1 },
@@ -35,6 +35,49 @@ const collectionData = [
     reservationCount: 0,
   },
 ];
+
+// UiCollectionAccordion을 위한 columns와 rows 데이터 변환
+const collectionColumns = [
+  {
+    key: 'title',
+    label: '도서관',
+    width: '145px',
+    headerAlign: 'center',
+    align: 'center',
+  },
+  { key: 'status', label: '대출상태', width: '100px', align: 'center' },
+  { key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
+  {
+    key: 'service',
+    label: '서비스',
+    width: '200px',
+    align: 'center',
+    type: 'buttons',
+  },
+  { key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
+  { key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
+  {
+    key: 'readingRoom',
+    label: '정보 출력',
+    width: '100px',
+    align: 'center',
+    type: 'icon',
+  },
+];
+
+const collectionRows = collectionData.map((item, index) => ({
+  id: index + 1,
+  title: item.library + ' ' + item.readingRoom,
+  status: item.loanStatus,
+  dueDate: item.returnDate || '2025.07.31',
+  service: [
+    { text: '예약하기', variant: 'default' },
+    { text: '상호대차', variant: 'default' },
+  ],
+  callNumber: item.callNumber,
+  regNumber: item.registrationNumber,
+  readingRoom: 'icon icon-xmd icon-printer',
+}));
 
 export interface Props {
   index?: number;
@@ -246,8 +289,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
   <!-- 소장정보 내용 -->
   <div class="ui-book-card__collection-wrapper" style="display: none;">
     <UiCollectionAccordion
-      libraries={collectionLibraries}
-      rows={collectionData}
+      title="소장정보"
+      columns={collectionColumns}
+      rows={collectionRows}
       isExpanded={true}
       iconType="close"
       className="book-card-accordion"
@@ -277,6 +321,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
         setTimeout(() => {
           const accordion = wrapper.querySelector('.book-card-accordion');
           if (accordion) {
+            // 아코디언 전체를 다시 표시 (X 버튼으로 숨겨졌을 수 있음)
+            accordion.style.display = 'block';
+            
             const trigger = accordion.querySelector(
               '.ui-collection-accordion__trigger'
             );
@@ -285,9 +332,14 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
             );
 
             if (trigger && content) {
+              // 아코디언 상태를 완전히 리셋하고 펼친 상태로 설정
               trigger.setAttribute('aria-expanded', 'true');
               content.dataset.expanded = 'true';
-              content.style.maxHeight = content.scrollHeight + 'px';
+              
+              // maxHeight를 일시적으로 제거하여 정확한 scrollHeight를 계산
+              content.style.maxHeight = 'none';
+              const scrollHeight = content.scrollHeight;
+              content.style.maxHeight = scrollHeight + 'px';
             }
           }
         }, 50);

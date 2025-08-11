@@ -1,101 +1,22 @@
 ---
 import { UiTab, UiTable } from '@components';
+import type { TableColumn, TableRow } from './UiTable.astro';
 
-const columns = [
-  {
-    key: 'title',
-    label: '도서관',
-    width: '145px',
-    headerAlign: 'center',
-    align: 'center',
-  },
-  { key: 'status', label: '대출상태', width: '100px', align: 'center' },
-  { key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
-  {
-    key: 'service',
-    label: '서비스',
-    width: '200px',
-    align: 'center',
-    type: 'buttons',
-  },
-  { key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
-  { key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
-  {
-    key: 'readingRoom',
-    label: '정보 출력',
-    width: '100px',
-    align: 'center',
-    type: 'icon',
-  },
-];
-
-const rows = [
-  {
-    id: 1,
-    title: '내용',
-    status: '비치중',
-    dueDate: '2025.07.31',
-    service: [
-      { text: '예약하기', variant: 'default' },
-      { text: '상호대차', variant: 'default' },
-    ],
-    callNumber: '아동 808.9-시15ㅅ-v.2-18',
-    regNumber: 'NE0000014319',
-    readingRoom: 'icon icon-xmd icon-printer',
-    // 필요시 href, isNew 등 추가 가능
-  },
-  {
-    id: 1,
-    title: '내용',
-    status: '비치중',
-    dueDate: '2025.07.31',
-    service: [
-      { text: '예약하기', variant: 'default' },
-      { text: '상호대차', variant: 'default' },
-    ],
-    callNumber: '아동 808.9-시15ㅅ-v.2-18',
-    regNumber: 'NE0000014319',
-    readingRoom: 'icon icon-xmd icon-printer',
-
-    // 필요시 href, isNew 등 추가 가능
-  },
-  {
-    id: 1,
-    title: '내용',
-    status: '비치중',
-    dueDate: '2025.07.31',
-    service: [
-      { text: '예약하기', variant: 'default' },
-      { text: '상호대차', variant: 'default' },
-    ],
-    callNumber: '아동 808.9-시15ㅅ-v.2-18',
-    regNumber: 'NE0000014319',
-    readingRoom: 'icon icon-xmd icon-printer',
-
-    // 필요시 href, isNew 등 추가 가능
-  },
-  {
-    id: 1,
-    title: '내용',
-    status: '비치중',
-    dueDate: '2025.07.31',
-    service: [
-      { text: '예약하기', variant: 'default' },
-      { text: '상호대차', variant: 'default' },
-    ],
-    callNumber: '아동 808.9-시15ㅅ-v.2-18',
-    regNumber: 'NE0000014319',
-    readingRoom: 'icon icon-xmd icon-printer',
-
-    // 필요시 href, isNew 등 추가 가능
-  },
-];
+export interface TabOption {
+  id: string;
+  label: string;
+  active?: boolean;
+}
 
 export interface Props {
   title: string;
   isExpanded?: boolean;
-  iconType?: 'arrow' | 'close'; // 화살표 또는 닫기 아이콘 선택
+  iconType?: 'arrow' | 'close';
   className?: string;
+  tabsClassName?: string;
+  columns: TableColumn[];
+  rows: TableRow[];
+  tabs?: TabOption[];
 }
 
 const {
@@ -103,6 +24,19 @@ const {
   isExpanded = false,
   iconType = 'arrow',
   className = '',
+  tabsClassName = '',
+  columns,
+  rows,
+  tabs = [
+    { id: 'all', label: '전체(3)', active: true },
+    { id: 'okryeon2', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-2', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-3', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-4', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-5', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-6', label: '옥련2동어린이작은도서관' },
+    { id: 'okryeon2-7', label: '옥련2동어린이작은도서관' },
+  ],
 } = Astro.props;
 
 const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
@@ -138,29 +72,18 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
     <div class="ui-collection-accordion__inner">
       <!-- 도서관 필터 탭 -->
       <UiTab
-        tabs={[
-          { id: 'all', label: '전체(3)', active: true },
-          { id: 'okryeon2', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-2', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-3', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-4', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-5', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-6', label: '옥련2동어린이작은도서관' },
-          { id: 'okryeon2-7', label: '옥련2동어린이작은도서관' },
-        ]}
+        tabs={tabs}
         variant="default"
         size="medium"
         showCount={false}
-        layout="grid"
-        gridColumns={4}
-        className="mb-4 search-type-tabs"
+        className={`mb-4 search-type-tabs ${tabsClassName || ''}`}
       />
 
       <!-- 소장정보 테이블 -->
       <UiTable
-        columns={columns as any}
+        columns={columns}
         rows={rows}
-        caption="공지사항 목록"
+        caption="소장정보 목록"
         showIndex={false}
         showCheckbox={false}
         stickyHeader={true}
