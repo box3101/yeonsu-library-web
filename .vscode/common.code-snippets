@@ -130,5 +130,61 @@
     ],
     "description": "페이지네이션 컴포넌트 - UiPagination 래퍼",
   },
+  "nav-button": {
+    "prefix": "navbtn",
+    "body": [
+      "<UiNavButton",
+      "  class=\"$1\"",
+      "  direction=\"$2\"",
+      "  size={$3}",
+      "  ariaLabel=\"$4\"",
+      "/>"
+    ],
+    "description": "네비게이션 버튼 - UiNavButton 컴포넌트",
+  },
+  "nav-button-prev": {
+    "prefix": "navprev",
+    "body": [
+      "<UiNavButton",
+      "  class=\"bg-primary\"",
+      "  direction=\"prev\"",
+      "  size={40}",
+      "  ariaLabel=\"이전 $1\"",
+      "/>"
+    ],
+    "description": "이전 네비게이션 버튼 - 기본 스타일",
+  },
+  "nav-button-next": {
+    "prefix": "navnext",
+    "body": [
+      "<UiNavButton",
+      "  class=\"bg-primary\"",
+      "  direction=\"next\"",
+      "  size={40}",
+      "  ariaLabel=\"다음 $1\"",
+      "/>"
+    ],
+    "description": "다음 네비게이션 버튼 - 기본 스타일",
+  },
+  "nav-button-group": {
+    "prefix": "navgroup",
+    "body": [
+      "<div class=\"btn-wrp\">",
+      "  <UiNavButton",
+      "    class=\"bg-primary\"",
+      "    direction=\"prev\"",
+      "    size={40}",
+      "    ariaLabel=\"이전 $1\"",
+      "  />",
+      "  <UiNavButton",
+      "    class=\"bg-primary\"",
+      "    direction=\"next\"",
+      "    size={40}",
+      "    ariaLabel=\"다음 $1\"",
+      "  />",
+      "</div>"
+    ],
+    "description": "네비게이션 버튼 그룹 - 이전/다음 버튼 세트",
+  },
 
 }

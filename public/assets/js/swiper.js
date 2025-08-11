@@ -25,9 +25,9 @@ function initSwipers() {
       autoplay:
         noticeSlides.length > 1
           ? {
-              delay: 5000,
-              disableOnInteraction: false,
-            }
+            delay: 5000,
+            disableOnInteraction: false,
+          }
           : false,
       navigation: {
         nextEl: '.notice-swiper-btn-next',
@@ -65,9 +65,9 @@ function initSwipers() {
       autoplay:
         eventSlides.length > 1
           ? {
-              delay: 4000,
-              disableOnInteraction: false,
-            }
+            delay: 4000,
+            disableOnInteraction: false,
+          }
           : false,
       navigation: {
         nextEl: '.event-swiper-btn-next',
@@ -91,6 +91,54 @@ function initSwipers() {
   } else {
     console.warn('Event swiper container not found');
   }
+
+  // 도서 - 서가브라우징 스와이퍼 초기화
+  // 도서 - 서가브라우징 스와이퍼 초기화
+  const bookSwiper = document.querySelector('.book-swiper');
+  if (bookSwiper) {
+    const bookSlides = bookSwiper.querySelectorAll('.swiper-slide');
+    console.log('Book slides count:', bookSlides.length);
+
+    new Swiper('.book-swiper', {
+      slidesPerView: 5,
+      spaceBetween: 17,
+      slidesPerGroup: 1,
+      navigation: {
+        nextEl: '.book-swiper-btn-next',
+        prevEl: '.book-swiper-btn-prev',
+      },
+      speed: 300,
+      allowTouchMove: true,
+      grabCursor: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 15
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 17
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetween: 17
+        }
+      },
+      on: {
+        init: function () {
+          console.log('Book swiper initialized with', this.slides.length, 'slides');
+        },
+      },
+    });
+    console.log('Book swiper setup complete');
+  } else {
+    console.warn('Book swiper container not found');
+  }
+
 }
 
 // DOM 로드 완료 후 실행

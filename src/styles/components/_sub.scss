@@ -1,5 +1,6 @@
 @use '@styles/abstracts' as *;
 @use '@styles/variables/colors' as *;
+@use 'sass:color';
 
 /* ========================================
    기본 레이아웃
@@ -802,7 +803,7 @@
       border-radius: 0 to-rem(8) to-rem(8) 0;
 
       &:hover {
-        background-color: darken(#256ef4, 10%);
+        background-color: color.adjust(#256ef4, $lightness: -10%);
       }
     }
   }

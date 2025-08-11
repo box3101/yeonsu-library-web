@@ -86,9 +86,12 @@
 // 서브 섹션 타이틀
 .sub-section-title {
   @include page-title('h2', $gray-900);
-  margin-bottom: to-rem(24);
-  padding-left: to-rem(16);
-  border-left: 4px solid $primary-color;
+  
+  & {
+    margin-bottom: to-rem(24);
+    padding-left: to-rem(16);
+    border-left: 4px solid $primary-color;
+  }
 }
 
 // 카테고리 타이틀

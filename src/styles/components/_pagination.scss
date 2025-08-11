@@ -2,6 +2,7 @@
 // Based on SCSS 7-1 Architecture and BEM methodology
 
 @use '../globals' as *;
+@use 'sass:color';
 
 .ui-pagination {
   // Layout
@@ -98,7 +99,7 @@
       }
 
       &:hover {
-        background-color: darken($primary-color, 5%);
+        background-color: color.adjust($primary-color, $lightness: -5%);
       }
     }
 
