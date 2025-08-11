@@ -20,7 +20,6 @@
     background-color: $white;
     border: 1px solid $gray-300;
     border-radius: to-rem(12);
-    height: to-rem(342);
   }
 
   // 왼쪽 영역 (인덱스 + 이미지)
@@ -248,7 +247,6 @@
 
   &__detail-label {
     display: block;
-    width: to-rem(60);
     font-family: $font-family-primary;
     font-weight: 700;
     font-size: to-rem(17);
@@ -269,6 +267,7 @@
 
   // 액션 버튼들
   &__actions {
+    margin-top: to-rem(20);
     display: flex;
     gap: to-rem(16);
     align-self: flex-start;

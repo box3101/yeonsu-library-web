@@ -1,6 +1,5 @@
 {
   "UiButton Component": {
-    "scope": "astro,javascript,typescript",
     "prefix": "btn",
     "body": [
       "<UiButton",

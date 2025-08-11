@@ -1,19 +1,22 @@
 ---
+// 레이아웃 및 컴포넌트 import
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import {
-  UiBookCard,
+  UiBookCardDetail,
   UiCollectionAccordion,
   UiAccordion,
   UiButton,
 } from '@components';
 
+// 브레드크럼 네비게이션 경로 설정
 const breadcrumbItems = [
   { label: '홈', href: '/' },
   { label: '도서검색', href: '/support' },
   { label: '소장도서검색' },
 ];
-// 테이블 컬럼 정의
+
+// 소장정보 테이블 컬럼 정의
 const myColumns = [
   {
     key: 'title',
@@ -42,7 +45,7 @@ const myColumns = [
   },
 ];
 
-// 실제 데이터로 테이블 행 생성
+// 도서관별 소장 데이터 원본
 const collectionData = [
   {
     library: '청학',
@@ -72,22 +75,24 @@ const collectionData = [
   },
 ];
 
+// 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
 const myRows = collectionData.map((item, index) => ({
   id: index + 1,
-  title: item.library + ' ' + item.readingRoom,
-  status: item.loanStatus,
-  dueDate: item.returnDate || '2025.07.31',
+  title: item.library + ' ' + item.readingRoom, // 도서관명 + 자료실명
+  status: item.loanStatus, // 대출상태
+  dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
   service: [
     { text: '예약하기', variant: 'default' },
     { text: '상호대차', variant: 'default' },
   ],
-  callNumber: item.callNumber,
-  regNumber: item.registrationNumber,
-  readingRoom: 'icon icon-xmd icon-printer',
+  callNumber: item.callNumber, // 청구기호
+  regNumber: item.registrationNumber, // 등록번호
+  readingRoom: 'icon icon-xmd icon-printer', // 출력 아이콘
 }));
 
+// 도서관별 탭 메뉴 설정 (전체 및 개별 도서관)
 const myTabs = [
-  { id: 'all', label: '전체(3)', active: true },
+  { id: 'all', label: '전체(3)', active: true }, // 기본 활성 탭
   { id: 'yeonsu1', label: '연수구청스마트(1)' },
   { id: 'yeonsu2', label: '연수구청스마트(1)' },
   { id: 'yeonsu3', label: '연수구청스마트(1)' },
@@ -116,6 +121,7 @@ const myTabs = [
 
 <Layout title="소장도서검색_상세검색 - 연수구립도서관">
   <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
+    <!-- 페이지 우측 상단 돌아가기 버튼 -->
     <div slot="right">
       <UiButton
         variant="secondary"
@@ -127,30 +133,35 @@ const myTabs = [
         href="/01_소장도서검색"
       />
     </div>
-    <!-- 도서 상세 -->
+
+    <!-- 도서 상세 정보 섹션 -->
     <div class="search-detail-section__content">
       <!-- 검색 결과 목록 -->
       <div class="search-result-list mt24">
-        <!-- 도서 아이템 -->
-        <UiBookCard
-          index={1}
+        <!-- 도서 정보 카드 -->
+        <UiBookCardDetail
           imageUrl="/assets/images/default-book.png"
           badges={[
             { label: 'DVD', type: 'success', size: 'large' },
             { label: '대출불가', type: 'warning' },
           ]}
-          title="서점탐정 유동인. 2, 리턴즈"
-          titleHighlights={['탐정', '리턴즈']}
-          author="조성희 감독"
+          title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+          titleHighlights={['탐정']}
+          author="김기정 글; 이해정 그림"
+          publisher="천개의바람"
+          publishYear="2023"
+          description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
           details={{
-            callNumber: 'DV 688.2-조54ㅌ',
-            publishYear: '2017',
-            library: '연수청학',
-            readingRoom: 'OOO자료실',
-            registrationNumber: 'HV0000000881',
+            callNumber: '아동 813.5-김18ㅎ',
+            registrationNumber: 'GJ0000027414',
+            isbn: '9791155815755',
+            koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
+            categoryClassification: '문학 > 한국문학 > 소설',
+            supplement: '포함',
           }}
         />
-        <!-- 소정정보 -->
+
+        <!-- 소장정보 아코디언 테이블 -->
         <UiCollectionAccordion
           title="소장정보"
           columns={myColumns}
@@ -161,6 +172,7 @@ const myTabs = [
           tabsClassName="ui-tab--grid-6"
         />
 
+        <!-- 책소개 아코디언 -->
         <UiAccordion
           title="책소개"
           variant="bordered"
@@ -179,6 +191,7 @@ const myTabs = [
           </div>
         </UiAccordion>
 
+        <!-- 목차 아코디언 -->
         <UiAccordion
           title="목차"
           variant="bordered"
@@ -197,8 +210,28 @@ const myTabs = [
           </div>
         </UiAccordion>
 
+        <!-- 사서추천도서 아코디언 -->
         <UiAccordion
           title="사서추천도서"
+          variant="bordered"
+          size="medium"
+          iconType="chevron"
+          isExpanded={true}
+          className="custom-accordion"
+        >
+          <div class="book-description">
+            <p>
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는
+              동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의
+              의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의
+              집단무의식의 흐름을 이룬다.
+            </p>
+          </div>
+        </UiAccordion>
+
+        <!-- 서가브라우징 아코디언 -->
+        <UiAccordion
+          title="서가브라우징"
           variant="bordered"
           size="medium"
           iconType="chevron"

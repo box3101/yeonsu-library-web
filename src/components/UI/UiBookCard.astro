@@ -276,19 +276,13 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 
         <!-- 하단 버튼들 -->
         <div class="ui-book-card__actions">
-          <button
-            class="ui-book-card__action-button ui-book-card__action-button--secondary"
-            onclick={onViewDetails}
-            type="button"
-          >
-            도서정보
-          </button>
-          <button
-            class="ui-book-card__action-button ui-book-card__action-button--primary collection-toggle-button"
-            type="button"
-          >
-            소장정보
-          </button>
+          <UiButton
+            variant="tertiary"
+            size="medium"
+            text="도서정보"
+            iconPosition="left"
+          />
+          <UiButton variant="secondary" size="medium" text="소장정보" />
         </div>
       </div>
     </div>
