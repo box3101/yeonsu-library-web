@@ -285,20 +285,22 @@ const books = [
           isExpanded={true}
           className="custom-accordion"
         >
-          <div class="book-swiper swiper">
-            <div class="swiper-wrapper">
-              {
-                books.map(book => (
-                  <div class="swiper-slide">
-                    <img
-                      src="./assets/images/content-infant-books.png"
-                      alt=""
-                    />
-                    <p class="tit">{book.title}</p>
-                    <div class="txt">{book.author}</div>
-                  </div>
-                ))
-              }
+          <div class="book-swiper-wrapper">
+            <div class="book-swiper swiper">
+              <ul class="swiper-wrapper">
+                {
+                  books.map(book => (
+                    <li class="swiper-slide">
+                      <img
+                        src="./assets/images/content-infant-books.png"
+                        alt=""
+                      />
+                      <p class="tit">{book.title}</p>
+                      <div class="txt">{book.author}</div>
+                    </li>
+                  ))
+                }
+              </ul>
             </div>
             <div class="btn-wrp">
               <UiNavButton
