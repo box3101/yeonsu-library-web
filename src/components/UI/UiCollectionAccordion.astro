@@ -123,37 +123,9 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
     </div>
     {
       iconType === 'arrow' ? (
-        <svg
-          class="ui-collection-accordion__icon ui-collection-accordion__icon--arrow"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-        >
-          <path
-            d="M6 8l4 4 4-4"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <i class="icon icon-xmd icon-arrow-down" />
       ) : (
-        <svg
-          class="ui-collection-accordion__icon ui-collection-accordion__icon--close"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M6 6L18 18M6 18L18 6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <i class="icon icon-xmd icon-close" />
       )
     }
   </button>
@@ -278,15 +250,28 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       background: none;
       padding: 0;
 
+      .ui-collection-accordion__trigger {
+        justify-content: flex-start;
+      }
+      .ui-collection-accordion__trigger-content {
+        flex: none;
+      }
+      .ui-collection-accordion__icon {
+        margin-left: 5px;
+      }
       .ui-collection-accordion__title {
         font-size: to-rem(24);
         font-weight: 700;
         color: #000;
         position: relative;
+        padding-left: to-rem(40);
+        margin-right: to-rem(5);
 
         &::before {
           content: '';
-          @include icon('book', to-rem(20), to-rem(20));
+          @include position(absolute, 50%, 0, 0, 0);
+          transform: translateY(-50%);
+          @include icon('book', to-rem(30), to-rem(22));
         }
       }
     }
@@ -302,11 +287,11 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       cursor: pointer;
 
       &[aria-expanded='true'] {
-        .ui-collection-accordion__icon--arrow {
+        .icon-arrow-down {
           transform: rotate(180deg);
         }
 
-        .ui-collection-accordion__icon--close {
+        .icon-close {
           transform: none;
         }
       }
@@ -343,6 +328,15 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
           color: #666;
         }
       }
+    }
+
+    // 아이콘 회전 애니메이션
+    .icon-arrow-down {
+      transition: transform 0.3s ease;
+    }
+
+    .icon-close {
+      transition: transform 0.3s ease;
     }
 
     &__content {
