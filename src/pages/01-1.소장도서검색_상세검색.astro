@@ -1,60 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import {
-  UiSelect,
-  UiBookCard,
-  UiPagination,
-  UiAccordion,
-  UiCollectionAccordion,
-} from '@components';
+import { UiBookCard, UiCollectionAccordion, UiAccordion } from '@components';
 
 const breadcrumbItems = [
   { label: '홈', href: '/' },
   { label: '도서검색', href: '/support' },
   { label: '소장도서검색' },
-];
-
-// 셀렉트 옵션 데이터 정의
-const majorClassificationOptions = [
-  { value: '', label: '대분류' },
-  { value: '000', label: '000 총류' },
-  { value: '100', label: '100 철학' },
-  { value: '200', label: '200 종교' },
-  { value: '300', label: '300 사회과학' },
-  { value: '400', label: '400 언어' },
-  { value: '500', label: '500 순수과학' },
-  { value: '600', label: '600 기술과학' },
-  { value: '700', label: '700 예술' },
-  { value: '800', label: '800 문학' },
-  { value: '900', label: '900 역사' },
-];
-
-const middleClassificationOptions = [{ value: '', label: '중분류' }];
-
-const minorClassificationOptions = [{ value: '', label: '소분류' }];
-
-const sortCriteriaOptions = [
-  { value: '', label: '정렬기준' },
-  { value: 'title', label: '제목순' },
-  { value: 'author', label: '저자순' },
-  { value: 'publisher', label: '출판사순' },
-  { value: 'publication-date', label: '발행년도순' },
-  { value: 'registration-date', label: '등록일순' },
-];
-
-const sortOrderOptions = [
-  { value: '', label: '정렬순서' },
-  { value: 'asc', label: '오름차순' },
-  { value: 'desc', label: '내림차순' },
-];
-
-const outputCountOptions = [
-  { value: '', label: '출력건수' },
-  { value: '10', label: '10건' },
-  { value: '20', label: '20건' },
-  { value: '50', label: '50건' },
-  { value: '100', label: '100건' },
 ];
 ---
 
@@ -90,6 +42,17 @@ const outputCountOptions = [
           isExpanded={false}
           className="custom-accordion"
         />
+
+        <UiAccordion
+          title="아코디언 제목"
+          variant="bordered"
+          size="medium"
+          iconType="chevron"
+          isExpanded={false}
+          className="custom-accordion"
+        >
+          <p>아코디언 내용입니다.</p>
+        </UiAccordion>
       </div>
     </div>
   </SubLayout>

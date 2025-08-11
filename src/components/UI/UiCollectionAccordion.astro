@@ -250,8 +250,13 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       background: none;
       padding: 0;
 
+      .ui-collection-accordion__inner {
+        padding: 0 1px;
+      }
       .ui-collection-accordion__trigger {
         justify-content: flex-start;
+        padding: 0;
+        margin-bottom: to-rem(24);
       }
       .ui-collection-accordion__trigger-content {
         flex: none;

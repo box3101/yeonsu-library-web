@@ -142,15 +142,7 @@ const iconClasses = [
               </svg>
             )}
             {iconType === 'chevron' && (
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M7 9l3 3 3-3"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              <i class="icon icon-xmd icon-arrow-down" />
             )}
           </div>
         )
@@ -280,6 +272,48 @@ const iconClasses = [
 
   .ui-accordion {
     transition: all 0.2s ease;
+
+    &.custom-accordion {
+      display: block !important;
+      border: none;
+      border-radius: 0;
+      background: none;
+      padding: 0;
+
+      .ui-accordion__header {
+        gap: 0;
+      }
+
+      .ui-accordion__trigger {
+        justify-content: flex-start;
+        background: transparent;
+        border: none;
+        padding: 0;
+      }
+      .ui-accordion__trigger-content {
+        flex: none;
+      }
+      .ui-accordion__icon {
+        margin-left: 5px;
+      }
+      .ui-accordion__title {
+        font-size: to-rem(24);
+        font-weight: 700;
+        color: #000;
+        position: relative;
+        padding-left: to-rem(40);
+        margin-right: to-rem(5);
+        text-align: left;
+        flex: none;
+
+        &::before {
+          content: '';
+          @include position(absolute, 50%, 0, 0, 0);
+          transform: translateY(-50%);
+          @include icon('book', to-rem(30), to-rem(22));
+        }
+      }
+    }
 
     &:not(:last-child) {
       margin-bottom: to-rem(8);
