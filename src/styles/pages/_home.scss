@@ -397,7 +397,7 @@
   &__list {
     @include flex;
     flex-direction: column;
-    gap: to-rem(12.5);
+    gap: to-rem(15.5);
   }
 }
 

@@ -1,0 +1,505 @@
+// Variables
+@use '../variables/colors' as *;
+@use '../variables/typography' as *;
+@use '../variables/layout' as *;
+@use '../abstracts' as *;
+
+.ui-table-wrapper {
+  margin-top: to-rem(30);
+  width: 100%;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: to-rem(8);
+  overflow: hidden; // 전체 overflow 숨김
+
+  // 스티키 헤더 옵션
+  &--sticky {
+    .ui-table__head {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: $gray-50;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: $border-color;
+      }
+    }
+  }
+}
+
+.ui-table {
+  width: 100%;
+  min-width: to-rem(800);
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  max-height: to-rem(600); // 테이블 최대 높이
+
+  &__caption {
+    @include sr-only;
+  }
+
+  &__head {
+    flex-shrink: 0; // 헤더는 축소되지 않음
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background: $gray-50;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__body {
+    flex: 1;
+    overflow-y: auto; // tbody만 스크롤
+    display: block;
+    max-height: to-rem(540); // 헤더 높이를 뺀 높이
+
+    // 스크롤바 스타일링 (선택사항)
+    &::-webkit-scrollbar {
+      width: to-rem(8);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $gray-50;
+      border-radius: to-rem(4);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $gray-300;
+      border-radius: to-rem(4);
+
+      &:hover {
+        background: $gray-400;
+      }
+    }
+  }
+
+  // tbody가 block일 때 tr도 조정 필요
+  &__row--body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    min-height: to-rem(56);
+    border-bottom: 1px solid $border-color;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: $gray-50;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__cell {
+    padding: to-rem(12) to-rem(16);
+    vertical-align: middle;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &--head {
+      font-size: to-rem(15);
+      font-weight: 700;
+      color: #131416;
+      text-align: center;
+      height: to-rem(62);
+      line-height: 150%;
+      letter-spacing: 0;
+      border-bottom: 1px solid #d6e0eb;
+      background: #eef2f7;
+    }
+
+    &--body {
+      font-size: to-rem(15);
+      font-weight: 400;
+      color: #464c53;
+      padding: to-rem(12) to-rem(16);
+      line-height: 150%;
+      letter-spacing: 0;
+      font-family: 'Pretendard GOV', sans-serif;
+    }
+
+    &--checkbox {
+      width: to-rem(48);
+      text-align: center;
+      padding: to-rem(8) to-rem(12);
+    }
+
+    &--index {
+      width: to-rem(60);
+      text-align: center;
+      font-weight: 500;
+      color: $gray-500;
+    }
+
+    &--action {
+      width: to-rem(120);
+      text-align: center;
+    }
+
+    &--sortable {
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background: $gray-100;
+      }
+    }
+  }
+
+  &__cell-content {
+    display: flex;
+    align-items: center;
+    gap: to-rem(4);
+    min-height: to-rem(24);
+    width: 100%; // 추가
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--center {
+      justify-content: center;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &__checkbox {
+    width: to-rem(16);
+    height: to-rem(16);
+    cursor: pointer;
+    accent-color: $primary-color;
+  }
+
+  &__sort-btn {
+    @include flex(row, center, center);
+    background: none;
+    border: none;
+    padding: to-rem(2);
+    cursor: pointer;
+    color: $gray-400;
+    transition: color 0.2s ease;
+    border-radius: to-rem(2);
+
+    &:hover {
+      color: $primary-color;
+      background: $gray-50;
+    }
+  }
+
+  &__sort-icon {
+    width: to-rem(10);
+    height: to-rem(10);
+  }
+
+  &__badge {
+    @include flex(row, center, center);
+    padding: to-rem(2) to-rem(6);
+    border-radius: to-rem(3);
+    font-size: to-rem(11);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.2;
+
+    // 도서관별 색상
+    &--\[동춘\]일반자료실 {
+      background: $blue-50;
+      color: $blue-600;
+      border: 1px solid $blue-200;
+    }
+
+    &--상호대차 {
+      background: $orange-50;
+      color: $orange-600;
+      border: 1px solid $orange-200;
+    }
+
+    &--전체 {
+      background: $gray-50;
+      color: $gray-700;
+      border: 1px solid $gray-200;
+    }
+
+    // 대출 상태별 색상
+    &--비치중 {
+      background: #e8f5e8;
+      color: $success-color;
+      border: 1px solid #c3e6c3;
+    }
+
+    &--대출중 {
+      background: $red-100;
+      color: $red-700;
+      border: 1px solid $red-200;
+    }
+
+    &--예약가능 {
+      background: $blue-50;
+      color: $blue-700;
+      border: 1px solid $blue-200;
+    }
+
+    // 서비스 버튼
+    &--예약하기 {
+      background: $primary-color;
+      color: $white;
+      border: 1px solid $primary-color;
+      padding: to-rem(4) to-rem(8);
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: $blue-800;
+        border-color: $blue-800;
+      }
+    }
+
+    &--new {
+      background: $red-500;
+      color: $white;
+      margin-left: to-rem(4);
+      font-size: to-rem(10);
+      padding: to-rem(1) to-rem(4);
+    }
+  }
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: inherit; // 부모의 justify-content를 상속
+    width: 100%;
+  }
+
+  &__title-link {
+    @include flex(row, center, center);
+    gap: to-rem(4);
+    color: $text-color;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    width: 100%;
+    justify-content: inherit;
+
+    &:hover {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+
+  &__title-content {
+    @include flex(row, center, center);
+    gap: to-rem(4);
+    width: 100%;
+    justify-content: inherit;
+  }
+
+  &__icon {
+    font-size: to-rem(12);
+    color: $gray-400;
+  }
+
+  &__title-text {
+    font-weight: 400;
+    font-size: to-rem(15);
+    color: #464c53;
+    line-height: 150%;
+    font-family: 'Pretendard GOV', sans-serif;
+  }
+
+  &__text {
+    font-size: to-rem(15);
+    font-weight: 400;
+    color: #464c53;
+    line-height: 150%;
+    word-break: break-all;
+    font-family: 'Pretendard GOV', sans-serif;
+
+    // 청구기호, 등록번호 등 코드형 텍스트
+    &--code {
+      font-family: 'Courier New', monospace;
+      font-size: to-rem(11);
+      color: $gray-500;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__empty {
+    padding: to-rem(40) to-rem(20);
+    text-align: center;
+    border-top: 1px solid $border-color;
+
+    &-text {
+      font-size: to-rem(14);
+      color: $gray-400;
+      margin: 0;
+    }
+  }
+
+  &__button {
+    padding: to-rem(4) to-rem(12);
+    border-radius: to-rem(4);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-size: to-rem(15);
+    font-weight: 400;
+    color: #1e2124;
+
+    &--default {
+      border-radius: to-rem(4);
+      border: 1px solid #646767;
+      background: rgba(255, 255, 255, 0);
+
+      &:hover {
+        background: adjust-color(#646767, $lightness: -10%);
+        border-color: adjust-color(#646767, $lightness: -10%);
+        color: #fff;
+      }
+    }
+  }
+
+  &__button-group {
+    display: flex;
+    gap: to-rem(8);
+    align-items: center;
+    justify-content: inherit; // 부모의 정렬 상속
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: to-rem(16);
+    color: $gray-600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    // 아이콘 크기별 스타일
+    &.icon-sm {
+      font-size: to-rem(14);
+    }
+
+    &.icon-md {
+      font-size: to-rem(16);
+    }
+
+    &.icon-lg {
+      font-size: to-rem(18);
+    }
+  }
+}
+
+// 반응형
+@include tablet {
+  .ui-table {
+    &__cell {
+      padding: to-rem(10) to-rem(12);
+
+      &--head {
+        font-size: to-rem(12);
+      }
+
+      &--body {
+        font-size: to-rem(12);
+      }
+    }
+
+    &__text {
+      font-size: to-rem(12);
+
+      &--code {
+        font-size: to-rem(10);
+      }
+    }
+
+    &__badge {
+      font-size: to-rem(10);
+      padding: to-rem(2) to-rem(4);
+    }
+  }
+}
+
+@include mobile {
+  .ui-table-wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin: 0 to-rem(-16);
+  }
+
+  .ui-table {
+    min-width: to-rem(600);
+
+    &__cell {
+      padding: to-rem(8) to-rem(6);
+
+      &--head {
+        font-size: to-rem(11);
+        padding: to-rem(6) to-rem(4);
+      }
+
+      &--body {
+        font-size: to-rem(11);
+      }
+
+      &--index {
+        width: to-rem(40);
+      }
+
+      &--checkbox {
+        width: to-rem(32);
+        padding: to-rem(4);
+      }
+    }
+
+    &__row {
+      &--head {
+        height: to-rem(40);
+      }
+
+      &--body {
+        height: to-rem(48);
+      }
+    }
+
+    &__text {
+      font-size: to-rem(11);
+      line-height: 1.3;
+
+      &--code {
+        font-size: to-rem(9);
+      }
+    }
+
+    &__badge {
+      font-size: to-rem(9);
+      padding: to-rem(1) to-rem(3);
+
+      &--예약하기 {
+        padding: to-rem(3) to-rem(6);
+        font-size: to-rem(10);
+      }
+    }
+
+    &__checkbox {
+      width: to-rem(14);
+      height: to-rem(14);
+    }
+  }
+}

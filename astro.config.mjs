@@ -4,11 +4,11 @@ import path from 'path';
 export default defineConfig({
   // 개발 중에는 소스맵 활성화, 프로덕션에서는 HTML 속성만 제거
   compilerOptions: {
-    sourcemap: 'external', // 또는 true
+    sourcemap: true, // 인라인 소스맵으로 변경
   },
 
-  // JSP 변환을 위해 스타일 스코핑 완전 비활성화 (class 방식으로 변경)
-  scopedStyleStrategy: 'class',
+  // CSS 스코핑 완전 비활성화로 정확한 소스맵 표시
+  scopedStyleStrategy: 'where',
 
   // Astro 4.0+ 에서 개발 툴바 비활성화 (선택사항)
   devToolbar: {
@@ -35,13 +35,18 @@ export default defineConfig({
 
     // CSS 소스맵 설정
     css: {
-      devSourcemap: true, // 개발 중 CSS 소스맵 활성화
+      devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          // SCSS 소스맵 활성화
           sourceMap: true,
           sourceMapContents: true,
+          sourceMapEmbed: false,
+          sourceMapRoot: '../',
+          includePaths: ['src/styles'],
         },
+      },
+      modules: {
+        generateScopedName: '[name]__[local]___[hash:base64:5]',
       },
     },
 

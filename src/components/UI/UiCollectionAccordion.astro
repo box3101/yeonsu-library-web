@@ -95,18 +95,29 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 
 <script is:inline define:vars={{ accordionId, iconType }}>
   // UiCollectionAccordion 초기화
-  (function(accordionId, iconType) {
+  (function (accordionId, iconType) {
     function initAccordion() {
-      console.log('Initializing accordion:', accordionId, 'iconType:', iconType);
-      
-      const accordion = document.querySelector(`[data-accordion-id="${accordionId}"]`);
+      console.log(
+        'Initializing accordion:',
+        accordionId,
+        'iconType:',
+        iconType
+      );
+
+      const accordion = document.querySelector(
+        `[data-accordion-id="${accordionId}"]`
+      );
       if (!accordion) {
         console.error('Accordion not found:', accordionId);
         return;
       }
 
-      const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
-      const content = accordion.querySelector('.ui-collection-accordion__content');
+      const trigger = accordion.querySelector(
+        '.ui-collection-accordion__trigger'
+      );
+      const content = accordion.querySelector(
+        '.ui-collection-accordion__content'
+      );
       const tabsContainer = accordion.querySelector('.ui-tabs');
 
       if (!trigger || !content) {
@@ -134,7 +145,9 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
           accordion.style.display = 'none';
 
           // 만약 특정 래퍼가 있다면 그것도 숨김 (기존 로직 유지)
-          const wrapper = accordion.closest('.ui-book-card__collection-wrapper');
+          const wrapper = accordion.closest(
+            '.ui-book-card__collection-wrapper'
+          );
           if (wrapper) {
             wrapper.style.display = 'none';
           }
@@ -160,7 +173,10 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
       // 초기 상태 설정
       if (content.getAttribute('data-expanded') === 'true') {
         content.style.maxHeight = content.scrollHeight + 'px';
-        console.log('Initial expanded state set, height:', content.scrollHeight);
+        console.log(
+          'Initial expanded state set, height:',
+          content.scrollHeight
+        );
       } else {
         content.style.maxHeight = 'max-content';
         console.log('Initial collapsed state set');
@@ -168,7 +184,7 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 
       // 탭 변경 이벤트 처리
       if (tabsContainer) {
-        tabsContainer.addEventListener('tabchange', function(event) {
+        tabsContainer.addEventListener('tabchange', function (event) {
           const selectedLibrary = event.detail.activeTab;
           console.log('Selected library:', selectedLibrary);
 
@@ -188,10 +204,9 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
     }
 
     // 안전장치: 페이지 로드 후에도 실행
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       setTimeout(initAccordion, 200);
     });
-
   })(accordionId, iconType);
 </script>
 

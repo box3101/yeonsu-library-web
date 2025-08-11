@@ -29,6 +29,10 @@
 @use 'components/pagination';
 @use 'components/collection-modal';
 @use 'components/smart-library-book-card';
+@use 'components/ui-button';
+@use 'components/ui-table';
+@use 'components/ui-accordian';
+@use 'components/swiper';
 
 // 페이지별 스타일
 @use 'pages/home';
