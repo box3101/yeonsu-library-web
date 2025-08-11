@@ -20,22 +20,28 @@ const columns = [
   },
   { key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
   { key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
-  { key: 'readingRoom', label: '정보 출력', width: '100px', align: 'center' },
+  {
+    key: 'readingRoom',
+    label: '정보 출력',
+    width: '100px',
+    align: 'center',
+    type: 'icon',
+  },
 ];
 
 const rows = [
   {
     id: 1,
-    title: '[동춘]일반자료실',
+    title: '내용',
     status: '비치중',
     dueDate: '2025.07.31',
     service: [
-      { text: '예약하기', variant: 'secondary' },
+      { text: '예약하기', variant: 'default' },
       { text: '상호대차', variant: 'default' },
     ],
     callNumber: '아동 808.9-시15ㅅ-v.2-18',
     regNumber: 'NE0000014319',
-    readingRoom: '일반자료실',
+    readingRoom: 'icon icon-xmd icon-printer',
     // 필요시 href, isNew 등 추가 가능
   },
   {
@@ -44,12 +50,13 @@ const rows = [
     status: '비치중',
     dueDate: '2025.07.31',
     service: [
-      { text: '예약하기', variant: 'secondary' },
+      { text: '예약하기', variant: 'default' },
       { text: '상호대차', variant: 'default' },
     ],
     callNumber: '아동 808.9-시15ㅅ-v.2-18',
     regNumber: 'NE0000014319',
-    readingRoom: '일반자료실',
+    readingRoom: 'icon icon-xmd icon-printer',
+
     // 필요시 href, isNew 등 추가 가능
   },
   {
@@ -58,12 +65,13 @@ const rows = [
     status: '비치중',
     dueDate: '2025.07.31',
     service: [
-      { text: '예약하기', variant: 'secondary' },
+      { text: '예약하기', variant: 'default' },
       { text: '상호대차', variant: 'default' },
     ],
     callNumber: '아동 808.9-시15ㅅ-v.2-18',
     regNumber: 'NE0000014319',
-    readingRoom: '일반자료실',
+    readingRoom: 'icon icon-xmd icon-printer',
+
     // 필요시 href, isNew 등 추가 가능
   },
   {
@@ -72,12 +80,13 @@ const rows = [
     status: '비치중',
     dueDate: '2025.07.31',
     service: [
-      { text: '예약하기', variant: 'secondary' },
+      { text: '예약하기', variant: 'default' },
       { text: '상호대차', variant: 'default' },
     ],
     callNumber: '아동 808.9-시15ㅅ-v.2-18',
     regNumber: 'NE0000014319',
-    readingRoom: '일반자료실',
+    readingRoom: 'icon icon-xmd icon-printer',
+
     // 필요시 href, isNew 등 추가 가능
   },
 ];
@@ -94,7 +103,7 @@ const { isExpanded = false, iconType = 'arrow', className = '' } = Astro.props;
 const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div class={`ui-collection-accordion ${className}`}>
+<div class={`ui-collection-accordion ${className}`} data-accordion-id={accordionId}>
   <button
     type="button"
     class="ui-collection-accordion__trigger"
@@ -181,7 +190,7 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 
 <script define:vars={{ accordionId }}>
   document.addEventListener('DOMContentLoaded', function () {
-    const accordion = document.querySelector(`.ui-collection-accordion`);
+    const accordion = document.querySelector(`[data-accordion-id="${accordionId}"]`);
     if (!accordion) return;
 
     const trigger = accordion.querySelector(

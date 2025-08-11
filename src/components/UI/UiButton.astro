@@ -1,11 +1,7 @@
 ---
 export interface Props {
   text?: string;
-  variant?:
-    | 'primary'
-    | 'secondary' 
-    | 'tertiary'
-    | 'text';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'darkBlue' | 'text';
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   width?: string;
   height?: string;
@@ -198,7 +194,9 @@ const buttonStyle = [
       color: #ffffff;
       border-color: #256ef4;
 
-      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      &:hover:not(:disabled):not([aria-disabled='true']):not(
+          .ui-button--disabled
+        ) {
         background: #0b50d0;
         border-color: #0b50d0;
       }
@@ -209,12 +207,20 @@ const buttonStyle = [
       }
     }
 
+    &--darkBlue {
+      background: #244874;
+      color: #ffffff;
+      border-color: #244874;
+    }
+
     &--secondary {
       background: #ecf2fe;
       color: #256ef4;
       border-color: #256ef4;
 
-      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      &:hover:not(:disabled):not([aria-disabled='true']):not(
+          .ui-button--disabled
+        ) {
         background: #d8e5fd;
       }
 
@@ -228,7 +234,9 @@ const buttonStyle = [
       color: #58616a;
       border-color: #58616a;
 
-      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      &:hover:not(:disabled):not([aria-disabled='true']):not(
+          .ui-button--disabled
+        ) {
         background: #f4f5f6;
       }
 
@@ -242,7 +250,9 @@ const buttonStyle = [
       color: #256ef4;
       border-color: transparent;
 
-      &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      &:hover:not(:disabled):not([aria-disabled='true']):not(
+          .ui-button--disabled
+        ) {
         background: #eef2f7;
       }
 
@@ -254,7 +264,7 @@ const buttonStyle = [
     // 아이콘 전용 버튼
     &--icon-only {
       aspect-ratio: 1;
-      
+
       &.ui-button--xsmall {
         padding: to-rem(8);
       }

@@ -27,4 +27,21 @@
     ],
     "description": "UiNavButton 컴포넌트를 생성합니다",
   },
+  "UiCheckbox Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "chk",
+    "body": [
+      "<UiCheckbox",
+      "  name=\"${1:checkbox-name}\"",
+      "  label=\"${2:이용약관에 동의합니다}\"",
+      "  checked={${3:false}}",
+      "  size=\"${4|small,medium,large|}\"",
+      "  id=\"${5:}\"",
+      "  value=\"${6:}\"",
+      "  class=\"${7:}\"",
+      "/>",
+      "$0",
+    ],
+    "description": "UiCheckbox 컴포넌트를 생성합니다",
+  },
 }

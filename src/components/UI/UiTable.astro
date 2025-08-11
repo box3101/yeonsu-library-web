@@ -6,7 +6,7 @@ export interface TableColumn {
   align?: 'left' | 'center' | 'right';
   headerAlign?: 'left' | 'center' | 'right';
   sortable?: boolean;
-  type?: 'text' | 'button' | 'buttons' | 'badge'; // 컬럼 타입 추가
+  type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon'; // 컬럼 타입 추가
 }
 
 export interface TableButton {
@@ -227,6 +227,11 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                         ))}
                       </div>
                     )}
+
+                    {/* 아이콘 타입 */}
+                    {columnType === 'icon' && cellValue && (
+                      <i class={`ui-table__icon ${cellValue}`} aria-hidden="true"></i>
+                    )}
                   </div>
                 </td>
               );
@@ -372,11 +377,11 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
         font-weight: 700;
         color: #131416;
         text-align: center;
-        background: $gray-50;
         height: to-rem(62);
         line-height: 150%;
         letter-spacing: 0;
-        font-family: 'Pretendard GOV', sans-serif;
+        border-bottom: 1px solid #d6e0eb;
+        background: #eef2f7;
       }
 
       &--body {
@@ -610,44 +615,46 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
     &__button {
       padding: to-rem(4) to-rem(12);
       border-radius: to-rem(4);
-      font-size: to-rem(13);
-      font-weight: 500;
       border: 1px solid transparent;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
+      font-size: to-rem(15);
+      font-weight: 400;
+      color: #1e2124;
 
       &--default {
-        background: $primary-color;
-        color: $white;
-        border-color: $primary-color;
+        border-radius: to-rem(4);
+        border: 1px solid #646767;
+        background: rgba(255, 255, 255, 0);
 
         &:hover {
-          background: darken($primary-color, 10%);
-          border-color: darken($primary-color, 10%);
+          background: darken(#646767, 10%);
+          border-color: darken(#646767, 10%);
+          color: #fff;
         }
       }
 
-      &--secondary {
-        background: $white;
-        color: $primary-color;
-        border-color: $primary-color;
+      // &--secondary {
+      //   background: $white;
+      //   color: $primary-color;
+      //   border-color: $primary-color;
 
-        &:hover {
-          background: $blue-50;
-        }
-      }
+      //   &:hover {
+      //     background: $blue-50;
+      //   }
+      // }
 
-      &--danger {
-        background: $red-500;
-        color: $white;
-        border-color: $red-500;
+      // &--danger {
+      //   background: $red-500;
+      //   color: $white;
+      //   border-color: $red-500;
 
-        &:hover {
-          background: darken($red-500, 10%);
-          border-color: darken($red-500, 10%);
-        }
-      }
+      //   &:hover {
+      //     background: darken($red-500, 10%);
+      //     border-color: darken($red-500, 10%);
+      //   }
+      // }
     }
 
     &__button-group {
@@ -655,6 +662,33 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
       gap: to-rem(8);
       align-items: center;
       justify-content: inherit; // 부모의 정렬 상속
+    }
+
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: to-rem(16);
+      color: $gray-600;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      // 아이콘 크기별 스타일
+      &.icon-sm {
+        font-size: to-rem(14);
+      }
+
+      &.icon-md {
+        font-size: to-rem(16);
+      }
+
+      &.icon-lg {
+        font-size: to-rem(18);
+      }
     }
   }
 

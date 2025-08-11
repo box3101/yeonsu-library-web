@@ -1,0 +1,494 @@
+---
+export interface Props {
+  title: string;
+  isExpanded?: boolean;
+  variant?: 'default' | 'bordered' | 'filled';
+  size?: 'small' | 'medium' | 'large';
+  iconType?: 'arrow' | 'plus' | 'chevron';
+  iconPosition?: 'left' | 'right';
+  disabled?: boolean;
+  allowMultiple?: boolean;
+  className?: string;
+  id?: string;
+}
+
+const {
+  title,
+  isExpanded = false,
+  variant = 'default',
+  size = 'medium',
+  iconType = 'chevron',
+  iconPosition = 'right',
+  disabled = false,
+  allowMultiple = true,
+  className = '',
+  id,
+} = Astro.props;
+
+const accordionId =
+  id || `accordion-${Math.random().toString(36).substr(2, 9)}`;
+const contentId = `${accordionId}-content`;
+const triggerId = `${accordionId}-trigger`;
+
+const accordionClasses = [
+  'ui-accordion',
+  `ui-accordion--${variant}`,
+  `ui-accordion--${size}`,
+  disabled ? 'ui-accordion--disabled' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const iconClasses = [
+  'ui-accordion__icon',
+  `ui-accordion__icon--${iconType}`,
+  `ui-accordion__icon--${iconPosition}`,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class={accordionClasses} data-accordion-id={accordionId}>
+  <button
+    type="button"
+    id={triggerId}
+    class="ui-accordion__trigger"
+    aria-expanded={isExpanded}
+    aria-controls={contentId}
+    disabled={disabled}
+  >
+    <div class="ui-accordion__header">
+      {
+        iconPosition === 'left' && (
+          <div class={iconClasses}>
+            {iconType === 'arrow' && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
+                  fill="#3C79C2"
+                />
+              </svg>
+            )}
+            {iconType === 'plus' && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
+                  fill="#3C79C2"
+                />
+              </svg>
+            )}
+            {iconType === 'chevron' && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
+                  fill="#3C79C2"
+                />
+              </svg>
+            )}
+          </div>
+        )
+      }
+
+      <span class="ui-accordion__title">{title}</span>
+
+      {
+        iconPosition === 'right' && (
+          <div class={iconClasses}>
+            {iconType === 'arrow' && (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M6 8l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+            {iconType === 'plus' && (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M10 4v12M4 10h12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+            {iconType === 'chevron' && (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M7 9l3 3 3-3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </button>
+
+  <div
+    id={contentId}
+    class="ui-accordion__content"
+    role="region"
+    aria-labelledby={triggerId}
+    data-expanded={isExpanded}
+  >
+    <div class="ui-accordion__body">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ accordionId, allowMultiple }}>
+  document.addEventListener('DOMContentLoaded', function () {
+    const accordion = document.querySelector(
+      `[data-accordion-id="${accordionId}"]`
+    );
+    if (!accordion) return;
+
+    const trigger = accordion.querySelector('.ui-accordion__trigger');
+    const content = accordion.querySelector('.ui-accordion__content');
+    const icon = accordion.querySelector('.ui-accordion__icon');
+
+    if (!trigger || !content) return;
+
+    // 초기 상태 설정
+    const initialExpanded = content.dataset.expanded === 'true';
+    if (initialExpanded) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    } else {
+      content.style.maxHeight = '0';
+    }
+
+    // 아코디언 토글 함수
+    function toggleAccordion() {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      const newExpanded = !isExpanded;
+
+      // 다중 선택이 허용되지 않는 경우, 같은 그룹의 다른 아코디언들을 닫음
+      if (!allowMultiple && newExpanded) {
+        const accordionGroup = accordion.closest('[data-accordion-group]');
+        if (accordionGroup) {
+          const otherAccordions =
+            accordionGroup.querySelectorAll('.ui-accordion');
+          otherAccordions.forEach(otherAccordion => {
+            if (otherAccordion !== accordion) {
+              const otherTrigger = otherAccordion.querySelector(
+                '.ui-accordion__trigger'
+              );
+              const otherContent = otherAccordion.querySelector(
+                '.ui-accordion__content'
+              );
+              const otherIcon = otherAccordion.querySelector(
+                '.ui-accordion__icon'
+              );
+
+              if (otherTrigger && otherContent) {
+                otherTrigger.setAttribute('aria-expanded', 'false');
+                otherContent.dataset.expanded = 'false';
+                otherContent.style.maxHeight = '0';
+
+                if (otherIcon) {
+                  otherIcon.classList.remove('ui-accordion__icon--expanded');
+                }
+              }
+            }
+          });
+        }
+      }
+
+      // 현재 아코디언 상태 변경
+      trigger.setAttribute('aria-expanded', newExpanded.toString());
+      content.dataset.expanded = newExpanded.toString();
+
+      // 아이콘 회전 애니메이션
+      if (icon) {
+        if (newExpanded) {
+          icon.classList.add('ui-accordion__icon--expanded');
+        } else {
+          icon.classList.remove('ui-accordion__icon--expanded');
+        }
+      }
+
+      // 콘텐츠 높이 애니메이션
+      if (newExpanded) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0';
+      }
+
+      // 커스텀 이벤트 발생
+      const event = new CustomEvent('accordion-toggle', {
+        detail: {
+          accordionId,
+          isExpanded: newExpanded,
+          trigger,
+          content,
+        },
+        bubbles: true,
+      });
+      accordion.dispatchEvent(event);
+    }
+
+    // 이벤트 리스너 등록
+    trigger.addEventListener('click', toggleAccordion);
+
+    // 키보드 접근성
+    trigger.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleAccordion();
+      }
+    });
+  });
+</script>
+
+<style lang="scss">
+  @use '@styles/abstracts' as *;
+
+  .ui-accordion {
+    transition: all 0.2s ease;
+
+    &:not(:last-child) {
+      margin-bottom: to-rem(8);
+    }
+
+    // Variants
+    &--default {
+      --accordion-bg: #ffffff;
+      --accordion-border: 1px solid #e5e7eb;
+      --accordion-radius: #{to-rem(8)};
+    }
+
+    &--bordered {
+      --accordion-bg: #ffffff;
+      --accordion-border: 2px solid #d1d5db;
+      --accordion-radius: #{to-rem(12)};
+
+      &:hover:not(.ui-accordion--disabled) {
+        --accordion-border: 2px solid #256ef4;
+      }
+    }
+
+    &--filled {
+      --accordion-bg: #f9fafb;
+      --accordion-border: 1px solid #e5e7eb;
+      --accordion-radius: #{to-rem(8)};
+    }
+
+    // Sizes
+    &--small {
+      .ui-accordion__trigger {
+        padding: to-rem(12) to-rem(16);
+      }
+
+      .ui-accordion__title {
+        font-size: to-rem(14);
+      }
+
+      .ui-accordion__body {
+        padding: to-rem(12) to-rem(16);
+      }
+    }
+
+    &--medium {
+      .ui-accordion__trigger {
+        padding: to-rem(16) to-rem(20);
+      }
+
+      .ui-accordion__title {
+        font-size: to-rem(16);
+      }
+
+      .ui-accordion__body {
+        margin-top: to-rem(24);
+      }
+    }
+
+    &--large {
+      .ui-accordion__trigger {
+        padding: to-rem(20) to-rem(24);
+      }
+
+      .ui-accordion__title {
+        font-size: to-rem(18);
+      }
+
+      .ui-accordion__body {
+        padding: to-rem(20) to-rem(24);
+      }
+    }
+
+    // Disabled state
+    &--disabled {
+      opacity: 0.6;
+      pointer-events: none;
+
+      .ui-accordion__trigger {
+        cursor: not-allowed;
+      }
+    }
+
+    &__trigger {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.2s ease;
+      border-radius: var(--radius-medium2, 6px);
+      border: 1px solid var(--color-primary-pr05, #3c79c2);
+      background: var(--color-primary-pr00, #ecf2f9);
+
+      &:hover:not(:disabled) {
+        background: var(--color-primary-pr00, #ecf2f9);
+      }
+
+      &:focus-visible {
+        outline: 2px solid #256ef4;
+        outline-offset: -2px;
+      }
+
+      &[aria-expanded='true'] {
+        .ui-accordion__icon--arrow,
+        .ui-accordion__icon--chevron {
+          transform: rotate(180deg);
+        }
+
+        .ui-accordion__icon--plus {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: to-rem(12);
+    }
+
+    &__title {
+      flex: 1;
+      font-weight: 400;
+      color: #0b50d0;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3c79c2;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+
+      &--left {
+        order: -1;
+      }
+
+      &--right {
+        order: 1;
+      }
+
+      svg {
+        width: to-rem(20);
+        height: to-rem(20);
+      }
+
+      &--expanded {
+        &.ui-accordion__icon--arrow,
+        &.ui-accordion__icon--chevron {
+          transform: rotate(180deg);
+        }
+
+        &.ui-accordion__icon--plus {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    &__content {
+      overflow: hidden;
+      max-height: max-content !important;
+    }
+
+    &__body {
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      ul,
+      ol {
+        margin: to-rem(12) 0;
+        padding-left: to-rem(20);
+      }
+
+      li {
+        margin-bottom: to-rem(4);
+      }
+    }
+
+    // 반응형
+    @include mobile {
+      &--small .ui-accordion__trigger {
+        padding: to-rem(10) to-rem(14);
+      }
+
+      &--medium .ui-accordion__trigger {
+        padding: to-rem(14) to-rem(16);
+      }
+
+      &--large .ui-accordion__trigger {
+        padding: to-rem(16) to-rem(20);
+      }
+
+      &--small .ui-accordion__body {
+        padding: to-rem(10) to-rem(14);
+      }
+
+      &--medium .ui-accordion__body {
+        padding: to-rem(14) to-rem(16);
+      }
+
+      &--large .ui-accordion__body {
+        padding: to-rem(16) to-rem(20);
+      }
+    }
+  }
+</style>

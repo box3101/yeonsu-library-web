@@ -1,4 +1,5 @@
 // UI 컴포넌트 중앙 집중식 내보내기
+export { default as UiAccordion } from './UI/UiAccordion.astro';
 export { default as UiButton } from './UI/UiButton.astro';
 export { default as UiCheckbox } from './UI/UiCheckbox.astro';
 export { default as UiInput } from './UI/UiInput.astro';

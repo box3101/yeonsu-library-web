@@ -234,19 +234,29 @@ const popularSearches = [
         </div>
         <UiButton
           text="검색"
-          variant="secondary"
+          variant="darkBlue"
           size="medium"
           class="ui-library-filter__search-button"
         />
         <UiButton
           text="고급검색"
-          variant="secondary"
+          variant="darkBlue"
           icon="icon-advanced-search"
           iconPosition="left"
           size="medium"
           class="ui-library-filter__search-button"
         />
       </div>
+    </div>
+
+    <!-- 결과내 재검색 -->
+    <div class="ui-library-filter__search-result">
+      <UiCheckbox
+        name="checkbox-name"
+        label="결과내재검색"
+        checked={false}
+        id="search-result-checkbox"
+      />
     </div>
   </div>
 </section>
