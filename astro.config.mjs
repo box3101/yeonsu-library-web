@@ -7,6 +7,9 @@ export default defineConfig({
     sourcemap: 'external', // 또는 true
   },
 
+  // JSP 변환을 위해 스타일 스코핑 완전 비활성화 (class 방식으로 변경)
+  scopedStyleStrategy: 'class',
+
   // Astro 4.0+ 에서 개발 툴바 비활성화 (선택사항)
   devToolbar: {
     enabled: false,
