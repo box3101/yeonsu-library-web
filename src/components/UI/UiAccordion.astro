@@ -181,7 +181,7 @@ const iconClasses = [
     if (initialExpanded) {
       content.style.maxHeight = 'max-content';
     } else {
-      content.style.maxHeight = '0';
+      content.style.maxHeight = 'max-content';
     }
 
     // 아코디언 토글 함수
@@ -280,8 +280,18 @@ const iconClasses = [
       background: none;
       padding: 0;
 
+      .ui-accordion__trigger {
+        margin-bottom: to-rem(24);
+      }
+
+      .ui-accordion__body {
+        margin-top: 0;
+        padding-bottom: to-rem(24);
+      }
       .ui-accordion__header {
         gap: 0;
+        padding-bottom: to-rem(24);
+        border-bottom: 1px solid #e5e7eb;
       }
 
       .ui-accordion__trigger {

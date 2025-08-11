@@ -1118,3 +1118,17 @@
   visibility: visible;
   transform: translateY(0);
 }
+
+// book-description
+
+.book-description {
+  border-radius: var(--radius-medium3, 8px);
+  border: var(--border-width-static-regular, 1px) solid var(--color-border-gray-light, #cdd1d5);
+  background: var(--color-surface-gray-subtler, #f4f5f6);
+  padding: 16px;
+  p {
+    font-size: to-rem(17);
+    font-weight: 500;
+    color: #212121;
+  }
+}
