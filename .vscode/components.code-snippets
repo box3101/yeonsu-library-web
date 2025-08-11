@@ -1,4 +1,21 @@
 {
+  "UiButton Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "btn",
+    "body": [
+      "<UiButton",
+      "  variant=\"${1|default,primary,secondary,tertiary,quaternary,quinary,senary,septenary,octonary,nonary,denary|}\"",
+      "  size=\"${2|small,medium,large|}\"",
+      "  text=\"${3:}\"",
+      "  icon=\"${4:}\"",
+      "  iconPosition=\"${5|left,right|}\"",
+      "  width={${6:180}}",
+      "  class=\"${8:}\"",
+      "/>",
+      "$0",
+    ],
+    "description": "UiButton 컴포넌트를 생성합니다",
+  },
   "UiSelect Component": {
     "scope": "astro,javascript,typescript",
     "prefix": "select",

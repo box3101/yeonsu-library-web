@@ -149,7 +149,12 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       <div class="ui-book-card__image-wrapper">
         <div class="ui-book-card__image-container">
           <div class="ui-book-card__image-mask">
-            <img src={imageUrl} alt={title} class="ui-book-card__image" />
+            <a
+              href="/01-1.소장도서검색_상세검색"
+              class="ui-book-card__image-link"
+            >
+              <img src={imageUrl} alt={title} class="ui-book-card__image" />
+            </a>
           </div>
           <div class="ui-book-card__image-overlay">
             <button
@@ -192,7 +197,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       <div class="ui-book-card__main">
         <!-- 제목 및 메타 정보 -->
         <div class="ui-book-card__title-section">
-          <h3 class="ui-book-card__title" set:html={highlightedTitle} />
+          <a href="/01-1.소장도서검색_상세검색">
+            <h3 class="ui-book-card__title" set:html={highlightedTitle} />
+          </a>
           <p class="ui-book-card__author">{author}</p>
 
           <!-- 상세 정보 그리드 -->
@@ -323,7 +330,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
           if (accordion) {
             // 아코디언 전체를 다시 표시 (X 버튼으로 숨겨졌을 수 있음)
             accordion.style.display = 'block';
-            
+
             const trigger = accordion.querySelector(
               '.ui-collection-accordion__trigger'
             );
@@ -335,7 +342,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
               // 아코디언 상태를 완전히 리셋하고 펼친 상태로 설정
               trigger.setAttribute('aria-expanded', 'true');
               content.dataset.expanded = 'true';
-              
+
               // maxHeight를 일시적으로 제거하여 정확한 scrollHeight를 계산
               content.style.maxHeight = 'none';
               const scrollHeight = content.scrollHeight;

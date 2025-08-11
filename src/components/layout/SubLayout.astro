@@ -12,7 +12,10 @@ import Breadcrumb from '@/components/layout/Breadcrumb.astro';
 
   <main class="sub-content">
     {breadcrumbItems.length > 0 && <Breadcrumb items={breadcrumbItems} />}
-    <h1 class="page-title--h1">{title}</h1>
+    <div class="flex justify-between">
+      <h1 class="page-title--h1">{title}</h1>
+      <slot name="right" />
+    </div>
     <slot />
   </main>
 </div>

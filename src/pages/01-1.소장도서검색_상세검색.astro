@@ -1,7 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiBookCard, UiCollectionAccordion, UiAccordion } from '@components';
+import {
+  UiBookCard,
+  UiCollectionAccordion,
+  UiAccordion,
+  UiButton,
+} from '@components';
 
 const breadcrumbItems = [
   { label: '홈', href: '/' },
@@ -111,6 +116,17 @@ const myTabs = [
 
 <Layout title="소장도서검색_상세검색 - 연수구립도서관">
   <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
+    <div slot="right">
+      <UiButton
+        variant="secondary"
+        size="small"
+        text="돌아가기"
+        icon="icon-xmd icon-arrow-left"
+        iconPosition="left"
+        type="link"
+        href="/01_소장도서검색"
+      />
+    </div>
     <!-- 도서 상세 -->
     <div class="search-detail-section__content">
       <!-- 검색 결과 목록 -->
