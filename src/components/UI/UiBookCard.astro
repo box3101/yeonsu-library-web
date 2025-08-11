@@ -305,7 +305,6 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
   <!-- 소장정보 내용 -->
   <div class="ui-book-card__collection-wrapper" style="display: none;">
     <UiCollectionAccordion
-      title="소장정보"
       columns={collectionColumns}
       rows={collectionRows}
       isExpanded={true}
@@ -317,10 +316,10 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 
 <script is:inline>
   // UiBookCard 소장정보 토글 기능
-  (function() {
+  (function () {
     function initBookCardEvents() {
       console.log('Initializing book card events...');
-      
+
       // 소장정보 버튼들에 이벤트 리스너 추가
       const buttons = document.querySelectorAll('.collection-toggle-button');
       console.log('Found collection toggle buttons:', buttons.length);
@@ -345,7 +344,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
             return;
           }
 
-          const wrapper = bookCard.querySelector('.ui-book-card__collection-wrapper');
+          const wrapper = bookCard.querySelector(
+            '.ui-book-card__collection-wrapper'
+          );
           if (!wrapper) {
             console.error('Collection wrapper not found');
             return;
@@ -357,20 +358,24 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
           wrapper.style.display = 'block';
 
           // 아코디언을 펼친 상태로 강제 설정
-          setTimeout(function() {
+          setTimeout(function () {
             const accordion = wrapper.querySelector('.book-card-accordion');
             if (accordion) {
               console.log('Setting up accordion');
-              
+
               // 아코디언 전체를 다시 표시 (X 버튼으로 숨겨졌을 수 있음)
               accordion.style.display = 'block';
 
-              const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
-              const content = accordion.querySelector('.ui-collection-accordion__content');
+              const trigger = accordion.querySelector(
+                '.ui-collection-accordion__trigger'
+              );
+              const content = accordion.querySelector(
+                '.ui-collection-accordion__content'
+              );
 
               if (trigger && content) {
                 console.log('Configuring accordion state');
-                
+
                 // 아코디언 상태를 완전히 리셋하고 펼친 상태로 설정
                 trigger.setAttribute('aria-expanded', 'true');
                 content.setAttribute('data-expanded', 'true');
@@ -379,7 +384,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
                 content.style.maxHeight = 'none';
                 const scrollHeight = content.scrollHeight;
                 content.style.maxHeight = scrollHeight + 'px';
-                
+
                 console.log('Accordion setup complete, height:', scrollHeight);
               } else {
                 console.error('Accordion trigger or content not found');
@@ -401,7 +406,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
     }
 
     // 페이지 로드 후에도 한번 더 실행 (안전장치)
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       setTimeout(initBookCardEvents, 500);
     });
   })();

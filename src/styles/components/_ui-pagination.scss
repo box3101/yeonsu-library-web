@@ -1,11 +1,7 @@
-// Pagination Component Styles
-// Based on SCSS 7-1 Architecture and BEM methodology
-
-@use '../globals' as *;
-@use 'sass:color';
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
 
 .ui-pagination {
-  // Layout
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,6 +10,10 @@
     display: flex;
     align-items: center;
     gap: to-rem(8);
+
+    @include mobile {
+      gap: to-rem(4);
+    }
   }
 
   // 페이지 번호 컨테이너
@@ -21,6 +21,10 @@
     display: flex;
     align-items: center;
     gap: to-rem(8);
+
+    @include mobile {
+      gap: to-rem(0);
+    }
   }
 
   // 기본 버튼 스타일
@@ -41,12 +45,23 @@
     transition: all 0.2s ease;
     cursor: pointer;
 
+    @include mobile {
+      min-width: to-rem(36);
+      height: to-rem(36);
+      font-size: to-rem(15);
+      border-radius: to-rem(4);
+    }
+
     // 이전/다음 버튼
     &--prev,
     &--next {
       padding: 0 to-rem(8) 0 to-rem(4);
       color: $gray-700;
       background-color: transparent;
+
+      @include mobile {
+        padding: 0 to-rem(6);
+      }
 
       &:hover:not(:disabled) {
         background-color: $gray-100;
@@ -57,11 +72,26 @@
         flex-shrink: 0;
         width: to-rem(20);
         height: to-rem(20);
+
+        @include mobile {
+          width: to-rem(18);
+          height: to-rem(18);
+        }
+      }
+
+      span {
+        @include mobile {
+          display: none; // 모바일에서는 텍스트 숨김
+        }
       }
     }
 
     &--next {
       padding: 0 to-rem(4) 0 to-rem(8);
+
+      @include mobile {
+        padding: 0 to-rem(6);
+      }
     }
 
     // 페이지 번호 버튼
@@ -70,6 +100,12 @@
       height: to-rem(40);
       padding: 0;
       border-radius: to-rem(6);
+
+      @include mobile {
+        width: to-rem(36);
+        height: to-rem(36);
+        border-radius: to-rem(4);
+      }
 
       span {
         font-weight: 500;
@@ -99,7 +135,7 @@
       }
 
       &:hover {
-        background-color: color.adjust($primary-color, $lightness: -5%);
+        background-color: $primary-color;
       }
     }
 
@@ -128,65 +164,18 @@
     height: to-rem(40);
     color: $gray-500;
 
+    @include mobile {
+      width: to-rem(36);
+      height: to-rem(36);
+    }
+
     svg {
       width: to-rem(20);
       height: to-rem(20);
-    }
-  }
 
-  // 반응형 처리
-  @include mobile {
-    &__container {
-      gap: to-rem(4);
-    }
-
-    &__pages {
-      gap: to-rem(4);
-    }
-
-    &__button {
-      min-width: to-rem(36);
-      height: to-rem(36);
-      font-size: to-rem(15);
-
-      &--page {
-        width: to-rem(36);
-        height: to-rem(36);
-      }
-
-      &--prev,
-      &--next {
-        padding: 0 to-rem(6);
-
-        span {
-          display: none; // 모바일에서는 텍스트 숨김
-        }
-
-        svg {
-          width: to-rem(18);
-          height: to-rem(18);
-        }
-      }
-    }
-
-    &__ellipsis {
-      width: to-rem(36);
-      height: to-rem(36);
-
-      svg {
+      @include mobile {
         width: to-rem(18);
         height: to-rem(18);
-      }
-    }
-  }
-
-  @include tablet {
-    &__button {
-      &--prev,
-      &--next {
-        span {
-          display: inline; // 태블릿에서는 텍스트 표시
-        }
       }
     }
   }
@@ -215,6 +204,6 @@
 
   @include mobile {
     padding: to-rem(16) 0;
-    margin-top: to-rem(24);
+    margin-top: to-rem(12);
   }
 }

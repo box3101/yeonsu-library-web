@@ -26,13 +26,16 @@
 @use 'components/breadcrumb';
 @use 'components/sub';
 @use 'components/book-card';
-@use 'components/pagination';
 @use 'components/collection-modal';
 @use 'components/smart-library-book-card';
+@use 'components/ui-pagination';
 @use 'components/ui-button';
 @use 'components/ui-table';
 @use 'components/ui-accordian';
 @use 'components/swiper';
+@use 'components/ui-checkbox';
+@use 'components/ui-select';
+@use 'components/ui-nav-button';
 
 // 페이지별 스타일
 @use 'pages/home';

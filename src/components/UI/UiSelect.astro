@@ -13,13 +13,13 @@ export interface Props {
    */
   value?: string;
   /**
-   * select 너비 (rem 단위)
+   * 크기 variant
    */
-  width?: number;
+  size?: 'small' | 'medium' | 'large';
   /**
-   * select 높이 (rem 단위)
+   * 너비 variant
    */
-  height?: number;
+  width?: 'auto' | 'full' | 'fit';
   /**
    * 비활성화 여부
    */
@@ -50,8 +50,8 @@ const {
   id,
   name,
   value,
-  width = 180,
-  height = 56,
+  size = 'medium',
+  width = 'auto',
   disabled = false,
   required = false,
   variant = 'default',
@@ -61,9 +61,20 @@ const {
 } = Astro.props;
 
 const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
+
+// 클래스 조합
+const selectClasses = [
+  'ui-select',
+  `ui-select--${variant}`,
+  `ui-select--${size}`,
+  `ui-select--width-${width}`,
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<div class={`ui-select ui-select--${variant} ${className}`}>
+<div class={selectClasses}>
   <div class="ui-select__wrapper">
     <select
       id={selectId}
@@ -71,7 +82,6 @@ const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
       disabled={disabled}
       required={required}
       class="ui-select__element"
-      style={`width: ${width / 16}rem; height: ${height / 16}rem;`}
       {...rest}
     >
       {
@@ -98,95 +108,3 @@ const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
     </div>
   </div>
 </div>
-
-<style lang="scss" is:global>
-  @use '@styles/abstracts' as *;
-  @use '@styles/variables/colors' as *;
-
-  .ui-select {
-    position: relative;
-    display: inline-block;
-
-    &__wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    &__element {
-      padding: 0 to-rem(40) 0 to-rem(16);
-      border: 1px solid #58616a;
-      border-radius: to-rem(6);
-      background: $white;
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(19);
-      font-weight: 400;
-      color: $gray-600;
-      appearance: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      &:focus {
-        outline: to-rem(2) solid $primary-color;
-        outline-offset: to-rem(2);
-        border-color: $primary-color;
-      }
-
-      &:disabled {
-        background: #f5f5f5;
-        color: #999;
-        cursor: not-allowed;
-        border-color: #ddd;
-      }
-
-      &:hover:not(:disabled) {
-        border-color: #404040;
-      }
-    }
-
-    // Ghost variant
-    &--ghost &__element {
-      border: none;
-      background: transparent;
-      color: #1e2124;
-      font-weight: 600;
-      padding: 0 to-rem(24) 0 0;
-
-      &:focus {
-        outline: none;
-        background: rgba(60, 121, 194, 0.1);
-        border-radius: to-rem(4);
-      }
-
-      &:hover:not(:disabled) {
-        background: rgba(0, 0, 0, 0.05);
-        border-radius: to-rem(4);
-      }
-    }
-
-    &--ghost &__arrow {
-      right: 0;
-    }
-
-    &__arrow {
-      position: absolute;
-      right: to-rem(16);
-      top: 50%;
-      transform: translateY(-50%);
-      width: to-rem(16);
-      height: to-rem(16);
-      color: $gray-600;
-      pointer-events: none;
-      transition: transform 0.2s ease;
-
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    // select가 열렸을 때 화살표 회전 (브라우저 지원이 제한적이지만 추가)
-    &__element:focus + &__arrow {
-      transform: translateY(-50%) rotate(180deg);
-    }
-  }
-</style>

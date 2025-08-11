@@ -118,7 +118,7 @@
     gap: to-rem(8) to-rem(24);
 
     @include tablet {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr) !important;
       gap: to-rem(6) to-rem(16);
     }
   }
@@ -161,6 +161,12 @@
     display: flex;
     align-items: flex-start;
     gap: to-rem(8);
+
+    @include tablet {
+      flex-direction: column;
+      align-items: stretch;
+      gap: to-rem(16);
+    }
 
     &-input {
       flex: 1;

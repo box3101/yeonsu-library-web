@@ -57,59 +57,77 @@ const copyrightLinks = [
   <!-- 배너영역 -->
   <section class="banner-section">
     <div class="inner">
-      <div class="flex-cnt gap-0">
-        <div class="w15">
-          <div class="banner-section__left flex gap-4">
+      <div class="banner-section__content">
+        <div class="banner-section__left">
+          <div class="banner-section__nav flex gap-4">
             <UiNavButton
-              class="bg-primary"
+              class="ui-nav-button--primary"
               direction="prev"
               size={40}
               ariaLabel="이전 공지사항"
             />
             <UiNavButton
-              class="bg-primary"
+              class="ui-nav-button--primary"
               direction="stop"
               size={40}
-              ariaLabel="이전 공지사항"
+              ariaLabel="정지"
             />
-
             <UiNavButton
-              class="bg-primary"
+              class="ui-nav-button--primary"
               direction="next"
               size={40}
-              ariaLabel="이전 공지사항"
+              ariaLabel="다음 공지사항"
             />
           </div>
         </div>
-        <div class="w85">
-          <div class="banner-section__right">
-            <ul class="banner-section__list">
-              <li>
-                <a href="#">
-                  <img src="./assets/images/banner/banner01.png" alt="배너01" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./assets/images/banner/banner02.png" alt="배너02" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./assets/images/banner/banner03.png" alt="배너02" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./assets/images/banner/banner04.png" alt="배너02" />
-                </a>
-              </li><li>
-                <a href="#">
-                  <img src="./assets/images/banner/banner05.png" alt="배너02" />
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="banner-section__right">
+          <ul class="banner-section__list">
+            <li class="banner-section__item">
+              <a href="#" class="banner-section__link">
+                <img
+                  src="./assets/images/banner/banner01.png"
+                  alt="배너01"
+                  class="banner-section__image"
+                />
+              </a>
+            </li>
+            <li class="banner-section__item">
+              <a href="#" class="banner-section__link">
+                <img
+                  src="./assets/images/banner/banner02.png"
+                  alt="배너02"
+                  class="banner-section__image"
+                />
+              </a>
+            </li>
+            <li class="banner-section__item">
+              <a href="#" class="banner-section__link">
+                <img
+                  src="./assets/images/banner/banner03.png"
+                  alt="배너03"
+                  class="banner-section__image"
+                />
+              </a>
+            </li>
+            <li class="banner-section__item">
+              <a href="#" class="banner-section__link">
+                <img
+                  src="./assets/images/banner/banner04.png"
+                  alt="배너04"
+                  class="banner-section__image"
+                />
+              </a>
+            </li>
+            <li class="banner-section__item">
+              <a href="#" class="banner-section__link">
+                <img
+                  src="./assets/images/banner/banner05.png"
+                  alt="배너05"
+                  class="banner-section__image"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

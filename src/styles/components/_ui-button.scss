@@ -34,12 +34,18 @@
     pointer-events: none;
   }
 
-  // 크기 variants - Figma 디자인 시스템 기준
+  // 크기 variants
   &--xsmall {
     padding: to-rem(10) to-rem(12);
     font-size: to-rem(15);
     height: to-rem(32);
     border-radius: to-rem(4);
+
+    @include mobile {
+      padding: to-rem(8) to-rem(10);
+      font-size: to-rem(14);
+      height: to-rem(28);
+    }
   }
 
   &--small {
@@ -47,6 +53,12 @@
     font-size: to-rem(15);
     height: to-rem(40);
     border-radius: to-rem(6);
+
+    @include mobile {
+      padding: to-rem(10) to-rem(14);
+      font-size: to-rem(14);
+      height: to-rem(36);
+    }
   }
 
   &--medium {
@@ -54,6 +66,12 @@
     font-size: to-rem(17);
     height: to-rem(48);
     border-radius: to-rem(6);
+
+    @include mobile {
+      padding: to-rem(14) to-rem(17);
+      font-size: to-rem(16);
+      height: to-rem(44);
+    }
   }
 
   &--large {
@@ -61,6 +79,12 @@
     font-size: to-rem(19);
     height: to-rem(56);
     border-radius: to-rem(8);
+
+    @include mobile {
+      padding: to-rem(18) to-rem(20);
+      font-size: to-rem(17);
+      height: to-rem(48);
+    }
   }
 
   &--xlarge {
@@ -68,17 +92,21 @@
     font-size: to-rem(19);
     height: to-rem(64);
     border-radius: to-rem(8);
+
+    @include mobile {
+      padding: to-rem(20) to-rem(24);
+      font-size: to-rem(17);
+      height: to-rem(56);
+    }
   }
 
-  // 스타일 variants - Figma 디자인 시스템 기준
+  // 스타일 variants
   &--primary {
     background: #256ef4;
     color: #ffffff;
     border-color: #256ef4;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(
-        .ui-button--disabled
-      ) {
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #0b50d0;
       border-color: #0b50d0;
     }
@@ -93,6 +121,14 @@
     background: #244874;
     color: #ffffff;
     border-color: #244874;
+
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      background: #1a3555;
+    }
+
+    &:active {
+      background: #142940;
+    }
   }
 
   &--secondary {
@@ -100,9 +136,7 @@
     color: #256ef4;
     border-color: #256ef4;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(
-        .ui-button--disabled
-      ) {
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #d8e5fd;
     }
 
@@ -116,9 +150,7 @@
     color: #58616a;
     border-color: #58616a;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(
-        .ui-button--disabled
-      ) {
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #f4f5f6;
     }
 
@@ -132,9 +164,7 @@
     color: #256ef4;
     border-color: transparent;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(
-        .ui-button--disabled
-      ) {
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #eef2f7;
     }
 
@@ -149,18 +179,33 @@
 
     &.ui-button--xsmall {
       padding: to-rem(8);
+      @include mobile {
+        padding: to-rem(6);
+      }
     }
     &.ui-button--small {
       padding: to-rem(12);
+      @include mobile {
+        padding: to-rem(10);
+      }
     }
     &.ui-button--medium {
       padding: to-rem(14);
+      @include mobile {
+        padding: to-rem(12);
+      }
     }
     &.ui-button--large {
       padding: to-rem(18);
+      @include mobile {
+        padding: to-rem(16);
+      }
     }
     &.ui-button--xlarge {
       padding: to-rem(20);
+      @include mobile {
+        padding: to-rem(18);
+      }
     }
   }
 
@@ -196,12 +241,23 @@
         width: to-rem(24);
         height: to-rem(24);
       }
+
+      @include mobile {
+        .ui-button--large & {
+          width: to-rem(18);
+          height: to-rem(18);
+        }
+
+        .ui-button--xlarge & {
+          width: to-rem(20);
+          height: to-rem(20);
+        }
+      }
     }
   }
 
   // 텍스트
   &__text {
-    flex: 1;
     min-width: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -239,26 +295,46 @@
   &--xsmall &__icon {
     width: to-rem(16);
     height: to-rem(16);
+    @include mobile {
+      width: to-rem(14);
+      height: to-rem(14);
+    }
   }
 
   &--small &__icon {
     width: to-rem(16);
     height: to-rem(16);
+    @include mobile {
+      width: to-rem(14);
+      height: to-rem(14);
+    }
   }
 
   &--medium &__icon {
     width: to-rem(20);
     height: to-rem(20);
+    @include mobile {
+      width: to-rem(18);
+      height: to-rem(18);
+    }
   }
 
   &--large &__icon {
     width: to-rem(20);
     height: to-rem(20);
+    @include mobile {
+      width: to-rem(18);
+      height: to-rem(18);
+    }
   }
 
   &--xlarge &__icon {
     width: to-rem(24);
     height: to-rem(24);
+    @include mobile {
+      width: to-rem(20);
+      height: to-rem(20);
+    }
   }
 
   // 링크로 사용될 때

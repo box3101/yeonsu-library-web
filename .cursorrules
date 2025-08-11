@@ -1,0 +1,119 @@
+# 연수도서관 웹사이트 개발 가이드
+
+## 📋 프로젝트 개요
+- **타입**: 퍼블리싱 전용 프로젝트 (백엔드 없음)
+- **프레임워크**: Astro 4.15.0 기반 정적 사이트
+- **스타일링**: SCSS 7-1 아키텍처 + BEM 방법론
+- **폰트**: Pretendard GOV 폰트 시스템
+- **JavaScript**: Vanilla JS + Swiper.js
+
+## 🚫 퍼블리싱 전용 - 금지 사항
+- 백엔드 API 연동 코드 작성 금지
+- 데이터베이스 관련 코드 금지
+- 서버 사이드 로직 금지
+- 실제 폼 제출 처리 금지 (UI만 구현)
+- 인증/권한 로직 금지 (UI만 구현)
+
+## 🏗️ SCSS 아키텍처 규칙
+
+### 폴더 구조 (7-1 패턴)
+```
+styles/
+├── abstracts/     # 함수, 믹스인
+├── variables/     # 색상, 타이포그래피, 레이아웃
+├── utilities/     # 원자 단위 클래스
+├── components/    # 컴포넌트별 스타일
+├── pages/        # 페이지별 스타일
+├── common.scss   # 글로벌 스타일
+└── main.scss     # 엔트리포인트
+```
+<code_block_to_apply_changes_from>
+```
+public/assets/js/
+├── common.js     # 공통 기능 (아코디언, 메뉴 등)
+├── tab.js        # 탭 컴포넌트
+├── swiper.js     # 스와이퍼 슬라이더
+└── {기능명}.js   # 계속 추가
+```
+
+### 함수 사용 규칙
+- `to-rem()`: px을 rem으로 변환 필수 (폰트사이, 패딩, 마진)
+
+### 믹스인 패턴
+```scss
+@include flex($direction, $justify, $align, $wrap)
+@include flex-center, @include flex-between
+@include mobile, @include tablet, @include desktop
+```
+
+## 🎨 디자인 시스템
+
+### 색상 변수 (variables/_colors.scss)
+- Primary: `$primary-color` (#007ccc)
+- Secondary: `$secondary-color` (#063a74)
+- Gray 팔레트: `$gray-50` ~ `$gray-900`
+- 상태 색상: `$success-color`, `$error-color`, `$warning-color`
+
+### 타이포그래피 (variables/_typography.scss)
+- 폰트: Pretendard GOV Variable
+- 크기 시스템: h1(40px) ~ h6(16px)
+- 무게: `$font-light`(300) ~ `$font-extrabold`(800)
+
+### 브레이크포인트 (variables/_layout.scss)
+- `$breakpoint-md`: 768px  테블릿 하나만
+
+## 🧩 컴포넌트 규칙
+
+### Astro 컴포넌트
+- 파일명: 파스칼케이스 (UiButton.astro)
+- UI 컴포넌트: Ui 접두사 필수
+- Props 인터페이스 정의 필수
+- 레이아웃 컴포넌트는 layout/ 폴더에 배치
+
+### SCSS 스타일링 (BEM 방법론)
+```scss
+.ui-button {                    // Block
+  &__text { }                   // Element
+  &__icon { }                   // Element
+  &--primary { }                // Modifier
+  &--disabled { }               // Modifier
+}
+```
+
+### 컴포넌트 variants
+- UiButton: primary, secondary, tertiary, darkBlue, text
+- 크기: xsmall, small, medium, large, xlarge
+- 상태: disabled, loading
+
+## ⚡ 유틸리티 클래스 (Tailwind 스타일)
+
+### Flex 유틸리티
+```scss
+.flex, .inline-flex
+.flex-row, .flex-col
+.justify-center, .justify-between
+.items-center, .items-start
+.gap-0 ~ .gap-100
+```
+
+### Spacing 유틸리티 (px 단위)
+```scss
+.m{값}, .mt{값}, .mb{값}, .ml{값}, .mr{값}
+.mx{값}, .my{값}  // 축별 margin
+.p{값}, .pt{값}, .pb{값}, .pl{값}, .pr{값}
+.px{값}, .py{값}  // 축별 padding
+.-m{값}          // 네거티브 margin
+
+// 반응형
+.sm\:m{값}, .md\:m{값}, .lg\:m{값}
+```
+
+### 값 범위: 0~30, 32, 36, 40, 44, 48, 56, 64, 72, 80, 96, 112, 128
+
+## 💻 JavaScript 패턴 (Vanilla JS)
+
+### 파일 구조
+
+
+## 📝 퍼블리싱 체크리스트
+- [ ] 반응형 디자인 구현

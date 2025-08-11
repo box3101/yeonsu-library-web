@@ -1,0 +1,116 @@
+@use '../globals' as *;
+// Navigation Button Component
+.ui-nav-button {
+  @include flex-center;
+  border-radius: to-rem(12);
+  background: $white;
+  border: 1px solid $gray-300;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+
+  // Icon styling (기본)
+  .icon,
+  i[class*='icon'] {
+    color: $gray-600;
+    transition: color 0.2s ease;
+  }
+
+  // Variant: Primary Background
+  &--primary {
+    background: $primary-color;
+    border: 1px solid $primary-color;
+
+    // Primary 버튼의 모든 아이콘은 흰색으로 강제
+    .icon,
+    i[class*='icon'],
+    i[class*='icon-arr'],
+    i[class*='icon-stop'] {
+      color: $white !important;
+    }
+
+    &:hover:not(:disabled) {
+      background: $primary-color-light;
+      border-color: $primary-color-light;
+
+      .icon,
+      i[class*='icon'] {
+        color: $white !important;
+      }
+    }
+
+    &:active:not(:disabled) {
+      .icon,
+      i[class*='icon'] {
+        color: $white !important;
+      }
+    }
+
+    &:focus {
+      .icon,
+      i[class*='icon'] {
+        color: $white !important;
+      }
+    }
+  }
+
+  // Variant: White Background
+  &--white {
+    border-radius: to-rem(100);
+    border: 1px solid $gray-300;
+    background: $white;
+
+    &:hover:not(:disabled) {
+      background: $gray-100;
+      border-color: $gray-600;
+    }
+  }
+
+  // Default hover state
+  &:hover:not(:disabled) {
+    background: $gray-100;
+    border-color: $gray-600;
+
+    .icon,
+    i[class*='icon'] {
+      color: $text-color;
+    }
+  }
+
+  // Focus state
+  &:focus {
+    outline: to-rem(2) solid $primary-color;
+    outline-offset: to-rem(2);
+  }
+
+  // Active state
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  // Disabled state
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: $gray-100;
+    border-color: $gray-300;
+
+    .icon,
+    i[class*='icon'] {
+      color: $gray-600 !important;
+    }
+  }
+
+  // Direction-specific modifiers
+  &--prev {
+    // Previous button specific styles if needed
+  }
+
+  &--next {
+    // Next button specific styles if needed
+  }
+
+  &--stop {
+    // Stop button specific styles if needed
+  }
+}

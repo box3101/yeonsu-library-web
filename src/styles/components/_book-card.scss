@@ -1,17 +1,22 @@
 // Book Card Component Styles
 // Based on SCSS 7-1 Architecture and BEM methodology
 
-@use '../globals' as *;
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
 
 .ui-book-card {
   margin-bottom: to-rem(24);
-  &:last-child {
-    margin-bottom: 0;
-  }
-  // Layout
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @include mobile {
+    margin-bottom: to-rem(16);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   &__container {
     display: flex;
@@ -20,6 +25,13 @@
     background-color: $white;
     border: 1px solid $gray-300;
     border-radius: to-rem(12);
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(16);
+      padding: to-rem(16);
+      border-radius: to-rem(8);
+    }
   }
 
   // 왼쪽 영역 (인덱스 + 이미지)
@@ -28,6 +40,11 @@
     flex-direction: row;
     align-items: stretch;
     flex-shrink: 0;
+
+    @include mobile {
+      align-items: flex-start;
+      gap: to-rem(16);
+    }
   }
 
   &__index {
@@ -45,6 +62,10 @@
       line-height: 1.5;
       color: $black;
       text-align: center;
+
+      @include mobile {
+        font-size: to-rem(14);
+      }
     }
   }
 
@@ -58,6 +79,11 @@
     position: relative;
     width: to-rem(220);
     height: 100%;
+
+    @include mobile {
+      width: to-rem(120);
+      height: to-rem(150);
+    }
   }
 
   &__image-link {
@@ -108,6 +134,12 @@
     transition: background-color 0.2s ease;
     width: 100%;
 
+    @include mobile {
+      font-size: to-rem(15);
+      height: to-rem(44);
+      padding: 0 to-rem(12);
+    }
+
     &:hover {
       background-color: $gray-700;
     }
@@ -123,7 +155,11 @@
     flex-direction: column;
     gap: to-rem(16);
     flex: 1;
-    min-width: 0; // flex item이 줄어들 수 있도록
+    min-width: 0;
+
+    @include mobile {
+      gap: to-rem(12);
+    }
   }
 
   // 배지 영역
@@ -143,16 +179,26 @@
     font-family: $font-family-primary;
     font-weight: 400;
     white-space: nowrap;
-
-    // 기본 사이즈 (medium)
     height: to-rem(28);
     font-size: to-rem(15);
     line-height: 1.5;
+
+    @include mobile {
+      // height: to-rem(24);
+      font-size: to-rem(13);
+      padding: 0 to-rem(10);
+      border-radius: to-rem(12);
+    }
 
     // 큰 사이즈
     &--large {
       height: to-rem(32);
       font-size: to-rem(17);
+
+      @include mobile {
+        height: to-rem(28);
+        font-size: to-rem(15);
+      }
     }
 
     // 타입별 색상
@@ -178,6 +224,10 @@
     flex-direction: column;
     flex: 1;
     align-items: stretch;
+
+    @include mobile {
+      gap: to-rem(16);
+    }
   }
 
   // 제목 섹션
@@ -187,6 +237,10 @@
     gap: to-rem(12);
     flex: 1;
     min-width: 0;
+
+    @include mobile {
+      gap: to-rem(8);
+    }
   }
 
   &__title {
@@ -200,6 +254,11 @@
     line-height: 1.5;
     color: $gray-900;
     margin: 0;
+    word-break: keep-all;
+
+    @include mobile {
+      font-size: to-rem(18);
+    }
 
     // 하이라이팅된 텍스트
     .text-primary {
@@ -214,6 +273,11 @@
     line-height: 1.5;
     color: $black;
     margin: 0;
+    word-break: keep-all;
+
+    @include mobile {
+      font-size: to-rem(15);
+    }
   }
 
   // 상세 정보
@@ -229,6 +293,10 @@
     gap: to-rem(16);
     justify-content: stretch;
     align-items: stretch;
+
+    @include mobile {
+      gap: to-rem(12);
+    }
   }
 
   &__details-column {
@@ -236,6 +304,11 @@
     flex-direction: row;
     gap: to-rem(16);
     flex: 1;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(8);
+    }
   }
 
   &__detail-item {
@@ -243,6 +316,11 @@
     flex-direction: row;
     flex: 1;
     min-width: 0;
+
+    @include mobile {
+      gap: to-rem(8);
+      align-items: flex-start;
+    }
   }
 
   &__detail-label {
@@ -253,7 +331,12 @@
     line-height: 1.5;
     color: $gray-800;
     flex-shrink: 0;
-    margin-right: 8px;
+    margin-right: to-rem(8);
+
+    @include mobile {
+      font-size: to-rem(15);
+      margin-right: to-rem(6);
+    }
   }
 
   &__detail-value {
@@ -262,7 +345,11 @@
     font-size: to-rem(17);
     line-height: 1.5;
     color: $gray-600;
-    word-break: break-all;
+    word-break: keep-all;
+
+    @include mobile {
+      font-size: to-rem(15);
+    }
   }
 
   // 액션 버튼들
@@ -271,6 +358,12 @@
     display: flex;
     gap: to-rem(16);
     align-self: flex-start;
+
+    @include mobile {
+      margin-top: to-rem(16);
+      gap: to-rem(12);
+      flex-wrap: wrap;
+    }
   }
 
   &__action-button {
@@ -288,6 +381,13 @@
     line-height: 1.5;
     transition: all 0.2s ease;
     flex-shrink: 0;
+
+    @include mobile {
+      font-size: to-rem(15);
+      height: to-rem(44);
+      padding: 0 to-rem(12);
+      border-radius: to-rem(4);
+    }
 
     &--secondary {
       background-color: transparent;
@@ -307,80 +407,6 @@
       &:hover {
         background-color: $gray-200;
       }
-    }
-  }
-
-  // 반응형 처리
-  @include tablet {
-    &__container {
-      flex-direction: column;
-      gap: to-rem(16);
-      padding: to-rem(24);
-      height: auto;
-    }
-
-    &__left {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: to-rem(16);
-    }
-
-    &__image-container {
-      width: to-rem(120);
-      height: to-rem(150);
-    }
-
-    &__main {
-      flex-direction: column;
-      gap: to-rem(24);
-    }
-
-    &__details-row {
-      flex-direction: column;
-    }
-
-    &__details-column {
-      flex-direction: column;
-      gap: to-rem(8);
-    }
-
-    &__detail-item {
-      flex-direction: row;
-      gap: to-rem(8);
-      align-items: flex-start;
-    }
-
-    &__actions {
-      flex-wrap: wrap;
-    }
-  }
-
-  @include mobile {
-    &__container {
-      padding: to-rem(16);
-    }
-
-    &__title {
-      font-size: to-rem(20);
-    }
-
-    &__author {
-      font-size: to-rem(15);
-    }
-
-    &__detail-label,
-    &__detail-value {
-      font-size: to-rem(15);
-    }
-
-    &__action-button {
-      font-size: to-rem(15);
-      height: to-rem(44);
-    }
-
-    &__add-button {
-      font-size: to-rem(15);
-      height: to-rem(44);
     }
   }
 }

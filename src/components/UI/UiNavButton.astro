@@ -40,9 +40,10 @@ const defaultAriaLabel =
   direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
 const buttonAriaLabel = ariaLabel || defaultAriaLabel;
 
-// bg-primary 클래스가 있으면 아이콘에 white 클래스 추가
-const hasPrimaryBg = className.includes('bg-primary');
-const iconWhiteClass = hasPrimaryBg ? 'icon-white' : '';
+// ui-nav-button--primary 클래스가 있으면 아이콘에 white 클래스 추가
+const iconWhiteClass = className.includes('ui-nav-button--primary')
+  ? 'icon-white'
+  : '';
 ---
 
 <button
@@ -66,78 +67,3 @@ const iconWhiteClass = hasPrimaryBg ? 'icon-white' : '';
     ) : null
   }
 </button>
-
-<style lang="scss" is:global>
-  @use '@styles/abstracts' as *;
-  @use '@styles/variables/colors' as *;
-
-  .ui-nav-button {
-    @include flex-center;
-    border-radius: to-rem(12);
-    background: $white;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 0;
-    border: 1px solid var(--color-border-gray-light, #cdd1d5);
-
-    &.bg-primary {
-      background: $primary-color;
-      border: none;
-
-      &:hover {
-        background: $primary-color !important;
-      }
-    }
-
-    &.bg-white {
-      border-radius: var(--radius-max, 1000px);
-      border: 1px solid var(--color-border-gray-light, #cdd1d5);
-      background: var(--color-action-white, #fff);
-    }
-
-    &:hover:not(:disabled) {
-      background: #f3f3f3;
-      border-color: #a0a0a0;
-    }
-
-    &:focus {
-      outline: to-rem(2) solid $primary-color;
-      outline-offset: to-rem(2);
-    }
-
-    &:active:not(:disabled) {
-      transform: scale(0.98);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      background: #f5f5f5;
-      border-color: #ddd;
-    }
-
-    &__icon {
-      width: to-rem(24);
-      height: to-rem(24);
-      color: $gray-600;
-      transition: color 0.2s ease;
-    }
-
-    &:hover:not(:disabled) &__icon {
-      color: $text-color;
-    }
-
-    &:disabled &__icon {
-      color: #999;
-    }
-
-    // 특정 방향별 추가 스타일링이 필요한 경우
-    &--prev {
-      // 이전 버튼 전용 스타일
-    }
-
-    &--next {
-      // 다음 버튼 전용 스타일
-    }
-  }
-</style>
