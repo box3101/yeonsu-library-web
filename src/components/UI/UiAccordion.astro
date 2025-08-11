@@ -187,7 +187,7 @@ const iconClasses = [
     // 초기 상태 설정
     const initialExpanded = content.dataset.expanded === 'true';
     if (initialExpanded) {
-      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.maxHeight = 'max-content';
     } else {
       content.style.maxHeight = '0';
     }
@@ -244,7 +244,7 @@ const iconClasses = [
 
       // 콘텐츠 높이 애니메이션
       if (newExpanded) {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.maxHeight = 'max-content';
       } else {
         content.style.maxHeight = '0';
       }
@@ -445,7 +445,7 @@ const iconClasses = [
 
     &__content {
       overflow: hidden;
-      max-height: max-content !important;
+      display: block;
     }
 
     &__body {
