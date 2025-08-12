@@ -113,15 +113,15 @@
   &__content {
     overflow: hidden;
     transition: max-height 0.3s ease;
-    max-height: 0;
+    max-height: auto !important;
 
     &[data-expanded='true'] {
-      max-height: 1000px; // 충분한 높이 설정
+      max-height: auto; // 충분한 높이 설정
     }
   }
 
   &__inner {
-    padding: to-rem(0) to-rem(20);
+    padding: to-rem(20) to-rem(20);
   }
 
   &__book-title {
