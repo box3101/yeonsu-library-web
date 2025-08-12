@@ -14,7 +14,7 @@
 .page-title {
   &--h1 {
     @include page-title('h1', $gray-900);
-    
+
     & {
       margin-bottom: to-rem(32);
     }
@@ -22,7 +22,7 @@
 
   &--h2 {
     @include page-title('h2', $gray-900);
-    
+
     & {
       margin-bottom: to-rem(24);
     }
@@ -30,7 +30,7 @@
 
   &--h3 {
     @include page-title('h3', $gray-800);
-    
+
     & {
       margin-bottom: to-rem(20);
     }
@@ -38,7 +38,7 @@
 
   &--h4 {
     @include page-title('h4', $gray-800);
-    
+
     & {
       margin-bottom: to-rem(16);
     }
@@ -46,7 +46,7 @@
 
   &--h5 {
     @include page-title('h5', $gray-700);
-    
+
     & {
       margin-bottom: to-rem(12);
     }
@@ -54,7 +54,7 @@
 
   &--h6 {
     @include page-title('h6', $gray-700);
-    
+
     & {
       margin-bottom: to-rem(8);
     }
@@ -64,7 +64,7 @@
 // 섹션 타이틀 (도서검색, 소장도서검색 등)
 .section-title {
   @include page-title('h1', $primary-color);
-  
+
   & {
     margin-bottom: to-rem(40);
     padding-bottom: to-rem(16);
@@ -86,7 +86,7 @@
 // 서브 섹션 타이틀
 .sub-section-title {
   @include page-title('h2', $gray-900);
-  
+
   & {
     margin-bottom: to-rem(24);
     padding-left: to-rem(16);
@@ -96,11 +96,12 @@
 
 // 카테고리 타이틀
 .category-title {
-  @include page-title('h3', $gray-800);
   margin-bottom: to-rem(16);
   display: flex;
   align-items: center;
   gap: to-rem(8);
+
+  @include page-title('h3', $gray-800);
 
   &::before {
     content: '';
