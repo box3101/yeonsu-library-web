@@ -60,4 +60,22 @@
     ],
     "description": "UiCheckbox 컴포넌트를 생성합니다",
   },
+  "UiAccordion Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "acc",
+    "body": [
+      "<UiAccordion",
+      "  title=\"${1:아코디언 제목}\"",
+      "  variant=\"${2|bordered,default|}\"",
+      "  size=\"${3|medium,small,large|}\"",
+      "  iconType=\"${4|chevron,plus|}\"",
+      "  isExpanded={${5:true}}",
+      "  className=\"${6:custom-accordion}\"",
+      ">",
+      "  ${7:<!-- 아코디언 내용 -->}",
+      "</UiAccordion>",
+      "$0",
+    ],
+    "description": "UiAccordion 컴포넌트를 생성합니다",
+  },
 }

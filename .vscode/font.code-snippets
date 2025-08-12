@@ -1,7 +1,7 @@
 {
-  "Title Style": {
-    "prefix": "fz",
-    "body": ["font-size: to-rem(${1});", "font-weight: ${2};", "color: ${3};"],
-    "description": "타이틀 스타일 (폰트 크기, 굵기, 색상) 자동 완성",
+  "Font Mixin": {
+    "prefix": "font",
+    "body": ["@include font(to-rem(${1}), ${2}, ${3});"],
+    "description": "font 믹스인 (크기, 굵기, 색상) 자동 완성",
   },
 }

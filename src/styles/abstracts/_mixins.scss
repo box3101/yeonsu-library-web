@@ -284,3 +284,28 @@ $icon-map: (
   bottom: $bottom;
   left: $left;
 }
+
+// before, after
+// before, after
+@mixin makeBefore {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    @content; // 이 줄 추가!
+  }
+}
+@mixin makeAfter {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+}
+
+// 폰트 스타일 mixin
+@mixin font($size, $weight, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}

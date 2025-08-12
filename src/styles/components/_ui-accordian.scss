@@ -38,20 +38,17 @@
       margin-left: 5px;
     }
     .ui-accordion__title {
-      font-size: to-rem(24);
-      font-weight: 700;
-      color: #000;
+      @include font(to-rem(24), 700, #000);
       position: relative;
       padding-left: to-rem(40);
       margin-right: to-rem(5);
       text-align: left;
       flex: none;
 
-      &::before {
-        content: '';
+      @include makeBefore {
         @include position(absolute, 50%, 0, 0, 0);
         transform: translateY(-50%);
-        @include icon('book', to-rem(30), to-rem(22));
+        @include icon('book', to-rem(30), to-rem(22), to-rem(22));
       }
     }
   }
