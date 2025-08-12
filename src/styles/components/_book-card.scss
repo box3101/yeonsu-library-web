@@ -192,7 +192,6 @@
 
     // 큰 사이즈
     &--large {
-      height: to-rem(32);
       font-size: to-rem(17);
 
       @include mobile {

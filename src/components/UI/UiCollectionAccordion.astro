@@ -45,24 +45,36 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
 <div
   class={`ui-collection-accordion ${className}`}
   data-accordion-id={accordionId}
+  data-icon-type={iconType}
 >
-  <button
-    type="button"
-    class="ui-collection-accordion__trigger"
-    aria-expanded={isExpanded}
-    aria-controls={accordionId}
-  >
-    <div class="ui-collection-accordion__trigger-content">
-      <span class="ui-collection-accordion__title">{title}</span>
-    </div>
-    {
-      iconType === 'arrow' ? (
-        <i class="icon icon-xmd icon-arrow-down" />
-      ) : (
+  {iconType === 'close' ? (
+    <!-- close 타입일 때: 버튼이 아닌 일반 div + 별도 close 버튼 -->
+    <div class="ui-collection-accordion__trigger">
+      <div class="ui-collection-accordion__trigger-content">
+        <span class="ui-collection-accordion__title">{title}</span>
+      </div>
+      <button
+        type="button"
+        class="ui-collection-accordion__close-btn"
+        aria-label="소장정보 닫기"
+      >
         <i class="icon icon-xmd icon-close" />
-      )
-    }
-  </button>
+      </button>
+    </div>
+  ) : (
+    <!-- arrow 타입일 때: 기존 버튼 방식 -->
+    <button
+      type="button"
+      class="ui-collection-accordion__trigger"
+      aria-expanded={isExpanded}
+      aria-controls={accordionId}
+    >
+      <div class="ui-collection-accordion__trigger-content">
+        <span class="ui-collection-accordion__title">{title}</span>
+      </div>
+      <i class="icon icon-xmd icon-arrow-down" />
+    </button>
+  )}
 
   <div
     id={accordionId}

@@ -34,18 +34,8 @@
   "scss.validate": true,
 
   // CSS Peek 설정
-  "css_peek.searchFileExtensions": [
-    ".css",
-    ".scss",
-    ".sass",
-    ".less"
-  ],
-  "css_peek.peekFromLanguages": [
-    "html",
-    "astro",
-    "javascript",
-    "typescript"
-  ],
+  "css_peek.searchFileExtensions": [".css", ".scss", ".sass", ".less"],
+  "css_peek.peekFromLanguages": ["html", "astro", "javascript", "typescript"],
 
   // CSS Navigation 설정
   "cssNavigation.activeHTMLFileExtensions": ["html", "astro", "vue"],

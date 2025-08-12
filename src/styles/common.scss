@@ -478,14 +478,22 @@ html {
   h3 {
     position: relative;
     padding-left: to-rem(40);
-    font-size: to-rem(24);
-    font-weight: 700;
-    color: #000;
+    @include font(to-rem(24), 700, #000);
     text-align: left;
+    margin-bottom: to-rem(10);
     @include makeBefore {
       @include position(absolute, 50%, 0, 0, 0);
       transform: translateY(-50%);
       @include icon('book', to-rem(30), to-rem(22), to-rem(22));
     }
   }
+}
+
+img {
+  @include responsive-image;
+}
+
+// 특정 이미지에만 적용하고 싶을 때
+.content-image {
+  @include responsive-image;
 }

@@ -309,3 +309,11 @@ $icon-map: (
   font-weight: $weight;
   color: $color;
 }
+
+// 반응형 이미지 mixin
+@mixin responsive-image {
+  max-width: 100%;
+  height: auto; // 비율 유지
+  display: block; // 이미지 하단 여백 제거
+  object-fit: contain; // 이미지 비율 유지하면서 컨테이너에 맞춤
+}
