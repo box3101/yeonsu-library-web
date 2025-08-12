@@ -2,16 +2,14 @@
 export interface Props {
   text?: string;
   iconSrc?: string;
+  options?: { label: string; url: string }[];
   width?: string;
   height?: string;
-  options?: { label: string; url: string }[];
 }
 
 const {
   text = '관련사이트 바로가기',
   iconSrc = '/assets/images/icon/icon-arr-right.svg',
-  width = '272px',
-  height = '56px',
   options = [
     { label: '인천광역시청', url: 'https://www.incheon.go.kr' },
     { label: '연수구청', url: 'https://www.yeonsu.go.kr' },
@@ -22,12 +20,8 @@ const {
 } = Astro.props;
 ---
 
-<div class="related-site-dropdown" style={`width: ${width};`}>
-  <button
-    class="related-site-button"
-    type="button"
-    style={`width: ${width}; height: ${height};`}
-  >
+<div class="related-site-dropdown">
+  <button class="related-site-button" type="button">
     <span class="related-site-button__text">{text}</span>
     <div class="related-site-button__icon">
       <img src={iconSrc} alt="" />
@@ -58,6 +52,7 @@ const {
 
   .related-site-dropdown {
     position: relative;
+    height: 100%;
 
     &__menu {
       position: absolute;
@@ -118,6 +113,8 @@ const {
   }
 
   .related-site-button {
+    height: 100%;
+    min-width: 272px;
     display: flex;
     flex-direction: row;
     gap: 8px;

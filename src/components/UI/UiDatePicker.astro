@@ -10,6 +10,7 @@ interface Props {
   required?: boolean;
   id?: string;
   className?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 }
 
 const {
@@ -21,10 +22,19 @@ const {
   required = false,
   id = '',
   className = '',
+  size = 'medium',
 } = Astro.props;
+
+const datePickerClasses = [
+  'ui-date-picker',
+  `ui-date-picker--${size}`,
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<div class={`ui-date-picker ${className}`}>
+<div class={datePickerClasses}>
   <div class="ui-date-picker__field">
     <div class="ui-date-picker__input-wrapper">
       <input

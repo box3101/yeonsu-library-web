@@ -104,6 +104,7 @@ body {
 .inner {
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
   @include tablet {
     width: 100%;
     padding: 0 to-rem(10);
@@ -498,27 +499,96 @@ img {
   @include responsive-image;
 }
 
-.com-list {
-  display: flex;
-  flex-direction: column;
+// Form List Components (개선된 반응형 처리)
+.form-list {
+  padding-bottom: to-rem(16);
+  @include flex(column);
   gap: to-rem(16);
-  .com-item {
+  border-bottom: 1px solid $gray-200;
+
+  @include mobile {
+    gap: to-rem(12);
+    padding-bottom: to-rem(12);
+  }
+
+  .form-item {
     display: flex;
     gap: to-rem(16);
 
-    .label {
+    @include mobile {
+      @include flex(column, flex-start, stretch, nowrap);
+      gap: to-rem(8);
+    }
+
+    .form-label {
       @include font(to-rem(16), 700, #000);
       display: flex;
       align-items: center;
       min-width: to-rem(100);
       margin-right: to-rem(10);
+      flex-shrink: 0;
+
+      @include mobile {
+        @include font(to-rem(15), 600, #000);
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: to-rem(4);
+      }
     }
-    .cnt {
-      display: flex;
+
+    .form-content {
+      @include flex(row, flex-start, center, nowrap);
       gap: to-rem(16);
       flex: 1 1 100%;
+
+      @include mobile {
+        @include flex(column, flex-start, stretch, nowrap);
+        gap: to-rem(8);
+        width: 100%;
+      }
+
+      // 체크박스들은 모바일에서도 가로로 유지 (공간이 허용하는 경우)
+      &.checkbox-group {
+        @include mobile {
+          @include flex(row, flex-start, center, wrap);
+          gap: to-rem(8);
+        }
+      }
+
+      // 입력 필드 + 버튼 조합
+      &.input-with-button {
+        @include mobile {
+          @include flex(column, flex-start, stretch, nowrap);
+          gap: to-rem(8);
+
+          .ui-input-container {
+            width: 100%;
+          }
+
+          .ui-button {
+            width: 100%;
+          }
+        }
+      }
     }
   }
+}
+
+// 기존 클래스명 호환성 유지 (점진적 마이그레이션)
+.com-list {
+  @extend .form-list;
+}
+
+.com-item {
+  @extend .form-item;
+}
+
+.label {
+  @extend .form-label;
+}
+
+.cnt {
+  @extend .form-content;
 }
 
 .w-full {

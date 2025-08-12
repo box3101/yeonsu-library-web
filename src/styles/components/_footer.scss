@@ -19,10 +19,8 @@
       height: to-rem(56);
       @include flex;
       align-items: center;
-      justify-content: flex-end;
 
       @include tablet {
-        height: to-rem(48);
         padding: 0 to-rem(16);
       }
     }

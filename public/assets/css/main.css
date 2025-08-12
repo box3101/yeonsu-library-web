@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css');
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,22 @@
 }
 
 body {
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family:
+    'Pretendard GOV Variable',
+    'Pretendard GOV',
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
   line-height: 1.6;
   color: #333;
 }
@@ -74,7 +89,7 @@ button {
 }
 .com-more-btn span {
   color: #191a1a;
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 1.0625rem;
   font-style: normal;
   font-weight: 500;
@@ -796,7 +811,7 @@ button {
   border-left: 0;
 }
 .footer__related-site-box-text {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 1.5;
@@ -869,7 +884,7 @@ button {
   flex-grow: 1;
 }
 .footer__business-number {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 1;
@@ -891,7 +906,7 @@ button {
   justify-content: flex-start;
 }
 .footer__library-item-name {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 700;
   font-size: 17px;
   line-height: 1.5;
@@ -905,7 +920,7 @@ button {
   justify-content: flex-start;
 }
 .footer__library-item-details-text {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 1.5;
@@ -958,7 +973,7 @@ button {
   border-radius: 4px;
 }
 .footer__copyright-links-button-text {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #1e2124;
@@ -975,7 +990,7 @@ button {
   justify-content: flex-start;
 }
 .footer__copyright-text span {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.5;
@@ -1077,7 +1092,7 @@ button {
   background-color: #ffffff;
 }
 .radio-button__item--checked::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1104,7 +1119,7 @@ button {
   background-color: #ffffff;
 }
 .radio-button__input:checked + .radio-button__label .radio-button__item::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1221,7 +1236,7 @@ button {
   position: relative;
 }
 .ui-radio__input:checked + .ui-radio__control {
-  border-color: #256ef4;
+  border-color: #3c79c2;
 }
 .ui-radio__input:checked + .ui-radio__control .ui-radio__dot {
   opacity: 1;
@@ -1244,7 +1259,7 @@ button {
 }
 
 .ui-radio__dot {
-  background-color: #256ef4;
+  background-color: #3c79c2;
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
@@ -1302,7 +1317,7 @@ button {
   position: relative;
   color: #7d8181;
   text-align: center;
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
@@ -1330,7 +1345,7 @@ button {
   position: absolute;
   top: 0;
   right: -10px;
-  content: "";
+  content: '';
   width: 0.5rem;
   height: 0.5rem;
   background-color: #fcc975;
@@ -1353,7 +1368,8 @@ button {
     font-size: 1.5rem;
     height: 2.5rem;
   }
-  .ui-tab__button:hover::after, .ui-tab__button--active::after {
+  .ui-tab__button:hover::after,
+  .ui-tab__button--active::after {
     width: 0.375rem;
     height: 0.375rem;
   }
@@ -1400,7 +1416,7 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("../assets/images/building-image.png");
+  background-image: url('../assets/images/building-image.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1473,7 +1489,9 @@ button {
   width: 100%;
   border-radius: 0.75rem;
   background: #ffffff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 1rem 0.75rem 1rem 1.5rem;
   margin-top: 0rem;
 }
@@ -1725,7 +1743,7 @@ button {
   }
 }
 .notice-section__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.5;
@@ -1758,7 +1776,7 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.0625rem;
   font-weight: 500;
   color: #333;
@@ -1866,7 +1884,7 @@ button {
   height: 2rem;
   padding: 0 1rem;
   border-radius: 2rem;
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
   color: #ffffff;
@@ -1885,7 +1903,7 @@ button {
   background: #40548c;
 }
 .notice-item__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.1875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1907,7 +1925,7 @@ button {
   }
 }
 .notice-item__date {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1974,7 +1992,7 @@ button {
   height: 100%;
 }
 .quick-link__text {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.1875rem;
   font-weight: 600;
   text-align: center;
@@ -1999,7 +2017,7 @@ button {
 .event-section {
   width: 100%;
   padding: 3.75rem 0;
-  background-image: url("../assets/images/bg-event-section.png");
+  background-image: url('../assets/images/bg-event-section.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2093,7 +2111,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
   color: #ffffff;
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1.5;
@@ -2115,7 +2133,7 @@ button {
   min-width: 0;
 }
 .event-section .event-section__left .event-card__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.1875rem;
   font-weight: 700;
   line-height: 1.5;
@@ -2144,7 +2162,8 @@ button {
     gap: 1rem;
   }
 }
-.event-section .event-section__left .event-card__info-left, .event-section .event-section__left .event-card__info-right {
+.event-section .event-section__left .event-card__info-left,
+.event-section .event-section__left .event-card__info-right {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -2164,7 +2183,7 @@ button {
   align-items: center;
 }
 .event-section .event-section__left .event-card__label {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.5;
@@ -2173,7 +2192,7 @@ button {
   min-width: 4.25rem;
 }
 .event-section .event-section__left .event-card__value {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.0625rem;
   font-weight: 500;
   line-height: 1.5;
@@ -2217,7 +2236,9 @@ button {
 }
 .event-section .event-section__right .new-content-item:hover {
   transform: translateY(-0.125rem);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .event-section .event-section__right .new-content-item__image {
   display: flex;
@@ -2249,7 +2270,7 @@ button {
   position: relative;
 }
 .event-section .event-section__right .new-content-item__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
@@ -2324,7 +2345,8 @@ button {
     gap: 24px;
   }
 }
-.info-section__left, .info-section__right {
+.info-section__left,
+.info-section__right {
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -2332,14 +2354,15 @@ button {
   gap: 16px;
 }
 @media (max-width: 575px) {
-  .info-section__left, .info-section__right {
+  .info-section__left,
+  .info-section__right {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
   }
 }
 .info-section__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.4;
@@ -2459,7 +2482,7 @@ button {
   background: #f8f9fa;
   color: #191a1a;
   text-align: center;
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 150%;
@@ -2477,7 +2500,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -2486,10 +2509,10 @@ button {
   margin-left: -1px;
   margin-top: -1px;
 }
-.calendar__day:nth-child(7n+1) {
+.calendar__day:nth-child(7n + 1) {
   margin-left: 0;
 }
-.calendar__day:nth-child(-n+7) {
+.calendar__day:nth-child(-n + 7) {
   margin-top: 0;
 }
 .calendar__day--prev {
@@ -2512,7 +2535,9 @@ button {
   background: #f8f9fa;
   color: #000;
 }
-.calendar__day:hover:not(.calendar__day--prev):not(.calendar__day--today):not(.calendar__day--holiday):not(.calendar__day--closed) {
+.calendar__day:hover:not(.calendar__day--prev):not(.calendar__day--today):not(
+    .calendar__day--holiday
+  ):not(.calendar__day--closed) {
   background: #f3f4f6;
 }
 
@@ -2522,7 +2547,7 @@ button {
   padding-bottom: 0;
 }
 .library-hours__title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: #333;
@@ -2544,7 +2569,7 @@ button {
   border-radius: 8px;
 }
 .library-hours__section-title {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #333;
@@ -2566,7 +2591,7 @@ button {
 }
 .library-hours__time {
   color: #191a1a;
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 150%;
@@ -2590,7 +2615,7 @@ button {
   border-top: 1px solid #e5e7eb;
 }
 .library-hours__page-info {
-  font-family: "Pretendard GOV", sans-serif;
+  font-family: 'Pretendard GOV', sans-serif;
   font-size: 14px;
   color: #6b7280;
   border-radius: var(--radius-max, 1000px);
@@ -2603,7 +2628,7 @@ button {
   align-items: center;
   justify-content: center;
   color: #1e2124;
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 150%;
@@ -2611,7 +2636,7 @@ button {
 }
 .library-hours__page-info .library-hours__page-info-current {
   color: var(--color-blue-BU600, #0071ba);
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 1.0625rem;
   font-style: normal;
   font-weight: 700;
@@ -2621,7 +2646,7 @@ button {
 .library-hours__page-info .library-hours__page-info-total {
   color: var(--color-text-basic, #1e2124);
   /* text style/txt-bold-17 */
-  font-family: "Pretendard GOV";
+  font-family: 'Pretendard GOV';
   font-size: 17px;
   font-style: normal;
   font-weight: 700;
@@ -2667,13 +2692,31 @@ section.banner-section div.inner div.flex-cnt div.w15 {
 section.banner-section div.inner div.flex-cnt div.w15 div.banner-section__left.flex.gap-4 {
   opacity: 1;
 }
-section.banner-section div.inner div.flex-cnt div.w15 div.banner-section__left.flex.gap-4 uinavbutton.bg-primary {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w15
+  div.banner-section__left.flex.gap-4
+  uinavbutton.bg-primary {
   opacity: 1;
 }
-section.banner-section div.inner div.flex-cnt div.w15 div.banner-section__left.flex.gap-4 uinavbutton.bg-primary uinavbutton.bg-primary {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w15
+  div.banner-section__left.flex.gap-4
+  uinavbutton.bg-primary
+  uinavbutton.bg-primary {
   opacity: 1;
 }
-section.banner-section div.inner div.flex-cnt div.w15 div.banner-section__left.flex.gap-4 uinavbutton.bg-primary uinavbutton.bg-primary uinavbutton.bg-primary {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w15
+  div.banner-section__left.flex.gap-4
+  uinavbutton.bg-primary
+  uinavbutton.bg-primary
+  uinavbutton.bg-primary {
   opacity: 1;
 }
 section.banner-section div.inner div.flex-cnt div.w85 {
@@ -2683,13 +2726,24 @@ section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right 
   opacity: 1;
   flex: 1;
 }
-section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right ul.banner-section__list {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w85
+  div.banner-section__right
+  ul.banner-section__list {
   display: flex;
   align-content: center;
   gap: 16px;
   width: 100%;
 }
-section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right ul.banner-section__list li {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w85
+  div.banner-section__right
+  ul.banner-section__list
+  li {
   border-radius: 8px;
   border: 1px solid #c9cccc;
   background: #fff;
@@ -2700,14 +2754,29 @@ section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right 
   justify-content: center;
   opacity: 1;
 }
-section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right ul.banner-section__list li a {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w85
+  div.banner-section__right
+  ul.banner-section__list
+  li
+  a {
   opacity: 1;
   display: flex;
   padding: 5px 0;
   align-items: center;
   justify-content: center;
 }
-section.banner-section div.inner div.flex-cnt div.w85 div.banner-section__right ul.banner-section__list li a img {
+section.banner-section
+  div.inner
+  div.flex-cnt
+  div.w85
+  div.banner-section__right
+  ul.banner-section__list
+  li
+  a
+  img {
   opacity: 1;
 }
 

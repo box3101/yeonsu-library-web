@@ -73,6 +73,10 @@ export interface Props {
    * 전체 너비 설정
    */
   fullWidth?: boolean;
+  /**
+   * 컴포넌트 크기
+   */
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 }
 
 const {
@@ -93,6 +97,7 @@ const {
   onSearch = 'handleSearch',
   class: className = '',
   fullWidth = false,
+  size = 'medium',
   ...rest
 } = Astro.props;
 
@@ -105,7 +110,7 @@ const inputId = `${searchbarId}-input`;
 ---
 
 <div
-  class={`ui-searchbar ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
+  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
   id={searchbarId}
   {...rest}
 >
@@ -142,70 +147,80 @@ const inputId = `${searchbarId}-input`;
     </div>
 
     <!-- 두 번째 셀렉트박스 (도서관) -->
-    {libraryOptions && (
-      <div class="ui-searchbar__select-wrapper">
-        <select
-          id={libraryId}
-          name="libraryType"
-          class="ui-searchbar__select"
-          style={`width: ${libraryWidth}px;`}
-        >
-          {
-            libraryOptions.map(option => (
+    {
+      libraryOptions && (
+        <div class="ui-searchbar__select-wrapper">
+          <select
+            id={libraryId}
+            name="libraryType"
+            class="ui-searchbar__select"
+            style={`width: ${libraryWidth}px;`}
+          >
+            {libraryOptions.map(option => (
               <option
                 value={option.value}
                 selected={libraryValue === option.value}
               >
                 {option.label}
               </option>
-            ))
-          }
-        </select>
-        <div class="ui-searchbar__select-arrow">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.83 8L10 11.17L13.17 8"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
+            ))}
+          </select>
+          <div class="ui-searchbar__select-arrow">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.83 8L10 11.17L13.17 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-      </div>
-    )}
+      )
+    }
 
     <!-- 세 번째 셀렉트박스 (제목) -->
-    {titleOptions && (
-      <div class="ui-searchbar__select-wrapper">
-        <select
-          id={titleId}
-          name="titleType"
-          class="ui-searchbar__select"
-          style={`width: ${titleWidth}px;`}
-        >
-          {
-            titleOptions.map(option => (
+    {
+      titleOptions && (
+        <div class="ui-searchbar__select-wrapper">
+          <select
+            id={titleId}
+            name="titleType"
+            class="ui-searchbar__select"
+            style={`width: ${titleWidth}px;`}
+          >
+            {titleOptions.map(option => (
               <option
                 value={option.value}
                 selected={titleValue === option.value}
               >
                 {option.label}
               </option>
-            ))
-          }
-        </select>
-        <div class="ui-searchbar__select-arrow">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.83 8L10 11.17L13.17 8"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
+            ))}
+          </select>
+          <div class="ui-searchbar__select-arrow">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.83 8L10 11.17L13.17 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-      </div>
-    )}
+      )
+    }
 
     <!-- 텍스트 입력 -->
     <div class="ui-searchbar__input-wrapper">
@@ -234,6 +249,8 @@ const inputId = `${searchbarId}-input`;
 <style lang="scss" is:global>
   @use '@styles/abstracts' as *;
   @use '@styles/variables/colors' as *;
+  @use '@styles/variables/layout' as *;
+  @use '@styles/variables/typography' as *;
 
   .ui-searchbar {
     background-color: #eef2f7;
@@ -258,15 +275,15 @@ const inputId = `${searchbarId}-input`;
     }
 
     &__select {
-      height: to-rem(48);
+      height: $component-height-medium;
       padding: 0 to-rem(40) 0 to-rem(16);
       border: 1px solid #58616a;
       border-radius: to-rem(6);
       background: $white;
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(17);
-      font-weight: 400;
-      color: #6f6f6f;
+      font-family: $font-family-primary;
+      font-size: $ui-text-medium;
+      font-weight: $ui-font-normal;
+      color: $ui-text-primary;
       appearance: none;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -307,19 +324,19 @@ const inputId = `${searchbarId}-input`;
     }
 
     &__input {
-      height: to-rem(48);
+      height: $component-height-medium;
       padding: 0 to-rem(16);
       border: 1px solid #58616a;
       border-radius: to-rem(6);
       background: $white;
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(17);
-      font-weight: 400;
-      color: #6f6f6f;
+      font-family: $font-family-primary;
+      font-size: $ui-text-medium;
+      font-weight: $ui-font-normal;
+      color: $ui-text-primary;
       transition: all 0.2s ease;
 
       &::placeholder {
-        color: #6f6f6f;
+        color: $ui-text-placeholder;
       }
 
       &:focus {
@@ -336,15 +353,15 @@ const inputId = `${searchbarId}-input`;
 
     // 검색 버튼 스타일
     &__button {
-      height: to-rem(48);
+      height: $component-height-medium;
       padding: 0 to-rem(16);
       background: #244874;
       border: none;
       border-radius: to-rem(6);
-      color: $white;
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(17);
-      font-weight: 400;
+      color: $ui-text-white;
+      font-family: $font-family-primary;
+      font-size: $ui-text-medium;
+      font-weight: $ui-font-medium;
       cursor: pointer;
       transition: all 0.2s ease;
       @include flex(row, center, center);
@@ -361,6 +378,77 @@ const inputId = `${searchbarId}-input`;
 
       &:active {
         background: #142a42;
+      }
+    }
+
+    // 크기 variants
+    &--xsmall {
+      .ui-searchbar__select,
+      .ui-searchbar__input,
+      .ui-searchbar__button {
+        height: $component-height-xsmall;
+        font-size: $ui-text-xsmall;
+
+        @include mobile {
+          height: $component-height-xsmall-mobile;
+          font-size: $ui-text-xsmall-mobile;
+        }
+      }
+    }
+
+    &--small {
+      .ui-searchbar__select,
+      .ui-searchbar__input,
+      .ui-searchbar__button {
+        height: $component-height-small;
+        font-size: $ui-text-small;
+
+        @include mobile {
+          height: $component-height-small-mobile;
+          font-size: $ui-text-small-mobile;
+        }
+      }
+    }
+
+    &--medium {
+      .ui-searchbar__select,
+      .ui-searchbar__input,
+      .ui-searchbar__button {
+        height: $component-height-medium;
+        font-size: $ui-text-medium;
+
+        @include mobile {
+          height: $component-height-medium-mobile;
+          font-size: $ui-text-medium-mobile;
+        }
+      }
+    }
+
+    &--large {
+      .ui-searchbar__select,
+      .ui-searchbar__input,
+      .ui-searchbar__button {
+        height: $component-height-large;
+        font-size: $ui-text-large;
+
+        @include mobile {
+          height: $component-height-large-mobile;
+          font-size: $ui-text-large-mobile;
+        }
+      }
+    }
+
+    &--xlarge {
+      .ui-searchbar__select,
+      .ui-searchbar__input,
+      .ui-searchbar__button {
+        height: $component-height-xlarge;
+        font-size: $ui-text-xlarge;
+
+        @include mobile {
+          height: $component-height-xlarge-mobile;
+          font-size: $ui-text-xlarge-mobile;
+        }
       }
     }
 

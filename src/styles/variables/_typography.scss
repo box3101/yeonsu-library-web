@@ -66,3 +66,29 @@ $page-title-line-heights: (
   'h5': $line-height-normal,
   'h6': $line-height-normal,
 );
+
+// UI 컴포넌트 텍스트 스타일 (PC/모바일 통일)
+// 폰트 크기
+$ui-text-xsmall: 0.75rem; // 12px
+$ui-text-small: 0.875rem; // 14px
+$ui-text-medium: 1rem; // 16px
+$ui-text-large: 1.125rem; // 18px
+$ui-text-xlarge: 1.25rem; // 20px
+
+// 모바일 폰트 크기
+$ui-text-xsmall-mobile: 0.6875rem; // 11px
+$ui-text-small-mobile: 0.8125rem; // 13px
+$ui-text-medium-mobile: 0.9375rem; // 15px
+$ui-text-large-mobile: 1rem; // 16px
+$ui-text-xlarge-mobile: 1.125rem; // 18px
+
+// UI 컴포넌트 텍스트 색상
+$ui-text-primary: #374151; // 주요 텍스트 (gray-700)
+$ui-text-secondary: #6b7280; // 보조 텍스트 (gray-500)
+$ui-text-placeholder: #9ca3af; // placeholder 텍스트 (gray-400)
+$ui-text-disabled: #d1d5db; // 비활성화 텍스트 (gray-300)
+$ui-text-white: #ffffff; // 버튼 내 흰색 텍스트
+
+// UI 컴포넌트 폰트 굵기
+$ui-font-normal: 400;
+$ui-font-medium: 500;

@@ -1,13 +1,15 @@
 @use '../abstracts' as *;
 @use '../variables/colors' as *;
+@use '../variables/layout' as *;
+@use '../variables/typography' as *;
 
 .ui-date-picker {
   @include flex(row, flex-start, center, nowrap);
   gap: to-rem(12);
-  width: 100%;
 
   @include mobile {
-    gap: to-rem(16);
+    @include flex(column, flex-start, flex-start, nowrap);
+    gap: to-rem(0);
   }
 
   &__field {
@@ -15,6 +17,10 @@
     gap: to-rem(8);
     min-width: 0;
     min-width: to-rem(150);
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__label {
@@ -36,27 +42,34 @@
   &__input-wrapper {
     position: relative;
     @include flex(row, space-between, center, nowrap);
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__input {
     width: 100%;
-    height: to-rem(50);
+    height: $component-height-medium;
     padding: to-rem(8) to-rem(40) to-rem(8) to-rem(14);
     border: 1px solid $gray-300;
     border-radius: to-rem(6);
-    font-size: to-rem(13);
-    color: $gray-900;
+    font-family: $font-family-primary;
+    font-size: $ui-text-medium;
+    font-weight: $ui-font-normal;
+    color: $ui-text-primary;
     background-color: $white;
     transition: all 0.2s ease;
 
     @include mobile {
-      height: to-rem(36);
+      width: 100%;
+      height: $component-height-medium-mobile;
       padding: to-rem(6) to-rem(36) to-rem(6) to-rem(12);
-      font-size: to-rem(12);
+      font-size: $ui-text-medium-mobile;
     }
 
     &::placeholder {
-      color: $gray-500;
+      color: $ui-text-placeholder;
     }
 
     &:focus {
@@ -71,11 +84,11 @@
 
     &:disabled {
       background-color: $gray-100;
-      color: $gray-500;
+      color: $ui-text-disabled;
       cursor: not-allowed;
 
       &::placeholder {
-        color: $gray-400;
+        color: $ui-text-disabled;
       }
     }
 
@@ -156,41 +169,123 @@
   }
 
   // 크기 변형
+  &--xsmall {
+    .ui-date-picker__input {
+      height: $component-height-xsmall;
+      padding: to-rem(4) to-rem(28) to-rem(4) to-rem(8);
+      font-size: $ui-text-xsmall;
+
+      @include mobile {
+        height: $component-height-xsmall-mobile;
+        padding: to-rem(3) to-rem(26) to-rem(3) to-rem(6);
+        font-size: $ui-text-xsmall-mobile;
+      }
+    }
+
+    .ui-date-picker__icon {
+      width: to-rem(12);
+      height: to-rem(12);
+      right: to-rem(6);
+
+      @include mobile {
+        width: to-rem(10);
+        height: to-rem(10);
+        right: to-rem(4);
+      }
+    }
+
+    .ui-date-picker__separator {
+      font-size: $ui-text-xsmall;
+    }
+  }
+
   &--small {
     .ui-date-picker__input {
-      height: to-rem(32);
+      height: $component-height-small;
       padding: to-rem(6) to-rem(32) to-rem(6) to-rem(10);
-      font-size: to-rem(12);
+      font-size: $ui-text-small;
+
+      @include mobile {
+        height: $component-height-small-mobile;
+        padding: to-rem(5) to-rem(30) to-rem(5) to-rem(8);
+        font-size: $ui-text-small-mobile;
+      }
     }
 
     .ui-date-picker__icon {
       width: to-rem(14);
       height: to-rem(14);
       right: to-rem(8);
+
+      @include mobile {
+        width: to-rem(12);
+        height: to-rem(12);
+        right: to-rem(6);
+      }
     }
 
     .ui-date-picker__separator {
-      margin-top: to-rem(20);
-      font-size: to-rem(12);
+      font-size: $ui-text-small;
     }
   }
 
   &--large {
     .ui-date-picker__input {
-      height: to-rem(48);
+      height: $component-height-large;
       padding: to-rem(12) to-rem(44) to-rem(12) to-rem(16);
-      font-size: to-rem(15);
+      font-size: $ui-text-large;
+
+      @include mobile {
+        height: $component-height-large-mobile;
+        padding: to-rem(10) to-rem(40) to-rem(10) to-rem(14);
+        font-size: $ui-text-large-mobile;
+      }
     }
 
     .ui-date-picker__icon {
       width: to-rem(20);
       height: to-rem(20);
       right: to-rem(12);
+
+      @include mobile {
+        width: to-rem(18);
+        height: to-rem(18);
+        right: to-rem(10);
+      }
     }
 
     .ui-date-picker__separator {
-      margin-top: to-rem(30);
-      font-size: to-rem(16);
+      font-size: $ui-text-large;
+    }
+  }
+
+  &--xlarge {
+    .ui-date-picker__input {
+      height: $component-height-xlarge;
+      padding: to-rem(16) to-rem(48) to-rem(16) to-rem(20);
+      font-size: $ui-text-xlarge;
+
+      @include mobile {
+        height: $component-height-xlarge-mobile;
+        padding: to-rem(14) to-rem(44) to-rem(14) to-rem(18);
+        font-size: $ui-text-xlarge-mobile;
+      }
+    }
+
+    .ui-date-picker__icon {
+      width: to-rem(22);
+      height: to-rem(22);
+      right: to-rem(14);
+
+      @include mobile {
+        width: to-rem(20);
+        height: to-rem(20);
+        right: to-rem(12);
+      }
+    }
+
+    .ui-date-picker__separator {
+      font-size: $ui-text-xlarge;
     }
   }
 }

@@ -1,5 +1,7 @@
 @use '../abstracts' as *;
 @use '../variables/colors' as *;
+@use '../variables/layout' as *;
+@use '../variables/typography' as *;
 
 .ui-button {
   position: relative;
@@ -9,9 +11,9 @@
   gap: to-rem(4);
   border: to-rem(1) solid transparent;
   border-radius: to-rem(8);
-  font-family: 'Pretendard GOV', sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
+  font-family: $font-family-primary;
+  font-weight: $ui-font-medium;
+  line-height: $line-height-normal;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -20,7 +22,7 @@
   outline: none;
 
   &:focus-visible {
-    outline: 2px solid #256ef4;
+    outline: 2px solid #3c79c2;
     outline-offset: 2px;
   }
 
@@ -36,75 +38,75 @@
 
   // 크기 variants
   &--xsmall {
-    padding: to-rem(10) to-rem(12);
-    font-size: to-rem(15);
-    height: to-rem(32);
+    padding: to-rem(6) to-rem(12);
+    font-size: $ui-text-xsmall;
+    height: $component-height-xsmall;
     border-radius: to-rem(4);
 
     @include mobile {
-      padding: to-rem(8) to-rem(10);
-      font-size: to-rem(14);
-      height: to-rem(28);
+      padding: to-rem(6) to-rem(10);
+      font-size: $ui-text-xsmall-mobile;
+      height: $component-height-xsmall-mobile;
     }
   }
 
   &--small {
-    padding: to-rem(12) to-rem(16);
-    font-size: to-rem(15);
-    height: to-rem(40);
+    padding: to-rem(8) to-rem(16);
+    font-size: $ui-text-small;
+    height: $component-height-small;
     border-radius: to-rem(6);
 
     @include mobile {
-      padding: to-rem(10) to-rem(14);
-      font-size: to-rem(14);
-      height: auto;
+      padding: to-rem(7) to-rem(14);
+      font-size: $ui-text-small-mobile;
+      height: $component-height-small-mobile;
     }
   }
 
   &--medium {
-    padding: to-rem(16) to-rem(20);
-    font-size: to-rem(17);
-    height: to-rem(48);
+    padding: to-rem(12) to-rem(20);
+    font-size: $ui-text-medium;
+    height: $component-height-medium;
     border-radius: to-rem(6);
 
     @include mobile {
-      padding: to-rem(14) to-rem(17);
-      font-size: to-rem(16);
-      height: auto;
+      padding: to-rem(10) to-rem(18);
+      font-size: $ui-text-medium-mobile;
+      height: $component-height-medium-mobile;
     }
   }
 
   &--large {
-    padding: to-rem(20) to-rem(24);
-    font-size: to-rem(19);
-    height: to-rem(56);
+    padding: to-rem(16) to-rem(12);
+    font-size: $ui-text-large;
+    height: $component-height-large;
     border-radius: to-rem(8);
 
     @include mobile {
-      padding: to-rem(18) to-rem(20);
-      font-size: to-rem(17);
-      height: to-rem(48);
+      padding: to-rem(14) to-rem(20);
+      font-size: $ui-text-large-mobile;
+      height: $component-height-large-mobile;
     }
   }
 
   &--xlarge {
-    padding: to-rem(24) to-rem(32);
-    font-size: to-rem(19);
-    height: to-rem(64);
+    padding: to-rem(20) to-rem(32);
+    font-size: $ui-text-xlarge;
+    height: $component-height-xlarge;
     border-radius: to-rem(8);
 
     @include mobile {
-      padding: to-rem(20) to-rem(24);
-      font-size: to-rem(17);
-      height: to-rem(56);
+      padding: to-rem(16) to-rem(24);
+      font-size: $ui-text-xlarge-mobile;
+      height: $component-height-xlarge-mobile;
     }
   }
 
   // 스타일 variants
   &--primary {
-    background: #256ef4;
-    color: #ffffff;
-    border-color: #256ef4;
+    background: #3c79c2;
+    color: $ui-text-white;
+    border-color: #3c79c2;
 
     &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #0b50d0;
@@ -119,7 +121,7 @@
 
   &--darkBlue {
     background: #244874;
-    color: #ffffff;
+    color: $ui-text-white;
     border-color: #244874;
 
     &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
@@ -133,8 +135,8 @@
 
   &--secondary {
     background: #ecf2fe;
-    color: #256ef4;
-    border-color: #256ef4;
+    color: #3c79c2;
+    border-color: #3c79c2;
 
     &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #d8e5fd;
@@ -147,8 +149,8 @@
 
   &--tertiary {
     background: transparent;
-    color: #58616a;
-    border-color: #58616a;
+    color: $ui-text-secondary;
+    border-color: $ui-text-secondary;
 
     &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
       background: #f4f5f6;
@@ -161,7 +163,7 @@
 
   &--text {
     background: transparent;
-    color: #256ef4;
+    color: #3c79c2;
     border-color: transparent;
 
     &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {

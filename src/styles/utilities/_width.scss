@@ -1,0 +1,204 @@
+@use '../abstracts' as *;
+
+// ============================================
+// Width Utilities
+// ============================================
+
+// 기본 Width utilities w1 ~ w999 (픽셀 단위)
+@for $i from 1 through 999 {
+  .w-#{$i} {
+    width: #{$i}px !important;
+  }
+}
+
+// 자주 사용하는 픽셀 값들 (50 단위)
+$common-widths: (50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1200);
+
+@each $width in $common-widths {
+  // 기본 버전
+  .w-#{$width} {
+    width: #{$width}px !important;
+  }
+
+  // 반응형 버전 (모바일에서 100%)
+  .w-#{$width}-mobile-full {
+    width: #{$width}px !important;
+
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+
+  // 반응형 버전 (모바일에서 auto)
+  .w-#{$width}-mobile-auto {
+    width: #{$width}px !important;
+
+    @include mobile {
+      width: auto !important;
+    }
+  }
+}
+
+// 특별한 width 값들
+.w-auto {
+  width: auto !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.w-screen {
+  width: 100vw !important;
+}
+
+.w-min {
+  width: min-content !important;
+}
+
+.w-max {
+  width: max-content !important;
+}
+
+.w-fit {
+  width: fit-content !important;
+}
+
+// 백분율 기반 width
+$width-percentages: (
+  'half': 50%,
+  'third': 33.333333%,
+  'two-thirds': 66.666667%,
+  'quarter': 25%,
+  'three-quarters': 75%,
+  'fifth': 20%,
+  'two-fifths': 40%,
+  'three-fifths': 60%,
+  'four-fifths': 80%,
+  'sixth': 16.666667%,
+  'five-sixths': 83.333333%,
+);
+
+// 기본 백분율 클래스
+@each $name, $value in $width-percentages {
+  .w-#{$name} {
+    width: $value !important;
+  }
+}
+
+// 백분율 + 반응형 (모바일에서 100%)
+@each $name, $value in $width-percentages {
+  .w-#{$name}-mobile-full {
+    width: $value !important;
+
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+}
+
+// 10% 단위 백분율 클래스
+@for $i from 1 through 10 {
+  $percentage: $i * 10%;
+
+  .w-#{$i * 10}p {
+    width: $percentage !important;
+  }
+
+  .w-#{$i * 10}p-mobile-full {
+    width: $percentage !important;
+
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+}
+
+// 반응형 width utilities
+@include mobile {
+  .sm\:w-auto {
+    width: auto !important;
+  }
+  .sm\:w-full {
+    width: 100% !important;
+  }
+  .sm\:w-fit {
+    width: fit-content !important;
+  }
+
+  @for $i from 1 through 500 {
+    .sm\:w#{$i} {
+      width: #{$i}px !important;
+    }
+  }
+}
+
+@include tablet {
+  .md\:w-auto {
+    width: auto !important;
+  }
+  .md\:w-full {
+    width: 100% !important;
+  }
+  .md\:w-fit {
+    width: fit-content !important;
+  }
+
+  @for $i from 1 through 800 {
+    .md\:w#{$i} {
+      width: #{$i}px !important;
+    }
+  }
+}
+
+@include desktop {
+  .lg\:w-auto {
+    width: auto !important;
+  }
+  .lg\:w-full {
+    width: 100% !important;
+  }
+  .lg\:w-fit {
+    width: fit-content !important;
+  }
+
+  @for $i from 1 through 999 {
+    .lg\:w#{$i} {
+      width: #{$i}px !important;
+    }
+  }
+}
+
+// Max width utilities
+@for $i from 1 through 999 {
+  .max-w#{$i} {
+    max-width: #{$i}px !important;
+  }
+}
+
+.max-w-full {
+  max-width: 100% !important;
+}
+
+.max-w-screen {
+  max-width: 100vw !important;
+}
+
+.max-w-none {
+  max-width: none !important;
+}
+
+// Min width utilities
+@for $i from 1 through 999 {
+  .min-w#{$i} {
+    min-width: #{$i}px !important;
+  }
+}
+
+.min-w-full {
+  min-width: 100% !important;
+}
+
+.min-w-0 {
+  min-width: 0 !important;
+}

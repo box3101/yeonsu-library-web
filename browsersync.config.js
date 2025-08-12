@@ -39,7 +39,7 @@ module.exports = {
       fontSize: '14px',
       padding: '10px 15px',
       borderRadius: '8px',
-      backgroundColor: '#256ef4',
+      backgroundColor: '#3c79c2',
       color: 'white',
       fontFamily: 'Pretendard, sans-serif',
     },
