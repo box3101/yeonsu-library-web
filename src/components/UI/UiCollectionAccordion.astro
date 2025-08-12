@@ -79,7 +79,7 @@ const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
   <div
     id={accordionId}
     class="ui-collection-accordion__content"
-    data-expanded={isExpanded}
+    data-expanded={isExpanded ? "true" : "false"}
   >
     <div class="ui-collection-accordion__inner">
       <!-- 도서관 필터 탭 -->

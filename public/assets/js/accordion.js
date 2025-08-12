@@ -59,6 +59,11 @@ const LibraryAccordion = {
           if (wrapper) wrapper.style.display = 'none';
         });
       } else if (trigger.tagName === 'BUTTON') {
+        // 초기 상태 설정
+        const initialExpanded =
+          content.getAttribute('data-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', initialExpanded.toString());
+
         // 아코디언 토글
         trigger.addEventListener('click', function () {
           const isExpanded = this.getAttribute('aria-expanded') === 'true';
