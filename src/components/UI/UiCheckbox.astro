@@ -51,7 +51,8 @@ const checkboxClasses = [
 ---
 
 <div class="ui-checkbox-container">
-  <div class={checkboxClasses}>
+  <!-- 전체 영역을 label로 감싸서 어디든 클릭 가능하게 -->
+  <label for={checkboxId} class={checkboxClasses}>
     <div class="ui-checkbox__item">
       <input
         type="checkbox"
@@ -82,12 +83,12 @@ const checkboxClasses = [
 
     {
       hasLabel && (
-        <label for={checkboxId} class="ui-checkbox__label">
+        <span class="ui-checkbox__label">
           <span class="ui-checkbox__title">{label}</span>
-        </label>
+        </span>
       )
     }
-  </div>
+  </label>
 
   {
     (hasHelperText || hasErrorMessage) && (

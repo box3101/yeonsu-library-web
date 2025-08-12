@@ -221,14 +221,38 @@ const LibraryFilter = {
   },
 };
 
+// 저자 필터 접근성 개선 (최소한의 JS)
+const AuthorFilterA11y = {
+  init() {
+    const toggles = document.querySelectorAll('#author-filter-toggle');
+
+    toggles.forEach(toggle => {
+      const button = toggle.parentElement.querySelector('.filter-label-btn');
+
+      if (button) {
+        // 초기 aria 속성 설정
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', 'author-filter-content');
+
+        // 토글 상태 변경 시 aria 속성 업데이트
+        toggle.addEventListener('change', function () {
+          button.setAttribute('aria-expanded', this.checked.toString());
+        });
+      }
+    });
+  },
+};
+
 // DOM 로드 완료 후 실행
 document.addEventListener('DOMContentLoaded', function () {
   LibraryFilter.init();
+  AuthorFilterA11y.init();
 });
 
 // 페이지 로드 후에도 실행 (동적 콘텐츠 대응)
 window.addEventListener('load', function () {
   setTimeout(() => {
     LibraryFilter.init();
+    AuthorFilterA11y.init();
   }, 100);
 });

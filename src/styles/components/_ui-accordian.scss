@@ -51,6 +51,20 @@
         @include icon('book', to-rem(30), to-rem(22), to-rem(22));
       }
     }
+
+    .ui-accordion__content {
+      // 기본 상태는 닫혀있음
+      max-height: 0;
+      opacity: 0;
+      transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
+
+      &[data-expanded='true'] {
+        max-height: 1000px;
+        opacity: 1;
+      }
+    }
   }
 
   &:not(:last-child) {
@@ -218,6 +232,16 @@
   &__content {
     overflow: hidden;
     display: block;
+    max-height: 0;
+    opacity: 0;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease;
+
+    &[data-expanded='true'] {
+      max-height: 1000px; // 충분히 큰 값
+      opacity: 1;
+    }
   }
 
   &__body {

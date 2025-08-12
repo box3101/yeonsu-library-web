@@ -54,7 +54,7 @@ const iconClasses = [
     type="button"
     id={triggerId}
     class="ui-accordion__trigger"
-    aria-expanded={isExpanded}
+    aria-expanded={isExpanded.toString()}
     aria-controls={contentId}
     disabled={disabled}
   >
@@ -155,7 +155,7 @@ const iconClasses = [
     class="ui-accordion__content"
     role="region"
     aria-labelledby={triggerId}
-    data-expanded={isExpanded}
+    data-expanded={isExpanded.toString()}
   >
     <div class="ui-accordion__body">
       <slot />

@@ -16,6 +16,7 @@
   align-items: center;
   gap: to-rem(12);
   cursor: pointer;
+  user-select: none; // 텍스트 선택 방지
 
   @include mobile {
     gap: to-rem(10);
@@ -124,15 +125,9 @@
     border-color: $warning-color;
   }
 
-  // Style variants
-  .ui-checkbox--filled & {
-    background-color: $gray-50;
+  .ui-checkbox--disabled & {
+    background-color: $gray-100;
     border-color: $gray-200;
-  }
-
-  .ui-checkbox--outlined & {
-    border-width: 2px;
-    background-color: transparent;
   }
 }
 
@@ -147,8 +142,8 @@
 
 .ui-checkbox__check-icon {
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.15s ease;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
 
   .ui-checkbox--small & {
     width: to-rem(10);
@@ -162,25 +157,25 @@
 
   .ui-checkbox--medium & {
     width: to-rem(12);
-    height: to-rem(10);
+    height: to-rem(9);
 
     @include mobile {
       width: to-rem(10);
-      height: to-rem(8);
+      height: to-rem(7);
     }
   }
 
   .ui-checkbox--large & {
     width: to-rem(14);
-    height: to-rem(12);
+    height: to-rem(11);
 
     @include mobile {
       width: to-rem(12);
-      height: to-rem(10);
+      height: to-rem(9);
     }
   }
 
-  .ui-checkbox__input:checked ~ .ui-checkbox__control & {
+  .ui-checkbox__input:checked + .ui-checkbox__control & {
     opacity: 1;
     transform: scale(1);
   }
@@ -188,9 +183,11 @@
 
 .ui-checkbox__indeterminate-icon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
   background-color: currentColor;
-  opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: transform 0.2s ease;
 
   .ui-checkbox--small & {
     width: to-rem(8);
@@ -199,7 +196,7 @@
 
     @include mobile {
       width: to-rem(6);
-      height: to-rem(1);
+      height: to-rem(1.5);
     }
   }
 
@@ -210,14 +207,14 @@
 
     @include mobile {
       width: to-rem(8);
-      height: to-rem(2);
+      height: to-rem(1.5);
     }
   }
 
   .ui-checkbox--large & {
     width: to-rem(12);
-    height: to-rem(2);
-    border-radius: to-rem(1);
+    height: to-rem(3);
+    border-radius: to-rem(1.5);
 
     @include mobile {
       width: to-rem(10);
@@ -225,85 +222,105 @@
     }
   }
 
-  .ui-checkbox__input:indeterminate ~ .ui-checkbox__control & {
-    opacity: 1;
+  .ui-checkbox__input:indeterminate + .ui-checkbox__control & {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
 .ui-checkbox__label {
-  cursor: pointer;
-  user-select: none;
-  word-break: keep-all;
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(4);
+  flex: 1;
 
-  .ui-checkbox--disabled & {
-    cursor: not-allowed;
-    color: $gray-400;
-  }
+  // 이제 span이므로 for 속성 불필요
+  // 전체 label에서 클릭 처리
 }
 
 .ui-checkbox__title {
-  font-size: to-rem(14);
-  font-weight: $font-medium;
-  color: $gray-700;
+  @include font(to-rem(14), 400, $gray-700);
   line-height: 1.4;
 
   .ui-checkbox--small & {
-    font-size: to-rem(13);
+    @include font(to-rem(12), 400, $gray-700);
 
     @include mobile {
-      font-size: to-rem(12);
+      @include font(to-rem(11), 400, $gray-700);
+    }
+  }
+
+  .ui-checkbox--medium & {
+    @include font(to-rem(14), 400, $gray-700);
+
+    @include mobile {
+      @include font(to-rem(13), 400, $gray-700);
     }
   }
 
   .ui-checkbox--large & {
-    font-size: to-rem(16);
+    @include font(to-rem(16), 400, $gray-700);
 
     @include mobile {
-      font-size: to-rem(15);
+      @include font(to-rem(15), 400, $gray-700);
     }
   }
 
-  @include mobile {
-    font-size: to-rem(13);
+  .ui-checkbox--disabled & {
+    color: $gray-400;
   }
 }
 
 .ui-checkbox__help {
-  font-size: to-rem(12);
+  @include font(to-rem(12), 400, $gray-500);
   line-height: 1.4;
-  color: $gray-500;
-  margin-left: to-rem(32);
+  margin-top: to-rem(4);
 
-  .ui-checkbox--small + & {
-    margin-left: to-rem(28);
-
-    @include mobile {
-      margin-left: to-rem(24);
-    }
-  }
-
-  .ui-checkbox--large + & {
-    margin-left: to-rem(36);
-
-    @include mobile {
-      margin-left: to-rem(30);
-    }
-  }
-
-  .ui-checkbox--error + & {
+  .ui-checkbox--error & {
     color: $error-color;
   }
 
-  .ui-checkbox--warning + & {
-    color: $warning-color;
-  }
-
-  .ui-checkbox--success + & {
+  .ui-checkbox--success & {
     color: $success-color;
   }
 
+  .ui-checkbox--warning & {
+    color: $warning-color;
+  }
+
   @include mobile {
-    font-size: to-rem(11);
-    margin-left: to-rem(28);
+    @include font(to-rem(11), 400, $gray-500);
+    margin-top: to-rem(3);
+  }
+}
+
+// Filled variant
+.ui-checkbox--filled {
+  .ui-checkbox__control {
+    background-color: $gray-100;
+    border-color: $gray-100;
+
+    &:hover {
+      background-color: $gray-200;
+      border-color: $gray-200;
+    }
+  }
+
+  .ui-checkbox__input:checked + .ui-checkbox__control,
+  .ui-checkbox__input:indeterminate + .ui-checkbox__control {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+// Outlined variant
+.ui-checkbox--outlined {
+  .ui-checkbox__control {
+    border-width: 2px;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $primary-color;
+      background-color: rgba(0, 124, 204, 0.05);
+    }
   }
 }
