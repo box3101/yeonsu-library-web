@@ -30,6 +30,18 @@
     ],
     "description": "UiSelect 컴포넌트를 생성합니다",
   },
+  "UiInput Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "input",
+    "body": [
+      "<UiInput",
+      "  name=\"${1:input-name}\"",
+      "  placeholder=\"${2:}\"",
+      "/>",
+      "$0",
+    ],
+    "description": "UiInput 컴포넌트를 생성합니다",
+  },
   "UiNavButton Component": {
     "scope": "astro,javascript,typescript",
     "prefix": "navbtn",

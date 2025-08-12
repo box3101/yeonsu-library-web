@@ -161,6 +161,7 @@
     display: flex;
     align-items: flex-start;
     gap: to-rem(8);
+    margin-top: to-rem(24) !important;
 
     @include tablet {
       margin-top: to-rem(20) !important;

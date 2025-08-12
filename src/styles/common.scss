@@ -497,3 +497,30 @@ img {
 .content-image {
   @include responsive-image;
 }
+
+.com-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(16);
+  .com-item {
+    display: flex;
+    gap: to-rem(16);
+
+    .label {
+      @include font(to-rem(16), 700, #000);
+      display: flex;
+      align-items: center;
+      min-width: to-rem(100);
+      margin-right: to-rem(10);
+    }
+    .cnt {
+      display: flex;
+      gap: to-rem(16);
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.w-full {
+  width: 100% !important;
+}

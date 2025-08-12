@@ -13,8 +13,8 @@
   &__field {
     @include flex(column, flex-start, stretch, nowrap);
     gap: to-rem(8);
-    flex: 1;
     min-width: 0;
+    min-width: to-rem(150);
   }
 
   &__label {
@@ -40,7 +40,7 @@
 
   &__input {
     width: 100%;
-    height: to-rem(40);
+    height: to-rem(50);
     padding: to-rem(8) to-rem(40) to-rem(8) to-rem(14);
     border: 1px solid $gray-300;
     border-radius: to-rem(6);

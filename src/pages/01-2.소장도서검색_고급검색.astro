@@ -1,0 +1,124 @@
+---
+// 레이아웃 및 컴포넌트 import
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+  UiInput,
+  UiSelect,
+  UiCheckbox,
+  UiButton,
+  UiDatePicker,
+} from '@components';
+
+// 브레드크럼 네비게이션 경로 설정
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '도서검색', href: '/support' },
+  { label: '소장도서검색' },
+];
+---
+
+<Layout title="소장도서검색_상세검색 - 연수구립도서관">
+  <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
+    <!-- 고급검색 폼 섹션 -->
+    <section class="advanced-search-section">
+      <ul class="com-list">
+        <li class="com-item">
+          <div class="label">발행년도</div>
+          <div class="cnt">
+            <UiCheckbox
+              name="material-type"
+              value="all"
+              label="전체"
+              class="ui-checkbox"
+            />
+            <UiCheckbox
+              name="material-type"
+              value="book"
+              label="단행본"
+              class="ui-checkbox"
+            />
+            <UiCheckbox
+              name="material-type"
+              value="ebook"
+              label="전자책"
+              class="ui-checkbox"
+            />
+            <UiCheckbox
+              name="material-type"
+              value="multimedia"
+              label="멀티미디어"
+              class="ui-checkbox"
+            />
+            <UiCheckbox
+              name="material-type"
+              value="serial"
+              label="연속간행물"
+              class="ui-checkbox"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">도서명</div>
+          <div class="cnt">
+            <UiInput
+              name="book-name"
+              placeholder="도서명을 입력해주세요"
+              class="w-full"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">저자명</div>
+          <div class="cnt">
+            <UiInput
+              name="author-name"
+              placeholder="저자명을 입력해주세요"
+              class="w-full"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">발행처</div>
+          <div class="cnt">
+            <UiInput
+              name="publisher"
+              placeholder="발행처를 입력해주세요"
+              class="w-full"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">ISBN</div>
+          <div class="cnt">
+            <UiInput
+              name="isbn"
+              placeholder="ISBN을 입력해주세요"
+              class="w-full"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">분류기호</div>
+          <div class="cnt">
+            <UiInput
+              name="classification-code"
+              placeholder="분류기호를 입력해주세요"
+              class="w-full"
+            />
+          </div>
+        </li>
+        <li class="com-item">
+          <div class="label">발행년도</div>
+          <div class="cnt">
+            <UiDatePicker
+              name="publication-year"
+              placeholder="발행년도를 선택해주세요"
+            />
+            <UiButton variant="primary" size="small" text="확인" />
+          </div>
+        </li>
+      </ul>
+    </section>
+  </SubLayout>
+</Layout>
