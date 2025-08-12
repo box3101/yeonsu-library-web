@@ -27,14 +27,14 @@ function getChangedFiles() {
     return stagedFiles;
   } catch (error) {
     console.log('Git staged files를 가져올 수 없습니다. 전체 변경사항을 확인합니다.');
-    
+
     try {
       // 최근 변경된 파일들 가져오기 (fallback)
       const recentFiles = execSync('git diff --name-only HEAD~1', { encoding: 'utf8' })
         .trim()
         .split('\n')
         .filter(file => file);
-      
+
       return recentFiles;
     } catch (fallbackError) {
       console.log('변경된 파일을 찾을 수 없습니다.');
@@ -113,9 +113,37 @@ function getChangeDescription(filePath) {
     return `${layoutName} 레이아웃 수정`;
   }
 
-  // 페이지 파일
+  // 페이지 파일 - 실제 파일명 기반으로 더 정확한 설명 생성
   if (filePath.includes('pages/') && fileName.endsWith('.astro')) {
     const pageName = fileName.replace('.astro', '');
+
+    // 특정 페이지들에 대한 정확한 설명
+    if (pageName.includes('소장도서검색_상세.astro') || pageName === '01-1.소장도서검색_상세') {
+      return `소장도서검색 상세 페이지 업데이트`;
+    }
+    if (pageName.includes('고급검색') || pageName === '01-2.소장도서검색_고급검색') {
+      return `소장도서검색 고급검색 페이지 업데이트`;
+    }
+    if (pageName.includes('01_소장도서검색')) {
+      return `소장도서검색 메인 페이지 업데이트`;
+    }
+    if (pageName.includes('스마트도서관비치도서')) {
+      return `스마트도서관비치도서 페이지 업데이트`;
+    }
+    if (pageName.includes('도서관에바란다')) {
+      return `도서관에 바란다 페이지 업데이트`;
+    }
+    if (pageName.includes('공지사항')) {
+      return `공지사항 페이지 업데이트`;
+    }
+    if (pageName === 'index') {
+      return `메인 홈페이지 업데이트`;
+    }
+    if (pageName === 'guide') {
+      return `가이드 페이지 업데이트`;
+    }
+
+    // 기본 페이지 설명
     return `${pageName} 페이지 업데이트`;
   }
 
@@ -123,6 +151,19 @@ function getChangeDescription(filePath) {
   if (filePath.includes('public/assets/js/')) {
     const jsName = fileName.replace('.js', '');
     return `${jsName} 스크립트 기능 개선`;
+  }
+
+  // Git 관련 파일들
+  if (filePath.includes('.githooks/') || filePath.includes('scripts/')) {
+    return `개발 도구 및 자동화 스크립트 개선`;
+  }
+
+  // README, package.json 등
+  if (fileName === 'README.md') {
+    return `프로젝트 문서 업데이트`;
+  }
+  if (fileName === 'package.json') {
+    return `프로젝트 설정 및 의존성 업데이트`;
   }
 
   return null; // 설명이 없는 경우 제외
@@ -142,7 +183,7 @@ function updateGuideFile(changes) {
 
     // 작업 내역 섹션 찾기
     const workLogIndex = guideContent.indexOf(WORK_LOG_SECTION);
-    
+
     if (workLogIndex === -1) {
       console.log('Guide 파일에 작업 내역 섹션을 추가합니다.');
       // 섹션이 없으면 파일 끝에 추가
@@ -154,7 +195,7 @@ function updateGuideFile(changes) {
       const beforeSection = guideContent.substring(0, workLogIndex);
       const afterSectionIndex = guideContent.indexOf('\n---', workLogIndex);
       const afterSection = afterSectionIndex !== -1 ? guideContent.substring(afterSectionIndex) : '';
-      
+
       const updatedSection = generateWorkLogSection(changes);
       guideContent = beforeSection + updatedSection + afterSection;
     }
@@ -178,7 +219,7 @@ function updateGuideFile(changes) {
  */
 function generateWorkLogSection(changes) {
   const currentDate = new Date().toLocaleDateString('ko-KR');
-  
+
   let section = `${WORK_LOG_SECTION}\nconst recentWork = [\n`;
 
   changes.forEach(change => {
@@ -204,7 +245,7 @@ function main() {
 
   // 변경된 파일 가져오기
   const changedFiles = getChangedFiles();
-  
+
   if (changedFiles.length === 0) {
     console.log('변경된 파일이 없습니다.');
     return;

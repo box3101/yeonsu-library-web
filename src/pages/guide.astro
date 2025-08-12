@@ -34,11 +34,19 @@ const searchPages = [
   },
   {
     id: 'S01-1',
-    name: '소장도서검색_상세검색',
-    url: '/01-1.소장도서검색_상세검색',
-    file: '01-1.소장도서검색_상세검색.astro',
+    name: '소장도서검색_상세',
+    url: '/01-1.소장도서검색_상세',
+    file: '01-1.소장도서검색_상세.astro',
     status: '완료',
-    description: '도서관 필터, 상세검색, 자료유형 탭, 소장정보 모달',
+    description: '도서 상세 정보 페이지, 소장정보 모달',
+  },
+  {
+    id: 'S01-2',
+    name: '소장도서검색_고급검색',
+    url: '/01-2.소장도서검색_고급검색',
+    file: '01-2.소장도서검색_고급검색.astro',
+    status: '완료',
+    description: '고급 검색 옵션, 상세 필터링 기능',
   },
   {
     id: 'S02',
@@ -611,6 +619,97 @@ const deployInfo = [
           grid-template-columns: 1fr;
         }
       }
+
+      /* 최근 작업 내역 스타일 */
+      .recent-work {
+        margin: 40px 0;
+      }
+
+      .recent-work h2 {
+        font-size: 20px;
+        color: #4a9eff;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #42444e;
+      }
+
+      .work-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .work-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #42444e;
+        border-radius: 8px;
+        padding: 16px;
+        transition: all 0.2s ease;
+      }
+
+      .work-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #4a9eff;
+      }
+
+      .work-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .work-date {
+        color: #888;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .work-time {
+        color: #666;
+        font-size: 11px;
+      }
+
+      .work-type {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .work-type--style {
+        background: rgba(156, 39, 176, 0.2);
+        color: #ba68c8;
+        border: 1px solid rgba(156, 39, 176, 0.3);
+      }
+
+      .work-type--script {
+        background: rgba(255, 193, 7, 0.2);
+        color: #ffc107;
+        border: 1px solid rgba(255, 193, 7, 0.3);
+      }
+
+      .work-type--config {
+        background: rgba(76, 175, 80, 0.2);
+        color: #81c784;
+        border: 1px solid rgba(76, 175, 80, 0.3);
+      }
+
+      .work-description {
+        color: #ccc;
+        font-size: 14px;
+        margin-bottom: 6px;
+        line-height: 1.4;
+      }
+
+      .work-file {
+        color: #888;
+        font-size: 12px;
+        font-family: 'Courier New', monospace;
+        opacity: 0.8;
+      }
     </style>
   </head>
 
@@ -888,6 +987,42 @@ const deployInfo = [
         </tbody>
       </table>
 
+      <!-- 🔄 최근 작업 내역 섹션 -->
+      <section class="recent-work">
+        <h2>🔄 최근 작업 내역</h2>
+        <div class="work-list">
+          <div class="work-item">
+            <div class="work-header">
+              <span class="work-date">2024.01.15</span>
+              <span class="work-time">15:30</span>
+              <span class="work-type work-type--style">Style</span>
+            </div>
+            <div class="work-description">footer 컴포넌트 스타일 개선</div>
+            <div class="work-file">src/styles/components/_footer.scss</div>
+          </div>
+          <div class="work-item">
+            <div class="work-header">
+              <span class="work-date">2024.01.15</span>
+              <span class="work-time">15:35</span>
+              <span class="work-type work-type--script">JavaScript</span>
+            </div>
+            <div class="work-description">
+              개발 도구 및 자동화 스크립트 개선
+            </div>
+            <div class="work-file">scripts/update-guide.js</div>
+          </div>
+          <div class="work-item">
+            <div class="work-header">
+              <span class="work-date">2024.01.15</span>
+              <span class="work-time">15:40</span>
+              <span class="work-type work-type--config">Config</span>
+            </div>
+            <div class="work-description">프로젝트 설정 및 의존성 업데이트</div>
+            <div class="work-file">package.json</div>
+          </div>
+        </div>
+      </section>
+
       <div class="footer">
         <p>
           <strong>연수구립도서관 웹사이트</strong><br />
@@ -902,3 +1037,22 @@ const deployInfo = [
     </div>
   </body>
 </html>
+
+
+// 🔄 최근 작업 내역
+const recentWork = [
+  {
+    date: '2025. 8. 13.',
+    time: '오전 1:46:10',
+    type: 'Other',
+    description: '개발 도구 및 자동화 스크립트 개선',
+    file: 'scripts/update-guide.js'
+  },
+  {
+    date: '2025. 8. 13.',
+    time: '오전 1:46:10',
+    type: 'Page',
+    description: '가이드 페이지 업데이트',
+    file: 'src/pages/guide.astro'
+  },
+];
