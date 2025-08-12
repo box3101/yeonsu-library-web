@@ -2,7 +2,12 @@
 
 .filter-section {
   display: flex;
-  margin-bottom: to-rem(12);
+  margin-bottom: to-rem(22);
+
+  @include mobile {
+    margin-bottom: to-rem(10) !important;
+    gap: 0px !important;
+  }
 
   // 숨겨진 토글 체크박스
   .filter-toggle {
@@ -11,8 +16,9 @@
 
   .filter-label-btn {
     position: relative;
-    top: to-rem(-7);
+    top: -6px;
     cursor: pointer;
+    left: -6px;
 
     .filter-toggle-btn {
       pointer-events: none; // label이 클릭을 처리하도록
@@ -29,27 +35,40 @@
   }
 
   .filter-label {
-    @include font(to-rem(16), 700, #000);
+    @include font(to-rem(18), 700, #000);
     flex: none;
-    min-width: 100px;
+    min-width: 120px;
     display: flex;
     align-items: flex-start;
+    cursor: pointer;
+
+    @include mobile {
+      font-size: to-rem(20);
+      min-width: 80px;
+    }
   }
 
   .filter-group-wrapper {
     display: flex;
     flex-direction: column;
+    flex: 1;
 
     .filter-group {
       display: flex;
       flex-direction: column;
       gap: to-rem(12);
 
+      @include mobile {
+        gap: to-rem(8);
+      }
+
       // 항상 보이는 그룹
       &--always-visible {
         opacity: 1;
         max-height: none;
         overflow: visible;
+        display: flex;
+        margin-top: 3px;
       }
 
       // 접힐 수 있는 그룹들 기본 상태 (숨김)
@@ -66,12 +85,21 @@
 
     .filter-options {
       display: flex;
-      flex-wrap: wrap;
       margin-bottom: to-rem(12);
+
+      @include mobile {
+        flex-wrap: wrap;
+        gap: to-rem(8) to-rem(12);
+        margin-bottom: to-rem(8);
+      }
 
       .ui-checkbox-container {
         flex-shrink: 0;
         margin-right: 20px;
+
+        @include mobile {
+          margin-right: 0;
+        }
 
         .ui-checkbox {
           margin: 0;
@@ -80,6 +108,11 @@
             font-size: to-rem(14);
             color: #374151;
             margin-left: to-rem(8);
+
+            @include mobile {
+              font-size: to-rem(13);
+              margin-left: to-rem(6);
+            }
           }
         }
       }
@@ -93,6 +126,10 @@
       max-height: 500px; // 충분한 높이
       transform: translateY(0);
       padding: 0;
+
+      @include mobile {
+        max-height: 400px;
+      }
     }
   }
 
@@ -101,17 +138,62 @@
     transform: rotate(45deg); // + 모양을 x 모양으로
   }
 
+  // 단일 라인 필터 섹션 (발행연도, 언어 등)
+  &--single-line {
+    position: relative;
+    top: -7px;
+
+    .filter-label {
+      align-items: center;
+    }
+    .filter-group-wrapper {
+      .filter-group {
+        flex-direction: row;
+        align-items: center;
+
+        @include mobile {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .filter-options {
+        margin-bottom: 0;
+
+        @include mobile {
+          width: 100%;
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+
   // 모바일 반응형
   @include mobile {
-    flex-direction: column;
-    gap: to-rem(8);
+    margin-bottom: to-rem(16);
 
     .filter-label {
       min-width: auto;
+      margin-bottom: to-rem(4);
+      min-width: 100px;
+    }
+
+    .filter-label-btn {
+      top: -2px;
     }
 
     .filter-group .filter-options {
-      gap: to-rem(6) to-rem(16);
+      gap: to-rem(6) to-rem(12);
+    }
+
+    // 날짜 픽커가 있는 경우
+    .filter-options.flex.align-center {
+      align-items: center;
+      gap: to-rem(8);
+
+      .ui-button {
+        flex: 1;
+      }
     }
   }
 }

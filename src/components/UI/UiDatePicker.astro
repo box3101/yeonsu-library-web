@@ -1,0 +1,93 @@
+---
+interface Props {
+  startYear?: string;
+  endYear?: string;
+  startPlaceholder?: string;
+  endPlaceholder?: string;
+  startLabel?: string;
+  endLabel?: string;
+  disabled?: boolean;
+  required?: boolean;
+  id?: string;
+  className?: string;
+}
+
+const {
+  startYear = '',
+  endYear = '',
+  startPlaceholder = '시작연도',
+  endPlaceholder = '종료연도',
+  disabled = false,
+  required = false,
+  id = '',
+  className = '',
+} = Astro.props;
+---
+
+<div class={`ui-date-picker ${className}`}>
+  <div class="ui-date-picker__field">
+    <div class="ui-date-picker__input-wrapper">
+      <input
+        type="number"
+        id={`${id}-start`}
+        name={`${id}-start`}
+        value={startYear}
+        placeholder={startPlaceholder}
+        disabled={disabled}
+        required={required}
+        min="1900"
+        max="2100"
+        class="ui-date-picker__input"
+      />
+      <svg
+        class="ui-date-picker__icon"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.66659 1.66663V4.99996M13.3333 1.66663V4.99996M2.49992 8.33329H17.4999M4.16659 3.33329H15.8333C16.7537 3.33329 17.4999 4.07948 17.4999 4.99996V16.6666C17.4999 17.5871 16.7537 18.3333 15.8333 18.3333H4.16659C3.24611 18.3333 2.49992 17.5871 2.49992 16.6666V4.99996C2.49992 4.07948 3.24611 3.33329 4.16659 3.33329Z"
+          stroke="currentColor"
+          stroke-width="1.67"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </div>
+
+  <span class="ui-date-picker__separator">~</span>
+
+  <div class="ui-date-picker__field">
+    <div class="ui-date-picker__input-wrapper">
+      <input
+        type="number"
+        id={`${id}-end`}
+        name={`${id}-end`}
+        value={endYear}
+        placeholder={endPlaceholder}
+        disabled={disabled}
+        required={required}
+        min="1900"
+        max="2100"
+        class="ui-date-picker__input"
+      />
+      <svg
+        class="ui-date-picker__icon"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.66659 1.66663V4.99996M13.3333 1.66663V4.99996M2.49992 8.33329H17.4999M4.16659 3.33329H15.8333C16.7537 3.33329 17.4999 4.07948 17.4999 4.99996V16.6666C17.4999 17.5871 16.7537 18.3333 15.8333 18.3333H4.16659C3.24611 18.3333 2.49992 17.5871 2.49992 16.6666V4.99996C2.49992 4.07948 3.24611 3.33329 4.16659 3.33329Z"
+          stroke="currentColor"
+          stroke-width="1.67"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </div>
+</div>

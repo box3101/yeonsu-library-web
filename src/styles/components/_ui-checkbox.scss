@@ -250,10 +250,12 @@
   }
 
   .ui-checkbox--medium & {
-    @include font(to-rem(14), 400, $gray-700);
+    position: relative;
+    top: 1px;
+    @include font(to-rem(16), 400, $gray-700);
 
     @include mobile {
-      @include font(to-rem(13), 400, $gray-700);
+      @include font(to-rem(14), 400, $gray-700);
     }
   }
 

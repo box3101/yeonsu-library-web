@@ -5,7 +5,7 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 // 통계 정보
 const stats = [
   { number: '3', label: '운영중인 페이지' },
-  { number: '17', label: 'UI 컴포넌트' },
+  { number: '18', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
   { number: 'TypeScript', label: '타입 안전성' },
 ];
@@ -178,6 +178,13 @@ const uiComponents = [
     name: 'UiTable',
     file: 'UiTable.astro',
     feature: '게시판용 테이블 (체크박스, 정렬, 상태배지)',
+    status: '완료',
+  },
+  {
+    id: 'U17',
+    name: 'UiDatePicker',
+    file: 'UiDatePicker.astro',
+    feature: '날짜 범위 선택 (시작일 ~ 종료일)',
     status: '완료',
   },
 ];

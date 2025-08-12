@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { UiDatePicker } from '../components';
+---
+
+<Layout title="UiDatePicker 테스트 페이지">
+  <main class="test-page">
+    <div class="container">
+      <h1>UiDatePicker 컴포넌트 테스트</h1>
+
+      <section class="test-section">
+        <h2>기본 사용</h2>
+        <UiDatePicker
+          id="basic"
+          startLabel="시작연도"
+          endLabel="종료연도"
+          startPlaceholder="시작연도"
+          endPlaceholder="종료연도"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>필수 입력 (Required)</h2>
+        <UiDatePicker
+          id="required"
+          startLabel="시작연도"
+          endLabel="종료연도"
+          required={true}
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>비활성화 (Disabled)</h2>
+        <UiDatePicker
+          id="disabled"
+          startLabel="시작연도"
+          endLabel="종료연도"
+          disabled={true}
+          startYear="2020"
+          endYear="2024"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>작은 크기 (Small)</h2>
+        <UiDatePicker
+          id="small"
+          className="ui-date-picker--small"
+          startLabel="시작일"
+          endLabel="종료일"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>큰 크기 (Large)</h2>
+        <UiDatePicker
+          id="large"
+          className="ui-date-picker--large"
+          startLabel="시작일"
+          endLabel="종료일"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>오류 상태 (Error)</h2>
+        <UiDatePicker
+          id="error"
+          className="ui-date-picker--error"
+          startLabel="시작일"
+          endLabel="종료일"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>성공 상태 (Success)</h2>
+        <UiDatePicker
+          id="success"
+          className="ui-date-picker--success"
+          startLabel="시작일"
+          endLabel="종료일"
+          startDate="2024-01-01"
+          endDate="2024-01-31"
+        />
+      </section>
+
+      <section class="test-section">
+        <h2>실제 사용 예시 - 도서 검색</h2>
+        <div class="search-form">
+          <h3>발행일 기간 검색</h3>
+          <UiDatePicker
+            id="book-search"
+            startLabel="발행일 시작"
+            endLabel="발행일 종료"
+            startPlaceholder="시작 발행일"
+            endPlaceholder="종료 발행일"
+          />
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+  @use '../styles/variables' as *;
+
+  .test-page {
+    padding: to-rem(40) to-rem(20);
+    min-height: 100vh;
+    background: $gray-50;
+
+    @include mobile {
+      padding: to-rem(20) to-rem(16);
+    }
+  }
+
+  .container {
+    max-width: to-rem(800);
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: to-rem(32);
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: to-rem(40);
+    text-align: center;
+
+    @include mobile {
+      font-size: to-rem(24);
+      margin-bottom: to-rem(30);
+    }
+  }
+
+  .test-section {
+    background: $white;
+    border-radius: to-rem(12);
+    padding: to-rem(24);
+    margin-bottom: to-rem(24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+      padding: to-rem(20);
+      margin-bottom: to-rem(20);
+    }
+
+    h2 {
+      font-size: to-rem(20);
+      font-weight: $font-semibold;
+      color: $gray-800;
+      margin-bottom: to-rem(16);
+      padding-bottom: to-rem(8);
+      border-bottom: 2px solid $gray-200;
+
+      @include mobile {
+        font-size: to-rem(18);
+        margin-bottom: to-rem(12);
+      }
+    }
+
+    h3 {
+      font-size: to-rem(16);
+      font-weight: $font-medium;
+      color: $gray-700;
+      margin-bottom: to-rem(12);
+    }
+  }
+
+  .search-form {
+    padding: to-rem(20);
+    background: $gray-50;
+    border-radius: to-rem(8);
+    border: 1px solid $gray-200;
+  }
+</style>

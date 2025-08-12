@@ -57,7 +57,7 @@
     @include mobile {
       padding: to-rem(10) to-rem(14);
       font-size: to-rem(14);
-      height: to-rem(36);
+      height: auto;
     }
   }
 
@@ -70,7 +70,7 @@
     @include mobile {
       padding: to-rem(14) to-rem(17);
       font-size: to-rem(16);
-      height: to-rem(44);
+      height: auto;
     }
   }
 
@@ -186,7 +186,7 @@
     &.ui-button--small {
       padding: to-rem(12);
       @include mobile {
-        padding: to-rem(10);
+        padding: to-rem(5) to-rem(10);
       }
     }
     &.ui-button--medium {

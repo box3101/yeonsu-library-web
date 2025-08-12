@@ -10,6 +10,7 @@ import {
   UiAccordion,
   UiCheckbox,
   UiButton,
+  UiDatePicker,
 } from '@components';
 
 const breadcrumbItems = [
@@ -220,12 +221,9 @@ const outputCountOptions = [
           <span class="filter-label">발행연도</span>
           <div class="filter-group-wrapper">
             <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="year" value="2024" label="2024" />
-                <UiCheckbox name="year" value="2023" label="2023" />
-                <UiCheckbox name="year" value="2022" label="2022" />
-                <UiCheckbox name="year" value="2021" label="2021" />
-                <UiCheckbox name="year" value="2020" label="2020" />
+              <div class="filter-options flex align-center gap-10">
+                <UiDatePicker id="date-range" />
+                <UiButton variant="primary" size="small" text="확인" />
               </div>
             </div>
           </div>
@@ -330,21 +328,41 @@ const outputCountOptions = [
         </div>
 
         <!-- 총서명 필터 -->
-        <div class="filter-section filter-section--single-line">
-          <span class="filter-label">총서명</span>
+        <div class="filter-section">
+          <input
+            type="checkbox"
+            id="series-filter-toggle"
+            class="filter-toggle"
+          />
+          <label for="series-filter-toggle" class="filter-label">
+            총서명
+            <span class="filter-label-btn">
+              <UiButton
+                variant="ghost"
+                size="small"
+                iconOnly
+                icon="icon-plus"
+                iconPosition="left"
+                class="filter-toggle-btn"
+              />
+            </span>
+          </label>
           <div class="filter-group-wrapper">
             <div class="filter-group filter-group--always-visible">
               <div class="filter-options">
-                <UiCheckbox
-                  name="series"
-                  value="한국문학전집"
-                  label="한국문학전집"
-                />
-                <UiCheckbox
-                  name="series"
-                  value="세계문학전집"
-                  label="세계문학전집"
-                />
+                <UiCheckbox name="subject" value="소설" label="소설" />
+                <UiCheckbox name="subject" value="시" label="시" />
+                <UiCheckbox name="subject" value="에세이" label="에세이" />
+                <UiCheckbox name="subject" value="역사" label="역사" />
+                <UiCheckbox name="subject" value="과학" label="과학" />
+              </div>
+            </div>
+            <div class="filter-group filter-group--collapsible">
+              <div class="filter-options">
+                <UiCheckbox name="subject" value="철학" label="철학" />
+                <UiCheckbox name="subject" value="예술" label="예술" />
+                <UiCheckbox name="subject" value="정치" label="정치" />
+                <UiCheckbox name="subject" value="경제" label="경제" />
               </div>
             </div>
           </div>

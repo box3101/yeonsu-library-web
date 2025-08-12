@@ -1,0 +1,196 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+
+.ui-date-picker {
+  @include flex(row, flex-start, center, nowrap);
+  gap: to-rem(12);
+  width: 100%;
+
+  @include mobile {
+    gap: to-rem(16);
+  }
+
+  &__field {
+    @include flex(column, flex-start, stretch, nowrap);
+    gap: to-rem(8);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__label {
+    font-size: to-rem(14);
+    font-weight: $font-medium;
+    color: $gray-800;
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: to-rem(13);
+    }
+  }
+
+  &__required {
+    color: $error-color;
+    margin-left: to-rem(2);
+  }
+
+  &__input-wrapper {
+    position: relative;
+    @include flex(row, space-between, center, nowrap);
+  }
+
+  &__input {
+    width: 100%;
+    height: to-rem(40);
+    padding: to-rem(8) to-rem(40) to-rem(8) to-rem(14);
+    border: 1px solid $gray-300;
+    border-radius: to-rem(6);
+    font-size: to-rem(13);
+    color: $gray-900;
+    background-color: $white;
+    transition: all 0.2s ease;
+
+    @include mobile {
+      height: to-rem(36);
+      padding: to-rem(6) to-rem(36) to-rem(6) to-rem(12);
+      font-size: to-rem(12);
+    }
+
+    &::placeholder {
+      color: $gray-500;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+
+    &:hover:not(:disabled) {
+      border-color: $gray-400;
+    }
+
+    &:disabled {
+      background-color: $gray-100;
+      color: $gray-500;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $gray-400;
+      }
+    }
+
+    // Chrome, Safari, Edge의 숫자 스피너 숨기기
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Firefox의 숫자 스피너 숨기기
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: to-rem(10);
+    top: 50%;
+    transform: translateY(-50%);
+    width: to-rem(18);
+    height: to-rem(18);
+    color: $gray-500;
+    pointer-events: none;
+    z-index: 1;
+
+    @include mobile {
+      right: to-rem(8);
+      width: to-rem(16);
+      height: to-rem(16);
+    }
+  }
+
+  &__separator {
+    @include flex-center;
+    font-size: to-rem(14);
+    font-weight: $font-medium;
+    color: $gray-600;
+    flex-shrink: 0;
+
+    @include mobile {
+      margin-top: 0;
+      align-self: center;
+      font-size: to-rem(14);
+    }
+  }
+
+  // 상태별 스타일
+  &--error {
+    .ui-date-picker__input {
+      border-color: $error-color;
+
+      &:focus {
+        border-color: $error-color;
+        box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+      }
+    }
+
+    .ui-date-picker__icon {
+      color: $error-color;
+    }
+  }
+
+  &--success {
+    .ui-date-picker__input {
+      border-color: $success-color;
+
+      &:focus {
+        border-color: $success-color;
+        box-shadow: 0 0 0 3px rgba($success-color, 0.1);
+      }
+    }
+
+    .ui-date-picker__icon {
+      color: $success-color;
+    }
+  }
+
+  // 크기 변형
+  &--small {
+    .ui-date-picker__input {
+      height: to-rem(32);
+      padding: to-rem(6) to-rem(32) to-rem(6) to-rem(10);
+      font-size: to-rem(12);
+    }
+
+    .ui-date-picker__icon {
+      width: to-rem(14);
+      height: to-rem(14);
+      right: to-rem(8);
+    }
+
+    .ui-date-picker__separator {
+      margin-top: to-rem(20);
+      font-size: to-rem(12);
+    }
+  }
+
+  &--large {
+    .ui-date-picker__input {
+      height: to-rem(48);
+      padding: to-rem(12) to-rem(44) to-rem(12) to-rem(16);
+      font-size: to-rem(15);
+    }
+
+    .ui-date-picker__icon {
+      width: to-rem(20);
+      height: to-rem(20);
+      right: to-rem(12);
+    }
+
+    .ui-date-picker__separator {
+      margin-top: to-rem(30);
+      font-size: to-rem(16);
+    }
+  }
+}

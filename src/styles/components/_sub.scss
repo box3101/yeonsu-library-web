@@ -105,7 +105,7 @@
     color: $text-color;
     font-weight: 700;
     font-size: to-rem(15);
-    margin-bottom: to-rem(8);
+    margin-bottom: to-rem(15);
     padding-top: to-rem(4);
 
     @include tablet {
@@ -115,11 +115,11 @@
 
   &__grid {
     display: grid;
-    gap: to-rem(8) to-rem(24);
+    gap: to-rem(16) to-rem(24);
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr) !important;
-      gap: to-rem(6) to-rem(16);
+      gap: to-rem(10) to-rem(16);
     }
   }
 
@@ -163,9 +163,11 @@
     gap: to-rem(8);
 
     @include tablet {
+      margin-top: to-rem(20) !important;
+      margin-bottom: to-rem(20) !important;
       flex-direction: column;
       align-items: stretch;
-      gap: to-rem(16);
+      gap: to-rem(20) !important;
     }
 
     &-input {
@@ -671,7 +673,7 @@
   font-weight: 500;
   line-height: 1.5;
   color: #1e2124;
-  margin-top: 42px;
+  margin-top: to-rem(16);
 
   @include tablet {
     flex-direction: column;

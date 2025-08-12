@@ -120,6 +120,10 @@
 
     .ui-accordion__body {
       margin-top: to-rem(24);
+
+      @include mobile {
+        margin-top: to-rem(12);
+      }
     }
   }
 
