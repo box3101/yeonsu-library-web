@@ -27,7 +27,7 @@ const LibraryAccordion = {
         content.style.maxHeight = 'max-content';
         if (icon) icon.classList.add('ui-accordion__icon--expanded');
       } else {
-        content.style.maxHeight = '0';
+        content.style.maxHeight = 'max-content';
       }
 
       // 토글 함수
@@ -88,8 +88,12 @@ const LibraryAccordion = {
     const accordions = document.querySelectorAll('.ui-collection-accordion');
 
     accordions.forEach(accordion => {
-      const trigger = accordion.querySelector('.ui-collection-accordion__trigger');
-      const content = accordion.querySelector('.ui-collection-accordion__content');
+      const trigger = accordion.querySelector(
+        '.ui-collection-accordion__trigger'
+      );
+      const content = accordion.querySelector(
+        '.ui-collection-accordion__content'
+      );
       const tabsContainer = accordion.querySelector('.ui-tabs');
 
       if (!trigger || !content) return;
@@ -98,7 +102,8 @@ const LibraryAccordion = {
       if (trigger.dataset.accordionInitialized) return;
       trigger.dataset.accordionInitialized = 'true';
 
-      const iconType = trigger.closest('[data-icon-type]')?.dataset.iconType || 'arrow';
+      const iconType =
+        trigger.closest('[data-icon-type]')?.dataset.iconType || 'arrow';
 
       // 아이콘 타입에 따른 클릭 동작 구분
       trigger.addEventListener('click', function (e) {
@@ -109,7 +114,9 @@ const LibraryAccordion = {
           accordion.style.display = 'none';
 
           // 만약 특정 래퍼가 있다면 그것도 숨김
-          const wrapper = accordion.closest('.ui-book-card__collection-wrapper');
+          const wrapper = accordion.closest(
+            '.ui-book-card__collection-wrapper'
+          );
           if (wrapper) {
             wrapper.style.display = 'none';
           }
@@ -153,7 +160,7 @@ const LibraryAccordion = {
   init() {
     this.initStandardAccordion();
     this.initCollectionAccordion();
-  }
+  },
 };
 
 // DOM 로드 완료 후 실행

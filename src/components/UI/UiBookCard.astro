@@ -47,7 +47,6 @@ const collectionData = [
   },
 ];
 
-// UiCollectionAccordion을 위한 columns와 rows 데이터 변환
 const collectionColumns = [
   {
     key: 'title',
@@ -207,7 +206,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
       <div class="ui-book-card__main">
         <!-- 제목 및 메타 정보 -->
         <div class="ui-book-card__title-section">
-          <a href="/01-1.소장도서검색_상세검색">
+          <a href="./01-1.소장도서검색_상세검색">
             <h3 class="ui-book-card__title" set:html={highlightedTitle} />
           </a>
           <p class="ui-book-card__author">{author}</p>

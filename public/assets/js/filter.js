@@ -16,7 +16,9 @@ const LibraryFilter = {
       const content = document.getElementById(`content-${filterId}`);
       const mainCheckbox = document.getElementById(`all-${filterId}`);
       const searchInput = filter.querySelector('#search');
-      const searchDropdown = document.getElementById(`search-dropdown-${filterId}`);
+      const searchDropdown = document.getElementById(
+        `search-dropdown-${filterId}`
+      );
       const searchTabs = filter.querySelectorAll('.search-tab-button');
       const searchContents = filter.querySelectorAll('.search-content');
       const keyboardTrigger = filter.querySelector('.ui-keyboard-trigger');
@@ -35,7 +37,12 @@ const LibraryFilter = {
 
       // 검색 드롭다운 기능
       if (searchInput && searchDropdown) {
-        this.initSearchDropdown(searchInput, searchDropdown, searchTabs, searchContents);
+        this.initSearchDropdown(
+          searchInput,
+          searchDropdown,
+          searchTabs,
+          searchContents
+        );
       }
 
       // 다국어입력기 버튼
@@ -79,7 +86,7 @@ const LibraryFilter = {
     if (content.dataset.expanded === 'true') {
       content.style.maxHeight = content.scrollHeight + 'px';
     } else {
-      content.style.maxHeight = '0';
+      content.style.maxHeight = 'max-content';
     }
   },
 
@@ -211,7 +218,7 @@ const LibraryFilter = {
   // 전체 초기화
   init() {
     this.initFilters();
-  }
+  },
 };
 
 // DOM 로드 완료 후 실행
