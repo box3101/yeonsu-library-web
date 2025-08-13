@@ -2,6 +2,66 @@
  * 연수구 도서관 Swiper 초기화
  */
 
+// 슬라이더 공통 설정
+const SWIPER_CONFIG = {
+  speed: 1500, // 슬라이드 전환 속도 (800ms)
+};
+
+// 자동재생 토글 공통 함수
+function createAutoplayToggle(swiper, toggleButton, iconStop, iconPlay) {
+  if (!toggleButton || !swiper) return null;
+
+  let isAutoplayRunning = true;
+
+  function updateToggleState(isPlaying) {
+    const iconElement = toggleButton.querySelector('i');
+    if (!iconElement) return;
+
+    if (isPlaying) {
+      // 재생 중 -> 정지 아이콘 표시
+      iconElement.className = iconStop;
+      toggleButton.setAttribute('aria-label', '자동재생 정지');
+    } else {
+      // 정지 중 -> 재생 아이콘 표시
+      iconElement.className = iconPlay;
+      toggleButton.setAttribute('aria-label', '자동재생 시작');
+    }
+  }
+
+  // 초기 상태 설정
+  updateToggleState(isAutoplayRunning);
+
+  // 클릭 이벤트 리스너
+  toggleButton.addEventListener('click', function () {
+    if (isAutoplayRunning) {
+      swiper.autoplay.stop();
+      isAutoplayRunning = false;
+    } else {
+      swiper.autoplay.start();
+      isAutoplayRunning = true;
+    }
+    updateToggleState(isAutoplayRunning);
+  });
+
+  return {
+    toggle: () => {
+      if (isAutoplayRunning) {
+        swiper.autoplay.stop();
+        isAutoplayRunning = false;
+      } else {
+        swiper.autoplay.start();
+        isAutoplayRunning = true;
+      }
+      updateToggleState(isAutoplayRunning);
+    },
+    isPlaying: () => isAutoplayRunning,
+    setPlaying: playing => {
+      isAutoplayRunning = playing;
+      updateToggleState(isAutoplayRunning);
+    },
+  };
+}
+
 // 공지사항 스와이퍼
 function initNoticeSwiper() {
   const swiper = document.querySelector('.notice-swiper');
@@ -10,7 +70,8 @@ function initNoticeSwiper() {
   new Swiper('.notice-swiper', {
     slidesPerView: 1,
     loop: true,
-    autoplay: { delay: 5000 },
+    speed: SWIPER_CONFIG.speed,
+    autoplay: { delay: 1000 },
     navigation: {
       nextEl: '.notice-swiper-btn-next',
       prevEl: '.notice-swiper-btn-prev',
@@ -26,12 +87,113 @@ function initEventSwiper() {
   new Swiper('.event-swiper', {
     slidesPerView: 1,
     loop: true,
+    speed: SWIPER_CONFIG.speed,
     autoplay: { delay: 4000 },
     navigation: {
       nextEl: '.event-swiper-btn-next',
       prevEl: '.event-swiper-btn-prev',
     },
   });
+}
+
+// 배너 스와이퍼 (Footer)
+function initBannerSwiper() {
+  const swiper = document.querySelector('.banner-swiper');
+  if (!swiper) return;
+
+  const autoplayToggle = document.querySelector(
+    '.banner-swiper-autoplay-toggle'
+  );
+
+  const bannerSwiper = new Swiper('.banner-swiper', {
+    slidesPerView: 5, // 기본적으로 5개 표시 (5개 중 5개씩)
+    spaceBetween: 16, // 슬라이드 간 간격
+    speed: SWIPER_CONFIG.speed,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    navigation: {
+      nextEl: '.banner-swiper-btn-next',
+      prevEl: '.banner-swiper-btn-prev',
+    },
+    breakpoints: {
+      // 반응형 설정
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 12,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  // 배너 스와이퍼 자동재생 토글 기능
+  createAutoplayToggle(
+    bannerSwiper,
+    autoplayToggle,
+    'icon icon-sm icon-stop-black',
+    'icon icon-sm icon-play-black'
+  );
+}
+
+// 도서관 이용시간 스와이퍼
+function initLibraryHoursSwiper() {
+  const swiperContainer = document.querySelector('.library-hours-swiper');
+  if (!swiperContainer) return;
+
+  const pageCurrentEl = document.querySelector(
+    '.library-hours__page-info-current'
+  );
+  const autoplayToggle = document.querySelector(
+    '.library-hours-autoplay-toggle'
+  );
+
+  const libraryHoursSwiper = new Swiper('.library-hours-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    speed: SWIPER_CONFIG.speed,
+    centeredSlides: false,
+    autoplay: { delay: 1000, disableOnInteraction: false },
+    navigation: {
+      nextEl: '.library-hours-btn-next',
+      prevEl: '.library-hours-btn-prev',
+    },
+    on: {
+      init: function () {
+        // 초기화 후 다시 한번 스타일 강제 적용
+        const slides = this.slides;
+        slides.forEach(slide => {
+          slide.style.width = '100%';
+          slide.style.maxWidth = '100%';
+          slide.style.minWidth = '100%';
+        });
+      },
+      slideChange: function () {
+        if (pageCurrentEl) {
+          // loop가 활성화된 경우 실제 인덱스 계산
+          const realIndex = this.realIndex;
+          pageCurrentEl.textContent = ` ${realIndex + 1}`;
+        }
+      },
+    },
+  });
+
+  // 자동재생 토글 기능
+  createAutoplayToggle(
+    libraryHoursSwiper,
+    autoplayToggle,
+    'icon icon-sm icon-stop-black',
+    'icon icon-sm icon-play-black'
+  );
 }
 
 // 도서 스와이퍼
@@ -43,6 +205,7 @@ function initBookSwiper() {
     slidesPerView: 5,
     spaceBetween: 20,
     loop: true,
+    speed: SWIPER_CONFIG.speed,
     navigation: {
       nextEl: '.book-swiper-btn-next',
       prevEl: '.book-swiper-btn-prev',
@@ -66,8 +229,8 @@ function initBookSliders() {
     if (!sliderId) return;
 
     new Swiper(`#${sliderId}`, {
-      slidesPerView: 5,
-      spaceBetween: 16,
+      speed: SWIPER_CONFIG.speed,
+      loop: true,
       navigation: {
         nextEl: `.${sliderId}-btn-next`,
         prevEl: `.${sliderId}-btn-prev`,
@@ -88,8 +251,13 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  initNoticeSwiper();
-  initEventSwiper();
-  initBookSwiper();
-  initBookSliders();
+  // 조금 딜레이를 주어서 DOM이 완전히 렌더링된 후 초기화
+  setTimeout(() => {
+    initNoticeSwiper();
+    initEventSwiper();
+    initBannerSwiper();
+    initLibraryHoursSwiper();
+    initBookSwiper();
+    initBookSliders();
+  }, 100);
 });

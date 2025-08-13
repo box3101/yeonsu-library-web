@@ -48,6 +48,58 @@ const newContentItems = [
   },
 ];
 
+// 도서관 이용시간 데이터
+const libraryHours = [
+  {
+    sections: [
+      {
+        title: '유아자료실',
+        floor: '1층',
+        times: [{ days: '화-일', hours: '09:00-18:00' }],
+      },
+      {
+        title: '종합자료실',
+        floor: '3층',
+        times: [
+          { days: '화-일', hours: '09:00-22:00' },
+          { days: '토-일', hours: '09:00-18:00' },
+        ],
+      },
+    ],
+  },
+  {
+    sections: [
+      {
+        title: '어린이자료실',
+        floor: '2층',
+        times: [{ days: '화-일', hours: '09:00-18:00' }],
+      },
+      {
+        title: '청소년자료실',
+        floor: '3층',
+        times: [{ days: '화-일', hours: '09:00-22:00' }],
+      },
+    ],
+  },
+  {
+    sections: [
+      {
+        title: '디지털자료실',
+        floor: '4층',
+        times: [
+          { days: '화-금', hours: '09:00-22:00' },
+          { days: '토-일', hours: '09:00-18:00' },
+        ],
+      },
+      {
+        title: '열람실',
+        floor: '5층',
+        times: [{ days: '연중무휴', hours: '06:00-24:00' }],
+      },
+    ],
+  },
+];
+
 // 이벤트 카드 데이터 (더 많은 데이터로 확장)
 const allEventCards = [
   // 첫 번째 그룹 (4개)
@@ -746,7 +798,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             <div class="holiday-notice flex justify-between items-center">
               <div class="holiday-notice__left flex gap-2 items-center">
                 <div class="holiday-notice__icon">
-                  <i class="icon icon-md icon-calendar"></i>
+                  <i class="icon icon-md icon-dete"></i>
                 </div>
                 <span class="holiday-notice__text">휴관일 안내</span>
               </div>
@@ -858,7 +910,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               </div>
             </div>
 
-            <!-- 이용시간 -->
+            <!-- 이용시간 스와이퍼 -->
             <div class="library-hours">
               <div class="holiday-notice__left flex gap-2 items-center">
                 <div class="holiday-notice__icon">
@@ -866,25 +918,39 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 </div>
                 <span class="holiday-notice__text">이용시간</span>
               </div>
-              <div class="library-hours__grid">
-                <div class="library-hours__section">
-                  <h5 class="library-hours__section-title">
-                    유아자료실 <span class="library-hours__floor">1층</span>
-                  </h5>
-                  <div class="library-hours__time">
-                    화-일 <span>09:00-18:00</span>
-                  </div>
-                </div>
-                <div class="library-hours__section">
-                  <h5 class="library-hours__section-title">
-                    종합자료실 <span class="library-hours__floor">3층</span>
-                  </h5>
-                  <div class="library-hours__time">
-                    화-일 <span>09:00-22:00</span>
-                  </div>
-                  <div class="library-hours__time">
-                    토-일 <span>09:00-18:00</span>
-                  </div>
+
+              <!-- 스와이퍼 컨테이너 -->
+              <div class="library-hours-swiper swiper">
+                <div class="swiper-wrapper">
+                  {
+                    libraryHours.map((page, pageIndex) => (
+                      <div class="swiper-slide">
+                        <div class="library-hours__grid">
+                          {page.sections.map((section, sectionIndex) => (
+                            <div
+                              class="library-hours__section"
+                              key={`${pageIndex}-${sectionIndex}`}
+                            >
+                              <h5 class="library-hours__section-title">
+                                {section.title}{' '}
+                                <span class="library-hours__floor">
+                                  {section.floor}
+                                </span>
+                              </h5>
+                              {section.times.map((time, timeIndex) => (
+                                <div
+                                  class="library-hours__time"
+                                  key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
+                                >
+                                  {time.days} <span>{time.hours}</span>
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))
+                  }
                 </div>
               </div>
 
@@ -892,17 +958,29 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="library-hours__pagination">
                 <span class="library-hours__page-info">
                   <span class="library-hours__page-info-current"> 1</span> / <span
-                    class="library-hours__page-info-total">3</span
+                    class="library-hours__page-info-total"
+                    >{libraryHours.length}</span
                   >
                 </span>
                 <div class="library-hours__nav">
                   <UiNavButton
-                    direction="stop-bold"
+                    class="library-hours-autoplay-toggle"
+                    direction="stop"
                     size={40}
-                    ariaLabel="정지"
+                    ariaLabel="자동재생 정지"
                   />
-                  <UiNavButton direction="prev" size={40} ariaLabel="이전" />
-                  <UiNavButton direction="next" size={40} ariaLabel="다음" />
+                  <UiNavButton
+                    class="library-hours-btn-prev"
+                    direction="prev"
+                    size={40}
+                    ariaLabel="이전 이용시간"
+                  />
+                  <UiNavButton
+                    class="library-hours-btn-next"
+                    direction="next"
+                    size={40}
+                    ariaLabel="다음 이용시간"
+                  />
                 </div>
               </div>
             </div>

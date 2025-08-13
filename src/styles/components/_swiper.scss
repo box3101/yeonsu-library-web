@@ -1,3 +1,41 @@
+// 공통 스와이퍼 스타일
+
+// 도서관 이용시간 스와이퍼 특별 처리 (한 번에 1개씩 표시)
+.library-hours-swiper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+
+  .swiper-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .swiper-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+// 배너 스와이퍼는 여러 개 표시하도록 설정
+.banner-swiper {
+  width: 100% !important;
+  overflow: hidden !important;
+
+  .swiper-wrapper {
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  .swiper-slide {
+    width: auto !important;
+    flex-shrink: 0 !important;
+    // 여기서는 width를 고정하지 않음 (slidesPerView에 따라 자동 계산)
+  }
+}
+
 .book-swiper-wrapper {
   position: relative;
   .btn-wrp {
