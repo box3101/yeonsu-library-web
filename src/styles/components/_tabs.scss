@@ -113,17 +113,17 @@
       color: #244874;
       border-bottom: to-rem(4) solid #244874;
 
-      // &::after {
-      //   position: absolute;
-      //   top: 0;
-      //   right: -10px;
-      //   content: '';
-      //   width: to-rem(8);
-      //   height: to-rem(8);
-      //   background-color: #fcc975;
-      //   border-radius: 50%;
-      //   flex-shrink: 0;
-      // }
+      &::after {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        content: '';
+        width: to-rem(8);
+        height: to-rem(8);
+        background-color: #fcc975;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
     }
 
     // Disabled state

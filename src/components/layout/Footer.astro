@@ -61,73 +61,75 @@ const copyrightLinks = [
         <div class="banner-section__left">
           <div class="banner-section__nav flex gap-4">
             <UiNavButton
-              class="ui-nav-button--primary"
+              class="ui-nav-button--primary banner-swiper-btn-prev"
               direction="prev"
               size={40}
-              ariaLabel="이전 공지사항"
+              ariaLabel="이전 배너"
             />
             <UiNavButton
               class="ui-nav-button--primary"
               direction="stop"
               size={40}
-              ariaLabel="정지"
+              ariaLabel="자동재생 정지"
             />
             <UiNavButton
-              class="ui-nav-button--primary"
+              class="ui-nav-button--primary banner-swiper-btn-next"
               direction="next"
               size={40}
-              ariaLabel="다음 공지사항"
+              ariaLabel="다음 배너"
             />
           </div>
         </div>
         <div class="banner-section__right">
-          <ul class="banner-section__list">
-            <li class="banner-section__item">
-              <a href="#" class="banner-section__link">
-                <img
-                  src="./assets/images/banner/banner01.png"
-                  alt="배너01"
-                  class="banner-section__image"
-                />
-              </a>
-            </li>
-            <li class="banner-section__item">
-              <a href="#" class="banner-section__link">
-                <img
-                  src="./assets/images/banner/banner02.png"
-                  alt="배너02"
-                  class="banner-section__image"
-                />
-              </a>
-            </li>
-            <li class="banner-section__item">
-              <a href="#" class="banner-section__link">
-                <img
-                  src="./assets/images/banner/banner03.png"
-                  alt="배너03"
-                  class="banner-section__image"
-                />
-              </a>
-            </li>
-            <li class="banner-section__item">
-              <a href="#" class="banner-section__link">
-                <img
-                  src="./assets/images/banner/banner04.png"
-                  alt="배너04"
-                  class="banner-section__image"
-                />
-              </a>
-            </li>
-            <li class="banner-section__item">
-              <a href="#" class="banner-section__link">
-                <img
-                  src="./assets/images/banner/banner05.png"
-                  alt="배너05"
-                  class="banner-section__image"
-                />
-              </a>
-            </li>
-          </ul>
+          <div class="banner-swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner01.png"
+                    alt="배너01"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner02.png"
+                    alt="배너02"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner03.png"
+                    alt="배너03"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner04.png"
+                    alt="배너04"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner05.png"
+                    alt="배너05"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -580,12 +580,8 @@
   }
 
   .event-section__left {
-    flex: 1 1 798px;
-    max-width: to-rem(798);
-
-    @include tablet {
-      max-width: 100%;
-    }
+    flex: 1;
+    max-width: to-rem(846);
 
     // 헤더 영역
     .event-section__header {
@@ -764,6 +760,7 @@
 
   .event-section__right {
     flex: 1;
+    max-width: to-rem(410);
 
     @include tablet {
       max-width: 100%;
@@ -1285,14 +1282,18 @@
       }
     }
   }
-
+  .library-hours-wrp {
+    @include flex(row, space-between, center);
+    gap: to-rem(10);
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+  }
   &__pagination {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
     align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid #e5e7eb;
 
     @include tablet {
       justify-content: center;
