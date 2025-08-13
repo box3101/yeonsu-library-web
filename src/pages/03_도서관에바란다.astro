@@ -23,6 +23,7 @@ const columns = [
     width: '100px',
     headerAlign: 'center',
     align: 'center',
+    type: 'badge', // 이 부분 추가!
   },
   {
     key: 'title',
@@ -49,16 +50,125 @@ const columns = [
 
 const rows = [
   {
-    number: 439,
-    category: '모바일도서관',
+    number: 1374,
+    category: '도서관',
     institution: '송도국제',
-    title: '열일실 3층 에어컨이 오후에 약해집니다',
-    author: '이○연',
-    count: 215,
-    href: '/board/detail/439', // 제목 클릭 시 이동할 링크
-    status: '접수대기', // 상태 표시
+    title: '중고등학생들이 공부하는 장소를 만들어 주세요!',
+    author: '황*박',
+    count: 11,
+    href: '/board/detail/1374',
+    status: '접수대기',
     hasIcon: true,
     isNew: true,
+    href: '/board/detail/1374',
+  },
+  {
+    number: 1373,
+    category: '모바일도서관',
+    institution: '청학',
+    title: '열람실 3층 에어건이 오후에 약해집니다',
+    author: '변*석',
+    count: 12,
+    href: '/board/detail/1373',
+    status: '접수완료',
+    hasIcon: true,
+    isNew: true,
+  },
+  {
+    number: 1372,
+    category: '모바일도서관',
+    institution: '청학',
+    title: '상호대차 자동차 속도',
+    author: '홍*동',
+    count: 10,
+    href: '/board/detail/1372',
+    status: '접수대기',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1371,
+    category: '모바일도서관',
+    institution: '누리공원',
+    title: '홈페이지에서는 가족회원들의 대출현황 확인을 어떻게 하나요',
+    author: '박*하',
+    count: 8,
+    href: '/board/detail/1371',
+    status: '접수완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1370,
+    category: '모바일도서관',
+    institution: '해돋이',
+    title: '대출한 dvd 오류관련',
+    author: '최*연',
+    count: 7,
+    href: '/board/detail/1370',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1369,
+    category: '모바일도서관',
+    institution: '누리공원',
+    title: '3층 열람실에서 노트북과 휴대폰을 무음하지않는 사람이 많습니다',
+    author: '김*훈',
+    count: 11,
+    href: '/board/detail/1369',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1368,
+    category: '모바일도서관',
+    institution: '누리공원',
+    title: '상호대차 반납 미처리(스마트도서관)',
+    author: '최*예',
+    count: 12,
+    href: '/board/detail/1368',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1367,
+    category: '모바일도서관',
+    institution: '해찬솔공원',
+    title: '3층 열람실 책상 옆에 가방 거는 고리가 있으면 좋겠습니다.',
+    author: '조*정',
+    count: 10,
+    href: '/board/detail/1367',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1366,
+    category: '모바일도서관',
+    institution: '선학별빛',
+    title: '통합계정 문의드려요',
+    author: '문*온',
+    count: 12,
+    href: '/board/detail/1366',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
+  },
+  {
+    number: 1365,
+    category: '도서관',
+    institution: '선학별빛',
+    title: '에어컨 온도 및 바람세기 / 휴게실 환경',
+    author: '서*석',
+    count: 11,
+    href: '/board/detail/1365',
+    status: '답변완료',
+    hasIcon: false,
+    isNew: false,
   },
 ];
 ---
@@ -119,8 +229,8 @@ const rows = [
         총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
       </div>
       <div class="bbs-actions">
-        <UiButton variant="primary" text="로그인" />
-        <UiButton variant="secondary" text="글쓰기" />
+        <UiButton variant="tertiary" text="로그인" />
+        <UiButton variant="primary" text="글쓰기" />
       </div>
     </div>
 
@@ -129,7 +239,6 @@ const rows = [
       columns={columns}
       rows={rows}
       showIndex={true}
-      showCheckbox={false}
       showStatus={true}
       caption="도서관 건의사항 목록"
     />
@@ -140,8 +249,8 @@ const rows = [
 
     <!-- 로그인 , 글쓰기 버튼 -->
     <div class="bbs-actions flex justify-end items-center gap-8">
-      <UiButton variant="primary" text="로그인" />
-      <UiButton variant="secondary" text="글쓰기" />
+      <UiButton variant="tertiary" text="로그인" />
+      <UiButton variant="primary" text="글쓰기" />
     </div>
   </SubLayout>
 </Layout>

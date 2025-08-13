@@ -5,8 +5,7 @@ export interface TableColumn {
   width?: string;
   align?: 'left' | 'center' | 'right';
   headerAlign?: 'left' | 'center' | 'right';
-  sortable?: boolean;
-  type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon'; // 컬럼 타입 추가
+  type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon' | 'title'; // title 타입 추가
 }
 
 export interface TableButton {
@@ -186,9 +185,41 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                     class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}
                   >
                     {/* 텍스트 타입 */}
-                    {columnType === 'text' && (
-                      <span class="ui-table__text">{cellValue}</span>
-                    )}
+                    {columnType === 'text' &&
+                      // 제목 컬럼인지 확인 (column.key가 'title'인 경우)
+                      (column.key === 'title' ? (
+                        <div class="ui-table__title-wrapper">
+                          {/* 자물쇠 아이콘 */}
+                          {row.hasIcon && (
+                            <div class="ui-table__lock-icon">
+                              <i class="icon-lock" aria-hidden="true" />
+                            </div>
+                          )}
+
+                          {/* 제목 텍스트 */}
+                          {row.href ? (
+                            <a
+                              href={row.href}
+                              class="ui-table__text ui-table__text--link"
+                              aria-label={`${cellValue} 상세보기`}
+                            >
+                              {cellValue}
+                            </a>
+                          ) : (
+                            <span class="ui-table__text">{cellValue}</span>
+                          )}
+
+                          {/* NEW 배지 */}
+                          {row.isNew && (
+                            <span class="ui-table__badge ui-table__badge--new">
+                              N
+                            </span>
+                          )}
+                        </div>
+                      ) : (
+                        // 일반 텍스트 컬럼
+                        <span class="ui-table__text">{cellValue}</span>
+                      ))}
 
                     {/* 배지 타입 */}
                     {columnType === 'badge' && cellValue && (
@@ -234,6 +265,38 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                         class={`ui-table__icon ${cellValue}`}
                         aria-hidden="true"
                       />
+                    )}
+
+                    {/* 새로운 title 타입 */}
+                    {columnType === 'title' && cellValue && (
+                      <div class="ui-table__title-wrapper">
+                        {/* 자물쇠 아이콘 */}
+                        {cellValue.hasIcon && (
+                          <div class="ui-table__lock-icon">
+                            <i class="icon-lock" aria-hidden="true" />
+                          </div>
+                        )}
+
+                        {/* 제목 링크 또는 텍스트 */}
+                        {cellValue.href ? (
+                          <a href={cellValue.href} class="ui-table__title-link">
+                            <span class="ui-table__title-text">
+                              {cellValue.text}
+                            </span>
+                          </a>
+                        ) : (
+                          <span class="ui-table__title-text">
+                            {cellValue.text}
+                          </span>
+                        )}
+
+                        {/* NEW 배지 */}
+                        {cellValue.isNew && (
+                          <span class="ui-table__badge ui-table__badge--new">
+                            N
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                 </td>
