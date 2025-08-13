@@ -168,6 +168,21 @@
     }
   }
 
+  &--filled {
+    .ui-date-picker__input {
+      border-color: $ui-filled-border;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      &:hover:not(:disabled) {
+        border-color: $ui-filled-border;
+      }
+    }
+  }
+
   // 크기 변형
   &--xsmall {
     .ui-date-picker__input {

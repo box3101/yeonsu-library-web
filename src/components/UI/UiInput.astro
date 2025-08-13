@@ -10,7 +10,7 @@ export interface Props {
   required?: boolean;
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   variant?: 'default' | 'filled' | 'outlined' | 'ghost';
-  state?: 'default' | 'success' | 'error' | 'warning';
+  state?: 'default' | 'success' | 'error' | 'warning' | 'filled';
   icon?: string;
   iconPosition?: 'left' | 'right';
   label?: string;
@@ -56,7 +56,7 @@ const inputClasses = [
   'ui-input',
   `ui-input--${size}`,
   `ui-input--${variant}`,
-  `ui-input--${state}`,
+  `ui-input--${state === 'filled' || (value && value.length > 0) ? 'filled' : state}`,
   hasIcon ? `ui-input--icon-${iconPosition}` : '',
   clearable ? 'ui-input--clearable' : '',
   disabled ? 'ui-input--disabled' : '',
@@ -252,7 +252,6 @@ const containerStyle = width
 
     // 스타일 variants
     &--filled {
-      background-color: $gray-50;
       border-color: transparent;
 
       &:focus {
@@ -301,6 +300,19 @@ const containerStyle = width
       &:focus {
         border-color: $warning-color;
         box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+      }
+    }
+
+    &--filled {
+      border-color: $ui-filled-border;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(0, 124, 204, 0.1);
+      }
+
+      &:hover:not(:disabled):not(:readonly) {
+        border-color: $ui-filled-border;
       }
     }
 
@@ -479,6 +491,27 @@ const containerStyle = width
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // 모든 ui-input에 대해 동적 filled 상태 처리
+    const allInputs = document.querySelectorAll('.ui-input');
+
+    allInputs.forEach(input => {
+      function toggleFilledState() {
+        if (input.value && input.value.length > 0) {
+          input.classList.add('ui-input--filled');
+        } else {
+          input.classList.remove('ui-input--filled');
+        }
+      }
+
+      // Input 이벤트 리스너 - 사용자가 타이핑할 때
+      input.addEventListener('input', toggleFilledState);
+      input.addEventListener('change', toggleFilledState);
+      input.addEventListener('blur', toggleFilledState);
+
+      // 초기 상태 설정
+      toggleFilledState();
+    });
+
     // 모든 clearable input에 대해 기능 추가
     const clearableInputs = document.querySelectorAll('.ui-input--clearable');
 
@@ -503,6 +536,9 @@ const containerStyle = width
         input.value = '';
         input.focus();
         toggleClearButton();
+
+        // filled 상태도 업데이트
+        input.classList.remove('ui-input--filled');
 
         // Input 이벤트 발생시키기 (다른 JavaScript가 반응할 수 있도록)
         input.dispatchEvent(new Event('input', { bubbles: true }));

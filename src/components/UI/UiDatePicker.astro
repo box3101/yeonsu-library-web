@@ -8,6 +8,7 @@ interface Props {
   endLabel?: string;
   disabled?: boolean;
   required?: boolean;
+  filled?: boolean;
   id?: string;
   className?: string;
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
@@ -20,6 +21,7 @@ const {
   endPlaceholder = '종료연도',
   disabled = false,
   required = false,
+  filled = false,
   id = '',
   className = '',
   size = 'medium',
@@ -28,6 +30,11 @@ const {
 const datePickerClasses = [
   'ui-date-picker',
   `ui-date-picker--${size}`,
+  filled ||
+  (startYear && startYear.length > 0) ||
+  (endYear && endYear.length > 0)
+    ? 'ui-date-picker--filled'
+    : '',
   className,
 ]
   .filter(Boolean)

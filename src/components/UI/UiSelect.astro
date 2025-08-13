@@ -29,6 +29,10 @@ export interface Props {
    */
   required?: boolean;
   /**
+   * 선택 완료 상태 여부
+   */
+  filled?: boolean;
+  /**
    * 스타일 variant
    */
   variant?: 'default' | 'ghost';
@@ -54,6 +58,7 @@ const {
   width = 'auto',
   disabled = false,
   required = false,
+  filled = false,
   variant = 'default',
   class: className = '',
   options = [],
@@ -68,6 +73,7 @@ const selectClasses = [
   `ui-select--${variant}`,
   `ui-select--${size}`,
   `ui-select--width-${width}`,
+  filled || (value && value.length > 0) ? 'ui-select--filled' : '',
   className,
 ]
   .filter(Boolean)
@@ -108,3 +114,29 @@ const selectClasses = [
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 모든 ui-select에 대해 동적 filled 상태 처리
+    const allSelects = document.querySelectorAll('.ui-select__element');
+
+    allSelects.forEach(select => {
+      const selectContainer = select.closest('.ui-select');
+
+      function toggleFilledState() {
+        if (select.value && select.value.length > 0) {
+          selectContainer.classList.add('ui-select--filled');
+        } else {
+          selectContainer.classList.remove('ui-select--filled');
+        }
+      }
+
+      // Select 이벤트 리스너 - 사용자가 선택할 때
+      select.addEventListener('change', toggleFilledState);
+      select.addEventListener('input', toggleFilledState);
+
+      // 초기 상태 설정
+      toggleFilledState();
+    });
+  });
+</script>

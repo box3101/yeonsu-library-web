@@ -64,6 +64,7 @@ const breadcrumbItems = [
             <UiInput
               name="book-name"
               placeholder="도서명을 입력해주세요"
+              value="테스트 도서명"
               class="w-full"
             />
             <UiButton
@@ -80,6 +81,7 @@ const breadcrumbItems = [
             <UiInput
               name="author-name"
               placeholder="저자명을 입력해주세요"
+              value="테스트 저자"
               class="w-full"
             />
             <UiButton
@@ -143,6 +145,8 @@ const breadcrumbItems = [
           <div class="form-content">
             <UiDatePicker
               name="publication-year"
+              startYear="2020"
+              endYear="2024"
               placeholder="발행년도를 선택해주세요"
             />
             <UiButton variant="primary" text="확인2" />
@@ -153,7 +157,12 @@ const breadcrumbItems = [
           <div class="form-content">
             <UiSelect
               name="language"
-              options={[{ value: '', label: '전체' }]}
+              value="ko"
+              options={[
+                { value: '', label: '전체' },
+                { value: 'ko', label: '한국어' },
+                { value: 'en', label: '영어' },
+              ]}
               class="w-300-mobile-full"
             />
           </div>

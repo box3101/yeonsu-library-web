@@ -77,6 +77,10 @@ export interface Props {
    * 컴포넌트 크기
    */
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  /**
+   * 선택 완료 상태 여부
+   */
+  filled?: boolean;
 }
 
 const {
@@ -98,6 +102,7 @@ const {
   class: className = '',
   fullWidth = false,
   size = 'medium',
+  filled = false,
   ...rest
 } = Astro.props;
 
@@ -110,7 +115,7 @@ const inputId = `${searchbarId}-input`;
 ---
 
 <div
-  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
+  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${filled || (inputValue && inputValue.length > 0) ? 'ui-searchbar--filled' : ''} ${className}`}
   id={searchbarId}
   {...rest}
 >
@@ -228,10 +233,9 @@ const inputId = `${searchbarId}-input`;
         type="text"
         id={inputId}
         name="searchQuery"
-        class="ui-searchbar__input"
+        class="ui-searchbar__input w-360-mobile-full"
         placeholder={placeholder}
         value={inputValue}
-        style={`width: ${inputWidth}px;`}
       />
     </div>
 
@@ -297,6 +301,19 @@ const inputId = `${searchbarId}-input`;
       &:hover {
         border-color: #404040;
       }
+
+      // 선택 완료 상태
+      .ui-searchbar--filled & {
+        border-color: $ui-filled-border;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+
+        &:hover {
+          border-color: $ui-filled-border;
+        }
+      }
     }
 
     &__select-arrow {
@@ -320,7 +337,6 @@ const inputId = `${searchbarId}-input`;
       @include flex(column, stretch, stretch);
       gap: to-rem(8);
       flex: 1;
-      max-width: to-rem(360);
     }
 
     &__input {
@@ -348,6 +364,19 @@ const inputId = `${searchbarId}-input`;
 
       &:hover {
         border-color: #404040;
+      }
+
+      // 선택 완료 상태
+      .ui-searchbar--filled & {
+        border-color: $ui-filled-border;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+
+        &:hover {
+          border-color: $ui-filled-border;
+        }
       }
     }
 
@@ -476,10 +505,6 @@ const inputId = `${searchbarId}-input`;
     @include tablet {
       &__content {
         gap: to-rem(8);
-      }
-
-      &__input-wrapper {
-        max-width: to-rem(280);
       }
     }
   }

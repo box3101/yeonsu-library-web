@@ -379,6 +379,10 @@
 
   &:hover {
     border-color: #3c79c2;
+    .notice-item__title {
+      font-weight: 700;
+      color: #191a1a;
+    }
   }
 
   &__content {
@@ -413,6 +417,7 @@
   &__tag {
     @include flex-center;
     height: to-rem(32);
+    min-width: to-rem(84);
     padding: 0 to-rem(16);
     border-radius: to-rem(32);
     font-family: 'Pretendard GOV', sans-serif;

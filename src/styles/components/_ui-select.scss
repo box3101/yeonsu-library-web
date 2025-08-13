@@ -10,7 +10,6 @@
   // Width variants
   &--width-auto {
     width: auto;
-    min-width: to-rem(120);
 
     @include mobile {
       min-width: to-rem(100);
@@ -77,6 +76,19 @@
     }
   }
 
+  // 선택 완료 상태
+  &--filled &__element {
+    border-color: $ui-filled-border;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &:hover:not(:disabled) {
+      border-color: $ui-filled-border;
+    }
+  }
+
   // Size variants
   &--xsmall &__element {
     padding: to-rem(8) to-rem(28) to-rem(8) to-rem(8);
@@ -138,7 +150,7 @@
     background: transparent;
     color: $gray-900;
     font-weight: 600;
-    padding: to-rem(8) to-rem(24) to-rem(8) 0;
+    padding: to-rem(8) to-rem(24) to-rem(8) to-rem(16);
     min-height: auto;
 
     @include mobile {
