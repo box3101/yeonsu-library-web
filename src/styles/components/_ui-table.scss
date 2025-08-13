@@ -14,6 +14,7 @@
     border-radius: 0;
     border-left: none;
     border-right: none;
+    overflow-x: auto;
   }
 
   // 스티키 헤더 옵션
@@ -45,7 +46,7 @@
   flex-direction: column;
 
   @include mobile {
-    min-width: to-rem(600);
+    min-width: to-rem(800);
   }
 
   &__caption {
@@ -114,7 +115,7 @@
       background: #edf1f1;
 
       @include mobile {
-        font-size: to-rem(11);
+        font-size: to-rem(14);
         height: to-rem(40);
         padding: to-rem(6) to-rem(4);
       }
@@ -133,7 +134,7 @@
       font-family: $font-family-primary;
 
       @include mobile {
-        font-size: to-rem(11);
+        font-size: to-rem(14);
         padding: to-rem(8) to-rem(6);
       }
     }
@@ -144,7 +145,7 @@
       padding: to-rem(8) to-rem(12);
 
       @include mobile {
-        width: to-rem(32);
+        width: to-rem(40);
         padding: to-rem(4);
       }
     }
@@ -152,6 +153,10 @@
     &--index {
       width: to-rem(80);
       text-align: center;
+
+      @include mobile {
+        width: to-rem(60);
+      }
     }
 
     &--action {
@@ -159,7 +164,7 @@
       text-align: center;
 
       @include mobile {
-        width: to-rem(80);
+        width: to-rem(100);
       }
     }
 
@@ -205,8 +210,8 @@
     accent-color: $primary-color;
 
     @include mobile {
-      width: to-rem(14);
-      height: to-rem(14);
+      width: to-rem(16);
+      height: to-rem(16);
     }
   }
 
@@ -232,8 +237,8 @@
     height: to-rem(10);
 
     @include mobile {
-      width: to-rem(8);
-      height: to-rem(8);
+      width: to-rem(10);
+      height: to-rem(10);
     }
   }
 
@@ -248,8 +253,8 @@
     line-height: 1.2;
 
     @include mobile {
-      font-size: to-rem(9);
-      padding: to-rem(1) to-rem(3);
+      font-size: to-rem(12);
+      padding: to-rem(2) to-rem(4);
     }
 
     // 도서관별 색상
@@ -304,8 +309,10 @@
       transition: all 0.2s ease;
 
       @include mobile {
-        padding: to-rem(3) to-rem(6);
-        font-size: to-rem(10);
+        padding: to-rem(4) to-rem(8);
+        font-size: to-rem(12);
+        height: to-rem(28);
+        line-height: to-rem(28);
       }
     }
 
@@ -322,8 +329,10 @@
       transition: all 0.2s ease;
 
       @include mobile {
-        padding: to-rem(3) to-rem(6);
-        font-size: to-rem(10);
+        padding: to-rem(4) to-rem(8);
+        font-size: to-rem(12);
+        height: to-rem(28);
+        line-height: to-rem(28);
       }
     }
 
@@ -340,45 +349,61 @@
       transition: all 0.2s ease;
 
       @include mobile {
-        padding: to-rem(3) to-rem(6);
-        font-size: to-rem(10);
+        padding: to-rem(4) to-rem(8);
+        font-size: to-rem(12);
+        height: to-rem(28);
+        line-height: to-rem(28);
       }
     }
 
-    // 기관별 색상 배지
+    // 기관별 색상 배지 수정
+    &--전체 {
+      background: transparent;
+      border: none;
+      color: $institution-전체;
+      font-weight: 500;
+    }
+
+    &--연수꿈담 {
+      background: transparent;
+      border: none;
+      color: $institution-연수꿈담;
+      font-weight: 500;
+    }
+
     &--송도국제 {
       background: transparent;
-      color: #8e63aa;
+      color: $institution-송도국제;
       font-weight: 500;
     }
 
     &--청학 {
       background: transparent;
-      color: #7fa7d7;
+      color: $institution-청학;
       font-weight: 500;
     }
 
     &--누리공원 {
       background: transparent;
-      color: #7b19d7;
+      color: $institution-누리공원;
       font-weight: 500;
     }
 
     &--해돋이 {
       background: transparent;
-      color: #ef6601;
+      color: $institution-해돋이;
       font-weight: 500;
     }
 
     &--해찬솔공원 {
       background: transparent;
-      color: #189ba7;
+      color: $institution-해찬솔공원;
       font-weight: 500;
     }
 
     &--선학별빛 {
       background: transparent;
-      color: #ffacc1;
+      color: $institution-선학별빛;
       font-weight: 500;
     }
 
@@ -392,8 +417,8 @@
       transition: all 0.2s ease;
 
       @include mobile {
-        padding: to-rem(3) to-rem(6);
-        font-size: to-rem(10);
+        padding: to-rem(4) to-rem(8);
+        font-size: to-rem(12);
       }
 
       &:hover {
@@ -419,9 +444,11 @@
       justify-content: center;
 
       @include mobile {
-        font-size: to-rem(8);
-        padding: to-rem(1) to-rem(2);
-        margin-left: to-rem(2);
+        font-size: to-rem(12);
+        padding: to-rem(2) to-rem(4);
+        margin-left: to-rem(3);
+        width: to-rem(18);
+        height: to-rem(18);
       }
     }
   }
@@ -491,7 +518,7 @@
     text-align: left;
 
     @include mobile {
-      font-size: to-rem(11);
+      font-size: to-rem(14);
       line-height: 1.3;
     }
   }
@@ -531,7 +558,7 @@
     }
 
     @include mobile {
-      font-size: to-rem(11);
+      font-size: to-rem(14);
       line-height: 1.3;
     }
 
@@ -543,7 +570,7 @@
       letter-spacing: -0.02em;
 
       @include mobile {
-        font-size: to-rem(9);
+        font-size: to-rem(12);
       }
     }
   }
@@ -563,7 +590,7 @@
       margin: 0;
 
       @include mobile {
-        font-size: to-rem(12);
+        font-size: to-rem(14);
       }
     }
   }
@@ -580,8 +607,8 @@
     color: $gray-900;
 
     @include mobile {
-      padding: to-rem(3) to-rem(8);
-      font-size: to-rem(12);
+      padding: to-rem(4) to-rem(10);
+      font-size: to-rem(14);
     }
 
     &--default {
@@ -602,7 +629,7 @@
     justify-content: inherit;
 
     @include mobile {
-      gap: to-rem(4);
+      gap: to-rem(6);
     }
   }
 
@@ -616,7 +643,7 @@
     transition: color 0.2s ease;
 
     @include mobile {
-      font-size: to-rem(14);
+      font-size: to-rem(16);
     }
 
     &:hover {
@@ -628,7 +655,7 @@
       font-size: to-rem(14);
 
       @include mobile {
-        font-size: to-rem(12);
+        font-size: to-rem(14);
       }
     }
 
@@ -636,7 +663,7 @@
       font-size: to-rem(16);
 
       @include mobile {
-        font-size: to-rem(14);
+        font-size: to-rem(16);
       }
     }
 
@@ -644,7 +671,7 @@
       font-size: to-rem(18);
 
       @include mobile {
-        font-size: to-rem(16);
+        font-size: to-rem(18);
       }
     }
   }

@@ -1104,7 +1104,6 @@
   border-bottom: 1px solid $gray-300;
 
   @include tablet {
-    @include flex(column, flex-start, stretch);
     gap: to-rem(12);
     margin: to-rem(16) 0;
   }

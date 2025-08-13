@@ -8,21 +8,14 @@ const breadcrumbItems = [
   { label: '열림참여마당', href: '/support' },
   { label: '도서관에 바란다' },
 ];
-
 const columns = [
-  {
-    key: 'category',
-    label: '구분',
-    width: '120px',
-    headerAlign: 'center',
-    align: 'center',
-  },
   {
     key: 'institution',
     label: '기관',
     width: '100px',
     headerAlign: 'center',
     align: 'center',
+    type: 'badge', // 이 부분 추가!
   },
   {
     key: 'title',
@@ -32,9 +25,9 @@ const columns = [
     align: 'left',
   },
   {
-    key: 'author',
-    label: '작성자',
-    width: '100px',
+    key: 'date',
+    label: '작성일',
+    width: '150px',
     headerAlign: 'center',
     align: 'center',
   },
@@ -46,19 +39,96 @@ const columns = [
     align: 'center',
   },
 ];
-
 const rows = [
   {
-    number: 439,
-    category: '모바일도서관',
-    institution: '송도국제',
-    title: '열일실 3층 에어컨이 오후에 약해집니다',
-    author: '이○연',
-    count: 215,
-    href: '/board/detail/439', // 제목 클릭 시 이동할 링크
-    status: '접수대기', // 상태 표시
-    hasIcon: true,
+    number: 438,
+    institution: '선학별빛',
+    title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
+    date: '2025.08.09',
+    count: 53,
+    href: '/board/detail/438',
     isNew: true,
+  },
+  {
+    number: 437,
+    institution: '선학별빛',
+    title: '장기 주차 자전거 폐기 안내(9월 1일)',
+    date: '2025.08.01',
+    count: 98,
+    href: '/board/detail/437',
+    isNew: true,
+  },
+  {
+    number: 436,
+    institution: '전체',
+    title: '7월의 특별 혜택 당첨자 안내',
+    date: '2025.08.01',
+    count: 305,
+    href: '/board/detail/436',
+    isNew: true,
+  },
+  {
+    number: 435,
+    institution: '청학',
+    title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
+    date: '2025.07.30',
+    count: 310,
+    href: '/board/detail/435',
+    isNew: false,
+  },
+  {
+    number: 434,
+    institution: '전체',
+    title: '2025년 하반기 정규프로그램 운영 안내',
+    date: '2025.07.29',
+    count: 620,
+    href: '/board/detail/434',
+    isNew: false,
+  },
+  {
+    number: 433,
+    institution: '연수꿈담',
+    title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
+    date: '2025.07.25',
+    count: 346,
+    href: '/board/detail/433',
+    isNew: false,
+  },
+  {
+    number: 432,
+    institution: '전체',
+    title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
+    date: '2025.07.20',
+    count: 254,
+    href: '/board/detail/432',
+    isNew: false,
+  },
+  {
+    number: 431,
+    institution: '해돋이',
+    title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
+    date: '2025.07.17',
+    count: 283,
+    href: '/board/detail/431',
+    isNew: false,
+  },
+  {
+    number: 430,
+    institution: '전체',
+    title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
+    date: '2025.07.16',
+    count: 307,
+    href: '/board/detail/430',
+    isNew: false,
+  },
+  {
+    number: 429,
+    institution: '전체',
+    title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
+    date: '2025.07.16',
+    count: 1947,
+    href: '/board/detail/429',
+    isNew: false,
   },
 ];
 ---
@@ -130,7 +200,6 @@ const rows = [
       rows={rows}
       showIndex={true}
       showCheckbox={false}
-      showStatus={true}
       caption="도서관 건의사항 목록"
     />
     <!-- 페이징 네비게이션 -->

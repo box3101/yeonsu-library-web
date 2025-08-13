@@ -83,3 +83,25 @@ $radio-bg-disabled: #cdd1d5;
 $radio-text-primary: #131416;
 $radio-text-secondary: #464c53;
 $radio-text-disabled: #8a949e;
+
+// 기관별 색상 (연수구립도서관 시스템)
+$institution-전체: #008f37;
+$institution-연수꿈담: #a3cf62;
+$institution-송도국제: #8e63aa;
+$institution-청학: #7fa7d7;
+$institution-누리공원: #7b19d7;
+$institution-해돋이: #ef6601;
+$institution-해찬솔공원: #189ba7;
+$institution-선학별빛: #ffacc1;
+
+// 도서관 분관별 색상 맵 (mixin에서 활용)
+$institution-colors: (
+  '전체': $institution-전체,
+  '연수꿈담': $institution-연수꿈담,
+  '송도국제': $institution-송도국제,
+  '청학': $institution-청학,
+  '누리공원': $institution-누리공원,
+  '해돋이': $institution-해돋이,
+  '해찬솔공원': $institution-해찬솔공원,
+  '선학별빛': $institution-선학별빛,
+);
