@@ -72,7 +72,7 @@ function initNoticeSwiper() {
     slidesPerView: 1,
     loop: true,
     speed: SWIPER_CONFIG.speed,
-    autoplay: SWIPER_CONFIG.autoplay,
+    // autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.notice-swiper-btn-next',
       prevEl: '.notice-swiper-btn-prev',
@@ -89,7 +89,7 @@ function initEventSwiper() {
     slidesPerView: 1,
     loop: true,
     speed: SWIPER_CONFIG.speed,
-    autoplay: SWIPER_CONFIG.autoplay,
+    // autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.event-swiper-btn-next',
       prevEl: '.event-swiper-btn-prev',

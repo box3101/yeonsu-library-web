@@ -101,9 +101,7 @@
   },
   "flex": {
     "prefix": "flex",
-    "body": [
-      "@include flex(row, $1, $2);",
-    ],
+    "body": ["@include flex(row, $1, $2);"],
     "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end",
   },
   "bbs-actions": {
@@ -138,7 +136,7 @@
       "  direction=\"$2\"",
       "  size={$3}",
       "  ariaLabel=\"$4\"",
-      "/>"
+      "/>",
     ],
     "description": "네비게이션 버튼 - UiNavButton 컴포넌트",
   },
@@ -150,7 +148,7 @@
       "  direction=\"prev\"",
       "  size={40}",
       "  ariaLabel=\"이전 $1\"",
-      "/>"
+      "/>",
     ],
     "description": "이전 네비게이션 버튼 - 기본 스타일",
   },
@@ -162,7 +160,7 @@
       "  direction=\"next\"",
       "  size={40}",
       "  ariaLabel=\"다음 $1\"",
-      "/>"
+      "/>",
     ],
     "description": "다음 네비게이션 버튼 - 기본 스타일",
   },
@@ -182,9 +180,13 @@
       "    size={40}",
       "    ariaLabel=\"다음 $1\"",
       "  />",
-      "</div>"
+      "</div>",
     ],
     "description": "네비게이션 버튼 그룹 - 이전/다음 버튼 세트",
   },
-
+  "include-mobile": {
+    "prefix": "mb",
+    "body": ["@include mobile {", "  $1", "}"],
+    "description": "모바일 브레이크포인트 mixin - 768px 이하",
+  },
 }

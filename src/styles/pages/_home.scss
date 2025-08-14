@@ -17,8 +17,9 @@
   @include relative;
   height: to-rem(468);
 
-  @include tablet {
-    height: to-rem(280);
+  @include mobile {
+    padding: 50px 0;
+    height: auto;
   }
 
   &__background {
@@ -27,6 +28,10 @@
     width: 100%;
     height: 100%;
     border-radius: to-rem(12);
+
+    @include mobile {
+      border-radius: to-rem(8);
+    }
   }
 
   &__mask-group {
@@ -35,6 +40,10 @@
     height: 100%;
     background-color: alpha(#000, 0.1);
     border-radius: to-rem(12);
+
+    @include mobile {
+      border-radius: to-rem(8);
+    }
   }
 
   &__content {
@@ -48,6 +57,12 @@
     gap: to-rem(10);
     position: relative;
     z-index: 10;
+    padding: 0 to-rem(20);
+
+    @include mobile {
+      padding: 0 to-rem(16);
+      gap: to-rem(8);
+    }
 
     h1 {
       margin-bottom: to-rem(24);
@@ -55,6 +70,12 @@
       text-align: center;
       color: $white;
       @include font(to-rem(24), 400, $white);
+      word-break: keep-all;
+
+      @include mobile {
+        margin-bottom: to-rem(16);
+        line-height: 1.5;
+      }
 
       span {
         color: $white;
@@ -63,8 +84,9 @@
         line-height: 150%;
         letter-spacing: 1px;
 
-        @include tablet {
-          font-size: 24px;
+        @include mobile {
+          font-size: to-rem(20);
+          letter-spacing: 0.5px;
         }
       }
     }
@@ -75,8 +97,9 @@
       font-weight: 700;
       line-height: 150%;
 
-      @include tablet {
-        font-size: 16px;
+      @include mobile {
+        font-size: to-rem(14);
+        text-align: center;
       }
     }
   }
@@ -88,22 +111,33 @@
     @include flex(column, center, center);
     width: 100%;
 
-    @include tablet {
-      margin: to-rem(20) to-rem(20) 0;
-      width: calc(100% - #{to-rem(40)});
+    @include mobile {
+      margin: to-rem(16) 0 0;
+      width: 100%;
     }
   }
 
   .banner__description {
-    @include flex(row, end, center);
+    @include flex(row, center, center);
     @include font(to-rem(17), 400, $white);
     line-height: 1;
     margin-top: 8px;
+
+    @include mobile {
+      font-size: to-rem(14);
+      margin-top: to-rem(6);
+    }
+
     span {
       display: inline-block;
       margin: 0 3px;
       font-size: 24px;
       font-weight: 700;
+
+      @include mobile {
+        font-size: to-rem(16);
+        margin: 0 to-rem(2);
+      }
     }
   }
 }

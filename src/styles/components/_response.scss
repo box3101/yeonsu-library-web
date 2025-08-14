@@ -1,0 +1,30 @@
+@use '../abstracts/mixins' as *;
+
+@include mobile {
+  .book-recommendation-slider__container {
+    max-width: 100% !important;
+    min-height: auto;
+    border-radius: 0;
+  }
+  .book-recommendation-slider {
+    width: 100%;
+  }
+  .search-input__container {
+    border-radius: 0 !important;
+  }
+  .search-tabs__indicator {
+    right: 20px !important;
+  }
+  .logo {
+    img {
+      width: 150px !important;
+    }
+  }
+  .main-container {
+    margin-top: 0 !important;
+  }
+  .banner__mask-group,
+  .banner__background {
+    border-radius: 0 !important;
+  }
+}

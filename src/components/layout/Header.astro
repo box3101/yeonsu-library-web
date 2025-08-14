@@ -1,5 +1,7 @@
 ---
 import Gnb from './Gnb.astro';
+import MobileMenu from './MobileMenu.astro';
+
 const navItems = [
   { href: '#', icon: 'icon-person', text: '회원가입' },
   { href: '#', icon: 'icon-login', text: '로그인' },
@@ -11,29 +13,32 @@ const navItems = [
 <div class="header">
   <div class="header-top container">
     <!-- TOP 메뉴 -->
-    <div class="flex justify-between items-center">
-      <div class="header-left">
-        <a href="/" class="logo">
-          <img
-            src="./assets/images/logo.svg"
-            alt="연수구립도서관 로고"
-            class="logo-img"
-          />
-        </a>
-      </div>
+    <div class="header-left">
+      <a href="/" class="logo">
+        <img
+          src="./assets/images/logo.svg"
+          alt="연수구립도서관 로고"
+          class="logo-img"
+        />
+      </a>
+    </div>
 
-      <div class="header-right flex gap-4">
-        {
-          navItems.map(item => (
-            <a href={item.href} class="nav-item">
-              <i class={`icon icon-sm ${item.icon}`} />
-              <span>{item.text}</span>
-            </a>
-          ))
-        }
-      </div>
+    <div class="header-right flex gap-4">
+      {
+        navItems.map(item => (
+          <a href={item.href} class="nav-item">
+            <i class={`icon icon-sm ${item.icon}`} />
+            <span>{item.text}</span>
+          </a>
+        ))
+      }
     </div>
     <!-- // TOP 메뉴 -->
+
+    <!-- 모바일 메뉴 트리거 -->
+    <div class="mobile-menu-trigger-wrapper">
+      <MobileMenu />
+    </div>
   </div>
   <!-- GNB -->
   <Gnb />

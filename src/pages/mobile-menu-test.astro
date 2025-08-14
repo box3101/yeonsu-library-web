@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="모바일 메뉴 테스트 - 연수구립도서관">
+  <div slot="main">
+    <div class="container">
+      <div class="test-content">
+        <h1>모바일 메뉴 테스트 페이지</h1>
+        <p>이 페이지는 모바일 메뉴 기능을 테스트하기 위한 페이지입니다.</p>
+
+        <div class="test-instructions">
+          <h2>테스트 방법</h2>
+          <ol>
+            <li>
+              브라우저 개발자 도구를 열고 모바일 뷰로 전환하세요 (768px 이하)
+            </li>
+            <li>우측 상단의 햄버거 메뉴(≡) 버튼을 클릭하세요</li>
+            <li>
+              1depth, 2depth, 3depth 메뉴가 아코디언 형태로 펼쳐지는지
+              확인하세요
+            </li>
+            <li>스와이프 제스처로 메뉴를 닫을 수 있는지 확인하세요</li>
+            <li>ESC 키로 메뉴를 닫을 수 있는지 확인하세요</li>
+          </ol>
+        </div>
+
+        <div class="test-features">
+          <h2>구현된 기능</h2>
+          <ul>
+            <li>✅ 1, 2, 3depth 메뉴 지원</li>
+            <li>✅ 아코디언 형태 펼침/접힘</li>
+            <li>✅ 슬라이드 인/아웃 애니메이션</li>
+            <li>✅ 터치 스와이프 제스처</li>
+            <li>✅ 키보드 접근성 (ESC, Tab)</li>
+            <li>✅ 포커스 트랩</li>
+            <li>✅ ARIA 속성 지원</li>
+            <li>✅ 반응형 디자인</li>
+          </ul>
+        </div>
+
+        <div class="test-content-spacer">
+          <p>스크롤 테스트를 위한 내용</p>
+          {
+            Array.from({ length: 20 }, (_, i) => (
+              <p>
+                테스트 내용 {i + 1}: 모바일 메뉴가 스크롤과 상관없이 올바르게
+                작동하는지 확인하세요.
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../styles/abstracts' as *;
+  @use '../styles/variables/colors' as *;
+
+  .test-content {
+    padding: to-rem(40) to-rem(20);
+    max-width: to-rem(800);
+    margin: 0 auto;
+
+    h1 {
+      @include font(to-rem(32), 700, $gray-900);
+      margin-bottom: to-rem(16);
+    }
+
+    h2 {
+      @include font(to-rem(24), 600, $gray-800);
+      margin: to-rem(32) 0 to-rem(16) 0;
+    }
+
+    p {
+      @include font(to-rem(16), 400, $gray-700);
+      line-height: 1.6;
+      margin-bottom: to-rem(16);
+    }
+
+    ol,
+    ul {
+      margin-left: to-rem(20);
+      margin-bottom: to-rem(20);
+
+      li {
+        @include font(to-rem(16), 400, $gray-700);
+        line-height: 1.6;
+        margin-bottom: to-rem(8);
+      }
+    }
+
+    .test-instructions {
+      background: $blue-50;
+      padding: to-rem(24);
+      border-radius: to-rem(8);
+      margin: to-rem(24) 0;
+      border-left: 4px solid $primary-color;
+    }
+
+    .test-features {
+      background: $gray-50;
+      padding: to-rem(24);
+      border-radius: to-rem(8);
+      margin: to-rem(24) 0;
+
+      ul li {
+        @include flex(row, flex-start, flex-start);
+        gap: to-rem(8);
+      }
+    }
+
+    .test-content-spacer {
+      margin-top: to-rem(40);
+      padding-top: to-rem(40);
+      border-top: 1px solid $gray-200;
+    }
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 to-rem(20);
+  }
+</style>

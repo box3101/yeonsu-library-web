@@ -1,10 +1,20 @@
 @use '../globals' as *;
 
 .header {
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: to-rem(120);
+
+    @include mobile {
+      height: to-rem(60);
+    }
+  }
+
   &-right {
     display: flex;
     align-items: center;
-    height: to-rem(120);
 
     .nav-item {
       display: flex;
@@ -20,6 +30,23 @@
       &:hover {
         color: #33363d;
       }
+    }
+  }
+
+  // 모바일 메뉴 트리거 래퍼
+  .mobile-menu-trigger-wrapper {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // 데스크톱에서 기존 nav-item들 숨기기
+  @include mobile {
+    .nav-item {
+      display: none;
     }
   }
 
@@ -50,5 +77,11 @@
         gap: to-rem(4);
       }
     }
+  }
+}
+
+@include mobile {
+  .header-right {
+    display: none;
   }
 }
