@@ -63,6 +63,18 @@ class SearchTabs {
       }
     }
 
+    // 책큐 탭일 때 책큐 슬라이더 표시
+    const bookRecommendationSlider = document.getElementById(
+      'bookRecommendationSlider'
+    );
+    if (bookRecommendationSlider) {
+      if (tabId === 'ai-book') {
+        bookRecommendationSlider.style.display = 'block';
+      } else {
+        bookRecommendationSlider.style.display = 'none';
+      }
+    }
+
     // 커스텀 이벤트 발생 (다른 컴포넌트에서 사용 가능)
     const event = new CustomEvent('searchTabChanged', {
       detail: { tabId },
@@ -72,7 +84,6 @@ class SearchTabs {
     console.log(`탭 변경됨: ${tabId}`);
   }
 
-  // 프로그래밍 방식으로 탭 변경
   setActiveTab(tabId) {
     const tab = document.querySelector(`[data-tab="${tabId}"]`);
     if (tab) {

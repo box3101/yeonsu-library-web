@@ -42,13 +42,12 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    max-width: to-rem(800);
+    max-width: to-rem(870);
     height: 100%;
     margin: 0 auto;
     gap: to-rem(10);
     position: relative;
     z-index: 10;
-    padding: 0 to-rem(20);
 
     h1 {
       margin-bottom: to-rem(24);
@@ -88,8 +87,6 @@
   &__search-container {
     @include flex(column, center, center);
     width: 100%;
-    gap: to-rem(16);
-    margin-top: to-rem(0);
 
     @include tablet {
       margin: to-rem(20) to-rem(20) 0;
@@ -212,8 +209,8 @@
 // Search Input Component
 // ============================================
 .search-input {
-  width: to-rem(870);
-  max-width: 100%;
+  width: 100%;
+  margin-top: to-rem(24);
 
   @include tablet {
     width: 100%;

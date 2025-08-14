@@ -84,9 +84,9 @@
   }
 
   // Active state
-  &:active:not(:disabled) {
-    transform: scale(0.98);
-  }
+  // &:active:not(:disabled) {
+  //   transform: scale(0.98);
+  // }
 
   // Disabled state
   &:disabled {

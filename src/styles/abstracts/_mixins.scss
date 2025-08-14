@@ -305,10 +305,12 @@ $icon-map: (
 }
 
 // 폰트 스타일 mixin
-@mixin font($size, $weight, $color) {
+@mixin font($size, $weight, $color, $line-height: 1, $text-align: null) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
+  line-height: $line-height;
+  text-align: $text-align;
 }
 
 // 반응형 이미지 mixin
