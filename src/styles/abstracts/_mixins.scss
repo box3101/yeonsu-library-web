@@ -84,6 +84,12 @@
   left: $left;
 }
 
+@mixin ab-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 // 상대 위치 mixin
 @mixin relative($top: null, $right: null, $bottom: null, $left: null) {
   position: relative;
