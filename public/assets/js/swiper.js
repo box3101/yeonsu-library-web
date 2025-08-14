@@ -4,7 +4,8 @@
 
 // 슬라이더 공통 설정
 const SWIPER_CONFIG = {
-  speed: 1000, // 슬라이드 전환 속도 (800ms)
+  speed: 1500, // 슬라이드 전환 속도 (800ms)
+  autoplay: { delay: 1500 },
 };
 
 // 자동재생 토글 공통 함수
@@ -71,7 +72,7 @@ function initNoticeSwiper() {
     slidesPerView: 1,
     loop: true,
     speed: SWIPER_CONFIG.speed,
-    autoplay: { delay: 1000 },
+    autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.notice-swiper-btn-next',
       prevEl: '.notice-swiper-btn-prev',
@@ -88,12 +89,64 @@ function initEventSwiper() {
     slidesPerView: 1,
     loop: true,
     speed: SWIPER_CONFIG.speed,
-    autoplay: { delay: 1500 },
+    autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.event-swiper-btn-next',
       prevEl: '.event-swiper-btn-prev',
     },
   });
+}
+
+// 도서관 이용시간 스와이퍼
+function initLibraryHoursSwiper() {
+  const swiperContainer = document.querySelector('.library-hours-swiper');
+  if (!swiperContainer) return;
+
+  const pageCurrentEl = document.querySelector(
+    '.library-hours__page-info-current'
+  );
+  const autoplayToggle = document.querySelector(
+    '.library-hours-autoplay-toggle'
+  );
+
+  const libraryHoursSwiper = new Swiper('.library-hours-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    speed: SWIPER_CONFIG.speed,
+    centeredSlides: false,
+    autoplay: SWIPER_CONFIG.autoplay,
+    navigation: {
+      nextEl: '.library-hours-btn-next',
+      prevEl: '.library-hours-btn-prev',
+    },
+    on: {
+      init: function () {
+        // 초기화 후 다시 한번 스타일 강제 적용
+        const slides = this.slides;
+        slides.forEach(slide => {
+          slide.style.width = '100%';
+          slide.style.maxWidth = '100%';
+          slide.style.minWidth = '100%';
+        });
+      },
+      slideChange: function () {
+        if (pageCurrentEl) {
+          // loop가 활성화된 경우 실제 인덱스 계산
+          const realIndex = this.realIndex;
+          pageCurrentEl.textContent = ` ${realIndex + 1}`;
+        }
+      },
+    },
+  });
+
+  // 자동재생 토글 기능
+  createAutoplayToggle(
+    libraryHoursSwiper,
+    autoplayToggle,
+    'icon icon-sm icon-stop-black',
+    'icon icon-sm icon-play-black'
+  );
 }
 
 // 배너 스와이퍼 (Footer)
@@ -110,11 +163,7 @@ function initBannerSwiper() {
     spaceBetween: 16, // 슬라이드 간격
     speed: SWIPER_CONFIG.speed,
     loop: true, // 8개 슬라이드로 늘려서 loop 정상 작동
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-      reverseDirection: false, // 정방향 자동재생
-    },
+    autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.banner-swiper-btn-next',
       prevEl: '.banner-swiper-btn-prev',
@@ -184,58 +233,6 @@ function initBannerSwiper() {
     autoplayToggle,
     'icon icon-sm icon-stop-white',
     'icon icon-sm icon-play-white'
-  );
-}
-
-// 도서관 이용시간 스와이퍼
-function initLibraryHoursSwiper() {
-  const swiperContainer = document.querySelector('.library-hours-swiper');
-  if (!swiperContainer) return;
-
-  const pageCurrentEl = document.querySelector(
-    '.library-hours__page-info-current'
-  );
-  const autoplayToggle = document.querySelector(
-    '.library-hours-autoplay-toggle'
-  );
-
-  const libraryHoursSwiper = new Swiper('.library-hours-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    speed: SWIPER_CONFIG.speed,
-    centeredSlides: false,
-    autoplay: { delay: 1000, disableOnInteraction: false },
-    navigation: {
-      nextEl: '.library-hours-btn-next',
-      prevEl: '.library-hours-btn-prev',
-    },
-    on: {
-      init: function () {
-        // 초기화 후 다시 한번 스타일 강제 적용
-        const slides = this.slides;
-        slides.forEach(slide => {
-          slide.style.width = '100%';
-          slide.style.maxWidth = '100%';
-          slide.style.minWidth = '100%';
-        });
-      },
-      slideChange: function () {
-        if (pageCurrentEl) {
-          // loop가 활성화된 경우 실제 인덱스 계산
-          const realIndex = this.realIndex;
-          pageCurrentEl.textContent = ` ${realIndex + 1}`;
-        }
-      },
-    },
-  });
-
-  // 자동재생 토글 기능
-  createAutoplayToggle(
-    libraryHoursSwiper,
-    autoplayToggle,
-    'icon icon-sm icon-stop-black',
-    'icon icon-sm icon-play-black'
   );
 }
 

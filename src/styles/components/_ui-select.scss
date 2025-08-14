@@ -150,8 +150,9 @@
     background: transparent;
     color: $gray-900;
     font-weight: 600;
-    padding: to-rem(8) to-rem(24) to-rem(8) to-rem(16);
+    padding: to-rem(8) to-rem(24) to-rem(8) to-rem(5);
     min-height: auto;
+    min-width: max-content;
 
     @include mobile {
       padding: to-rem(6) to-rem(20) to-rem(6) 0;
