@@ -4,6 +4,33 @@
 npm create astro@latest -- --template basics
 ```
 
+# 📚 연수도서관 웹사이트 개발 가이드
+
+[![Astro](https://img.shields.io/badge/Astro-4.15.0-ff5d01?style=flat&logo=astro)](https://astro.build/)
+[![SCSS](https://img.shields.io/badge/SCSS-7--1%20Architecture-bf4080?style=flat&logo=sass)](https://sass-lang.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20JS-f7df1e?style=flat&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+## 📋 프로젝트 개요
+
+- **타입**: 퍼블리싱 전용 프로젝트 (백엔드 없음)
+- **프레임워크**: Astro 4.15.0 기반 정적 사이트
+- **스타일링**: SCSS 7-1 아키텍처 + BEM 방법론
+- **폰트**: Pretendard GOV 폰트 시스템
+- **JavaScript**: Vanilla JS + Swiper.js
+- 피그마 디자인 이런말 다빼줘
+
+## 🚫 퍼블리싱 전용 - 금지 사항
+
+- ❌ 백엔드 API 연동 코드 작성 금지
+- ❌ 데이터베이스 관련 코드 금지
+- ❌ 서버 사이드 로직 금지
+- ❌ 실제 폼 제출 처리 금지 (UI만 구현)
+- ❌ 인증/권한 로직 금지 (UI만 구현)
+
+## 🏗️ SCSS 아키텍처 규칙
+
+### 📁 폴더 구조 (7-1 패턴)
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure

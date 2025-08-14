@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { UiRadio, UiSelect, UiNavButton, UiTab, UiButton } from '@components';
+import { UiSelect, UiNavButton, UiTab, UiButton } from '@components';
 
 // 셀렉트 옵션   데이터
 const selectOptions = [
@@ -342,74 +342,78 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             <h1 class="banner__main-title">
               마음의 문을 여는 첫 번째 공간, <span>연수구립도서관!</span>
             </h1>
-            <p class="banner__sub-title">
-              연수구립도서관에서 다양한 책을 만나보세요!
-            </p>
           </div>
         </div>
 
-        <!-- 검색 영역 -->
+        <!-- 도서검색, ai책큐 -->
         <div
           class="banner__search-container"
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          <form class="banner__search-form">
-            <!-- 라디오 버튼 그룹 -->
-            <div class="banner__radio-group">
-              <div class="radio-button">
-                <UiRadio
-                  name="large-demo"
-                  value="option1"
-                  size="large"
-                  label="도서검색"
+          <!-- 탭 네비게이션 -->
+          <div class="search-tabs">
+            <button
+              type="button"
+              class="search-tabs__tab search-tabs__tab--active"
+              data-tab="book-search"
+            >
+              <div class="search-tabs__indicator"></div>
+              <div class="search-tabs__content">
+                <img
+                  src="./assets/images/icon/search-book.svg"
+                  alt="도서검색"
+                  class="search-tabs__icon"
                 />
-                <UiRadio
-                  name="large-demo"
-                  value="option2"
-                  size="large"
-                  label="통합검색"
-                />
+                <span class="search-tabs__text">도서검색</span>
               </div>
-            </div>
-            <div class="banner__search-input-container">
-              <!-- 구분선 -->
-              <div class="banner__divider"></div>
+            </button>
 
-              <!-- 검색 입력 영역 -->
-              <div class="banner__input-container">
+            <button type="button" class="search-tabs__tab" data-tab="ai-book">
+              <div class="search-tabs__indicator"></div>
+              <div class="search-tabs__content">
+                <img
+                  src="./assets/images/icon/search-ai.svg"
+                  alt="AI 책큐"
+                  class="search-tabs__icon"
+                />
+                <span class="search-tabs__text">AI 책큐</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- 검색 입력창 -->
+          <div class="search-input">
+            <form class="search-input__form">
+              <div class="search-input__container">
                 <input
                   type="text"
-                  class="banner__search-input"
-                  placeholder="검색어를 입력해주세요."
+                  class="search-input__field"
+                  placeholder="찾고 싶은 도서의 내용을 입력하세요."
                   aria-label="검색어 입력"
                 />
-              </div>
-
-              <!-- 버튼 그룹 -->
-              <div class="banner__button-group">
-                <button
-                  type="button"
-                  class="banner__clear-btn"
-                  aria-label="입력 내용 지우기"
-                >
-                  <img
-                    src="./assets/images/icon/search-delete.svg"
-                    alt="입력 내용 지우기"
-                  />
-                </button>
-
                 <button
                   type="submit"
-                  class="banner__search-btn"
+                  class="search-input__button"
                   aria-label="검색"
                 >
-                  <img src="./assets/images/icon/icon-search.svg" alt="검색" />
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path
+                      d="M28.33 28.33L25.15 25.15M26.67 16.67C26.67 22.19 22.19 26.67 16.67 26.67C11.15 26.67 6.67 22.19 6.67 16.67C6.67 11.15 11.15 6.67 16.67 6.67C22.19 6.67 26.67 11.15 26.67 16.67Z"
+                      stroke="#33363D"
+                      stroke-width="2.33"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
                 </button>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
+
+        <p class="banner__description">
+          연수구립도서관에서 <span>다양한 책</span>을 만나보세요!
+        </p>
       </div>
     </section>
     <!-- // 비쥬얼 영역 -->
