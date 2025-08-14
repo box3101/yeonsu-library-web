@@ -1,5 +1,6 @@
 ---
 import UiRelatedSiteButton from '@components/UI/UiRelatedSiteButton.astro';
+import UiNavButton from '@components/UI/UiNavButton.astro';
 
 const libraries = [
   {
@@ -68,7 +69,7 @@ const copyrightLinks = [
             />
             <UiNavButton
               class="ui-nav-button--primary banner-swiper-autoplay-toggle"
-              direction="stop-black"
+              direction="stop-white"
               size={40}
               ariaLabel="자동재생 정지"
             />
@@ -82,8 +83,8 @@ const copyrightLinks = [
         </div>
         <div class="banner-section__right">
           <div class="banner-swiper swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+            <div class="swiper-wrapper banner-section__list">
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
                     src="./assets/images/banner/banner01.png"
@@ -92,7 +93,7 @@ const copyrightLinks = [
                   />
                 </a>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
                     src="./assets/images/banner/banner02.png"
@@ -101,7 +102,7 @@ const copyrightLinks = [
                   />
                 </a>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
                     src="./assets/images/banner/banner03.png"
@@ -110,7 +111,7 @@ const copyrightLinks = [
                   />
                 </a>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
                     src="./assets/images/banner/banner04.png"
@@ -119,7 +120,7 @@ const copyrightLinks = [
                   />
                 </a>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
                     src="./assets/images/banner/banner05.png"
@@ -128,11 +129,30 @@ const copyrightLinks = [
                   />
                 </a>
               </div>
-              <div class="swiper-slide">
+              <!-- 무한 루프를 위한 추가 슬라이드 (기존 배너 반복) -->
+              <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
                   <img
-                    src="./assets/images/banner/banner05.png"
-                    alt="배너05"
+                    src="./assets/images/banner/banner01.png"
+                    alt="배너01 (반복)"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide banner-section__item">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner02.png"
+                    alt="배너02 (반복)"
+                    class="banner-section__image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide banner-section__item">
+                <a href="#" class="banner-section__link">
+                  <img
+                    src="./assets/images/banner/banner03.png"
+                    alt="배너03 (반복)"
                     class="banner-section__image"
                   />
                 </a>

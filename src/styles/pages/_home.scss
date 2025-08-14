@@ -899,30 +899,26 @@
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 28px;
-    gap: 40px;
+    @include flex(row, space-between, flex-start);
+    gap: to-rem(40);
+    margin-bottom: to-rem(28);
 
     @include tablet {
       flex-direction: column;
-      gap: 16px;
+      gap: to-rem(16);
     }
   }
 
   &__left,
   &__right {
     flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    @include flex(row, space-between, center);
+    gap: to-rem(16);
 
     @include tablet {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
+      gap: to-rem(16);
     }
   }
 
@@ -944,8 +940,22 @@
   }
 
   &__content {
-    display: flex;
-    gap: 40px;
+    @include flex(row, flex-start, stretch);
+    gap: to-rem(40);
+
+    .info-section__map-area {
+      flex: 1;
+      max-width: 50%;
+    }
+    .info-section__right-area {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      gap: to-rem(24);
+    }
   }
 
   &__map-area {
@@ -954,15 +964,16 @@
   }
 
   &__schedule-area {
-    display: flex;
     flex: 1;
-    flex-direction: column;
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
+    margin-top: to-rem(24);
+
+    @include flex(column, flex-start, stretch);
+    padding: to-rem(32);
+    border-radius: to-rem(12);
+    border: 1px solid $gray-300;
 
     @include tablet {
-      padding: 20px;
+      padding: to-rem(20);
     }
   }
 }
@@ -1434,86 +1445,16 @@
       }
 
       // Right section (배너 링크들)
-      .banner-section__right {
-        flex: 1;
-        margin-left: to-rem(20);
+      .banner-section__item {
+        border-radius: 8px;
 
-        @include tablet {
-          margin-left: 0;
-          width: 100%;
-        }
-
-        .banner-section__list {
-          @include flex(row, center, center);
-          gap: to-rem(16);
-          width: 100%;
-
-          @include tablet {
-            flex-wrap: wrap;
-            gap: to-rem(12);
-          }
-
-          @include mobile {
-            flex-direction: column;
-            gap: to-rem(8);
-          }
-
-          .banner-section__item {
-            @include flex(row, center, center);
-            flex: 1;
-            border-radius: to-rem(8);
-            border: 1px solid $gray-300;
-            background: $white;
-            transition: all 0.2s ease;
-
-            @include tablet {
-              flex: 1 1 calc(50% - to-rem(6));
-              min-height: to-rem(70);
-            }
-
-            @include mobile {
-              width: 100%;
-              min-height: to-rem(60);
-              border-radius: to-rem(6);
-            }
-
-            &:hover {
-              border-color: $primary-color;
-              box-shadow: 0 to-rem(2) to-rem(8) rgba(37, 110, 244, 0.1);
-            }
-
-            .banner-section__link {
-              @include flex(row, center, center);
-              padding: to-rem(5) 0;
-              text-decoration: none;
-              width: 100%;
-
-              @include tablet {
-                padding: to-rem(8) 0;
-              }
-
-              @include mobile {
-                padding: to-rem(12) 0;
-              }
-
-              .banner-section__image {
-                max-width: 100%;
-                height: auto;
-                transition: transform 0.2s ease;
-
-                @include tablet {
-                  max-width: to-rem(140);
-                }
-
-                @include mobile {
-                  max-width: to-rem(120);
-                }
-              }
-
-              &:hover .banner-section__image {
-                transform: scale(1.05);
-              }
-            }
+        .banner-section__link {
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: 1px solid #c9cccc;
           }
         }
       }

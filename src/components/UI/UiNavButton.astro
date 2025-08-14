@@ -3,7 +3,7 @@ export interface Props {
   /**
    * 버튼 방향
    */
-  direction: 'prev' | 'next' | 'stop';
+  direction: 'prev' | 'next' | 'stop' | 'stop-white';
   /**
    * 버튼 크기 (rem 단위)
    */
@@ -64,6 +64,8 @@ const iconWhiteClass = className.includes('ui-nav-button--primary')
       <i class={`icon icon-sm icon-stop ${iconWhiteClass}`} />
     ) : direction === 'stop-bold' ? (
       <i class={`icon icon-sm icon-stop-bold ${iconWhiteClass}`} />
+    ) : direction === 'stop-white' ? (
+      <i class={`icon icon-sm icon-stop-white ${iconWhiteClass}`} />
     ) : null
   }
 </button>

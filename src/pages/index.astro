@@ -349,7 +349,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
         </div>
 
         <!-- 검색 영역 -->
-        <div class="banner__search-container">
+        <div
+          class="banner__search-container"
+          data-aos="fade-up"
+          data-aos-duration="500"
+        >
           <form class="banner__search-form">
             <!-- 라디오 버튼 그룹 -->
             <div class="banner__radio-group">
@@ -438,7 +442,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             </div>
 
             <!-- 필터 및 네비게이션 -->
-            <div class="notice-section__controls">
+            <div
+              class="notice-section__controls"
+              data-aos="fade-up"
+              data-aos-duration="500"
+            >
               <div class="notice-section__filter">
                 <UiSelect
                   name="library-filter"
@@ -464,7 +472,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             </div>
 
             <!-- 공지사항 스와이퍼 -->
-            <div class="notice-section__swiper">
+            <div
+              class="notice-section__swiper"
+              data-aos="fade-up"
+              data-aos-duration="500"
+            >
               <div class="swiper notice-swiper">
                 <div class="swiper-wrapper">
                   {
@@ -510,7 +522,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 <h2 class="notice-section__title">자주찾는 페이지</h2>
               </div>
             </div>
-            <div class="quick-links">
+            <div class="quick-links" data-aos="fade-up" data-aos-duration="500">
               <div class="quick-links__grid">
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
@@ -605,6 +617,8 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             <div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
               <div
                 class="event-section__filter flex justify-between items-center"
+                data-aos="fade-up"
+                data-aos-duration="500"
               >
                 <UiSelect
                   name="library-filter"
@@ -629,7 +643,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               </div>
 
               <!-- 이벤트 카드 스와이퍼 -->
-              <div class="event-section__swiper">
+              <div
+                class="event-section__swiper"
+                data-aos="fade-up"
+                data-aos-duration="500"
+              >
                 <div class="swiper event-swiper">
                   <div class="swiper-wrapper">
                     {
@@ -716,7 +734,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
           <!-- 신규 컨텐츠 바로가기 -->
           <div class="new-content-shortcuts">
             <h3 class="new-content-shortcuts__title">신규 컨텐츠 바로가기</h3>
-            <div class="new-content-shortcuts__grid">
+            <div
+              class="new-content-shortcuts__grid"
+              data-aos="fade-up"
+              data-aos-duration="500"
+            >
               {
                 newContentItems.map(item => (
                   <a
@@ -752,39 +774,27 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
     <!-- 연수구도서관 한눈에 보기, 도서관 이용시간 -->
     <section class="info-section">
       <div class="inner">
-        <div class="info-section__header">
-          <div class="info-section__left">
-            <h2 class="info-section__title">
-              연수구도서관 <span>한눈에 보기</span>
-            </h2>
-            <UiSelect
-              name="library-select"
-              options={[
-                { value: 'yeonsu', label: '연수청학도서관' },
-                { value: 'ggumdan', label: '연수꿈단도서관' },
-                { value: 'songdo', label: '송도국제어린이도서관' },
-              ]}
-              value="yeonsu"
-              class="w-180"
-            />
-          </div>
-          <div class="info-section__right">
-            <h2 class="info-section__title">도서관 <span>이용시간</span></h2>
-            <UiButton
-              text="도서관 소개 바로가기"
-              variant="primary"
-              size="large"
-              width="250px"
-              icon="icon-arr-right-white"
-              iconPosition="right"
-            />
-          </div>
-        </div>
-
         <div class="info-section__content">
-          <div class="info-section__map-area">
+          <div class="info-section__map-area left">
+            <div class="info-section__header">
+              <div class="info-section__left">
+                <h2 class="info-section__title">
+                  연수구도서관 <span>한눈에 보기</span>
+                </h2>
+                <UiSelect
+                  name="library-select"
+                  options={[
+                    { value: 'yeonsu', label: '연수청학도서관' },
+                    { value: 'ggumdan', label: '연수꿈단도서관' },
+                    { value: 'songdo', label: '송도국제어린이도서관' },
+                  ]}
+                  value="yeonsu"
+                  class="w-180"
+                />
+              </div>
+            </div>
             <!-- 지도 영역 -->
-            <div class="library-map">
+            <div class="library-map" data-aos="fade-up" data-aos-duration="500">
               <img
                 src="/assets/images/building-image.png"
                 alt="연수구 도서관 지도"
@@ -792,195 +802,215 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               />
             </div>
           </div>
-
-          <div class="info-section__schedule-area">
-            <!-- 휴관일 안내 -->
-            <div class="holiday-notice flex justify-between items-center">
-              <div class="holiday-notice__left flex gap-2 items-center">
-                <div class="holiday-notice__icon">
-                  <i class="icon icon-md icon-dete"></i>
-                </div>
-                <span class="holiday-notice__text">휴관일 안내</span>
-              </div>
-              <div class="holiday-notice__legends">
-                <div class="holiday-notice__legend">
-                  <div class="holiday-notice__dot holiday-notice__dot--red">
-                  </div>
-                  <span>법정공휴일</span>
-                </div>
-                <div class="holiday-notice__legend">
-                  <div class="holiday-notice__dot holiday-notice__dot--orange">
-                  </div>
-                  <span>정기휴관</span>
-                </div>
-                <div class="holiday-notice__legend">
-                  <div class="holiday-notice__dot holiday-notice__dot--gray">
-                  </div>
-                  <span>개관일</span>
-                </div>
-              </div>
+          <div class="info-section__right-area">
+            <div class="info-section__right">
+              <h2 class="info-section__title">
+                도서관 <span>이용시간</span>
+              </h2>
+              <UiButton
+                text="도서관 소개 바로가기"
+                variant="darkBlue"
+                size="large"
+                width="250px"
+                icon="icon-arr-right-white"
+                iconPosition="right"
+              />
             </div>
-            <!-- 캘린더 -->
-            <div class="calendar">
-              <div class="calendar__header">
-                <UiNavButton direction="prev" size={40} ariaLabel="이전 달" />
-                <div class="calendar__selects">
-                  <UiSelect
-                    name="calendar-year"
-                    options={[
-                      { value: '2024', label: '2024년' },
-                      { value: '2025', label: '2025년' },
-                      { value: '2026', label: '2026년' },
-                    ]}
-                    value="2025"
-                    variant="ghost"
-                    class="w-80"
-                  />
-                  <UiSelect
-                    name="calendar-month"
-                    options={[
-                      { value: '1', label: '1월' },
-                      { value: '2', label: '2월' },
-                      { value: '3', label: '3월' },
-                      { value: '4', label: '4월' },
-                      { value: '5', label: '5월' },
-                      { value: '6', label: '6월' },
-                      { value: '7', label: '7월' },
-                      { value: '8', label: '8월' },
-                      { value: '9', label: '9월' },
-                      { value: '10', label: '10월' },
-                      { value: '11', label: '11월' },
-                      { value: '12', label: '12월' },
-                    ]}
-                    value="5"
-                    variant="ghost"
-                    class="w-80"
-                  />
+            <div
+              class="info-section__schedule-area"
+              data-aos="fade-up"
+              data-aos-duration="500"
+            >
+              <!-- 휴관일 안내 -->
+              <div class="holiday-notice flex justify-between items-center">
+                <div class="holiday-notice__left flex gap-2 items-center">
+                  <div class="holiday-notice__icon">
+                    <i class="icon icon-md icon-dete"></i>
+                  </div>
+                  <span class="holiday-notice__text">휴관일 안내</span>
                 </div>
-                <UiNavButton direction="next" size={40} ariaLabel="다음 달" />
-              </div>
-              <div class="calendar__grid">
-                <div class="calendar__weekdays">
-                  <div class="calendar__weekday">일</div>
-                  <div class="calendar__weekday">월</div>
-                  <div class="calendar__weekday">화</div>
-                  <div class="calendar__weekday">수</div>
-                  <div class="calendar__weekday">목</div>
-                  <div class="calendar__weekday">금</div>
-                  <div class="calendar__weekday">토</div>
-                </div>
-                <div class="calendar__days">
-                  <!-- 5월 달력 예시 -->
-                  <div class="calendar__day calendar__day--prev">27</div>
-                  <div class="calendar__day calendar__day--prev">28</div>
-                  <div class="calendar__day calendar__day--prev">29</div>
-                  <div class="calendar__day calendar__day--prev">30</div>
-                  <div class="calendar__day calendar__day--open">1</div>
-                  <div class="calendar__day calendar__day--open">2</div>
-                  <div class="calendar__day calendar__day--open">3</div>
-                  <div class="calendar__day calendar__day--open">4</div>
-                  <div class="calendar__day calendar__day--holiday">5</div>
-                  <div class="calendar__day calendar__day--closed">6</div>
-                  <div class="calendar__day calendar__day--open">7</div>
-                  <div class="calendar__day calendar__day--open">8</div>
-                  <div class="calendar__day calendar__day--open">9</div>
-                  <div class="calendar__day calendar__day--open">10</div>
-                  <div class="calendar__day calendar__day--open">11</div>
-                  <div class="calendar__day calendar__day--closed">12</div>
-                  <div class="calendar__day calendar__day--open">13</div>
-                  <div class="calendar__day calendar__day--open">14</div>
-                  <div class="calendar__day calendar__day--open">15</div>
-                  <div class="calendar__day calendar__day--open">16</div>
-                  <div class="calendar__day calendar__day--open">17</div>
-                  <div class="calendar__day calendar__day--open">18</div>
-                  <div class="calendar__day calendar__day--closed">19</div>
-                  <div class="calendar__day calendar__day--open">20</div>
-                  <div class="calendar__day calendar__day--open">21</div>
-                  <div class="calendar__day calendar__day--open">22</div>
-                  <div class="calendar__day calendar__day--open">23</div>
-                  <div class="calendar__day calendar__day--today">24</div>
-                  <div class="calendar__day calendar__day--open">25</div>
-                  <div class="calendar__day calendar__day--closed">26</div>
-                  <div class="calendar__day calendar__day--open">27</div>
-                  <div class="calendar__day calendar__day--open">28</div>
-                  <div class="calendar__day calendar__day--open">29</div>
-                  <div class="calendar__day calendar__day--open">30</div>
-                  <div class="calendar__day calendar__day--open">31</div>
+                <div class="holiday-notice__legends">
+                  <div class="holiday-notice__legend">
+                    <div class="holiday-notice__dot holiday-notice__dot--red">
+                    </div>
+                    <span>법정공휴일</span>
+                  </div>
+                  <div class="holiday-notice__legend">
+                    <div
+                      class="holiday-notice__dot holiday-notice__dot--orange"
+                    >
+                    </div>
+                    <span>정기휴관</span>
+                  </div>
+                  <div class="holiday-notice__legend">
+                    <div class="holiday-notice__dot holiday-notice__dot--gray">
+                    </div>
+                    <span>개관일</span>
+                  </div>
                 </div>
               </div>
-            </div>
+              <!-- 캘린더 -->
+              <div class="calendar">
+                <div class="calendar__header">
+                  <UiNavButton direction="prev" size={40} ariaLabel="이전 달" />
+                  <div class="calendar__selects">
+                    <UiSelect
+                      name="calendar-year"
+                      options={[
+                        { value: '2024', label: '2024년' },
+                        { value: '2025', label: '2025년' },
+                        { value: '2026', label: '2026년' },
+                      ]}
+                      value="2025"
+                      variant="ghost"
+                      class="w-80"
+                    />
+                    <UiSelect
+                      name="calendar-month"
+                      options={[
+                        { value: '1', label: '1월' },
+                        { value: '2', label: '2월' },
+                        { value: '3', label: '3월' },
+                        { value: '4', label: '4월' },
+                        { value: '5', label: '5월' },
+                        { value: '6', label: '6월' },
+                        { value: '7', label: '7월' },
+                        { value: '8', label: '8월' },
+                        { value: '9', label: '9월' },
+                        { value: '10', label: '10월' },
+                        { value: '11', label: '11월' },
+                        { value: '12', label: '12월' },
+                      ]}
+                      value="5"
+                      variant="ghost"
+                      class="w-80"
+                    />
+                  </div>
+                  <UiNavButton direction="next" size={40} ariaLabel="다음 달" />
+                </div>
+                <div class="calendar__grid">
+                  <div class="calendar__weekdays">
+                    <div class="calendar__weekday">일</div>
+                    <div class="calendar__weekday">월</div>
+                    <div class="calendar__weekday">화</div>
+                    <div class="calendar__weekday">수</div>
+                    <div class="calendar__weekday">목</div>
+                    <div class="calendar__weekday">금</div>
+                    <div class="calendar__weekday">토</div>
+                  </div>
+                  <div class="calendar__days">
+                    <!-- 5월 달력 예시 -->
+                    <div class="calendar__day calendar__day--prev">27</div>
+                    <div class="calendar__day calendar__day--prev">28</div>
+                    <div class="calendar__day calendar__day--prev">29</div>
+                    <div class="calendar__day calendar__day--prev">30</div>
+                    <div class="calendar__day calendar__day--open">1</div>
+                    <div class="calendar__day calendar__day--open">2</div>
+                    <div class="calendar__day calendar__day--open">3</div>
+                    <div class="calendar__day calendar__day--open">4</div>
+                    <div class="calendar__day calendar__day--holiday">5</div>
+                    <div class="calendar__day calendar__day--closed">6</div>
+                    <div class="calendar__day calendar__day--open">7</div>
+                    <div class="calendar__day calendar__day--open">8</div>
+                    <div class="calendar__day calendar__day--open">9</div>
+                    <div class="calendar__day calendar__day--open">10</div>
+                    <div class="calendar__day calendar__day--open">11</div>
+                    <div class="calendar__day calendar__day--closed">12</div>
+                    <div class="calendar__day calendar__day--open">13</div>
+                    <div class="calendar__day calendar__day--open">14</div>
+                    <div class="calendar__day calendar__day--open">15</div>
+                    <div class="calendar__day calendar__day--open">16</div>
+                    <div class="calendar__day calendar__day--open">17</div>
+                    <div class="calendar__day calendar__day--open">18</div>
+                    <div class="calendar__day calendar__day--closed">19</div>
+                    <div class="calendar__day calendar__day--open">20</div>
+                    <div class="calendar__day calendar__day--open">21</div>
+                    <div class="calendar__day calendar__day--open">22</div>
+                    <div class="calendar__day calendar__day--open">23</div>
+                    <div class="calendar__day calendar__day--today">24</div>
+                    <div class="calendar__day calendar__day--open">25</div>
+                    <div class="calendar__day calendar__day--closed">26</div>
+                    <div class="calendar__day calendar__day--open">27</div>
+                    <div class="calendar__day calendar__day--open">28</div>
+                    <div class="calendar__day calendar__day--open">29</div>
+                    <div class="calendar__day calendar__day--open">30</div>
+                    <div class="calendar__day calendar__day--open">31</div>
+                  </div>
+                </div>
+              </div>
 
-            <!-- 이용시간 스와이퍼 -->
-            <div class="library-hours">
-              <div class="holiday-notice__left flex gap-2 items-center">
-                <div class="holiday-notice__icon">
-                  <i class="icon icon-md icon-calendar"></i>
+              <!-- 이용시간 스와이퍼 -->
+              <div class="library-hours">
+                <div class="holiday-notice__left flex gap-2 items-center">
+                  <div class="holiday-notice__icon">
+                    <i class="icon icon-md icon-calendar"></i>
+                  </div>
+                  <span class="holiday-notice__text">이용시간</span>
                 </div>
-                <span class="holiday-notice__text">이용시간</span>
-              </div>
 
-              <!-- 스와이퍼 컨테이너 -->
-              <div class="library-hours-swiper swiper">
-                <div class="swiper-wrapper">
-                  {
-                    libraryHours.map((page, pageIndex) => (
-                      <div class="swiper-slide">
-                        <div class="library-hours__grid">
-                          {page.sections.map((section, sectionIndex) => (
-                            <div
-                              class="library-hours__section"
-                              key={`${pageIndex}-${sectionIndex}`}
-                            >
-                              <h5 class="library-hours__section-title">
-                                {section.title}{' '}
-                                <span class="library-hours__floor">
-                                  {section.floor}
-                                </span>
-                              </h5>
-                              {section.times.map((time, timeIndex) => (
-                                <div
-                                  class="library-hours__time"
-                                  key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
-                                >
-                                  {time.days} <span>{time.hours}</span>
-                                </div>
-                              ))}
-                            </div>
-                          ))}
+                <!-- 스와이퍼 컨테이너 -->
+                <div class="library-hours-swiper swiper">
+                  <div class="swiper-wrapper">
+                    {
+                      libraryHours.map((page, pageIndex) => (
+                        <div class="swiper-slide">
+                          <div class="library-hours__grid">
+                            {page.sections.map((section, sectionIndex) => (
+                              <div
+                                class="library-hours__section"
+                                key={`${pageIndex}-${sectionIndex}`}
+                              >
+                                <h5 class="library-hours__section-title">
+                                  {section.title}{' '}
+                                  <span class="library-hours__floor">
+                                    {section.floor}
+                                  </span>
+                                </h5>
+                                {section.times.map((time, timeIndex) => (
+                                  <div
+                                    class="library-hours__time"
+                                    key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
+                                  >
+                                    {time.days} <span>{time.hours}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  }
+                      ))
+                    }
+                  </div>
                 </div>
-              </div>
 
-              <!-- 페이지네이션 -->
-              <div class="library-hours__pagination">
-                <span class="library-hours__page-info">
-                  <span class="library-hours__page-info-current"> 1</span> / <span
-                    class="library-hours__page-info-total"
-                    >{libraryHours.length}</span
-                  >
-                </span>
-                <div class="library-hours__nav">
-                  <UiNavButton
-                    class="library-hours-autoplay-toggle"
-                    direction="stop"
-                    size={40}
-                    ariaLabel="자동재생 정지"
-                  />
-                  <UiNavButton
-                    class="library-hours-btn-prev"
-                    direction="prev"
-                    size={40}
-                    ariaLabel="이전 이용시간"
-                  />
-                  <UiNavButton
-                    class="library-hours-btn-next"
-                    direction="next"
-                    size={40}
-                    ariaLabel="다음 이용시간"
-                  />
+                <!-- 페이지네이션 -->
+                <div class="library-hours__pagination">
+                  <span class="library-hours__page-info">
+                    <span class="library-hours__page-info-current"> 1</span> / <span
+                      class="library-hours__page-info-total"
+                      >{libraryHours.length}</span
+                    >
+                  </span>
+                  <div class="library-hours__nav">
+                    <UiNavButton
+                      class="library-hours-autoplay-toggle"
+                      direction="stop"
+                      size={40}
+                      ariaLabel="자동재생 정지"
+                    />
+                    <UiNavButton
+                      class="library-hours-btn-prev"
+                      direction="prev"
+                      size={40}
+                      ariaLabel="이전 이용시간"
+                    />
+                    <UiNavButton
+                      class="library-hours-btn-next"
+                      direction="next"
+                      size={40}
+                      ariaLabel="다음 이용시간"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

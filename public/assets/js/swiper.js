@@ -4,7 +4,7 @@
 
 // 슬라이더 공통 설정
 const SWIPER_CONFIG = {
-  speed: 1500, // 슬라이드 전환 속도 (800ms)
+  speed: 1000, // 슬라이드 전환 속도 (800ms)
 };
 
 // 자동재생 토글 공통 함수
@@ -88,7 +88,7 @@ function initEventSwiper() {
     slidesPerView: 1,
     loop: true,
     speed: SWIPER_CONFIG.speed,
-    autoplay: { delay: 4000 },
+    autoplay: { delay: 1500 },
     navigation: {
       nextEl: '.event-swiper-btn-next',
       prevEl: '.event-swiper-btn-prev',
@@ -106,13 +106,30 @@ function initBannerSwiper() {
   );
 
   const bannerSwiper = new Swiper('.banner-swiper', {
-    slidesPerView: 5, // 기본적으로 5개 표시 (5개 중 5개씩)
-    spaceBetween: 16, // 슬라이드 간 간격
+    slidesPerView: 5, // 5개 슬라이드 표시
+    spaceBetween: 16, // 슬라이드 간격
     speed: SWIPER_CONFIG.speed,
-    autoplay: { delay: 4000, disableOnInteraction: false },
+    loop: true, // 8개 슬라이드로 늘려서 loop 정상 작동
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+      reverseDirection: false, // 정방향 자동재생
+    },
     navigation: {
       nextEl: '.banner-swiper-btn-next',
       prevEl: '.banner-swiper-btn-prev',
+    },
+    // 🔥 Swiper width 버그 강제 해결
+    on: {
+      init: function () {
+        fixSwiperWidth(this);
+      },
+      resize: function () {
+        fixSwiperWidth(this);
+      },
+      slideChange: function () {
+        fixSwiperWidth(this);
+      },
     },
     breakpoints: {
       // 반응형 설정
@@ -125,22 +142,48 @@ function initBannerSwiper() {
         spaceBetween: 16,
       },
       1024: {
-        slidesPerView: 2,
+        slidesPerView: 3,
         spaceBetween: 16,
       },
       1200: {
         slidesPerView: 5,
-        spaceBetween: 20,
+        spaceBetween: 16,
       },
     },
   });
+
+  // Swiper width 버그 강제 해결 함수
+  function fixSwiperWidth(swiper) {
+    const slides = swiper.slides;
+    const currentSlidesPerView = swiper.params.slidesPerView;
+    const currentSpaceBetween = swiper.params.spaceBetween;
+
+    slides.forEach(slide => {
+      // 엄청난 width 값 강제 초기화
+      if (slide.style.width.includes('e+')) {
+        const percentage = 100 / currentSlidesPerView;
+        const gapAdjustment =
+          (currentSpaceBetween * (currentSlidesPerView - 1)) /
+          currentSlidesPerView;
+        const correctWidth = `calc(${percentage}% - ${gapAdjustment}px)`;
+
+        slide.style.width = correctWidth;
+        slide.style.maxWidth = correctWidth;
+        slide.style.flex = `0 0 ${correctWidth}`;
+
+        console.log(
+          `Fixed slide width from ${slide.style.width} to ${correctWidth}`
+        );
+      }
+    });
+  }
 
   // 배너 스와이퍼 자동재생 토글 기능
   createAutoplayToggle(
     bannerSwiper,
     autoplayToggle,
-    'icon icon-sm icon-stop-black',
-    'icon icon-sm icon-play-black'
+    'icon icon-sm icon-stop-white',
+    'icon icon-sm icon-play-white'
   );
 }
 

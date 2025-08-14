@@ -92,8 +92,8 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background: $gray-100;
-    border-color: $gray-300;
+    // background: $gray-100;
+    // border-color: $gray-300;
 
     .icon,
     i[class*='icon'] {

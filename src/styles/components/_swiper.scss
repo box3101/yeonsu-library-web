@@ -19,20 +19,68 @@
   }
 }
 
-// 배너 스와이퍼는 여러 개 표시하도록 설정
+// 배너 스와이퍼 스타일 - Swiper 8.4.7 버그 대응
 .banner-swiper {
-  width: 100% !important;
-  overflow: hidden !important;
+  width: 100%;
+  overflow: hidden;
 
   .swiper-wrapper {
-    width: 100% !important;
     display: flex !important;
+    padding-left: 0;
+    width: 100% !important;
   }
 
   .swiper-slide {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    // 🔥 Swiper 8.4.7 width 계산 버그 강제 해결
     width: auto !important;
-    flex-shrink: 0 !important;
-    // 여기서는 width를 고정하지 않음 (slidesPerView에 따라 자동 계산)
+    max-width: 20% !important; // 5개 슬라이드 기준
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  // 데스크톱: 5개씩 표시 (20% 각각)
+  @media (min-width: 1200px) {
+    .swiper-slide {
+      max-width: calc(20% - 12.8px) !important;
+      width: calc(20% - 12.8px) !important;
+      flex: 0 0 calc(20% - 12.8px) !important;
+    }
+  }
+
+  // 태블릿: 3개씩 표시
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .swiper-slide {
+      max-width: calc(33.333% - 10.67px) !important;
+      width: calc(33.333% - 10.67px) !important;
+      flex: 0 0 calc(33.333% - 10.67px) !important;
+    }
+  }
+
+  // 작은 태블릿: 2개씩 표시
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .swiper-slide {
+      max-width: calc(50% - 8px) !important;
+      width: calc(50% - 8px) !important;
+      flex: 0 0 calc(50% - 8px) !important;
+    }
+  }
+
+  // 모바일: 1개씩 표시
+  @media (max-width: 767px) {
+    .swiper-slide {
+      max-width: 100% !important;
+      width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+  }
+
+  // 이미지가 슬라이드 크기에 맞게 조정되도록
+  .banner-section__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 

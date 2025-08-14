@@ -38,11 +38,14 @@ if (typeof globalThis !== 'undefined') {
     <!-- <link rel="stylesheet" href="./assets/css/main.css" /> -->
     <title>Astro Basics</title>
 
-    <!-- Swiper CDN - 다른 CDN으로 변경 -->
+    <!-- Swiper CDN - 최신 11.x 버전으로 업데이트 -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper@11/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
   <body>
     <Header />
@@ -51,11 +54,18 @@ if (typeof globalThis !== 'undefined') {
     </main>
     <Footer />
 
-    <!-- JavaScript 로딩 - 다른 CDN과 onload 이벤트 사용 -->
+    <!-- JavaScript 로딩 - 최신 11.x 버전으로 업데이트 -->
     <script
-      src="https://unpkg.com/swiper@11/swiper-bundle.min.js"
-      onload="console.log('Swiper CDN loaded successfully')"
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      onload="console.log('Swiper 11.x CDN loaded successfully')"
       onerror="console.error('Failed to load Swiper CDN')"></script>
+
+    <!-- AOS JavaScript - index 페이지에서만 로드 -->
+    <script
+      src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+      onload="console.log('AOS loaded successfully')"
+      onerror="console.error('Failed to load AOS')"></script>
+
     <script type="text/javascript" src="./assets/js/common.js"></script>
     <script type="text/javascript" src="./assets/js/accordion.js"></script>
     <script type="text/javascript" src="./assets/js/tab.js"></script>
@@ -64,5 +74,20 @@ if (typeof globalThis !== 'undefined') {
     <script type="text/javascript" src="./assets/js/filter.js"></script>
     <script type="text/javascript" src="./assets/js/modal.js"></script>
     <script type="text/javascript" src="./assets/js/keyboard.js"></script>
+
+    <!-- AOS 초기화 - index 페이지에서만 작동 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+          duration: 600, // 자연스러운 지속 시간 (600ms)
+          easing: 'ease-out-cubic', // 부드러운 이징
+          once: true, // 한 번만 애니메이션 실행
+          offset: 80, // 트리거 지점 (80px 전에 시작)
+          delay: 0, // 지연 시간 없음
+          disable: false, // 모든 기기에서 활성화
+          startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
+        });
+      });
+    </script>
   </body>
 </html>
