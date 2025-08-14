@@ -13,6 +13,7 @@
   justify-content: $justify;
   align-items: $align;
   flex-wrap: $wrap;
+  @content;
 }
 
 // 자주 사용하는 flex 패턴들

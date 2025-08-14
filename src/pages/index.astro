@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { UiSelect, UiNavButton, UiTab, UiButton } from '@components';
+import { UiSelect, UiNavButton, UiTab, UiButton, UiMoreBtn } from '@components';
 
 // 셀렉트 옵션   데이터
 const selectOptions = [
@@ -429,20 +429,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="notice-section__titles">
                 <h2 class="notice-section__title">공지사항</h2>
               </div>
-              <button class="notice-section__more-btn com-more-btn">
-                <span>더보기</span>
-                <svg
-                  class="notice-section__more-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M12 5V19M5 12L19 12"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"></path>
-                </svg>
-              </button>
+              <UiMoreBtn class="notice-section__more-btn" />
             </div>
 
             <!-- 필터 및 네비게이션 -->
