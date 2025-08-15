@@ -108,10 +108,13 @@
         object-fit: cover;
       }
       .tit {
+        padding: 10px 0;
+        margin-bottom: 8px;
         font-size: to-rem(17);
         font-weight: 700;
+        line-height: 1.5;
         color: #191a1a;
-        min-height: 52px;
+        height: 60px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;

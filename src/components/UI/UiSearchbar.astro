@@ -1,260 +1,66 @@
 ---
-export interface SearchOption {
-  value: string;
-  label: string;
-}
+import UiSelect from './UiSelect.astro';
+import UiInput from './UiInput.astro';
+import UiButton from './UiButton.astro';
 
-export interface Props {
-  /**
-   * 검색바 컨테이너 id
-   */
-  id?: string;
-  /**
-   * 첫 번째 셀렉트박스 옵션들 (검색 타입)
-   */
-  selectOptions?: SearchOption[];
-  /**
-   * 첫 번째 셀렉트박스 기본값
-   */
-  selectValue?: string;
-  /**
-   * 첫 번째 셀렉트박스 너비 (px)
-   */
-  selectWidth?: number;
-  /**
-   * 두 번째 셀렉트박스 옵션들 (도서관)
-   */
-  libraryOptions?: SearchOption[];
-  /**
-   * 두 번째 셀렉트박스 기본값
-   */
-  libraryValue?: string;
-  /**
-   * 두 번째 셀렉트박스 너비 (px)
-   */
-  libraryWidth?: number;
-  /**
-   * 세 번째 셀렉트박스 옵션들 (제목)
-   */
-  titleOptions?: SearchOption[];
-  /**
-   * 세 번째 셀렉트박스 기본값
-   */
-  titleValue?: string;
-  /**
-   * 세 번째 셀렉트박스 너비 (px)
-   */
-  titleWidth?: number;
-  /**
-   * 텍스트 입력 placeholder
-   */
-  placeholder?: string;
-  /**
-   * 텍스트 입력 기본값
-   */
-  inputValue?: string;
-  /**
-   * 텍스트 입력 너비 (px)
-   */
-  inputWidth?: number;
-  /**
-   * 검색 버튼 텍스트
-   */
-  buttonText?: string;
-  /**
-   * 검색 버튼 클릭 핸들러 함수명
-   */
-  onSearch?: string;
-  /**
-   * 추가 CSS 클래스
-   */
-  class?: string;
-  /**
-   * 전체 너비 설정
-   */
-  fullWidth?: boolean;
-  /**
-   * 컴포넌트 크기
-   */
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  /**
-   * 선택 완료 상태 여부
-   */
-  filled?: boolean;
-}
-
+// 간단한 Props 정의 (타입스크립트 제거)
 const {
   id,
   selectOptions = [{ value: '', label: '전체' }],
   selectValue = '',
-  selectWidth = 120,
-  libraryOptions,
-  libraryValue = '',
-  libraryWidth = 140,
-  titleOptions,
-  titleValue = '',
-  titleWidth = 120,
   placeholder = '검색어를 입력해주세요.',
   inputValue = '',
-  inputWidth = 360,
   buttonText = '검색',
   onSearch = 'handleSearch',
   class: className = '',
   fullWidth = false,
   size = 'medium',
-  filled = false,
   ...rest
 } = Astro.props;
 
-const searchbarId =
-  id || `searchbar-${Math.random().toString(36).substr(2, 9)}`;
-const selectId = `${searchbarId}-select`;
-const libraryId = `${searchbarId}-library`;
-const titleId = `${searchbarId}-title`;
-const inputId = `${searchbarId}-input`;
+const searchbarId = id || `searchbar-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <div
-  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${filled || (inputValue && inputValue.length > 0) ? 'ui-searchbar--filled' : ''} ${className}`}
+  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
   id={searchbarId}
   {...rest}
 >
   <div class="ui-searchbar__content">
-    <!-- 첫 번째 셀렉트박스 (검색 타입) -->
-    <div class="ui-searchbar__select-wrapper">
-      <select
-        id={selectId}
-        name="searchType"
-        class="ui-searchbar__select"
-        style={`width: ${selectWidth}px;`}
-      >
-        {
-          selectOptions.map(option => (
-            <option
-              value={option.value}
-              selected={selectValue === option.value}
-            >
-              {option.label}
-            </option>
-          ))
-        }
-      </select>
-      <div class="ui-searchbar__select-arrow">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M6.83 8L10 11.17L13.17 8"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-      </div>
-    </div>
-
-    <!-- 두 번째 셀렉트박스 (도서관) -->
-    {
-      libraryOptions && (
-        <div class="ui-searchbar__select-wrapper">
-          <select
-            id={libraryId}
-            name="libraryType"
-            class="ui-searchbar__select"
-            style={`width: ${libraryWidth}px;`}
-          >
-            {libraryOptions.map(option => (
-              <option
-                value={option.value}
-                selected={libraryValue === option.value}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div class="ui-searchbar__select-arrow">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.83 8L10 11.17L13.17 8"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
-      )
-    }
-
-    <!-- 세 번째 셀렉트박스 (제목) -->
-    {
-      titleOptions && (
-        <div class="ui-searchbar__select-wrapper">
-          <select
-            id={titleId}
-            name="titleType"
-            class="ui-searchbar__select"
-            style={`width: ${titleWidth}px;`}
-          >
-            {titleOptions.map(option => (
-              <option
-                value={option.value}
-                selected={titleValue === option.value}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div class="ui-searchbar__select-arrow">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.83 8L10 11.17L13.17 8"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
-      )
-    }
+    <!-- 셀렉트박스 (검색 타입) -->
+    <UiSelect
+      name="searchType"
+      options={selectOptions}
+      value={selectValue}
+      size={size}
+      width="auto"
+      class="ui-searchbar__select"
+    />
 
     <!-- 텍스트 입력 -->
-    <div class="ui-searchbar__input-wrapper">
-      <input
-        type="text"
-        id={inputId}
-        name="searchQuery"
-        class="ui-searchbar__input w-360-mobile-full"
-        placeholder={placeholder}
-        value={inputValue}
-      />
-    </div>
+    <UiInput
+      type="text"
+      name="searchQuery"
+      placeholder={placeholder}
+      value={inputValue}
+      size={size}
+      class="ui-searchbar__input w-350-mobile-full"
+    />
 
     <!-- 검색 버튼 -->
-    <button
-      type="button"
-      class="ui-searchbar__button"
+    <UiButton
+      text={buttonText}
+      variant="darkBlue"
+      size={size}
       onclick={onSearch ? `${onSearch}()` : undefined}
-    >
-      {buttonText}
-    </button>
+      class="ui-searchbar__button"
+    />
   </div>
 </div>
 
 <style lang="scss" is:global>
   @use '@styles/abstracts' as *;
   @use '@styles/variables/colors' as *;
-  @use '@styles/variables/layout' as *;
-  @use '@styles/variables/typography' as *;
 
   .ui-searchbar {
     background-color: #eef2f7;
@@ -271,214 +77,14 @@ const inputId = `${searchbarId}-input`;
       width: 100%;
     }
 
-    // 셀렉트박스 스타일
-    &__select-wrapper {
-      position: relative;
-      @include flex(column, center, center);
-      gap: to-rem(8);
-    }
-
     &__select {
-      height: $component-height-medium;
-      padding: 0 to-rem(40) 0 to-rem(16);
-      border: 1px solid #58616a;
-      border-radius: to-rem(6);
-      background: $white;
-      font-family: $font-family-primary;
-      font-size: $ui-text-medium;
-      font-weight: $ui-font-normal;
-      color: $ui-text-primary;
-      appearance: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      &:focus {
-        outline: to-rem(2) solid $primary-color;
-        outline-offset: to-rem(2);
-        border-color: $primary-color;
-      }
-
-      &:hover {
-        border-color: #404040;
-      }
-
-      // 선택 완료 상태
-      .ui-searchbar--filled & {
-        border-color: $ui-filled-border;
-
-        &:focus {
-          border-color: $primary-color;
-        }
-
-        &:hover {
-          border-color: $ui-filled-border;
-        }
-      }
+      min-width: to-rem(120);
+      flex-shrink: 0;
     }
 
-    &__select-arrow {
-      position: absolute;
-      right: to-rem(16);
-      top: 50%;
-      transform: translateY(-50%);
-      width: to-rem(20);
-      height: to-rem(20);
-      color: #33363d;
-      pointer-events: none;
 
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    // 텍스트 입력 스타일
-    &__input-wrapper {
-      @include flex(column, stretch, stretch);
-      gap: to-rem(8);
-      flex: 1;
-    }
-
-    &__input {
-      height: $component-height-medium;
-      padding: 0 to-rem(16);
-      border: 1px solid #58616a;
-      border-radius: to-rem(6);
-      background: $white;
-      font-family: $font-family-primary;
-      font-size: $ui-text-medium;
-      font-weight: $ui-font-normal;
-      color: $ui-text-primary;
-      transition: all 0.2s ease;
-
-      &::placeholder {
-        color: $ui-text-placeholder;
-      }
-
-      &:focus {
-        outline: to-rem(2) solid $primary-color;
-        outline-offset: to-rem(2);
-        border-color: $primary-color;
-        color: $text-color;
-      }
-
-      &:hover {
-        border-color: #404040;
-      }
-
-      // 선택 완료 상태
-      .ui-searchbar--filled & {
-        border-color: $ui-filled-border;
-
-        &:focus {
-          border-color: $primary-color;
-        }
-
-        &:hover {
-          border-color: $ui-filled-border;
-        }
-      }
-    }
-
-    // 검색 버튼 스타일
     &__button {
-      height: $component-height-medium;
-      padding: 0 to-rem(16);
-      background: #244874;
-      border: none;
-      border-radius: to-rem(6);
-      color: $ui-text-white;
-      font-family: $font-family-primary;
-      font-size: $ui-text-medium;
-      font-weight: $ui-font-medium;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      @include flex(row, center, center);
-      gap: to-rem(4);
-
-      &:hover {
-        background: #1e3a5f;
-      }
-
-      &:focus {
-        outline: to-rem(2) solid $primary-color;
-        outline-offset: to-rem(2);
-      }
-
-      &:active {
-        background: #142a42;
-      }
-    }
-
-    // 크기 variants
-    &--xsmall {
-      .ui-searchbar__select,
-      .ui-searchbar__input,
-      .ui-searchbar__button {
-        height: $component-height-xsmall;
-        font-size: $ui-text-xsmall;
-
-        @include mobile {
-          height: $component-height-xsmall-mobile;
-          font-size: $ui-text-xsmall-mobile;
-        }
-      }
-    }
-
-    &--small {
-      .ui-searchbar__select,
-      .ui-searchbar__input,
-      .ui-searchbar__button {
-        height: $component-height-small;
-        font-size: $ui-text-small;
-
-        @include mobile {
-          height: $component-height-small-mobile;
-          font-size: $ui-text-small-mobile;
-        }
-      }
-    }
-
-    &--medium {
-      .ui-searchbar__select,
-      .ui-searchbar__input,
-      .ui-searchbar__button {
-        height: $component-height-medium;
-        font-size: $ui-text-medium;
-
-        @include mobile {
-          height: $component-height-medium-mobile;
-          font-size: $ui-text-medium-mobile;
-        }
-      }
-    }
-
-    &--large {
-      .ui-searchbar__select,
-      .ui-searchbar__input,
-      .ui-searchbar__button {
-        height: $component-height-large;
-        font-size: $ui-text-large;
-
-        @include mobile {
-          height: $component-height-large-mobile;
-          font-size: $ui-text-large-mobile;
-        }
-      }
-    }
-
-    &--xlarge {
-      .ui-searchbar__select,
-      .ui-searchbar__input,
-      .ui-searchbar__button {
-        height: $component-height-xlarge;
-        font-size: $ui-text-xlarge;
-
-        @include mobile {
-          height: $component-height-xlarge-mobile;
-          font-size: $ui-text-xlarge-mobile;
-        }
-      }
+      flex-shrink: 0;
     }
 
     // 반응형 스타일
@@ -491,20 +97,10 @@ const inputId = `${searchbarId}-input`;
         gap: to-rem(12);
       }
 
-      &__select-wrapper,
-      &__input-wrapper {
-        width: 100%;
-      }
-
       &__select,
-      &__input {
-        width: 100% !important;
-      }
-    }
-
-    @include tablet {
-      &__content {
-        gap: to-rem(8);
+      &__input,
+      &__button {
+        width: 100%;
       }
     }
   }

@@ -1,0 +1,42 @@
+---
+// UiSearchFilter.astro
+export interface Props {
+  filterGroups: Array<{
+    id: string;
+    label?: string;
+    type: 'classification' | 'sort';
+    className?: string;
+    filters: Array<{
+      name: string;
+      options: Array<{ value: string; label: string }>;
+      placeholder?: string;
+      className?: string;
+    }>;
+  }>;
+  className?: string;
+}
+
+const { filterGroups, className = '' } = Astro.props;
+---
+
+<div class={`search-filter-section ${className}`}>
+  {
+    filterGroups.map(group => (
+      <div class="filter-row">
+        <div
+          class={`filter-group filter-group--${group.type} ${group.className || ''}`}
+        >
+          {group.label && <span class="filter-badge">{group.label}</span>}
+          {group.filters.map(filter => (
+            <UiSelect
+              options={filter.options}
+              name={filter.name}
+              placeholder={filter.placeholder}
+              class={`filter-select ${filter.className || ''} w-120-mobile-full`}
+            />
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>

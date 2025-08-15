@@ -36,6 +36,8 @@
     }
     .ui-accordion__icon {
       margin-left: 5px;
+      position: relative;
+      top: -3px;
     }
     .ui-accordion__title {
       @include font(to-rem(24), 700, #000);

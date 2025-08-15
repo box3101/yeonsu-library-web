@@ -1146,7 +1146,9 @@
   p {
     font-size: to-rem(17);
     font-weight: 500;
+    line-height: 1.5;
     color: #212121;
+    word-break: keep-all;
 
     @include tablet {
       font-size: to-rem(15);

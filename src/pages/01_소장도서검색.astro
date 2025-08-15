@@ -1,23 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import {
-  UiLibraryFilter,
-  UiTab,
-  UiSelect,
-  UiBookCard,
-  UiPagination,
-  UiAccordion,
-  UiCheckbox,
-  UiButton,
-  UiDatePicker,
-} from '@components';
+import { UiLibraryFilter, UiTab, UiSelect, UiBookCard, UiPagination, UiAccordion, UiCheckbox, UiButton, UiDatePicker, UiSearchSummary, UiSearchFilter } from '@components';
 
-const breadcrumbItems = [
-  { label: '홈', href: '/' },
-  { label: '도서검색', href: '/support' },
-  { label: '소장도서검색' },
-];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
 
 // 도서관 데이터 정의
 const libraries = [
@@ -84,40 +70,63 @@ const outputCountOptions = [
   { value: '50', label: '50건' },
   { value: '100', label: '100건' },
 ];
+
+const searchFilterGroups = [
+  {
+    id: 'classification',
+    label: '한국십진분류',
+    type: 'classification',
+    filters: [
+      {
+        name: 'major-classification',
+        options: majorClassificationOptions,
+      },
+      {
+        name: 'middle-classification',
+        options: middleClassificationOptions,
+      },
+      {
+        name: 'minor-classification',
+        options: minorClassificationOptions,
+      },
+    ],
+  },
+  {
+    id: 'sort',
+    type: 'sort',
+    filters: [
+      {
+        name: 'sort-criteria',
+        options: sortCriteriaOptions,
+      },
+      {
+        name: 'sort-order',
+        options: sortOrderOptions,
+      },
+      {
+        name: 'output-count',
+        options: outputCountOptions,
+      },
+    ],
+  },
+];
 ---
 
 <Layout title="소장도서검색 - 연수구립도서관">
   <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
     <!-- 도서관 필터 섹션 -->
-    <UiLibraryFilter
-      title="전체도서관"
-      subtitle="도서관 분류"
-      libraries={libraries}
-      gridColumns={4}
-      expanded={true}
-    />
+    <UiLibraryFilter title="전체도서관" subtitle="도서관 분류" libraries={libraries} gridColumns={4} expanded={true} />
 
     <section class="search-detail-section">
-      <!-- 상세검색 아코디언언 -->
+      <!-- 상세검색 아코디 언 -->
       <UiAccordion title="상세검색" isExpanded={true}>
         <!-- 저자 필터 -->
         <div class="filter-section">
-          <input
-            type="checkbox"
-            id="author-filter-toggle"
-            class="filter-toggle"
-          />
+          <input type="checkbox" id="author-filter-toggle" class="filter-toggle" />
           <label for="author-filter-toggle" class="filter-label">
             저자
             <span class="filter-label-btn">
-              <UiButton
-                variant="ghost"
-                size="small"
-                iconOnly
-                icon="icon-plus"
-                iconPosition="left"
-                class="filter-toggle-btn"
-              />
+              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
             </span>
           </label>
           <div class="filter-group-wrapper">
@@ -125,28 +134,16 @@ const outputCountOptions = [
               <div class="filter-options">
                 <UiCheckbox name="author" value="하군" label="하군" checked />
                 <UiCheckbox name="author" value="신동우" label="신동우" />
-                <UiCheckbox
-                  name="author"
-                  value="osborne-mary-po"
-                  label="Osborne, Mary Po"
-                />
+                <UiCheckbox name="author" value="osborne-mary-po" label="Osborne, Mary Po" />
                 <UiCheckbox name="author" value="출수자" label="출수자" />
-                <UiCheckbox
-                  name="author"
-                  value="murdoca-sal"
-                  label="Murdoca, Sal"
-                />
+                <UiCheckbox name="author" value="murdoca-sal" label="Murdoca, Sal" />
               </div>
             </div>
             <div class="filter-group filter-group--collapsible">
               <div class="filter-options">
                 <UiCheckbox name="author" value="조대현" label="조대현" />
                 <UiCheckbox name="author" value="마크-홀" label="마크, 홀" />
-                <UiCheckbox
-                  name="author"
-                  value="아모도-베라-몰"
-                  label="아모도, 베라 몰"
-                />
+                <UiCheckbox name="author" value="아모도-베라-몰" label="아모도, 베라 몰" />
                 <UiCheckbox name="author" value="아소영" label="아소영" />
                 <UiCheckbox name="author" value="이현욱" label="이현욱" />
               </div>
@@ -163,54 +160,27 @@ const outputCountOptions = [
 
         <!-- 발행처 필터 -->
         <div class="filter-section">
-          <input
-            type="checkbox"
-            id="publisher-filter-toggle"
-            class="filter-toggle"
-          />
+          <input type="checkbox" id="publisher-filter-toggle" class="filter-toggle" />
           <label for="publisher-filter-toggle" class="filter-label">
             발행처
             <span class="filter-label-btn">
-              <UiButton
-                variant="ghost"
-                size="small"
-                iconOnly
-                icon="icon-plus"
-                iconPosition="left"
-                class="filter-toggle-btn"
-              />
+              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
             </span>
           </label>
           <div class="filter-group-wrapper">
             <div class="filter-group filter-group--always-visible">
               <div class="filter-options">
-                <UiCheckbox
-                  name="publisher"
-                  value="문학동네"
-                  label="문학동네"
-                />
+                <UiCheckbox name="publisher" value="문학동네" label="문학동네" />
                 <UiCheckbox name="publisher" value="민음사" label="민음사" />
                 <UiCheckbox name="publisher" value="창비" label="창비" />
-                <UiCheckbox
-                  name="publisher"
-                  value="열린책들"
-                  label="열린책들"
-                />
+                <UiCheckbox name="publisher" value="열린책들" label="열린책들" />
               </div>
             </div>
             <div class="filter-group filter-group--collapsible">
               <div class="filter-options">
                 <UiCheckbox name="publisher" value="김영사" label="김영사" />
-                <UiCheckbox
-                  name="publisher"
-                  value="랜덤하우스코리아"
-                  label="랜덤하우스코리아"
-                />
-                <UiCheckbox
-                  name="publisher"
-                  value="을유문화사"
-                  label="을유문화사"
-                />
+                <UiCheckbox name="publisher" value="랜덤하우스코리아" label="랜덤하우스코리아" />
+                <UiCheckbox name="publisher" value="을유문화사" label="을유문화사" />
               </div>
             </div>
           </div>
@@ -246,22 +216,11 @@ const outputCountOptions = [
 
         <!-- 주제분류 필터 -->
         <div class="filter-section">
-          <input
-            type="checkbox"
-            id="category-filter-toggle"
-            class="filter-toggle"
-          />
+          <input type="checkbox" id="category-filter-toggle" class="filter-toggle" />
           <label for="category-filter-toggle" class="filter-label">
             주제분류
             <span class="filter-label-btn">
-              <UiButton
-                variant="ghost"
-                size="small"
-                iconOnly
-                icon="icon-plus"
-                iconPosition="left"
-                class="filter-toggle-btn"
-              />
+              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
             </span>
           </label>
           <div class="filter-group-wrapper">
@@ -288,22 +247,11 @@ const outputCountOptions = [
 
         <!-- 주제어 필터 -->
         <div class="filter-section">
-          <input
-            type="checkbox"
-            id="subject-filter-toggle"
-            class="filter-toggle"
-          />
+          <input type="checkbox" id="subject-filter-toggle" class="filter-toggle" />
           <label for="subject-filter-toggle" class="filter-label">
             주제어
             <span class="filter-label-btn">
-              <UiButton
-                variant="ghost"
-                size="small"
-                iconOnly
-                icon="icon-plus"
-                iconPosition="left"
-                class="filter-toggle-btn"
-              />
+              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
             </span>
           </label>
           <div class="filter-group-wrapper">
@@ -329,22 +277,11 @@ const outputCountOptions = [
 
         <!-- 총서명 필터 -->
         <div class="filter-section">
-          <input
-            type="checkbox"
-            id="series-filter-toggle"
-            class="filter-toggle"
-          />
+          <input type="checkbox" id="series-filter-toggle" class="filter-toggle" />
           <label for="series-filter-toggle" class="filter-label">
             총서명
             <span class="filter-label-btn">
-              <UiButton
-                variant="ghost"
-                size="small"
-                iconOnly
-                icon="icon-plus"
-                iconPosition="left"
-                class="filter-toggle-btn"
-              />
+              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
             </span>
           </label>
           <div class="filter-group-wrapper">
@@ -368,6 +305,7 @@ const outputCountOptions = [
           </div>
         </div>
       </UiAccordion>
+
       <div class="search-detail-section__content">
         <!-- 자료유형 탭 -->
         <UiTab
@@ -382,62 +320,10 @@ const outputCountOptions = [
         />
 
         <!-- 검색 정보 요약 -->
-        <div class="search-info-summary mb-4">
-          <span
-            >검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</span
-          >
-          <span class="search-keyword-info ml-2">
-            [키워드: <span class="text-blue-600">홍길동</span>, <span
-              class="text-blue-600">발행처: 2222</span
-            >]
-          </span>
-        </div>
+        <UiSearchSummary />
 
         <!-- 상세 필터 섹션 -->
-        <div class="search-filter-section">
-          <!-- 한국십진분류 필터 -->
-          <div class="filter-row">
-            <div class="filter-group filter-group--classification">
-              <span class="filter-badge">한국십진분류</span>
-              <UiSelect
-                options={majorClassificationOptions}
-                name="major-classification"
-                class="filter-select"
-              />
-              <UiSelect
-                options={middleClassificationOptions}
-                name="middle-classification"
-                class="filter-select"
-              />
-              <UiSelect
-                options={minorClassificationOptions}
-                name="minor-classification"
-                class="filter-select"
-              />
-            </div>
-          </div>
-
-          <!-- 정렬 옵션 필터 -->
-          <div class="filter-row">
-            <div class="filter-group filter-group--sort">
-              <UiSelect
-                options={sortCriteriaOptions}
-                name="sort-criteria"
-                class="filter-select"
-              />
-              <UiSelect
-                options={sortOrderOptions}
-                name="sort-order"
-                class="filter-select"
-              />
-              <UiSelect
-                options={outputCountOptions}
-                name="output-count"
-                class="filter-select"
-              />
-            </div>
-          </div>
-        </div>
+        <UiSearchFilter filterGroups={searchFilterGroups} />
 
         <!-- 검색 결과 목록 -->
         <div class="search-result-list mt24">
@@ -482,12 +368,7 @@ const outputCountOptions = [
 
         <!-- 페이징네이션 -->
         <div class="pagination-section">
-          <UiPagination
-            currentPage={1}
-            totalPages={99}
-            maxVisiblePages={8}
-            onPageChange={page => console.log('Page changed to:', page)}
-          />
+          <UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
         </div>
       </div>
     </section>

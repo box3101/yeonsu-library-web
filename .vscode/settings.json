@@ -14,10 +14,6 @@
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
 
-  // SCSS/CSS 실시간 미리보기
-  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
-  "liveSassCompile.settings.generateMap": true,
-
   // 파일 감시 제외 (성능 향상)
   "files.watcherExclude": {
     "**/node_modules/**": true,
@@ -26,20 +22,9 @@
     "**/.astro/**": true
   },
 
-  // Astro 언어 서버 설정
-  "astro.typescript.allowArbitraryAttributes": true,
-
   // CSS 자동완성 향상
   "css.validate": true,
   "scss.validate": true,
-
-  // CSS Peek 설정
-  "css_peek.searchFileExtensions": [".css", ".scss", ".sass", ".less"],
-  "css_peek.peekFromLanguages": ["html", "astro", "javascript", "typescript"],
-
-  // CSS Navigation 설정
-  "cssNavigation.activeHTMLFileExtensions": ["html", "astro", "vue"],
-  "cssNavigation.activeCSSFileExtensions": ["css", "scss", "sass", "less"],
 
   // 컴포넌트 자동완성 향상
   "typescript.suggest.autoImports": true,
@@ -51,5 +36,54 @@
     "strings": true,
     "comments": false,
     "other": true
+  },
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": false,
+    "other": true
+  },
+
+  // 코드 줄 길이 설정
+  "editor.rulers": [200],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 200,
+  "prettier.printWidth": 200,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+
+  // Astro 파일 포맷팅 설정
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200
+  },
+
+  // HTML 파일 포맷팅 설정
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200
+  },
+
+  // JavaScript/TypeScript 파일 포맷팅 설정
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200
+  },
+
+  // CSS/SCSS 파일 포맷팅 설정 (기존 설정 대신)
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200,
+    "editor.formatOnSave": true
+  },
+
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrapColumn": 200,
+    "editor.formatOnSave": true
   }
 }

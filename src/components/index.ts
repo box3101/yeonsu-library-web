@@ -22,7 +22,8 @@ export { default as UiTable } from './UI/UiTable.astro';
 export { default as UiKeyboard } from './UI/UiKeyboard.astro';
 export { default as UiDatePicker } from './UI/UiDatePicker.astro';
 export { default as UiMoreBtn } from './UI/UiMoreBtn.astro';
-
+export { default as UiSearchSummary } from './UI/UiSearchSummary.astro';
+export { default as UiSearchFilter } from './UI/UiSearchFilter.astro';
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';
 export { default as Footer } from './layout/Footer.astro';
