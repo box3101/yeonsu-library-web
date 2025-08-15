@@ -5,10 +5,10 @@
 
 // 책큐 AI 도서 추천 슬라이더
 .book-recommendation-slider {
+  width: 100%;
   &__container {
     @include flex(row, center, center, nowrap);
     position: relative;
-    width: to-rem(870);
     height: to-rem(126);
     background-color: #f1f2f2;
     border: 1px solid #cdd1d5;
