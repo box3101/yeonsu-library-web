@@ -53,7 +53,7 @@
 
   // Astro 파일 포맷팅 설정
   "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.wordWrapColumn": 200
   },
 
