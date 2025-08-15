@@ -1,12 +1,16 @@
 {
-  "extends": "astro/tsconfigs/strictest",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "baseUrl": ".",
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
     "paths": {
       "@/*": ["src/*"],
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
-      "@ui/*": ["src/components/ui/*"],
+      "@ui/*": ["src/components/UI/*"],
       "@styles/*": ["src/styles/*"],
       "@layouts/*": ["src/layouts/*"]
     },

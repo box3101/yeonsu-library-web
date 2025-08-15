@@ -3,21 +3,8 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import '../styles/main.scss';
 
-// 전역 컴포넌트 import
-import UiButton from '@ui/UiButton.astro';
-import UiRadio from '@ui/UiRadio.astro';
-import UiSelect from '@ui/UiSelect.astro';
-import UiNavButton from '@ui/UiNavButton.astro';
-import UiTab from '@ui/UiTab.astro';
-
-// 전역 등록
-if (typeof globalThis !== 'undefined') {
-  globalThis.UiButton = UiButton;
-  globalThis.UiRadio = UiRadio;
-  globalThis.UiSelect = UiSelect;
-  globalThis.UiNavButton = UiNavButton;
-  globalThis.UiTab = UiTab;
-}
+// 퍼블리싱 전용 - 전역 컴포넌트 등록 제거
+// 각 페이지에서 필요한 컴포넌트만 개별 import 사용
 ---
 
 <html>
@@ -86,17 +73,19 @@ if (typeof globalThis !== 'undefined') {
     <script is:inline src="/assets/js/mobile-menu.js"></script>
 
     <!-- AOS 초기화 - index 페이지에서만 작동 -->
-    <script>
+    <script is:inline>
       document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({
-          duration: 600, // 자연스러운 지속 시간 (600ms)
-          easing: 'ease-out-cubic', // 부드러운 이징
-          once: true, // 한 번만 애니메이션 실행
-          offset: 80, // 트리거 지점 (80px 전에 시작)
-          delay: 0, // 지연 시간 없음
-          disable: false, // 모든 기기에서 활성화
-          startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
-        });
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 600, // 자연스러운 지속 시간 (600ms)
+            easing: 'ease-out-cubic', // 부드러운 이징
+            once: true, // 한 번만 애니메이션 실행
+            offset: 80, // 트리거 지점 (80px 전에 시작)
+            delay: 0, // 지연 시간 없음
+            disable: false, // 모든 기기에서 활성화
+            startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
+          });
+        }
       });
     </script>
   </body>
