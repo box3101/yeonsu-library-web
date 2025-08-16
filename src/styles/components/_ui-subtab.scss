@@ -1,0 +1,91 @@
+@use '../abstracts' as *;
+
+.subtab-container {
+  width: 100%;
+
+  @include mobile {
+    padding: 8px;
+  }
+
+  .subtab-list {
+    display: flex;
+    padding: to-rem(12);
+    background: #f1f2f2;
+
+    border-radius: to-rem(4);
+    overflow: hidden;
+    margin-bottom: to-rem(24);
+
+    @include mobile {
+      margin-bottom: 16px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .subtab-item {
+    flex: 1;
+    background: #fff;
+    min-width: to-rem(80);
+    height: to-rem(56);
+    padding: to-rem(8);
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 700;
+    font-size: to-rem(19);
+    line-height: 1.5;
+    color: #464c53;
+    border: none;
+    border-bottom: 2px solid #b1b8be;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #052b57;
+      border-bottom-color: #063a74;
+    }
+
+    &.active {
+      color: #052b57;
+      border-bottom: 4px solid #063a74;
+    }
+
+    @include mobile {
+      min-width: 60px;
+      height: 44px;
+      font-size: 15px;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+  }
+
+  .subtab-content {
+    width: 100%;
+    background: #ffffff;
+    border-radius: to-rem(4);
+    padding: to-rem(12);
+
+    @include mobile {
+      padding: 12px;
+    }
+
+    .content-panel {
+      display: none;
+      width: 100%;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

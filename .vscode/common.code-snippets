@@ -108,6 +108,19 @@
     ],
     "description": "검색 정보 요약 - 검색 결과 총 건수와 키워드 정보",
   },
+  // filter-row
+  "filter-row": {
+    "prefix": "filter",
+    "body": [
+      "<div class=\"filter-row-type2\">",
+      "  <UiSelect options={${1:libraryOptions}} name=\"${2:library}\" size=\"medium\" width=\"auto\" class=\"filter-select--${2:library}\" variant=\"default\" />",
+      "  <UiSelect options={${3:yearOptions}} name=\"${4:year}\" size=\"medium\" width=\"auto\" class=\"filter-select--${4:year}\" variant=\"default\" />",
+      "  <UiSelect options={${5:monthOptions}} name=\"${6:month}\" size=\"medium\" width=\"auto\" class=\"filter-select--${6:month}\" variant=\"default\" />",
+      "  <button class=\"filter-btn\" type=\"button\">검색</button>",
+      "</div>",
+    ],
+    "description": "필터 행 - 도서관/년도/월 선택 및 검색 버튼",
+  },
   // tab
   "tab": {
     "prefix": "tab",

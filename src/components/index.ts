@@ -28,6 +28,7 @@ export { default as UiSearchFilter } from './UI/UiSearchFilter.astro';
 export { default as UiImageTitleResult } from './UI/UiImageTitleResult.astro';
 export { default as UiTitleOnlyResult } from './UI/UiTitleOnlyResult.astro';
 export { default as UiSearchResultHeader } from './UI/UiSearchResultHeader.astro';
+export { default as UiSubTab } from './UI/UiSubTab.astro';
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';
 export { default as Footer } from './layout/Footer.astro';

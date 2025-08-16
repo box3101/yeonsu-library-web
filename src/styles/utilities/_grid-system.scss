@@ -1,0 +1,174 @@
+@use '../abstracts' as *;
+
+/* ============================================
+   Grid System - PC to Mobile Responsive
+   ============================================ */
+
+.grid {
+  display: grid;
+  gap: to-rem(16);
+  width: 100%;
+  
+  @include mobile {
+    gap: 12px;
+  }
+}
+
+// PC 1-2개 → Mobile 1개
+.grid-1, .grid-2 {
+  grid-template-columns: repeat(1, 1fr);
+  
+  @include desktop {
+    &.grid-1 { 
+      grid-template-columns: repeat(1, 1fr); 
+    }
+    &.grid-2 { 
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+}
+
+// PC 3-4개 → Mobile 2개  
+.grid-3, .grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+  
+  @include desktop {
+    &.grid-3 { 
+      grid-template-columns: repeat(3, 1fr); 
+    }
+    &.grid-4 { 
+      grid-template-columns: repeat(4, 1fr); 
+    }
+  }
+}
+
+// PC 5-6개 → Mobile 2개
+.grid-5, .grid-6 {
+  grid-template-columns: repeat(2, 1fr);
+  
+  @include desktop {
+    &.grid-5 { 
+      grid-template-columns: repeat(5, 1fr); 
+    }
+    &.grid-6 { 
+      grid-template-columns: repeat(6, 1fr); 
+    }
+  }
+}
+
+// PC 7-8개 → Mobile 3개
+.grid-7, .grid-8 {
+  grid-template-columns: repeat(3, 1fr);
+  
+  @include desktop {
+    &.grid-7 { 
+      grid-template-columns: repeat(7, 1fr); 
+    }
+    &.grid-8 { 
+      grid-template-columns: repeat(8, 1fr); 
+    }
+  }
+}
+
+// PC 9-10개 → Mobile 3개
+.grid-9, .grid-10 {
+  grid-template-columns: repeat(3, 1fr);
+  
+  @include desktop {
+    &.grid-9 { 
+      grid-template-columns: repeat(9, 1fr); 
+    }
+    &.grid-10 { 
+      grid-template-columns: repeat(10, 1fr); 
+    }
+  }
+}
+
+// PC 11-12개 → Mobile 4개
+.grid-11, .grid-12 {
+  grid-template-columns: repeat(4, 1fr);
+  
+  @include desktop {
+    &.grid-11 { 
+      grid-template-columns: repeat(11, 1fr); 
+    }
+    &.grid-12 { 
+      grid-template-columns: repeat(12, 1fr); 
+    }
+  }
+}
+
+// 특별한 그리드 패턴들
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(200), 1fr));
+  
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.grid-auto-small {
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(150), 1fr));
+  
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+.grid-auto-large {
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(300), 1fr));
+  
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+// 간격 조정 모디파이어
+.grid--gap-small {
+  gap: to-rem(8);
+  
+  @include mobile {
+    gap: 6px;
+  }
+}
+
+.grid--gap-medium {
+  gap: to-rem(16);
+  
+  @include mobile {
+    gap: 12px;
+  }
+}
+
+.grid--gap-large {
+  gap: to-rem(24);
+  
+  @include mobile {
+    gap: 16px;
+  }
+}
+
+.grid--gap-xlarge {
+  gap: to-rem(32);
+  
+  @include mobile {
+    gap: 20px;
+  }
+}
+
+// 정렬 유틸리티
+.grid--center {
+  place-items: center;
+}
+
+.grid--start {
+  place-items: start;
+}
+
+.grid--end {
+  place-items: end;
+}
+
+.grid--stretch {
+  place-items: stretch;
+}

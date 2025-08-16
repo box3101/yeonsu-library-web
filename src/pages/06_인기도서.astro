@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '인기도서' }];
+const tabs = [
+  { label: '이달의 인기도서', id: 'monthly', active: true },
+  { label: '연령별 인기도서', id: 'age', active: false },
+  { label: '주제별 인기도서', id: 'subject', active: false },
+  { label: '장르별 인기도서', id: 'genre', active: false },
+];
+const tabs2 = ['10대미만', '10대', '30대', '40대', '50대', '60대'];
+
+const libraryOptions = [
+  { label: '전체도서관', value: '' },
+  { label: '연수구립도서관', value: 'yeonsu' },
+  { label: '송도국제도서관', value: 'songdo' },
+];
+
+const yearOptions = [
+  { label: '2025년', value: '2025' },
+  { label: '2024년', value: '2024' },
+  { label: '2023년', value: '2023' },
+];
+
+const monthOptions = [
+  { label: '4월', value: '4' },
+  { label: '1월', value: '1' },
+  { label: '2월', value: '2' },
+  { label: '3월', value: '3' },
+];
+---
+
+<Layout title="인기도서">
+  <SubLayout title="인기도서" breadcrumbItems={breadcrumbItems}>
+    <div class="filter-row-type2">
+      <UiSelect options={libraryOptions} name="library" size="medium" width="auto" class="filter-select--library" variant="default" />
+      <UiSelect options={yearOptions} name="year" size="medium" width="auto" class="filter-select--year" variant="default" />
+      <UiSelect options={monthOptions} name="month" size="medium" width="auto" class="filter-select--month" variant="default" />
+      <button class="filter-btn" type="button">검색</button>
+    </div>
+    <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-6" />
+
+    <UiSubTab tabs={tabs2} activeTab={0} class="mt24">
+      <div data-content="0" class="content-panel active">
+        <div class="grid grid-5">
+          <div>아이템 1</div>
+          <div>아이템 2</div>
+          <div>아이템 3</div>
+          <div>아이템 4</div>
+          <div>아이템 1</div>
+          <div>아이템 2</div>
+          <div>아이템 3</div>
+          <div>아이템 4</div>
+          <div>아이템 1</div>
+          <div>아이템 2</div>
+          <div>아이템 3</div>
+          <div>아이템 4</div>
+        </div>
+      </div>
+
+      <div data-content="1" class="content-panel">
+        <div class="grid grid-4">3</div>
+      </div>
+    </UiSubTab>
+  </SubLayout>
+</Layout>
