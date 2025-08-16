@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiEmpty, UiTab } from '@components';
+import { UiEmpty, UiImageTitleResult, UiSearchResultHeader, UiTab, UiTitleOnlyResult } from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '통합검색' }];
 const tabs = [
@@ -22,11 +22,52 @@ const tabs = [
     </div>
 
     <div class="search-info-summary">
-      <span><strong>[홍길동] </strong>에 대한 검색 결과 총 <strong>190</strong>건</span>
+      <span><strong>[홍길동]</strong>에 대한 검색 결과 총 <strong>190</strong>건</span>
     </div>
 
     <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-6" />
 
-    
+    <ul class="search-result-container mt40">
+      <li>
+        <UiSearchResultHeader title="도서" count={190} />
+        <UiImageTitleResult searchTerm="바나나" title="바나나" description="내인생의책 / 글: 안느클레르 레베크 ; 그림: 니콜라 구니 ; 옮김: 박호진" id="1" />
+        <UiImageTitleResult title="바나나" description="내인생의책 / 글: 안느클레르 레베크 ; 그림: 니콜라 구니 ; 옮김: 박호진" id="1" />
+      </li>
+      <li>
+        <UiSearchResultHeader title="게시판" count={14000} />
+        <UiTitleOnlyResult
+          searchTerm="바나나"
+          title="[책 읽는 연수구] 연수북페스티벌"
+          description="지역 내 도서관 축제 분위기를 조성하고, 풍성한 독서문화프로그램과 즐길거리를 제공하는 연수구립도서관 대표 축제 바나나..."
+          id="1"
+        />
+        <UiTitleOnlyResult
+          searchTerm="바나나"
+          title="[책 읽는 연수구] 연수북페스티벌"
+          description="지역 내 도서관 축제 분위기를 조성하고, 풍성한 독서문화프로그램과 즐길거리를 제공하는 연수구립도서관 대표 축제 바나나..."
+          id="1"
+        />
+      </li>
+      <li>
+        <UiSearchResultHeader title="도서" count={190} />
+        <UiImageTitleResult searchTerm="바나나" title="바나나" description="내인생의책 / 글: 안느클레르 레베크 ; 그림: 니콜라 구니 ; 옮김: 박호진" id="1" />
+        <UiImageTitleResult title="바나나" description="내인생의책 / 글: 안느클레르 레베크 ; 그림: 니콜라 구니 ; 옮김: 박호진" id="1" />
+      </li>
+      <li>
+        <UiSearchResultHeader title="게시판" count={14000} />
+        <UiTitleOnlyResult
+          searchTerm="바나나"
+          title="[책 읽는 연수구] 연수북페스티벌"
+          description="지역 내 도서관 축제 분위기를 조성하고, 풍성한 독서문화프로그램과 즐길거리를 제공하는 연수구립도서관 대표 축제 바나나..."
+          id="1"
+        />
+        <UiTitleOnlyResult
+          searchTerm="바나나"
+          title="[책 읽는 연수구] 연수북페스티벌"
+          description="지역 내 도서관 축제 분위기를 조성하고, 풍성한 독서문화프로그램과 즐길거리를 제공하는 연수구립도서관 대표 축제 바나나..."
+          id="1"
+        />
+      </li>
+    </ul>
   </SubLayout>
 </Layout>

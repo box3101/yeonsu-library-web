@@ -1,0 +1,65 @@
+---
+export interface Props {
+  /**
+   * 섹션 제목 (예: "도서", "웹콘텐츠", "게시판")
+   */
+  title: string;
+  /**
+   * 결과 개수
+   */
+  count: number;
+  /**
+   * 개수 색상 variant
+   */
+  countVariant?: 'blue' | 'darkBlue' | 'primary';
+  /**
+   * 더보기 버튼 클릭 핸들러용 데이터 속성
+   */
+  moreDataId?: string;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+}
+
+const {
+  title,
+  count,
+  countVariant = 'blue',
+  moreDataId,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+// 개수를 천 단위로 포맷팅 (14,457 형태)
+const formatCount = (num: number): string => {
+  return new Intl.NumberFormat('ko-KR').format(num);
+};
+
+const headerClasses = [
+  'search-result-header',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const countClasses = [
+  'search-result-header__count',
+  `search-result-header__count--${countVariant}`,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class={headerClasses} {...rest}>
+  <h3 class="search-result-header__title">
+    {title} <span class={countClasses}>({formatCount(count)})</span>
+  </h3>
+  <button 
+    class="search-result-header__more" 
+    data-more-id={moreDataId}
+    type="button"
+  >
+    더보기 +
+  </button>
+</div>

@@ -25,6 +25,9 @@ export { default as UiEmpty } from './UI/UiEmpty.astro';
 export { default as UiMoreBtn } from './UI/UiMoreBtn.astro';
 export { default as UiSearchSummary } from './UI/UiSearchSummary.astro';
 export { default as UiSearchFilter } from './UI/UiSearchFilter.astro';
+export { default as UiImageTitleResult } from './UI/UiImageTitleResult.astro';
+export { default as UiTitleOnlyResult } from './UI/UiTitleOnlyResult.astro';
+export { default as UiSearchResultHeader } from './UI/UiSearchResultHeader.astro';
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';
 export { default as Footer } from './layout/Footer.astro';

@@ -1,0 +1,48 @@
+---
+export interface Props {
+  /**
+   * 결과 항목 제목
+   */
+  title: string;
+  /**
+   * 결과 항목 설명
+   */
+  description: string;
+  /**
+   * 항목 ID
+   */
+  id: string;
+  /**
+   * 검색어 (하이라이트 처리용)
+   */
+  searchTerm?: string;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+}
+
+const { title, description, id, searchTerm, class: className = '', ...rest } = Astro.props;
+
+const resultClasses = ['result-item', 'image-title-type', className].filter(Boolean).join(' ');
+
+// 검색어 하이라이트 처리 함수
+const highlightSearchTerm = (text: string, searchTerm?: string): string => {
+  if (!searchTerm) return text;
+  const regex = new RegExp(`(${searchTerm})`, 'gi');
+  return text.replace(regex, '<span class="highlight">$1</span>');
+};
+
+const highlightedTitle = highlightSearchTerm(title, searchTerm);
+const highlightedDescription = highlightSearchTerm(description, searchTerm);
+---
+
+<div class={resultClasses} {...rest}>
+  <div class="result-body">
+    <img src="./assets/images/ex01.png" alt="" class="result-image" />
+    <div class="result-content">
+      <h3 class="result-title" set:html={highlightedTitle}></h3>
+      <p class="result-description" set:html={highlightedDescription}></p>
+    </div>
+  </div>
+</div>
