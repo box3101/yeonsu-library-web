@@ -4,8 +4,8 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
 // 통계 정보
 const stats = [
-  { number: '3', label: '운영중인 페이지' },
-  { number: '18', label: 'UI 컴포넌트' },
+  { number: '7', label: '운영중인 페이지' },
+  { number: '25', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
   { number: 'TypeScript', label: '타입 안전성' },
 ];
@@ -22,7 +22,7 @@ const mainPages = [
   },
 ];
 
-// 검색 시스템
+// 페이지 시스템
 const searchPages = [
   {
     id: 'S01',
@@ -66,7 +66,7 @@ const searchPages = [
   },
   {
     id: 'S04',
-    name: '도서관에 바란다',
+    name: '공지사항',
     url: '/04_공지사항',
     file: '04_공지사항.astro',
     status: '완료',
@@ -195,6 +195,55 @@ const uiComponents = [
     feature: '날짜 범위 선택 (시작일 ~ 종료일)',
     status: '완료',
   },
+  {
+    id: 'U18',
+    name: 'UiEmpty',
+    file: 'UiEmpty.astro',
+    feature: '빈 상태 컴포넌트 (검색 결과 없음, 검색어 하이라이트)',
+    status: '완료',
+  },
+  {
+    id: 'U19',
+    name: 'UiSearchFilter',
+    file: 'UiSearchFilter.astro',
+    feature: '검색 필터 섹션 (셀렉트 박스들)',
+    status: '완료',
+  },
+  {
+    id: 'U20',
+    name: 'UiImageTitleResult',
+    file: 'UiImageTitleResult.astro',
+    feature: '이미지+제목 검색 결과 (검색어 하이라이트)',
+    status: '완료',
+  },
+  {
+    id: 'U21',
+    name: 'UiTitleOnlyResult',
+    file: 'UiTitleOnlyResult.astro',
+    feature: '제목만 검색 결과 (검색어 하이라이트)',
+    status: '완료',
+  },
+  {
+    id: 'U22',
+    name: 'UiSubTab',
+    file: 'UiSubTab.astro',
+    feature: '서브 탭 컴포넌트 (슬롯 기반, 탭 전환 기능)',
+    status: '완료',
+  },
+  {
+    id: 'U23',
+    name: 'UiBookListCard',
+    file: 'UiBookListCard.astro',
+    feature: '도서 목록 카드 (랭킹, 이미지, 좋아요 기능)',
+    status: '완료',
+  },
+  {
+    id: 'U24',
+    name: 'Grid System',
+    file: '_grid-system.scss',
+    feature: 'PC to Mobile 반응형 그리드 (1-12열)',
+    status: '완료',
+  },
 ];
 
 // 레이아웃 컴포넌트
@@ -273,6 +322,34 @@ const improvements = [
     date: '2024.12',
     status: '적용완료',
   },
+  {
+    id: 'R05',
+    title: '검색 결과 컴포넌트',
+    description: 'UiEmpty, UiImageTitleResult, UiTitleOnlyResult 컴포넌트 개발',
+    date: '2025.01',
+    status: '적용완료',
+  },
+  {
+    id: 'R06',
+    title: '서브 탭 시스템',
+    description: 'UiSubTab 컴포넌트 슬롯 기반으로 개발, 탭 전환 기능',
+    date: '2025.01',
+    status: '적용완료',
+  },
+  {
+    id: 'R07',
+    title: '도서 카드 컴포넌트',
+    description: 'UiBookListCard 컴포넌트 랭킹, 좋아요 기능 포함',
+    date: '2025.01',
+    status: '적용완료',
+  },
+  {
+    id: 'R08',
+    title: '반응형 그리드 시스템',
+    description: 'PC to Mobile 자동 변환 그리드 (1-12열, 갭 조정)',
+    date: '2025.01',
+    status: '적용완료',
+  },
 ];
 
 // 기술 스택
@@ -332,7 +409,7 @@ const dataStructure = [
     file: 'components/index.ts',
     purpose: '컴포넌트 관리',
     structure: '중앙집중식 export',
-    note: '17개 UI 컴포넌트',
+    note: '24개 UI 컴포넌트',
   },
   {
     file: 'astro.config.mjs',
@@ -359,14 +436,14 @@ const scssArchitecture = [
   {
     folder: 'components/',
     purpose: '컴포넌트 스타일',
-    files: '_left-menu.scss, _buttons.scss',
-    example: '.menu-section-title.active 스타일',
+    files: '_left-menu.scss, _buttons.scss, _ui-subtab.scss, _ui-book-list-card.scss',
+    example: '.menu-section-title.active, .book-list-card, .subtab-container',
   },
   {
     folder: 'utilities/',
     purpose: '유틸리티',
-    files: '_flex.scss, _spacing.scss',
-    example: '.mt24, .flex-center 클래스',
+    files: '_flex.scss, _spacing.scss, _grid-system.scss',
+    example: '.mt24, .flex-center, .grid .grid-5 클래스',
   },
 ];
 
@@ -769,7 +846,7 @@ const deployInfo = [
         </tbody>
       </table>
 
-      <div class="section-title">🔍 검색 시스템</div>
+      <div class="section-title">📄 페이지 시스템</div>
       <table>
         <thead>
           <tr>

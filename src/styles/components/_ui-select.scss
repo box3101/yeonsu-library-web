@@ -37,7 +37,8 @@
 
   &__element {
     width: 100%;
-    padding: to-rem(0) to-rem(40) to-rem(0) to-rem(16);
+    padding: to-rem(0) to-rem(16) to-rem(0) to-rem(16);
+    min-width: to-rem(100);
     border: 1px solid #d1d5db;
     border-radius: to-rem(6);
     background: $white;

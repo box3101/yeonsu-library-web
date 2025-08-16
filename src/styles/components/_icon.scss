@@ -16,18 +16,34 @@
 .icon-xsm {
   width: 20px !important;
   height: 20px !important;
+  @include mobile {
+    width: 16px !important;
+    height: 16px !important;
+  }
 }
 .icon-sm {
   width: 24px;
   height: 24px;
+  @include mobile {
+    width: 20px !important;
+    height: 20px !important;
+  }
 }
 .icon-xmd {
   width: 28px;
   height: 28px;
+  @include mobile {
+    width: 24px !important;
+    height: 24px !important;
+  }
 }
 .icon-md {
   width: 32px;
   height: 32px;
+  @include mobile {
+    width: 24px !important;
+    height: 24px !important;
+  }
 }
 
 .icon-person {

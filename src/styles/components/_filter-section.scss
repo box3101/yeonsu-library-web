@@ -16,7 +16,7 @@
 
   .filter-label-btn {
     position: relative;
-    top: -6px;
+    top: -10px;
     cursor: pointer;
     left: -6px;
 
@@ -31,6 +31,10 @@
 
     &:hover .filter-toggle-btn {
       transform: scale(1.1);
+    }
+
+    @include mobile {
+      top: -9px !important;
     }
   }
 
