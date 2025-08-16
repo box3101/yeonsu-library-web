@@ -1,0 +1,36 @@
+---
+export interface Props {
+  /**
+   * 빈 상태 메시지
+   */
+  message?: string;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+  /**
+   * 컴포넌트 ID
+   */
+  id?: string;
+  /**
+   * 추가 설명 메시지
+   */
+  desc?: string;
+}
+
+const { message = '최근 검색 결과가 없습니다.', desc = '검색어를 입력하여 검색해주세요.', class: className = '', id = 'empty-component', ...rest } = Astro.props;
+
+const emptyClasses = ['ui-empty', className].filter(Boolean).join(' ');
+---
+
+<div id={id} class={emptyClasses} {...rest}>
+  <div class="ui-empty__inner">
+    <p class="ui-empty__title">{message}</p>
+    <div class="ui-empty__content">
+      <div class="ui-empty__icon">
+        <img src="/assets/images/icon/icon-empty.svg" alt="search-empty" />
+      </div>
+      <p class="ui-empty__desc">{desc}</p>
+    </div>
+  </div>
+</div>

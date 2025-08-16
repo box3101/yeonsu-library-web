@@ -1,0 +1,15 @@
+<svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document/Book shape -->
+  <path d="M19.73 0.02H95.75V95.25H19.73C15.31 95.25 11.73 91.67 11.73 87.25V8.02C11.73 3.6 15.31 0.02 19.73 0.02Z" fill="#E5E7EB"/>
+  <path d="M19.73 4.27H91.5V91H19.73C17.52 91 15.73 89.21 15.73 87V8.27C15.73 6.06 17.52 4.27 19.73 4.27Z" fill="#F9FAFB"/>
+  
+  <!-- Book spine -->
+  <path d="M0 81.77H20.07V100H0V81.77Z" fill="#D1D5DB"/>
+  
+  <!-- Magnifying glass -->
+  <circle cx="55" cy="54.96" r="15" stroke="#6B7280" stroke-width="3" fill="none"/>
+  <path d="M66.5 66.46L75 74.96" stroke="#6B7280" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Page fold -->
+  <path d="M79.5 0.02V16.02H95.5L79.5 0.02Z" fill="#D1D5DB"/>
+</svg>

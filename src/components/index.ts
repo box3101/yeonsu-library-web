@@ -21,6 +21,7 @@ export { default as UiSmartLibraryBookCard } from './UI/UiSmartLibraryBookCard.a
 export { default as UiTable } from './UI/UiTable.astro';
 export { default as UiKeyboard } from './UI/UiKeyboard.astro';
 export { default as UiDatePicker } from './UI/UiDatePicker.astro';
+export { default as UiEmpty } from './UI/UiEmpty.astro';
 export { default as UiMoreBtn } from './UI/UiMoreBtn.astro';
 export { default as UiSearchSummary } from './UI/UiSearchSummary.astro';
 export { default as UiSearchFilter } from './UI/UiSearchFilter.astro';

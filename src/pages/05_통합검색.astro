@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiEmpty } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '통합검색' }];
+---
+
+<Layout title="통합검색">
+  <SubLayout title="통합검색" breadcrumbItems={breadcrumbItems}>
+    <UiEmpty desc="통합검색을 이용해보세요." />
+  </SubLayout>
+</Layout>
