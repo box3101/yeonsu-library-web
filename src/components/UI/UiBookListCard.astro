@@ -1,0 +1,90 @@
+---
+export interface Props {
+  /**
+   * 순위 번호
+   */
+  rank?: number;
+  /**
+   * 책 이미지 URL
+   */
+  image?: string;
+  /**
+   * 책 제목
+   */
+  title: string;
+  /**
+   * 저자명
+   */
+  author: string;
+  /**
+   * 이미지 표시 여부
+   */
+  hasImage?: boolean;
+  /**
+   * 좋아요 상태
+   */
+  isLiked?: boolean;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+}
+
+const { rank, image, title, author, hasImage = true, isLiked = false, class: className = '', ...rest } = Astro.props;
+
+const cardClasses = ['book-list-card', className].filter(Boolean).join(' ');
+---
+
+<div class={cardClasses} {...rest} role="button">
+  {
+    rank && (
+      <div class="book-rank">
+        <span class="tx-rank">{rank}</span>
+      </div>
+    )
+  }
+
+  {
+    hasImage && image ? (
+      <div class="book-image-container">
+        <img src={image} alt={title} class="book-image" />
+      </div>
+    ) : (
+      <div class="book-placeholder">
+        <div class="book-icon">📖</div>
+        <p class="placeholder-text">책표지 상품이미지가 없습니다</p>
+      </div>
+    )
+  }
+
+  <button class={`like-btn ${isLiked ? 'liked' : ''}`}>♡ 내책장담기</button>
+
+  <div class="book-info">
+    <h4 class="book-title">{title}</h4>
+    <p class="book-author">{author}</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.like-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.target.classList.toggle('liked');
+        console.log('책 담기/빼기');
+
+        // 커스텀 이벤트 발생
+        const bookCard = e.target.closest('.book-card');
+        bookCard.dispatchEvent(
+          new CustomEvent('bookLikeToggle', {
+            detail: {
+              isLiked: e.target.classList.contains('liked'),
+              title: bookCard.querySelector('.book-title').textContent,
+            },
+          })
+        );
+      });
+    });
+  });
+</script>

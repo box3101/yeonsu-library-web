@@ -73,11 +73,6 @@
     width: 100%;
     background: #ffffff;
     border-radius: to-rem(4);
-    padding: to-rem(12);
-
-    @include mobile {
-      padding: 12px;
-    }
 
     .content-panel {
       display: none;

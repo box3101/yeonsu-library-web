@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiSelect, UiTab, UiSubTab } from '@components';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '인기도서' }];
 const tabs = [
@@ -40,23 +40,26 @@ const monthOptions = [
       <UiSelect options={monthOptions} name="month" size="medium" width="auto" class="filter-select--month" variant="default" />
       <button class="filter-btn" type="button">검색</button>
     </div>
-    <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-6" />
+    <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-4" />
 
     <UiSubTab tabs={tabs2} activeTab={0} class="mt24">
       <div data-content="0" class="content-panel active">
         <div class="grid grid-5">
-          <div>아이템 1</div>
-          <div>아이템 2</div>
-          <div>아이템 3</div>
-          <div>아이템 4</div>
-          <div>아이템 1</div>
-          <div>아이템 2</div>
-          <div>아이템 3</div>
-          <div>아이템 4</div>
-          <div>아이템 1</div>
-          <div>아이템 2</div>
-          <div>아이템 3</div>
-          <div>아이템 4</div>
+          <UiBookListCard rank={1} image="./assets/images/book-list-card-1.png" title="해리포터와 마법사의 돌해리포터와 마법사의 돌" author="J.K. 롤링 저, 김혜원 역" hasImage={true} isLiked={true} />
+          <UiBookListCard rank={2} image="./assets/images/book-list-card-1.png" title="해리포터와 마법사의 돌해리포터와 마법사의 돌" author="J.K. 롤링 저, 김혜원 역" hasImage={true} isLiked={true} />
+          <UiBookListCard rank={3} image="./assets/images/book-list-card-1.png" title="데미안" author="헤르만 헤세 저, 전영애 역" hasImage={true} isLiked={true} />
+          <UiBookListCard rank={4} image="./assets/images/book-list-card-1.png" title="1984" author="조지 오웰 저, 정회성 역" hasImage={true} isLiked={false} />
+          <UiBookListCard rank={5} image="./assets/images/book-list-card-1.png" title="노인과 바다" author="어니스트 헤밍웨이 저, 김욱동 역" hasImage={true} isLiked={false} />
+          <UiBookListCard rank={6} image="./assets/images/book-list-card-1.png" title="백년동안의 고독" author="가브리엘 가르시아 마르케스 저, 조구호 역" hasImage={true} isLiked={true} />
+          <UiBookListCard rank={7} image="./assets/images/book-list-card-1.png" title="죄와 벌" author="표도르 도스토예프스키 저, 홍대화 역" hasImage={true} isLiked={false} />
+          <UiBookListCard rank={8} image="./assets/images/book-list-card-1.png" title="호밀밭의 파수꾼" author="J.D. 샐린저 저, 공경희 역" hasImage={true} isLiked={false} />
+          <UiBookListCard rank={9} image="./assets/images/book-list-card-1.png" title="위대한 개츠비" author="F. 스콧 피츠제럴드 저, 김영하 역" hasImage={true} isLiked={true} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+          <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
         </div>
       </div>
 
@@ -64,5 +67,9 @@ const monthOptions = [
         <div class="grid grid-4">3</div>
       </div>
     </UiSubTab>
+
+    <div class="pagination-section">
+      <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} />
+    </div>
   </SubLayout>
 </Layout>
