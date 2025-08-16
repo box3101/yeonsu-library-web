@@ -4,7 +4,7 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
 // 통계 정보
 const stats = [
-  { number: '7', label: '운영중인 페이지' },
+  { number: '10', label: '운영중인 페이지' },
   { number: '25', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
   { number: 'TypeScript', label: '타입 안전성' },
@@ -71,6 +71,30 @@ const searchPages = [
     file: '04_공지사항.astro',
     status: '완료',
     description: '공지사항 게시판, 테이블 기반 목록',
+  },
+  {
+    id: 'S05',
+    name: '통합검색',
+    url: '/05_통합검색',
+    file: '05_통합검색.astro',
+    status: '완료',
+    description: '통합검색 결과 페이지, 다양한 검색 결과 표시',
+  },
+  {
+    id: 'S05-1',
+    name: '통합검색_Empty',
+    url: '/05-1_통합검색_Empty',
+    file: '05-1_통합검색_Empty.astro',
+    status: '완료',
+    description: '통합검색 빈 상태 페이지, UiEmpty 컴포넌트 활용',
+  },
+  {
+    id: 'S06',
+    name: '인기도서',
+    url: '/06_인기도서',
+    file: '06_인기도서.astro',
+    status: '완료',
+    description: '인기도서 목록, UiBookListCard 그리드',
   },
 ];
 
@@ -347,6 +371,20 @@ const improvements = [
     id: 'R08',
     title: '반응형 그리드 시스템',
     description: 'PC to Mobile 자동 변환 그리드 (1-12열, 갭 조정)',
+    date: '2025.01',
+    status: '적용완료',
+  },
+  {
+    id: 'R09',
+    title: '인기도서 페이지',
+    description: '인기도서 목록 페이지, UiBookListCard 활용',
+    date: '2025.01',
+    status: '적용완료',
+  },
+  {
+    id: 'R10',
+    title: '통합검색 페이지',
+    description: '통합검색 결과 및 빈 상태 페이지, UiEmpty 컴포넌트 구현',
     date: '2025.01',
     status: '적용완료',
   },

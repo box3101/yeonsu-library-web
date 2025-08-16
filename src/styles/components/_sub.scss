@@ -1092,6 +1092,7 @@
       font-size: to-rem(17);
       font-weight: 500;
       color: $gray-90;
+      line-height: 1.5;
 
       @include tablet {
         font-size: to-rem(15);
