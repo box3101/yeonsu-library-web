@@ -1,13 +1,32 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiEmpty } from '@components';
+import { UiEmpty, UiTab } from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '통합검색' }];
+const tabs = [
+  { label: '전체', id: 'all', active: true },
+  { label: '도서(000)', id: 'book', active: false },
+  { label: '웹콘텐츠(000)', id: 'webcontent', active: false },
+  { label: '게시판(000)', id: 'board', active: false },
+  { label: '문화행사(000)', id: 'culture', active: false },
+  { label: '프로그램(000)', id: 'program', active: false },
+];
 ---
 
 <Layout title="통합검색">
   <SubLayout title="통합검색" breadcrumbItems={breadcrumbItems}>
-    <UiEmpty desc="통합검색을 이용해보세요." />
+    <div class="search-container">
+      <input type="text" placeholder="검색어를 입력해주세요" id="search-input" class="search-input" />
+      <button class="search-btn">검색</button>
+    </div>
+
+    <div class="search-info-summary">
+      <span><strong>[홍길동] </strong>에 대한 검색 결과 총 <strong>190</strong>건</span>
+    </div>
+
+    <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-6" />
+
+    
   </SubLayout>
 </Layout>

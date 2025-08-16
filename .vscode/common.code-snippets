@@ -10,100 +10,19 @@
     ],
     "description": "이미지를 삽입하는 img 태그 스니펫",
   },
+  // bg-image
   "bg-image": {
     "prefix": "bg",
     "body": ["@include bg-image('#{$image-path}building-image.png');"],
     "description": "배경 이미지를 building-image.png로 설정하는 SCSS mixin",
   },
-  "flex-2col": {
-    "prefix": "flex-col",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"${1|w50,w30,w20,w25,w60,w70,w75,w80|}\">",
-      "    $2",
-      "  </div>",
-      "  <div class=\"${3|w50,w70,w80,w75,w40,w30,w25,w20|}\">",
-      "    $3",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 다양한 비율 선택 가능 (50:50, 30:70, 20:80, 25:75 등)",
-  },
-  "flex-2col-5050": {
-    "prefix": "flex5050",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"w50\">",
-      "    $1",
-      "  </div>",
-      "  <div class=\"w50\">",
-      "    $2",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 50:50 비율",
-  },
-  "flex-2col-3070": {
-    "prefix": "flex3070",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"w30\">",
-      "    $1",
-      "  </div>",
-      "  <div class=\"w70\">",
-      "    $2",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 30:70 비율",
-  },
-  "flex-2col-7030": {
-    "prefix": "flex7030",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"w70\">",
-      "    $1",
-      "  </div>",
-      "  <div class=\"w30\">",
-      "    $2",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 70:30 비율",
-  },
-  "flex-2col-2080": {
-    "prefix": "flex2080",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"w20\">",
-      "    $1",
-      "  </div>",
-      "  <div class=\"w80\">",
-      "    $2",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 20:80 비율",
-  },
-  "flex-2col-2575": {
-    "prefix": "flex2575",
-    "body": [
-      "<div class=\"flex-cnt\">",
-      "  <div class=\"w25\">",
-      "    $1",
-      "  </div>",
-      "  <div class=\"w75\">",
-      "    $2",
-      "  </div>",
-      "</div>",
-    ],
-    "description": "2컬럼 플렉스 레이아웃 - 25:75 비율",
-  },
+  // flex
   "flex": {
     "prefix": "flex",
     "body": ["@include flex(row, $1, $2);"],
     "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end",
   },
+  // bbs-actions
   "bbs-actions": {
     "prefix": "bbs",
     "body": [
@@ -114,6 +33,7 @@
     ],
     "description": "게시판 액션 버튼 그룹 - 기본 2개 버튼",
   },
+  // pagination
   "pagination": {
     "prefix": "page",
     "body": [
@@ -128,6 +48,7 @@
     ],
     "description": "페이지네이션 컴포넌트 - UiPagination 래퍼",
   },
+  // nav-button
   "nav-button": {
     "prefix": "navbtn",
     "body": [
@@ -140,30 +61,7 @@
     ],
     "description": "네비게이션 버튼 - UiNavButton 컴포넌트",
   },
-  "nav-button-prev": {
-    "prefix": "navprev",
-    "body": [
-      "<UiNavButton",
-      "  class=\"bg-primary\"",
-      "  direction=\"prev\"",
-      "  size={40}",
-      "  ariaLabel=\"이전 $1\"",
-      "/>",
-    ],
-    "description": "이전 네비게이션 버튼 - 기본 스타일",
-  },
-  "nav-button-next": {
-    "prefix": "navnext",
-    "body": [
-      "<UiNavButton",
-      "  class=\"bg-primary\"",
-      "  direction=\"next\"",
-      "  size={40}",
-      "  ariaLabel=\"다음 $1\"",
-      "/>",
-    ],
-    "description": "다음 네비게이션 버튼 - 기본 스타일",
-  },
+  // nav-button-group
   "nav-button-group": {
     "prefix": "navgroup",
     "body": [
@@ -184,9 +82,40 @@
     ],
     "description": "네비게이션 버튼 그룹 - 이전/다음 버튼 세트",
   },
+  // mobile
   "include-mobile": {
     "prefix": "mb",
     "body": ["@include mobile {", "  $1", "}"],
     "description": "모바일 브레이크포인트 mixin - 768px 이하",
+  },
+  // searsearch-container
+  "search-container": {
+    "prefix": "search",
+    "body": [
+      "<div class=\"search-container\">",
+      "  <input type=\"text\" placeholder=\"검색어를 입력해주세요\" id=\"search-input\" class=\"search-input\" />",
+      "  <button class=\"search-btn\">검색</button>",
+      "</div>",
+    ],
+    "description": "검색 컨테이너 - 입력창과 검색 버튼",
+  },
+  // search-info-summary
+  "search-info-summary": {
+    "prefix": "search-info",
+    "body": [
+      "<div class=\"search-info-summary\">",
+      "  <span><strong>[홍길동]</strong>에 대한 검색 결과 총 <strong>190</strong>건</span>",
+    ],
+    "description": "검색 정보 요약 - 검색 결과 총 건수와 키워드 정보",
+  },
+  // tab
+  "tab": {
+    "prefix": "tab",
+    "body": [
+      "<UiTab",
+      "  tabs={$1}",
+      "  showCount={$2}",
+      "/>",
+    ],
   },
 }

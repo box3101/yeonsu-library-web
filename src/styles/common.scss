@@ -601,3 +601,101 @@ img {
 .w-full {
   width: 100% !important;
 }
+
+/* ============================================
+   Search Container Component
+   ============================================ */
+
+.search-container {
+  background: #eef2f7;
+  padding: to-rem(32);
+  border-radius: to-rem(12);
+  width: 100%;
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  // Input과 Button의 플렉스 컨테이너
+  display: flex;
+  gap: to-rem(8);
+  align-items: flex-end;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-input {
+    margin-top: 0;
+    flex: 1;
+    height: to-rem(48);
+    padding: 0 to-rem(16);
+    border: 1px solid #58616a;
+    border-radius: to-rem(6);
+    background: #ffffff;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(17);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #191a1a;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #8a949e;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #244874;
+      box-shadow: 0 0 0 2px rgba(36, 72, 116, 0.1);
+    }
+
+    @include mobile {
+      height: 44px;
+      flex: none;
+      font-size: 16px;
+      padding: 0 14px;
+    }
+  }
+
+  .search-btn {
+    height: to-rem(48);
+    min-width: to-rem(78);
+    padding: 0 to-rem(16);
+    background: #244874;
+    color: #ffffff;
+    border: none;
+    border-radius: to-rem(6);
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(17);
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+
+    &:hover {
+      background: #1e3a5f;
+    }
+
+    &:active {
+      background: #152b44;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(36, 72, 116, 0.3);
+    }
+
+    @include mobile {
+      height: 44px;
+      font-size: 16px;
+      min-width: auto;
+      width: 100%;
+    }
+  }
+}

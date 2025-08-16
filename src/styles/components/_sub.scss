@@ -437,6 +437,9 @@
    검색 타입 탭
 ======================================== */
 .search-type-tabs {
+  .ui-tab__button--active::after {
+    display: none !important;
+  }
   &.ui-tab--grid-6 {
     .ui-tab__list {
       gap: 0;
@@ -684,7 +687,7 @@
   }
 
   strong {
-    color: #3c79c2;
+    color: #30619b;
     font-weight: 700;
   }
 
@@ -1176,7 +1179,7 @@
   border-radius: var(--radius-medium2, 6px);
   background: var(--color-action-secondary, rgba(255, 255, 255, 0));
   position: relative;
-  margin-bottom: to-rem(4); 
+  margin-bottom: to-rem(4);
   @include makeBefore {
     @include ab-y;
     left: 6px;
