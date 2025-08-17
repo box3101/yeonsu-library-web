@@ -106,8 +106,7 @@ const allEventCards = [
   {
     tag: '연수꿈담',
     tagColor: '#a3cf62',
-    title:
-      '[여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개) (초등 3~4학년)',
+    title: '[여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개) (초등 3~4학년)',
     educationPeriod: '2025-07-30 ~ 2025-08-02',
     applicationPeriod: '2025-07-17 ~ 2025-07-17',
     enrollment: { current: '50', total: '50' },
@@ -134,8 +133,7 @@ const allEventCards = [
   {
     tag: '송도국제',
     tagColor: '#8e63aa',
-    title:
-      '[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
+    title: '[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
     educationPeriod: '2025-08-05 ~ 2025-08-08',
     applicationPeriod: '2025-07-24 ~ 2025-08-04',
     enrollment: { current: '12', total: '50', status: '(마감)' },
@@ -230,8 +228,7 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -260,8 +257,7 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -290,8 +286,7 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -346,25 +341,13 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
         </div>
 
         <!-- 도서검색, ai책큐 -->
-        <div
-          class="banner__search-container"
-          data-aos="fade-up"
-          data-aos-duration="500"
-        >
+        <div class="banner__search-container" data-aos="fade-up" data-aos-duration="500">
           <!-- 탭 네비게이션 -->
           <div class="search-tabs">
-            <button
-              type="button"
-              class="search-tabs__tab search-tabs__tab--active"
-              data-tab="book-search"
-            >
+            <button type="button" class="search-tabs__tab search-tabs__tab--active" data-tab="book-search">
               <div class="search-tabs__indicator"></div>
               <div class="search-tabs__content">
-                <img
-                  src="./assets/images/icon/search-book.svg"
-                  alt="도서검색"
-                  class="search-tabs__icon"
-                />
+                <img src="./assets/images/icon/search-book.svg" alt="도서검색" class="search-tabs__icon" />
                 <span class="search-tabs__text">도서검색</span>
               </div>
             </button>
@@ -372,11 +355,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             <button type="button" class="search-tabs__tab" data-tab="ai-book">
               <div class="search-tabs__indicator"></div>
               <div class="search-tabs__content">
-                <img
-                  src="./assets/images/icon/search-ai.svg"
-                  alt="AI 책큐"
-                  class="search-tabs__icon"
-                />
+                <img src="./assets/images/icon/search-ai.svg" alt="AI 책큐" class="search-tabs__icon" />
                 <span class="search-tabs__text">AI 책큐</span>
               </div>
             </button>
@@ -386,24 +365,17 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
           <div class="search-input">
             <form class="search-input__form">
               <div class="search-input__container">
-                <input
-                  type="text"
-                  class="search-input__field"
-                  placeholder="찾고 싶은 도서의 내용을 입력하세요."
-                  aria-label="검색어 입력"
-                />
-                <button
-                  type="submit"
-                  class="search-input__button"
-                  aria-label="검색"
-                >
+                <input type="text" class="search-input__field" placeholder="찾고 싶은 도서의 내용을 입력하세요." aria-label="검색어 입력" />
+                <button type="submit" class="search-input__button" aria-label="검색">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path
                       d="M28.33 28.33L25.15 25.15M26.67 16.67C26.67 22.19 22.19 26.67 16.67 26.67C11.15 26.67 6.67 22.19 6.67 16.67C6.67 11.15 11.15 6.67 16.67 6.67C22.19 6.67 26.67 11.15 26.67 16.67Z"
                       stroke="#33363D"
                       stroke-width="2.33"
                       stroke-linecap="round"
-                      stroke-linejoin="round"></path>
+                      stroke-linejoin="round"
+                    >
+                    </path>
                   </svg>
                 </button>
               </div>
@@ -411,17 +383,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
           </div>
 
           <!-- 책큐 컨텐츠 -->
-          <div
-            class="book-recommendation-slider"
-            id="bookRecommendationSlider"
-            style="display: none;"
-          >
+          <div class="book-recommendation-slider" id="bookRecommendationSlider" style="display: none;">
             <div class="book-recommendation-slider__container">
-              <button
-                class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
-                aria-label="이전 추천"
-              >
-              </button>
+              <button class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" aria-label="이전 추천"></button>
 
               <div class="book-recommendation-slider__track">
                 <div class="book-recommendation-slider__slides">
@@ -441,10 +405,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                     ].map((item, index) => (
                       <div class={`book-recommendation-card ${item.class}`}>
                         <div class="book-recommendation-card__content">
-                          <span
-                            class="book-recommendation-card__text"
-                            set:html={item.text.replace('\n', '<br />')}
-                          />
+                          <span class="book-recommendation-card__text" set:html={item.text.replace('\n', '<br />')} />
                         </div>
                       </div>
                     ))
@@ -453,19 +414,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               </div>
 
               <div class="btn-nav">
-                <UiNavButton
-                  class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
-                  direction="prev"
-                  size={24}
-                  ariaLabel="이전 추천"
-                />
+                <UiNavButton class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" direction="prev" size={24} ariaLabel="이전 추천" />
 
-                <UiNavButton
-                  class="book-recommendation-slider__nav book-recommendation-slider__nav--next"
-                  direction="next"
-                  size={24}
-                  ariaLabel="다음 추천"
-                />
+                <UiNavButton class="book-recommendation-slider__nav book-recommendation-slider__nav--next" direction="next" size={24} ariaLabel="다음 추천" />
               </div>
             </div>
           </div>
@@ -489,45 +440,27 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="notice-section__titles">
                 <h2 class="notice-section__title">공지사항</h2>
               </div>
-              <UiMoreBtn class="notice-section__more-btn" />
+              <button class="com-more-btn">
+                <span>더보기</span>
+                <svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </button>
             </div>
 
             <!-- 필터 및 네비게이션 -->
-            <div
-              class="notice-section__controls"
-              data-aos="fade-up"
-              data-aos-duration="500"
-            >
+            <div class="notice-section__controls" data-aos="fade-up" data-aos-duration="500">
               <div class="notice-section__filter">
-                <UiSelect
-                  name="library-filter"
-                  options={selectOptions}
-                  value="all"
-                  class="w-180"
-                />
+                <UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
                 <div class="notice-section__nav">
-                  <UiNavButton
-                    class="notice-swiper-btn-prev"
-                    direction="prev"
-                    size={40}
-                    ariaLabel="이전 공지사항"
-                  />
-                  <UiNavButton
-                    class="notice-swiper-btn-next"
-                    direction="next"
-                    size={40}
-                    ariaLabel="다음 공지사항"
-                  />
+                  <UiNavButton class="notice-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 공지사항" />
+                  <UiNavButton class="notice-swiper-btn-next" direction="next" size={40} ariaLabel="다음 공지사항" />
                 </div>
               </div>
             </div>
 
             <!-- 공지사항 스와이퍼 -->
-            <div
-              class="notice-section__swiper"
-              data-aos="fade-up"
-              data-aos-duration="500"
-            >
+            <div class="notice-section__swiper" data-aos="fade-up" data-aos-duration="500">
               <div class="swiper notice-swiper">
                 <div class="swiper-wrapper">
                   {
@@ -535,25 +468,13 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                       <div class="swiper-slide">
                         <div class="notice-section__list">
                           {group.map((item, itemIndex) => (
-                            <a
-                              href="#"
-                              class="notice-item"
-                              key={`${groupIndex}-${itemIndex}`}
-                            >
+                            <a href="#" class="notice-item" key={`${groupIndex}-${itemIndex}`}>
                               <div class="notice-item__content">
                                 <div class="notice-item__info">
-                                  <span
-                                    class={`notice-item__tag ${item.tagClass}`}
-                                  >
-                                    {item.tag}
-                                  </span>
-                                  <h3 class="notice-item__title">
-                                    {item.title}
-                                  </h3>
+                                  <span class={`notice-item__tag ${item.tagClass}`}>{item.tag}</span>
+                                  <h3 class="notice-item__title">{item.title}</h3>
                                 </div>
-                                <span class="notice-item__date">
-                                  {item.date}
-                                </span>
+                                <span class="notice-item__date">{item.date}</span>
                               </div>
                             </a>
                           ))}
@@ -577,61 +498,37 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="quick-links__grid">
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link01.svg"
-                      alt="반납연기"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link01.svg" alt="반납연기" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">반납연기</span>
                 </a>
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link02.svg"
-                      alt="희망자료신청"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link02.svg" alt="희망자료신청" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">희망자료신청</span>
                 </a>
                 <a href="#" class="quick-link quick-link--primary">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link03.svg"
-                      alt="문화행사신청"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link03.svg" alt="문화행사신청" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">문화행사신청</span>
                 </a>
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link04.svg"
-                      alt="프로그램신청"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link04.svg" alt="프로그램신청" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">프로그램신청</span>
                 </a>
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link05.svg"
-                      alt="열람실좌석현황"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link05.svg" alt="열람실좌석현황" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">열람실좌석현황</span>
                 </a>
                 <a href="#" class="quick-link">
                   <div class="quick-link__icon">
-                    <img
-                      src="./assets/images/icon/quick-link06.svg"
-                      alt="도서관안내"
-                      class="quick-link__icon-img"
-                    />
+                    <img src="./assets/images/icon/quick-link06.svg" alt="도서관안내" class="quick-link__icon-img" />
                   </div>
                   <span class="quick-link__text">도서관안내</span>
                 </a>
@@ -654,11 +551,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             <button class="com-more-btn">
               <span>더보기</span>
               <svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 5V19M5 12L19 12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"></path>
+                <path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
               </svg>
             </button>
           </div>
@@ -666,39 +559,16 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
           <div class="event-section__content">
             <!-- 문화행사 탭 패널 -->
             <div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
-              <div
-                class="event-section__filter flex justify-between items-center"
-                data-aos="fade-up"
-                data-aos-duration="500"
-              >
-                <UiSelect
-                  name="library-filter"
-                  options={selectOptions}
-                  value="all"
-                  class="w-180"
-                />
+              <div class="event-section__filter flex justify-between items-center" data-aos="fade-up" data-aos-duration="500">
+                <UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
                 <div class="event-section__nav flex items-center gap-4">
-                  <UiNavButton
-                    class="event-swiper-btn-prev"
-                    direction="prev"
-                    size={40}
-                    ariaLabel="이전 이벤트"
-                  />
-                  <UiNavButton
-                    class="event-swiper-btn-next"
-                    direction="next"
-                    size={40}
-                    ariaLabel="다음 이벤트"
-                  />
+                  <UiNavButton class="event-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 이벤트" />
+                  <UiNavButton class="event-swiper-btn-next" direction="next" size={40} ariaLabel="다음 이벤트" />
                 </div>
               </div>
 
               <!-- 이벤트 카드 스와이퍼 -->
-              <div
-                class="event-section__swiper"
-                data-aos="fade-up"
-                data-aos-duration="500"
-              >
+              <div class="event-section__swiper" data-aos="fade-up" data-aos-duration="500">
                 <div class="swiper event-swiper">
                   <div class="swiper-wrapper">
                     {
@@ -706,62 +576,36 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                         <div class="swiper-slide">
                           <ul class="event-cards">
                             {group.map((card, cardIndex) => (
-                              <li
-                                class="event-card"
-                                key={`${groupIndex}-${cardIndex}`}
-                              >
+                              <li class="event-card" key={`${groupIndex}-${cardIndex}`}>
                                 <a href="#" class="event-card__link">
-                                  <div
-                                    class="event-card__tag"
-                                    style={`background-color: ${card.tagColor}`}
-                                  >
+                                  <div class="event-card__tag" style={`background-color: ${card.tagColor}`}>
                                     {card.tag}
                                   </div>
                                   <div class="event-card__content">
-                                    <h4 class="event-card__title">
-                                      {card.title}
-                                    </h4>
+                                    <h4 class="event-card__title">{card.title}</h4>
                                     <div class="event-card__info">
                                       <div class="event-card__info-left">
                                         <div class="event-card__info-item">
-                                          <span class="event-card__label">
-                                            교육기간
-                                          </span>
-                                          <span class="event-card__value">
-                                            {card.educationPeriod}
-                                          </span>
+                                          <span class="event-card__label">교육기간</span>
+                                          <span class="event-card__value">{card.educationPeriod}</span>
                                         </div>
                                         <div class="event-card__info-item">
-                                          <span class="event-card__label">
-                                            모집인원
-                                          </span>
+                                          <span class="event-card__label">모집인원</span>
                                           <span class="event-card__value">
-                                            <span class="event-card__highlight">
-                                              {card.enrollment.current}
-                                            </span>
-                                            /{card.enrollment.total}
+                                            <span class="event-card__highlight">{card.enrollment.current}</span>/{card.enrollment.total}
                                             {card.enrollment.status || ''}
                                           </span>
                                         </div>
                                       </div>
                                       <div class="event-card__info-right">
                                         <div class="event-card__info-item">
-                                          <span class="event-card__label">
-                                            접수기간
-                                          </span>
-                                          <span class="event-card__value">
-                                            {card.applicationPeriod}
-                                          </span>
+                                          <span class="event-card__label">접수기간</span>
+                                          <span class="event-card__value">{card.applicationPeriod}</span>
                                         </div>
                                         <div class="event-card__info-item">
-                                          <span class="event-card__label">
-                                            예비인원
-                                          </span>
+                                          <span class="event-card__label">예비인원</span>
                                           <span class="event-card__value">
-                                            <span class="event-card__highlight">
-                                              {card.waitlist.current}
-                                            </span>
-                                            /{card.waitlist.total}
+                                            <span class="event-card__highlight">{card.waitlist.current}</span>/{card.waitlist.total}
                                           </span>
                                         </div>
                                       </div>
@@ -785,32 +629,17 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
           <!-- 신규 컨텐츠 바로가기 -->
           <div class="new-content-shortcuts">
             <h3 class="new-content-shortcuts__title">신규 컨텐츠 바로가기</h3>
-            <div
-              class="new-content-shortcuts__grid"
-              data-aos="fade-up"
-              data-aos-duration="500"
-            >
+            <div class="new-content-shortcuts__grid" data-aos="fade-up" data-aos-duration="500">
               {
                 newContentItems.map(item => (
-                  <a
-                    href={item.link}
-                    class="new-content-item"
-                    style={`background-color: ${item.backgroundColor}`}
-                  >
+                  <a href={item.link} class="new-content-item" style={`background-color: ${item.backgroundColor}`}>
                     <div class="new-content-item__image">
                       <img src={item.image} alt={item.title} />
                     </div>
                     <div class="new-content-item__content">
-                      <h4
-                        class="new-content-item__title"
-                        style="white-space: pre-line; text-align: right;"
-                        set:html={item.title}
-                      />
+                      <h4 class="new-content-item__title" style="white-space: pre-line; text-align: right;" set:html={item.title} />
                       <div class="new-content-item__arrow">
-                        <img
-                          src="./assets/images/icon/icon-arr-right.svg"
-                          alt="arrow-right"
-                        />
+                        <img src="./assets/images/icon/icon-arr-right.svg" alt="arrow-right" />
                       </div>
                     </div>
                   </a>
@@ -846,11 +675,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
             </div>
             <!-- 지도 영역 -->
             <div class="library-map" data-aos="fade-up" data-aos-duration="500">
-              <img
-                src="/assets/images/building-image.png"
-                alt="연수구 도서관 지도"
-                class="library-map__image"
-              />
+              <img src="/assets/images/building-image.png" alt="연수구 도서관 지도" class="library-map__image" />
             </div>
           </div>
           <div class="info-section__right-area">
@@ -858,20 +683,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <h2 class="info-section__title">
                 도서관 <span>이용시간</span>
               </h2>
-              <UiButton
-                text="도서관 소개 바로가기"
-                variant="darkBlue"
-                size="large"
-                width="250px"
-                icon="icon-arr-right-white"
-                iconPosition="right"
-              />
+              <UiButton text="도서관 소개 바로가기" variant="darkBlue" size="large" width="250px" icon="icon-arr-right-white" iconPosition="right" />
             </div>
-            <div
-              class="info-section__schedule-area"
-              data-aos="fade-up"
-              data-aos-duration="500"
-            >
+            <div class="info-section__schedule-area" data-aos="fade-up" data-aos-duration="500">
               <!-- 휴관일 안내 -->
               <div class="holiday-notice flex justify-between items-center">
                 <div class="holiday-notice__left flex gap-2 items-center">
@@ -882,20 +696,15 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 </div>
                 <div class="holiday-notice__legends">
                   <div class="holiday-notice__legend">
-                    <div class="holiday-notice__dot holiday-notice__dot--red">
-                    </div>
+                    <div class="holiday-notice__dot holiday-notice__dot--red"></div>
                     <span>법정공휴일</span>
                   </div>
                   <div class="holiday-notice__legend">
-                    <div
-                      class="holiday-notice__dot holiday-notice__dot--orange"
-                    >
-                    </div>
+                    <div class="holiday-notice__dot holiday-notice__dot--orange"></div>
                     <span>정기휴관</span>
                   </div>
                   <div class="holiday-notice__legend">
-                    <div class="holiday-notice__dot holiday-notice__dot--gray">
-                    </div>
+                    <div class="holiday-notice__dot holiday-notice__dot--gray"></div>
                     <span>개관일</span>
                   </div>
                 </div>
@@ -1007,21 +816,12 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                         <div class="swiper-slide">
                           <div class="library-hours__grid">
                             {page.sections.map((section, sectionIndex) => (
-                              <div
-                                class="library-hours__section"
-                                key={`${pageIndex}-${sectionIndex}`}
-                              >
+                              <div class="library-hours__section" key={`${pageIndex}-${sectionIndex}`}>
                                 <h5 class="library-hours__section-title">
-                                  {section.title}{' '}
-                                  <span class="library-hours__floor">
-                                    {section.floor}
-                                  </span>
+                                  {section.title} <span class="library-hours__floor">{section.floor}</span>
                                 </h5>
                                 {section.times.map((time, timeIndex) => (
-                                  <div
-                                    class="library-hours__time"
-                                    key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
-                                  >
+                                  <div class="library-hours__time" key={`${pageIndex}-${sectionIndex}-${timeIndex}`}>
                                     {time.days} <span>{time.hours}</span>
                                   </div>
                                 ))}
@@ -1037,30 +837,12 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 <!-- 페이지네이션 -->
                 <div class="library-hours__pagination">
                   <span class="library-hours__page-info">
-                    <span class="library-hours__page-info-current"> 1</span> / <span
-                      class="library-hours__page-info-total"
-                      >{libraryHours.length}</span
-                    >
+                    <span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">{libraryHours.length}</span>
                   </span>
                   <div class="library-hours__nav">
-                    <UiNavButton
-                      class="library-hours-autoplay-toggle"
-                      direction="stop"
-                      size={40}
-                      ariaLabel="자동재생 정지"
-                    />
-                    <UiNavButton
-                      class="library-hours-btn-prev"
-                      direction="prev"
-                      size={40}
-                      ariaLabel="이전 이용시간"
-                    />
-                    <UiNavButton
-                      class="library-hours-btn-next"
-                      direction="next"
-                      size={40}
-                      ariaLabel="다음 이용시간"
-                    />
+                    <UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />
+                    <UiNavButton class="library-hours-btn-prev" direction="prev" size={40} ariaLabel="이전 이용시간" />
+                    <UiNavButton class="library-hours-btn-next" direction="next" size={40} ariaLabel="다음 이용시간" />
                   </div>
                 </div>
               </div>

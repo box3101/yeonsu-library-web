@@ -88,11 +88,18 @@ function initEventSwiper() {
   new Swiper('.event-swiper', {
     slidesPerView: 1,
     loop: true,
+    spaceBetween: 16,
     speed: SWIPER_CONFIG.speed,
     // autoplay: SWIPER_CONFIG.autoplay,
     navigation: {
       nextEl: '.event-swiper-btn-next',
       prevEl: '.event-swiper-btn-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
     },
   });
 }
@@ -102,12 +109,8 @@ function initLibraryHoursSwiper() {
   const swiperContainer = document.querySelector('.library-hours-swiper');
   if (!swiperContainer) return;
 
-  const pageCurrentEl = document.querySelector(
-    '.library-hours__page-info-current'
-  );
-  const autoplayToggle = document.querySelector(
-    '.library-hours-autoplay-toggle'
-  );
+  const pageCurrentEl = document.querySelector('.library-hours__page-info-current');
+  const autoplayToggle = document.querySelector('.library-hours-autoplay-toggle');
 
   const libraryHoursSwiper = new Swiper('.library-hours-swiper', {
     slidesPerView: 1,
@@ -141,12 +144,7 @@ function initLibraryHoursSwiper() {
   });
 
   // 자동재생 토글 기능
-  createAutoplayToggle(
-    libraryHoursSwiper,
-    autoplayToggle,
-    'icon icon-sm icon-stop-black',
-    'icon icon-sm icon-play-black'
-  );
+  createAutoplayToggle(libraryHoursSwiper, autoplayToggle, 'icon icon-sm icon-stop-black', 'icon icon-sm icon-play-black');
 }
 
 // 배너 스와이퍼 (Footer)
@@ -154,9 +152,7 @@ function initBannerSwiper() {
   const swiper = document.querySelector('.banner-swiper');
   if (!swiper) return;
 
-  const autoplayToggle = document.querySelector(
-    '.banner-swiper-autoplay-toggle'
-  );
+  const autoplayToggle = document.querySelector('.banner-swiper-autoplay-toggle');
 
   const bannerSwiper = new Swiper('.banner-swiper', {
     slidesPerView: 5, // 5개 슬라이드 표시
@@ -211,29 +207,20 @@ function initBannerSwiper() {
       // 엄청난 width 값 강제 초기화
       if (slide.style.width.includes('e+')) {
         const percentage = 100 / currentSlidesPerView;
-        const gapAdjustment =
-          (currentSpaceBetween * (currentSlidesPerView - 1)) /
-          currentSlidesPerView;
+        const gapAdjustment = (currentSpaceBetween * (currentSlidesPerView - 1)) / currentSlidesPerView;
         const correctWidth = `calc(${percentage}% - ${gapAdjustment}px)`;
 
         slide.style.width = correctWidth;
         slide.style.maxWidth = correctWidth;
         slide.style.flex = `0 0 ${correctWidth}`;
 
-        console.log(
-          `Fixed slide width from ${slide.style.width} to ${correctWidth}`
-        );
+        console.log(`Fixed slide width from ${slide.style.width} to ${correctWidth}`);
       }
     });
   }
 
   // 배너 스와이퍼 자동재생 토글 기능
-  createAutoplayToggle(
-    bannerSwiper,
-    autoplayToggle,
-    'icon icon-sm icon-stop-white',
-    'icon icon-sm icon-play-white'
-  );
+  createAutoplayToggle(bannerSwiper, autoplayToggle, 'icon icon-sm icon-stop-white', 'icon icon-sm icon-play-white');
 }
 
 // 도서 스와이퍼
@@ -260,9 +247,7 @@ function initBookSwiper() {
 
 // UI 도서 슬라이더들
 function initBookSliders() {
-  const sliders = document.querySelectorAll(
-    '#book-swiper-1, #book-swiper-2, #book-swiper-3'
-  );
+  const sliders = document.querySelectorAll('#book-swiper-1, #book-swiper-2, #book-swiper-3');
 
   sliders.forEach(slider => {
     const sliderId = slider.id;
