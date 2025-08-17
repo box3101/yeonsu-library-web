@@ -231,104 +231,96 @@ const menuData = [
 ];
 ---
 
-<nav class="gnb" id="gnb">
-  <!-- 메인 메뉴 바 -->
+<nav class="gnb" id="gnb" role="navigation" aria-label="주 메뉴">
   <div class="gnb-main">
     <div class="gnb-container">
       <ul class="gnb-main-list" role="menubar">
         {menuData.map((menu, index) => (
-          <li class="gnb-main-item" data-menu-index={index} role="none">
+          <li class="gnb-main-item" role="none">
             <a 
               href={menu.items[0]?.href} 
               class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
               role="menuitem"
-              tabindex={index === 0 ? "0" : "-1"}
-              aria-haspopup={menu.type !== '1depth' ? "true" : "false"}
-              aria-expanded="false"
+              data-menu-index={index}
             >
               <span class="gnb-main-text">{menu.title}</span>
               {menu.type !== '1depth' && (
                 <i class="icon icon-sm icon-arrow-down" aria-hidden="true"></i>
               )}
             </a>
+            
+            {/* 서브메뉴 */}
+            {menu.type !== '1depth' && (
+              <div class="gnb-sub" hidden>
+                <div class="gnb-container">
+                  <div class="gnb-sub-content">
+                    <!-- 1depth 제목 -->
+                    <div class="gnb-sub-title">
+                      <h2 class="gnb-sub-title-text">{menu.title}</h2>
+                    </div>
+
+                    <!-- 2depth 메뉴 -->
+                    <div class="gnb-sub-menu">
+                      {menu.items.map((item, itemIndex) => (
+                        <div 
+                          class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`} 
+                          data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
+                        >
+                          <a 
+                            href={item.href} 
+                            class="gnb-sub-link"
+                            role="menuitem"
+                          >
+                            <span class="gnb-sub-text">{item.label}</span>
+                            {item.subItems && (
+                              <i class="icon icon-xsm icon-arrow-right" aria-hidden="true"></i>
+                            )}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+
+                    <!-- 3depth 메뉴 -->
+                    <div class="gnb-third" role="region" aria-label="세부 메뉴">
+                      <div class="gnb-third-title">
+                        <h3 class="gnb-third-title-text" data-third-title>
+                          {(() => {
+                            const selectedItem = menu.items.find(item => item.isSelected);
+                            const targetItem = selectedItem || menu.items[0];
+                            return targetItem?.label || '메뉴';
+                          })()}
+                        </h3>
+                      </div>
+                      <div class="gnb-third-items" data-third-items>
+                        <div class="gnb-third-column">
+                          {(() => {
+                            const selectedItem = menu.items.find(item => item.isSelected);
+                            const targetItem = selectedItem || menu.items[0];
+                            
+                            if (targetItem?.subItems && targetItem.subItems.length > 0) {
+                              return targetItem.subItems.map((item) => (
+                                <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
+                                  <a href={item.href} class="gnb-third-link">
+                                    <span class="gnb-third-text">{item.label}</span>
+                                  </a>
+                                </div>
+                              ));
+                            }
+                            // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
+                            return null;
+                          })()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </li>
         ))}
       </ul>
     </div>
   </div>
-
-  <!-- 서브 메뉴 -->
-  {menuData.map((menu, index) =>
-    menu.type !== '1depth' && (
-      <div class="gnb-sub" data-menu-target={index}>
-        <div class="gnb-container">
-          <div class="gnb-sub-content">
-            <!-- 1depth 제목 -->
-            <div class="gnb-sub-title">
-              <h2 class="gnb-sub-title-text">{menu.title}</h2>
-            </div>
-
-            <!-- 2depth 메뉴 -->
-            <div class="gnb-sub-menu">
-              {menu.items.map((item, itemIndex) => (
-                <div 
-                  class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`} 
-                  data-item-index={itemIndex}
-                  data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
-                >
-                  <a 
-                    href={item.href} 
-                    class="gnb-sub-link"
-                    tabindex="-1"
-                    role="menuitem"
-                  >
-                    <span class="gnb-sub-text">{item.label}</span>
-                    {item.subItems && (
-                      <i class="icon icon-xsm icon-arrow-right" aria-hidden="true"></i>
-                    )}
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            <!-- 3depth 메뉴 -->
-            {(menu.type === '3depth' || menu.type === '2depth') && (
-              <div class="gnb-third">
-                <div class="gnb-third-title">
-                  <h3 class="gnb-third-title-text" data-third-title>
-                    {(() => {
-                      const selectedItem = menu.items.find(item => item.isSelected);
-                      const targetItem = selectedItem || menu.items[0];
-                      return targetItem?.label || '메뉴';
-                    })()}
-                  </h3>
-                </div>
-                <div class="gnb-third-items" data-third-items>
-                  <div class="gnb-third-column">
-                    {(() => {
-                      const selectedItem = menu.items.find(item => item.isSelected);
-                      const targetItem = selectedItem || menu.items[0];
-                      
-                      if (targetItem?.subItems && targetItem.subItems.length > 0) {
-                        return targetItem.subItems.map(item => (
-                          <div class={`gnb-third-item ${(item as any).isSelected ? 'selected' : ''}`}>
-                            <a href={item.href} class="gnb-third-link">
-                              <span class="gnb-third-text">{item.label}</span>
-                            </a>
-                          </div>
-                        ));
-                      }
-                      return [];
-                    })()}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    )
-  )}
 </nav>
 
 <style lang="scss">
@@ -377,6 +369,7 @@ const menuData = [
       line-height: 1.5;
       color: #464c53;
       transition: all 0.2s ease;
+      text-decoration: none;
 
       &:hover {
         background: #f8fafc;
@@ -385,6 +378,11 @@ const menuData = [
       &.selected {
         border-bottom: 4px solid #244874;
         background: #ffffff;
+      }
+
+      &:focus {
+        outline: 2px solid #244874;
+        outline-offset: 2px;
       }
     }
 
@@ -409,6 +407,16 @@ const menuData = [
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+
+    &[hidden] {
+      display: none !important;
+    }
+
+    &:not([hidden]) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
     &-content {
       @include flex(row, flex-start, stretch);
@@ -461,6 +469,13 @@ const menuData = [
       border: none;
       cursor: pointer;
       border-radius: to-rem(8);
+      color: inherit;
+
+      &:focus {
+        outline: 2px solid #244874;
+        outline-offset: 2px;
+        background: #f8fafc;
+      }
     }
 
     &-text {
@@ -501,7 +516,6 @@ const menuData = [
     }
 
     &-items {
-      // 3depth 항목들이 있을 때만 표시
       &:empty {
         display: none;
       }
@@ -513,20 +527,6 @@ const menuData = [
     }
 
     &-item {
-      border-radius: var(--radius-medium2);
-      transition: all 0.2s ease;
-
-      &.selected {
-        background: var(--color-primary-pr01);
-      }
-
-      &:hover {
-        background: #f1f5f9;
-      }
-    }
-
-    //  GNB
-    .gnb-third-item {
       display: flex;
       align-items: center;
       gap: var(--gap-2, 4px);
@@ -534,6 +534,12 @@ const menuData = [
       border-radius: var(--radius-medium2, 6px);
       background: var(--color-action-secondary, rgba(255, 255, 255, 0));
       position: relative;
+      transition: all 0.2s ease;
+
+      &.selected {
+        background: var(--color-primary-pr01);
+      }
+
       @include makeBefore {
         @include ab-y;
         left: 6px;
@@ -542,24 +548,35 @@ const menuData = [
         border-radius: 50%;
         background: #000;
       }
-      .gnb-third-link {
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: var(--padding-4, 18px) var(--padding-3, 8px);
-        padding-left: 22px;
-        .gnb-third-text {
-          @include font(to-rem(17), 400, #121212);
-        }
-      }
+
       &:hover {
         border-radius: var(--radius-medium2, 6px);
         background: var(--color-primary-pr01, #d8e4f3);
+
         .gnb-third-text {
           color: $primary-color !important;
           font-weight: 700 !important;
         }
       }
+    }
+
+    &-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: var(--padding-4, 18px) var(--padding-3, 8px);
+      padding-left: 22px;
+      text-decoration: none;
+      color: inherit;
+
+      &:focus {
+        outline: 2px solid #244874;
+        outline-offset: 2px;
+      }
+    }
+
+    &-text {
+      @include font(to-rem(17), 400, #121212);
     }
   }
 
@@ -568,462 +585,126 @@ const menuData = [
       display: none;
     }
   }
+
+  @media (prefers-contrast: high) {
+    .gnb {
+      &-main-link:focus,
+      &-sub-link:focus,
+      &-third-link:focus {
+        outline: 3px solid #000;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gnb-sub {
+      transition: none;
+    }
+    
+    .gnb-main-link,
+    .gnb-sub-item,
+    .gnb-third-item {
+      transition: none;
+    }
+  }
 </style>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const gnbItems = document.querySelectorAll('.gnb-main-item[data-menu-index]');
-    const gnbSubs = document.querySelectorAll('.gnb-sub[data-menu-target]');
-    const gnbLinks = document.querySelectorAll('.gnb-main-link');
-    let currentTimeout = null;
+(function() {
+  const gnb = document.getElementById('gnb');
+  if (!gnb) return;
+
+  // 간단한 호버/포커스 기반 서브메뉴 표시
+  const mainItems = gnb.querySelectorAll('.gnb-main-item');
+  
+  mainItems.forEach((item, index) => {
+    const mainLink = item.querySelector('.gnb-main-link');
+    const submenu = item.querySelector('.gnb-sub');
     
-    // 전체 탭 순서 관리
-    let allFocusableElements = [];
-    let currentTabIndex = 0;
+    if (!submenu) return;
 
-    // 모든 포커스 가능한 요소들을 순서대로 배열에 저장
-    function buildTabOrder() {
-      allFocusableElements = [];
-      
-      gnbItems.forEach((item, mainIndex) => {
-        const mainLink = item.querySelector('.gnb-main-link');
-        const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${mainIndex}"]`);
-        
-        // 메인 메뉴 추가
-        allFocusableElements.push({
-          element: mainLink,
-          type: 'main',
-          mainIndex: mainIndex,
-          subIndex: -1
-        });
-        
-        // 서브 메뉴가 있으면 서브 메뉴 항목들도 추가
-        if (correspondingSub) {
-          const subLinks = correspondingSub.querySelectorAll('.gnb-sub-link');
-          subLinks.forEach((subLink, subIndex) => {
-            allFocusableElements.push({
-              element: subLink,
-              type: 'sub',
-              mainIndex: mainIndex,
-              subIndex: subIndex
-            });
-          });
-        }
-      });
-      
-      // 다음 포커스 가능한 요소들 찾기 (메인 배너 등)
-      const nextFocusableElements = findNextFocusableElements();
-      allFocusableElements = [...allFocusableElements, ...nextFocusableElements];
-      
-      // 모든 요소의 tabindex를 -1로 설정 (첫 번째 제외)
-      allFocusableElements.forEach((item, index) => {
-        item.element.setAttribute('tabindex', index === 0 ? '0' : '-1');
-      });
-    }
-
-    // GNB 다음에 오는 포커스 가능한 요소들 찾기
-    function findNextFocusableElements() {
-      const nextElements = [];
-      const gnbElement = document.getElementById('gnb');
-      
-      if (gnbElement) {
-        // GNB 다음 형제 요소들에서 포커스 가능한 요소 찾기
-        let nextSibling = gnbElement.nextElementSibling;
-        
-        while (nextSibling) {
-          // 포커스 가능한 요소들 찾기
-          const focusableInSibling = nextSibling.querySelectorAll(
-            'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-          );
-          
-          focusableInSibling.forEach(element => {
-            nextElements.push({
-              element: element,
-              type: 'external',
-              mainIndex: -1,
-              subIndex: -1
-            });
-          });
-          
-          // 첫 번째 포커스 가능한 요소를 찾으면 멈춤 (보통 메인 배너가 첫 번째)
-          if (nextElements.length > 0) {
-            break;
-          }
-          
-          nextSibling = nextSibling.nextElementSibling;
-        }
-        
-        // 특정 선택자로 메인 배너 찾기 (프로젝트에 맞게 수정)
-        if (nextElements.length === 0) {
-          const mainBanner = document.querySelector('.main-banner a, .banner a, .hero a, [data-main-banner] a');
-          if (mainBanner) {
-            nextElements.push({
-              element: mainBanner,
-              type: 'external',
-              mainIndex: -1,
-              subIndex: -1
-            });
-          }
-        }
+    // 호버 이벤트
+    item.addEventListener('mouseenter', () => showSubmenu(submenu));
+    item.addEventListener('mouseleave', (e) => {
+      if (!submenu.contains(e.relatedTarget)) {
+        setTimeout(() => hideSubmenu(submenu), 100);
       }
+    });
+
+    // 포커스 이벤트
+    mainLink.addEventListener('focus', () => showSubmenu(submenu));
+
+    // 2depth 호버 시 3depth 업데이트
+    const subItems = submenu.querySelectorAll('.gnb-sub-item');
+    const thirdTitle = submenu.querySelector('[data-third-title]');
+    const thirdItems = submenu.querySelector('[data-third-items]');
+
+    subItems.forEach((subItem) => {
+      const subLink = subItem.querySelector('.gnb-sub-link');
       
-      return nextElements;
-    }
-
-    // 키보드 네비게이션 설정
-    function setupKeyboardNavigation() {
-      // 전역 키보드 이벤트 리스너
-      document.addEventListener('keydown', (e) => {
-        const focusedElement = document.activeElement;
-        const currentItem = allFocusableElements.find(item => item.element === focusedElement);
-        
-        if (!currentItem) return;
-
-        switch(e.key) {
-          case 'Tab':
-            e.preventDefault();
-            if (e.shiftKey) {
-              navigateToPrevTab();
-            } else {
-              navigateToNextTab();
-            }
-            break;
-          case 'ArrowRight':
-            e.preventDefault();
-            if (currentItem.type === 'main') {
-              navigateToNextMainMenu();
-            }
-            break;
-          case 'ArrowLeft':
-            e.preventDefault();
-            if (currentItem.type === 'main') {
-              navigateToPrevMainMenu();
-            }
-            break;
-          case 'ArrowDown':
-            e.preventDefault();
-            if (currentItem.type === 'main') {
-              navigateToSubmenu(currentItem.mainIndex);
-            } else if (currentItem.type === 'sub') {
-              navigateToNextSubmenuItem();
-            }
-            break;
-          case 'ArrowUp':
-            e.preventDefault();
-            if (currentItem.type === 'sub') {
-              navigateToPrevSubmenuItem();
-            }
-            break;
-          case 'Enter':
-          case ' ':
-            e.preventDefault();
-            currentItem.element.click();
-            break;
-          case 'Escape':
-            e.preventDefault();
-            hideAllSubmenus();
-            navigateToMainFromSub();
-            break;
-        }
-      });
-
-      // 각 요소에 포커스 이벤트 추가
-      allFocusableElements.forEach((item, index) => {
-        item.element.addEventListener('focus', () => {
-          currentTabIndex = index;
-          updateTabIndex(index);
-          
-          if (item.type === 'main') {
-            // 메인 메뉴 포커스 시 서브메뉴 표시
-            if (item.element.getAttribute('aria-haspopup') === 'true') {
-              showSubmenu(item.mainIndex);
-            }
-          } else if (item.type === 'sub') {
-            // 서브 메뉴 포커스 시 해당 메인 메뉴의 서브메뉴 표시
-            showSubmenu(item.mainIndex);
-          } else if (item.type === 'external') {
-            // GNB 외부 요소 포커스 시 모든 서브메뉴 숨기기
-            hideAllSubmenus();
-          }
-        });
-      });
-    }
-
-    // 다음 탭으로 이동
-    function navigateToNextTab() {
-      const nextIndex = (currentTabIndex + 1) % allFocusableElements.length;
-      const nextItem = allFocusableElements[nextIndex];
-      
-      // GNB에서 외부 요소로 이동할 때 서브메뉴 숨기기
-      if (allFocusableElements[currentTabIndex].type !== 'external' && nextItem.type === 'external') {
-        hideAllSubmenus();
-      }
-      
-      focusElement(nextIndex);
-    }
-
-    // 이전 탭으로 이동  
-    function navigateToPrevTab() {
-      const prevIndex = currentTabIndex === 0 ? allFocusableElements.length - 1 : currentTabIndex - 1;
-      const prevItem = allFocusableElements[prevIndex];
-      
-      // 외부 요소에서 GNB로 돌아올 때 적절한 서브메뉴 표시
-      if (allFocusableElements[currentTabIndex].type === 'external' && prevItem.type !== 'external') {
-        if (prevItem.type === 'main' && prevItem.element.getAttribute('aria-haspopup') === 'true') {
-          showSubmenu(prevItem.mainIndex);
-        } else if (prevItem.type === 'sub') {
-          showSubmenu(prevItem.mainIndex);
-        }
-      }
-      
-      focusElement(prevIndex);
-    }
-
-    // 다음 메인 메뉴로 이동
-    function navigateToNextMainMenu() {
-      const currentItem = allFocusableElements[currentTabIndex];
-      if (currentItem.type !== 'main') return;
-      
-      const nextMainIndex = (currentItem.mainIndex + 1) % gnbLinks.length;
-      const nextMainItem = allFocusableElements.find(item => 
-        item.type === 'main' && item.mainIndex === nextMainIndex
-      );
-      
-      if (nextMainItem) {
-        const index = allFocusableElements.indexOf(nextMainItem);
-        focusElement(index);
-      }
-    }
-
-    // 이전 메인 메뉴로 이동
-    function navigateToPrevMainMenu() {
-      const currentItem = allFocusableElements[currentTabIndex];
-      if (currentItem.type !== 'main') return;
-      
-      const prevMainIndex = currentItem.mainIndex === 0 ? gnbLinks.length - 1 : currentItem.mainIndex - 1;
-      const prevMainItem = allFocusableElements.find(item => 
-        item.type === 'main' && item.mainIndex === prevMainIndex
-      );
-      
-      if (prevMainItem) {
-        const index = allFocusableElements.indexOf(prevMainItem);
-        focusElement(index);
-      }
-    }
-
-    // 서브메뉴로 이동
-    function navigateToSubmenu(mainIndex) {
-      const firstSubItem = allFocusableElements.find(item => 
-        item.type === 'sub' && item.mainIndex === mainIndex && item.subIndex === 0
-      );
-      
-      if (firstSubItem) {
-        const index = allFocusableElements.indexOf(firstSubItem);
-        focusElement(index);
-      }
-    }
-
-    // 다음 서브메뉴 항목으로 이동
-    function navigateToNextSubmenuItem() {
-      const currentItem = allFocusableElements[currentTabIndex];
-      if (currentItem.type !== 'sub') return;
-      
-      const nextSubItem = allFocusableElements.find(item => 
-        item.type === 'sub' && 
-        item.mainIndex === currentItem.mainIndex && 
-        item.subIndex === currentItem.subIndex + 1
-      );
-      
-      if (nextSubItem) {
-        const index = allFocusableElements.indexOf(nextSubItem);
-        focusElement(index);
-      }
-    }
-
-    // 이전 서브메뉴 항목으로 이동
-    function navigateToPrevSubmenuItem() {
-      const currentItem = allFocusableElements[currentTabIndex];
-      if (currentItem.type !== 'sub') return;
-      
-      const prevSubItem = allFocusableElements.find(item => 
-        item.type === 'sub' && 
-        item.mainIndex === currentItem.mainIndex && 
-        item.subIndex === currentItem.subIndex - 1
-      );
-      
-      if (prevSubItem) {
-        const index = allFocusableElements.indexOf(prevSubItem);
-        focusElement(index);
-      }
-    }
-
-    // 서브메뉴에서 메인 메뉴로 돌아가기
-    function navigateToMainFromSub() {
-      const currentItem = allFocusableElements[currentTabIndex];
-      if (currentItem.type !== 'sub') return;
-      
-      const mainItem = allFocusableElements.find(item => 
-        item.type === 'main' && item.mainIndex === currentItem.mainIndex
-      );
-      
-      if (mainItem) {
-        const index = allFocusableElements.indexOf(mainItem);
-        focusElement(index);
-      }
-    }
-
-    // 특정 인덱스로 포커스 이동
-    function focusElement(index) {
-      currentTabIndex = index;
-      updateTabIndex(index);
-      allFocusableElements[index].element.focus();
-    }
-
-    // tabindex 업데이트
-    function updateTabIndex(focusIndex) {
-      allFocusableElements.forEach((item, index) => {
-        item.element.setAttribute('tabindex', index === focusIndex ? '0' : '-1');
-      });
-    }
-
-    // 서브메뉴 표시
-    function showSubmenu(menuIndex) {
-      const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`);
-      if (!correspondingSub) return;
-
-      hideAllSubmenus();
-
-      (correspondingSub as HTMLElement).style.opacity = '1';
-      (correspondingSub as HTMLElement).style.visibility = 'visible';
-      (correspondingSub as HTMLElement).style.transform = 'translateY(0)';
-      
-      // aria-expanded 업데이트
-      gnbLinks[menuIndex].setAttribute('aria-expanded', 'true');
-    }
-
-    // 모든 서브메뉴 숨기기
-    function hideAllSubmenus() {
-      gnbSubs.forEach(sub => {
-        const subElement = sub as HTMLElement;
-        subElement.style.opacity = '0';
-        subElement.style.visibility = 'hidden';
-        subElement.style.transform = 'translateY(-10px)';
-      });
-
-      gnbLinks.forEach(link => {
-        link.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    // 기존 마우스 이벤트들
-    gnbItems.forEach((item) => {
-      const menuIndex = parseInt(item.getAttribute('data-menu-index'));
-      const correspondingSub = document.querySelector(`.gnb-sub[data-menu-target="${menuIndex}"]`);
-
-      if (!correspondingSub) return;
-
-      // 메인 메뉴 호버 이벤트
-      item.addEventListener('mouseenter', () => {
-        if (currentTimeout) {
-          clearTimeout(currentTimeout);
-          currentTimeout = null;
-        }
-
-        showSubmenu(menuIndex);
-      });
-
-      item.addEventListener('mouseleave', (e) => {
-        const mouseEvent = e as MouseEvent;
-        if (!correspondingSub.contains(mouseEvent.relatedTarget as Node)) {
-          currentTimeout = setTimeout(() => {
-            hideAllSubmenus();
-          }, 100);
-        }
-      });
-
-      // 서브 메뉴 호버 이벤트
-      correspondingSub.addEventListener('mouseenter', () => {
-        if (currentTimeout) {
-          clearTimeout(currentTimeout);
-          currentTimeout = null;
-        }
-      });
-
-      correspondingSub.addEventListener('mouseleave', (e) => {
-        const mouseEvent = e as MouseEvent;
-        if (!item.contains(mouseEvent.relatedTarget as Node)) {
-          hideAllSubmenus();
-        }
-      });
-
-      // 2depth 메뉴 항목들의 호버 이벤트
-      const subItems = correspondingSub.querySelectorAll('.gnb-sub-item[data-item-index]');
-      const thirdTitle = correspondingSub.querySelector('[data-third-title]');
-      const thirdItems = correspondingSub.querySelector('[data-third-items]');
-      
-      subItems.forEach((subItem) => {
-        subItem.addEventListener('mouseenter', () => {
-          // 모든 항목에서 selected 클래스 제거하고 현재 항목에만 추가
-          subItems.forEach((item, idx) => {
-            const currentIndex = parseInt(subItem.getAttribute('data-item-index'));
-            const itemIndex = parseInt(item.getAttribute('data-item-index'));
-            item.classList.toggle('selected', itemIndex === currentIndex);
-          });
-
-          // 3depth 메뉴 업데이트
-          if (thirdTitle && thirdItems) {
-            const label = subItem.querySelector('.gnb-sub-text')?.textContent;
-            const subItemsData = subItem.getAttribute('data-sub-items');
-            
-            // 제목 업데이트
-            if (label) {
-              thirdTitle.textContent = label;
-            }
-            
-            // 3depth 항목들 업데이트
-            if (subItemsData && subItemsData !== '') {
-              try {
-                const subItemsParsed = JSON.parse(subItemsData);
-                thirdItems.innerHTML = '';
-                
-                subItemsParsed.forEach(thirdItem => {
-                  const thirdDiv = document.createElement('div');
-                  thirdDiv.className = `gnb-third-item ${thirdItem.isSelected ? 'selected' : ''}`;
-                  thirdDiv.innerHTML = `
-                    <a href="${thirdItem.href}" class="gnb-third-link">
-                      <span class="gnb-third-text">${thirdItem.label}</span>
-                    </a>
-                  `;
-                  thirdItems.appendChild(thirdDiv);
-                });
-                
-                thirdItems.style.display = 'block';
-              } catch (e) {
-                console.error('JSON 파싱 오류:', e);
-                thirdItems.innerHTML = '';
-                thirdItems.style.display = 'none';
-              }
-            } else {
-              // subItems가 없으면 3depth 영역 숨기기
-              thirdItems.innerHTML = '';
-              thirdItems.style.display = 'none';
-            }
-          }
+      ['mouseenter', 'focus'].forEach(eventType => {
+        subLink.addEventListener(eventType, () => {
+          updateThirdContent(subItem, thirdTitle, thirdItems);
         });
       });
     });
-
-    // 전체 GNB 영역을 벗어나면 숨기기
-    const gnbElement = document.getElementById('gnb');
-    if (gnbElement) {
-      gnbElement.addEventListener('mouseleave', () => {
-        hideAllSubmenus();
-      });
-    }
-
-    // 초기화
-    buildTabOrder();
-    setupKeyboardNavigation();
   });
+
+  // 전체 GNB 벗어날 때 숨기기
+  gnb.addEventListener('mouseleave', () => {
+    gnb.querySelectorAll('.gnb-sub').forEach(hideSubmenu);
+  });
+
+  function showSubmenu(submenu) {
+    hideAllSubmenus();
+    submenu.hidden = false;
+  }
+
+  function hideSubmenu(submenu) {
+    submenu.hidden = true;
+  }
+
+  function hideAllSubmenus() {
+    gnb.querySelectorAll('.gnb-sub').forEach(hideSubmenu);
+  }
+
+  function updateThirdContent(subItem, thirdTitle, thirdItems) {
+    const label = subItem.querySelector('.gnb-sub-text')?.textContent;
+    const subItemsData = subItem.getAttribute('data-sub-items');
+    
+    // 선택된 상태 업데이트
+    subItem.parentElement.querySelectorAll('.gnb-sub-item').forEach(item => {
+      item.classList.remove('selected');
+    });
+    subItem.classList.add('selected');
+    
+    // 타이틀 업데이트
+    if (thirdTitle && label) {
+      thirdTitle.textContent = label;
+    }
+    
+    // 3depth 컨텐츠 업데이트
+    if (thirdItems && subItemsData && subItemsData !== '') {
+      try {
+        const subItemsParsed = JSON.parse(subItemsData);
+        thirdItems.innerHTML = `
+          <div class="gnb-third-column">
+            ${subItemsParsed.map(item => `
+              <div class="gnb-third-item ${item.isSelected ? 'selected' : ''}">
+                <a href="${item.href}" class="gnb-third-link">
+                  <span class="gnb-third-text">${item.label}</span>
+                </a>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } catch (e) {
+        thirdItems.innerHTML = '';
+      }
+    } else {
+      thirdItems.innerHTML = '';
+    }
+  }
+})();
 </script>

@@ -6,23 +6,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Development**
 - `npm run dev` - Start dev server with host binding
+- `npm run dev:quiet` - Start dev server silently (no logs)
 - `npm run dev:turbo` - Dev server + SCSS file watching
 - `npm run dev:full` - Dev server + SCSS watching + file change monitoring
+- `npm start` - Alias for `npm run dev`
 
 **Build & Production**
 - `npm run build` - Standard build with post-formatting
 - `npm run build:clean` - Clean build with formatting and post-processing
 - `npm run build:jsp` - Build with JSP compatibility (removes Astro attributes)
+- `npm run preview` - Preview production build locally
 
 **Testing**
-- `npm test` or `npm run test` - Run Vitest tests
+- `npm test` or `npm run test` - Run Vitest tests in watch mode
 - `npm run test:ui` - Run tests with UI interface
-- `npm run test:run` - Run tests once
-- `npm run test:coverage` - Generate test coverage
+- `npm run test:run` - Run tests once (CI mode)
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Generate test coverage report
 
 **Code Quality**
 - `npm run format:src` - Format source files (Astro, TS, JS, SCSS)
 - `npm run format:dist` - Format built files (HTML, CSS, JS)
+
+**File Watching & Monitoring**
+- `npm run watch:scss` - Watch SCSS files for changes
+- `npm run watch:files` - Watch Astro/TS/JS files for changes
+
+**Scripts & Utilities**
+- `npm run remove-astro-attrs` - Remove Astro attributes for JSP compatibility
+- `npm run update-guide` - Update project guide
+- `npm run setup-hooks` - Setup Git hooks
+- `npm run pre-commit` - Pre-commit hook (runs update-guide)
 
 ## Architecture Overview
 
@@ -89,10 +103,12 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 ### Important Constraints
 
 1. **Publishing-Only Project**: No backend API integration, no server-side logic, no real form submissions
-2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited
-3. **Component Reuse**: Always prefer existing UI components (UiSelect, UiInput, UiButton, etc.)
+2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited per .cursorrules
+3. **Component Reuse**: Always prefer existing UI components (UiSelect, UiInput, UiButton, etc.) - DO NOT create new components unless absolutely necessary
 4. **BEM Methodology**: CSS follows Block__Element--Modifier pattern
 5. **Responsive Design**: Mobile-first with specific breakpoints (900px, 1200px)
+6. **HTTP Requests Forbidden**: No fetch/axios or HTTP client usage (publishing-only)
+7. **No Auth Logic**: Authentication/authorization UI only, no real implementation
 
 ### Path Aliases
 - `@` → `./src`
@@ -106,3 +122,18 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 - Central registration via `LibraryCommon.features`
 - Selective loading based on page requirements
 - Data-driven initialization with aria attributes for accessibility
+
+### Available JavaScript Modules
+```
+public/assets/js/
+├── common.js           # Core LibraryCommon + global initialization
+├── accordion.js        # Accordion/collapsible components
+├── collection.js       # Collection management features
+├── filter.js          # Search and content filtering
+├── keyboard.js         # Virtual keyboard component
+├── mobile-menu.js      # Mobile navigation menu
+├── modal.js           # Modal dialog components  
+├── search-tabs.js      # Search interface tabs
+├── swiper.js          # Swiper slider integration
+└── tab.js             # General tab components
+```
