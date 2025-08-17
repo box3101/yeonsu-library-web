@@ -155,69 +155,22 @@ function initBannerSwiper() {
   const autoplayToggle = document.querySelector('.banner-swiper-autoplay-toggle');
 
   const bannerSwiper = new Swiper('.banner-swiper', {
-    slidesPerView: 5, // 5개 슬라이드 표시
+    slidesPerView: 2, // 5개 슬라이드 표시
     spaceBetween: 16, // 슬라이드 간격
     speed: SWIPER_CONFIG.speed,
-    loop: true, // 8개 슬라이드로 늘려서 loop 정상 작동
     autoplay: SWIPER_CONFIG.autoplay,
+    loop: true,
     navigation: {
       nextEl: '.banner-swiper-btn-next',
       prevEl: '.banner-swiper-btn-prev',
     },
-    // 🔥 Swiper width 버그 강제 해결
-    on: {
-      init: function () {
-        fixSwiperWidth(this);
-      },
-      resize: function () {
-        fixSwiperWidth(this);
-      },
-      slideChange: function () {
-        fixSwiperWidth(this);
-      },
-    },
     breakpoints: {
-      // 반응형 설정
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 12,
-      },
       768: {
-        slidesPerView: 2,
-        spaceBetween: 16,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 16,
-      },
-      1200: {
         slidesPerView: 5,
         spaceBetween: 16,
       },
     },
   });
-
-  // Swiper width 버그 강제 해결 함수
-  function fixSwiperWidth(swiper) {
-    const slides = swiper.slides;
-    const currentSlidesPerView = swiper.params.slidesPerView;
-    const currentSpaceBetween = swiper.params.spaceBetween;
-
-    slides.forEach(slide => {
-      // 엄청난 width 값 강제 초기화
-      if (slide.style.width.includes('e+')) {
-        const percentage = 100 / currentSlidesPerView;
-        const gapAdjustment = (currentSpaceBetween * (currentSlidesPerView - 1)) / currentSlidesPerView;
-        const correctWidth = `calc(${percentage}% - ${gapAdjustment}px)`;
-
-        slide.style.width = correctWidth;
-        slide.style.maxWidth = correctWidth;
-        slide.style.flex = `0 0 ${correctWidth}`;
-
-        console.log(`Fixed slide width from ${slide.style.width} to ${correctWidth}`);
-      }
-    });
-  }
 
   // 배너 스와이퍼 자동재생 토글 기능
   createAutoplayToggle(bannerSwiper, autoplayToggle, 'icon icon-sm icon-stop-white', 'icon icon-sm icon-play-white');

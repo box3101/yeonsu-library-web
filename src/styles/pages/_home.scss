@@ -1553,12 +1553,13 @@
   }
 
   @include mobile {
-    padding: to-rem(16) 0;
+    padding: 16px 0;
   }
 
   .inner {
     .banner-section__content {
       @include flex(row, flex-start, center);
+      gap: to-rem(20);
 
       @include tablet {
         flex-direction: column;
@@ -1566,7 +1567,8 @@
       }
 
       @include mobile {
-        gap: to-rem(16);
+        flex-direction: column;
+        gap: 16px;
       }
 
       // Left section (제목 영역)
@@ -1577,17 +1579,47 @@
           width: 100%;
           text-align: center;
         }
+
+        @include mobile {
+          width: 100%;
+          text-align: center;
+        }
       }
 
       // Right section (배너 링크들)
+      .banner-section__right {
+        flex: 1;
+        max-width: 85%;
+
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+        }
+
+        @include mobile {
+          grid-template-columns: 1fr;
+          width: 100%;
+          gap: 12px;
+        }
+      }
+
       .banner-section__item {
         border-radius: 8px;
+        overflow: hidden;
+
+        @include mobile {
+          max-width: 300px;
+          margin: 0 auto;
+        }
 
         .banner-section__link {
+          display: block;
+          transition: transform 0.2s ease;
+
           img {
-            display: block;
             width: 100%;
             height: 100%;
+            object-fit: cover;
             border-radius: 8px;
             border: 1px solid #c9cccc;
           }

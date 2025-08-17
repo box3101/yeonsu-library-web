@@ -9,6 +9,11 @@
   transition: all 0.2s ease;
   padding: 0;
 
+  // 모바일 대응
+  @include mobile {
+    border-radius: 12px;
+  }
+
   // Icon styling (기본)
   .icon,
   i[class*='icon'] {
@@ -60,6 +65,11 @@
     border: 1px solid $gray-300;
     background: $white;
 
+    // 모바일 대응
+    @include mobile {
+      border-radius: 100px;
+    }
+
     &:hover:not(:disabled) {
       background: $gray-100;
       border-color: $gray-600;
@@ -81,6 +91,12 @@
   &:focus {
     outline: to-rem(2) solid $primary-color;
     outline-offset: to-rem(2);
+
+    // 모바일 대응
+    @include mobile {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
   }
 
   // Active state
