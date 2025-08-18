@@ -97,8 +97,11 @@
   }
 
   &__content {
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
   }
 
   &__subtitle {
@@ -1208,4 +1211,3 @@
     }
   }
 }
-

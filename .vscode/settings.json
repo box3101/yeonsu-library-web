@@ -44,46 +44,46 @@
   },
 
   // 코드 줄 길이 설정
-  "editor.rulers": [200],
+  "editor.rulers": [150],
   "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 200,
-  "prettier.printWidth": 200,
+  "editor.wordWrapColumn": 150,
+  "prettier.printWidth": 150,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
 
   // Astro 파일 포맷팅 설정
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
-    "editor.wordWrapColumn": 200
+    "editor.wordWrapColumn": 150
   },
 
   // HTML 파일 포맷팅 설정
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrapColumn": 200
+    "editor.wordWrapColumn": 150
   },
 
   // JavaScript/TypeScript 파일 포맷팅 설정
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrapColumn": 200
+    "editor.wordWrapColumn": 150
   },
 
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrapColumn": 200
+    "editor.wordWrapColumn": 150
   },
 
   // CSS/SCSS 파일 포맷팅 설정 (기존 설정 대신)
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrapColumn": 200,
+    "editor.wordWrapColumn": 150,
     "editor.formatOnSave": true
   },
 
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrapColumn": 200,
+    "editor.wordWrapColumn": 150,
     "editor.formatOnSave": true
   }
 }

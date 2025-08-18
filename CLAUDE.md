@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 **Development**
+
 - `npm run dev` - Start dev server with host binding
 - `npm run dev:quiet` - Start dev server silently (no logs)
 - `npm run dev:turbo` - Dev server + SCSS file watching
@@ -12,12 +13,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm start` - Alias for `npm run dev`
 
 **Build & Production**
+
 - `npm run build` - Standard build with post-formatting
 - `npm run build:clean` - Clean build with formatting and post-processing
 - `npm run build:jsp` - Build with JSP compatibility (removes Astro attributes)
 - `npm run preview` - Preview production build locally
 
 **Testing**
+
 - `npm test` or `npm run test` - Run Vitest tests in watch mode
 - `npm run test:ui` - Run tests with UI interface
 - `npm run test:run` - Run tests once (CI mode)
@@ -25,14 +28,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run test:coverage` - Generate test coverage report
 
 **Code Quality**
+
 - `npm run format:src` - Format source files (Astro, TS, JS, SCSS)
 - `npm run format:dist` - Format built files (HTML, CSS, JS)
 
 **File Watching & Monitoring**
+
 - `npm run watch:scss` - Watch SCSS files for changes
 - `npm run watch:files` - Watch Astro/TS/JS files for changes
 
 **Scripts & Utilities**
+
 - `npm run remove-astro-attrs` - Remove Astro attributes for JSP compatibility
 - `npm run update-guide` - Update project guide
 - `npm run setup-hooks` - Setup Git hooks
@@ -41,6 +47,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture Overview
 
 ### Tech Stack
+
 - **Framework**: Astro 4.15.0 (static site generation)
 - **Styling**: SCSS with 7-1 architecture + BEM methodology
 - **JavaScript**: **Vanilla JS only** (TypeScript prohibited per .cursorrules)
@@ -49,6 +56,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Testing**: Vitest with jsdom environment
 
 ### Project Structure
+
 ```
 src/
 ├── components/
@@ -66,9 +74,10 @@ src/
 
 **UI Components**: All reusable components use `Ui` prefix (UiButton, UiSelect, UiInput, etc.). The project emphasizes reusing existing UI components rather than creating new ones.
 
-**Layout System**: 
+**Layout System**:
+
 - `BaseLayout.astro` - Core HTML structure with Header/Footer
-- `Layout.astro` - Standard page layout  
+- `Layout.astro` - Standard page layout
 - `SearchLayout.astro` - Search-specific layout
 - `SubLayout.astro` - Sub-page layout
 
@@ -77,12 +86,14 @@ src/
 ### Styling System (SCSS 7-1)
 
 **Core Structure**:
+
 - `variables/` - Colors, typography, layout constants
 - `abstracts/` - Functions (to-rem(), vw(), alpha()) and mixins
 - `utilities/` - Atomic utility classes (flex, spacing, typography, width)
 - `components/` - Component-specific styles using BEM methodology
 
 **Key SCSS Functions**:
+
 - `to-rem()` - Convert px to rem (required for fonts, padding, margins)
 - `vw()` - Responsive size calculation (1920px base)
 - `alpha()` - Color transparency adjustment
@@ -93,6 +104,7 @@ src/
 ### Data Attribute JavaScript Pattern
 
 Components use data attributes for functionality:
+
 ```html
 <button data-menu-toggle="menu-1" aria-expanded="false">Toggle</button>
 <div data-menu-content="menu-1" aria-hidden="true">Content</div>
@@ -105,12 +117,13 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 1. **Publishing-Only Project**: No backend API integration, no server-side logic, no real form submissions
 2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited per .cursorrules
 3. **Component Reuse**: Always prefer existing UI components (UiSelect, UiInput, UiButton, etc.) - DO NOT create new components unless absolutely necessary
-4. **BEM Methodology**: CSS follows Block__Element--Modifier pattern
+4. **BEM Methodology**: CSS follows Block\_\_Element--Modifier pattern
 5. **Responsive Design**: Mobile-first with specific breakpoints (900px, 1200px)
 6. **HTTP Requests Forbidden**: No fetch/axios or HTTP client usage (publishing-only)
 7. **No Auth Logic**: Authentication/authorization UI only, no real implementation
 
 ### Path Aliases
+
 - `@` → `./src`
 - `@components` → `./src/components`
 - `@ui` → `./src/components/UI`
@@ -118,21 +131,22 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 - `@styles` → `./src/styles`
 
 ### Scripts Organization
+
 - Individual feature scripts in `/public/assets/js/`
 - Central registration via `LibraryCommon.features`
 - Selective loading based on page requirements
 - Data-driven initialization with aria attributes for accessibility
 
 ### Available JavaScript Modules
+
 ```
 public/assets/js/
 ├── common.js           # Core LibraryCommon + global initialization
 ├── accordion.js        # Accordion/collapsible components
 ├── collection.js       # Collection management features
 ├── filter.js          # Search and content filtering
-├── keyboard.js         # Virtual keyboard component
 ├── mobile-menu.js      # Mobile navigation menu
-├── modal.js           # Modal dialog components  
+├── modal.js           # Modal dialog components
 ├── search-tabs.js      # Search interface tabs
 ├── swiper.js          # Swiper slider integration
 └── tab.js             # General tab components

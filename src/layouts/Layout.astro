@@ -1,10 +1,7 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-// import '../styles/main.scss';
 import '../styles/main.scss';
-
-// 각 페이지에서 필요한 컴포넌트만 개별 import 사용
 ---
 
 <html>
@@ -14,13 +11,17 @@ import '../styles/main.scss';
     <!-- Pretendard 폰트 CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- Pretendard 폰트 CDN EEE -->
+
+    <!-- MAIN.CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <title>Astro Basics</title>
+    <!-- MAIN.CSS EEE-->
 
-    <!-- Swiper CDN - 최신 11.x 버전으로 업데이트 -->
+    <title>연수구립도서관</title>
+
+    <!-- swiper CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- AOS (Animate On Scroll) CDN -->
+    <!-- aos CDN -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
   <body>
@@ -30,38 +31,31 @@ import '../styles/main.scss';
     </main>
     <Footer />
 
-    <!-- JavaScript 로딩 - 최신 11.x 버전으로 업데이트 -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" onload="console.log('Swiper 11.x CDN loaded successfully')" onerror="console.error('Failed to load Swiper CDN')"></script>
+    <!-- SWIPER CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS CDN -->
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- AOS JavaScript - index 페이지에서만 로드 -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="console.log('AOS loaded successfully')" onerror="console.error('Failed to load AOS')"></script>
-
-    <script is:inline type="text/javascript" src="./assets/js/common.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/comTab.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/accordion.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/tab.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/swiper.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/collection.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/filter.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/modal.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/keyboard.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/search-tabs.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/mobile-menu.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/gnb.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/comGnb.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/comToggle.js"></script>
 
-    <!-- AOS 초기화 - index 페이지에서만 작동 -->
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function () {
-        if (typeof AOS !== 'undefined') {
-          AOS.init({
-            duration: 600, // 자연스러운 지속 시간 (600ms)
-            easing: 'ease-out-cubic', // 부드러운 이징
-            once: true, // 한 번만 애니메이션 실행
-            offset: 80, // 트리거 지점 (80px 전에 시작)
-            delay: 0, // 지연 시간 없음
-            disable: false, // 모든 기기에서 활성화
-            startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
-          });
-        }
+        AOS.init({
+          duration: 600, // 자연스러운 지속 시간 (600ms)
+          easing: 'ease-out-cubic', // 부드러운 이징
+          once: true, // 한 번만 애니메이션 실행
+          offset: 80, // 트리거 지점 (80px 전에 시작)
+          delay: 0, // 지연 시간 없음
+          disable: false, // 모든 기기에서 활성화
+          startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
+        });
       });
     </script>
   </body>

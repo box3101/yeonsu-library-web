@@ -1,0 +1,209 @@
+@use '../globals' as *;
+
+.keyboard-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.worldword-wrap {
+  position: absolute;
+  top: 100%;
+  margin-top: to-rem(20) !important;
+  right: 0;
+  max-width: to-rem(731);
+  background: $white;
+  border: 1px solid $gray-300;
+  border-radius: to-rem(8);
+  box-shadow: 0 to-rem(4) to-rem(12) rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  width: max-content;
+
+  @include mobile {
+    max-width: calc(100vw - to-rem(32));
+    right: to-rem(-16);
+    border-radius: to-rem(6);
+  }
+
+  fieldset {
+    border: none;
+    padding: to-rem(20);
+    margin: 0;
+
+    @include mobile {
+      padding: to-rem(16);
+    }
+  }
+
+  legend {
+    display: none;
+  }
+
+  .worldword-title {
+    display: block;
+    font-size: to-rem(16);
+    font-weight: 600;
+    margin-bottom: to-rem(16);
+    color: $gray-900;
+
+    @include mobile {
+      font-size: to-rem(15);
+      margin-bottom: to-rem(12);
+    }
+  }
+
+  .language {
+    display: flex;
+    flex-wrap: wrap;
+    gap: to-rem(4);
+    margin-bottom: to-rem(16);
+    padding: 0;
+    list-style: none;
+
+    @include mobile {
+      gap: to-rem(3);
+      margin-bottom: to-rem(12);
+    }
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: block;
+      padding: to-rem(8) to-rem(12);
+      background: $gray-50;
+      border: 1px solid $gray-200;
+      border-radius: to-rem(4);
+      color: $gray-700;
+      text-decoration: none;
+      font-size: to-rem(14);
+      transition: all 0.2s;
+      word-break: keep-all;
+
+      @include mobile {
+        padding: to-rem(6) to-rem(10);
+        font-size: to-rem(13);
+        border-radius: to-rem(3);
+      }
+
+      &:hover {
+        background: $gray-100;
+        border-color: $gray-300;
+      }
+
+      &.selected {
+        background: $primary-color;
+        border-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
+
+  .language-contents {
+    display: none;
+
+    &[data-type='히라가나'] {
+      display: block;
+    }
+
+    .ir_text {
+      font-size: to-rem(12);
+      color: $gray-600;
+      margin: to-rem(8) 0 to-rem(4) 0;
+      font-weight: 500;
+
+      @include mobile {
+        font-size: to-rem(11);
+        margin: to-rem(6) 0 to-rem(3) 0;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: to-rem(2);
+      margin: 0 0 to-rem(12) 0;
+      padding: 0;
+      list-style: none;
+
+      @include mobile {
+        gap: to-rem(1);
+        margin-bottom: to-rem(8);
+      }
+
+      li {
+        margin: 0;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: to-rem(32);
+          height: to-rem(32);
+          background: $gray-50;
+          border: 1px solid $gray-200;
+          border-radius: to-rem(4);
+          color: $gray-700;
+          text-decoration: none;
+          font-size: to-rem(14);
+          transition: all 0.2s;
+
+          @include mobile {
+            width: to-rem(28);
+            height: to-rem(28);
+            font-size: to-rem(12);
+            border-radius: to-rem(3);
+          }
+
+          &:hover {
+            background: $gray-100;
+            border-color: $primary-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.worldword-close {
+  position: absolute;
+  top: to-rem(8);
+  right: to-rem(8);
+  width: to-rem(32);
+  height: to-rem(32);
+  background: $gray-50;
+  border: 1px solid $gray-300;
+  border-radius: to-rem(4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    width: to-rem(28);
+    height: to-rem(28);
+    top: to-rem(6);
+    right: to-rem(6);
+    border-radius: to-rem(3);
+  }
+
+  &:hover {
+    background: $gray-100;
+    border-color: $gray-400;
+  }
+
+  .sp_layout {
+    font-size: 0;
+
+    &::before {
+      content: '×';
+      font-size: to-rem(18);
+      color: $gray-600;
+
+      @include mobile {
+        font-size: to-rem(16);
+      }
+    }
+  }
+}

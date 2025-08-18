@@ -427,6 +427,113 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
         </p>
       </div>
     </section>
+
+    <script is:inline type="text/javascript">
+      // 검색 탭 기능 초기화 (헤더의 검색 탭과 책큐 슬라이더 제어)
+      class SearchTabs {
+        constructor() {
+          this.init();
+        }
+
+        init() {
+          this.bindEvents();
+        }
+
+        bindEvents() {
+          // 탭 클릭 이벤트
+          document.addEventListener('click', e => {
+            const tab = e.target.closest('.search-tabs__tab');
+            if (tab) {
+              this.handleTabClick(tab);
+            }
+          });
+
+          // 키보드 접근성
+          document.addEventListener('keydown', e => {
+            const tab = e.target.closest('.search-tabs__tab');
+            if (tab && (e.key === 'Enter' || e.key === ' ')) {
+              e.preventDefault();
+              this.handleTabClick(tab);
+            }
+          });
+        }
+
+        handleTabClick(clickedTab) {
+          const tabContainer = clickedTab.closest('.search-tabs');
+          if (!tabContainer) return;
+
+          const allTabs = tabContainer.querySelectorAll('.search-tabs__tab');
+          const tabId = clickedTab.dataset.tab;
+
+          // 모든 탭에서 active 클래스 제거
+          allTabs.forEach(tab => {
+            tab.classList.remove('search-tabs__tab--active');
+            tab.setAttribute('aria-selected', 'false');
+          });
+
+          // 클릭된 탭에 active 클래스 추가
+          clickedTab.classList.add('search-tabs__tab--active');
+          clickedTab.setAttribute('aria-selected', 'true');
+
+          // 탭 변경 이벤트 발생
+          this.onTabChange(tabId);
+        }
+
+        onTabChange(tabId) {
+          // 검색창 플레이스홀더 변경
+          const searchInput = document.querySelector('.search-input__field');
+          if (searchInput) {
+            switch (tabId) {
+              case 'book-search':
+                searchInput.placeholder = '찾고 싶은 도서의 내용을 입력하세요.';
+                break;
+              case 'ai-book':
+                searchInput.placeholder = 'AI 책큐에게 질문해보세요.';
+                break;
+              default:
+                searchInput.placeholder = '찾고 싶은 도서의 내용을 입력하세요.';
+            }
+          }
+
+          // 책큐 탭일 때 책큐 슬라이더 표시
+          const bookRecommendationSlider = document.getElementById('bookRecommendationSlider');
+          if (bookRecommendationSlider) {
+            if (tabId === 'ai-book') {
+              bookRecommendationSlider.style.display = 'block';
+            } else {
+              bookRecommendationSlider.style.display = 'none';
+            }
+          }
+
+          // 커스텀 이벤트 발생 (다른 컴포넌트에서 사용 가능)
+          const event = new CustomEvent('searchTabChanged', {
+            detail: { tabId },
+          });
+          document.dispatchEvent(event);
+
+          console.log('탭 변경됨: ' + tabId);
+        }
+
+        setActiveTab(tabId) {
+          const tab = document.querySelector('[data-tab="' + tabId + '"]');
+          if (tab) {
+            this.handleTabClick(tab);
+          }
+        }
+
+        // 현재 활성 탭 가져오기
+        getActiveTab() {
+          const activeTab = document.querySelector('.search-tabs__tab--active');
+          return activeTab ? activeTab.dataset.tab : null;
+        }
+      }
+
+      // DOM이 로드되면 검색 탭 초기화
+      document.addEventListener('DOMContentLoaded', function () {
+        window.searchTabs = new SearchTabs();
+      });
+    </script>
+
     <!-- // 비쥬얼 영역 -->
 
     <!-- 공지사항, 자주 찾는 페이지 -->
@@ -622,6 +729,12 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 </div>
               </div>
             </div>
+            <!-- 프로그램 탭 패널 -->
+            <div id="panel-program" class="ui-tab-panel">프로그램</div>
+            <!-- 프로그램 탭 패널 EEE-->
+            <!-- 영화상영 탭 패널 -->
+            <div id="panel-movie" class="ui-tab-panel">영화상영</div>
+            <!-- 영화상영 탭 패널 EEE-->
           </div>
         </div>
         <!-- 우측 신규 컨텐츠 바로가기 -->
