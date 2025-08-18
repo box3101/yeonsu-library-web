@@ -125,7 +125,8 @@
   }
 
   &__inner {
-    padding: to-rem(20) to-rem(20);
+    padding: to-rem(0) to-rem(20);
+    padding-bottom: to-rem(20);
   }
 
   &__book-title {
@@ -195,7 +196,6 @@
     }
 
     tbody tr:last-child {
-
       th,
       td {
         border-bottom: none;

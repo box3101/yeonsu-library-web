@@ -34445,7 +34445,8 @@ body.modal-open {
   max-height: auto;
 }
 .ui-collection-accordion__inner {
-  padding: 1.25rem 1.25rem;
+  padding: 0rem 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .ui-collection-accordion__book-title {
   margin-bottom: 1.25rem;
@@ -38397,6 +38398,7 @@ body.modal-open {
     align-items: center;
     flex: 1;
     justify-content: center;
+    display: flex;
   }
 }
 .banner-section .inner .banner-section__content .banner-section__right {
