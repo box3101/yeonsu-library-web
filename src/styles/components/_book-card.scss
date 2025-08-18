@@ -28,6 +28,7 @@
 
     @include mobile {
       flex-direction: column;
+      align-items: center;
       gap: to-rem(16);
       padding: to-rem(16);
       border-radius: to-rem(8);

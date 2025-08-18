@@ -114,7 +114,7 @@ body {
   width: 100%;
   @include tablet {
     width: 100%;
-    padding: 0 to-rem(10);
+    padding: 0 to-rem(15);
   }
 }
 
@@ -946,7 +946,6 @@ img {
   }
 }
 
-
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -1150,16 +1149,16 @@ img {
       @include flex(row, flex-start, center);
       gap: to-rem(8);
       padding: to-rem(16) to-rem(16);
-    width: 100%;
+      width: 100%;
       background: transparent;
-    border: none;
+      border: none;
       font-size: to-rem(17);
       font-weight: 700;
       color: #1e2124;
       text-align: left;
-    cursor: pointer;
+      cursor: pointer;
 
-    &:hover {
+      &:hover {
         background: #e1e7ed;
       }
 
@@ -1265,7 +1264,7 @@ img {
 
             .menu-submenu {
               display: none;
-    &.active {
+              &.active {
                 display: block;
               }
 

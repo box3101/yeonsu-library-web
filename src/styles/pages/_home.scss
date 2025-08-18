@@ -118,7 +118,7 @@
   }
 
   .banner__description {
-    @include flex(row, center, center);
+    @include flex(row, flex-end, center);
     @include font(to-rem(17), 400, $white);
     line-height: 1;
     margin-top: 8px;
@@ -1562,13 +1562,9 @@
       gap: to-rem(20);
 
       @include tablet {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        align-items: center;
         gap: to-rem(20);
-      }
-
-      @include mobile {
-        flex-direction: column;
-        gap: 16px;
       }
 
       // Left section (제목 영역)
@@ -1578,11 +1574,9 @@
         @include tablet {
           width: 100%;
           text-align: center;
-        }
-
-        @include mobile {
-          width: 100%;
-          text-align: center;
+          align-items: center;
+          flex: 1;
+          justify-content: center;
         }
       }
 

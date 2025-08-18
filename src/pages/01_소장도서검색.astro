@@ -314,61 +314,71 @@ const searchFilterGroups = [
             { id: 'book', label: '단행본', count: 0 },
             { id: 'serial', label: '연속간행물', count: 0 },
             { id: 'dvd', label: 'DVD', count: 0 },
+            { id: 'ebook', label: '전자책', count: 1223 },
           ]}
-          variant="default"
-          className="mb-4 search-type-tabs"
+          className="mb-4 search-type-tabs ui-tab--grid-5"
         />
 
-        <!-- 검색 정보 요약 -->
-        <UiSearchSummary />
+        <div class="search-detail-section__content">
+          <div id="panel-all" class="ui-tab-panel ui-tab-panel--active">
+            <!-- 검색 정보 요약 -->
+            <UiSearchSummary />
 
-        <!-- 상세 필터 섹션 -->
-        <UiSearchFilter filterGroups={searchFilterGroups} />
+            <!-- 상세 필터 섹션 -->
+            <UiSearchFilter filterGroups={searchFilterGroups} />
 
-        <!-- 검색 결과 목록 -->
-        <div class="search-result-list mt24">
-          <!-- 예시 도서 아이템 -->
-          <UiBookCard
-            index={1}
-            imageUrl="./assets/images/default-book.png"
-            badges={[
-              { label: 'DVD', type: 'success', size: 'large' },
-              { label: '대출불가', type: 'warning' },
-            ]}
-            title="서점탐정 유동인. 2, 리턴즈"
-            titleHighlights={['탐정', '리턴즈']}
-            author="조성희 감독"
-            details={{
-              callNumber: 'DV 688.2-조54ㅌ',
-              publishYear: '2017',
-              library: '연수청학',
-              readingRoom: 'OOO자료실',
-              registrationNumber: 'HV0000000881',
-            }}
-          />
-          <UiBookCard
-            index={2}
-            imageUrl="./assets/images/default-book.png"
-            badges={[
-              { label: 'DVD', type: 'success', size: 'large' },
-              { label: '대출불가', type: 'warning' },
-            ]}
-            title="서점탐정 유동인. 2, 리턴즈"
-            titleHighlights={['탐정', '리턴즈']}
-            author="조성희 감독"
-            details={{
-              callNumber: 'DV 688.2-조54ㅌ',
-              publishYear: '2017',
-              library: '연수청학',
-              readingRoom: 'OOO자료실',
-              registrationNumber: 'HV0000000881',
-            }}
-          />
-        </div>
+            <!-- 검색 결과 목록 -->
+            <div class="search-result-list mt24">
+              <!-- 예시 도서 아이템 -->
+              <UiBookCard
+                index={1}
+                imageUrl="./assets/images/default-book.png"
+                badges={[
+                  { label: 'DVD', type: 'success', size: 'large' },
+                  { label: '대출불가', type: 'warning' },
+                ]}
+                title="서점탐정 유동인. 2, 리턴즈"
+                titleHighlights={['탐정', '리턴즈']}
+                author="조성희 감독"
+                details={{
+                  callNumber: 'DV 688.2-조54ㅌ',
+                  publishYear: '2017',
+                  library: '연수청학',
+                  readingRoom: 'OOO자료실',
+                  registrationNumber: 'HV0000000881',
+                }}
+              />
+              <UiBookCard
+                index={2}
+                imageUrl="./assets/images/default-book.png"
+                badges={[
+                  { label: 'DVD', type: 'success', size: 'large' },
+                  { label: '대출불가', type: 'warning' },
+                ]}
+                title="서점탐정 유동인. 2, 리턴즈"
+                titleHighlights={['탐정', '리턴즈']}
+                author="조성희 감독"
+                details={{
+                  callNumber: 'DV 688.2-조54ㅌ',
+                  publishYear: '2017',
+                  library: '연수청학',
+                  readingRoom: 'OOO자료실',
+                  registrationNumber: 'HV0000000881',
+                }}
+              />
+            </div>
 
-        <!-- 페이징네이션 -->
-        <div class="pagination-section">
-          <UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
+            <!-- 페이징네이션 -->
+            <div class="pagination-section">
+              <UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
+            </div>
+          </div>
+
+          <div id="panel-book" class="ui-tab-panel">book</div>
+
+          <div id="panel-serial" class="ui-tab-panel">serial</div>
+
+          <div id="panel-dvd" class="ui-tab-panel">dvd</div>
         </div>
       </div>
     </section>

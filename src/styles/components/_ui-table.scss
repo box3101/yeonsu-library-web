@@ -40,14 +40,9 @@
 
 .ui-table {
   width: 100%;
-  min-width: to-rem(800);
   border-collapse: collapse;
   display: flex;
   flex-direction: column;
-
-  @include mobile {
-    min-width: to-rem(800);
-  }
 
   &__caption {
     @include sr-only;
@@ -65,10 +60,7 @@
 
   &__body {
     flex: 1;
-    overflow-y: auto;
     display: block;
-
-    // 공통 스크롤바 스타일 사용하므로 개별 스타일 제거
   }
 
   &__row--body {

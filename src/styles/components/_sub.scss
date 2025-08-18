@@ -440,161 +440,115 @@
    검색 타입 탭
 ======================================== */
 .search-type-tabs {
+  position: relative;
+
+  &.ui-tab--grid-6 {
+    .ui-tab__list {
+      flex-wrap: wrap;
+      overflow: hidden; // grid 모드에서는 스크롤 없음
+      border-right: none;
+      border-bottom: none;
+
+      @include tablet {
+        margin-top: to-rem(24);
+        flex-wrap: nowrap;
+        overflow: auto;
+      }
+    }
+    .ui-tab__button {
+      flex: 1 1 calc(100% / min(6, var(--total-tabs, 6)));
+      border-bottom: 1px solid #b1b8be;
+
+      &:last-child {
+        border-right: 1px solid #b1b8be;
+      }
+    }
+  }
+
   .ui-tab__button--active::after {
     display: none !important;
   }
-  &.ui-tab--grid-6 {
-    .ui-tab__list {
-      gap: 0;
-      border: 1px solid #b1b8be;
-      border-radius: to-rem(4);
-      overflow: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      margin-top: to-rem(24) !important;
+
+  .ui-tab__list {
+    gap: 0;
+    border: 1px solid #b1b8be;
+    border-radius: to-rem(4);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    margin-top: to-rem(24) !important;
+
+    // 스크롤바 스타일링
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+
+    &::-webkit-scrollbar {
+      height: 6px;
     }
 
-    .ui-tab__button {
-      background: transparent;
-      border: none;
-      border-right: 1px solid #b1b8be;
-      padding: to-rem(12) to-rem(16);
-      font-size: to-rem(17);
-      font-weight: 700;
-      color: #7d8181;
-      transition: all 0.2s ease;
-      position: relative;
-      white-space: nowrap;
-      flex: none;
-      width: 100%;
-      border-bottom: none;
-      flex: 1 1 calc(100% / min(6, var(--total-tabs, 6)));
-      min-width: 0;
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
 
-      @include tablet {
-        padding: to-rem(8) to-rem(12);
-        font-size: to-rem(14);
-        flex: 1 1 calc(100% / 3);
-      }
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 3px;
 
-      &:nth-child(6n) {
-        border-right: none;
-      }
-
-      &:nth-child(n + 7) {
-        border-top: 1px solid #b1b8be;
-      }
-
-      @include tablet {
-        &:nth-child(6n) {
-          border-right: 1px solid #b1b8be;
-        }
-
-        &:nth-child(3n) {
-          border-right: none;
-        }
-
-        &:nth-child(n + 4) {
-          border-top: 1px solid #b1b8be;
-        }
-      }
-
-      &:hover:not(.ui-tab__button--active) {
-        background: rgba(255, 255, 255, 0.5);
-        z-index: 1;
-
-        .ui-tab__label {
-          color: #5a5a5a;
-        }
-      }
-
-      &--active {
-        background: #003456;
-        color: $white;
-        z-index: 2;
-
-        .ui-tab__label {
-          color: $white;
-        }
+      &:hover {
+        background: #999;
       }
     }
   }
 
-  &.ui-tab:not(.ui-tab--grid-6) {
-    .ui-tab__list {
-      gap: 0;
-      border: 1px solid #b1b8be;
-      border-radius: to-rem(4);
-      overflow: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
+  .ui-tab__button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid #b1b8be;
+    padding: to-rem(12) to-rem(16);
+    font-size: to-rem(17);
+    font-weight: 700;
+    color: #7d8181;
+    transition: all 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+    flex-shrink: 0;
+    flex: 1;
+    min-width: max-content;
+    border-bottom: none;
+
+    &:last-child {
+      border-right: none;
     }
 
-    .ui-tab__button {
-      background: transparent;
-      border: none;
-      border-right: 1px solid #b1b8be;
-      padding: to-rem(12) to-rem(16);
-      font-size: to-rem(17);
-      font-weight: 700;
-      color: #7d8181;
-      transition: all 0.2s ease;
-      position: relative;
-      white-space: nowrap;
-      flex: 1 1 calc(100% / min(4, var(--total-tabs, 4)));
-      min-width: 0;
+    // 스크롤 모드에서는 마지막 탭도 border-right 유지
+    // &:last-child {
+    //   border-right: none; // 이 부분 제거
+    // }
 
-      @include tablet {
-        padding: to-rem(8) to-rem(12);
-        font-size: to-rem(14);
-        flex: 1 1 calc(100% / 2);
+    &:hover:not(.ui-tab__button--active) {
+      background: rgba(255, 255, 255, 0.5);
+      z-index: 1;
+
+      .ui-tab__label {
+        color: #5a5a5a;
       }
+    }
 
-      &:nth-child(4n) {
-        border-right: none;
-      }
+    @include tablet {
+      flex-shrink: 0;
+      min-width: max-content;
+    }
 
-      &:nth-child(n + 5) {
-        border-top: 1px solid #b1b8be;
-      }
+    &--active {
+      background: #003456;
+      color: $white;
+      z-index: 2;
 
-      @include tablet {
-        &:nth-child(4n) {
-          border-right: 1px solid #b1b8be;
-        }
-
-        &:nth-child(2n) {
-          border-right: none;
-        }
-
-        &:nth-child(n + 3) {
-          border-top: 1px solid #b1b8be;
-        }
-      }
-
-      &:last-child {
-        border-right: none;
-      }
-
-      &:hover:not(.ui-tab__button--active) {
-        background: rgba(255, 255, 255, 0.5);
-        z-index: 1;
-
-        .ui-tab__label {
-          color: #5a5a5a;
-        }
-      }
-
-      &--active {
-        background: #003456;
+      .ui-tab__label {
         color: $white;
-        z-index: 2;
-
-        .ui-tab__label {
-          color: $white;
-        }
       }
     }
   }

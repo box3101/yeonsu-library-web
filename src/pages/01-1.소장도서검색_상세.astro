@@ -2,13 +2,13 @@
 // 레이아웃 및 컴포넌트 import
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiBookCardDetail, UiCollectionAccordion, UiAccordion, UiButton, UiNavButton } from '@components';
+import { UiBookCardDetail, UiCollectionAccordion, UiAccordion, UiButton, UiNavButton, UiTab, UiTable } from '@components';
 
 // 브레드크럼 네비게이션 경로 설정
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
 
 // 소장정보 테이블 컬럼 정의
-const myColumns = [
+const columns = [
   {
     key: 'title',
     label: '도서관',
@@ -67,7 +67,7 @@ const collectionData = [
 ];
 
 // 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
-const myRows = collectionData.map((item, index) => ({
+const rows = collectionData.map((item, index) => ({
   id: index + 1,
   title: item.library + ' ' + item.readingRoom, // 도서관명 + 자료실명
   status: item.loanStatus, // 대출상태
@@ -189,7 +189,12 @@ const books = [
         />
 
         <!-- 소장정보 아코디언 테이블 -->
-        <UiCollectionAccordion title="소장정보" columns={myColumns} rows={myRows} tabs={myTabs} iconType="arrow" className="custom-accordion" tabsClassName="ui-tab--grid-6" />
+        <UiAccordion title="소장 정보" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+          <UiTab tabs={myTabs} variant="default" size="medium" showCount={false} className={`mb-4 search-type-tabs ui-tab--grid-6`} />
+
+          <!-- 소장정보 테이블 -->
+          <UiTable columns={columns} rows={rows} caption="소장정보 목록" showIndex={false} showCheckbox={false} stickyHeader={true} maxHeight="270px" />
+        </UiAccordion>
 
         <!-- 책소개 아코디언 -->
         <UiAccordion title="책소개" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
