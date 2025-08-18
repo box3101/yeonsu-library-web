@@ -1,5 +1,5 @@
-@use '@styles/abstracts' as *;
-@use '@styles/variables/colors' as *;
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
 
 .ui-accordion {
   transition: all 0.2s ease;

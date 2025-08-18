@@ -1,6 +1,6 @@
-@use '@styles/abstracts' as *;
-@use '@styles/variables/colors' as *;
-@use '@styles/variables/typography' as *;
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use '../variables/typography' as *;
 
 // 스마트도서관 도서 카드 컴포넌트 스타일
 .ui-smart-library-book-card {

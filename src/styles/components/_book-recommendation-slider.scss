@@ -1,7 +1,7 @@
-@use '@styles/abstracts' as *;
-@use '@styles/variables/colors' as *;
-@use '@styles/variables/layout' as *;
-@use '@styles/variables/typography' as *;
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use '../variables/layout' as *;
+@use '../variables/typography' as *;
 
 // 책큐 AI 도서 추천 슬라이더
 .book-recommendation-slider {
