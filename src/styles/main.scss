@@ -35,6 +35,7 @@
 @use 'components/ui-accordian';
 @use 'components/swiper';
 @use 'components/ui-checkbox';
+@use 'components/ui-input';
 @use 'components/ui-select';
 @use 'components/ui-nav-button';
 @use 'components/ui-collectionAccordion';
@@ -47,6 +48,7 @@
 @use 'components/search-results';
 @use 'components/ui-subtab';
 @use 'components/ui-book-list-card';
+@use 'components/gnb';
 
 // 페이지별 스타일
 @use 'pages/home';

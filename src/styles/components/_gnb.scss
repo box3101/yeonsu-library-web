@@ -1,0 +1,284 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+
+.gnb {
+  position: relative;
+  z-index: 1000;
+  --radius-medium2: #{to-rem(6)};
+  --color-primary-pr01: #d8e4f3;
+
+  &-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+// 메인 메뉴 바
+.gnb-main {
+  background: #ffffff;
+  border-top: 1px solid #cdd1d5;
+  border-bottom: 1px solid #cdd1d5;
+
+  &-list {
+    @include flex(row, flex-start, stretch);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: to-rem(16);
+    height: to-rem(56);
+  }
+
+  &-link {
+    @include flex(row, space-between, center);
+    gap: to-rem(8);
+    padding: 0 to-rem(16);
+    height: to-rem(56);
+    width: to-rem(169);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(19);
+    font-weight: 700;
+    line-height: 1.5;
+    color: #464c53;
+    transition: all 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      background: #f8fafc;
+    }
+
+    &.selected {
+      border-bottom: 4px solid #244874;
+      background: #ffffff;
+    }
+
+    &:focus {
+      outline: 2px solid #244874;
+      outline-offset: 2px;
+    }
+  }
+
+  &-text {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+// 서브 메뉴 영역
+.gnb-sub {
+  background: #ffffff;
+  border-top: 1px solid #cdd1d5;
+  border-bottom: 1px solid #cdd1d5;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+
+  &[hidden] {
+    display: none !important;
+  }
+
+  &:not([hidden]) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &-content {
+    @include flex(row, flex-start, stretch);
+    padding: to-rem(16) 0;
+    gap: to-rem(24);
+  }
+
+  &-title {
+    width: to-rem(306);
+    padding-right: to-rem(24);
+
+    &-text {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(24);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #1e2124;
+      margin: 0;
+      padding: to-rem(16) to-rem(4);
+    }
+  }
+
+  &-menu {
+    width: to-rem(306);
+    padding-top: to-rem(8);
+    padding-right: to-rem(24);
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(4);
+  }
+
+  &-item {
+    border-radius: to-rem(8);
+    transition: all 0.2s ease;
+
+    &.selected {
+      background: #ecf2f9;
+    }
+
+    &:hover {
+      background: #f8fafc;
+    }
+  }
+
+  &-link {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding: to-rem(16);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: to-rem(8);
+    color: inherit;
+
+    &:focus {
+      outline: 2px solid #244874;
+      outline-offset: 2px;
+      background: #f8fafc;
+    }
+  }
+
+  &-text {
+    flex: 1;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(17);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1e2124;
+    text-align: left;
+
+    .selected & {
+      font-weight: 700;
+      color: #052b57;
+    }
+  }
+}
+
+// 3depth 메뉴
+.gnb-third {
+  flex: 1;
+  align-self: stretch;
+  border-left: 1px solid #cdd1d5;
+  padding: to-rem(8) to-rem(24);
+
+  &-title {
+    margin-bottom: to-rem(16);
+
+    &-text {
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(20);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #1e2124;
+      margin: 0;
+      padding: to-rem(8) 0;
+    }
+  }
+
+  &-items {
+    &:empty {
+      display: none;
+    }
+  }
+
+  &-column {
+    @include flex(column, flex-start, stretch);
+    width: to-rem(298);
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2, 4px);
+    align-self: stretch;
+    border-radius: var(--radius-medium2, 6px);
+    background: var(--color-action-secondary, rgba(255, 255, 255, 0));
+    position: relative;
+    transition: all 0.2s ease;
+
+    &.selected {
+      background: var(--color-primary-pr01);
+    }
+
+    @include makeBefore {
+      @include ab-y;
+      left: 6px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #000;
+    }
+
+    &:hover {
+      border-radius: var(--radius-medium2, 6px);
+      background: var(--color-primary-pr01, #d8e4f3);
+
+      .gnb-third-text {
+        color: $primary-color !important;
+        font-weight: 700 !important;
+      }
+    }
+  }
+
+  &-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: var(--padding-4, 18px) var(--padding-3, 8px);
+    padding-left: 22px;
+    text-decoration: none;
+    color: inherit;
+
+    &:focus {
+      outline: 2px solid #244874;
+      outline-offset: 2px;
+    }
+  }
+
+  &-text {
+    @include font(to-rem(17), 400, #121212);
+  }
+}
+
+@include mobile {
+  .gnb {
+    display: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .gnb {
+    &-main-link:focus,
+    &-sub-link:focus,
+    &-third-link:focus {
+      outline: 3px solid #000;
+      outline-offset: 2px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gnb-sub {
+    transition: none;
+  }
+
+  .gnb-main-link,
+  .gnb-sub-item,
+  .gnb-third-item {
+    transition: none;
+  }
+}

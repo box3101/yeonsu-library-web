@@ -1,20 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import {
-  UiSelect,
-  UiSearchbar,
-  UiRadio,
-  UiCheckbox,
-  UiPagination,
-  UiSmartLibraryBookCard,
-} from '@components';
+import { UiSelect, UiSearchbar, UiRadio, UiCheckbox, UiPagination, UiSmartLibraryBookCard } from '@components';
 
-const breadcrumbItems = [
-  { label: '홈', href: '/' },
-  { label: '도서검색', href: '/support' },
-  { label: '스마트 도서관 비치도서' },
-];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '스마트 도서관 비치도서' }];
 ---
 
 <Layout title="스마트 도서관 비치도서">
@@ -30,17 +19,9 @@ const breadcrumbItems = [
         </div>
         <div class="infobox__content">
           <ul class="infobox__list">
-            <li class="infobox__list-item">
-              스마트도서관 비치도서는 해당 기기에서만 대출/반납이 가능합니다.(타
-              도서관 반납 불가)
-            </li>
-            <li class="infobox__list-item">
-              1인당 3권까지 15일간 대출(1회 연장 가능)
-            </li>
-            <li class="infobox__list-item">
-              스마트도서관으로 상호대차 신청은 1인 2권까지 가능합니다.(해당 기기
-              및 타 도서관 반납 가능)
-            </li>
+            <li class="infobox__list-item">스마트도서관 비치도서는 해당 기기에서만 대출/반납이 가능합니다.(타 도서관 반납 불가)</li>
+            <li class="infobox__list-item">1인당 3권까지 15일간 대출(1회 연장 가능)</li>
+            <li class="infobox__list-item">스마트도서관으로 상호대차 신청은 1인 2권까지 가능합니다.(해당 기기 및 타 도서관 반납 가능)</li>
           </ul>
         </div>
       </div>
@@ -63,26 +44,10 @@ const breadcrumbItems = [
       <!-- 라디오 컨테이너 -->
       <div class="radio-container">
         <div class="radio-container__item flex justify-around">
-          <UiRadio
-            name="radio"
-            value="송도4동 스마트도서관"
-            label="송도4동 스마트도서관"
-          />
-          <UiRadio
-            name="radio"
-            value="스퀘어원스마트도서관"
-            label="스퀘어원스마트도서관"
-          />
-          <UiRadio
-            name="radio"
-            value="연수구청 스마트도서관"
-            label="연수구청 스마트도서관"
-          />
-          <UiRadio
-            name="radio"
-            value="선학역 스마트도서관"
-            label="선학역 스마트도서관"
-          />
+          <UiRadio name="radio" value="송도4동 스마트도서관" label="송도4동 스마트도서관" />
+          <UiRadio name="radio" value="스퀘어원스마트도서관" label="스퀘어원스마트도서관" />
+          <UiRadio name="radio" value="연수구청 스마트도서관" label="연수구청 스마트도서관" />
+          <UiRadio name="radio" value="선학역 스마트도서관" label="선학역 스마트도서관" />
         </div>
       </div>
 
@@ -95,13 +60,7 @@ const breadcrumbItems = [
           </h3>
           <div class="search-result__controls">
             <div class="search-result__checkbox">
-              <UiCheckbox
-                name="availableOnly"
-                value="available"
-                size="large"
-                label="대출 가능 도서만 보기"
-                class="search-result__checkbox-input"
-              />
+              <UiCheckbox name="availableOnly" value="available" size="large" label="대출 가능 도서만 보기" class="search-result__checkbox-input" />
             </div>
             <div class="search-result__select">
               <UiSelect
@@ -152,7 +111,7 @@ const breadcrumbItems = [
                 publishYear="2024"
                 library="송도2동 스마트도서관"
                 status="available"
-                imageUrl="/assets/images/content-infant-books.png"
+                imageUrl="./assets/images/content-infant-books.png"
               />
             </div>
           ))
@@ -162,7 +121,7 @@ const breadcrumbItems = [
       <!-- 도서표지제공 -->
       <div class="book-cover-info mt23 flex items-center gap-2 justify-end">
         도서 표지 제공 :
-        <img src="/assets/images/book-img.png" alt="알라딘" />
+        <img src="./assets/images/book-img.png" alt="알라딘" />
       </div>
 
       <!-- 페이징네비게이션 -->

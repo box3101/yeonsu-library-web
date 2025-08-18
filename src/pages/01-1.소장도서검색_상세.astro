@@ -2,20 +2,10 @@
 // 레이아웃 및 컴포넌트 import
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import {
-  UiBookCardDetail,
-  UiCollectionAccordion,
-  UiAccordion,
-  UiButton,
-  UiNavButton,
-} from '@components';
+import { UiBookCardDetail, UiCollectionAccordion, UiAccordion, UiButton, UiNavButton } from '@components';
 
 // 브레드크럼 네비게이션 경로 설정
-const breadcrumbItems = [
-  { label: '홈', href: '/' },
-  { label: '도서검색', href: '/support' },
-  { label: '소장도서검색' },
-];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
 
 // 소장정보 테이블 컬럼 정의
 const myColumns = [
@@ -122,8 +112,7 @@ const myTabs = [
 // 스와이퍼 관련 도서 데이터
 const books = [
   {
-    title:
-      '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+    title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
     author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
   },
   {
@@ -143,8 +132,7 @@ const books = [
     author: '정자연 저',
   },
   {
-    title:
-      '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+    title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
     author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
   },
   {
@@ -170,15 +158,7 @@ const books = [
   <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems}>
     <!-- 페이지 우측 상단 돌아가기 버튼 -->
     <div slot="right">
-      <UiButton
-        variant="secondary"
-        size="small"
-        text="돌아가기"
-        icon="icon-xmd icon-arrow-left"
-        iconPosition="left"
-        type="link"
-        href="./01_소장도서검색"
-      />
+      <UiButton variant="secondary" size="small" text="돌아가기" icon="icon-xmd icon-arrow-left" iconPosition="left" type="link" href="./01_소장도서검색" />
     </div>
 
     <!-- 도서 상세 정보 섹션 -->
@@ -187,7 +167,7 @@ const books = [
       <div class="search-result-list mt24">
         <!-- 도서 정보 카드 -->
         <UiBookCardDetail
-          imageUrl="/assets/images/default-book.png"
+          imageUrl="./assets/images/default-book.png"
           badges={[
             { label: 'DVD', type: 'success', size: 'large' },
             { label: '대출불가', type: 'warning' },
@@ -209,92 +189,47 @@ const books = [
         />
 
         <!-- 소장정보 아코디언 테이블 -->
-        <UiCollectionAccordion
-          title="소장정보"
-          columns={myColumns}
-          rows={myRows}
-          tabs={myTabs}
-          iconType="arrow"
-          className="custom-accordion"
-          tabsClassName="ui-tab--grid-6"
-        />
+        <UiCollectionAccordion title="소장정보" columns={myColumns} rows={myRows} tabs={myTabs} iconType="arrow" className="custom-accordion" tabsClassName="ui-tab--grid-6" />
 
         <!-- 책소개 아코디언 -->
-        <UiAccordion
-          title="책소개"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="책소개" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는
-              동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의
-              의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의
-              집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
+              일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>
 
         <!-- 목차 아코디언 -->
-        <UiAccordion
-          title="목차"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="목차" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는
-              동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의
-              의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의
-              집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
+              일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>
 
         <!-- 사서추천도서 아코디언 -->
-        <UiAccordion
-          title="사서추천도서"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="사서추천도서" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는
-              동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의
-              의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의
-              집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
+              일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>
 
         <!-- 서가브라우징 아코디언 -->
-        <UiAccordion
-          title="서가브라우징"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="서가브라우징" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-swiper-wrapper">
             <div class="book-swiper swiper" id="book-swiper-1">
               <ul class="swiper-wrapper">
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img
-                        src="./assets/images/content-infant-books.png"
-                        alt=""
-                      />
+                      <img src="./assets/images/content-infant-books.png" alt="" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -303,41 +238,21 @@ const books = [
               </ul>
             </div>
             <div class="btn-wrp">
-              <UiNavButton
-                class="bg-white book-swiper-1-btn-prev"
-                direction="prev"
-                size={40}
-                ariaLabel="이전 도서"
-              />
-              <UiNavButton
-                class="bg-white book-swiper-1-btn-next"
-                direction="next"
-                size={40}
-                ariaLabel="다음 도서"
-              />
+              <UiNavButton class="bg-white book-swiper-1-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+              <UiNavButton class="bg-white book-swiper-1-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
             </div>
           </div>
         </UiAccordion>
 
         <!-- 같이 빌린 책 아코디언 -->
-        <UiAccordion
-          title="서가브라우징"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="서가브라우징" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-swiper-wrapper">
             <div class="book-swiper swiper" id="book-swiper-2">
               <ul class="swiper-wrapper">
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img
-                        src="./assets/images/content-infant-books.png"
-                        alt=""
-                      />
+                      <img src="./assets/images/content-infant-books.png" alt="" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -346,41 +261,21 @@ const books = [
               </ul>
             </div>
             <div class="btn-wrp">
-              <UiNavButton
-                class="bg-white book-swiper-2-btn-prev"
-                direction="prev"
-                size={40}
-                ariaLabel="이전 도서"
-              />
-              <UiNavButton
-                class="bg-white book-swiper-2-btn-next"
-                direction="next"
-                size={40}
-                ariaLabel="다음 도서"
-              />
+              <UiNavButton class="bg-white book-swiper-2-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+              <UiNavButton class="bg-white book-swiper-2-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
             </div>
           </div>
         </UiAccordion>
 
         <!-- 같은 주제의 책 -->
-        <UiAccordion
-          title="같은 주제의 책"
-          variant="bordered"
-          size="medium"
-          iconType="chevron"
-          isExpanded={true}
-          className="custom-accordion"
-        >
+        <UiAccordion title="같은 주제의 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-swiper-wrapper">
             <div class="book-swiper swiper" id="book-swiper-3">
               <ul class="swiper-wrapper">
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img
-                        src="./assets/images/content-infant-books.png"
-                        alt=""
-                      />
+                      <img src="./assets/images/content-infant-books.png" alt="" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -389,18 +284,8 @@ const books = [
               </ul>
             </div>
             <div class="btn-wrp">
-              <UiNavButton
-                class="bg-white book-swiper-3-btn-prev"
-                direction="prev"
-                size={40}
-                ariaLabel="이전 도서"
-              />
-              <UiNavButton
-                class="bg-white book-swiper-3-btn-next"
-                direction="next"
-                size={40}
-                ariaLabel="다음 도서"
-              />
+              <UiNavButton class="bg-white book-swiper-3-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+              <UiNavButton class="bg-white book-swiper-3-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
             </div>
           </div>
         </UiAccordion>

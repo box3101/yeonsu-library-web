@@ -61,24 +61,9 @@ const copyrightLinks = [
       <div class="banner-section__content">
         <div class="banner-section__left">
           <div class="banner-section__nav flex gap-4">
-            <UiNavButton
-              class="ui-nav-button--primary banner-swiper-btn-prev"
-              direction="prev"
-              size={40}
-              ariaLabel="이전 배너"
-            />
-            <UiNavButton
-              class="ui-nav-button--primary banner-swiper-autoplay-toggle"
-              direction="stop-white"
-              size={40}
-              ariaLabel="자동재생 정지"
-            />
-            <UiNavButton
-              class="ui-nav-button--primary banner-swiper-btn-next"
-              direction="next"
-              size={40}
-              ariaLabel="다음 배너"
-            />
+            <UiNavButton class="ui-nav-button--primary banner-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 배너" />
+            <UiNavButton class="ui-nav-button--primary banner-swiper-autoplay-toggle" direction="stop-white" size={40} ariaLabel="자동재생 정지" />
+            <UiNavButton class="ui-nav-button--primary banner-swiper-btn-next" direction="next" size={40} ariaLabel="다음 배너" />
           </div>
         </div>
         <div class="banner-section__right">
@@ -86,75 +71,43 @@ const copyrightLinks = [
             <div class="swiper-wrapper banner-section__list">
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner01.png"
-                    alt="배너01"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner01.png" alt="배너01" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner02.png"
-                    alt="배너02"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner02.png" alt="배너02" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner03.png"
-                    alt="배너03"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner03.png" alt="배너03" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner04.png"
-                    alt="배너04"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner04.png" alt="배너04" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner05.png"
-                    alt="배너05"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner05.png" alt="배너05" class="banner-section__image" />
                 </a>
               </div>
               <!-- 무한 루프를 위한 추가 슬라이드 (기존 배너 반복) -->
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner01.png"
-                    alt="배너01 (반복)"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner01.png" alt="배너01 (반복)" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner02.png"
-                    alt="배너02 (반복)"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner02.png" alt="배너02 (반복)" class="banner-section__image" />
                 </a>
               </div>
               <div class="swiper-slide banner-section__item">
                 <a href="#" class="banner-section__link">
-                  <img
-                    src="./assets/images/banner/banner03.png"
-                    alt="배너03 (반복)"
-                    class="banner-section__image"
-                  />
+                  <img src="./assets/images/banner/banner03.png" alt="배너03 (반복)" class="banner-section__image" />
                 </a>
               </div>
             </div>
@@ -174,15 +127,13 @@ const copyrightLinks = [
       <div class="footer__main-container">
         <div class="footer__logo">
           <div class="footer__logo-container">
-            <img src="/assets/images/logo.svg" alt="연수구립도서관 로고" />
+            <img src="./assets/images/logo.svg" alt="연수구립도서관 로고" />
           </div>
         </div>
 
         <div class="footer__libraries">
           <div class="footer__libraries-column">
-            <div class="footer__business-number">
-              사업자등록번호: 715-83-00032
-            </div>
+            <div class="footer__business-number">사업자등록번호: 715-83-00032</div>
 
             <div class="footer__library">
               {
@@ -190,24 +141,14 @@ const copyrightLinks = [
                   <div class="footer__library-item">
                     <div class="footer__library-item-name">{library.name}</div>
                     <div class="footer__library-item-details">
-                      <div class="footer__library-item-details-text">
-                        {library.address}
-                      </div>
+                      <div class="footer__library-item-details-text">{library.address}</div>
                       <div class="footer__library-item-details-divider" />
-                      <div
-                        class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
-                      >
-                        전화: {library.phone}
-                      </div>
+                      <div class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}>전화: {library.phone}</div>
                       {(library.fax || library.extra) && (
                         <>
                           <div class="footer__library-item-details-divider" />
-                          <div
-                            class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
-                          >
-                            {library.fax
-                              ? `팩스: ${library.fax}`
-                              : library.extra}
+                          <div class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}>
+                            {library.fax ? `팩스: ${library.fax}` : library.extra}
                           </div>
                         </>
                       )}
@@ -226,11 +167,7 @@ const copyrightLinks = [
             {
               copyrightLinks.map(link => (
                 <a href={link.href} class="footer__copyright-links-button">
-                  <div
-                    class={`footer__copyright-links-button-text ${link.bold ? 'footer__copyright-links-button-text--bold' : ''}`}
-                  >
-                    {link.text}
-                  </div>
+                  <div class={`footer__copyright-links-button-text ${link.bold ? 'footer__copyright-links-button-text--bold' : ''}`}>{link.text}</div>
                 </a>
               ))
             }
