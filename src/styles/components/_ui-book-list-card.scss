@@ -187,6 +187,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: to-rem(51);
 
   @include tablet {
     font-size: to-rem(16);
