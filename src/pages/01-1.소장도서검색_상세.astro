@@ -251,7 +251,7 @@ const books = [
         </UiAccordion>
 
         <!-- 같이 빌린 책 아코디언 -->
-        <UiAccordion title="서가브라우징" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+        <UiAccordion title="같이 빌린 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-swiper-wrapper">
             <div class="book-swiper swiper" id="book-swiper-2">
               <ul class="swiper-wrapper">
@@ -297,20 +297,18 @@ const books = [
         </UiAccordion>
 
         <!-- 주요키워드 -->
-        <div class="tag-wrapper">
-          <div class="com-sub-tit">
-            <h3 class="com-sub-tit__title">주요 키워드</h3>
-          </div>
-          <img src="./assets/images/keyword.png" alt="" class="tag-img" />
-        </div>
+        <UiAccordion title="주요키워드" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+          <div class="keywords-content" style="height: 400px; background-color: #000;"></div>
+        </UiAccordion>
 
-        <!-- 통계 나이 -->
-        <div class="tag-wrapper">
-          <div class="com-sub-tit">
-            <h3 class="com-sub-tit__title">통계 나이</h3>
-          </div>
-        </div>
+        <!-- 통계 -->
+        <UiAccordion title="통계" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+          <div class="statistics-content flex gap-16">
+            <div class="statistics-content__item" style="height: 400px; background-color: #000; flex:1;"></div>
+            <div class="statistics-content__item" style="height: 400px; background-color: #000; flex:1;"></div>
+          </div></UiAccordion
+        >
       </div>
-    </div>
-  </SubLayout>
-</Layout>
+    </div></SubLayout
+  ></Layout
+>
