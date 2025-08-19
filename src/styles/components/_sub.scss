@@ -1288,3 +1288,20 @@
     }
   }
 }
+.statistics-content {
+  height: to-rem(400);
+  flex: 1;
+  &__item {
+    flex: 1;
+    background-color: #000;
+  }
+  @include mobile {
+    flex-direction: column;
+    min-height: to-rem(200);
+    gap: to-rem(15);
+    &__item {
+      flex: 1;
+      background-color: #000;
+    }
+  }
+}

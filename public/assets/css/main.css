@@ -31192,6 +31192,26 @@ h6 {
   font-weight: 700 !important;
 }
 
+.statistics-content {
+  height: 25rem;
+  flex: 1;
+}
+.statistics-content__item {
+  flex: 1;
+  background-color: #000;
+}
+@media (max-width: 900px) {
+  .statistics-content {
+    flex-direction: column;
+    min-height: 12.5rem;
+    gap: 0.9375rem;
+  }
+  .statistics-content__item {
+    flex: 1;
+    background-color: #000;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
