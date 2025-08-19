@@ -1,0 +1,78 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '신착도서' }];
+const tabs = [
+  { label: '전체', id: 'all', active: true },
+  { label: '유아', id: 'infant', active: false },
+  { label: '아동', id: 'children', active: false },
+  { label: '청소년', id: 'teenager', active: false },
+  { label: '일반', id: 'general', active: false },
+];
+
+const libraryOptions = [
+  { label: '전체도서관', value: '' },
+  { label: '연수구립도서관', value: 'yeonsu' },
+  { label: '송도국제도서관', value: 'songdo' },
+];
+
+const yearOptions = [
+  { label: '2025년', value: '2025' },
+  { label: '2024년', value: '2024' },
+  { label: '2023년', value: '2023' },
+];
+
+const monthOptions = [
+  { label: '4월', value: '4' },
+  { label: '1월', value: '1' },
+  { label: '2월', value: '2' },
+  { label: '3월', value: '3' },
+];
+---
+
+<Layout title="신착도서">
+  <SubLayout title="신착도서" breadcrumbItems={breadcrumbItems}>
+    <div class="filter-row-type2">
+      <UiSelect options={libraryOptions} name="library" size="medium" width="auto" class="filter-select--library" variant="default" />
+      <UiSelect options={yearOptions} name="year" size="medium" width="auto" class="filter-select--year" variant="default" />
+      <UiSelect options={monthOptions} name="month" size="medium" width="auto" class="filter-select--month" variant="default" />
+      <button class="filter-btn" type="button">검색</button>
+    </div>
+    <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-4" />
+
+    <div id="panel-all" class="ui-tab-panel ui-tab-panel--active">
+      <div class="grid grid-5 mt30">
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="컴퓨터 활용능력 1급 실기" author="김철수 저" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="데미안" author="헤르만 헤세 저, 전영애 역" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="불교 철학의 이해" author="정성본 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="사회학 개론" author="김영호 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="일반물리학" author="박준형 저" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="건축공학 개론" author="이명수 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="서양미술사" author="최영희 저" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="한국어 문법론" author="강순옥 저" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="한국현대문학사" author="조동일 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="한국사 개설" author="이기백 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="백과사전 활용법" author="정보관리연구소 저" hasImage={true} isLiked={true} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="서양철학사" author="윤구병 저" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="세계문학 명작선" author="문학평론가협회 편" hasImage={true} isLiked={false} />
+        <UiBookListCard image="./assets/images/book-list-card-1.png" title="세계사 개론" author="민석홍 저" hasImage={true} isLiked={true} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+      </div>
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} />
+      </div>
+    </div>
+
+    <div id="panel-infant" class="ui-tab-panel">3</div>
+    <div id="panel-children" class="ui-tab-panel">3</div>
+    <div id="panel-teenager" class="ui-tab-panel">3</div>
+    <div id="panel-general" class="ui-tab-panel">3</div>
+  </SubLayout>
+</Layout>
