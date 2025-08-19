@@ -39,26 +39,34 @@ const monthOptions = [
     </div>
     <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-4" />
 
-    <div class="grid grid-5 mt30">
-      <UiBookListCard rank={1} image="./assets/images/book-list-card-1.png" title="해리포터와 마법사의 돌해리포터와 마법사의 돌" author="J.K. 롤링 저, 김혜원 역" hasImage={true} isLiked={true} />
-      <UiBookListCard rank={2} image="./assets/images/book-list-card-1.png" title="해리포터와 마법사의 돌해리포터와 마법사의 돌" author="J.K. 롤링 저, 김혜원 역" hasImage={true} isLiked={true} />
-      <UiBookListCard rank={3} image="./assets/images/book-list-card-1.png" title="데미안" author="헤르만 헤세 저, 전영애 역" hasImage={true} isLiked={true} />
-      <UiBookListCard rank={4} image="./assets/images/book-list-card-1.png" title="1984" author="조지 오웰 저, 정회성 역" hasImage={true} isLiked={false} />
-      <UiBookListCard rank={5} image="./assets/images/book-list-card-1.png" title="노인과 바다" author="어니스트 헤밍웨이 저, 김욱동 역" hasImage={true} isLiked={false} />
-      <UiBookListCard rank={6} image="./assets/images/book-list-card-1.png" title="백년동안의 고독" author="가브리엘 가르시아 마르케스 저, 조구호 역" hasImage={true} isLiked={true} />
-      <UiBookListCard rank={7} image="./assets/images/book-list-card-1.png" title="죄와 벌" author="표도르 도스토예프스키 저, 홍대화 역" hasImage={true} isLiked={false} />
-      <UiBookListCard rank={8} image="./assets/images/book-list-card-1.png" title="호밀밭의 파수꾼" author="J.D. 샐린저 저, 공경희 역" hasImage={true} isLiked={false} />
-      <UiBookListCard rank={9} image="./assets/images/book-list-card-1.png" title="위대한 개츠비" author="F. 스콧 피츠제럴드 저, 김영하 역" hasImage={true} isLiked={true} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
-      <UiBookListCard image="./assets/images/empty-img.png" title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+    <div id="panel-general" class="ui-tab-panel ui-tab-panel--active">
+      <div class="grid grid-5 mt30">
+        <UiBookListCard rank={'총류'} rankType={'000'} image="./assets/images/book-list-card-1.png" title="컴퓨터 활용능력 1급 실기" author="김철수 저" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'철학'} rankType={'100'} image="./assets/images/book-list-card-1.png" title="데미안" author="헤르만 헤세 저, 전영애 역" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'종교'} rankType={'200'} image="./assets/images/book-list-card-1.png" title="불교 철학의 이해" author="정성본 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'사회 <br>과학'} rankType={'300'} image="./assets/images/book-list-card-1.png" title="사회학 개론" author="김영호 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'자연 <br>과학'} rankType={'400'} image="./assets/images/book-list-card-1.png" title="일반물리학" author="박준형 저" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'기술 <br>과학'} rankType={'500'} image="./assets/images/book-list-card-1.png" title="건축공학 개론" author="이명수 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'예술'} rankType={'600'} image="./assets/images/book-list-card-1.png" title="서양미술사" author="최영희 저" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'언어'} rankType={'700'} image="./assets/images/book-list-card-1.png" title="한국어 문법론" author="강순옥 저" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'문학'} rankType={'800'} image="./assets/images/book-list-card-1.png" title="한국현대문학사" author="조동일 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'역사'} rankType={'900'} image="./assets/images/book-list-card-1.png" title="한국사 개설" author="이기백 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'총류'} image="./assets/images/book-list-card-1.png" title="백과사전 활용법" author="정보관리연구소 저" hasImage={true} isLiked={true} />
+        <UiBookListCard rank={'철학'} image="./assets/images/book-list-card-1.png" title="서양철학사" author="윤구병 저" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'문학'} image="./assets/images/book-list-card-1.png" title="세계문학 명작선" author="문학평론가협회 편" hasImage={true} isLiked={false} />
+        <UiBookListCard rank={'역사'} image="./assets/images/book-list-card-1.png" title="세계사 개론" author="민석홍 저" hasImage={true} isLiked={true} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+        <UiBookListCard title="시간여행자의 아내" author="오드리 니페네거 저, 김선형 역" hasImage={true} isLiked={false} />
+      </div>
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} />
+      </div>
     </div>
 
-    <div class="pagination-section">
-      <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} />
-    </div>
+    <div id="panel-children" class="ui-tab-panel">3</div>
   </SubLayout>
 </Layout>

@@ -1,37 +1,26 @@
 {
   "img": {
     "prefix": "img",
-    "body": [
-      "<img",
-      "  src=\"./assets/images/$1\"",
-      "  alt=\"$2\"",
-      "  class=\"$3\"",
-      "/>",
-    ],
-    "description": "이미지를 삽입하는 img 태그 스니펫",
+    "body": ["<img", "  src=\"./assets/images/$1\"", "  alt=\"$2\"", "  class=\"$3\"", "/>"],
+    "description": "이미지를 삽입하는 img 태그 스니펫"
   },
   // bg-image
   "bg-image": {
     "prefix": "bg",
     "body": ["@include bg-image('#{$image-path}building-image.png');"],
-    "description": "배경 이미지를 building-image.png로 설정하는 SCSS mixin",
+    "description": "배경 이미지를 building-image.png로 설정하는 SCSS mixin"
   },
   // flex
   "flex": {
     "prefix": "flex",
     "body": ["@include flex(row, $1, $2);"],
-    "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end",
+    "description": "플렉스 레이아웃 - justify-content: flex-end, align-items: flex-end"
   },
   // bbs-actions
   "bbs-actions": {
     "prefix": "bbs",
-    "body": [
-      "<div class=\"bbs-actions\">",
-      "  <UiButton variant=\"primary\" text=\"$1\" />",
-      "  <UiButton variant=\"secondary\" text=\"$2\" />",
-      "</div>",
-    ],
-    "description": "게시판 액션 버튼 그룹 - 기본 2개 버튼",
+    "body": ["<div class=\"bbs-actions\">", "  <UiButton variant=\"primary\" text=\"$1\" />", "  <UiButton variant=\"secondary\" text=\"$2\" />", "</div>"],
+    "description": "게시판 액션 버튼 그룹 - 기본 2개 버튼"
   },
   // pagination
   "pagination": {
@@ -44,22 +33,15 @@
       "    maxVisiblePages={$3}",
       "    onPageChange={page => console.log('Page changed to:', page)}",
       "  />",
-      "</div>",
+      "</div>"
     ],
-    "description": "페이지네이션 컴포넌트 - UiPagination 래퍼",
+    "description": "페이지네이션 컴포넌트 - UiPagination 래퍼"
   },
   // nav-button
   "nav-button": {
     "prefix": "navbtn",
-    "body": [
-      "<UiNavButton",
-      "  class=\"$1\"",
-      "  direction=\"$2\"",
-      "  size={$3}",
-      "  ariaLabel=\"$4\"",
-      "/>",
-    ],
-    "description": "네비게이션 버튼 - UiNavButton 컴포넌트",
+    "body": ["<UiNavButton", "  class=\"$1\"", "  direction=\"$2\"", "  size={$3}", "  ariaLabel=\"$4\"", "/>"],
+    "description": "네비게이션 버튼 - UiNavButton 컴포넌트"
   },
   // nav-button-group
   "nav-button-group": {
@@ -78,15 +60,15 @@
       "    size={40}",
       "    ariaLabel=\"다음 $1\"",
       "  />",
-      "</div>",
+      "</div>"
     ],
-    "description": "네비게이션 버튼 그룹 - 이전/다음 버튼 세트",
+    "description": "네비게이션 버튼 그룹 - 이전/다음 버튼 세트"
   },
   // mobile
   "include-mobile": {
     "prefix": "mb",
     "body": ["@include mobile {", "  $1", "}"],
-    "description": "모바일 브레이크포인트 mixin - 768px 이하",
+    "description": "모바일 브레이크포인트 mixin - 768px 이하"
   },
   // searsearch-container
   "search-container": {
@@ -95,18 +77,15 @@
       "<div class=\"search-container\">",
       "  <input type=\"text\" placeholder=\"검색어를 입력해주세요\" id=\"search-input\" class=\"search-input\" />",
       "  <button class=\"search-btn\">검색</button>",
-      "</div>",
+      "</div>"
     ],
-    "description": "검색 컨테이너 - 입력창과 검색 버튼",
+    "description": "검색 컨테이너 - 입력창과 검색 버튼"
   },
   // search-info-summary
   "search-info-summary": {
     "prefix": "search-info",
-    "body": [
-      "<div class=\"search-info-summary\">",
-      "  <span><strong>[홍길동]</strong>에 대한 검색 결과 총 <strong>190</strong>건</span>",
-    ],
-    "description": "검색 정보 요약 - 검색 결과 총 건수와 키워드 정보",
+    "body": ["<div class=\"search-info-summary\">", "  <span><strong>[홍길동]</strong>에 대한 검색 결과 총 <strong>190</strong>건</span>"],
+    "description": "검색 정보 요약 - 검색 결과 총 건수와 키워드 정보"
   },
   // filter-row
   "filter-row": {
@@ -117,18 +96,20 @@
       "  <UiSelect options={${3:yearOptions}} name=\"${4:year}\" size=\"medium\" width=\"auto\" class=\"filter-select--${4:year}\" variant=\"default\" />",
       "  <UiSelect options={${5:monthOptions}} name=\"${6:month}\" size=\"medium\" width=\"auto\" class=\"filter-select--${6:month}\" variant=\"default\" />",
       "  <button class=\"filter-btn\" type=\"button\">검색</button>",
-      "</div>",
+      "</div>"
     ],
-    "description": "필터 행 - 도서관/년도/월 선택 및 검색 버튼",
+    "description": "필터 행 - 도서관/년도/월 선택 및 검색 버튼"
   },
   // tab
   "tab": {
     "prefix": "tab",
-    "body": [
-      "<UiTab",
-      "  tabs={$1}",
-      "  showCount={$2}",
-      "/>",
-    ],
+    "body": ["<UiTab", "  tabs={$1}", "  showCount={$2}", "/>"],
+    "description": "탭 컴포넌트 - 탭 목록과 카운트 표시"
   },
+  // tab-content
+  "tab-content": {
+    "prefix": "tab-cnt",
+    "body": ["<div id=\"panel-${1:culture}\" class=\"ui-tab-panel ui-tab-panel--active\">", "  $2", "</div>"],
+    "description": "탭 패널 콘텐츠 - 탭에 대응하는 콘텐츠 영역"
+  }
 }

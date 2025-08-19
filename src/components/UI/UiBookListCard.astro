@@ -3,7 +3,11 @@ export interface Props {
   /**
    * 순위 번호
    */
-  rank?: number;
+  rank?: string;
+  /**
+   * 순위 타입
+   */
+  rankType?: string;
   /**
    * 책 이미지 URL
    */
@@ -30,16 +34,16 @@ export interface Props {
   class?: string;
 }
 
-const { rank, image, title, author, hasImage = true, isLiked = false, class: className = '', ...rest } = Astro.props;
+const { rank, rankType, image, title, author, hasImage = true, isLiked = false, class: className = '', ...rest } = Astro.props;
 
 const cardClasses = ['book-list-card', className].filter(Boolean).join(' ');
 ---
 
-<div class={cardClasses} {...rest} role="button">
+<a href="#" class={cardClasses} {...rest} role="button">
   {
     rank && (
-      <div class="book-rank">
-        <span class="tx-rank">{rank}</span>
+      <div class={`book-rank rank-${rankType}`}>
+        <span class="tx-rank" set:html={rank} />
       </div>
     )
   }
@@ -51,8 +55,14 @@ const cardClasses = ['book-list-card', className].filter(Boolean).join(' ');
       </div>
     ) : (
       <div class="book-placeholder">
-        <div class="book-icon">📖</div>
-        <p class="placeholder-text">책표지 상품이미지가 없습니다</p>
+        <div class="book-icon">
+          <img src="./assets/images/icon/book-empty.svg" alt="book" />
+        </div>
+        <p class="placeholder-text">
+          제공된 <br />
+          상품이미지가 <br />
+          없습니다
+        </p>
       </div>
     )
   }
@@ -63,7 +73,7 @@ const cardClasses = ['book-list-card', className].filter(Boolean).join(' ');
     <h4 class="book-title">{title}</h4>
     <p class="book-author">{author}</p>
   </div>
-</div>
+</a>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

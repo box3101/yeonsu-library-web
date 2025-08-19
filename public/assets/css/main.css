@@ -36005,7 +36005,6 @@ body.modal-open {
   flex-direction: column;
   background: #ffffff;
   overflow: hidden;
-  cursor: pointer;
 }
 @media (max-width: 900px) {
   .book-list-card {
@@ -36025,6 +36024,36 @@ body.modal-open {
   align-items: center;
   justify-content: center;
 }
+.book-rank.rank-000::after {
+  background: #000000;
+}
+.book-rank.rank-100::after {
+  background: #2251a5;
+}
+.book-rank.rank-200::after {
+  background: #6355ab;
+}
+.book-rank.rank-300::after {
+  background: #c04657;
+}
+.book-rank.rank-400::after {
+  background: #f88379;
+}
+.book-rank.rank-500::after {
+  background: #4a4a4a;
+}
+.book-rank.rank-600::after {
+  background: #c57eba;
+}
+.book-rank.rank-700::after {
+  background: #ff8c00;
+}
+.book-rank.rank-800::after {
+  background: #de5d83;
+}
+.book-rank.rank-900::after {
+  background: #00b248;
+}
 .book-rank .tx-rank {
   position: absolute;
   top: 44%;
@@ -36033,23 +36062,22 @@ body.modal-open {
   z-index: 11;
   font-weight: 700;
   font-size: 0.9375rem;
-  line-height: 1;
+  line-height: 1.5;
+  width: max-content;
 }
 .book-rank::after {
   content: "";
-  background-image: url("./assets/images/icon/book-rank-bg.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 3.3125rem;
   height: 4.375rem;
   position: absolute;
   z-index: 10;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2));
 }
 @media (max-width: 900px) {
   .book-rank {
-    width: 2rem;
-    height: 2.75rem;
+    width: 2.5rem;
+    height: 3.125rem;
     top: 0.375rem;
     left: 0.375rem;
     font-size: 0.625rem;
@@ -36105,11 +36133,11 @@ body.modal-open {
   }
 }
 .book-placeholder .placeholder-text {
-  font-family: "Pretendard GOV", sans-serif;
-  font-size: 0.75rem;
-  color: #6c757d;
+  color: #b1b3b3;
   text-align: center;
-  line-height: 1.4;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.5;
   margin: 0;
   padding: 0 0.5rem;
 }

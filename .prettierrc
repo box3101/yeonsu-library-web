@@ -9,6 +9,7 @@
   "arrowParens": "avoid",
   "htmlWhitespaceSensitivity": "ignore",
   "proseWrap": "never",
+  "plugins": ["prettier-plugin-astro"],
   "overrides": [
     {
       "files": "*.astro",

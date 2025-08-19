@@ -42,6 +42,7 @@ const monthOptions = [
     </div>
     <UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-4" />
 
+   <div id="panel-monthly" class="ui-tab-panel ui-tab-panel--active">
     <UiSubTab tabs={tabs2} activeTab={0} class="mt24">
       <div data-content="0" class="content-panel active">
         <div class="grid grid-5">
@@ -71,5 +72,19 @@ const monthOptions = [
     <div class="pagination-section">
       <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} />
     </div>
+   </div>
+
+   <div id="panel-age" class="ui-tab-panel">
+    age
+   </div>
+
+   <div id="panel-subject" class="ui-tab-panel">
+    subject
+   </div>
+
+   <div id="panel-genre" class="ui-tab-panel">
+    genre
+   </div>
+
   </SubLayout>
 </Layout>

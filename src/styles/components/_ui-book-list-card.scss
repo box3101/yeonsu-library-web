@@ -6,7 +6,6 @@
   flex-direction: column;
   background: #ffffff;
   overflow: hidden;
-  cursor: pointer;
 
   @include mobile {
     border-radius: 6px;
@@ -25,6 +24,34 @@
   align-items: center;
   justify-content: center;
 
+  @for $i from 0 through 9 {
+    &.rank-#{$i}00 {
+      &::after {
+        @if $i == 0 {
+          background: #000000;
+        } @else if $i == 1 {
+          background: #2251a5;
+        } @else if $i == 2 {
+          background: #6355ab;
+        } @else if $i == 3 {
+          background: #c04657;
+        } @else if $i == 4 {
+          background: #f88379;
+        } @else if $i == 5 {
+          background: #4a4a4a;
+        } @else if $i == 6 {
+          background: #c57eba;
+        } @else if $i == 7 {
+          background: #ff8c00;
+        } @else if $i == 8 {
+          background: #de5d83;
+        } @else if $i == 9 {
+          background: #00b248;
+        }
+      }
+    }
+  }
+
   .tx-rank {
     position: absolute;
     top: 44%;
@@ -33,21 +60,30 @@
     z-index: 11;
     font-weight: 700;
     font-size: to-rem(15);
-    line-height: 1;
+    line-height: 1.5;
+    width: max-content;
   }
 
   &::after {
     content: '';
-    @include bg-image('./assets/images/icon/book-rank-bg.svg');
     width: to-rem(53);
     height: to-rem(70);
     position: absolute;
     z-index: 10;
+
+    // 북마크 모양 구현
+    clip-path: polygon(0% 0%, /* 왼쪽 상단 */ 100% 0%, /* 오른쪽 상단 */ 100% 75%, /* 오른쪽 하단 (V자 시작점) */ 50% 100%, /* 중앙 하단 (V자 꼭짓점) */ 0% 75% /* 왼쪽 하단 (V자 시작점) */);
+
+    // 그림자 효과
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2));
+
+    // 배경이미지 설정 제거
+    // @include bg-image('./assets/images/icon/book-rank-bg.svg');
   }
 
   @include mobile {
-    width: to-rem(32);
-    height: to-rem(44);
+    width: to-rem(40);
+    height: to-rem(50);
     top: to-rem(6);
     left: to-rem(6);
     font-size: to-rem(10);
@@ -105,11 +141,11 @@
   }
 
   .placeholder-text {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(12);
-    color: #6c757d;
+    color: #b1b3b3;
     text-align: center;
-    line-height: 1.4;
+    font-weight: 700;
+    font-size: to-rem(15);
+    line-height: 1.5;
     margin: 0;
     padding: 0 to-rem(8);
 
@@ -251,7 +287,7 @@
     }
   }
 
-  &.ㅊ{
+  &.ㅊ {
     grid-template-columns: repeat(5, 1fr);
 
     @include tablet {
