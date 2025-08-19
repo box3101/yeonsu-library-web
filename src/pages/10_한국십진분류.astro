@@ -1,0 +1,77 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination, UiCategoryItem, UiButton } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '한국십진분류' }];
+const tabs = [
+  { label: '총류', number: '000', id: 'general', icon: './assets/images/icon/icon_ctgr.svg', active: true },
+  { label: '철학', number: '100', id: 'philosophy', icon: './assets/images/icon/icon_ctgr-1.svg', active: false },
+  { label: '종교', number: '200', id: 'religion', icon: './assets/images/icon/icon_ctgr-2.svg', active: false },
+  { label: '사회과학', number: '300', id: 'social', icon: './assets/images/icon/icon_ctgr-3.svg', active: false },
+  { label: '자연과학', number: '400', id: 'natural', icon: './assets/images/icon/icon_ctgr-4.svg', active: false },
+  { label: '기술과학', number: '500', id: 'technology', icon: './assets/images/icon/icon_ctgr-5.svg', active: false },
+  { label: '예술', number: '600', id: 'art', icon: './assets/images/icon/icon_ctgr-6.svg', active: false },
+  { label: '언어', number: '700', id: 'language', icon: './assets/images/icon/icon_ctgr-7.svg', active: false },
+  { label: '문학', number: '800', id: 'literature', icon: './assets/images/icon/icon_ctgr-8.svg', active: false },
+  { label: '역사', number: '900', id: 'history', icon: './assets/images/icon/icon_ctgr-9.svg', active: false },
+];
+
+// 소설 카테고리 데이터 (Figma 디자인 기준)
+const novelCategories = [
+  {
+    title: '세계의소설',
+    count: 8,
+    tags: ['스페인/중남미소설', '아일랜드소설', '아랍소설', '북유럽소설', '동유럽소설', '중동/터키소설', '아프리카소설', '기타 국가 소설'],
+  },
+  {
+    title: '한국소설',
+    count: 5,
+    tags: ['현대소설', '고전소설', '사회소설', '역사소설', '장편소설'],
+  },
+  {
+    title: '추리/스릴러',
+    count: 6,
+    tags: ['추리소설', '미스터리', '범죄소설', '스릴러', '사이버펑크', '하드보일드'],
+  },
+  {
+    title: '로맨스',
+    count: 4,
+    tags: ['현대로맨스', '역사로맨스', '판타지로맨스', '청춘로맨스'],
+  },
+  {
+    title: '판타지/SF',
+    count: 7,
+    tags: ['판타지', '과학소설', 'SF', '디스토피아', '유토피아', '사이버펑크', '스팀펑크'],
+  },
+  {
+    title: '공포/호러',
+    count: 3,
+    tags: ['공포소설', '고딕소설', '심리호러'],
+  },
+];
+---
+
+<Layout title="한국십진분류">
+  <SubLayout title="한국십진분류" breadcrumbItems={breadcrumbItems}>
+    <UiTab tabs={tabs} variant="default" className="category-tabs ui-tab--grid-5" />
+
+    <div id="panel-general" class="ui-tab-panel ui-tab-panel--active">
+      <div class="category-list-wrp">
+        <div class="category-list">
+          {
+            novelCategories.map((category, index) => (
+              <div class="category-list__item">
+                <UiCategoryItem title={category.title} count={category.count} tags={category.tags} />
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex justify-center items-center mt24">
+          <UiButton variant="secondary" size="large" text="더 많은 카테고리 보기" icon="icon-arrow-down icon-primary" iconPosition="right" class="category-list-wrp__btn" />
+        </div>
+      </div>
+    </div>
+    <div id="panel-philosophy" class="ui-tab-panel">23</div>
+  </SubLayout>
+</Layout>

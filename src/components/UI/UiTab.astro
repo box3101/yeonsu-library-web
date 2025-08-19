@@ -6,6 +6,7 @@ export interface Props {
     count?: number;
     active?: boolean;
     icon?: string;
+    number?: number;
   }>;
   variant?: 'default' | 'pills' | 'minimal';
   size?: 'small' | 'medium' | 'large';
@@ -40,6 +41,7 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
               <img src={tab.icon} alt={tab.label} />
             </div>
           )}
+          {tab.number && <p class="ui-tab__number">{tab.number}</p>}
           <span class="ui-tab__label">{tab.label}</span>
           {showCount && tab.count !== undefined && <span class="ui-tab__count">({tab.count.toString().padStart(4, '0')})</span>}
         </button>

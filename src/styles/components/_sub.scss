@@ -558,102 +558,120 @@
    카테고리 탭
 ======================================== */
 .category-tabs {
-  &.ui-tab--grid-6 {
+  margin-bottom: to-rem(24);
+
+  &.ui-tab--grid-5 {
     .ui-tab__list {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: to-rem(16);
-      border-radius: to-rem(8);
+      grid-template-columns: repeat(5, 1fr);
 
       @include tablet {
-        grid-template-columns: repeat(4, 1fr);
-        gap: to-rem(6);
+        grid-template-columns: repeat(5, 1fr);
       }
     }
+  }
 
-    .ui-tab__button {
-      background: $white;
-      border: none;
-      border-radius: to-rem(6);
-      padding: to-rem(16);
-      font-size: to-rem(16);
-      font-weight: 500;
-      color: #666;
-      transition: all 0.2s ease;
-      position: relative;
-      white-space: nowrap;
-      text-align: center;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #cbcccc;
-      background: #f1f2f2;
-      min-height: to-rem(150);
+  .ui-tab__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: to-rem(16);
+    border-radius: to-rem(8);
 
-      &:after {
-        display: none;
-      }
+    @include tablet {
+      grid-template-columns: repeat(4, 1fr);
+      gap: to-rem(6);
+    }
+  }
 
-      @include tablet {
-        padding: to-rem(16) to-rem(4);
-        font-size: to-rem(14);
-        min-height: to-rem(90);
-        width: 100%; // 추가
-        min-width: 0; // 추가
-      }
+  .ui-tab__button {
+    background: $white;
+    border: none;
+    border-radius: to-rem(6);
+    padding: to-rem(16);
+    font-size: to-rem(16);
+    font-weight: 500;
+    color: #666;
+    transition: all 0.2s ease;
+    position: relative;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cbcccc;
+    background: #f1f2f2;
+    min-height: to-rem(150);
 
-      &:hover:not(.ui-tab__button--active) {
-        background: #f8f9fa;
-        color: #495057;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+    &:after {
+      display: none;
+    }
 
-      &--active {
-        background: #ecf2f9;
-        color: #191a1a !important;
-        font-weight: 600;
-        z-index: 1;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-        border: 2px solid var(--color-primary-pr04, #6494ce);
+    @include tablet {
+      padding: to-rem(16) to-rem(4);
+      font-size: to-rem(14);
+      min-height: to-rem(100);
+      height: to-rem(100);
+      width: 100%; // 추가
+      min-width: 0; // 추가
+    }
 
-        @include mobile {
-          transform: translateY(0);
-        }
+    &:hover:not(.ui-tab__button--active) {
+      background: #f8f9fa;
+      color: #495057;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .ui-tab__label {
-          color: $white;
-        }
-      }
+    &--active {
+      background: #ecf2f9;
+      color: #191a1a !important;
+      font-weight: 600;
+      z-index: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      border: 2px solid var(--color-primary-pr04, #6494ce);
 
-      .ui-tab__icon {
-        width: to-rem(56);
-        height: to-rem(56);
-        margin-bottom: to-rem(8);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        @include tablet {
-          width: to-rem(40);
-          height: to-rem(40);
-          margin-bottom: to-rem(6);
-        }
+      @include mobile {
+        transform: translateY(0);
       }
 
       .ui-tab__label {
-        display: block;
-        line-height: 1.4;
-        font-size: to-rem(17);
-        font-weight: 700;
-        color: #191a1a !important;
+        color: $white;
+      }
+    }
 
-        @include tablet {
-          font-size: to-rem(12);
-        }
+    .ui-tab__icon {
+      width: to-rem(56);
+      height: to-rem(56);
+      margin-bottom: to-rem(8);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include tablet {
+        width: to-rem(40);
+        height: to-rem(40);
+        margin-bottom: to-rem(6);
+      }
+    }
+
+    .ui-tab__number {
+      font-size: to-rem(17);
+      font-weight: 700;
+      line-height: 1;
+      color: #191a1a;
+    }
+
+    .ui-tab__label {
+      display: block;
+      line-height: 1.4;
+      font-size: to-rem(17);
+      font-weight: 700;
+      color: #191a1a !important;
+
+      @include tablet {
+        font-size: to-rem(12);
       }
     }
   }
