@@ -1,5 +1,5 @@
 {
-  "printWidth": 200,
+  "printWidth": 150,
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
@@ -15,7 +15,7 @@
       "files": "*.astro",
       "options": {
         "parser": "astro",
-        "printWidth": 200,
+        "printWidth": 180,
         "htmlWhitespaceSensitivity": "ignore"
       }
     }

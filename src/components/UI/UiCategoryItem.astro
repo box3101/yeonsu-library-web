@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title: string;
+  count: number;
+  tags: string[];
+  isExpanded?: boolean;
+  className?: string;
+}
+
+const { title, count, tags, isExpanded = true, className = '' } = Astro.props;
+
+// 고유 ID 생성 (title을 기반으로)
+const uniqueId = title.replace(/[^a-zA-Z0-9가-힣]/g, '-').toLowerCase();
+---
+
+<div class={`ui-category-item ${className}`} data-accordion>
+  <div class="ui-category-item__header">
+    <div class="ui-category-item__container">
+      <div class="ui-category-item__title-badge">
+        <h3 class="ui-category-item__title">{title}</h3>
+        <div class="ui-category-item__badge">
+          <span class="ui-category-item__count">{count}</span>
+        </div>
+      </div>
+      <button
+        class="ui-category-item__toggle is-active"
+        data-toggle={uniqueId}
+        aria-expanded={isExpanded}
+        aria-label={`${title} 카테고리 ${isExpanded ? '접기' : '펼치기'}`}
+        type="button"
+      >
+        <i class="icon-arrow-down icon-primary icon-xsm"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="ui-category-item__content is-active" data-toggle-target={uniqueId} aria-hidden={!isExpanded}>
+    <div class="ui-category-item__tags">
+      {
+        tags.map(tag => (
+          <button class="ui-category-item__tag" type="button">
+            #{tag}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</div>

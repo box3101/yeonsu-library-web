@@ -566,8 +566,8 @@
       border-radius: to-rem(8);
 
       @include tablet {
-        grid-template-columns: repeat(3, 1fr);
-        gap: to-rem(12);
+        grid-template-columns: repeat(4, 1fr);
+        gap: to-rem(6);
       }
     }
 
@@ -588,7 +588,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: to-rem(100);
       border: 1px solid #cbcccc;
       background: #f1f2f2;
       min-height: to-rem(150);
@@ -598,9 +597,11 @@
       }
 
       @include tablet {
-        padding: to-rem(16) to-rem(8);
+        padding: to-rem(16) to-rem(4);
         font-size: to-rem(14);
-        min-height: to-rem(70);
+        min-height: to-rem(90);
+        width: 100%; // 추가
+        min-width: 0; // 추가
       }
 
       &:hover:not(.ui-tab__button--active) {

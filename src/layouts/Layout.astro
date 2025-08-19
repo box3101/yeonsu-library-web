@@ -36,13 +36,17 @@ import '../styles/main.scss';
     <!-- AOS CDN -->
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- LibraryCommon 전역 객체 먼저 로드 -->
+    <script is:inline type="text/javascript" src="./assets/js/common.js"></script>
+
+    <!-- 기능별 스크립트들 -->
+    <script is:inline type="text/javascript" src="./assets/js/comAccordian.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/comTab.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/collectAccordion.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/swiper.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/collection.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/collectionModal.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/comGnb.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/comAccordian.js"></script>
 
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function () {
