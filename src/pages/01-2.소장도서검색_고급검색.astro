@@ -26,155 +26,64 @@ const breadcrumbItems = [
         <li class="form-item">
           <div class="form-label">자료유형</div>
           <div class="form-content checkbox-group">
-            <UiCheckbox
-              name="material-type"
-              value="all"
-              label="전체"
-              class="ui-checkbox"
-            />
-            <UiCheckbox
-              name="material-type"
-              value="book"
-              label="단행본"
-              class="ui-checkbox"
-            />
-            <UiCheckbox
-              name="material-type"
-              value="ebook"
-              label="전자책"
-              class="ui-checkbox"
-            />
-            <UiCheckbox
-              name="material-type"
-              value="multimedia"
-              label="멀티미디어"
-              class="ui-checkbox"
-            />
-            <UiCheckbox
-              name="material-type"
-              value="serial"
-              label="연속간행물"
-              class="ui-checkbox"
-            />
+            <UiCheckbox name="material-type" value="all" label="전체" class="ui-checkbox" />
+            <UiCheckbox name="material-type" value="book" label="단행본" class="ui-checkbox" />
+            <UiCheckbox name="material-type" value="serial" label="연속간행물" class="ui-checkbox" />
+            <UiCheckbox name="material-type" value="ebook" label="전자책" class="ui-checkbox" />
+            <UiCheckbox name="material-type" value="multimedia" label="멀티미디어" class="ui-checkbox" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">도서명</div>
           <div class="form-content input-with-button">
-            <UiInput
-              name="book-name"
-              placeholder="도서명을 입력해주세요"
-              value="테스트 도서명"
-              class="w-full"
-            />
-            <UiButton
-              variant="primary"
-              icon="icon-language icon-white"
-              iconPosition="left"
-              text="다국어입력기"
-            />
+            <UiInput name="book-name" placeholder="도서명을 입력해주세요" value="테스트 도서명" class="w-full" />
+            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">저자명</div>
           <div class="form-content input-with-button">
-            <UiInput
-              name="author-name"
-              placeholder="저자명을 입력해주세요"
-              value="테스트 저자"
-              class="w-full"
-            />
-            <UiButton
-              variant="primary"
-              icon="icon-language icon-white"
-              iconPosition="left"
-              text="다국어입력기"
-            />
+            <UiInput name="author-name" placeholder="저자명을 입력해주세요" value="테스트 저자" class="w-full" />
+            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">발행처</div>
           <div class="form-content input-with-button">
-            <UiInput
-              name="publisher"
-              placeholder="발행처를 입력해주세요"
-              class="w-full"
-            />
-            <UiButton
-              variant="primary"
-              icon="icon-language icon-white"
-              iconPosition="left"
-              text="다국어입력기"
-            />
+            <UiInput name="publisher" placeholder="발행처를 입력해주세요" class="w-full" />
+            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">ISBN</div>
           <div class="form-content input-with-button">
-            <UiInput
-              name="isbn"
-              placeholder="ISBN을 입력해주세요"
-              class="w-full"
-            />
-            <UiButton
-              variant="primary"
-              icon="icon-language icon-white"
-              iconPosition="left"
-              text="다국어입력기"
-            />
+            <UiInput name="isbn" placeholder="ISBN을 입력해주세요" class="w-full" />
+            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">분류기호</div>
           <div class="form-content input-with-button">
-            <UiInput
-              name="classification-code"
-              placeholder="분류기호를 입력해주세요"
-              class="w-full"
-            />
-            <UiButton
-              variant="primary"
-              icon="icon-language icon-white"
-              iconPosition="left"
-              text="다국어입력기"
-            />
+            <UiInput name="classification-code" placeholder="분류기호를 입력해주세요" class="w-full" />
+            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">발행년도</div>
           <div class="form-content">
-            <UiDatePicker
-              name="publication-year"
-              startYear="2020"
-              endYear="2024"
-              placeholder="발행년도를 선택해주세요"
-            />
-            <UiButton variant="primary" text="확인2" />
+            <UiDatePicker name="publication-year" startYear="2020" endYear="2024" placeholder="발행년도를 선택해주세요" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">언어</div>
           <div class="form-content">
-            <UiSelect
-              name="language"
-              value="ko"
-              options={[
-                { value: '', label: '전체' },
-                { value: 'ko', label: '한국어' },
-                { value: 'en', label: '영어' },
-              ]}
-              class="w-300-mobile-full"
-            />
+            <UiSelect name="language" value="ko" options={[{ value: '', label: '전체' }, { value: 'ko', label: '한국어' }, { value: 'en', label: '영어' }]} class="w-300-mobile-full" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">도서관</div>
           <div class="form-content">
-            <UiSelect
-              name="library"
-              options={[{ value: '', label: '연수청학도서관' }]}
-              class="w-300-mobile-full"
-            />
+            <UiSelect name="library" options={[{ value: '', label: '연수청학도서관' }]} class="w-300-mobile-full" />
           </div>
         </li>
       </ul>

@@ -44,17 +44,17 @@
   },
 
   // 코드 줄 길이 설정
-  "editor.rulers": [150],
+  "editor.rulers": [200],
   "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 150,
-  "prettier.printWidth": 150,
+  "editor.wordWrapColumn": 200,
+  "prettier.printWidth": 200,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
 
   // Astro 파일 포맷팅 설정
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
-    "editor.wordWrapColumn": 150
+    "editor.wordWrapColumn": 200
   },
 
   // HTML 파일 포맷팅 설정
