@@ -121,7 +121,7 @@ function highlightTitle(title: string, highlights: string[]): string {
   let highlightedTitle = title;
   highlights.forEach(keyword => {
     const regex = new RegExp(`(${keyword})`, 'gi');
-    highlightedTitle = highlightedTitle.replace(regex, '<span class="text-primary">$1</span>');
+    highlightedTitle = highlightedTitle.replace(regex, '<span class="highlight">$1</span>');
   });
 
   return highlightedTitle;
