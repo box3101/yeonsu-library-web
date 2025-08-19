@@ -5,6 +5,7 @@ export interface Props {
     label: string;
     count?: number;
     active?: boolean;
+    icon?: string;
   }>;
   variant?: 'default' | 'pills' | 'minimal';
   size?: 'small' | 'medium' | 'large';
@@ -20,14 +21,7 @@ const {
   className = '',
 } = Astro.props;
 
-const tabClasses = [
-  'ui-tab',
-  `ui-tab--${variant}`,
-  `ui-tab--${size}`,
-  className,
-]
-  .filter(Boolean)
-  .join(' ');
+const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className].filter(Boolean).join(' ');
 ---
 
 <div class={tabClasses}>
@@ -40,14 +34,14 @@ const tabClasses = [
           aria-selected={tab.active}
           aria-controls={`panel-${tab.id}`}
           id={`tab-${tab.id}`}
-          data-tab-target={tab.id}
-        >
-          <span class="ui-tab__label">{tab.label}</span>
-          {showCount && tab.count !== undefined && (
-            <span class="ui-tab__count">
-              ({tab.count.toString().padStart(4, '0')})
-            </span>
+          data-tab-target={tab.id}>
+          {tab.icon && (
+            <div class="ui-tab__icon">
+              <img src={tab.icon} alt={tab.label} />
+            </div>
           )}
+          <span class="ui-tab__label">{tab.label}</span>
+          {showCount && tab.count !== undefined && <span class="ui-tab__count">({tab.count.toString().padStart(4, '0')})</span>}
         </button>
       ))
     }

@@ -1,0 +1,42 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '카테고리분류' }];
+
+const tabs = [
+  { label: '소설', id: 'novel', icon: './assets/images/icon/icon_ctgr.svg', active: true },
+  { label: '에세이/시/희곡', id: 'essay', icon: './assets/images/icon/icon_ctgr-1.svg', active: false },
+  { label: '인문', id: 'humanities', icon: './assets/images/icon/icon_ctgr-2.svg', active: false },
+  { label: '자기계발', id: 'selfdev', icon: './assets/images/icon/icon_ctgr-3.svg', active: false },
+  { label: '경제/경영', id: 'economy', icon: './assets/images/icon/icon_ctgr-4.svg', active: false },
+  { label: '가정/취미/실용', id: 'lifestyle', icon: './assets/images/icon/icon_ctgr-5.svg', active: false },
+  { label: '의학/건강', id: 'health', icon: './assets/images/icon/icon_ctgr-6.svg', active: false },
+  { label: '여행/지리', id: 'travel', icon: './assets/images/icon/icon_ctgr-7.svg', active: false },
+  { label: '과학/기술', id: 'science', icon: './assets/images/icon/icon_ctgr-8.svg', active: false },
+  { label: '사회과학', id: 'social', icon: './assets/images/icon/icon_ctgr-9.svg', active: false },
+  { label: '종교', id: 'religion', icon: './assets/images/icon/icon_ctgr-10.svg', active: false },
+  { label: '역사/문학', id: 'history', icon: './assets/images/icon/icon_ctgr-11.svg', active: false },
+  { label: '인물/평전', id: 'biography', icon: './assets/images/icon/icon_ctgr-12.svg', active: false },
+  { label: '예술/대중문화', id: 'art', icon: './assets/images/icon/icon_ctgr-13.svg', active: false },
+  { label: '외국어', id: 'language', icon: './assets/images/icon/icon_ctgr-14.svg', active: false },
+  { label: '컴퓨터', id: 'computer', icon: './assets/images/icon/icon_ctgr-15.svg', active: false },
+  { label: '수험서/자격증/취업', id: 'exam', icon: './assets/images/icon/icon_ctgr-16.svg', active: false },
+  { label: '사전', id: 'dictionary', icon: './assets/images/icon/icon_ctgr-17.svg', active: false },
+  { label: '만화', id: 'comic', icon: './assets/images/icon/icon_ctgr-18.svg', active: false },
+  { label: '잡지', id: 'magazine', icon: './assets/images/icon/icon_ctgr-19.svg', active: false },
+  { label: '유아', id: 'infant', icon: './assets/images/icon/icon_ctgr-20.svg', active: false },
+  { label: '어린이', id: 'children', icon: './assets/images/icon/icon_ctgr-21.svg', active: false },
+  { label: '청소년', id: 'teenager', icon: './assets/images/icon/icon_ctgr-22.svg', active: false },
+  { label: '부모', id: 'parent', icon: './assets/images/icon/icon_ctgr-23.svg', active: false },
+];
+---
+
+<Layout title="카테고리분류">
+  <SubLayout title="카테고리분류" breadcrumbItems={breadcrumbItems}>
+    <UiTab tabs={tabs} variant="default" className="category-tabs ui-tab--grid-6" />
+
+    <div id="panel-novel" class="ui-tab-panel ui-tab-panel--active">1</div>
+  </SubLayout>
+</Layout>

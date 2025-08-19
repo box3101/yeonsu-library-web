@@ -30398,6 +30398,104 @@ h6 {
 }
 
 /* ========================================
+   카테고리 탭
+======================================== */
+.category-tabs.ui-tab--grid-6 .ui-tab__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+@media (max-width: 900px) {
+  .category-tabs.ui-tab--grid-6 .ui-tab__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button {
+  background: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 6.25rem;
+  border: 1px solid #cbcccc;
+  background: #f1f2f2;
+  min-height: 9.375rem;
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button:after {
+  display: none;
+}
+@media (max-width: 900px) {
+  .category-tabs.ui-tab--grid-6 .ui-tab__button {
+    padding: 1rem 0.5rem;
+    font-size: 0.875rem;
+    min-height: 4.375rem;
+  }
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button:hover:not(.ui-tab__button--active) {
+  background: #f8f9fa;
+  color: #495057;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button--active {
+  background: #ecf2f9;
+  color: #191a1a !important;
+  font-weight: 600;
+  z-index: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  border: 2px solid var(--color-primary-pr04, #6494ce);
+}
+@media (max-width: 900px) {
+  .category-tabs.ui-tab--grid-6 .ui-tab__button--active {
+    transform: translateY(0);
+  }
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button--active .ui-tab__label {
+  color: #ffffff;
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button .ui-tab__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media (max-width: 900px) {
+  .category-tabs.ui-tab--grid-6 .ui-tab__button .ui-tab__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.375rem;
+  }
+}
+.category-tabs.ui-tab--grid-6 .ui-tab__button .ui-tab__label {
+  display: block;
+  line-height: 1.4;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a !important;
+}
+@media (max-width: 900px) {
+  .category-tabs.ui-tab--grid-6 .ui-tab__button .ui-tab__label {
+    font-size: 0.75rem;
+  }
+}
+
+/* ========================================
    검색 필터 섹션
 ======================================== */
 .search-filter-section {

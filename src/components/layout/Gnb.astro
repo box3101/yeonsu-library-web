@@ -4,16 +4,16 @@ const menuData = [
     title: '도서검색',
     type: '3depth',
     items: [
-      { label: '소장도서검색', href: '/01_소장도서검색', isSelected: false },
-      { label: '통합검색', href: '/05_통합검색', isSelected: false },
+      { label: '소장도서검색', href: './01_소장도서검색', isSelected: false },
+      { label: '통합검색', href: './05_통합검색', isSelected: false },
       {
         label: '인기/신착/추천도서',
         href: '/search/popular',
         isSelected: true,
         subItems: [
-          { label: '인기도서', href: '/06_인기도서', isSelected: true },
-          { label: '신착도서', href: '/07_신착도서', isSelected: false },
-          { label: '추천도서', href: '/08_추천도서', isSelected: false },
+          { label: '인기도서', href: './06_인기도서', isSelected: true },
+          { label: '신착도서', href: './07_신착도서', isSelected: false },
+          { label: '추천도서', href: './08_추천도서', isSelected: false },
         ],
       },
       { label: '인생서가', href: '/search/life-books', isSelected: false },
@@ -23,8 +23,8 @@ const menuData = [
         href: '/search/explore',
         isSelected: false,
         subItems: [
-          { label: '카테고리분류', href: '/search/explore/category', isSelected: false },
-          { label: '한국십진분류', href: '/search/explore/decimal', isSelected: false },
+          { label: '카테고리분류', href: './09_카테고리분류', isSelected: false },
+          { label: '한국십진분류', href: './10_한국십진분류', isSelected: false },
         ],
       },
       { label: '스마트도서관비치도서', href: '/02_스마트도서관비치도서', isSelected: false },
@@ -224,9 +224,7 @@ const menuData = [
   {
     title: '개발가이드',
     type: '1depth',
-    items: [
-      { label: '개발가이드', href: '/guide', isSelected: true },
-    ],
+    items: [{ label: '개발가이드', href: '/guide', isSelected: true }],
   },
 ];
 ---
@@ -235,89 +233,72 @@ const menuData = [
   <div class="gnb-main">
     <div class="gnb-container">
       <ul class="gnb-main-list" role="menubar">
-        {menuData.map((menu, index) => (
-          <li class="gnb-main-item" role="none">
-            <a
-              href={menu.items[0]?.href}
-              class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
-              role="menuitem"
-              data-menu-index={index}
-            >
-              <span class="gnb-main-text">{menu.title}</span>
+        {
+          menuData.map((menu, index) => (
+            <li class="gnb-main-item" role="none">
+              <a href={menu.items[0]?.href} class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`} role="menuitem" data-menu-index={index}>
+                <span class="gnb-main-text">{menu.title}</span>
+                {menu.type !== '1depth' && <i class="icon icon-sm icon-arrow-down" aria-hidden="true" />}
+              </a>
+
+              {/* 서브메뉴 */}
               {menu.type !== '1depth' && (
-                <i class="icon icon-sm icon-arrow-down" aria-hidden="true"></i>
-              )}
-            </a>
-
-            {/* 서브메뉴 */}
-            {menu.type !== '1depth' && (
-              <div class="gnb-sub" hidden>
-                <div class="gnb-container">
-                  <div class="gnb-sub-content">
-                    <!-- 1depth 제목 -->
-                    <div class="gnb-sub-title">
-                      <h2 class="gnb-sub-title-text">{menu.title}</h2>
-                    </div>
-
-                    <!-- 2depth 메뉴 -->
-                    <div class="gnb-sub-menu">
-                      {menu.items.map((item, itemIndex) => (
-                        <div
-                          class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}
-                          data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
-                        >
-                          <a
-                            href={item.href}
-                            class="gnb-sub-link"
-                            role="menuitem"
-                          >
-                            <span class="gnb-sub-text">{item.label}</span>
-                            {item.subItems && (
-                              <i class="icon icon-xsm icon-arrow-right" aria-hidden="true"></i>
-                            )}
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-
-                    <!-- 3depth 메뉴 -->
-                    <div class="gnb-third" role="region" aria-label="세부 메뉴">
-                      <div class="gnb-third-title">
-                        <h3 class="gnb-third-title-text" data-third-title>
-                          {(() => {
-                            const selectedItem = menu.items.find(item => item.isSelected);
-                            const targetItem = selectedItem || menu.items[0];
-                            return targetItem?.label || '메뉴';
-                          })()}
-                        </h3>
+                <div class="gnb-sub" hidden>
+                  <div class="gnb-container">
+                    <div class="gnb-sub-content">
+                      <div class="gnb-sub-title">
+                        <h2 class="gnb-sub-title-text">{menu.title}</h2>
                       </div>
-                      <div class="gnb-third-items" data-third-items>
-                        <div class="gnb-third-column">
-                          {(() => {
-                            const selectedItem = menu.items.find(item => item.isSelected);
-                            const targetItem = selectedItem || menu.items[0];
 
-                            if (targetItem?.subItems && targetItem.subItems.length > 0) {
-                              return targetItem.subItems.map((item) => (
-                                <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
-                                  <a href={item.href} class="gnb-third-link">
-                                    <span class="gnb-third-text">{item.label}</span>
-                                  </a>
-                                </div>
-                              ));
-                            }
-                            // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
-                            return null;
-                          })()}
+                      <div class="gnb-sub-menu">
+                        {menu.items.map((item, itemIndex) => (
+                          <div class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`} data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}>
+                            <a href={item.href} class="gnb-sub-link" role="menuitem">
+                              <span class="gnb-sub-text">{item.label}</span>
+                              {item.subItems && <i class="icon icon-xsm icon-arrow-right" aria-hidden="true" />}
+                            </a>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div class="gnb-third" role="region" aria-label="세부 메뉴">
+                        <div class="gnb-third-title">
+                          <h3 class="gnb-third-title-text" data-third-title>
+                            {(() => {
+                              const selectedItem = menu.items.find(item => item.isSelected);
+                              const targetItem = selectedItem || menu.items[0];
+                              return targetItem?.label || '메뉴';
+                            })()}
+                          </h3>
+                        </div>
+                        <div class="gnb-third-items" data-third-items>
+                          <div class="gnb-third-column">
+                            {(() => {
+                              const selectedItem = menu.items.find(item => item.isSelected);
+                              const targetItem = selectedItem || menu.items[0];
+
+                              if (targetItem?.subItems && targetItem.subItems.length > 0) {
+                                return targetItem.subItems.map(item => (
+                                  <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
+                                    <a href={item.href} class="gnb-third-link">
+                                      <span class="gnb-third-text">{item.label}</span>
+                                    </a>
+                                  </div>
+                                ));
+                              }
+                              // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
+                              return null;
+                            })()}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </li>
-        ))}
+              )}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
