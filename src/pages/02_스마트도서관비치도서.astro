@@ -56,7 +56,7 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
         <div class="search-result__header">
           <h3 class="search-result__title">
             <strong class="text-primary">[홍길동]</strong> 에 대한 검색 결과 총
-            <span class="highlight">190</span>건
+            <span class="text-blue-600">190</span>건
           </h3>
           <div class="search-result__controls">
             <div class="search-result__checkbox">
@@ -65,13 +65,14 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
             <div class="search-result__select">
               <UiSelect
                 options={[
+                  { value: '출력건수', label: '출력건수' },
                   { value: '10', label: '10건' },
                   { value: '20', label: '20건' },
                   { value: '50', label: '50건' },
                   { value: '100', label: '100건' },
                 ]}
-                value="10"
-                class="search-result__select-input"
+                value="출력건수"
+                class="search-result__select-input w-150"
               />
             </div>
           </div>
@@ -105,7 +106,7 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
             <div class="card-container__item">
               <UiSmartLibraryBookCard
                 index={i + 1}
-                title="초등학생이 알아야 할 과학 상식 100가지"
+                title="글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트"
                 author="박과학 지음"
                 publisher="과학나라"
                 publishYear="2024"

@@ -947,7 +947,7 @@
     gap: to-rem(12);
 
     @include tablet {
-      justify-content: flex-start;
+      justify-content: space-between;
       gap: to-rem(8);
     }
   }

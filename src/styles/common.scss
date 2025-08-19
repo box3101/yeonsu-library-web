@@ -1392,3 +1392,24 @@ img {
   background: #d8e4f3;
   padding: 4px to-rem(4);
 }
+
+.text-blue-600 {
+  color: $primary-color;
+}
+
+.radio-container__item {
+  @include mobile {
+    flex-wrap: wrap;
+    gap: to-rem(16);
+    .ui-radio.ui-radio--medium {
+      max-width: calc(50% - 8px);
+    }
+  }
+  .ui-radio--medium .ui-radio__title {
+    @include mobile {
+      font-size: to-rem(15);
+      font-weight: 700;
+      color: #000;
+    }
+  }
+}
