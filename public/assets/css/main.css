@@ -31396,6 +31396,10 @@ h6 {
   background-color: #ffb114;
   color: #ffffff;
 }
+.ui-book-card__badge--default {
+  background-color: #7d8181;
+  color: #ffffff;
+}
 .ui-book-card__badge--tertiary {
   background-color: #6b7280;
   color: #ffffff;
@@ -33037,6 +33041,13 @@ body.modal-open {
   white-space: nowrap;
   max-width: 100%;
 }
+.ui-table__text .bold {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: 1.5;
+  line-height: 1;
+  color: #4b4d4d;
+}
 .ui-table__text--link {
   text-decoration: none;
   color: #464c53;
@@ -33443,7 +33454,7 @@ body.modal-open {
 }
 
 .book-swiper {
-  margin: 0 54px;
+  margin: 0 54px !important;
 }
 .book-swiper ul.swiper-wrapper {
   display: flex;

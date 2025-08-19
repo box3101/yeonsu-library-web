@@ -527,6 +527,11 @@
     white-space: nowrap;
     max-width: 100%;
 
+    .bold {
+      @include font(to-rem(15), 700, 1.5);
+      color: #4b4d4d;
+    }
+
     &--link {
       text-decoration: none;
       color: #464c53;

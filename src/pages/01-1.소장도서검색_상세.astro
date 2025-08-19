@@ -12,7 +12,7 @@ const columns = [
   {
     key: 'title',
     label: '도서관',
-    width: '145px',
+    width: '160px',
     headerAlign: 'center',
     align: 'center',
   },
@@ -69,7 +69,7 @@ const collectionData = [
 // 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
 const rows = collectionData.map((item, index) => ({
   id: index + 1,
-  title: item.library + ' ' + item.readingRoom, // 도서관명 + 자료실명
+  title: `<span class="bold">[${item.library}]</span> ${item.readingRoom}`, // 도서관명 + 자료실명
   status: item.loanStatus, // 대출상태
   dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
   service: [
@@ -171,6 +171,7 @@ const books = [
           badges={[
             { label: 'DVD', type: 'success', size: 'large' },
             { label: '대출불가', type: 'warning' },
+            { label: '예약 0명', type: 'default' },
           ]}
           title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
           titleHighlights={['탐정']}
@@ -200,8 +201,8 @@ const books = [
         <UiAccordion title="책소개" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
-              일반의 집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의
+              집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>
@@ -210,8 +211,8 @@ const books = [
         <UiAccordion title="목차" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
-              일반의 집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의
+              집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>
@@ -220,8 +221,8 @@ const books = [
         <UiAccordion title="사서추천도서" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="book-description">
             <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의 집단무의식으로서의 동시대인들
-              일반의 집단무의식의 흐름을 이룬다.
+              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의 흐름이 아니라 일종의
+              집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
             </p>
           </div>
         </UiAccordion>

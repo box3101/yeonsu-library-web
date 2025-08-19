@@ -62,29 +62,13 @@ export interface Props {
   stickyHeader?: boolean;
 }
 
-const {
-  columns,
-  rows,
-  id,
-  class: className = '',
-  caption,
-  showCheckbox = false,
-  showIndex = true,
-  showStatus = false,
-  maxHeight,
-  stickyHeader = false,
-  ...rest
-} = Astro.props;
+const { columns, rows, id, class: className = '', caption, showCheckbox = false, showIndex = true, showStatus = false, maxHeight, stickyHeader = false, ...rest } = Astro.props;
 
 const tableId = id || `table-${Math.random().toString(36).substr(2, 9)}`;
 const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
 ---
 
-<div
-  class={`ui-table-wrapper ${stickyHeader ? 'ui-table-wrapper--sticky' : ''} ${className}`}
-  style={wrapperStyles}
-  {...rest}
->
+<div class={`ui-table-wrapper ${stickyHeader ? 'ui-table-wrapper--sticky' : ''} ${className}`} style={wrapperStyles} {...rest}>
   <table class="ui-table" id={tableId}>
     {caption && <caption class="ui-table__caption">{caption}</caption>}
 
@@ -93,44 +77,21 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
         {
           showCheckbox && (
             <th class="ui-table__cell ui-table__cell--head ui-table__cell--checkbox">
-              <input
-                type="checkbox"
-                class="ui-table__checkbox"
-                aria-label="전체 선택"
-              />
+              <input type="checkbox" class="ui-table__checkbox" aria-label="전체 선택" />
             </th>
           )
         }
 
-        {
-          showIndex && (
-            <th class="ui-table__cell ui-table__cell--head ui-table__cell--index">
-              번호
-            </th>
-          )
-        }
+        {showIndex && <th class="ui-table__cell ui-table__cell--head ui-table__cell--index">번호</th>}
 
         {
           columns.map(column => (
-            <th
-              class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`}
-              style={column.width ? `width: ${column.width}` : undefined}
-            >
-              <div
-                class={`ui-table__cell-content ui-table__cell-content--${column.headerAlign || column.align || 'left'}`}
-              >
+            <th class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`} style={column.width ? `width: ${column.width}` : undefined}>
+              <div class={`ui-table__cell-content ui-table__cell-content--${column.headerAlign || column.align || 'left'}`}>
                 {column.label}
                 {column.sortable && (
-                  <button
-                    class="ui-table__sort-btn"
-                    type="button"
-                    aria-label={`${column.label} 정렬`}
-                  >
-                    <svg
-                      class="ui-table__sort-icon"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                    >
+                  <button class="ui-table__sort-btn" type="button" aria-label={`${column.label} 정렬`}>
+                    <svg class="ui-table__sort-icon" viewBox="0 0 12 12" fill="none">
                       <path d="M6 2L9 5H3L6 2Z" fill="currentColor" />
                       <path d="M6 10L3 7H9L6 10Z" fill="currentColor" />
                     </svg>
@@ -141,13 +102,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
           ))
         }
 
-        {
-          showStatus && (
-            <th class="ui-table__cell ui-table__cell--head ui-table__cell--action">
-              처리상태
-            </th>
-          )
-        }
+        {showStatus && <th class="ui-table__cell ui-table__cell--head ui-table__cell--action">처리상태</th>}
       </tr>
     </thead>
 
@@ -157,33 +112,19 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
           <tr class="ui-table__row ui-table__row--body">
             {showCheckbox && (
               <td class="ui-table__cell ui-table__cell--body ui-table__cell--checkbox">
-                <input
-                  type="checkbox"
-                  class="ui-table__checkbox"
-                  value={row.id || index}
-                  aria-label={`${index + 1}번 행 선택`}
-                />
+                <input type="checkbox" class="ui-table__checkbox" value={row.id || index} aria-label={`${index + 1}번 행 선택`} />
               </td>
             )}
 
-            {showIndex && (
-              <td class="ui-table__cell ui-table__cell--body ui-table__cell--index">
-                {row.number || rows.length - index}
-              </td>
-            )}
+            {showIndex && <td class="ui-table__cell ui-table__cell--body ui-table__cell--index">{row.number || rows.length - index}</td>}
 
             {columns.map(column => {
               const cellValue = row[column.key];
               const columnType = column.type || 'text';
 
               return (
-                <td
-                  class="ui-table__cell ui-table__cell--body"
-                  style={column.width ? `width: ${column.width}` : undefined}
-                >
-                  <div
-                    class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}
-                  >
+                <td class="ui-table__cell ui-table__cell--body" style={column.width ? `width: ${column.width}` : undefined}>
+                  <div class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}>
                     {/* 텍스트 타입 */}
                     {columnType === 'text' &&
                       // 제목 컬럼인지 확인 (column.key가 'title'인 경우)
@@ -198,23 +139,15 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
 
                           {/* 제목 텍스트 */}
                           {row.href ? (
-                            <a
-                              href={row.href}
-                              class="ui-table__text ui-table__text--link"
-                              aria-label={`${cellValue} 상세보기`}
-                            >
+                            <a href={row.href} class="ui-table__text ui-table__text--link" aria-label={`${cellValue} 상세보기`}>
                               {cellValue}
                             </a>
                           ) : (
-                            <span class="ui-table__text">{cellValue}</span>
+                            <span class="ui-table__text" set:html={cellValue} />
                           )}
 
                           {/* NEW 배지 */}
-                          {row.isNew && (
-                            <span class="ui-table__badge ui-table__badge--new">
-                              N
-                            </span>
-                          )}
+                          {row.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
                         </div>
                       ) : (
                         // 일반 텍스트 컬럼
@@ -222,24 +155,12 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                       ))}
 
                     {/* 배지 타입 */}
-                    {columnType === 'badge' && cellValue && (
-                      <span
-                        class={`ui-table__badge ui-table__badge--${cellValue.toLowerCase()}`}
-                      >
-                        {cellValue}
-                      </span>
-                    )}
+                    {columnType === 'badge' && cellValue && <span class={`ui-table__badge ui-table__badge--${cellValue.toLowerCase()}`}>{cellValue}</span>}
 
                     {/* 단일 버튼 타입 */}
                     {columnType === 'button' && cellValue && (
-                      <button
-                        type="button"
-                        class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`}
-                        onclick={cellValue.onClick}
-                      >
-                        {typeof cellValue === 'string'
-                          ? cellValue
-                          : cellValue.text}
+                      <button type="button" class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`} onclick={cellValue.onClick}>
+                        {typeof cellValue === 'string' ? cellValue : cellValue.text}
                       </button>
                     )}
 
@@ -247,12 +168,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                     {columnType === 'buttons' && Array.isArray(cellValue) && (
                       <div class="ui-table__button-group">
                         {cellValue.map((button, btnIndex) => (
-                          <button
-                            key={btnIndex}
-                            type="button"
-                            class={`ui-table__button ui-table__button--${button.variant || 'default'}`}
-                            onclick={button.onClick}
-                          >
+                          <button key={btnIndex} type="button" class={`ui-table__button ui-table__button--${button.variant || 'default'}`} onclick={button.onClick}>
                             {button.text}
                           </button>
                         ))}
@@ -260,12 +176,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                     )}
 
                     {/* 아이콘 타입 */}
-                    {columnType === 'icon' && cellValue && (
-                      <i
-                        class={`ui-table__icon ${cellValue}`}
-                        aria-hidden="true"
-                      />
-                    )}
+                    {columnType === 'icon' && cellValue && <i class={`ui-table__icon ${cellValue}`} aria-hidden="true" />}
 
                     {/* 새로운 title 타입 */}
                     {columnType === 'title' && cellValue && (
@@ -280,22 +191,14 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                         {/* 제목 링크 또는 텍스트 */}
                         {cellValue.href ? (
                           <a href={cellValue.href} class="ui-table__title-link">
-                            <span class="ui-table__title-text">
-                              {cellValue.text}
-                            </span>
+                            <span class="ui-table__title-text">{cellValue.text}</span>
                           </a>
                         ) : (
-                          <span class="ui-table__title-text">
-                            {cellValue.text}
-                          </span>
+                          <span class="ui-table__title-text">{cellValue.text}</span>
                         )}
 
                         {/* NEW 배지 */}
-                        {cellValue.isNew && (
-                          <span class="ui-table__badge ui-table__badge--new">
-                            N
-                          </span>
-                        )}
+                        {cellValue.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
                       </div>
                     )}
                   </div>
@@ -306,13 +209,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
             {showStatus && (
               <td class="ui-table__cell ui-table__cell--body ui-table__cell--action">
                 <div class="ui-table__cell-content ui-table__cell-content--center">
-                  {row.status && (
-                    <span
-                      class={`ui-table__badge ui-table__badge--${row.status.toLowerCase().replace(' ', '-')}`}
-                    >
-                      {row.status}
-                    </span>
-                  )}
+                  {row.status && <span class={`ui-table__badge ui-table__badge--${row.status.toLowerCase().replace(' ', '-')}`}>{row.status}</span>}
                 </div>
               </td>
             )}

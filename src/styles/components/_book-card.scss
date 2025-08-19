@@ -212,6 +212,11 @@
       color: $white;
     }
 
+    &--default {
+      background-color: #7d8181;
+      color: $white;
+    }
+
     &--tertiary {
       background-color: $gray-500;
       color: $white;
