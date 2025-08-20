@@ -1310,6 +1310,7 @@
     gap: to-rem(15);
     &__item {
       flex: 1;
+      width: 100% !important;
     }
   }
 }

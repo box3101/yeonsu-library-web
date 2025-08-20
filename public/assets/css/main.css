@@ -34860,6 +34860,7 @@ h6 {
   }
   .statistics-content__item {
     flex: 1;
+    width: 100% !important;
   }
 }
 
