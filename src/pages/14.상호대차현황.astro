@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiPagination from '../components/UI/UiPagination.astro';
+import UiTable from '../components/UI/UiTable.astro';
+import UiSelect from '../components/UI/UiSelect.astro';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '상호대차현황' }];
+const columns = [
+  { label: '도서명', key: 'title', align: 'left', headerAlign: 'center', width: '40%', minWidth: '200px' },
+  { label: '신청일', key: 'applyDate', align: 'center', headerAlign: 'center', width: '15%', minWidth: '100px' },
+  { label: '소장도서관', key: 'library', align: 'center', headerAlign: 'center', width: '25%', minWidth: '150px' },
+  { label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '10%', minWidth: '80px' },
+  { label: '예약취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '15%', minWidth: '100px', type: 'button' },
+];
+
+const rows = [
+  {
+    title: '(라임맘의 실패 없는) 아이주도 이유식 & 유아식',
+    applyDate: '2025.05.01',
+    library: '옥련2동어린이작은도서관',
+    status: '신청',
+    cancel: '취소하기',
+  },
+  {
+    title: '아이주도 이유식 유아식 매뉴얼 : 스스로, 그리고 함께하는 행복한 맘마',
+    applyDate: '2025.05.01',
+    library: '옥련2동어린이작은도서관',
+    status: '신청',
+    cancel: '취소불가',
+  },
+  {
+    title: '세상 편한 서현이네 유아 식판식 : 초보 엄마들도 쉽게 따라 할 수 있는 맞춤형 유아식',
+    applyDate: '2025.05.01',
+    library: '옥련2동어린이작은도서관',
+    status: '신청',
+    cancel: '취소불가',
+  },
+];
+---
+
+<Layout title="상호대차현황">
+  <SubLayout title="상호대차현황" breadcrumbItems={breadcrumbItems}>
+    <div class="search-container">
+      <!-- 상단 필터 섹션 -->
+      <div class="search-info-summary type2 flex justify-between items-center">
+        <div class="mb0">총 <strong>190</strong>건 (<strong>1</strong> / 00)</div>
+        <div class="filter-actions flex gap-2 items-center">
+          <UiSelect
+            name="status-filter"
+            placeholder="신청현황"
+            options={[
+              { value: 'all', label: '전체' },
+              { value: 'applied', label: '신청완료' },
+              { value: 'processing', label: '처리중' },
+              { value: 'completed', label: '완료' },
+              { value: 'cancelled', label: '취소' },
+            ]}
+            value=""
+            class="w-200"
+          />
+        </div>
+      </div>
+
+      <!-- 테이블 -->
+      <UiTable columns={columns} rows={rows} showIndex={true} caption="상호대차 신청 현황 목록" />
+
+      <!-- 페이징네비게이션 -->
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

@@ -1,17 +1,18 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiPagination, UiTable } from '@components';
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiPagination from '../components/UI/UiPagination.astro';
+import UiTable from '../components/UI/UiTable.astro';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '대출 현황' }];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '대출현황' }];
 
 const columns = [
-  { label: '도서명', key: 'title', align: 'center', headerAlign: 'center', width: '230px' },
-  { label: '대출일', key: 'loanDate', align: 'center', headerAlign: 'center', width: '130px' },
-  { label: '반납예정일', key: 'dueDate', align: 'center', headerAlign: 'center', width: '130px' },
-  { label: '소장도서관', key: 'library', align: 'center', headerAlign: 'center', width: '150px' },
-  { label: '상태', key: 'status', align: 'center', headerAlign: 'center', width: '100px' },
-  { label: '반납연기', key: 'extend', type: 'button', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '도서명', key: 'title', align: 'left', headerAlign: 'center', width: 'auto', minWidth: '200px' },
+  { label: '대출일', key: 'loanDate', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '반납예정일', key: 'dueDate', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '소장도서관', key: 'library', align: 'center', headerAlign: 'center', width: '180px' },
+  { label: '상태', key: 'status', align: 'center', headerAlign: 'center', width: '80px' },
+  { label: '반납연기', key: 'extend', type: 'button', align: 'center', headerAlign: 'center', width: '100px' },
 ];
 
 const rows = [
@@ -45,8 +46,8 @@ const rows = [
 ];
 ---
 
-<Layout title="대출 현황">
-  <SubLayout title="대출 현황" breadcrumbItems={breadcrumbItems}>
+<Layout title="대출현황">
+  <SubLayout title="대출현황" breadcrumbItems={breadcrumbItems}>
     <div class="search-container">
       <!-- 스마트도서관 이용방법 인포박스 -->
       <div class="infobox infobox--secondary">

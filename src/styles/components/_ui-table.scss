@@ -41,32 +41,28 @@
 .ui-table {
   width: 100%;
   border-collapse: collapse;
-  display: flex;
-  flex-direction: column;
+  table-layout: fixed; // colgroup이 작동하도록 table-layout: fixed 사용
+  min-width: 600px;
+
+  @include mobile {
+    min-width: 500px; // 모바일에서 최소 너비 줄임
+  }
 
   &__caption {
     @include sr-only;
   }
 
   &__head {
-    flex-shrink: 0;
-    display: table;
-    width: 100%;
-    table-layout: fixed;
     background: #edf1f1;
     border-top: 2px solid #004d80;
     border-bottom: 1px solid #cdd1d5;
   }
 
   &__body {
-    flex: 1;
-    display: block;
+    // 기본 tbody 스타일 유지
   }
 
   &__row--body {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
     min-height: to-rem(50);
     border-bottom: 1px solid #cdd1d5;
     transition: background-color 0.2s ease;
@@ -118,7 +114,7 @@
     }
 
     &--body {
-      font-size: to-rem(17);
+      font-size: to-rem(15);
       font-weight: 400;
       color: #464c53;
       padding: to-rem(12) to-rem(16);
@@ -132,32 +128,20 @@
     }
 
     &--checkbox {
-      width: to-rem(48);
       text-align: center;
       padding: to-rem(8) to-rem(12);
 
       @include mobile {
-        width: to-rem(40);
         padding: to-rem(4);
       }
     }
 
     &--index {
-      width: to-rem(80);
       text-align: center;
-
-      @include mobile {
-        width: to-rem(60);
-      }
     }
 
     &--action {
-      width: to-rem(112);
       text-align: center;
-
-      @include mobile {
-        width: to-rem(100);
-      }
     }
 
     &--sortable {
@@ -516,16 +500,16 @@
   }
 
   &__text {
-    font-size: to-rem(17);
+    font-size: to-rem(15);
     font-weight: 400;
     color: #464c53;
     line-height: 1.5;
     word-break: keep-all;
     font-family: $font-family-primary;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100%;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // max-width: 100%;
 
     .bold {
       @include font(to-rem(15), 700, 1.5);
@@ -669,6 +653,33 @@
 
       @include mobile {
         font-size: to-rem(18);
+      }
+    }
+  }
+
+  // Colgroup 스타일링
+  &__col {
+    &--checkbox {
+      width: to-rem(48);
+
+      @include mobile {
+        width: to-rem(40);
+      }
+    }
+
+    &--index {
+      width: to-rem(80);
+
+      @include mobile {
+        width: to-rem(60);
+      }
+    }
+
+    &--status {
+      width: to-rem(112);
+
+      @include mobile {
+        width: to-rem(100);
       }
     }
   }

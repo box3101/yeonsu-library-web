@@ -1,6 +1,8 @@
 # 연수도서관 웹사이트 개발 가이드
  관성을 위해 기존의 UI 컴포넌트들을 재사용하는 것이 좋겠네요. UiSelect, UiInput, UiButton등을 사용하는 것이 좋겠네요.
 
+"너는 똑똑해서 일을 벌여도 감당이 되지만 나는 안되니까. 단순화하고 나중에 헷갈리지 않게 주석만 길게 붙여줘. 타입스크립트 이런거 빼고"
+
 ## 📋 프로젝트 개요
 - **타입**: 퍼블리싱 전용 프로젝트 (백엔드 없음)
 - **프레임워크**: Astro 4.15.0 기반 정적 사이트
@@ -66,7 +68,7 @@ public/assets/js/
 
 // 반응형
 @include mobile    // max-width: 900px
-@include tablet    // 900px ~ 1200px  
+@include tablet    // 900px ~ 1200px
 @include desktop   // min-width: 1200px
 
 // 버튼
@@ -151,7 +153,7 @@ export interface Props {
   &__text { }                   // Element
   &__icon { }                   // Element
   &__spinner { }                // Element
-  
+
   &--primary { }                // Modifier (variant)
   &--secondary { }              // Modifier (variant)
   &--small { }                  // Modifier (size)
@@ -181,7 +183,7 @@ disabled, loading, active, hover, focus
 // Display
 .flex, .inline-flex
 
-// Direction  
+// Direction
 .flex-row, .flex-col, .flex-row-reverse, .flex-col-reverse
 
 // Justify Content
@@ -207,7 +209,7 @@ disabled, loading, active, hover, focus
 .mx{값}, .my{값}  // 축별 margin
 .-m{값}           // 네거티브 margin
 
-// Padding  
+// Padding
 .p{값}, .pt{값}, .pb{값}, .pl{값}, .pr{값}
 .px{값}, .py{값}  // 축별 padding
 
@@ -283,7 +285,7 @@ disabled, loading, active, hover, focus
 // accordion.js 예시
 (function() {
   'use strict';
-  
+
   // LibraryCommon이 로드되었을 때 기능 등록
   if (window.LibraryCommon) {
     window.LibraryCommon.features.accordion = {
@@ -291,33 +293,33 @@ disabled, loading, active, hover, focus
       init: initAccordion
     };
   }
-  
+
   function initAccordion() {
     const accordions = document.querySelectorAll('[data-accordion]');
-    
+
     accordions.forEach(accordion => {
       // 이미 초기화된 경우 스킵
       if (accordion.dataset.accordionInitialized) return;
       accordion.dataset.accordionInitialized = 'true';
-      
+
       const toggle = accordion.querySelector('[data-accordion-toggle]');
       const content = accordion.querySelector('[data-accordion-content]');
-      
+
       if (!toggle || !content) return;
-      
+
       toggle.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        
+
         // 상태 토글
         this.setAttribute('aria-expanded', !isExpanded);
         content.setAttribute('aria-hidden', isExpanded);
-        
+
         // 클래스 토글
         accordion.classList.toggle('is-expanded');
       });
     });
   }
-  
+
   // 수동 호출 가능하도록 전역 함수로도 등록
   window.initAccordion = initAccordion;
 })();
@@ -401,10 +403,10 @@ export const menuConfig = {
   scopedStyleStrategy: 'where',  // CSS 스코핑 전략
   devToolbar: { enabled: false }, // 개발 도구모음 비활성화
   compilerOptions: { sourcemap: true }, // 소스맵 활성화
-  
+
   // Path aliases
   '@': './src',
-  '@components': './src/components',  
+  '@components': './src/components',
   '@ui': './src/components/UI',
   '@styles': './src/styles'
 }
@@ -412,7 +414,7 @@ export const menuConfig = {
 
 ## 🎯 프로젝트 목표
 
-이 프로젝트는 **연수구립도서관 시스템의 프론트엔드 인터페이스**를 구현하는 퍼블리싱 전용 웹사이트입니다. 
+이 프로젝트는 **연수구립도서관 시스템의 프론트엔드 인터페이스**를 구현하는 퍼블리싱 전용 웹사이트입니다.
 
 **핵심 가치:**
 - 📚 사용자 중심의 직관적인 도서 검색 경험

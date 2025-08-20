@@ -36270,8 +36270,13 @@ body.modal-open {
 .ui-table {
   width: 100%;
   border-collapse: collapse;
-  display: flex;
-  flex-direction: column;
+  table-layout: fixed;
+  min-width: 600px;
+}
+@media (max-width: 900px) {
+  .ui-table {
+    min-width: 500px;
+  }
 }
 .ui-table__caption {
   position: absolute;
@@ -36284,22 +36289,11 @@ body.modal-open {
   clip-path: inset(50%);
 }
 .ui-table__head {
-  flex-shrink: 0;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
   background: #edf1f1;
   border-top: 2px solid #004d80;
   border-bottom: 1px solid #cdd1d5;
 }
-.ui-table__body {
-  flex: 1;
-  display: block;
-}
 .ui-table__row--body {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
   min-height: 3.125rem;
   border-bottom: 1px solid #cdd1d5;
   transition: background-color 0.2s ease;
@@ -36348,7 +36342,7 @@ body.modal-open {
   border-right: none;
 }
 .ui-table__cell--body {
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: #464c53;
   padding: 0.75rem 1rem;
@@ -36362,33 +36356,19 @@ body.modal-open {
   }
 }
 .ui-table__cell--checkbox {
-  width: 3rem;
   text-align: center;
   padding: 0.5rem 0.75rem;
 }
 @media (max-width: 900px) {
   .ui-table__cell--checkbox {
-    width: 2.5rem;
     padding: 0.25rem;
   }
 }
 .ui-table__cell--index {
-  width: 5rem;
   text-align: center;
-}
-@media (max-width: 900px) {
-  .ui-table__cell--index {
-    width: 3.75rem;
-  }
 }
 .ui-table__cell--action {
-  width: 7rem;
   text-align: center;
-}
-@media (max-width: 900px) {
-  .ui-table__cell--action {
-    width: 6.25rem;
-  }
 }
 .ui-table__cell--sortable {
   cursor: pointer;
@@ -36730,16 +36710,12 @@ body.modal-open {
   }
 }
 .ui-table__text {
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: #464c53;
   line-height: 1.5;
   word-break: keep-all;
   font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 100%;
 }
 .ui-table__text .bold {
   font-size: 0.9375rem;
@@ -36879,6 +36855,30 @@ body.modal-open {
 @media (max-width: 900px) {
   .ui-table__icon.icon-lg {
     font-size: 1.125rem;
+  }
+}
+.ui-table__col--checkbox {
+  width: 3rem;
+}
+@media (max-width: 900px) {
+  .ui-table__col--checkbox {
+    width: 2.5rem;
+  }
+}
+.ui-table__col--index {
+  width: 5rem;
+}
+@media (max-width: 900px) {
+  .ui-table__col--index {
+    width: 3.75rem;
+  }
+}
+.ui-table__col--status {
+  width: 7rem;
+}
+@media (max-width: 900px) {
+  .ui-table__col--status {
+    width: 6.25rem;
   }
 }
 

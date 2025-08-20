@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiPagination from '../components/UI/UiPagination.astro';
+import UiTable from '../components/UI/UiTable.astro';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '일반예약현황' }];
+
+const columns = [
+  { label: '도서명', key: 'title', align: 'left', headerAlign: 'center', width: 'auto', minWidth: 'auto' },
+  { label: '예약일', key: 'reservationDate', align: 'center', headerAlign: 'center', width: '100px' },
+  { label: '예약만기일', key: 'reservationExpiryDate', align: 'center', headerAlign: 'center', width: '100px' },
+  { label: '소장도서관', key: 'library', align: 'center', headerAlign: 'center', width: '180px' },
+  { label: '순위', key: 'rank', align: 'center', headerAlign: 'center', width: '70px' },
+  { label: '예약상태', key: 'reservationStatus', align: 'center', headerAlign: 'center', width: '90px' },
+  { label: '예약취소', key: 'cancel', type: 'button', align: 'center', headerAlign: 'center', width: '90px' },
+  { label: '전환신청', key: 'transfer', type: 'button', align: 'center', headerAlign: 'center', width: '90px' },
+];
+const rows = [
+  {
+    index: 100,
+    title: '(라임맘의 실패 없는) 아이주도 이유식 & 유아식',
+    reservationDate: '2025.05.01',
+    reservationExpiryDate: '2025.06.01',
+    library: '옥련2동어린이작은도서관',
+    rank: '2',
+    reservationStatus: '예약중',
+    cancel: '취소하기',
+    transfer: '상호대차',
+  },
+  {
+    index: 99,
+    title: '아이주도 이유식 유아식 매뉴얼 : 스스로, 그리고 함께하는 행복한 맘마',
+    reservationDate: '2025.05.01',
+    reservationExpiryDate: '2025.06.01',
+    library: '옥련2동어린이작은도서관',
+    rank: '2',
+    reservationStatus: '예약중',
+    cancel: '취소하기',
+    transfer: '상호대차',
+  },
+  {
+    index: 98,
+    title: '세상 편한 서현이네 유아 식판식 : 초보 엄마들도 쉽게 따라 할 수 있는 맞춤형 유아식',
+    reservationDate: '2025.05.01',
+    reservationExpiryDate: '2025.06.01',
+    library: '옥련2동어린이작은도서관',
+    rank: '2',
+    reservationStatus: '예약중',
+    cancel: '취소하기',
+    transfer: '상호대차',
+  },
+];
+---
+
+<Layout title="일반예약현황">
+  <SubLayout title="일반예약현황" breadcrumbItems={breadcrumbItems}>
+    <div class="search-container">
+      <div class="search-info-summary mt0 flex justify-between">
+        <div class="mb10">총 <strong>190</strong>건 ( <strong>5</strong> / 00 )</div>
+      </div>
+    </div>
+    <!-- 게시글 목록 -->
+    <UiTable columns={columns} rows={rows} showIndex={true} caption="도서관 건의사항 목록" />
+
+    <!-- 페이징네비게이션 -->
+    <div class="pagination-section">
+      <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+    </div>
+  </SubLayout>
+</Layout>

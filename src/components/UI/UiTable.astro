@@ -3,9 +3,11 @@ export interface TableColumn {
   key: string;
   label: string;
   width?: string;
+  minWidth?: string;
   align?: 'left' | 'center' | 'right';
   headerAlign?: 'left' | 'center' | 'right';
   type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon' | 'title'; // title 타입 추가
+  sortable?: boolean; // 정렬 가능 여부
 }
 
 export interface TableButton {
@@ -72,6 +74,18 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
   <table class="ui-table" id={tableId}>
     {caption && <caption class="ui-table__caption">{caption}</caption>}
 
+    <!-- Colgroup으로 컬럼 너비 정의 -->
+    <colgroup>
+      {showCheckbox && <col class="ui-table__col--checkbox" />}
+      {showIndex && <col class="ui-table__col--index" />}
+      {
+        columns.map(column => (
+          <col class={`ui-table__col--${column.key}`} style={column.width ? `width: ${column.width}; min-width: ${column.minWidth || column.width};` : undefined} />
+        ))
+      }
+      {showStatus && <col class="ui-table__col--status" />}
+    </colgroup>
+
     <thead class="ui-table__head">
       <tr class="ui-table__row ui-table__row--head">
         {
@@ -86,7 +100,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
 
         {
           columns.map(column => (
-            <th class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`} style={column.width ? `width: ${column.width}` : undefined}>
+            <th class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`}>
               <div class={`ui-table__cell-content ui-table__cell-content--${column.headerAlign || column.align || 'left'}`}>
                 {column.label}
                 {column.sortable && (
@@ -123,7 +137,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
               const columnType = column.type || 'text';
 
               return (
-                <td class="ui-table__cell ui-table__cell--body" style={column.width ? `width: ${column.width}` : undefined}>
+                <td class="ui-table__cell ui-table__cell--body">
                   <div class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}>
                     {/* 텍스트 타입 */}
                     {columnType === 'text' &&
@@ -168,7 +182,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                     {columnType === 'buttons' && Array.isArray(cellValue) && (
                       <div class="ui-table__button-group">
                         {cellValue.map((button, btnIndex) => (
-                          <button key={btnIndex} type="button" class={`ui-table__button ui-table__button--${button.variant || 'default'}`} onclick={button.onClick}>
+                          <button type="button" class={`ui-table__button ui-table__button--${button.variant || 'default'}`} onclick={button.onClick}>
                             {button.text}
                           </button>
                         ))}

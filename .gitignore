@@ -32,3 +32,6 @@ pnpm-debug.log*
 .env.development
 .env.test
 .env.production
+
+# zip 파일
+*.zip
