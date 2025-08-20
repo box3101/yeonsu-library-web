@@ -1,18 +1,41 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import SubLayout from '@/components/layout/SubLayout.astro';
-import UiAccordion from '@/components/UI/UiAccordion.astro';
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiAccordion from '../components/UI/UiAccordion.astro';
+import UiButton from '../components/UI/UiButton.astro';
 
 const breadcrumbItems = [
   { label: '홈', href: '/' },
   { label: '나의도서관', href: '/my-library' },
   { label: '내책장', href: '/my-library/my-shelf' },
 ];
+
+// 책장 데이터
+const bookshelves = [
+  {
+    id: 'my-library',
+    title: '내서재',
+    count: 10,
+    href: '/my-library',
+  },
+  {
+    id: 'favorite-books',
+    title: '좋아하는책',
+    count: 5,
+    href: '/favorite-books',
+  },
+  {
+    id: 'bookshelf-3',
+    title: '책장명 3',
+    count: 8,
+    href: '/bookshelf-3',
+  },
+];
 ---
 
 <Layout title="내책장">
   <SubLayout title="내책장" breadcrumbItems={breadcrumbItems}>
-    <UiAccordion title="도서관 내 책장 이용안내" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+    <UiAccordion title="도서관 내 책장 이용안내" variant="bordered" size="medium" iconType="chevron" isExpanded={false} className="custom-accordion">
       <div class="book-description">
         <ul class="book-shelf-guide">
           <li>내책장을 통해 관심자료를 손쉽게 등록, 관리할 수 있습니다.</li>
@@ -28,5 +51,47 @@ const breadcrumbItems = [
         </ul>
       </div>
     </UiAccordion>
+
+    <!-- 내 책장 메인 컨테이너 -->
+    <div class="my-bookshelf">
+      <!-- 헤더 섹션 -->
+      <div class="my-bookshelf__header">
+        <div class="my-bookshelf__header-content">
+          <h2 class="my-bookshelf__title">내 책장을 만들고 추가해 보세요!</h2>
+          <div class="my-bookshelf__edit-button">
+            <span class="my-bookshelf__edit-text">책장편집하기</span>
+            <i class="icon icon-sm icon-setting"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 책장 카드 목록 -->
+      <div class="my-bookshelf__cards">
+        {
+          bookshelves.map(bookshelf => (
+            <div class="bookshelf-card">
+              <div class="bookshelf-card__content">
+                <div class="bookshelf-card__header">
+                  <div class="bookshelf-card__title-group">
+                    <h3 class="bookshelf-card__title">{bookshelf.title}</h3>
+                    <div class="bookshelf-card__badge">
+                      <span class="bookshelf-card__count">{bookshelf.count}건</span>
+                    </div>
+                  </div>
+                </div>
+                <UiButton
+                  variant="secondary"
+                  text="전체보기"
+                  icon="icon icon-xxsm icon-arrow-right icon-primary"
+                  iconPosition="right"
+                  href={bookshelf.href}
+                  class="w-full"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </SubLayout>
 </Layout>

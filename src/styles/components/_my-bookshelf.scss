@@ -1,0 +1,241 @@
+@use '../globals' as *;
+
+// ================================
+// 내 책장 컴포넌트 스타일
+// ================================
+
+.my-bookshelf {
+  @include flex(column, flex-start, center, nowrap);
+  gap: to-rem(24);
+  padding: to-rem(24);
+  background-color: #ecf2f9;
+  border-radius: to-rem(6);
+  width: 100%;
+
+  // 모바일에서는 패딩 줄이기
+  @include mobile {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* 헤더 섹션 */
+  &__header {
+    @include flex(column, flex-start, stretch, nowrap);
+    gap: to-rem(16);
+    width: 100%;
+
+    @include mobile {
+      gap: 16px;
+    }
+  }
+
+  &__header-content {
+    @include flex(row, space-between, center, nowrap);
+    gap: to-rem(16);
+    width: 100%;
+
+    @include mobile {
+      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    @include font(to-rem(19), 700, #000);
+    margin: 0;
+
+    @include mobile {
+      @include font(to-rem(17), 700, #000);
+    }
+  }
+
+  &__edit-button {
+    @include flex(row, flex-start, center, nowrap);
+    gap: to-rem(4);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mobile {
+      gap: 4px;
+    }
+  }
+
+  &__edit-text {
+    font-weight: 700;
+    color: $text-color;
+
+    @include mobile {
+    }
+  }
+
+  &__edit-icon {
+    width: to-rem(24);
+    height: to-rem(24);
+    flex-shrink: 0;
+
+    @include mobile {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  /* 책장 카드 목록 */
+  &__cards {
+    @include flex(row, stretch, stretch, nowrap);
+    gap: to-rem(16);
+    width: 100%;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
+
+// ================================
+// 책장 카드 컴포넌트
+// ================================
+
+.bookshelf-card {
+  @include flex(row, stretch, stretch, nowrap);
+  flex: 1;
+  background-color: $white;
+  border: 1px solid #b1b3b3;
+  border-radius: to-rem(6);
+  padding: to-rem(32);
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  @include mobile {
+    padding: 24px;
+  }
+
+  /* 카드 내용 */
+  &__content {
+    @include flex(column, center, center, nowrap);
+    gap: to-rem(16);
+    width: 100%;
+
+    @include mobile {
+      gap: 16px;
+    }
+  }
+
+  /* 카드 헤더 */
+  &__header {
+    @include flex(row, stretch, stretch, nowrap);
+    width: 100%;
+    border-bottom: 1px solid #cbcccc;
+    padding: to-rem(8) 0 to-rem(16);
+
+    @include mobile {
+      padding: 8px 0 16px;
+    }
+  }
+
+  /* 제목 그룹 */
+  &__title-group {
+    @include flex(row, space-between, center, nowrap);
+    gap: to-rem(4);
+    width: 100%;
+
+    @include mobile {
+      gap: 4px;
+    }
+  }
+
+  /* 책장 제목 */
+  &__title {
+    @include font(to-rem(17), 700, #000);
+    margin: 0;
+    flex: 1;
+
+    @include mobile {
+      @include font(to-rem(15), 700, #000);
+    }
+  }
+
+  /* 책 개수 배지 */
+  &__badge {
+    @include flex(row, center, center, nowrap);
+    background-color: $primary-color;
+    color: $white;
+    border-radius: to-rem(1000);
+    padding: to-rem(8) to-rem(12);
+    flex-shrink: 0;
+
+    @include mobile {
+      padding: 8px 12px;
+    }
+  }
+
+  &__count {
+    display: inline-block;
+    @include font(to-rem(15), 400, #fff);
+
+    @include mobile {
+      @include font(to-rem(13), 400, #fff);
+    }
+  }
+
+  /* 전체보기 버튼 */
+  &__button {
+    width: 100%;
+    height: auto;
+    min-height: to-rem(32);
+
+    @include mobile {
+      min-height: 32px;
+    }
+
+    // UiButton 컴포넌트 스타일 오버라이드
+    :global(.ui-button) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// ================================
+// 반응형 스타일
+// ================================
+
+// 태블릿에서는 2열 배치
+@include tablet {
+  .my-bookshelf {
+    &__cards {
+      flex-wrap: wrap;
+
+      .bookshelf-card {
+        flex-basis: calc(50% - #{to-rem(8)});
+        max-width: calc(50% - #{to-rem(8)});
+
+        &:nth-child(3) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// 데스크톱에서는 3열 배치 (기본)
+@include desktop {
+  .my-bookshelf {
+    &__cards {
+      .bookshelf-card {
+        flex-basis: calc(33.333% - #{to-rem(11)});
+        max-width: calc(33.333% - #{to-rem(11)});
+      }
+    }
+  }
+}
