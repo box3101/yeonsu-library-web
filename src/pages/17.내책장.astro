@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiAccordion from '@/components/UI/UiAccordion.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '나의도서관', href: '/my-library' },
+  { label: '내책장', href: '/my-library/my-shelf' },
+];
+---
+
+<Layout title="내책장">
+  <SubLayout title="내책장" breadcrumbItems={breadcrumbItems}>
+    <UiAccordion title="도서관 내 책장 이용안내" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+      <div class="book-description">
+        <ul class="book-shelf-guide">
+          <li>내책장을 통해 관심자료를 손쉽게 등록, 관리할 수 있습니다.</li>
+          <li>
+            자료등록 자료 표지 또는 검색 결과 화면에 있는<strong> [내책장 담기] </strong>를 클릭합니다. 팝업 노출된 "내서재 담기" 창에 있는 "나만의
+            책장" 기본 카테고리 또는 책장 카테고리 관리에서 직접 등록한 책장 카테고리를 선택하여 자료를 담습니다.
+          </li>
+          <li class="book-edit">
+            책장 카테고리 관리 내책장 메뉴에 있는 <i class="icon icon-sm icon-book-edit"></i>
+            <strong>책장편집하기</strong>를 클릭합니다. 팝업 노출된 "내책장 카테고리 관리" 창을 통해 새로운 카테고리를 추가, 삭제할 수 있습니다.
+          </li>
+          <li>책장 카테고리는 최대 20개 까지 등록할 수 있습니다</li>
+        </ul>
+      </div>
+    </UiAccordion>
+  </SubLayout>
+</Layout>

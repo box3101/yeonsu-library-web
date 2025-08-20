@@ -231,6 +231,12 @@ const menuData = [
       { label: '상호대차현황', href: './14.상호대차현황', isSelected: false },
       { label: '희망도서신청현황', href: './15.희망도서신청현황', isSelected: false },
       { label: '희망전자책신청현황', href: './16.희망전자책신청현황', isSelected: false },
+      { label: '내책장', href: './17.내책장', isSelected: false },
+      { label: '행사신청 조회', href: './18.행사신청조회', isSelected: false },
+      { label: '프로그램신청 조회', href: './19.프로그램신청조회', isSelected: false },
+      { label: '견학신청 조회', href: './견학신청조회', isSelected: false },
+      { label: '대관신청 조회', href: './대관신청조회', isSelected: false },
+      { label: '영유아전집신청 조회', href: './영유아전집신청조회', isSelected: false },
     ],
   },
 ];
@@ -243,7 +249,12 @@ const menuData = [
         {
           menuData.map((menu, index) => (
             <li class="gnb-main-item" role="none">
-              <a href={menu.items[0]?.href} class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`} role="menuitem" data-menu-index={index}>
+              <a
+                href={menu.items[0]?.href}
+                class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
+                role="menuitem"
+                data-menu-index={index}
+              >
                 <span class="gnb-main-text">{menu.title}</span>
                 {menu.type !== '1depth' && <i class="icon icon-sm icon-arrow-down" aria-hidden="true" />}
               </a>
@@ -259,7 +270,10 @@ const menuData = [
 
                       <div class="gnb-sub-menu">
                         {menu.items.map((item, itemIndex) => (
-                          <div class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`} data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}>
+                          <div
+                            class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}
+                            data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
+                          >
                             <a href={item.href} class="gnb-sub-link" role="menuitem">
                               <span class="gnb-sub-text">{item.label}</span>
                               {item.subItems && <i class="icon icon-xsm icon-arrow-right" aria-hidden="true" />}

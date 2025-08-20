@@ -1249,6 +1249,71 @@
       font-size: to-rem(15);
     }
   }
+  ul {
+    li {
+      position: relative;
+      padding-left: to-rem(12);
+      @include font(to-rem(15), 400, #212121);
+      margin-bottom: to-rem(12);
+      word-break: keep-all;
+
+      @include tablet {
+        @include font(to-rem(13), 400, #212121);
+        margin-bottom: to-rem(10);
+        padding-left: to-rem(10);
+      }
+
+      i {
+        position: relative;
+        top: 5px;
+
+        @include tablet {
+          top: 3px;
+        }
+      }
+
+      &.book-edit {
+        margin-top: -10px;
+        @include makeBefore {
+          top: 18px;
+        }
+
+        @include tablet {
+          margin-top: -8px;
+          @include makeBefore {
+            top: 15px;
+          }
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      line-height: 1.5;
+      strong {
+        @include font(to-rem(15), 700, #306199);
+
+        @include tablet {
+          @include font(to-rem(13), 700, #306199);
+        }
+      }
+      @include makeBefore {
+        @include ab-y;
+        left: 0;
+        top: 10px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #000;
+
+        @include tablet {
+          top: 8px;
+          width: 3px;
+          height: 3px;
+        }
+      }
+    }
+  }
 }
 
 /* ========================================

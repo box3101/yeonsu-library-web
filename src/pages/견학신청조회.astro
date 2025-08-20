@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker } from '@components';
+
+const breadcrumbItems = [
+  { text: '홈', link: '/' },
+  { text: '내정보', link: '#' },
+  { text: '견학신청 조회', link: '#' },
+];
+---
+
+<Layout title="견학신청 조회">
+  <SubLayout title="견학신청 조회" breadcrumbItems={breadcrumbItems}>
+  
+  </SubLayout>
+</Layout>
