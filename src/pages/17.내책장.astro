@@ -54,17 +54,6 @@ const bookshelves = [
 
     <!-- 내 책장 메인 컨테이너 -->
     <div class="my-bookshelf">
-      <!-- 헤더 섹션 -->
-      <div class="my-bookshelf__header">
-        <div class="my-bookshelf__header-content">
-          <h2 class="my-bookshelf__title">내 책장을 만들고 추가해 보세요!</h2>
-          <div class="my-bookshelf__edit-button">
-            <span class="my-bookshelf__edit-text">책장편집하기</span>
-            <i class="icon icon-sm icon-setting"></i>
-          </div>
-        </div>
-      </div>
-
       <!-- 책장 카드 목록 -->
       <div class="my-bookshelf__cards">
         {
@@ -87,6 +76,76 @@ const bookshelves = [
                   href={bookshelf.href}
                   class="w-full"
                 />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="bookshelf-container">
+      <!-- 헤더 섹션 -->
+      <div class="bookshelf-header flex items-center justify-between">
+        <div class="bookshelf-header__title">
+          내서재 (<span>10</span>건)
+        </div>
+        <div class="bookshelf-header__actions">
+          <UiButton variant="darkBlue" text="전체보기" icon="icon icon-xxsm icon-arrow-right icon-white" iconPosition="right" class="" />
+        </div>
+      </div>
+
+      <!-- 도서 그리드 섹션 -->
+      <div class="grid grid-5">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <div class="bookshelf-item">
+              <div class="bookshelf-item__content">
+                <div class="bookshelf-item__thumbnail">
+                  <img src="./assets/images/default-book-cover.png" alt="" class="w-full h-full object-cover" />
+                </div>
+                <div class="bookshelf-item__actions flex gap-5">
+                  <UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
+                  <UiButton variant="primary" size="small" text="이동" class="w-full" />
+                </div>
+                <div class="bookshelf-item__title">
+                  꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
+                  2글자
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="bookshelf-container">
+      <!-- 헤더 섹션 -->
+      <div class="bookshelf-header flex items-center justify-between">
+        <div class="bookshelf-header__title">
+          좋아하는책 (<span>10</span>건)
+        </div>
+        <div class="bookshelf-header__actions">
+          <UiButton variant="darkBlue" text="전체보기" icon="icon icon-xxsm icon-arrow-right icon-white" iconPosition="right" class="" />
+        </div>
+      </div>
+
+      <!-- 도서 그리드 섹션 -->
+      <div class="grid grid-5">
+        {
+          Array.from({ length: 5 }).map((_, index) => (
+            <div class="bookshelf-item">
+              <div class="bookshelf-item__content">
+                <div class="bookshelf-item__thumbnail">
+                  <img src="./assets/images/default-book-cover.png" alt="" class="w-full h-full object-cover" />
+                </div>
+                <div class="bookshelf-item__actions flex gap-5">
+                  <UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
+                  <UiButton variant="primary" size="small" text="이동" class="w-full" />
+                </div>
+                <div class="bookshelf-item__title">
+                  꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
+                  2글자
+                </div>
               </div>
             </div>
           ))

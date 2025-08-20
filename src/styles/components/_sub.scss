@@ -1380,3 +1380,57 @@
     }
   }
 }
+.bookshelf-header {
+  margin-top: to-rem(24);
+  margin-bottom: 20px;
+  @include mobile {
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+}
+div.bookshelf-header__title {
+  @include font(to-rem(24), 700, #212121);
+  @include mobile {
+    @include font(20px, 700, #212121);
+  }
+  span {
+    @include font(to-rem(24), 700, #3c79c2);
+    @include mobile {
+      @include font(20px, 700, #3c79c2);
+    }
+  }
+}
+
+// 내책장 컴포넌트 스타일
+div.bookshelf-item {
+  div.bookshelf-item__content {
+    div.bookshelf-item__thumbnail {
+      height: 215px;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      background-color: $gray-100;
+      @include mobile {
+        height: 180px;
+      }
+    }
+
+    div.bookshelf-item__actions {
+      margin-top: to-rem(20);
+      @include mobile {
+        margin-top: 16px;
+      }
+    }
+
+    div.bookshelf-item__title {
+      margin-top: 16px;
+      @include font(to-rem(17), 500, #212121);
+      line-height: 1.5;
+      @include text-truncate-lines(2);
+    }
+  }
+}
+
+.bookshelf-container {
+  margin-bottom: to-rem(40);
+}
