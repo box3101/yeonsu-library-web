@@ -12,7 +12,11 @@
 }
 
 // 자주 사용하는 픽셀 값들 (50 단위)
-$common-widths: (50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1200);
+// 1~1000까지의 모든 픽셀 값을 포함하는 배열 생성
+$common-widths: ();
+@for $i from 1 through 1000 {
+  $common-widths: append($common-widths, $i);
+}
 
 @each $width in $common-widths {
   // 기본 버전

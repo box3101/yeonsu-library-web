@@ -6,79 +6,69 @@ import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker } from '@compon
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '대출 이력' }];
 
 const columns = [
-  { label: '도서명', key: 'title', align: 'center', headerAlign: 'center', width: '230px' },
-  { label: '대출일', key: 'loanDate', align: 'center', headerAlign: 'center', width: '130px' },
-  { label: '반납예정일', key: 'dueDate', align: 'center', headerAlign: 'center', width: '130px' },
-  { label: '소장도서관', key: 'library', align: 'center', headerAlign: 'center', width: '150px' },
-  { label: '상태', key: 'status', align: 'center', headerAlign: 'center', width: '100px' },
-  { label: '연체', key: 'extend', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '도서명', key: 'title', align: 'left', headerAlign: 'center', width: 'auto', minWidth: '200px' },
+  { label: '저자', key: 'author', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '발행처', key: 'publisher', align: 'center', headerAlign: 'center', width: '120px' },
+  { label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '100px' },
+  { label: '신청취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '110px', type: 'button' },
 ];
 
 const rows = [
   {
     index: 100,
     title: '(라임맘의 실패 없는) 아이주도 이유식 & 유아식',
-    loanDate: '2025.05.01',
-    dueDate: '2025.06.01',
-    library: '옥련2동어린이작은도서관',
-    status: '대출',
-    extend: '7',
+    author: '옥한나',
+    publisher: '중앙books',
+    status: '신청',
+    cancel: '취소하기',
   },
   {
     index: 99,
     title: '아이주도 이유식 유아식 매뉴얼 : 스스로, 그리고 함께하는 행복한 맘마',
-    loanDate: '2025.05.01',
-    dueDate: '2025.06.01',
-    library: '옥련2동어린이작은도서관',
-    status: '대출',
-    extend: '7',
+    author: 'BLW 연구소',
+    publisher: '아퍼블리싱',
+    status: '취소',
+    cancel: {
+      text: '취소불가',
+      variant: 'default',
+      disabled: true,
+    },
   },
   {
     index: 98,
     title: '세상 편한 서현이네 유아 식판식 : 초보 엄마들도 쉽게 따라 할 수 있는 맞춤형 유아식',
-    loanDate: '2025.05.01',
-    dueDate: '2025.06.01',
-    library: '옥련2동어린이작은도서관',
-    status: '대출',
-    extend: '7',
+    author: '한온유',
+    publisher: '베가북스',
+    status: '취소',
+    cancel: {
+      text: '취소불가',
+      variant: 'default',
+      disabled: true,
+    },
   },
 ];
 ---
 
-<Layout title="대출 이력">
-  <SubLayout title="대출 이력" breadcrumbItems={breadcrumbItems}>
+<Layout title="희망전자책신청현황">
+  <SubLayout title="희망전자책신청현황" breadcrumbItems={breadcrumbItems}>
     <div class="search-container">
-      <!-- 스마트도서관 이용방법 인포박스 -->
-      <div class="infobox infobox--secondary">
-        <div class="infobox__header">
-          <div class="infobox__icon">
-            <img src="./assets/images/icon/figma_library.svg" alt="" />
-          </div>
-          <h3 class="infobox__title">이용안내</h3>
+      <div class="search-info-summary flex justify-between items-center">
+        <div class="search-info-summary type2 mt0">
+          총 <strong>190</strong>건 (<strong>1</strong> / 100)
         </div>
-        <div class="infobox__content">
-          <ul class="infobox__list">
-            <li class="infobox__list-item">* 대출이력 다운로드는 최대 3개월 단위  로 반출 가능합니다.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 테이블 -->
-      <div class="search-info-summary mb-4 flex justify-between">
-        <div class="mb10">검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</div>
         <div class="filter-actions flex gap-6 items-center">
           <UiDatePicker name="publication-year" startYear="2020" endYear="2024" placeholder="발행년도를 선택해주세요" value="" id="" class="w-100-mobile-full" disabled={false} />
           <UiButton variant="primary" text="엑셀 다운로드" iconPosition="left" icon="icon-excel" class="w-170-mobile-full" />
         </div>
       </div>
-    </div>
 
-    <!-- 게시글 목록 -->
-    <UiTable columns={columns} rows={rows} showIndex={true} caption="도서관 건의사항 목록" />
+      <!-- 게시글 목록 -->
+      <UiTable columns={columns} rows={rows} showIndex={true} caption="도서관 건의사항 목록" />
 
-    <!-- 페이징네비게이션 -->
-    <div class="pagination-section">
-      <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+      <!-- 페이징네비게이션 -->
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+      </div>
     </div>
   </SubLayout>
 </Layout>
