@@ -16,6 +16,15 @@
 .icon-primary {
   filter: invert(37%) sepia(99%) saturate(676%) hue-rotate(192deg) brightness(95%) contrast(95%);
 }
+
+.icon-xxsm {
+  width: 16px !important;
+  height: 16px !important;
+  @include mobile {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
 .icon-xsm {
   width: 20px !important;
   height: 20px !important;
@@ -71,6 +80,9 @@
 
 .icon-arrow-right {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='14' viewBox='0 0 9 14' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.00463 13.446C1.25093 13.7196 1.67246 13.7418 1.94614 13.4955L8.6128 7.49579C8.75328 7.36936 8.8335 7.18926 8.8335 7.00027C8.83351 6.81128 8.7533 6.63117 8.61283 6.50473L1.94616 0.504326C1.6725 0.258011 1.25097 0.280182 1.00465 0.553847C0.758339 0.827512 0.78051 1.24904 1.05418 1.49536L7.17028 7.00022L1.0542 12.5045C0.780524 12.7508 0.75833 13.1723 1.00463 13.446Z' fill='%2333363D'/%3E%3C/svg%3E");
+}
+.icon-arrow-left {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.39628 11.1568C6.19924 11.3757 5.86201 11.3934 5.64308 11.1964L0.309745 6.39626C0.197367 6.29512 0.133198 6.15103 0.133199 5.99984C0.1332 5.84865 0.197371 5.70456 0.309751 5.60342L5.64308 0.803418C5.86202 0.606373 6.19924 0.624122 6.39629 0.843061C6.59333 1.062 6.57559 1.39922 6.35665 1.59627L1.46378 5.99985L6.35665 10.4036C6.57559 10.6006 6.59333 10.9378 6.39628 11.1568Z' fill='%23256EF4'/%3E%3C/svg%3E");
 }
 
 .icon-add {
