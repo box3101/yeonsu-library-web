@@ -759,11 +759,18 @@
   color: #1e2124;
   margin-top: to-rem(35);
 
+  &.type2 {
+    @include mobile {
+      flex-direction: row;
+    }
+  }
+
   @include tablet {
     flex-direction: column;
     align-items: flex-start;
     font-size: to-rem(15);
     margin-top: to-rem(24);
+    margin-bottom: to-rem(24);
   }
 
   strong {
@@ -887,6 +894,10 @@
 
     @include tablet {
       font-size: to-rem(14);
+    }
+
+    span {
+      color: #d7424e;
     }
 
     &::before {
@@ -1289,11 +1300,9 @@
   }
 }
 .statistics-content {
-  height: to-rem(400);
   flex: 1;
   &__item {
     flex: 1;
-    background-color: #000;
   }
   @include mobile {
     flex-direction: column;
@@ -1301,7 +1310,6 @@
     gap: to-rem(15);
     &__item {
       flex: 1;
-      background-color: #000;
     }
   }
 }

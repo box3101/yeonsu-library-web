@@ -21,40 +21,16 @@ const {
 const searchbarId = id || `searchbar-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div
-  class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`}
-  id={searchbarId}
-  {...rest}
->
+<div class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`} id={searchbarId} {...rest}>
   <div class="ui-searchbar__content">
     <!-- 셀렉트박스 (검색 타입) -->
-    <UiSelect
-      name="searchType"
-      options={selectOptions}
-      value={selectValue}
-      size={size}
-      width="auto"
-      class="ui-searchbar__select"
-    />
+    <UiSelect name="searchType" options={selectOptions} value={selectValue} size={size} width="auto" class="ui-searchbar__select" />
 
     <!-- 텍스트 입력 -->
-    <UiInput
-      type="text"
-      name="searchQuery"
-      placeholder={placeholder}
-      value={inputValue}
-      size={size}
-      class="ui-searchbar__input w-350-mobile-full"
-    />
+    <UiInput type="text" name="searchQuery" placeholder={placeholder} value={inputValue} size={size} class="w-350-mobile-full" />
 
     <!-- 검색 버튼 -->
-    <UiButton
-      text={buttonText}
-      variant="darkBlue"
-      size={size}
-      onclick={onSearch ? `${onSearch}()` : undefined}
-      class="ui-searchbar__button"
-    />
+    <UiButton text={buttonText} variant="darkBlue" size={size} onclick={onSearch ? `${onSearch}()` : undefined} class="ui-searchbar__button" />
   </div>
 </div>
 
@@ -81,7 +57,6 @@ const searchbarId = id || `searchbar-${Math.random().toString(36).substr(2, 9)}`
       min-width: to-rem(120);
       flex-shrink: 0;
     }
-
 
     &__button {
       flex-shrink: 0;

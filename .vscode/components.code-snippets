@@ -33,26 +33,13 @@
   "UiInput Component": {
     "scope": "astro,javascript,typescript",
     "prefix": "input",
-    "body": [
-      "<UiInput",
-      "  name=\"${1:input-name}\"",
-      "  placeholder=\"${2:}\"",
-      "/>",
-      "$0",
-    ],
+    "body": ["<UiInput", "  name=\"${1:input-name}\"", "  placeholder=\"${2:}\"", "/>", "$0"],
     "description": "UiInput 컴포넌트를 생성합니다",
   },
   "UiNavButton Component": {
     "scope": "astro,javascript,typescript",
     "prefix": "navbtn",
-    "body": [
-      "<UiNavButton",
-      "  direction=\"${1|prev,next,stop|}\"",
-      "  size={${2:40}}",
-      "  ariaLabel=\"${3:이전 공지사항}\"",
-      "/>",
-      "$0",
-    ],
+    "body": ["<UiNavButton", "  direction=\"${1|prev,next,stop|}\"", "  size={${2:40}}", "  ariaLabel=\"${3:이전 공지사항}\"", "/>", "$0"],
     "description": "UiNavButton 컴포넌트를 생성합니다",
   },
   "UiCheckbox Component": {
@@ -89,5 +76,24 @@
       "$0",
     ],
     "description": "UiAccordion 컴포넌트를 생성합니다",
+  },
+  //DATEPICEKR
+  "UiDatePicker Component": {
+    "scope": "astro,javascript,typescript",
+    "prefix": "date",
+    "body": [
+      "<UiDatePicker",
+      "  name=\"${1:publication-year}\"",
+      "  startYear=\"${2:2020}\"",
+      "  endYear=\"${3:2024}\"",
+      "  placeholder=\"${4:발행년도를 선택해주세요}\"",
+      "  value=\"${5:}\"",
+      "  id=\"${6:}\"",
+      "  class=\"${7:}\"",
+      "  disabled={${8:false}}",
+      "/>",
+      "$0",
+    ],
+    "description": "UiDatePicker 컴포넌트를 생성합니다",
   },
 }

@@ -1413,3 +1413,10 @@ img {
     }
   }
 }
+.filter-actions {
+  @include mobile {
+    flex-direction: column;
+    gap: to-rem(16);
+    width: 100%;
+  }
+}
