@@ -4,7 +4,7 @@
 
 ## 🚀 DEMO URL
 
-[연수그립 도서관 GUDIE 페이지]https://yeonsu-library-web.netlify.app/guide)
+[연수구립 도서관 GUDIE 페이지]https://yeonsu-library-web.netlify.app/guide)
 
 ## 🚀 프로젝트 개요
 
