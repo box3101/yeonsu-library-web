@@ -36805,6 +36805,11 @@ body.modal-open {
   background: #6b7280;
   color: #ffffff;
 }
+.ui-table__button:disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
 .ui-table__button-group {
   display: flex;
   gap: 0.5rem;

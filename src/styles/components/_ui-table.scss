@@ -601,6 +601,12 @@
         color: $white;
       }
     }
+
+    &:disabled {
+      background: $gray-200;
+      color: $gray-500;
+      cursor: not-allowed;
+    }
   }
 
   &__button-group {

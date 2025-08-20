@@ -62,14 +62,15 @@ const rows = [
           </ul>
         </div>
       </div>
+    </div>
 
-      <!-- 테이블 -->
-      <div class="search-info-summary mb-4 flex justify-between">
-        <div class="mb10">검색 결과 총 <strong>0002</strong>건 중 <strong>5</strong>건 검색</div>
-        <div class="filter-actions flex gap-6 items-center">
-          <UiDatePicker name="publication-year" startYear="2020" endYear="2024" placeholder="발행년도를 선택해주세요" value="" id="" class="w-100-mobile-full" disabled={false} />
-          <UiButton variant="primary" text="엑셀 다운로드" iconPosition="left" icon="icon-excel" class="w-170-mobile-full" />
-        </div>
+    <div class="search-info-summary flex justify-between items-center">
+      <div class="search-info-summary type2 mt0">
+        총 <strong>190</strong>건 (<strong>1</strong> / 100)
+      </div>
+      <div class="filter-actions flex gap-6 items-center">
+        <UiDatePicker name="publication-year" startYear="2020" endYear="2024" placeholder="발행년도를 선택해주세요" value="" id="" class="w-100-mobile-full" disabled={false} />
+        <UiButton variant="primary" text="엑셀 다운로드" iconPosition="left" icon="icon-excel" class="w-170-mobile-full" />
       </div>
     </div>
 

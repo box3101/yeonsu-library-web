@@ -13,6 +13,7 @@ export interface TableColumn {
 export interface TableButton {
   text: string;
   variant?: string; // 버튼 스타일 변형
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -173,7 +174,11 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
 
                     {/* 단일 버튼 타입 */}
                     {columnType === 'button' && cellValue && (
-                      <button type="button" class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`} onclick={cellValue.onClick}>
+                      <button
+                        type="button"
+                        disabled={cellValue.disabled || false}
+                        class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`}
+                        onclick={cellValue.onClick}>
                         {typeof cellValue === 'string' ? cellValue : cellValue.text}
                       </button>
                     )}
@@ -182,7 +187,11 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
                     {columnType === 'buttons' && Array.isArray(cellValue) && (
                       <div class="ui-table__button-group">
                         {cellValue.map((button, btnIndex) => (
-                          <button type="button" class={`ui-table__button ui-table__button--${button.variant || 'default'}`} onclick={button.onClick}>
+                          <button
+                            type="button"
+                            disabled={button.disabled || false}
+                            class={`ui-table__button ui-table__button--${button.variant || 'default'}`}
+                            onclick={button.onClick}>
                             {button.text}
                           </button>
                         ))}
