@@ -137,7 +137,6 @@ styles/
 - `alpha()`: 색상 투명도 조정
 
 ### 반응형 디자인
-- **모바일**: px 직접 사용 (to-rem() 사용 안 함)
 - **브레이크포인트**: 900px, 1200px
 - **모바일 우선** 접근법
 
@@ -157,49 +156,4 @@ styles/
 ### JavaScript 패턴
 - **모듈식 Vanilla JS**: 기능 등록 시스템
 - **데이터 속성 기반**: `data-*` 속성으로 기능 초기화
-- **중앙 등록**: `LibraryCommon.features`를 통한 관리
-
-## 🔧 중요한 제약사항
-
-1. **퍼블리싱 전용 프로젝트**: 백엔드 API 통합 없음, 서버 사이드 로직 없음
-2. **Vanilla JS 전용**: TypeScript 사용 금지 (.cursorrules에 명시)
-3. **컴포넌트 재사용**: 기존 UI 컴포넌트 우선 사용
-4. **BEM 방법론**: CSS는 Block__Element--Modifier 패턴
-5. **HTTP 요청 금지**: fetch/axios 등 HTTP 클라이언트 사용 금지
-6. **인증 로직 없음**: 인증/권한 UI만 구현, 실제 구현 없음
-
-## 📂 경로 별칭
-
-```javascript
-'@' → './src'
-'@components' → './src/components'
-'@ui' → './src/components/UI'
-'@layouts' → './src/layouts'
-'@styles' → './src/styles'
-```
-
-## 🔍 JavaScript 모듈
-
-```
-public/assets/js/
-├── common.js           # 핵심 LibraryCommon + 전역 초기화
-├── accordion.js        # 아코디언/접을 수 있는 컴포넌트
-├── collection.js       # 컬렉션 관리 기능
-├── filter.js          # 검색 및 콘텐츠 필터링
-├── mobile-menu.js      # 모바일 네비게이션 메뉴
-├── modal.js           # 모달 다이얼로그 컴포넌트
-├── search-tabs.js      # 검색 인터페이스 탭
-├── swiper.js          # Swiper 슬라이더 통합
-└── tab.js             # 일반 탭 컴포넌트
-```
-
-## 🚨 중요 참고사항
-
-- 새 파일 생성은 절대적으로 필요한 경우에만
-- 항상 기존 파일 편집 우선
-- 문서 파일(*.md)이나 README 파일을 자발적으로 생성 금지
-- 사용자가 명시적으로 요청한 경우에만 문서 파일 생성
-
-## 📄 라이선스
-
-연수구립도서관 공식 웹사이트 프로젝트
+- **중앙 등록**: `LibraryCommon.features`를 통한 
