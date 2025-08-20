@@ -5,18 +5,27 @@
   "singleQuote": true,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "jsxBracketSameLine": true,
+  "bracketSameLine": false,
   "arrowParens": "avoid",
-  "htmlWhitespaceSensitivity": "ignore",
-  "proseWrap": "never",
+  "htmlWhitespaceSensitivity": "css",
+  "proseWrap": "preserve",
+  "endOfLine": "lf",
   "plugins": ["prettier-plugin-astro"],
   "overrides": [
     {
       "files": "*.astro",
       "options": {
         "parser": "astro",
-        "printWidth": 180,
-        "htmlWhitespaceSensitivity": "ignore"
+        "printWidth": 150,
+        "htmlWhitespaceSensitivity": "css"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 150,
+        "htmlWhitespaceSensitivity": "strict",
+        "bracketSameLine": false
       }
     }
   ]
