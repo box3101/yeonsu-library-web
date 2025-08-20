@@ -56451,12 +56451,13 @@ h6 {
 }
 @media (max-width: 900px) {
   .book-description ul li {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #212121;
     line-height: 1;
     margin-bottom: 0.625rem;
     padding-left: 0.625rem;
+    line-height: 1.5;
   }
 }
 .book-description ul li i {
@@ -62793,7 +62794,7 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .bookshelf-card__badge {
-    padding: 8px;
+    padding: 8px 12px;
   }
 }
 .bookshelf-card__count {
@@ -62831,10 +62832,6 @@ body.modal-open {
     flex-wrap: wrap;
   }
   .my-bookshelf__cards .bookshelf-card {
-    flex-basis: calc(50% - 0.5rem);
-    max-width: calc(50% - 0.5rem);
-  }
-  .my-bookshelf__cards .bookshelf-card:nth-child(3) {
     flex-basis: 100%;
     max-width: 100%;
   }

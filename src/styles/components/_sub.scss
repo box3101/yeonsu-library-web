@@ -1258,9 +1258,10 @@
       word-break: keep-all;
 
       @include tablet {
-        @include font(to-rem(13), 400, #212121);
+        @include font(to-rem(14), 400, #212121);
         margin-bottom: to-rem(10);
         padding-left: to-rem(10);
+        line-height: 1.5;
       }
 
       i {
