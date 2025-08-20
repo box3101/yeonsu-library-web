@@ -4,10 +4,10 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
 // 통계 정보
 const stats = [
-  { number: '10', label: '운영중인 페이지' },
+  { number: '27', label: '운영중인 페이지' },
   { number: '25', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
-  { number: 'TypeScript', label: '타입 안전성' },
+  { number: 'Vanilla JS', label: '순수 자바스크립트' },
 ];
 
 // 메인 페이지
@@ -95,6 +95,142 @@ const searchPages = [
     file: '06_인기도서.astro',
     status: '완료',
     description: '인기도서 목록, UiBookListCard 그리드',
+  },
+  {
+    id: 'S07',
+    name: '신착도서',
+    url: '/07_신착도서',
+    file: '07_신착도서.astro',
+    status: '완료',
+    description: '신착도서 목록, 최신 입고 도서 정보',
+  },
+  {
+    id: 'S08',
+    name: '추천도서',
+    url: '/08_추천도서',
+    file: '08_추천도서.astro',
+    status: '완료',
+    description: '추천도서 목록, 사서 추천 및 테마별 도서',
+  },
+  {
+    id: 'S09',
+    name: '카테고리분류',
+    url: '/09_카테고리분류',
+    file: '09_카테고리분류.astro',
+    status: '완료',
+    description: '주제별 카테고리 도서 분류',
+  },
+  {
+    id: 'S10',
+    name: '한국십진분류',
+    url: '/10_한국십진분류',
+    file: '10_한국십진분류.astro',
+    status: '완료',
+    description: '한국십진분류법 기반 도서 검색',
+  },
+];
+
+// 나의 서재 페이지들
+const myLibraryPages = [
+  {
+    id: 'M01',
+    name: '대출현황',
+    url: '/11.대출현황',
+    file: '11.대출현황.astro',
+    status: '완료',
+    description: '현재 대출중인 도서 목록 및 반납 예정일',
+  },
+  {
+    id: 'M02',
+    name: '대출이력',
+    url: '/12.대출이력',
+    file: '12.대출이력.astro',
+    status: '완료',
+    description: '과거 대출 이력 조회',
+  },
+  {
+    id: 'M03',
+    name: '일반예약현황',
+    url: '/13.일반예약현황',
+    file: '13.일반예약현황.astro',
+    status: '완료',
+    description: '예약중인 도서 현황',
+  },
+  {
+    id: 'M04',
+    name: '상호대차현황',
+    url: '/14.상호대차현황',
+    file: '14.상호대차현황.astro',
+    status: '완료',
+    description: '타 도서관 상호대차 신청 현황',
+  },
+  {
+    id: 'M05',
+    name: '희망도서신청현황',
+    url: '/15.희망도서신청현황',
+    file: '15.희망도서신청현황.astro',
+    status: '완료',
+    description: '희망도서 신청 및 처리 현황',
+  },
+  {
+    id: 'M06',
+    name: '희망전자책신청현황',
+    url: '/16.희망전자책신청현황',
+    file: '16.희망전자책신청현황.astro',
+    status: '완료',
+    description: '희망전자책 신청 및 처리 현황',
+  },
+  {
+    id: 'M07',
+    name: '내책장',
+    url: '/17.내책장',
+    file: '17.내책장.astro',
+    status: '완료',
+    description: '개인 북마크 관리, 태그 클라우드 및 통계 차트 포함',
+  },
+];
+
+// 행사/프로그램 페이지들
+const eventPages = [
+  {
+    id: 'E01',
+    name: '행사신청조회',
+    url: '/18.행사신청조회',
+    file: '18.행사신청조회.astro',
+    status: '완료',
+    description: '도서관 행사 신청 및 조회',
+  },
+  {
+    id: 'E02',
+    name: '프로그램신청조회',
+    url: '/19.프로그램신청조회',
+    file: '19.프로그램신청조회.astro',
+    status: '완료',
+    description: '교육 프로그램 신청 및 조회',
+  },
+  {
+    id: 'E03',
+    name: '견학신청조회',
+    url: '/견학신청조회',
+    file: '견학신청조회.astro',
+    status: '완료',
+    description: '도서관 견학 프로그램 신청',
+  },
+  {
+    id: 'E04',
+    name: '대관신청조회',
+    url: '/대관신청조회',
+    file: '대관신청조회.astro',
+    status: '완료',
+    description: '도서관 시설 대관 신청',
+  },
+  {
+    id: 'E05',
+    name: '영유아전집신청조회',
+    url: '/영유아전집신청조회',
+    file: '영유아전집신청조회.astro',
+    status: '완료',
+    description: '영유아 대상 전집 대출 신청',
   },
 ];
 
@@ -388,6 +524,27 @@ const improvements = [
     date: '2025.08',
     status: '적용완료',
   },
+  {
+    id: 'R11',
+    title: '내책장 페이지',
+    description: 'Figma 디자인 기반 내책장 UI, 태그 클라우드 및 통계 차트 구현',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R12',
+    title: '태그 클라우드 시스템',
+    description: 'WordCloud2.js, Chart.js, jQuery 통합 라이브러리 구현',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R13',
+    title: '나의 서재 전체 시스템',
+    description: '대출현황, 예약현황, 희망도서 등 개인 서비스 페이지 완성',
+    date: '2025.08',
+    status: '적용완료',
+  },
 ];
 
 // 기술 스택
@@ -408,20 +565,41 @@ const techStack = [
   },
   {
     id: 'T03',
-    tech: 'TypeScript',
-    version: 'Latest',
-    purpose: '타입 안전성',
+    tech: 'Vanilla JavaScript',
+    version: 'ES6+',
+    purpose: '순수 자바스크립트 (타입스크립트 사용 금지)',
     status: '완료',
   },
   {
     id: 'T04',
     tech: 'Swiper.js',
-    version: 'Latest',
+    version: '11.2.10',
     purpose: '슬라이더 컴포넌트',
     status: '완료',
   },
   {
     id: 'T05',
+    tech: 'jQuery',
+    version: '3.7.1',
+    purpose: '태그 클라우드 및 차트 라이브러리 지원',
+    status: '완료',
+  },
+  {
+    id: 'T06',
+    tech: 'Chart.js',
+    version: 'Latest',
+    purpose: '통계 차트 (막대, 선형)',
+    status: '완료',
+  },
+  {
+    id: 'T07',
+    tech: 'WordCloud2.js',
+    version: 'Latest',
+    purpose: '태그 클라우드 시각화',
+    status: '완료',
+  },
+  {
+    id: 'T08',
     tech: 'Netlify',
     version: '-',
     purpose: '배포 플랫폼',
@@ -474,8 +652,8 @@ const scssArchitecture = [
   {
     folder: 'components/',
     purpose: '컴포넌트 스타일',
-    files: '_left-menu.scss, _buttons.scss, _ui-subtab.scss, _ui-book-list-card.scss',
-    example: '.menu-section-title.active, .book-list-card, .subtab-container',
+    files: '_left-menu.scss, _buttons.scss, _ui-subtab.scss, _ui-book-list-card.scss, _my-bookshelf.scss',
+    example: '.menu-section-title.active, .book-list-card, .subtab-container, .my-bookshelf, .bookshelf-card',
   },
   {
     folder: 'utilities/',
@@ -877,7 +1055,7 @@ const deployInfo = [
         </tbody>
       </table>
 
-      <div class="section-title">📄 페이지 시스템</div>
+      <div class="section-title">📄 도서검색 시스템</div>
       <table>
         <thead>
           <tr>
@@ -891,6 +1069,70 @@ const deployInfo = [
         <tbody>
           {
             searchPages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <div class="section-title">📚 나의 서재</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            myLibraryPages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <div class="section-title">🎭 행사/프로그램</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            eventPages.map(page => (
               <tr>
                 <td>{page.id}</td>
                 <td>{page.name}</td>
