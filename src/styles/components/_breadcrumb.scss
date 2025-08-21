@@ -7,6 +7,11 @@
   margin-top: to-rem(40);
   margin-bottom: to-rem(24);
 
+  @include mobile {
+    margin-top: to-rem(20);
+    margin-bottom: to-rem(16);
+  }
+
   .breadcrumb-container {
     display: flex;
     align-items: center;

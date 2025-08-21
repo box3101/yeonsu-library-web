@@ -1507,7 +1507,7 @@ div.bookshelf-item {
 
     @include mobile {
       // 모바일에서는 간격 축소
-      gap: 24px;
+      gap: 12px;
     }
   }
 
@@ -1570,7 +1570,6 @@ div.bookshelf-item {
   width: 100%;
   overflow-x: auto;
   border-radius: to-rem(8);
-  margin-top: to-rem(20);
 
   @include mobile {
     margin-top: to-rem(16);
@@ -1622,18 +1621,21 @@ div.bookshelf-item {
 // 단계별 프로세스 컴포넌트 스타일
 // 희망도서신청 처리과정과 같은 순차적 프로세스를 표시하는 컴포넌트
 .step-process {
-  @include flex(row, center, flex-start, wrap);
-  gap: to-rem(40);
-  padding: to-rem(40) to-rem(20);
-  background: #fff;
-  border-radius: to-rem(16);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  margin-top: to-rem(20);
+  @include flex(row, center, flex-start, nowrap);
+  gap: to-rem(20);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
 
   @include mobile {
+    margin-top: 16px;
     // 모바일에서는 세로 배치로 변경
     flex-direction: column;
-    gap: to-rem(32);
-    padding: to-rem(32) to-rem(20);
+    gap: to-rem(16);
+    align-items: stretch;
   }
 }
 
@@ -1642,8 +1644,13 @@ div.bookshelf-item {
   @include flex(column, center, center, nowrap);
   position: relative;
   flex: 1;
-  min-width: to-rem(140);
+  min-width: to-rem(103);
   text-align: center;
+  background: #ecf2f9;
+  border: 1px solid #cbcccc;
+  border-radius: to-rem(12);
+  padding: to-rem(24);
+  height: to-rem(175);
 
   @include mobile {
     // 모바일에서는 가로 배치로 변경
@@ -1652,51 +1659,30 @@ div.bookshelf-item {
     min-width: 100%;
     text-align: left;
     gap: to-rem(16);
-  }
-
-  // 단계 간 연결선 (점선 효과)
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: to-rem(-20);
-    top: to-rem(24);
-    width: to-rem(40);
-    height: 2px;
-    background: linear-gradient(to right, $gray-300 50%, transparent 50%);
-    background-size: 8px 2px;
-
-    @include mobile {
-      // 모바일에서는 아래쪽 점선
-      right: auto;
-      top: auto;
-      bottom: to-rem(-16);
-      left: to-rem(24);
-      width: 2px;
-      height: to-rem(32);
-      background: linear-gradient(to bottom, $gray-300 50%, transparent 50%);
-      background-size: 2px 8px;
-    }
+    height: auto;
+    padding: to-rem(16);
   }
 }
 
 // 단계 번호 원형 배지
 .step-number {
   @include flex(row, center, center, nowrap);
-  width: to-rem(48);
-  height: to-rem(48);
-  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
-  color: #fff;
-  border-radius: 50%;
+  width: to-rem(34);
+  height: to-rem(34);
+  background: #6494ce;
+  color: #ffffff;
+  border-radius: to-rem(17);
+  font-family: 'Pretendard GOV', sans-serif;
   font-weight: 700;
-  font-size: to-rem(20);
-  margin-bottom: to-rem(16);
+  font-size: to-rem(19);
+  line-height: 1.5;
+  margin-bottom: to-rem(12);
   flex-shrink: 0; // 축소 방지
-  box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 
   @include mobile {
     // 모바일에서는 크기 조정
-    width: to-rem(40);
-    height: to-rem(40);
+    width: to-rem(30);
+    height: to-rem(30);
     font-size: to-rem(16);
     margin-bottom: 0;
   }
@@ -1704,59 +1690,75 @@ div.bookshelf-item {
 
 // 단계 내용 텍스트
 .step-content {
-  font-size: to-rem(16);
-  font-weight: 600;
-  color: $text-color;
+  font-family: 'Pretendard GOV', sans-serif;
+  font-size: to-rem(17);
+  font-weight: 400;
+  color: #1e2124;
   line-height: 1.5;
   word-break: keep-all; // 한글 단어 단위로 줄바꿈
-  margin-bottom: to-rem(8);
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
   @include mobile {
-    font-size: to-rem(14);
+    font-size: to-rem(15);
     flex: 1; // 남은 공간 모두 사용
-    margin-bottom: to-rem(4);
+    text-align: left;
+  }
+  .step-sub {
+    display: block;
+    font-size: to-rem(14);
+    color: $gray-500;
+    font-weight: 400;
+    line-height: 1.4;
   }
 }
 
-// 단계 부가 설명 (작은 텍스트)
-.step-sub {
-  display: block;
-  font-size: to-rem(14);
-  color: $gray-500;
-  font-weight: 400;
-  line-height: 1.4;
+// 단계 간 화살표 연결선
+.step-arrow {
+  @include flex(row, center, center, nowrap);
+  width: to-rem(40);
+  height: to-rem(40);
+  background: #ffffff;
+  border: 1px solid #cbcccc;
+  border-radius: to-rem(20);
+  padding: to-rem(8);
+  position: absolute;
+  top: 50%;
+  right: to-rem(-30);
+  transform: translateY(-50%);
+  z-index: 2;
 
   @include mobile {
-    font-size: to-rem(12);
+    display: none; // 모바일에서는 화살표 숨김
+  }
+}
+
+// 비활성화된 단계 스타일 (grayed out)
+.step-item--disabled {
+  .step-content {
+    color: #4b4d4d;
   }
 }
 
 // 완료된 단계 스타일 (활용 가능한 modifier)
 .step-item--completed {
   .step-number {
-    background: linear-gradient(135deg, $success-color 0%, lighten($success-color, 10%) 100%);
-    box-shadow: 0 4px 12px rgba($success-color, 0.3);
+    background: $success-color;
   }
 
   .step-content {
     color: $success-color;
-  }
-
-  // 완료된 단계의 연결선은 성공 색상
-  &:not(:last-child)::after {
-    background: linear-gradient(to right, $success-color 50%, transparent 50%);
-
-    @include mobile {
-      background: linear-gradient(to bottom, $success-color 50%, transparent 50%);
-    }
   }
 }
 
 // 현재 진행 단계 스타일 (활용 가능한 modifier)
 .step-item--current {
   .step-number {
-    background: linear-gradient(135deg, $warning-color 0%, lighten($warning-color, 10%) 100%);
-    box-shadow: 0 4px 16px rgba($warning-color, 0.4);
+    background: $warning-color;
     animation: pulse 2s infinite;
   }
 
@@ -1770,15 +1772,10 @@ div.bookshelf-item {
   .step-number {
     background: $gray-300;
     color: $gray-600;
-    box-shadow: none;
   }
 
   .step-content {
     color: $gray-500;
-  }
-
-  .step-sub {
-    color: $gray-400;
   }
 }
 

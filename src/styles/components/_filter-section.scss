@@ -2,7 +2,7 @@
 
 .filter-section {
   display: flex;
-  margin-bottom: to-rem(22);
+  margin-bottom: to-rem(16);
 
   @include mobile {
     margin-bottom: to-rem(10) !important;
