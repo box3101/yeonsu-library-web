@@ -43,10 +43,10 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed; // colgroup이 작동하도록 table-layout: fixed 사용
-  min-width: 600px;
 
   @include mobile {
-    min-width: 500px; // 모바일에서 최소 너비 줄임
+    table-layout: fixed;
+    min-width: 600px;
   }
 
   &__caption {
@@ -83,11 +83,11 @@
   }
 
   &__cell {
-    padding: to-rem(12) to-rem(16);
+    padding: to-rem(12) to-rem(0) !important;
     vertical-align: middle;
 
     @include mobile {
-      padding: to-rem(8) to-rem(6);
+      padding: to-rem(8) to-rem(0);
     }
 
     &:last-child {
@@ -491,7 +491,6 @@
     color: #464c53;
     line-height: 1.5;
     font-family: $font-family-primary;
-    word-break: keep-all;
     text-align: left;
 
     @include mobile {
@@ -505,7 +504,6 @@
     font-weight: 400;
     color: #464c53;
     line-height: 1.5;
-    word-break: keep-all;
     font-family: $font-family-primary;
     // text-overflow: ellipsis;
     // overflow: hidden;
