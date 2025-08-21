@@ -26,24 +26,13 @@ export interface Props {
   ariaLabel?: string;
 }
 
-const {
-  direction,
-  size = 40,
-  disabled = false,
-  onClick,
-  class: className = '',
-  ariaLabel,
-  ...rest
-} = Astro.props;
+const { direction, size = 40, disabled = false, onClick, class: className = '', ariaLabel, ...rest } = Astro.props;
 
-const defaultAriaLabel =
-  direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
+const defaultAriaLabel = direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
 const buttonAriaLabel = ariaLabel || defaultAriaLabel;
 
 // ui-nav-button--primary 클래스가 있으면 아이콘에 white 클래스 추가
-const iconWhiteClass = className.includes('ui-nav-button--primary')
-  ? 'icon-white'
-  : '';
+const iconWhiteClass = className.includes('ui-nav-button--primary') ? 'icon-white' : '';
 ---
 
 <button
@@ -57,15 +46,15 @@ const iconWhiteClass = className.includes('ui-nav-button--primary')
 >
   {
     direction === 'prev' ? (
-      <i class={`icon icon-sm icon-arr-left ${iconWhiteClass}`} />
+      <img src="./assets/images/icon/icon-arr-left.svg" class="icon icon-arr-left" />
     ) : direction === 'next' ? (
-      <i class={`icon icon-sm icon-arr-right ${iconWhiteClass}`} />
+      <img src="./assets/images/icon/icon-arr-right.svg" class="icon icon-arr-right" />
     ) : direction === 'stop' ? (
-      <i class={`icon icon-sm icon-stop ${iconWhiteClass}`} />
+      <img src="./assets/images/icon/icon-stop.svg" class="icon icon-stop" />
     ) : direction === 'stop-bold' ? (
-      <i class={`icon icon-sm icon-stop-bold ${iconWhiteClass}`} />
+      <img src="./assets/images/icon/icon-stop-bold.svg" class="icon icon-stop-bold" />
     ) : direction === 'stop-white' ? (
-      <i class={`icon icon-sm icon-stop-white ${iconWhiteClass}`} />
+      <img src="./assets/images/icon/icon-stop-white.svg" class="icon icon-stop-white" />
     ) : null
   }
 </button>

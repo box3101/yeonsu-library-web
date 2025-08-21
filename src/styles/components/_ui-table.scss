@@ -7,7 +7,7 @@
 .ui-table-wrapper {
   margin-top: to-rem(30);
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   border-bottom: 1px solid #cdd1d5;
 
   @include mobile {

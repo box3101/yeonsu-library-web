@@ -250,13 +250,13 @@ const menuData: Record<string, MenuSection[]> = {
     <!-- 유틸리티 영역 -->
     <div class="mobile-menu-utility">
       <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기">
-        <i class="icon icon-close"></i>
+        <img src="./assets/images/icon/icon-close.svg" class="icon icon-close" />
       </button>
     </div>
 
     <!-- 로그인 영역 -->
     <div class="mobile-menu-login">
-      <i class="icon icon-login"></i>
+      <img src="./assets/images/icon/icon-login.svg" class="icon icon-login" />
       <span>로그인을 해주세요</span>
     </div>
 
@@ -264,7 +264,7 @@ const menuData: Record<string, MenuSection[]> = {
     <div class="mobile-menu-search">
       <div class="search-box">
         <input type="text" placeholder="메뉴명을 입력해주세요" class="search-input" />
-        <i class="icon icon-search"></i>
+        <img src="./assets/images/icon/icon-search.svg" class="icon icon-search" />
       </div>
     </div>
   </div>
@@ -300,9 +300,10 @@ const menuData: Record<string, MenuSection[]> = {
                         <button
                           type="button"
                           class={`menu-item-toggle ${menuIndex === 0 && childIndex === 0 ? 'selected expanded' : ''}`}
-                          data-toggle={`${categoryIndex}-${menuIndex}-${childIndex}`}>
+                          data-toggle={`${categoryIndex}-${menuIndex}-${childIndex}`}
+                        >
                           <span>{child.title}</span>
-                          <i class="icon icon-arrow-down" />
+                          <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
                         </button>
                       ) : (
                         <a href={child.url} class="menu-item-link">
@@ -311,7 +312,10 @@ const menuData: Record<string, MenuSection[]> = {
                       )}
 
                       {child.children && (
-                        <div class={`menu-submenu ${menuIndex === 0 && childIndex === 0 ? 'active' : ''}`} data-submenu={`${categoryIndex}-${menuIndex}-${childIndex}`}>
+                        <div
+                          class={`menu-submenu ${menuIndex === 0 && childIndex === 0 ? 'active' : ''}`}
+                          data-submenu={`${categoryIndex}-${menuIndex}-${childIndex}`}
+                        >
                           {child.children.map((subChild: MenuItem) => (
                             <a href={subChild.url} class="menu-submenu-link">
                               <span class="bullet" />

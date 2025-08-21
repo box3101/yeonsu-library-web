@@ -24,7 +24,7 @@ const navItems = [
       {
         navItems.map(item => (
           <a href={item.href} class="nav-item">
-            <i class={`icon icon-sm ${item.icon}`} />
+            <img src={`./assets/images/icon/${item.icon}.svg`} class="icon icon-sm" />
             <span>{item.text}</span>
           </a>
         ))

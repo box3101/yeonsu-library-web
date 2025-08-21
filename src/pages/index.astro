@@ -228,7 +228,8 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title:
+      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -257,7 +258,8 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title:
+      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -286,7 +288,8 @@ const allNoticeItems = [
   {
     tag: '선학별빛',
     tagClass: 'notice-item__tag--pink',
-    title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+    title:
+      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
     date: '07.05',
     isBold: false,
   },
@@ -414,9 +417,19 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               </div>
 
               <div class="btn-nav">
-                <UiNavButton class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" direction="prev" size={24} ariaLabel="이전 추천" />
+                <UiNavButton
+                  class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
+                  direction="prev"
+                  size={24}
+                  ariaLabel="이전 추천"
+                />
 
-                <UiNavButton class="book-recommendation-slider__nav book-recommendation-slider__nav--next" direction="next" size={24} ariaLabel="다음 추천" />
+                <UiNavButton
+                  class="book-recommendation-slider__nav book-recommendation-slider__nav--next"
+                  direction="next"
+                  size={24}
+                  ariaLabel="다음 추천"
+                />
               </div>
             </div>
           </div>
@@ -427,113 +440,6 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
         </p>
       </div>
     </section>
-
-    <script is:inline type="text/javascript">
-      // 검색 탭 기능 초기화 (헤더의 검색 탭과 책큐 슬라이더 제어)
-      class SearchTabs {
-        constructor() {
-          this.init();
-        }
-
-        init() {
-          this.bindEvents();
-        }
-
-        bindEvents() {
-          // 탭 클릭 이벤트
-          document.addEventListener('click', e => {
-            const tab = e.target.closest('.search-tabs__tab');
-            if (tab) {
-              this.handleTabClick(tab);
-            }
-          });
-
-          // 키보드 접근성
-          document.addEventListener('keydown', e => {
-            const tab = e.target.closest('.search-tabs__tab');
-            if (tab && (e.key === 'Enter' || e.key === ' ')) {
-              e.preventDefault();
-              this.handleTabClick(tab);
-            }
-          });
-        }
-
-        handleTabClick(clickedTab) {
-          const tabContainer = clickedTab.closest('.search-tabs');
-          if (!tabContainer) return;
-
-          const allTabs = tabContainer.querySelectorAll('.search-tabs__tab');
-          const tabId = clickedTab.dataset.tab;
-
-          // 모든 탭에서 active 클래스 제거
-          allTabs.forEach(tab => {
-            tab.classList.remove('search-tabs__tab--active');
-            tab.setAttribute('aria-selected', 'false');
-          });
-
-          // 클릭된 탭에 active 클래스 추가
-          clickedTab.classList.add('search-tabs__tab--active');
-          clickedTab.setAttribute('aria-selected', 'true');
-
-          // 탭 변경 이벤트 발생
-          this.onTabChange(tabId);
-        }
-
-        onTabChange(tabId) {
-          // 검색창 플레이스홀더 변경
-          const searchInput = document.querySelector('.search-input__field');
-          if (searchInput) {
-            switch (tabId) {
-              case 'book-search':
-                searchInput.placeholder = '찾고 싶은 도서의 내용을 입력하세요.';
-                break;
-              case 'ai-book':
-                searchInput.placeholder = 'AI 책큐에게 질문해보세요.';
-                break;
-              default:
-                searchInput.placeholder = '찾고 싶은 도서의 내용을 입력하세요.';
-            }
-          }
-
-          // 책큐 탭일 때 책큐 슬라이더 표시
-          const bookRecommendationSlider = document.getElementById('bookRecommendationSlider');
-          if (bookRecommendationSlider) {
-            if (tabId === 'ai-book') {
-              bookRecommendationSlider.style.display = 'block';
-            } else {
-              bookRecommendationSlider.style.display = 'none';
-            }
-          }
-
-          // 커스텀 이벤트 발생 (다른 컴포넌트에서 사용 가능)
-          const event = new CustomEvent('searchTabChanged', {
-            detail: { tabId },
-          });
-          document.dispatchEvent(event);
-
-          console.log('탭 변경됨: ' + tabId);
-        }
-
-        setActiveTab(tabId) {
-          const tab = document.querySelector('[data-tab="' + tabId + '"]');
-          if (tab) {
-            this.handleTabClick(tab);
-          }
-        }
-
-        // 현재 활성 탭 가져오기
-        getActiveTab() {
-          const activeTab = document.querySelector('.search-tabs__tab--active');
-          return activeTab ? activeTab.dataset.tab : null;
-        }
-      }
-
-      // DOM이 로드되면 검색 탭 초기화
-      document.addEventListener('DOMContentLoaded', function () {
-        window.searchTabs = new SearchTabs();
-      });
-    </script>
-
     <!-- // 비쥬얼 영역 -->
 
     <!-- 공지사항, 자주 찾는 페이지 -->
@@ -803,7 +709,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="holiday-notice flex justify-between items-center">
                 <div class="holiday-notice__left flex gap-2 items-center">
                   <div class="holiday-notice__icon">
-                    <i class="icon icon-md icon-dete"></i>
+                    <img src="./assets/images/icon/icon-date.svg" class="icon icon-date" />
                   </div>
                   <span class="holiday-notice__text">휴관일 안내</span>
                 </div>
@@ -916,7 +822,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
               <div class="library-hours">
                 <div class="holiday-notice__left flex gap-2 items-center">
                   <div class="holiday-notice__icon">
-                    <i class="icon icon-md icon-calendar"></i>
+                    <img src="./assets/images/icon/icon-calendar.svg" class="icon icon-calendar" />
                   </div>
                   <span class="holiday-notice__text">이용시간</span>
                 </div>
@@ -950,7 +856,8 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
                 <!-- 페이지네이션 -->
                 <div class="library-hours__pagination">
                   <span class="library-hours__page-info">
-                    <span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">{libraryHours.length}</span>
+                    <span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">{libraryHours.length}</span
+                    >
                   </span>
                   <div class="library-hours__nav">
                     <UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />

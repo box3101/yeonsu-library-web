@@ -256,7 +256,7 @@ const menuData = [
                 data-menu-index={index}
               >
                 <span class="gnb-main-text">{menu.title}</span>
-                {menu.type !== '1depth' && <i class="icon icon-sm icon-arrow-down" aria-hidden="true" />}
+                {menu.type !== '1depth' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
               </a>
 
               {/* 서브메뉴 */}
@@ -276,7 +276,7 @@ const menuData = [
                           >
                             <a href={item.href} class="gnb-sub-link" role="menuitem">
                               <span class="gnb-sub-text">{item.label}</span>
-                              {item.subItems && <i class="icon icon-xsm icon-arrow-right" aria-hidden="true" />}
+                              {item.subItems && <img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />}
                             </a>
                           </div>
                         ))}

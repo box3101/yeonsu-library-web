@@ -101,7 +101,7 @@ const buttonStyle = [
   {
     hasIcon && iconPosition === 'left' && !loading && (
       <div class="ui-button__icon ui-button__icon--left">
-        <i class={`icon icon-md ${icon}`} />
+        <img src={`./assets/images/icon/${icon}.svg`} class="icon icon-md" />
       </div>
     )
   }
@@ -111,7 +111,7 @@ const buttonStyle = [
   {
     hasIcon && iconPosition === 'right' && !loading && (
       <div class="ui-button__icon ui-button__icon--right">
-        <i class={`icon-sm ${icon}`} />
+        <img src={`./assets/images/icon/${icon}.svg`} class="icon icon-sm" />
       </div>
     )
   }

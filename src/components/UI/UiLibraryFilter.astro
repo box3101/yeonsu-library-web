@@ -22,7 +22,15 @@ export interface Props {
   class?: string;
 }
 
-const { title = '전체도서관', subtitle = '도서관 분류', libraries = [], allChecked = false, expanded = true, gridColumns = 4, class: className = '' } = Astro.props;
+const {
+  title = '전체도서관',
+  subtitle = '도서관 분류',
+  libraries = [],
+  allChecked = false,
+  expanded = true,
+  gridColumns = 4,
+  class: className = '',
+} = Astro.props;
 
 const filterId = `filter-${Math.random().toString(36).substr(2, 9)}`;
 const toggleId = `toggle-${filterId}`;
@@ -57,8 +65,22 @@ const popularSearches = [
   <div class="ui-library-filter__box">
     <div class="ui-library-filter__header">
       <div class="ui-library-filter__main-control">
-        <UiCheckbox id={`all-${filterId}`} name={`all-${filterId}`} label={title} checked={allChecked} size="large" class="ui-library-filter__main-checkbox" />
-        <button type="button" class="ui-library-filter__toggle" data-toggle="menu-1" id={toggleId} aria-expanded={expanded} aria-controls={`content-${filterId}`}>
+        <UiCheckbox
+          id={`all-${filterId}`}
+          name={`all-${filterId}`}
+          label={title}
+          checked={allChecked}
+          size="large"
+          class="ui-library-filter__main-checkbox"
+        />
+        <button
+          type="button"
+          class="ui-library-filter__toggle"
+          data-toggle="menu-1"
+          id={toggleId}
+          aria-expanded={expanded}
+          aria-controls={`content-${filterId}`}
+        >
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" class="ui-library-filter__toggle-icon">
             <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -92,7 +114,14 @@ const popularSearches = [
     <!-- 검색어, 다국어입력기, 검색, 고급검색 -->
     <div class="ui-library-filter__search flex gap-8 mt10">
       <div class="flex-1">
-        <UiInput id="search" name="search" placeholder="검색어를 입력해주세요." size="medium" clearable={true} class="ui-library-filter__search-input" />
+        <UiInput
+          id="search"
+          name="search"
+          placeholder="검색어를 입력해주세요."
+          size="medium"
+          clearable={true}
+          class="ui-library-filter__search-input"
+        />
       </div>
       <!-- 검색어 드롭다운 -->
       <div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
@@ -145,11 +174,25 @@ const popularSearches = [
 
       <div class="flex gap-5">
         <div class="ui-keyboard-container">
-          <UiButton text="다국어입력기" size="medium" icon="icon-language icon-white" iconPosition="left" class="ui-library-filter__search-button ui-keyboard-trigger" />
+          <UiButton
+            text="다국어입력기"
+            size="medium"
+            icon="icon-language icon-white"
+            iconPosition="left"
+            class="ui-library-filter__search-button ui-keyboard-trigger"
+          />
           <UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
         </div>
         <UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
-        <UiButton text="고급검색" variant="darkBlue" icon="icon-search-advanced" iconPosition="left" size="medium" class="ui-library-filter__search-button" href="/01-2.소장도서검색_고급검색" />
+        <UiButton
+          text="고급검색"
+          variant="darkBlue"
+          icon="icon-search-advanced"
+          iconPosition="left"
+          size="medium"
+          class="ui-library-filter__search-button"
+          href="/01-2.소장도서검색_고급검색"
+        />
       </div>
     </div>
 
@@ -159,195 +202,3 @@ const popularSearches = [
     </div>
   </div>
 </section>
-
-<script is:inline define:vars={{ filterId, toggleId, searchDropdownId }}>
-  /**
-   * 도서관 필터 인라인 스크립트
-   * - 토글 문제 해결
-   * - CSS와 JS 동기화
-   */
-  (function (filterId, toggleId, searchDropdownId) {
-    'use strict';
-
-    // DOM 로드 완료 후 실행
-    function initLibraryFilter() {
-      // ==========================================
-      // 유틸리티 함수
-      // ==========================================
-      const $ = (selector, context = document) => context.querySelector(selector);
-      const $$ = (selector, context = document) => context.querySelectorAll(selector);
-
-      // ==========================================
-      // 체크박스 기능
-      // ==========================================
-      function initCheckboxes() {
-        const mainCheckbox = document.getElementById(`all-${filterId}`);
-        const content = document.getElementById(`content-${filterId}`);
-
-        if (!mainCheckbox || !content) {
-          return;
-        }
-
-        const itemCheckboxes = content.querySelectorAll('input[type="checkbox"]');
-
-        // 전체 선택
-        mainCheckbox.addEventListener('change', () => {
-          itemCheckboxes.forEach(cb => {
-            cb.checked = mainCheckbox.checked;
-          });
-        });
-
-        // 개별 선택
-        itemCheckboxes.forEach(checkbox => {
-          checkbox.addEventListener('change', () => {
-            const checkedCount = content.querySelectorAll('input[type="checkbox"]:checked').length;
-            const totalCount = itemCheckboxes.length;
-
-            if (checkedCount === totalCount) {
-              mainCheckbox.checked = true;
-              mainCheckbox.indeterminate = false;
-            } else if (checkedCount === 0) {
-              mainCheckbox.checked = false;
-              mainCheckbox.indeterminate = false;
-            } else {
-              mainCheckbox.checked = false;
-              mainCheckbox.indeterminate = true;
-            }
-          });
-        });
-
-        // 초기 상태 설정
-        const initialChecked = content.querySelectorAll('input[type="checkbox"]:checked').length;
-        if (initialChecked === itemCheckboxes.length && itemCheckboxes.length > 0) {
-          mainCheckbox.checked = true;
-        } else if (initialChecked > 0) {
-          mainCheckbox.indeterminate = true;
-        }
-      }
-
-      // ==========================================
-      // 검색 드롭다운 기능
-      // ==========================================
-      function initSearchDropdown() {
-        const searchInput = document.getElementById('search');
-        const dropdown = document.getElementById(searchDropdownId);
-
-        if (!searchInput || !dropdown) {
-          return;
-        }
-
-        // 포커스 시 열기
-        searchInput.addEventListener('focus', () => {
-          dropdown.classList.add('is-open');
-        });
-
-        // 포커스 벗어날 때 닫기
-        searchInput.addEventListener('blur', e => {
-          // 드롭다운 내부 클릭 시에는 닫지 않음
-          if (!dropdown.contains(e.relatedTarget)) {
-            setTimeout(() => {
-              dropdown.classList.remove('is-open');
-            }, 200);
-          }
-        });
-
-        // 드롭다운 클릭 시 포커스 유지
-        dropdown.addEventListener('mousedown', e => {
-          e.preventDefault();
-        });
-
-        // 탭 기능
-        const tabButtons = dropdown.querySelectorAll('.search-tab-button');
-        tabButtons.forEach(tab => {
-          tab.addEventListener('click', function () {
-            // 모든 탭 비활성화
-            tabButtons.forEach(t => {
-              t.classList.remove('active');
-              t.dataset.active = 'false';
-            });
-
-            // 현재 탭 활성화
-            this.classList.add('active');
-            this.dataset.active = 'true';
-
-            // 컨텐츠 전환
-            const targetTab = this.dataset.tab;
-            const allContents = dropdown.querySelectorAll('.search-content');
-            allContents.forEach(content => {
-              content.classList.remove('active');
-            });
-
-            const targetContent = document.getElementById(`${targetTab}-searches`);
-            if (targetContent) {
-              targetContent.classList.add('active');
-            }
-          });
-        });
-
-        // 검색어 항목 클릭
-        const searchItems = dropdown.querySelectorAll('.search-item');
-        searchItems.forEach(item => {
-          item.addEventListener('click', () => {
-            const term = item.dataset.term;
-            searchInput.value = term;
-            dropdown.classList.remove('is-open');
-          });
-        });
-      }
-
-      // ==========================================
-      // 다국어 키보드 기능
-      // ==========================================
-      function initKeyboard() {
-        const keyboardTriggers = document.querySelectorAll('.ui-keyboard-trigger');
-        keyboardTriggers.forEach(trigger => {
-          trigger.addEventListener('click', e => {
-            e.preventDefault();
-            if (typeof window.openKeyboard === 'function') {
-              window.openKeyboard();
-            } else {
-            }
-          });
-        });
-      }
-
-      // ==========================================
-      // ESC 키 핸들러
-      // ==========================================
-      function initEscapeHandler() {
-        document.addEventListener('keydown', e => {
-          if (e.key === 'Escape') {
-            const dropdown = document.getElementById(searchDropdownId);
-            if (dropdown && dropdown.classList.contains('is-open')) {
-              dropdown.classList.remove('is-open');
-            }
-          }
-        });
-      }
-
-      // ==========================================
-      // 전체 초기화 실행
-      // ==========================================
-      try {
-        initToggle();
-        initCheckboxes();
-        initSearchDropdown();
-        initKeyboard();
-        initEscapeHandler();
-      } catch (error) {}
-    }
-
-    // DOM 준비 상태 확인 후 실행
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initLibraryFilter);
-    } else {
-      // 이미 로드된 경우 즉시 실행
-      setTimeout(initLibraryFilter, 0);
-    }
-
-    // 추가 안전장치: window load 이벤트에서도 실행
-    window.addEventListener('load', () => {
-      setTimeout(initLibraryFilter, 100);
-    });
-  })(filterId, toggleId, searchDropdownId);
-</script>

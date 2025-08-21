@@ -29,9 +29,7 @@ const {
   id = `book-slider-${Math.random().toString(36).substr(2, 9)}`,
 } = Astro.props;
 
-const sliderClasses = ['ui-book-slider', 'swiper', className]
-  .filter(Boolean)
-  .join(' ');
+const sliderClasses = ['ui-book-slider', 'swiper', className].filter(Boolean).join(' ');
 ---
 
 <div class={`ui-book-slider-container ${className}`}>
@@ -44,18 +42,10 @@ const sliderClasses = ['ui-book-slider', 'swiper', className]
               <div class="ui-book-slider__image-wrapper">
                 {book.href ? (
                   <a href={book.href} class="ui-book-slider__image-link">
-                    <img
-                      src={book.imageUrl}
-                      alt={book.title}
-                      class="ui-book-slider__image"
-                    />
+                    <img src={book.imageUrl} alt={book.title} class="ui-book-slider__image" />
                   </a>
                 ) : (
-                  <img
-                    src={book.imageUrl}
-                    alt={book.title}
-                    class="ui-book-slider__image"
-                  />
+                  <img src={book.imageUrl} alt={book.title} class="ui-book-slider__image" />
                 )}
               </div>
               <div class="ui-book-slider__info">
@@ -80,19 +70,11 @@ const sliderClasses = ['ui-book-slider', 'swiper', className]
     {
       navigation && (
         <>
-          <button
-            class={`ui-book-slider__nav ui-book-slider__nav--prev ${id}-btn-prev`}
-            type="button"
-            aria-label="이전 도서"
-          >
-            <i class="icon icon-arrow-left" />
+          <button class={`ui-book-slider__nav ui-book-slider__nav--prev ${id}-btn-prev`} type="button" aria-label="이전 도서">
+            <img src="./assets/images/icon/icon-arrow-left.svg" class="icon icon-arrow-left" />
           </button>
-          <button
-            class={`ui-book-slider__nav ui-book-slider__nav--next ${id}-btn-next`}
-            type="button"
-            aria-label="다음 도서"
-          >
-            <i class="icon icon-arrow-right" />
+          <button class={`ui-book-slider__nav ui-book-slider__nav--next ${id}-btn-next`} type="button" aria-label="다음 도서">
+            <img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />
           </button>
         </>
       )
