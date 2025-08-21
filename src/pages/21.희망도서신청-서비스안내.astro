@@ -1,0 +1,182 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker, UiTab } from '@components';
+
+const breadcrumbItems = [
+  { text: '홈', link: '/' },
+  { text: '내정보', link: '#' },
+  { text: '희망도서신청', link: '#' },
+];
+---
+
+<Layout title="희망도서신청">
+  <SubLayout title="희망도서신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+    <UiTab
+      tabs={[
+        { id: 'info', label: '서비스 안내', active: true, href: '/21.희망도서신청-서비스안내' },
+        { id: 'apply', label: '서비스 신청', href: '/21.희망도서신청-서비스신청' },
+      ]}
+      className="mb-4 search-type-tabs ui-tab--grid-5"
+    />
+
+    <div class="sub-layout__content">
+      <!-- 희망도서 신청도서관 소개 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">희망도서 신청도서관</h2>
+          <p class="sub-layout__content-inner-header-desc">
+            연수청학, 연수꿈담, 송도국제어린이, 해돋이, 선학별빛, 동춘나래, 함박비류, 송도5동, 솔안공원, 해찬솔공원, 누리공원
+          </p>
+        </div>
+      </section>
+      <!-- 희망도서 신청도서관 EEE -->
+
+      <!-- 희망도서 신청기준 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">희망도서 신청기준</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <ul class="sub-layout__content-inner-body-item-list">
+            <li>월 1인 2권까지 신청</li>
+            <li>희망도서는 월 2회 처리(1일, 15일)</li>
+          </ul>
+          <!-- 희망도서 신청기준 테이블 -->
+          <div class="policy-table">
+            <table class="table table--bordered">
+              <thead>
+                <tr>
+                  <th scope="col">도서관명</th>
+                  <th scope="col">처리주기</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>연수청학·연수꿈담·해돋이·선학별빛·동춘나래·함박비류도서관</td>
+                  <td>월 2회 (1일,15일) 전일 신청 분까지</td>
+                  <td rowspan="2">주문 및 도서 입수 2~3주 소요</td>
+                </tr>
+                <tr>
+                  <td>송도국제어린이도서관, 공원작은도서관(해찬솔, 누리, 송도5동, 솔안)</td>
+                  <td>월 1회 (15일) 전일 신청 분까지</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- 희망도서 신청기준 EEE -->
+
+      <!-- 희망도서 신청방법 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">희망도서 신청방법</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <ul class="sub-layout__content-inner-body-item-list">
+              <li>연수구립도서관 홈페이지에서 신청</li>
+              <li>각 도서관 도서검색대에 비치된 희망도서 신청서 작성 제출</li>
+              <li>(모바일)리브로피아 앱에 인증된 연수구립도서관 페이지에서 신청</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- 희망도서 신청방법 EEE -->
+
+      <!-- 희망도서 신청 제외 대상 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">희망도서 신청 제외 대상</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <ul class="sub-layout__content-inner-body-item-list">
+              <li>당해 연도 기준 5년 이전 출간된 도서(신판이 출판된 구판 자료)</li>
+              <li>전집(3권 이상의 시리즈 도서, 단, 비치된 시리즈 중 없는 도서는 신청 가능)</li>
+              <li>만화(웹툰, 학습만화 포함), 간행물(신문, 잡지 등), 문제집(학습자료 포함), 원서, 전자책</li>
+              <li>무협 및 판타지, 라이트노블, 19세 이상, 엽기소설, 음란도서(청소년 유해도서) 등</li>
+              <li>공중이 이용할 수 없는 도서(스프링, 퍼즐북, 헝겊책, 위크북 등)</li>
+              <li>고가의 자료(정가 5만원 이상), 독자층이 한정된 고도의 전문지식을 요하는 주제의 전문도서 및 대학교재</li>
+              <li>품절 및 미출간 도서, 국내 구입이 어려운 도서, 지역서점을 통해 유통되지 않는 도서</li>
+              <li>어린이도서관의 경우 성인 대상 도서</li>
+              <li>소장자료나 구입중 또는 정리중 도서, 신청 또는 주문 중복 도서</li>
+              <li>사전류, 악보, 작품집(도록, 화집, 사진집 포함), 논문집, 통계 연감 백서 보고서 편람 등의 특수 유형의 자료</li>
+              <li>경전(성경, 불경), 간증, 설교, 전도 등을 목적으로 한 종교 관련 도서</li>
+              <li>영리 목적으로 개인이나 단체가 신청한 도서(출판사 본인이 저자, 역자) 및 정치 목적의 도서</li>
+            </ul>
+            <p class="desc">※ 희망도서 선정에서 제외된 도서 중 필요하다고 판단되는 경우에는 정기구입 자료선정 위원회에서 심의를 통해 구입</p>
+          </div>
+        </div>
+      </section>
+      <!-- 희망도서 신청 제외 대상 EEE -->
+
+      <!-- 스텝 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">희망도서신청 처리과정</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <div class="step-process">
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">희망도서신청</div>
+                <div class="step-arrow">
+                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  소장여부 파악<br />
+                  <span class="step-sub">(신청가능/불가 파악)</span>
+                </div>
+                <div class="step-arrow">
+                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  목록작성 <br /> 및 발주
+                  <span class="step-sub">(월 2회)</span>
+                </div>
+                <div class="step-arrow">
+                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  신청도서 <br /> 도착 알림
+                  <span class="step-sub">(SMS 전송)</span>
+                </div>
+                <div class="step-arrow">
+                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  도서예약처리<br />
+                  <span class="step-sub">(5일간)</span>
+                </div>
+                <div class="step-arrow">
+                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">6</div>
+                <div class="step-content">도서대출</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 스텝 EEE -->
+    </div>
+  </SubLayout>
+</Layout>

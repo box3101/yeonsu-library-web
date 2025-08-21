@@ -1382,6 +1382,9 @@ img {
 
 .ui-keyboard-container {
   position: relative;
+  @include tablet {
+    width: 100%;
+  }
 }
 
 .ui-search-keyboard {

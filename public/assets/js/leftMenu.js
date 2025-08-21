@@ -19,6 +19,37 @@
 
     // 각 토글 버튼에 클릭 이벤트 바인딩
     $toggleButtons.on('click', handleMenuToggle);
+
+    // 메뉴 링크들에 클릭 효과 추가
+    initMenuLinkEffects();
+  }
+
+  /**
+   * 메뉴 링크들에 클릭 효과 초기화
+   */
+  function initMenuLinkEffects() {
+    var $menuLinks = $('.menu-link');
+
+    $menuLinks.on('click', function (e) {
+      var $link = $(this);
+      
+      // 임시 클릭 효과 클래스 추가
+      $link.addClass('clicking');
+      
+      // 300ms 후 클래스 제거
+      setTimeout(function () {
+        $link.removeClass('clicking');
+      }, 300);
+    });
+
+    // 마우스 다운/업 효과
+    $menuLinks.on('mousedown', function () {
+      $(this).addClass('pressed');
+    });
+
+    $menuLinks.on('mouseup mouseleave', function () {
+      $(this).removeClass('pressed');
+    });
   }
 
   function handleMenuToggle(event) {

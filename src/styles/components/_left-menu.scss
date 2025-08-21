@@ -19,7 +19,7 @@
 
   .left-menu-title {
     padding: to-rem(32) 0;
-    border-bottom: 1px solid #e5e8eb;
+    border-bottom: 1px solid $gray-300;
 
     .left-menu-title-text {
       color: #1e2124;
@@ -56,12 +56,12 @@
 
       &:hover {
         background: #f3f4f6;
-        color: #3c79c2;
+        color: $primary-color;
       }
 
       &.expanded {
         background: #e3f2fd;
-        color: #3c79c2;
+        color: $primary-color;
 
         .menu-arrow {
           transform: rotate(180deg);
@@ -71,8 +71,8 @@
       &.active,
       &.direct-link.active {
         background: #e3f2fd;
-        color: #3c79c2;
-        border-bottom: 3px solid #3c79c2;
+        color: $primary-color;
+        border-bottom: 3px solid $primary-color;
       }
 
       &.direct-link {
@@ -80,7 +80,7 @@
 
         &:hover {
           background: #f3f4f6;
-          color: #3c79c2;
+          color: $primary-color;
         }
       }
 
@@ -114,23 +114,57 @@
         .menu-link {
           @include flex;
           align-items: center;
-          padding: to-rem(12) to-rem(40);
+          padding: to-rem(12) to-rem(20) to-rem(12) to-rem(40);
           color: $gray-900;
           font-weight: 500;
           text-decoration: none;
           font-size: to-rem(16);
           line-height: 1.5;
-          transition: all 0.15s ease-out;
+          transition: all 0.2s ease-out;
           background: #ffffff;
+          position: relative;
+          border-left: 3px solid transparent;
+
+          // 아이콘을 위한 before 가상 요소
+          &::before {
+            content: '';
+            position: absolute;
+            left: to-rem(20);
+            top: 50%;
+            transform: translateY(-50%);
+            width: to-rem(6);
+            height: to-rem(6);
+            background: $gray-400;
+            border-radius: 50%;
+            transition: all 0.2s ease-out;
+          }
 
           &:hover {
-            background-color: #f3f4f6;
-            color: #3c79c2;
+            background-color: #f8faff;
+            color: $primary-color;
+            border-left-color: rgba($primary-color, 0.3);
+            transform: translateX(2px);
+
+            &::before {
+              background: $primary-color;
+              transform: translateY(-50%) scale(1.2);
+            }
+          }
+
+          // 클릭 효과 (활성화 시뮬레이션)
+          &:active {
+            transform: translateX(1px);
+            background-color: #e3f2fd;
+
+            &::before {
+              background: #1976d2;
+              transform: translateY(-50%) scale(0.9);
+            }
           }
 
           &.active {
             background-color: #e1effc;
-            color: #3c79c2;
+            color: $primary-color;
             font-weight: 500;
             position: relative;
 
@@ -141,7 +175,7 @@
               top: 0;
               bottom: 0;
               width: 3px;
-              background: #3c79c2;
+              background: $primary-color;
             }
           }
         }

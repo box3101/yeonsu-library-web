@@ -7,6 +7,7 @@ export interface Props {
     active?: boolean;
     icon?: string;
     number?: number;
+    href?: string;
   }>;
   variant?: 'default' | 'pills' | 'minimal';
   size?: 'small' | 'medium' | 'large';
@@ -28,25 +29,44 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
 <div class={tabClasses}>
   <div class="ui-tab__list" role="tablist">
     {
-      tabs.map(tab => (
-        <button
-          class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''}`}
-          role="tab"
-          aria-selected={tab.active}
-          aria-controls={`panel-${tab.id}`}
-          id={`tab-${tab.id}`}
-          data-tab-target={tab.id}
-        >
-          {tab.icon && (
-            <div class="ui-tab__icon">
-              <img src={tab.icon} alt={tab.label} />
-            </div>
-          )}
-          {tab.number && <p class="ui-tab__number">{tab.number}</p>}
-          <span class="ui-tab__label">{tab.label}</span>
-          {showCount && tab.count !== undefined && <span class="ui-tab__count">({tab.count.toString().padStart(4, '0')})</span>}
-        </button>
-      ))
+      tabs.map(tab =>
+        tab.href ? (
+          <a
+            href={tab.href}
+            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''}`}
+            role="tab"
+            aria-selected={tab.active}
+            aria-controls={`panel-${tab.id}`}
+            id={`tab-${tab.id}`}
+            data-tab-target={tab.id}
+          >
+            {tab.icon && (
+              <div class="ui-tab__icon">
+                <img src={tab.icon} alt={tab.label} />
+              </div>
+            )}
+            <span class="ui-tab__label">{tab.label}</span>
+          </a>
+        ) : (
+          <button
+            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''}`}
+            role="tab"
+            aria-selected={tab.active}
+            aria-controls={`panel-${tab.id}`}
+            id={`tab-${tab.id}`}
+            data-tab-target={tab.id}
+          >
+            {tab.icon && (
+              <div class="ui-tab__icon">
+                <img src={tab.icon} alt={tab.label} />
+              </div>
+            )}
+            {tab.number && <p class="ui-tab__number">{tab.number}</p>}
+            <span class="ui-tab__label">{tab.label}</span>
+            {showCount && tab.count !== undefined && <span class="ui-tab__count">({tab.count.toString().padStart(4, '0')})</span>}
+          </button>
+        )
+      )
     }
   </div>
 </div>

@@ -1,13 +1,19 @@
 ---
-const { title = '', breadcrumbItems = [] } = Astro.props;
+const { title = '', breadcrumbItems = [], menuType } = Astro.props;
 
 import LeftMenu from '@/components/layout/LeftMenu.astro';
 import Breadcrumb from '@/components/layout/Breadcrumb.astro';
+
+export interface Props {
+  title?: string;
+  breadcrumbItems?: Array<{ label: string; href?: string }>;
+  menuType?: string; // 왼쪽 메뉴 타입 지정
+}
 ---
 
 <div class="sub-layout inner">
   <aside class="left-menu">
-    <LeftMenu />
+    <LeftMenu menuType={menuType} />
   </aside>
 
   <main class="sub-content">

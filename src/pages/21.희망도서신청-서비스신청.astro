@@ -1,0 +1,136 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiSelect, UiButton, UiTab, UiInput, UiKeyboard, UiSmartLibraryBookCard } from '@components';
+
+const breadcrumbItems = [
+  { text: '홈', link: '/' },
+  { text: '내정보', link: '#' },
+  { text: '희망도서신청', link: '#' },
+];
+---
+
+<Layout title="희망도서신청">
+  <SubLayout title="희망도서신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+    <UiTab
+      tabs={[
+        { id: 'info', label: '서비스 안내', href: '/21.희망도서신청-서비스안내' },
+        { id: 'apply', label: '서비스 신청', active: true, href: '/21.희망도서신청-서비스신청' },
+      ]}
+      className="mb-4 search-type-tabs ui-tab--grid-5"
+    />
+
+    <div class="sub-layout__content">
+      <div class="ui-library-filter__box mt40">
+        <!-- 검색어, 다국어입력기, 검색, 고급검색 -->
+        <div class="ui-library-filter__search flex gap-8 mt0">
+          <div class="flex-1">
+            <UiInput
+              id="search"
+              name="search"
+              placeholder="검색어를 입력해주세요."
+              size="medium"
+              clearable={true}
+              class="ui-library-filter__search-input"
+            />
+          </div>
+
+          <div class="flex gap-5">
+            <div class="ui-keyboard-container">
+              <UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
+            </div>
+            <UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
+            <UiButton
+              text="직접입력"
+              variant="darkBlue"
+              icon="icon-search-advanced"
+              iconPosition="left"
+              size="medium"
+              class="ui-library-filter__search-button"
+            />
+          </div>
+        </div>
+      </div>
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <ul class="sub-layout__content-inner-body-item-list">
+              <li>도서명, 저자명, 발행처, ISBN을 입력하여 도서를 검색하세요.</li>
+              <li>포털사이트 도서 검색을 통해 비치를 희망하는 도서를 검색하고 신청할 수 있습니다.</li>
+              <li>검색결과가 나오지 않을 경우, [직접입력]을 클릭하여 신청하실 수 있습니다.</li>
+              <li>도서 DB 제공 : <a href="https://www.aladin.co.kr" target="_blank">알라딘 인터넷서점 (www.aladin.co.kr)</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- 검색결과 -->
+      <div class="search-result">
+        <div class="search-result__header">
+          <h3 class="search-result__title">
+            <strong class="text-primary">[교육]</strong> 에 대한 검색 결과 총
+            <span class="text-blue-600">19022</span>건
+          </h3>
+          <div class="search-result__controls">
+            <div class="search-result__select">
+              <UiSelect
+                options={[
+                  { value: '정렬기준', label: '정렬기준' },
+                  { value: '10', label: '10건' },
+                  { value: '20', label: '20건' },
+                  { value: '50', label: '50건' },
+                  { value: '100', label: '100건' },
+                ]}
+                value="정렬기준"
+                class="search-result__select-input w-150-mobile-full"
+              />
+            </div>
+            <div class="search-result__select">
+              <UiSelect
+                options={[
+                  { value: '출력건수', label: '출력건수' },
+                  { value: '10', label: '10건' },
+                  { value: '20', label: '20건' },
+                  { value: '50', label: '50건' },
+                  { value: '100', label: '100건' },
+                ]}
+                value="출력건수"
+                class="search-result__select-input w-150-mobile-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 카드 -->
+      <div class="card-container card-container--col-2">
+        {
+          Array.from({ length: 4 }, (_, i) => (
+            <div class="card-container__item">
+              <UiSmartLibraryBookCard
+                index={i + 1}
+                title="글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트"
+                author="박과학 지음"
+                publisher="과학나라"
+                publishYear="2024"
+                library="송도2동 스마트도서관"
+                status="available"
+                imageUrl="./assets/images/content-infant-books.png"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- 도서표지제공 -->
+      <div class="book-cover-info mt23 flex items-center gap-2 justify-end">
+        도서 표지 제공 :
+        <img src="./assets/images/book-img.png" alt="알라딘" />
+      </div>
+
+      <!-- 페이징네비게이션 -->
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

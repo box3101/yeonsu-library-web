@@ -21,7 +21,6 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '소장도서검색',
-        isExpanded: true,
         items: [
           { label: '통합검색', href: './01_소장도서검색' },
           { label: '상세검색', href: './01-1.소장도서검색_상세' },
@@ -34,7 +33,6 @@ export const menuConfig: Record<string, MenuConfig> = {
       },
       {
         title: '인기/신착/추천도서',
-        isExpanded: false,
         items: [
           { label: '인기도서', href: './06_인기도서' },
           { label: '신착도서', href: './07_신착도서' },
@@ -43,7 +41,6 @@ export const menuConfig: Record<string, MenuConfig> = {
       },
       {
         title: '도서탐색',
-        isExpanded: false,
         items: [
           { label: '카테고리분류', href: './09_카테고리분류' },
           { label: '한국십진분류', href: './10_한국십진분류' },
@@ -102,7 +99,6 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '대출/예약',
-        isExpanded: false,
         items: [
           { label: '대출현황', href: './11.대출현황' },
           { label: '대출이력', href: './12.대출이력' },
@@ -112,7 +108,6 @@ export const menuConfig: Record<string, MenuConfig> = {
       },
       {
         title: '희망신청',
-        isExpanded: false,
         items: [
           { label: '희망도서신청현황', href: './15.희망도서신청현황' },
           { label: '희망전자책신청현황', href: './16.희망전자책신청현황' },
@@ -128,7 +123,6 @@ export const menuConfig: Record<string, MenuConfig> = {
       },
       {
         title: '신청조회',
-        isExpanded: false,
         items: [
           { label: '행사신청조회', href: './18.행사신청조회' },
           { label: '프로그램신청조회', href: './19.프로그램신청조회' },
@@ -139,6 +133,46 @@ export const menuConfig: Record<string, MenuConfig> = {
       },
     ],
   }
+};
+
+// 현재 URL에 따라 메뉴 섹션의 확장 상태를 동적으로 설정하는 함수
+export const getExpandedSectionsForPath = (pathname: string, menuType: string): Record<string, boolean> => {
+  const expandedSections: Record<string, boolean> = {};
+
+  if (menuType === '도서검색') {
+    // 소장도서검색 하위 메뉴들
+    if (pathname.includes('소장도서검색')) {
+      expandedSections['소장도서검색'] = true;
+    }
+    // 인기/신착/추천도서 하위 메뉴들
+    else if (pathname.includes('인기도서') || pathname.includes('신착도서') || pathname.includes('추천도서')) {
+      expandedSections['인기/신착/추천도서'] = true;
+    }
+    // 도서탐색 하위 메뉴들
+    else if (pathname.includes('카테고리분류') || pathname.includes('한국십진분류')) {
+      expandedSections['도서탐색'] = true;
+    }
+  }
+  
+  else if (menuType === '나의도서관') {
+    // 대출/예약 하위 메뉴들
+    if (pathname.includes('대출현황') || pathname.includes('대출이력') || 
+        pathname.includes('일반예약현황') || pathname.includes('상호대차현황')) {
+      expandedSections['대출/예약'] = true;
+    }
+    // 희망신청 하위 메뉴들
+    else if (pathname.includes('희망도서신청현황') || pathname.includes('희망전자책신청현황')) {
+      expandedSections['희망신청'] = true;
+    }
+    // 신청조회 하위 메뉴들
+    else if (pathname.includes('행사신청조회') || pathname.includes('프로그램신청조회') || 
+             pathname.includes('견학신청조회') || pathname.includes('대관신청조회') || 
+             pathname.includes('영유아전집신청조회')) {
+      expandedSections['신청조회'] = true;
+    }
+  }
+
+  return expandedSections;
 };
 
 // URL 기반으로 메뉴 타입을 자동 감지하는 함수
