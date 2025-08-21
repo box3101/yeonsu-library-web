@@ -3,12 +3,11 @@
     "prefix": "btn",
     "body": [
       "<UiButton",
-      "  variant=\"${1|default,primary,secondary,tertiary,quaternary,quinary,senary,septenary,octonary,nonary,denary|}\"",
+      "  variant=\"${1|primary,secondary,tertiary,darkBlue,darkGray|}\"",
       "  size=\"${2|small,medium,large|}\"",
       "  text=\"${3:}\"",
       "  icon=\"${4:}\"",
       "  iconPosition=\"${5|left,right|}\"",
-      "  width={${6:180}}",
       "  class=\"${8:}\"",
       "/>",
       "$0",

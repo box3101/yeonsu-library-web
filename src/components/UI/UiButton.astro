@@ -1,7 +1,7 @@
 ---
 export interface Props {
   text?: string;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'darkBlue' | 'text';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'darkBlue' | 'darkGray' | 'text';
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   width?: string;
   height?: string;
@@ -13,6 +13,10 @@ export interface Props {
   iconPosition?: 'left' | 'right';
   iconOnly?: boolean;
   class?: string;
+  // 👇 모달 관련 속성들 추가
+  'data-modal-open'?: string;
+  'data-modal-close'?: boolean;
+  'data-modal-confirm'?: boolean;
 }
 
 const {
@@ -29,13 +33,24 @@ const {
   iconPosition = 'right',
   iconOnly = false,
   class: className = '',
+  // 👇 모달 관련 속성들 처리
+  'data-modal-open': dataModalOpen,
+  'data-modal-close': dataModalClose,
+  'data-modal-confirm': dataModalConfirm,
 } = Astro.props;
 
 const Tag = href ? 'a' : 'button';
 const linkProps = href ? { href, target } : {};
 const buttonProps = href
   ? {}
-  : { type: 'button', disabled: disabled || loading };
+  : {
+      type: 'button',
+      disabled: disabled || loading,
+      // 모달 관련 데이터 속성들 추가
+      ...(dataModalOpen && { 'data-modal-open': dataModalOpen }),
+      ...(dataModalClose && { 'data-modal-close': '' }),
+      ...(dataModalConfirm && { 'data-modal-confirm': '' }),
+    };
 
 const hasIcon = icon && icon.length > 0;
 const hasText = text && text.length > 0 && !iconOnly;
@@ -54,21 +69,13 @@ const buttonClasses = [
 
 const buttonStyle = [
   width ? `width: ${typeof width === 'number' ? width + 'px' : width}` : '',
-  height
-    ? `height: ${typeof height === 'number' ? height + 'px' : height}`
-    : '',
+  height ? `height: ${typeof height === 'number' ? height + 'px' : height}` : '',
 ]
   .filter(Boolean)
   .join('; ');
 ---
 
-<Tag
-  class={buttonClasses}
-  style={buttonStyle || undefined}
-  aria-disabled={disabled || loading}
-  {...linkProps}
-  {...buttonProps}
->
+<Tag class={buttonClasses} style={buttonStyle || undefined} aria-disabled={disabled || loading} {...linkProps} {...buttonProps}>
   {
     loading && (
       <div class="ui-button__spinner">
@@ -84,12 +91,7 @@ const buttonStyle = [
             stroke-dasharray="32"
             stroke-dashoffset="32"
           >
-            <animate
-              attributeName="stroke-dashoffset"
-              dur="1s"
-              values="32;0;32"
-              repeatCount="indefinite"
-            />
+            <animate attributeName="stroke-dashoffset" dur="1s" values="32;0;32" repeatCount="indefinite" />
           </circle>
         </svg>
       </div>
@@ -114,4 +116,3 @@ const buttonStyle = [
     )
   }
 </Tag>
-

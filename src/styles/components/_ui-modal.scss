@@ -1,0 +1,448 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use '../variables/layout' as *;
+@use '../variables/typography' as *;
+
+/**
+ * UiModal 컴포넌트 스타일
+ * - 반응형 지원
+ * - 접근성 고려
+ */
+.ui-modal {
+  // 모달 기본 설정 - 전체 화면 오버레이
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; // 최상위 레이어
+
+  // 기본적으로 숨김 상태
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  // 모달이 열릴 때
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ui-modal__container {
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  // 모달 백드롭 (배경 오버레이)
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); // 50% 투명도 검은색
+    cursor: pointer;
+  }
+
+  // 모달 컨테이너 (중앙 정렬)
+  &__container {
+    position: relative;
+    @include flex(column, center, center);
+    padding: to-rem(20);
+    z-index: 0;
+    width: 100%;
+
+    // 초기 애니메이션 상태
+    transition: transform 0.3s ease;
+
+    @at-root .ui-modal--medium .ui-modal__container {
+      margin: 0 auto;
+      max-width: 560px;
+    }
+
+    @include mobile {
+      padding: to-rem(16);
+    }
+  }
+
+  // 모달 콘텐츠 박스
+  &__content {
+    position: relative;
+    background: $white;
+    border-radius: to-rem(12);
+    border: to-rem(1) solid #b1b8be;
+    box-shadow: 0 to-rem(10) to-rem(25) rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+
+    // 플렉스 레이아웃으로 헤더/바디/푸터 배치
+    @include flex(column, flex-start, stretch);
+
+    @include mobile {
+      border-radius: to-rem(8);
+      max-height: 95vh;
+    }
+  }
+
+  // 닫기 버튼 영역
+  &__close {
+    position: absolute;
+    top: to-rem(24);
+    right: to-rem(24);
+    z-index: 10;
+
+    @include mobile {
+      top: to-rem(20);
+      right: to-rem(20);
+    }
+  }
+
+  // 닫기 버튼
+  &__close-button {
+    @include button-reset;
+    @include flex(row, center, center);
+    width: to-rem(40);
+    height: to-rem(40);
+    color: #33363d;
+    cursor: pointer;
+    border-radius: to-rem(4);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(51, 54, 61, 0.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: to-rem(25);
+      height: to-rem(25);
+    }
+  }
+
+  // 모달 헤더 (제목 영역) - 고정
+  &__header {
+    flex-shrink: 0; // 고정 영역이므로 축소되지 않음
+    padding: to-rem(24) to-rem(24) to-rem(16) to-rem(24);
+    border-bottom: 1px solid $border-color;
+
+    @include mobile {
+      padding: to-rem(20) to-rem(20) to-rem(16) to-rem(20);
+    }
+  }
+
+  // 모달 바디 (스크롤 가능한 내용 영역)
+  &__body {
+    flex: 1; // 남은 공간을 모두 차지
+    @include flex(column, flex-start, stretch);
+    gap: to-rem(16);
+    padding: to-rem(16) to-rem(24);
+    overflow-y: auto; // 이 영역에서만 스크롤 발생
+    min-height: 0; // 플렉스 아이템이 축소될 수 있도록
+
+    @include mobile {
+      padding: to-rem(12) to-rem(20);
+    }
+  }
+
+  // 모달 푸터 (액션 버튼 영역) - 고정
+  &__footer {
+    flex-shrink: 0; // 고정 영역이므로 축소되지 않음
+    border-top: 1px solid $border-color;
+  }
+
+  // 모달 제목
+  &__title {
+    font-weight: 700;
+    font-size: to-rem(24);
+    line-height: 1.5;
+    color: #1e2124;
+    margin: 0;
+
+    @include mobile {
+      font-size: to-rem(20);
+    }
+  }
+
+  // 모달 설명 텍스트
+  &__description {
+    font-weight: 400;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    color: #1e2124;
+    margin: 0;
+
+    @include mobile {
+      font-size: to-rem(15);
+    }
+  }
+
+  // 슬롯 콘텐츠 영역
+  &__slot {
+    // 슬롯 내용이 있을 때만 스타일 적용
+    &:not(:empty) {
+      margin-top: to-rem(8);
+    }
+  }
+
+  // 액션 버튼 영역
+  &__actions {
+    @include flex(row, center, center);
+    gap: to-rem(8);
+    padding: to-rem(16) to-rem(24);
+
+    @include mobile {
+      padding: to-rem(12) to-rem(20);
+      gap: to-rem(6);
+    }
+  }
+
+  // 모달 버튼 공통 스타일
+  &__button {
+    @include button-reset;
+    @include flex(row, center, center);
+    gap: to-rem(4);
+    padding: 0 to-rem(16);
+    width: to-rem(150);
+    height: to-rem(48);
+    border-radius: to-rem(6);
+    font-weight: 400;
+    font-size: to-rem(17);
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+
+    @include mobile {
+      width: to-rem(120);
+      height: to-rem(44);
+      font-size: to-rem(15);
+      padding: 0 to-rem(12);
+    }
+
+    // 취소 버튼 (tertiary 스타일)
+    &--cancel {
+      background: transparent;
+      color: #1e2124;
+      border: to-rem(1) solid #58616a;
+
+      &:hover {
+        background: #f4f5f6;
+      }
+
+      &:active {
+        background: #e6e8ea;
+      }
+    }
+
+    // 확인 버튼 (primary 스타일)
+    &--confirm {
+      background: #3c79c2;
+      color: $ui-text-white;
+      border: to-rem(1) solid #3c79c2;
+
+      &:hover {
+        background: #2a5d9a;
+      }
+
+      &:active {
+        background: #1e4574;
+      }
+    }
+  }
+
+  // 모달 크기 variants
+  &--small &__content {
+    width: 100%;
+    max-width: to-rem(400);
+
+    @include mobile {
+      max-width: 90vw;
+    }
+  }
+
+  &--medium &__content {
+    width: 100%;
+    max-width: to-rem(560);
+
+    @include mobile {
+      max-width: 95vw;
+    }
+  }
+
+  &--large &__content {
+    width: 100%;
+    max-width: to-rem(800);
+
+    @include mobile {
+      max-width: 95vw;
+    }
+  }
+
+  &--xlarge &__content {
+    width: 100%;
+    max-width: to-rem(1200);
+
+    @include mobile {
+      max-width: 95vw;
+    }
+  }
+
+  // 모달 타입별 스타일
+  &--alert {
+    // 경고 모달 특별 스타일
+    .ui-modal__title {
+      color: $error-color;
+    }
+  }
+
+  &--info {
+    // 정보 모달 특별 스타일
+    .ui-modal__title {
+      color: $info-color;
+    }
+  }
+}
+
+// body에 모달 열림 상태일 때 스크롤 방지
+body.modal-open {
+  overflow: hidden;
+}
+
+.ui-modal__content {
+  // 도서 상세 팝업은 기본적으로 medium 크기 사용
+  width: 100%;
+  max-width: to-rem(560);
+
+  @include mobile {
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+}
+
+// 도서 정보 리스트 스타일 (.pop-list)
+// 모달 내부에서 도서 상세 정보를 표시하는 테이블 형태의 리스트
+.pop-list {
+  display: flex;
+  flex-direction: column;
+  border-top: to-rem(2) solid #30619b;
+  height: 100%;
+  border-bottom: 1px solid #d8e4f3;
+
+  @include mobile {
+    // 모바일에서는 마진 조정하여 더 깔끔하게 보이도록
+    margin-top: 12px;
+    border-top: 1px solid #30619b; // 모바일에서는 더 얇은 보더
+  }
+}
+
+// 각 정보 항목 스타일 (.pop-list-item)
+// 제목과 내용이 한 줄로 구성되는 항목 컨테이너
+.pop-list-item {
+  display: flex;
+  align-items: stretch; // 높이를 맞춰서 늘어나도록
+  border-bottom: 1px solid $border-color;
+  min-height: 50px; // 최소 높이 보장
+}
+
+// 정보 제목 스타일 (.pop-list-item-title)
+// 왼쪽에 위치하는 항목명 (예: 도서명, 저자, 출판사 등)
+.pop-list-item-title {
+  flex-shrink: 0;
+  width: to-rem(110);
+  font-weight: 700;
+  color: #191a1a;
+  font-size: to-rem(17);
+  line-height: 1.4;
+  border-right: 1px solid var(--color-primary-pr01, #d8e4f3);
+  background: var(--color-primary-pr00, #ecf2f9);
+  display: flex;
+  align-items: center;
+  padding-left: to-rem(16);
+
+  @include mobile {
+    // 모바일에서는 배경 제거하고 일반 텍스트처럼 보이게
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+// 정보 내용 스타일 (.pop-list-item-content)
+// 오른쪽에 위치하는 실제 데이터 값
+.pop-list-item-content {
+  flex: 1;
+  color: #4b4d4d;
+  font-size: to-rem(17);
+  font-weight: 400;
+  line-height: 1.5;
+  word-break: break-word; // 긴 텍스트는 줄바꿈
+  padding: 8px to-rem(16);
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    // 모바일에서는 패딩 제거하고 폰트 크기 조정
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+// 마지막 항목은 border 제거하여 깔끔하게
+.pop-list-item:last-child {
+  border-bottom: none;
+}
+
+// 안내 문구 스타일 (.pop-notice)
+// 모달 하단에 표시되는 시스템 안내 메시지 스타일
+// 대출 가능 여부, 예약 안내 등의 중요한 정보를 표시
+.pop-notice {
+  font-size: to-rem(17);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: to-rem(16);
+  padding: to-rem(8) 0; // 위아래 여백 추가
+
+  @include mobile {
+    // 모바일에서는 더 작은 폰트 사용하고 패딩 조정
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  // 빨간색 시스템 안내 (에러, 경고, 대출 불가 등)
+  &.system-red {
+    color: #d7424e;
+    font-weight: 500; // 중요한 메시지는 조금 더 굵게
+
+    @include mobile {
+      font-weight: 600; // 모바일에서는 더 굵게 하여 가독성 향상
+    }
+  }
+
+  // 파란색 시스템 안내 (정보, 알림, 대출 가능 등)
+  &.system-blue {
+    color: #3c79c2;
+    font-weight: 500;
+
+    @include mobile {
+      font-weight: 600;
+    }
+  }
+
+  // 기본 시스템 안내 (일반 안내사항, 도서관 운영 정보 등)
+  &.system-default {
+    color: #191a1a;
+
+    @include mobile {
+      color: #555; // 모바일에서는 조금 더 부드러운 색상
+    }
+  }
+}

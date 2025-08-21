@@ -1,0 +1,177 @@
+---
+/**
+ * UiModal 컴포넌트
+ * - Figma 디자인 기반 공통 모달
+ * - 다양한 크기와 타입 지원
+ * - 접근성 준수 (ARIA 속성 포함)
+ */
+export interface Props {
+  /**
+   * 모달 고유 ID
+   */
+  id: string;
+
+  /**
+   * 모달 제목
+   */
+  title: string;
+
+  /**
+   * 모달 내용 텍스트 (선택적)
+   */
+  content?: string;
+
+  /**
+   * 모달 크기
+   */
+  size?: 'small' | 'medium' | 'large' | 'xlarge';
+
+  /**
+   * 모달 타입
+   */
+  variant?: 'default' | 'confirm' | 'alert' | 'info';
+
+  /**
+   * 닫기 버튼 표시 여부
+   */
+  showCloseButton?: boolean;
+
+  /**
+   * 확인 버튼 텍스트
+   */
+  confirmText?: string;
+
+  /**
+   * 취소 버튼 텍스트
+   */
+  cancelText?: string;
+
+  /**
+   * 확인 버튼 표시 여부
+   */
+  showConfirmButton?: boolean;
+
+  /**
+   * 취소 버튼 표시 여부
+   */
+  showCancelButton?: boolean;
+
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  content,
+  size = 'medium',
+  variant = 'default',
+  showCloseButton = true,
+  confirmText = '확인',
+  cancelText = '닫기',
+  showConfirmButton = true,
+  showCancelButton = true,
+  class: className = '',
+} = Astro.props;
+
+// 모달 클래스 생성
+const modalClasses = [
+  'ui-modal',
+  `ui-modal--${size}`,
+  `ui-modal--${variant}`,
+  className,
+].filter(Boolean).join(' ');
+---
+
+<!-- 모달 오버레이 -->
+<div
+  class={modalClasses}
+  id={`modal-${id}`}
+  data-modal={id}
+  aria-hidden="true"
+  aria-labelledby={`modal-${id}-title`}
+  aria-describedby={content ? `modal-${id}-content` : undefined}
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- 모달 백드롭 -->
+  <div class="ui-modal__backdrop" data-modal-close></div>
+
+  <!-- 모달 컨테이너 -->
+  <div class="ui-modal__container">
+    <!-- 모달 콘텐츠 -->
+    <div class="ui-modal__content">
+
+      <!-- 닫기 버튼 -->
+      {showCloseButton && (
+        <div class="ui-modal__close">
+          <button
+            type="button"
+            class="ui-modal__close-button"
+            data-modal-close
+            aria-label="모달 닫기"
+          >
+            <!-- X 아이콘 SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      )}
+
+      <!-- 모달 헤더 (고정) -->
+      <div class="ui-modal__header">
+        <!-- 모달 제목 -->
+        <h2 class="ui-modal__title" id={`modal-${id}-title`}>
+          {title}
+        </h2>
+      </div>
+
+      <!-- 모달 바디 (스크롤 가능) -->
+      <div class="ui-modal__body">
+        <!-- 모달 내용 -->
+        {content && (
+          <div class="ui-modal__description" id={`modal-${id}-content`}>
+            {content}
+          </div>
+        )}
+
+        <!-- 슬롯으로 커스텀 콘텐츠 삽입 가능 -->
+        <div class="ui-modal__slot">
+          <slot />
+        </div>
+      </div>
+
+      <!-- 모달 푸터 (고정) -->
+      {(showConfirmButton || showCancelButton) && (
+        <div class="ui-modal__footer">
+          <div class="ui-modal__actions">
+            <!-- 취소 버튼 (tertiary) -->
+            {showCancelButton && (
+              <button
+                type="button"
+                class="ui-modal__button ui-modal__button--cancel"
+                data-modal-close
+              >
+                {cancelText}
+              </button>
+            )}
+
+            <!-- 확인 버튼 (primary) -->
+            {showConfirmButton && (
+              <button
+                type="button"
+                class="ui-modal__button ui-modal__button--confirm"
+                data-modal-confirm
+              >
+                {confirmText}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>

@@ -133,6 +133,21 @@
     }
   }
 
+  &--darkGray {
+    background: #4b4d4d;
+    color: $ui-text-white;
+    border-color: #4b4d4d;
+
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      background: #3a3c3c;
+    }
+
+    &:active {
+      background: #2a2c2c;
+      border-color: #2a2c2c;
+    }
+  }
+
   &--secondary {
     background: #ecf2fe;
     color: #3c79c2;

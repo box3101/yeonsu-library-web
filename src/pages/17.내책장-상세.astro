@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+import UiPagination from '../components/UI/UiPagination.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '나의도서관', href: '/my-library' },
+  { label: '내책장', href: '/my-library/my-shelf' },
+];
+---
+
+<Layout title="내책장">
+  <SubLayout title="내책장" breadcrumbItems={breadcrumbItems}>
+    <div class="bookshelf-container">
+      <!-- 헤더 섹션 -->
+      <div class="bookshelf-header flex items-center justify-between">
+        <div class="bookshelf-header__title">
+          좋아하는책 (<span>10</span>건)
+        </div>
+      </div>
+
+      <!-- 도서 그리드 섹션 -->
+      <div class="grid grid-5">
+        {
+          Array.from({ length: 10 }).map((_, index) => (
+            <div class="bookshelf-item">
+              <div class="bookshelf-item__content">
+                <div class="bookshelf-item__thumbnail">
+                  <img src="./assets/images/default-book-cover.png" alt="" class="w-full h-full object-cover" />
+                </div>
+                <div class="bookshelf-item__actions flex gap-5">
+                  <UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
+                  <UiButton variant="primary" size="small" text="이동" class="w-full" />
+                </div>
+                <div class="bookshelf-item__title">
+                  꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
+                  2글자
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={5} onPageChange={page => console.log('Page changed to:', page)} />
+      </div>
+
+      <!-- 목록 -->
+      <div class="flex justify-end">
+        <UiButton variant="darkGray" size="medium" text="목록" href="./17.내책장" class="w-120-mobile-full" />
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
