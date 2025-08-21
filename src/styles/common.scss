@@ -7,6 +7,11 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css');
 
+html {
+  @include mobile {
+    font-size: 14px;
+  }
+}
 /* ============================================
    공통 스크롤바 스타일
    ============================================ */
@@ -1418,5 +1423,13 @@ img {
     flex-direction: column;
     gap: to-rem(16);
     width: 100%;
+    align-items: flex-end !important;
+  }
+}
+
+.mb-flex-col {
+  @include mobile {
+    flex-direction: column !important;
+    gap: to-rem(8);
   }
 }

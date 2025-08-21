@@ -8,6 +8,7 @@
   margin-top: to-rem(30);
   width: 100%;
   overflow: hidden;
+  border-bottom: 1px solid #cdd1d5;
 
   @include mobile {
     margin-top: to-rem(20);
@@ -500,7 +501,7 @@
   }
 
   &__text {
-    font-size: to-rem(15);
+    font-size: to-rem(16);
     font-weight: 400;
     color: #464c53;
     line-height: 1.5;
@@ -512,7 +513,7 @@
     // max-width: 100%;
 
     .bold {
-      @include font(to-rem(15), 700, 1.5);
+      @include font(to-rem(16), 700, 1.5);
       color: #4b4d4d;
     }
 
@@ -600,7 +601,6 @@
         background: $gray-600;
         color: $white;
       }
-
     }
 
     &:disabled {

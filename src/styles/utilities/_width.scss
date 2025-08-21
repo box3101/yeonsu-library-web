@@ -4,15 +4,15 @@
 // Width Utilities
 // ============================================
 
-// 기본 Width utilities w1 ~ w999 (픽셀 단위)
+// 기본 Width utilities w1 ~ w999 (rem 단위)
 @for $i from 1 through 999 {
   .w-#{$i} {
-    width: #{$i}px !important;
+    width: #{$i / 16}rem !important;
   }
 }
 
-// 자주 사용하는 픽셀 값들 (50 단위)
-// 1~1000까지의 모든 픽셀 값을 포함하는 배열 생성
+// 자주 사용하는 rem 값들 (50 단위)
+// 1~1000까지의 모든 rem 값을 포함하는 배열 생성
 $common-widths: ();
 @for $i from 1 through 1000 {
   $common-widths: append($common-widths, $i);
@@ -21,12 +21,12 @@ $common-widths: ();
 @each $width in $common-widths {
   // 기본 버전
   .w-#{$width} {
-    width: #{$width}px !important;
+    width: #{$width / 16}rem !important;
   }
 
   // 반응형 버전 (모바일에서 100%)
   .w-#{$width}-mobile-full {
-    width: #{$width}px !important;
+    width: #{$width / 16}rem !important;
 
     @include mobile {
       width: 100% !important;
@@ -35,7 +35,7 @@ $common-widths: ();
 
   // 반응형 버전 (모바일에서 auto)
   .w-#{$width}-mobile-auto {
-    width: #{$width}px !important;
+    width: #{$width / 16}rem !important;
 
     @include mobile {
       width: auto !important;
@@ -132,7 +132,7 @@ $width-percentages: (
 
   @for $i from 1 through 500 {
     .sm\:w#{$i} {
-      width: #{$i}px !important;
+      width: #{$i / 16}rem !important;
     }
   }
 }
@@ -150,7 +150,7 @@ $width-percentages: (
 
   @for $i from 1 through 800 {
     .md\:w#{$i} {
-      width: #{$i}px !important;
+      width: #{$i / 16}rem !important;
     }
   }
 }
@@ -168,7 +168,7 @@ $width-percentages: (
 
   @for $i from 1 through 999 {
     .lg\:w#{$i} {
-      width: #{$i}px !important;
+      width: #{$i / 16}rem !important;
     }
   }
 }
@@ -176,7 +176,7 @@ $width-percentages: (
 // Max width utilities
 @for $i from 1 through 999 {
   .max-w#{$i} {
-    max-width: #{$i}px !important;
+    max-width: #{$i / 16}rem !important;
   }
 }
 
@@ -195,7 +195,7 @@ $width-percentages: (
 // Min width utilities
 @for $i from 1 through 999 {
   .min-w#{$i} {
-    min-width: #{$i}px !important;
+    min-width: #{$i / 16}rem !important;
   }
 }
 
