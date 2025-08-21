@@ -27,7 +27,7 @@ const menuData = [
           { label: '한국십진분류', href: './10_한국십진분류', isSelected: false },
         ],
       },
-      { label: '스마트도서관비치도서', href: '/02_스마트도서관비치도서', isSelected: false },
+      { label: '스마트도서관비치도서', href: './02_스마트도서관비치도서', isSelected: false },
     ],
   },
   {
@@ -97,85 +97,26 @@ const menuData = [
   },
   {
     title: '열린참여마당',
-    type: '3depth',
+    type: '2depth',
     items: [
-      { label: '도서관에 바란다', href: '/03_도서관에바란다', isSelected: true },
+      { label: '도서관에 바란다', href: './03_도서관에바란다', isSelected: true },
+      { label: '희망도서신청', href: './21.희망도서신청', isSelected: false },
       { label: '자원봉사', href: '/participation/volunteer', isSelected: false },
-      {
-        label: '도서관 견학',
-        href: '/participation/tour',
-        isSelected: false,
-        subItems: [
-          { label: '도서관 견학 안내', href: '/participation/tour/info', isSelected: false },
-          { label: '도서관 견학 신청', href: '/participation/tour/apply', isSelected: false },
-        ],
-      },
-      {
-        label: '도서기증',
-        href: '/participation/donation',
-        isSelected: false,
-        subItems: [
-          { label: '기증안내', href: '/participation/donation/info', isSelected: false },
-          { label: '서약서작성', href: '/participation/donation/pledge', isSelected: false },
-          { label: '기증신청조회', href: '/participation/donation/status', isSelected: false },
-        ],
-      },
-      {
-        label: '독서마라톤',
-        href: '/participation/reading-marathon',
-        isSelected: false,
-        subItems: [
-          { label: '독서마라톤 안내', href: '/participation/reading-marathon/info', isSelected: false },
-          { label: '독서마라톤 참여', href: '/participation/reading-marathon/join', isSelected: false },
-        ],
-      },
-      {
-        label: '독서왕',
-        href: '/participation/reading-king',
-        isSelected: false,
-        subItems: [
-          { label: '독서왕 안내', href: '/participation/reading-king/info', isSelected: false },
-          { label: '독서왕 참여', href: '/participation/reading-king/join', isSelected: false },
-        ],
-      },
-      {
-        label: '출석체크 이벤트',
-        href: '/participation/attendance',
-        isSelected: false,
-        subItems: [
-          { label: '출석체크 안내', href: '/participation/attendance/info', isSelected: false },
-          { label: '출석하기', href: '/participation/attendance/check', isSelected: false },
-        ],
-      },
+      { label: '도서관 견학', href: '/participation/tour', isSelected: false },
+      { label: '도서기증', href: '/participation/donation', isSelected: false },
+      { label: '독서마라톤', href: '/participation/reading-marathon', isSelected: false },
+      { label: '독서왕', href: '/participation/reading-king', isSelected: false },
+      { label: '출석체크 이벤트', href: '/participation/attendance', isSelected: false },
     ],
   },
   {
     title: '문화마당',
-    type: '3depth',
+    type: '2depth',
     items: [
       { label: '문화행사 신청', href: '/culture/events' },
       { label: '프로그램 신청', href: '/culture/programs' },
-      {
-        label: '영화상영',
-        href: '/culture/movies',
-        subItems: [
-          { label: '이용안내', href: '/culture/movies/info' },
-          { label: '상영작', href: '/culture/movies/schedule' },
-        ],
-      },
-      {
-        label: '대관신청',
-        href: '/culture/rental',
-        subItems: [
-          { label: '공연장(청학,꿈담,송도,해돋이)', href: '/culture/rental/performance' },
-          { label: '세미나실대관(청학)', href: '/culture/rental/seminar' },
-          { label: '커뮤니티룸대관(동춘)', href: '/culture/rental/community' },
-          { label: '프로그램실(함박)', href: '/culture/rental/program' },
-          { label: '독서토론실대관(송도)', href: '/culture/rental/discussion' },
-          { label: '하늘빛정원대관(청학)', href: '/culture/rental/garden' },
-          { label: '동아리실대관(꿈담)', href: '/culture/rental/club' },
-        ],
-      },
+      { label: '영화상영', href: '/culture/movies' },
+      { label: '대관신청', href: '/culture/rental' },
     ],
   },
   {
@@ -223,20 +164,42 @@ const menuData = [
   },
   {
     title: '나의도서관',
-    type: '2depth',
+    type: '3depth',
     items: [
-      { label: '대출현황', href: './11.대출현황', isSelected: true },
-      { label: '대출이력', href: './12.대출이력', isSelected: false },
-      { label: '일반예약현황', href: './13.일반예약현황', isSelected: false },
-      { label: '상호대차현황', href: './14.상호대차현황', isSelected: false },
-      { label: '희망도서신청현황', href: './15.희망도서신청현황', isSelected: false },
-      { label: '희망전자책신청현황', href: './16.희망전자책신청현황', isSelected: false },
+      {
+        label: '대출/예약',
+        href: '/mypage/loans',
+        isSelected: true,
+        subItems: [
+          { label: '대출현황', href: './11.대출현황', isSelected: true },
+          { label: '대출이력', href: './12.대출이력', isSelected: false },
+          { label: '일반예약현황', href: './13.일반예약현황', isSelected: false },
+          { label: '상호대차현황', href: './14.상호대차현황', isSelected: false },
+        ],
+      },
+      {
+        label: '희망신청',
+        href: '/mypage/requests',
+        isSelected: false,
+        subItems: [
+          { label: '희망도서신청현황', href: './15.희망도서신청현황', isSelected: false },
+          { label: '희망전자책신청현황', href: './16.희망전자책신청현황', isSelected: false },
+        ],
+      },
       { label: '내책장', href: './17.내책장', isSelected: false },
-      { label: '행사신청 조회', href: './18.행사신청조회', isSelected: false },
-      { label: '프로그램신청 조회', href: './19.프로그램신청조회', isSelected: false },
-      { label: '견학신청 조회', href: './견학신청조회', isSelected: false },
-      { label: '대관신청 조회', href: './대관신청조회', isSelected: false },
-      { label: '영유아전집신청 조회', href: './영유아전집신청조회', isSelected: false },
+      { label: '전자도서관', href: './20.전자도서관', isSelected: false },
+      {
+        label: '신청조회',
+        href: '/mypage/applications',
+        isSelected: false,
+        subItems: [
+          { label: '행사신청 조회', href: './18.행사신청조회', isSelected: false },
+          { label: '프로그램신청 조회', href: './19.프로그램신청조회', isSelected: false },
+          { label: '견학신청 조회', href: './견학신청조회', isSelected: false },
+          { label: '대관신청 조회', href: './대관신청조회', isSelected: false },
+          { label: '영유아전집신청 조회', href: './영유아전집신청조회', isSelected: false },
+        ],
+      },
     ],
   },
 ];
