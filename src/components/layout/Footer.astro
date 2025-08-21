@@ -61,9 +61,27 @@ const copyrightLinks = [
       <div class="banner-section__content">
         <div class="banner-section__left">
           <div class="banner-section__nav flex gap-4">
-            <UiNavButton class="ui-nav-button--primary banner-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 배너" />
-            <UiNavButton class="ui-nav-button--primary banner-swiper-autoplay-toggle" direction="stop-white" size={40} ariaLabel="자동재생 정지" />
-            <UiNavButton class="ui-nav-button--primary banner-swiper-btn-next" direction="next" size={40} ariaLabel="다음 배너" />
+            <UiNavButton
+              class="ui-nav-button--primary banner-swiper-btn-prev"
+              direction="prev"
+              size={40}
+              ariaLabel="이전 배너"
+              iconAddClass="icon-white"
+            />
+            <UiNavButton
+              class="ui-nav-button--primary banner-swiper-autoplay-toggle"
+              direction="stop-white"
+              size={40}
+              ariaLabel="자동재생 정지"
+              iconAddClass="icon-white"
+            />
+            <UiNavButton
+              class="ui-nav-button--primary banner-swiper-btn-next"
+              direction="next"
+              size={40}
+              ariaLabel="다음 배너"
+              iconAddClass="icon-white"
+            />
           </div>
         </div>
         <div class="banner-section__right">
@@ -143,7 +161,9 @@ const copyrightLinks = [
                     <div class="footer__library-item-details">
                       <div class="footer__library-item-details-text">{library.address}</div>
                       <div class="footer__library-item-details-divider" />
-                      <div class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}>전화: {library.phone}</div>
+                      <div class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}>
+                        전화: {library.phone}
+                      </div>
                       {(library.fax || library.extra) && (
                         <>
                           <div class="footer__library-item-details-divider" />

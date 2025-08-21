@@ -3,7 +3,7 @@ export interface Props {
   /**
    * 버튼 방향
    */
-  direction: 'prev' | 'next' | 'stop' | 'stop-white';
+  direction: 'prev' | 'next' | 'stop' | 'stop-bold' | 'stop-white';
   /**
    * 버튼 크기 (rem 단위)
    */
@@ -21,18 +21,19 @@ export interface Props {
    */
   class?: string;
   /**
+   * 아이콘 추가 클래스
+   */
+  iconAddClass?: string;
+  /**
    * 접근성을 위한 aria-label
    */
   ariaLabel?: string;
 }
 
-const { direction, size = 40, disabled = false, onClick, class: className = '', ariaLabel, ...rest } = Astro.props;
+const { direction, size = 40, disabled = false, onClick, class: className = '', iconAddClass = '', ariaLabel, ...rest } = Astro.props;
 
 const defaultAriaLabel = direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
 const buttonAriaLabel = ariaLabel || defaultAriaLabel;
-
-// ui-nav-button--primary 클래스가 있으면 아이콘에 white 클래스 추가
-const iconWhiteClass = className.includes('ui-nav-button--primary') ? 'icon-white' : '';
 ---
 
 <button
@@ -46,15 +47,15 @@ const iconWhiteClass = className.includes('ui-nav-button--primary') ? 'icon-whit
 >
   {
     direction === 'prev' ? (
-      <img src="./assets/images/icon/icon-arr-left.svg" class="icon icon-arr-left" />
+      <img src="./assets/images/icon/icon-arr-left.svg" class={`icon icon-arr-left ${iconAddClass}`} />
     ) : direction === 'next' ? (
-      <img src="./assets/images/icon/icon-arr-right.svg" class="icon icon-arr-right" />
+      <img src="./assets/images/icon/icon-arr-right.svg" class={`icon icon-arr-right ${iconAddClass}`} />
     ) : direction === 'stop' ? (
-      <img src="./assets/images/icon/icon-stop.svg" class="icon icon-stop" />
+      <img src="./assets/images/icon/icon-stop.svg" class={`icon icon-stop ${iconAddClass}`} />
     ) : direction === 'stop-bold' ? (
-      <img src="./assets/images/icon/icon-stop-bold.svg" class="icon icon-stop-bold" />
+      <img src="./assets/images/icon/icon-stop-bold.svg" class={`icon icon-stop-bold ${iconAddClass}`} />
     ) : direction === 'stop-white' ? (
-      <img src="./assets/images/icon/icon-stop-white.svg" class="icon icon-stop-white" />
+      <img src="./assets/images/icon/icon-stop-white.svg" class={`icon icon-stop-white ${iconAddClass}`} />
     ) : null
   }
 </button>
