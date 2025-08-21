@@ -1,5 +1,90 @@
 @charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+/**
+ * PretendardGOV 폰트 로컬 파일 @font-face 선언
+ * public/assets/fonts/ 폴더의 폰트 파일들을 사용
+ * 모든 웨이트를 지원하는 개별 폰트 페이스 정의
+ */
+/* PretendardGOV Thin (100) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap; /* 폰트 로딩 성능 최적화 */
+  src: url("/assets/fonts/PretendardGOV-Thin.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Thin.woff") format("woff");
+}
+/* PretendardGOV ExtraLight (200) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-ExtraLight.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-ExtraLight.woff") format("woff");
+}
+/* PretendardGOV Light (300) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-Light.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Light.woff") format("woff");
+}
+/* PretendardGOV Regular (400) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-Regular.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Regular.woff") format("woff");
+}
+/* PretendardGOV Medium (500) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-Medium.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Medium.woff") format("woff");
+}
+/* PretendardGOV SemiBold (600) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-SemiBold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-SemiBold.woff") format("woff");
+}
+/* PretendardGOV Bold (700) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-Bold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Bold.woff") format("woff");
+}
+/* PretendardGOV ExtraBold (800) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-ExtraBold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-ExtraBold.woff") format("woff");
+}
+/* PretendardGOV Black (900) */
+@font-face {
+  font-family: "PretendardGOV";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardGOV-Black.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Black.woff") format("woff");
+}
+/* Variable Font (선택사항 - 더 작은 파일 크기) */
+@font-face {
+  font-family: "PretendardVariable";
+  font-weight: 100 900; /* Variable font는 범위로 지정 */
+  font-style: normal;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
 @media (max-width: 900px) {
   html {
     font-size: 14px;
@@ -60751,7 +60836,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   padding: 0 0.4375rem;
 }
 .ui-book-card__index-number {
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 700;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -60824,7 +60909,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   background-color: #6b7280;
   color: #ffffff;
   border-radius: 0 0 0.375rem 0.375rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 400;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -60872,7 +60957,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   align-items: center;
   padding: 0 0.75rem;
   border-radius: 1rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 400;
   white-space: nowrap;
   height: 1.75rem;
@@ -60939,7 +61024,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   align-items: center;
   gap: 0.125rem;
   flex-wrap: wrap;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.5;
@@ -60956,7 +61041,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   color: #3c79c2;
 }
 .ui-book-card__author {
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 500;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -61012,7 +61097,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .ui-book-card__detail-label {
   display: block;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -61027,7 +61112,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 .ui-book-card__detail-value {
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 500;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -61069,7 +61154,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   padding: 0 1rem;
   height: 3rem;
   border-radius: 0.375rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 400;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -61590,7 +61675,7 @@ body.modal-open {
   min-width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.375rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 500;
   font-size: 1.0625rem;
   line-height: 1.5;
@@ -61753,7 +61838,7 @@ body.modal-open {
   gap: 0.25rem;
   border: 0.0625rem solid transparent;
   border-radius: 0.5rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-weight: 500;
   line-height: 1.5;
   cursor: pointer;
@@ -62188,7 +62273,7 @@ body.modal-open {
   color: #464c53;
   padding: 0.75rem 1rem;
   line-height: 1.5;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
 @media (max-width: 900px) {
   .ui-table__cell--body {
@@ -62540,7 +62625,7 @@ body.modal-open {
   font-size: 1.0625rem;
   color: #464c53;
   line-height: 1.5;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   word-break: keep-all;
   text-align: left;
 }
@@ -62556,7 +62641,7 @@ body.modal-open {
   color: #464c53;
   line-height: 1.5;
   word-break: keep-all;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
 .ui-table__text .bold {
   font-size: 1rem;
@@ -63386,7 +63471,7 @@ body.modal-open {
 
 .ui-input {
   width: 100%;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -63683,7 +63768,7 @@ body.modal-open {
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
   background: #ffffff;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #374151;
@@ -64556,7 +64641,7 @@ body.modal-open {
   padding: 0.5rem 2.5rem 0.5rem 0.875rem;
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #374151;

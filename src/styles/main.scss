@@ -1,3 +1,6 @@
+// 폰트 선언 먼저 로드 (최우선)
+@use 'fonts';
+
 // Variables
 @use 'variables/colors' as *;
 @use 'variables/typography' as *;

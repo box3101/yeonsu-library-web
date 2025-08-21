@@ -8,26 +8,14 @@ import '../styles/main.scss';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- Pretendard 폰트 CDN -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-    />
-    <!-- Pretendard 폰트 CDN EEE -->
 
-    <!-- MAIN.CSS -->
+    <!-- swiper -->
+    <link rel="stylesheet" href="./assets/css/vendor/swiper.css" />
+    <!-- aos -->
+    <link rel="stylesheet" href="./assets/css/vendor/aos.css" />
+    <!-- main -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- MAIN.CSS EEE-->
-
     <title>연수구립도서관</title>
-
-    <!-- swiper CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- aos CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
   <body>
     <Header />
@@ -36,22 +24,17 @@ import '../styles/main.scss';
     </main>
     <Footer />
 
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"
-    ></script>
-    <!-- Chart.js CDN -->
-    <script is:inline type="text/javascript" src="./assets/js/wordcloud2.js"></script>
-    <!-- WordCloud 라이브러리 로컬 파일 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- SWIPER CDN -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- AOS CDN -->
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- VENDOR -->
+    <script is:inline type="text/javascript" src="./assets/js/vendor/jquery.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/vendor/swiper-bundle.min.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/vendor/aos.js"></script>
+    <script is:inline type="text/javascript" src="./assets/js/vendor/chat.js"></script>
 
     <!-- LibraryCommon 전역 객체 먼저 로드 -->
     <script is:inline type="text/javascript" src="./assets/js/common.js"></script>
 
     <!-- 기능별 스크립트들 -->
+    <script is:inline type="text/javascript" src="./assets/js/wordcloud2.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/comAccordian.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/comTab.js"></script>
     <script is:inline type="text/javascript" src="./assets/js/collectAccordion.js"></script>
