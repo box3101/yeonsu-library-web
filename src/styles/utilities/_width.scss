@@ -206,3 +206,9 @@ $width-percentages: (
 .min-w-0 {
   min-width: 0 !important;
 }
+
+@for $i from 1 through 999 {
+  .max-h-#{$i} {
+    max-height: #{$i / 16}rem !important;
+  }
+}

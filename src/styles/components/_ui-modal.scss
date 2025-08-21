@@ -336,12 +336,23 @@ body.modal-open {
   flex-direction: column;
   border-top: to-rem(2) solid #30619b;
   height: 100%;
-  border-bottom: 1px solid #d8e4f3;
 
   @include mobile {
     // 모바일에서는 마진 조정하여 더 깔끔하게 보이도록
     margin-top: 12px;
     border-top: 1px solid #30619b; // 모바일에서는 더 얇은 보더
+  }
+
+  &.type2 {
+    .pop-list-item {
+      align-items: center !important; // 높이를 맞춰서 늘어나도록
+      width: 100%;
+      display: flex;
+      .ui-button {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
   }
 }
 

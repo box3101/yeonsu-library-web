@@ -148,6 +148,16 @@
     }
   }
 
+  &--ghost {
+    background: transparent;
+    color: #244874;
+
+    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+      background: #ecf2fe;
+      color: #244874;
+    }
+  }
+
   &--secondary {
     background: #ecf2fe;
     color: #3c79c2;
