@@ -117,7 +117,7 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 1. **Publishing-Only Project**: No backend API integration, no server-side logic, no real form submissions
 2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited per .cursorrules
 3. **Component Reuse**: Always prefer existing UI components (UiSelect, UiInput, UiButton, etc.) - DO NOT create new components unless absolutely necessary
-4. **BEM Methodology**: CSS follows Block\_\_Element--Modifier pattern
+4. **BEM Methodology**: CSS follows Block__Element--Modifier pattern
 5. **Responsive Design**: Mobile-first with specific breakpoints (900px, 1200px)
 6. **HTTP Requests Forbidden**: No fetch/axios or HTTP client usage (publishing-only)
 7. **No Auth Logic**: Authentication/authorization UI only, no real implementation
@@ -142,12 +142,74 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 ```
 public/assets/js/
 ├── common.js           # Core LibraryCommon + global initialization
-├── accordion.js        # Accordion/collapsible components
+├── collectAccordion.js # Accordion/collapsible components
 ├── collection.js       # Collection management features
-├── filter.js          # Search and content filtering
-├── mobile-menu.js      # Mobile navigation menu
+├── collectionModal.js  # Collection-specific modals
+├── comAccordian.js     # Common accordion functionality
+├── comGnb.js          # Global navigation bar
+├── comTab.js          # General tab components
 ├── modal.js           # Modal dialog components
-├── search-tabs.js      # Search interface tabs
 ├── swiper.js          # Swiper slider integration
-└── tab.js             # General tab components
+├── tagsCloud.js       # Tag cloud visualization
+├── wordcloud2.js      # Word cloud library
+├── main/
+│   └── searchTab.js   # Search interface tabs
+├── sub/
+│   └── filter.js      # Search and content filtering
+└── vendor/            # Third-party libraries
 ```
+
+### Color System
+
+**Primary Colors**:
+- `$primary-color: #3c79c2` (Main blue)
+- `$secondary-color: #063a74` (Dark blue)
+- `$text-color: #333`
+- `$border-color: #ecf2fe`
+
+**Institution Colors** (연수구 도서관 시스템):
+- `$institution-전체: #008f37`
+- `$institution-연수꿈담: #a3cf62`
+- `$institution-송도국제: #8e63aa`
+- `$institution-청학: #7fa7d7`
+- `$institution-해돋이: #ef6601`
+- `$institution-해찬솔공원: #189ba7`
+- `$institution-선학별빛: #ffacc1`
+- `$institution-누리공원: #7b19d7`
+
+### Component Conventions
+
+**UiButton Variants**: primary, secondary, tertiary, darkBlue, darkGray, text, ghost
+**UiButton Sizes**: xsmall, small, medium, large, xlarge
+
+**Props Pattern** for UI components:
+```astro
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  size?: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  // Modal-specific data attributes
+  'data-modal-open'?: string;
+  'data-modal-close'?: boolean;
+}
+```
+
+### Menu System
+
+Menu configuration is centralized in `src/data/menuData.ts` with TypeScript interfaces but plain JS objects. The system supports:
+
+- Multi-level navigation (2-3 depth)
+- Expandable sections with `isExpanded` property
+- Direct links via `href` or nested `items` arrays
+- Dynamic menu type detection from URL paths
+
+### Development Guidelines
+
+1. **Always check existing components** before creating new ones
+2. **Use BEM methodology** for CSS class naming
+3. **Follow data-attribute pattern** for JavaScript functionality
+4. **Implement proper ARIA attributes** for accessibility
+5. **Use SCSS functions** (to-rem(), vw(), alpha()) consistently
+6. **Mobile-first responsive design** with defined breakpoints
+7. **No TypeScript** - use vanilla JavaScript with extensive comments
+8. **Publishing-only** - no real backend integration or API calls

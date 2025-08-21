@@ -1444,3 +1444,353 @@ div.bookshelf-item {
 .bookshelf-container {
   margin-bottom: to-rem(40);
 }
+
+/* ========================================
+   서브 페이지 레이아웃 스타일
+   - sub-layout__content-inner: 메인 콘텐츠 영역
+   - sub-layout__content-inner-header: 페이지 제목/설명 영역  
+   - sub-layout__content-inner-body: 본문 콘텐츠 영역
+   - policy-table: 정책 테이블 래퍼
+======================================== */
+
+.sub-layout {
+  &__content-inner {
+    // 메인 콘텐츠 영역 - 내부 패딩과 배경 설정
+    background: #fff;
+    border-radius: to-rem(8);
+  }
+
+  &__content-inner-header {
+    // 페이지 상단 헤더 영역 - 제목과 설명문
+    padding-bottom: to-rem(16);
+    border-bottom: 1px solid $border-color;
+
+    @include mobile {
+      // 모바일에서는 마진/패딩 축소
+      padding-bottom: 12px;
+    }
+  }
+
+  &__content-inner-header-title {
+    // 페이지 메인 제목 스타일
+    margin-top: to-rem(20) !important;
+    @include page-title('h2');
+    color: $text-color;
+    font-weight: 700;
+
+    @include mobile {
+      // 모바일에서는 폰트 크기 축소 (85%)
+      font-size: 24px; // 28px의 85%
+    }
+  }
+
+  &__content-inner-header-desc {
+    // 페이지 설명문 스타일
+    margin-top: to-rem(16);
+    font-size: to-rem(16);
+    line-height: 1.6;
+    color: $gray-900;
+
+    @include mobile {
+      margin-top: 12px;
+      // 모바일에서는 폰트 크기 축소
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  &__content-inner-body {
+    // 본문 콘텐츠 영역
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(32);
+
+    @include mobile {
+      // 모바일에서는 간격 축소
+      gap: 24px;
+    }
+  }
+
+  &__content-inner-body-item {
+    // 개별 콘텐츠 아이템 (리스트 + 테이블 등)
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &__content-inner-body-item-list {
+    // 콘텐츠 제목 리스트 (대출정책 등)
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+
+    @include mobile {
+      margin-top: 16px;
+    }
+
+    li {
+      // 리스트 아이템 스타일 (소제목)
+      font-size: to-rem(18);
+      font-weight: 600;
+      color: $text-color;
+      padding: to-rem(8) to-rem(16);
+      position: relative;
+      @include makeBefore {
+        @include ab-y;
+        top: 18px;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #000;
+      }
+
+      @include mobile {
+        // 모바일에서는 폰트 크기와 패딩 축소
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+
+/* ========================================
+   정책 테이블 래퍼 스타일
+   - 테이블을 감싸는 컨테이너
+   - 반응형 스크롤 처리
+======================================== */
+
+.policy-table {
+  // 테이블 래퍼 - 반응형 스크롤 컨테이너
+  width: 100%;
+  overflow-x: auto;
+  border-radius: to-rem(8);
+  margin-top: to-rem(20);
+
+  @include mobile {
+    margin-top: to-rem(16);
+  }
+
+  // 테이블 기본 스타일 (table 컴포넌트와 연동)
+  .table {
+    width: 100%;
+    margin: 0; // 테이블 기본 마진 제거
+
+    // 테두리 있는 테이블 스타일
+    &--bordered {
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: to-rem(12) to-rem(16);
+        text-align: center;
+        border-bottom: 1px solid $border-color;
+
+        @include mobile {
+          // 모바일에서는 패딩 축소
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+      }
+
+      th {
+        // 테이블 헤더 스타일
+        background: alpha($primary-color, 0.05);
+        font-weight: 600;
+        color: $text-color;
+      }
+
+      td {
+        // 테이블 데이터 셀 스타일
+        background: #fff;
+        color: $text-color;
+      }
+
+      // 행 호버 효과
+      tbody tr:hover {
+        background: alpha($primary-color, 0.02);
+      }
+    }
+  }
+}
+
+// 단계별 프로세스 컴포넌트 스타일
+// 희망도서신청 처리과정과 같은 순차적 프로세스를 표시하는 컴포넌트
+.step-process {
+  @include flex(row, center, flex-start, wrap);
+  gap: to-rem(40);
+  padding: to-rem(40) to-rem(20);
+  background: #fff;
+  border-radius: to-rem(16);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+
+  @include mobile {
+    // 모바일에서는 세로 배치로 변경
+    flex-direction: column;
+    gap: to-rem(32);
+    padding: to-rem(32) to-rem(20);
+  }
+}
+
+// 개별 단계 아이템
+.step-item {
+  @include flex(column, center, center, nowrap);
+  position: relative;
+  flex: 1;
+  min-width: to-rem(140);
+  text-align: center;
+
+  @include mobile {
+    // 모바일에서는 가로 배치로 변경
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 100%;
+    text-align: left;
+    gap: to-rem(16);
+  }
+
+  // 단계 간 연결선 (점선 효과)
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: to-rem(-20);
+    top: to-rem(24);
+    width: to-rem(40);
+    height: 2px;
+    background: linear-gradient(to right, $gray-300 50%, transparent 50%);
+    background-size: 8px 2px;
+
+    @include mobile {
+      // 모바일에서는 아래쪽 점선
+      right: auto;
+      top: auto;
+      bottom: to-rem(-16);
+      left: to-rem(24);
+      width: 2px;
+      height: to-rem(32);
+      background: linear-gradient(to bottom, $gray-300 50%, transparent 50%);
+      background-size: 2px 8px;
+    }
+  }
+}
+
+// 단계 번호 원형 배지
+.step-number {
+  @include flex(row, center, center, nowrap);
+  width: to-rem(48);
+  height: to-rem(48);
+  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: to-rem(20);
+  margin-bottom: to-rem(16);
+  flex-shrink: 0; // 축소 방지
+  box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+
+  @include mobile {
+    // 모바일에서는 크기 조정
+    width: to-rem(40);
+    height: to-rem(40);
+    font-size: to-rem(16);
+    margin-bottom: 0;
+  }
+}
+
+// 단계 내용 텍스트
+.step-content {
+  font-size: to-rem(16);
+  font-weight: 600;
+  color: $text-color;
+  line-height: 1.5;
+  word-break: keep-all; // 한글 단어 단위로 줄바꿈
+  margin-bottom: to-rem(8);
+
+  @include mobile {
+    font-size: to-rem(14);
+    flex: 1; // 남은 공간 모두 사용
+    margin-bottom: to-rem(4);
+  }
+}
+
+// 단계 부가 설명 (작은 텍스트)
+.step-sub {
+  display: block;
+  font-size: to-rem(14);
+  color: $gray-500;
+  font-weight: 400;
+  line-height: 1.4;
+
+  @include mobile {
+    font-size: to-rem(12);
+  }
+}
+
+// 완료된 단계 스타일 (활용 가능한 modifier)
+.step-item--completed {
+  .step-number {
+    background: linear-gradient(135deg, $success-color 0%, lighten($success-color, 10%) 100%);
+    box-shadow: 0 4px 12px rgba($success-color, 0.3);
+  }
+
+  .step-content {
+    color: $success-color;
+  }
+
+  // 완료된 단계의 연결선은 성공 색상
+  &:not(:last-child)::after {
+    background: linear-gradient(to right, $success-color 50%, transparent 50%);
+
+    @include mobile {
+      background: linear-gradient(to bottom, $success-color 50%, transparent 50%);
+    }
+  }
+}
+
+// 현재 진행 단계 스타일 (활용 가능한 modifier)
+.step-item--current {
+  .step-number {
+    background: linear-gradient(135deg, $warning-color 0%, lighten($warning-color, 10%) 100%);
+    box-shadow: 0 4px 16px rgba($warning-color, 0.4);
+    animation: pulse 2s infinite;
+  }
+
+  .step-content {
+    color: $warning-color;
+  }
+}
+
+// 대기 중인 단계 스타일 (활용 가능한 modifier)
+.step-item--pending {
+  .step-number {
+    background: $gray-300;
+    color: $gray-600;
+    box-shadow: none;
+  }
+
+  .step-content {
+    color: $gray-500;
+  }
+
+  .step-sub {
+    color: $gray-400;
+  }
+}
+
+// 펄스 애니메이션 (현재 단계 강조)
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba($warning-color, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba($warning-color, 0.6);
+  }
+}

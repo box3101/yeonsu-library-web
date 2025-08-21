@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker } from '@components';
+
+const breadcrumbItems = [
+  { text: '홈', link: '/' },
+  { text: '내정보', link: '#' },
+  { text: '전자도서관', link: '#' },
+];
+---
+
+<Layout title="전자도서관">
+  <SubLayout title="전자도서관" breadcrumbItems={breadcrumbItems}>
+    <div class="sub-layout__content">
+      <!-- 전자 도서관 소개 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">전자도서관 소개</h2>
+          <p class="sub-layout__content-inner-header-desc">
+            연수구립도서관은 전자책(E-Book), 오디오북(Audio Book) 등 다양한 디지털 콘텐츠를 물리적‧시간적 제약 없이 활용할 수 있는 환경을 제공합니다.
+          </p>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <ul class="sub-layout__content-inner-body-item-list">
+              <li>대출정책</li>
+            </ul>
+            <!-- 대출정책 테이블 -->
+            <div class="policy-table">
+              <table class="table table--bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">구분</th>
+                    <th scope="col">대출가능권수</th>
+                    <th scope="col">대출기간</th>
+                    <th scope="col">동시 자료 최대 이용자 수</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>전자책</td>
+                    <td>10권</td>
+                    <td>5일</td>
+                    <td>2~5명</td>
+                  </tr>
+                  <tr>
+                    <td>오버드라이브 (영어전자책)</td>
+                    <td>10권</td>
+                    <td>7일/14일 선택</td>
+                    <td>1명</td>
+                  </tr>
+                  <tr>
+                    <td>오디오북</td>
+                    <td>30권</td>
+                    <td>5일</td>
+                    <td>5명</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 전자 도서관 소개 EEE -->
+
+      <!-- 전자 도서관 이용안내 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header">
+          <h2 class="sub-layout__content-inner-header-title">전자 도서관 이용안내</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 이용안내 테이블 -->
+          </div>
+        </div>
+      </section>
+      <!-- 전자 도서관 이용안내 EEE -->
+    </div>
+  </SubLayout>
+</Layout>
