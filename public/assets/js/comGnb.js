@@ -1,282 +1,257 @@
 /**
- * 통합 내비게이션 스크립트
+ * 통합 내비게이션 스크립트 - ES5 + jQuery 단순화 버전
  * - 데스크톱 GNB 드롭다운 메뉴
  * - 모바일 햄버거 메뉴
  */
-(function () {
-  'use strict';
-
-  // ==========================================
-  // 유틸리티 함수들
-  // ==========================================
-
-  const $ = (selector, context = document) => context.querySelector(selector);
-  const $$ = (selector, context = document) => context.querySelectorAll(selector);
-
-  const addClass = (element, className) => element?.classList.add(className);
-  const removeClass = (element, className) => element?.classList.remove(className);
-  const toggleClass = (element, className) => element?.classList.toggle(className);
-  const hasClass = (element, className) => element?.classList.contains(className);
-
+$(document).ready(function () {
   // ==========================================
   // 데스크톱 GNB 관리
   // ==========================================
-
   function initDesktopGNB() {
-    const gnb = $('#gnb');
-    if (!gnb) return;
+    var $gnb = $('#gnb');
+    if ($gnb.length === 0) return;
 
-    const mainItems = $$('.gnb-main-item', gnb);
+    var $mainItems = $gnb.find('.gnb-main-item');
 
     // 모든 서브메뉴 숨기기
-    const hideAllSubmenus = () => {
-      $$('.gnb-sub', gnb).forEach(sub => (sub.hidden = true));
-    };
+    function hideAllSubmenus() {
+      $gnb.find('.gnb-sub').attr('hidden', true);
+    }
 
-    // 서브메뉴 표시/숨기기
-    const showSubmenu = submenu => {
+    // 서브메뉴 표시
+    function showSubmenu($submenu) {
       hideAllSubmenus();
-      submenu.hidden = false;
-    };
+      $submenu.attr('hidden', false);
+    }
 
     // 3depth 컨텐츠 업데이트
-    const updateThirdContent = (subItem, thirdTitle, thirdItems) => {
-      const label = $('.gnb-sub-text', subItem)?.textContent;
-      const subItemsData = subItem.getAttribute('data-sub-items');
+    function updateThirdContent($subItem, $thirdTitle, $thirdItems) {
+      var label = $subItem.find('.gnb-sub-text').text();
+      var subItemsData = $subItem.attr('data-sub-items');
 
       // 선택 상태 업데이트
-      $$('.gnb-sub-item', subItem.parentElement).forEach(item => removeClass(item, 'selected'));
-      addClass(subItem, 'selected');
+      $subItem.parent().find('.gnb-sub-item').removeClass('selected');
+      $subItem.addClass('selected');
 
       // 타이틀 업데이트
-      if (thirdTitle && label) {
-        thirdTitle.textContent = label;
+      if ($thirdTitle.length > 0 && label) {
+        $thirdTitle.text(label);
       }
 
       // 3depth 아이템 렌더링
-      if (thirdItems && subItemsData) {
+      if ($thirdItems.length > 0 && subItemsData) {
         try {
-          const items = JSON.parse(subItemsData);
-          thirdItems.innerHTML = `
-            <div class="gnb-third-column">
-              ${items
-                .map(
-                  item => `
-                <div class="gnb-third-item ${item.isSelected ? 'selected' : ''}">
-                  <a href="${item.href}" class="gnb-third-link">
-                    <span class="gnb-third-text">${item.label}</span>
-                  </a>
-                </div>
-              `
-                )
-                .join('')}
-            </div>
-          `;
+          var items = JSON.parse(subItemsData);
+          var html = '<div class="gnb-third-column">';
+
+          for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            html += '<div class="gnb-third-item ' + (item.isSelected ? 'selected' : '') + '">';
+            html += '<a href="' + item.href + '" class="gnb-third-link">';
+            html += '<span class="gnb-third-text">' + item.label + '</span>';
+            html += '</a></div>';
+          }
+
+          html += '</div>';
+          $thirdItems.html(html);
         } catch (e) {
-          thirdItems.innerHTML = '';
+          $thirdItems.html('');
         }
-      } else if (thirdItems) {
-        thirdItems.innerHTML = '';
+      } else if ($thirdItems.length > 0) {
+        $thirdItems.html('');
       }
-    };
+    }
 
     // 각 메인 아이템에 이벤트 등록
-    mainItems.forEach(item => {
-      const mainLink = $('.gnb-main-link', item);
-      const submenu = $('.gnb-sub', item);
+    $mainItems.each(function () {
+      var $item = $(this);
+      var $mainLink = $item.find('.gnb-main-link');
+      var $submenu = $item.find('.gnb-sub');
 
-      if (!submenu) return;
+      if ($submenu.length === 0) return;
 
-      // 호버 및 포커스 이벤트
-      item.addEventListener('mouseenter', () => showSubmenu(submenu));
-      item.addEventListener('mouseleave', e => {
-        if (!submenu.contains(e.relatedTarget)) {
-          setTimeout(() => (submenu.hidden = true), 100);
+      // 호버 이벤트
+      $item.on('mouseenter', function () {
+        showSubmenu($submenu);
+      });
+
+      $item.on('mouseleave', function (e) {
+        if (!$submenu[0].contains(e.relatedTarget)) {
+          setTimeout(function () {
+            $submenu.attr('hidden', true);
+          }, 100);
         }
       });
-      mainLink?.addEventListener('focus', () => showSubmenu(submenu));
+
+      // 포커스 이벤트
+      $mainLink.on('focus', function () {
+        showSubmenu($submenu);
+      });
 
       // 2depth 호버 시 3depth 업데이트
-      const subItems = $$('.gnb-sub-item', submenu);
-      const thirdTitle = $('[data-third-title]', submenu);
-      const thirdItems = $('[data-third-items]', submenu);
+      var $subItems = $submenu.find('.gnb-sub-item');
+      var $thirdTitle = $submenu.find('[data-third-title]');
+      var $thirdItems = $submenu.find('[data-third-items]');
 
-      subItems.forEach(subItem => {
-        const subLink = $('.gnb-sub-link', subItem);
-        ['mouseenter', 'focus'].forEach(event => {
-          subLink?.addEventListener(event, () => updateThirdContent(subItem, thirdTitle, thirdItems));
+      $subItems.each(function () {
+        var $subItem = $(this);
+        var $subLink = $subItem.find('.gnb-sub-link');
+
+        $subLink.on('mouseenter focus', function () {
+          updateThirdContent($subItem, $thirdTitle, $thirdItems);
         });
       });
     });
 
     // GNB 전체 벗어날 때 숨기기
-    gnb.addEventListener('mouseleave', hideAllSubmenus);
+    $gnb.on('mouseleave', hideAllSubmenus);
   }
 
   // ==========================================
   // 모바일 메뉴 관리
   // ==========================================
-
   function initMobileMenu() {
-    const elements = {
-      trigger: $('#mobileMenuTrigger'),
-      menu: $('#mobileMenu'),
-      overlay: $('#mobileMenuOverlay'),
-      close: $('#mobileMenuClose'),
-      detailArea: $('.mobile-menu-detail'),
-    };
+    var $trigger = $('#mobileMenuTrigger');
+    var $menu = $('#mobileMenu');
+    var $overlay = $('#mobileMenuOverlay');
+    var $close = $('#mobileMenuClose');
+    var $detailArea = $('.mobile-menu-detail');
 
     // 필수 요소 체크
-    if (!elements.trigger || !elements.menu) return;
+    if ($trigger.length === 0 || $menu.length === 0) return;
 
     // 메뉴 열기
-    const openMenu = () => {
-      addClass(elements.menu, 'active');
-      addClass(elements.overlay, 'active');
-      addClass(elements.trigger, 'active');
-      document.body.style.overflow = 'hidden';
-    };
+    function openMenu() {
+      $menu.addClass('active');
+      $overlay.addClass('active');
+      $trigger.addClass('active');
+      $('body').css('overflow', 'hidden');
+    }
 
     // 메뉴 닫기
-    const closeMenu = () => {
-      removeClass(elements.menu, 'active');
-      removeClass(elements.overlay, 'active');
-      removeClass(elements.trigger, 'active');
-      document.body.style.overflow = '';
-      elements.menu.style.transform = ''; // 스와이프 시 변형 초기화
-    };
+    function closeMenu() {
+      $menu.removeClass('active');
+      $overlay.removeClass('active');
+      $trigger.removeClass('active');
+      $('body').css('overflow', '');
+      $menu.css('transform', ''); // 스와이프 시 변형 초기화
+    }
 
-    // 스크롤 이동 (부드러운 스크롤 + 폴백)
-    const smoothScrollTo = (container, target, offset = 20) => {
-      if (!container || !target) return;
+    // 스크롤 이동
+    function smoothScrollTo($container, $target, offset) {
+      if (!$container.length || !$target.length) return;
+      offset = offset || 20;
 
-      setTimeout(() => {
-        const containerRect = container.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-        const relativeTop = targetRect.top - containerRect.top;
-        const scrollPosition = Math.max(0, container.scrollTop + relativeTop - offset);
+      setTimeout(function () {
+        var containerTop = $container.offset().top;
+        var targetTop = $target.offset().top;
+        var scrollPosition = Math.max(0, $container.scrollTop() + targetTop - containerTop - offset);
 
-        // 부드러운 스크롤 시도
-        try {
-          container.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-        } catch (e) {
-          container.scrollTop = scrollPosition; // 폴백
-        }
-
-        // 추가 폴백 (scrollIntoView)
-        setTimeout(() => {
-          try {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          } catch (e) {
-            // 무시
-          }
-        }, 50);
+        $container.animate(
+          {
+            scrollTop: scrollPosition,
+          },
+          300
+        );
       }, 250);
-    };
+    }
 
     // 이벤트 리스너 등록
-    elements.trigger.addEventListener('click', openMenu);
-    elements.close?.addEventListener('click', closeMenu);
-    elements.overlay?.addEventListener('click', closeMenu);
+    $trigger.on('click', openMenu);
+    $close.on('click', closeMenu);
+    $overlay.on('click', closeMenu);
 
     // ESC 키로 닫기
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && hasClass(elements.menu, 'active')) {
+    $(document).on('keydown', function (e) {
+      if (e.key === 'Escape' && $menu.hasClass('active')) {
         closeMenu();
       }
     });
 
     // 1depth 탭 전환
-    $$('.depth-bar-item').forEach(item => {
-      item.addEventListener('click', () => {
-        // 탭 상태 업데이트
-        $$('.depth-bar-item').forEach(tab => removeClass(tab, 'selected'));
-        addClass(item, 'selected');
+    $('.depth-bar-item').on('click', function () {
+      var $item = $(this);
 
-        // 컨텐츠 전환
-        const category = item.getAttribute('data-category');
-        const targetContent = $(`[data-content="${category}"]`);
+      // 탭 상태 업데이트
+      $('.depth-bar-item').removeClass('selected');
+      $item.addClass('selected');
 
-        $$('.menu-detail-content').forEach(content => removeClass(content, 'active'));
+      // 컨텐츠 전환
+      var category = $item.attr('data-category');
+      var $targetContent = $('[data-content="' + category + '"]');
 
-        if (targetContent) {
-          addClass(targetContent, 'active');
-          smoothScrollTo(elements.detailArea, targetContent);
-        }
-      });
+      $('.menu-detail-content').removeClass('active');
+
+      if ($targetContent.length > 0) {
+        $targetContent.addClass('active');
+        smoothScrollTo($detailArea, $targetContent);
+      }
     });
 
     // 2depth 아코디언 토글
-    const handleMenuToggle = button => {
-      const toggleId = button.getAttribute('data-toggle');
-      const targetSubmenu = $(`[data-submenu="${toggleId}"]`);
+    function handleMenuToggle($button) {
+      var toggleId = $button.attr('data-toggle');
+      var $targetSubmenu = $('[data-submenu="' + toggleId + '"]');
 
-      if (!targetSubmenu) return;
+      if ($targetSubmenu.length === 0) return;
 
-      const isExpanded = hasClass(button, 'expanded');
-      const parentSection = button.closest('.menu-section');
+      var isExpanded = $button.hasClass('expanded');
+      var $parentSection = $button.closest('.menu-section');
 
       if (isExpanded) {
         // 접기
-        removeClass(button, 'expanded');
-        removeClass(button, 'selected');
-        removeClass(targetSubmenu, 'active');
+        $button.removeClass('expanded selected');
+        $targetSubmenu.removeClass('active');
       } else {
         // 같은 섹션의 다른 메뉴들 닫기
-        if (parentSection) {
-          $$('.menu-item-toggle', parentSection).forEach(btn => {
-            removeClass(btn, 'expanded');
-            removeClass(btn, 'selected');
-          });
-          $$('.menu-submenu', parentSection).forEach(submenu => removeClass(submenu, 'active'));
+        if ($parentSection.length > 0) {
+          $parentSection.find('.menu-item-toggle').removeClass('expanded selected');
+          $parentSection.find('.menu-submenu').removeClass('active');
         }
 
         // 펼치기
-        addClass(button, 'expanded');
-        addClass(button, 'selected');
-        addClass(targetSubmenu, 'active');
+        $button.addClass('expanded selected');
+        $targetSubmenu.addClass('active');
 
         // 펼친 메뉴로 스크롤
-        smoothScrollTo(elements.detailArea, button);
+        smoothScrollTo($detailArea, $button);
       }
-    };
+    }
 
     // 2depth 토글 버튼 이벤트 등록
-    $$('.menu-item-toggle').forEach(button => {
-      const handleClick = e => {
-        e.preventDefault();
-        handleMenuToggle(button);
-      };
-
-      button.addEventListener('click', handleClick);
-      button.addEventListener('touchend', handleClick);
+    $('.menu-item-toggle').on('click touchend', function (e) {
+      e.preventDefault();
+      handleMenuToggle($(this));
     });
 
     // 스와이프로 메뉴 닫기
-    let touchStart = { x: 0, isDragging: false };
+    var touchStart = { x: 0, isDragging: false };
 
-    elements.menu.addEventListener('touchstart', e => {
-      touchStart.x = e.touches[0]?.clientX || 0;
+    $menu.on('touchstart', function (e) {
+      var touch = e.originalEvent.touches[0];
+      touchStart.x = touch ? touch.clientX : 0;
       touchStart.isDragging = true;
     });
 
-    elements.menu.addEventListener('touchmove', e => {
+    $menu.on('touchmove', function (e) {
       if (!touchStart.isDragging) return;
 
-      const currentX = e.touches[0]?.clientX || 0;
-      const diffX = currentX - touchStart.x;
+      var touch = e.originalEvent.touches[0];
+      var currentX = touch ? touch.clientX : 0;
+      var diffX = currentX - touchStart.x;
 
       // 오른쪽 스와이프 시 메뉴 이동
       if (diffX > 0) {
-        elements.menu.style.transform = `translateX(${diffX}px)`;
+        $menu.css('transform', 'translateX(' + diffX + 'px)');
       }
     });
 
-    elements.menu.addEventListener('touchend', e => {
+    $menu.on('touchend', function (e) {
       if (!touchStart.isDragging) return;
 
-      const currentX = e.changedTouches[0]?.clientX || 0;
-      const diffX = currentX - touchStart.x;
+      var touch = e.originalEvent.changedTouches[0];
+      var currentX = touch ? touch.clientX : 0;
+      var diffX = currentX - touchStart.x;
 
       touchStart.isDragging = false;
 
@@ -284,23 +259,12 @@
       if (diffX > 50) {
         closeMenu();
       } else {
-        elements.menu.style.transform = ''; // 원래 위치로 복원
+        $menu.css('transform', ''); // 원래 위치로 복원
       }
     });
   }
 
-  // ==========================================
-  // 초기화
-  // ==========================================
-
-  // DOM 로드 완료 후 초기화
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initDesktopGNB();
-      initMobileMenu();
-    });
-  } else {
-    initDesktopGNB();
-    initMobileMenu();
-  }
-})();
+  // 초기화 실행
+  initDesktopGNB();
+  initMobileMenu();
+});

@@ -10,6 +10,7 @@ export interface Props {
   href?: string;
   target?: string;
   icon?: string;
+  iconAddClass?: string;
   iconPosition?: 'left' | 'right';
   iconOnly?: boolean;
   class?: string;
@@ -30,6 +31,7 @@ const {
   href,
   target,
   icon,
+  iconAddClass,
   iconPosition = 'right',
   iconOnly = false,
   class: className = '',
@@ -101,7 +103,7 @@ const buttonStyle = [
   {
     hasIcon && iconPosition === 'left' && !loading && (
       <div class="ui-button__icon ui-button__icon--left">
-        <img src={`./assets/images/icon/${icon}.svg`} class="icon icon-md" />
+        <img src={`./assets/images/icon/${icon}.svg`} class={`icon icon-md ${iconAddClass}`} />
       </div>
     )
   }
@@ -111,7 +113,7 @@ const buttonStyle = [
   {
     hasIcon && iconPosition === 'right' && !loading && (
       <div class="ui-button__icon ui-button__icon--right">
-        <img src={`./assets/images/icon/${icon}.svg`} class="icon icon-sm" />
+        <img src={`./assets/images/icon/${icon}.svg`} class={`icon icon-sm ${iconAddClass}`} />
       </div>
     )
   }

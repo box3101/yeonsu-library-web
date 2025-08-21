@@ -2,20 +2,10 @@
 // 레이아웃 및 컴포넌트 import
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import {
-  UiInput,
-  UiSelect,
-  UiCheckbox,
-  UiButton,
-  UiDatePicker,
-} from '@components';
+import { UiInput, UiSelect, UiCheckbox, UiButton, UiDatePicker } from '@components';
 
 // 브레드크럼 네비게이션 경로 설정
-const breadcrumbItems = [
-  { label: '홈', href: '/' },
-  { label: '도서검색', href: '/support' },
-  { label: '소장도서검색' },
-];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
 ---
 
 <Layout title="소장도서검색_상세검색 - 연수구립도서관">
@@ -37,35 +27,35 @@ const breadcrumbItems = [
           <div class="form-label">도서명</div>
           <div class="form-content input-with-button">
             <UiInput name="book-name" placeholder="도서명을 입력해주세요" value="테스트 도서명" class="w-full" />
-            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
+            <UiButton variant="primary" icon="icon-language" iconAddClass="icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">저자명</div>
           <div class="form-content input-with-button">
             <UiInput name="author-name" placeholder="저자명을 입력해주세요" value="테스트 저자" class="w-full" />
-            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
+            <UiButton variant="primary" icon="icon-language" iconAddClass="icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">발행처</div>
           <div class="form-content input-with-button">
             <UiInput name="publisher" placeholder="발행처를 입력해주세요" class="w-full" />
-            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
+            <UiButton variant="primary" icon="icon-language" iconAddClass="icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">ISBN</div>
           <div class="form-content input-with-button">
             <UiInput name="isbn" placeholder="ISBN을 입력해주세요" class="w-full" />
-            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
+            <UiButton variant="primary" icon="icon-language" iconAddClass="icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
           <div class="form-label">분류기호</div>
           <div class="form-content input-with-button">
             <UiInput name="classification-code" placeholder="분류기호를 입력해주세요" class="w-full" />
-            <UiButton variant="primary" icon="icon-language icon-white" iconPosition="left" text="다국어입력기" />
+            <UiButton variant="primary" icon="icon-language" iconAddClass="icon-white" iconPosition="left" text="다국어입력기" />
           </div>
         </li>
         <li class="form-item">
@@ -77,7 +67,16 @@ const breadcrumbItems = [
         <li class="form-item">
           <div class="form-label">언어</div>
           <div class="form-content">
-            <UiSelect name="language" value="ko" options={[{ value: '', label: '전체' }, { value: 'ko', label: '한국어' }, { value: 'en', label: '영어' }]} class="w-300-mobile-full" />
+            <UiSelect
+              name="language"
+              value="ko"
+              options={[
+                { value: '', label: '전체' },
+                { value: 'ko', label: '한국어' },
+                { value: 'en', label: '영어' },
+              ]}
+              class="w-300-mobile-full"
+            />
           </div>
         </li>
         <li class="form-item">
@@ -88,26 +87,9 @@ const breadcrumbItems = [
         </li>
       </ul>
       <div class="flex justify-center gap-16 mt24">
-        <UiButton
-          variant="tertiary"
-          text="입력 초기화"
-          size="large"
-          icon="icon-xsm icon-refresh"
-          iconPosition="right"
-          class="w-150-mobile-full"
-        />
-        <UiButton
-          variant="primary"
-          text="검색"
-          size="large"
-          class="w-150-mobile-full"
-        />
-        <UiButton
-          variant="darkBlue"
-          text="일반 검색"
-          size="large"
-          class="w-150-mobile-full"
-        />
+        <UiButton variant="tertiary" text="입력 초기화" size="large" icon="icon-xsm icon-refresh" iconPosition="right" class="w-150-mobile-full" />
+        <UiButton variant="primary" text="검색" size="large" class="w-150-mobile-full" />
+        <UiButton variant="darkBlue" text="일반 검색" size="large" class="w-150-mobile-full" />
       </div>
     </section>
   </SubLayout>

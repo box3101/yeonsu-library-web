@@ -1,101 +1,127 @@
 /**
- * 연수구 도서관 모달 컴포넌트
+ * 연수구 도서관 모달 컴포넌트 - ES5 + jQuery 단순화 버전
  * - UiCollectionModal: 소장정보 모달
  */
-
-const LibraryModal = {
+$(document).ready(function () {
   // 소장정보 모달 초기화
-  initCollectionModal() {
-    const modal = document.querySelector('[data-modal="collection"]');
-    if (!modal) return;
+  function initCollectionModal() {
+    var $modal = $('[data-modal="collection"]');
+    if ($modal.length === 0) return;
 
     // 이미 초기화된 경우 스킵
-    if (modal.dataset.modalInitialized) return;
-    modal.dataset.modalInitialized = 'true';
+    if ($modal.data('modal-initialized')) return;
+    $modal.data('modal-initialized', true);
 
-    const openTriggers = document.querySelectorAll('[data-modal-open="collection"]');
-    const closeTriggers = modal.querySelectorAll('[data-modal-close]');
-    const tabButtons = modal.querySelectorAll('.tab-button');
+    var $openTriggers = $('[data-modal-open="collection"]');
+    var $closeTriggers = $modal.find('[data-modal-close]');
+    var $tabButtons = $modal.find('.tab-button');
 
     // 모달 열기
-    openTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        modal.classList.add('is-open');
-        document.body.classList.add('modal-open');
+    $openTriggers.on('click', function () {
+      $modal.addClass('is-open');
+      $('body').addClass('modal-open');
 
-        // 첫 번째 탭을 활성화
-        this.activateFirstTab(tabButtons);
-      });
+      // 첫 번째 탭을 활성화
+      activateFirstTab($tabButtons);
     });
 
     // 모달 닫기
-    closeTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        modal.classList.remove('is-open');
-        document.body.classList.remove('modal-open');
-      });
+    $closeTriggers.on('click', function () {
+      $modal.removeClass('is-open');
+      $('body').removeClass('modal-open');
+    });
+
+    // 배경 클릭으로 모달 닫기
+    $modal.on('click', function (e) {
+      if (e.target === this) {
+        $modal.removeClass('is-open');
+        $('body').removeClass('modal-open');
+      }
     });
 
     // ESC 키로 모달 닫기
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-        modal.classList.remove('is-open');
-        document.body.classList.remove('modal-open');
+    $(document).on('keydown', function (e) {
+      if (e.key === 'Escape' && $modal.hasClass('is-open')) {
+        $modal.removeClass('is-open');
+        $('body').removeClass('modal-open');
       }
     });
 
     // 탭 버튼 기능
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // 모든 탭 비활성화
-        tabButtons.forEach(tab => {
-          tab.classList.remove('is-active');
-          tab.setAttribute('aria-selected', 'false');
-        });
+    $tabButtons.on('click', function () {
+      var $button = $(this);
 
-        // 클릭된 탭 활성화
-        button.classList.add('is-active');
-        button.setAttribute('aria-selected', 'true');
-
-        // 탭에 따른 콘텐츠 필터링 (여기서는 로그만)
-        const selectedTab = button.dataset.tab;
-        console.log('Selected library tab:', selectedTab);
-
-        // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
-        // this.filterCollectionsByLibrary(selectedTab);
+      // 모든 탭 비활성화
+      $tabButtons.each(function () {
+        $(this).removeClass('is-active').attr('aria-selected', 'false');
       });
+
+      // 클릭된 탭 활성화
+      $button.addClass('is-active').attr('aria-selected', 'true');
+
+      // 탭에 따른 콘텐츠 필터링
+      var selectedTab = $button.data('tab');
+      console.log('Selected library tab:', selectedTab);
+
+      // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
+      // filterCollectionsByLibrary(selectedTab);
     });
 
-    console.log('✅ Collection Modal initialized');
-  },
+    console.log('Collection Modal initialized');
+  }
 
   // 첫 번째 탭 활성화
-  activateFirstTab(tabButtons) {
-    if (tabButtons.length > 0) {
-      tabButtons.forEach(tab => {
-        tab.classList.remove('is-active');
-        tab.setAttribute('aria-selected', 'false');
-      });
-
-      tabButtons[0].classList.add('is-active');
-      tabButtons[0].setAttribute('aria-selected', 'true');
+  function activateFirstTab($tabButtons) {
+    if ($tabButtons.length > 0) {
+      $tabButtons.removeClass('is-active').attr('aria-selected', 'false');
+      $tabButtons.first().addClass('is-active').attr('aria-selected', 'true');
     }
-  },
-
-  // 전체 초기화
-  init() {
-    this.initCollectionModal();
   }
-};
 
-// DOM 로드 완료 후 실행
-document.addEventListener('DOMContentLoaded', function () {
-  LibraryModal.init();
-});
+  // 도서관별 소장정보 필터링 (예시 함수)
+  function filterCollectionsByLibrary(libraryId) {
+    var $tableRows = $('.collection-table tbody tr');
 
-// 페이지 로드 후에도 실행 (동적 콘텐츠 대응)
-window.addEventListener('load', function () {
-  setTimeout(() => {
-    LibraryModal.init();
-  }, 100);
+    if (libraryId === 'all') {
+      $tableRows.show();
+    } else {
+      $tableRows.each(function () {
+        var $row = $(this);
+        var rowLibraryId = $row.data('library-id');
+
+        if (rowLibraryId === libraryId) {
+          $row.show();
+        } else {
+          $row.hide();
+        }
+      });
+    }
+  }
+
+  // 모달 프로그래매틱 제어 함수 (외부에서 호출 가능)
+  window.openCollectionModal = function () {
+    var $modal = $('[data-modal="collection"]');
+    if ($modal.length > 0) {
+      $modal.addClass('is-open');
+      $('body').addClass('modal-open');
+    }
+  };
+
+  window.closeCollectionModal = function () {
+    var $modal = $('[data-modal="collection"]');
+    if ($modal.length > 0) {
+      $modal.removeClass('is-open');
+      $('body').removeClass('modal-open');
+    }
+  };
+
+  // 초기화 실행
+  initCollectionModal();
+
+  // 페이지 로드 후에도 실행 (동적 콘텐츠 대응)
+  $(window).on('load', function () {
+    setTimeout(function () {
+      initCollectionModal();
+    }, 100);
+  });
 });

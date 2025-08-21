@@ -1,41 +1,59 @@
-(function () {
-  'use strict';
-
-  // LibraryCommon이 로드되었을 때 기능 등록
-  if (window.LibraryCommon) {
-    window.LibraryCommon.features.toggle = {
-      selector: '[data-toggle]',
-      init: initToggle,
-    };
-  }
-
+/**
+ * 단순화된 토글 컴포넌트 - ES5 + jQuery
+ * 데이터 속성 기반 토글 기능
+ */
+$(document).ready(function () {
+  // 토글 기능 초기화
   function initToggle() {
-    const toggles = document.querySelectorAll('[data-toggle]');
+    $('[data-toggle]').each(function () {
+      var $toggle = $(this);
 
-    toggles.forEach(toggle => {
       // 이미 초기화된 경우 스킵
-      if (toggle.dataset.toggleInitialized) return;
-      toggle.dataset.toggleInitialized = 'true';
+      if ($toggle.data('toggle-initialized')) return;
+      $toggle.data('toggle-initialized', true);
 
-      const targetId = toggle.dataset.toggle;
-      const target = document.querySelector(`[data-toggle-target="${targetId}"]`);
+      var targetId = $toggle.data('toggle');
+      var $target = $('[data-toggle-target="' + targetId + '"]');
 
-      if (!target) return;
+      if ($target.length === 0) return;
 
-      toggle.addEventListener('click', function () {
-        const isActive = this.classList.contains('is-active');
+      $toggle.on('click', function () {
+        var $this = $(this);
+        var isActive = $this.hasClass('is-active');
 
         // 토글 상태 변경
-        this.classList.toggle('is-active');
-        target.classList.toggle('is-active');
+        $this.toggleClass('is-active');
+        $target.toggleClass('is-active');
 
         // aria 속성 업데이트
-        this.setAttribute('aria-expanded', !isActive);
-        target.setAttribute('aria-hidden', isActive);
+        $this.attr('aria-expanded', !isActive);
+        $target.attr('aria-hidden', isActive);
       });
     });
   }
 
-  // 수동 호출 가능하도록 전역 함수로도 등록
+  // 프로그래매틱 토글 제어 (외부에서 호출 가능)
+  window.toggleElement = function (toggleId) {
+    var $toggle = $('[data-toggle="' + toggleId + '"]');
+    if ($toggle.length > 0) {
+      $toggle.click();
+    }
+  };
+
+  // 토글 상태 확인
+  window.isToggleActive = function (toggleId) {
+    var $toggle = $('[data-toggle="' + toggleId + '"]');
+    return $toggle.length > 0 ? $toggle.hasClass('is-active') : false;
+  };
+
+  // 초기화 실행
+  initToggle();
+
+  // 동적 콘텐츠 대응
+  $(window).on('load', function () {
+    initToggle();
+  });
+
+  // 전역 함수로도 등록 (기존 코드 호환성)
   window.initToggle = initToggle;
-})();
+});

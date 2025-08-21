@@ -71,7 +71,8 @@ const bookshelves = [
                 <UiButton
                   variant="secondary"
                   text="전체보기"
-                  icon="icon icon-xxsm icon-arrow-right icon-primary"
+                  icon="icon-arrow-right"
+                  iconAddClass="icon icon-xxsm icon-primary"
                   iconPosition="right"
                   href={bookshelf.href}
                   class="w-full"
@@ -90,7 +91,14 @@ const bookshelves = [
           내서재 (<span>10</span>건)
         </div>
         <div class="bookshelf-header__actions">
-          <UiButton variant="darkBlue" text="전체보기" icon="icon icon-xxsm icon-arrow-right icon-white" iconPosition="right" class="" />
+          <UiButton
+            variant="darkBlue"
+            text="전체보기"
+            icon="icon-arrow-right"
+            iconAddClass="icon icon-xxsm icon-white"
+            iconPosition="right"
+            class=""
+          />
         </div>
       </div>
 

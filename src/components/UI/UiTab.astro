@@ -35,7 +35,8 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
           aria-selected={tab.active}
           aria-controls={`panel-${tab.id}`}
           id={`tab-${tab.id}`}
-          data-tab-target={tab.id}>
+          data-tab-target={tab.id}
+        >
           {tab.icon && (
             <div class="ui-tab__icon">
               <img src={tab.icon} alt={tab.label} />
