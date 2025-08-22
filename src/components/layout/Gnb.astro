@@ -1,208 +1,52 @@
 ---
-const menuData = [
-  {
-    title: '도서검색',
-    type: '3depth',
-    items: [
-      { label: '소장도서검색', href: './01_소장도서검색', isSelected: false },
-      { label: '통합검색', href: './05_통합검색', isSelected: false },
-      {
-        label: '인기/신착/추천도서',
-        href: '/search/popular',
-        isSelected: true,
-        subItems: [
-          { label: '인기도서', href: './06_인기도서', isSelected: true },
-          { label: '신착도서', href: './07_신착도서', isSelected: false },
-          { label: '추천도서', href: './08_추천도서', isSelected: false },
-        ],
-      },
-      { label: '인생서가', href: '/search/life-books', isSelected: false },
-      { label: '스쿨북스', href: '/search/school-books', isSelected: false },
-      {
-        label: '도서탐색',
-        href: '/search/explore',
-        isSelected: false,
-        subItems: [
-          { label: '카테고리분류', href: './09_카테고리분류', isSelected: false },
-          { label: '한국십진분류', href: './10_한국십진분류', isSelected: false },
-        ],
-      },
-      { label: '스마트도서관비치도서', href: './02_스마트도서관비치도서', isSelected: false },
-    ],
-  },
-  {
-    title: '책 읽는 연수구',
-    type: '2depth',
-    items: [
-      { label: '북스타트', href: '/reading-yeonsu/bookstart', isSelected: true },
-      { label: '북메이트', href: '/reading-yeonsu/bookmate', isSelected: false },
-      { label: '독서동아리 지원 사업', href: '/reading-yeonsu/reading-clubs', isSelected: false },
-      { label: '범구민 책읽어주기 문화운동', href: '/reading-yeonsu/reading-campaign', isSelected: false },
-      { label: '북크로싱 센터', href: '/reading-yeonsu/bookcrossing', isSelected: false },
-      { label: '영유아 전집 대여 사업', href: '/reading-yeonsu/children-books', isSelected: false },
-    ],
-  },
-  {
-    title: '안내마당',
-    type: '2depth',
-    items: [
-      { label: '공지사항', href: '/04_공지사항', isSelected: true },
-      { label: '신간희망자료', href: '/info/new-request', isSelected: false },
-      { label: '도서관 유튜브', href: '/info/youtube', isSelected: false },
-      { label: '도서관 소식지', href: '/info/newsletter', isSelected: false },
-      { label: '연수구 지역서점', href: '/info/local-bookstores', isSelected: false },
-      { label: '부대시설', href: '/info/facilities', isSelected: false },
-      { label: '자주하는 질문', href: '/info/faq', isSelected: false },
-    ],
-  },
-  {
-    title: '도서서비스',
-    type: '3depth',
-    items: [
-      { label: '통합도서서비스', href: '/service/integrated', isSelected: true },
-      { label: '상호대차서비스', href: '/service/interlibrary', isSelected: false },
-      { label: '책바다서비스', href: '/service/bookbada', isSelected: false },
-      { label: '책나래서비스', href: '/service/booknare', isSelected: false },
-      { label: '모바일도서관', href: '/service/mobile', isSelected: false },
-      { label: '스마트도서관', href: '/service/smart', isSelected: false },
-      { label: '전자도서관', href: '/service/ebooks', isSelected: false },
-      {
-        label: '희망도서 신청',
-        href: '/service/book-request',
-        isSelected: false,
-        subItems: [
-          { label: '서비스 안내', href: '/service/book-request/info', isSelected: false },
-          { label: '서비스 신청', href: '/service/book-request/apply', isSelected: false },
-        ],
-      },
-      {
-        label: '희망전자책 신청',
-        href: '/service/ebook-request',
-        isSelected: false,
-        subItems: [
-          { label: '서비스 안내', href: '/service/ebook-request/info', isSelected: false },
-          { label: '서비스 신청', href: '/service/ebook-request/apply', isSelected: false },
-        ],
-      },
-      {
-        label: '무료택배도서대출',
-        href: '/service/delivery',
-        isSelected: false,
-        subItems: [
-          { label: '서비스 안내', href: '/service/delivery/info', isSelected: false },
-          { label: '서비스 신청', href: '/service/delivery/apply', isSelected: false },
-        ],
-      },
-    ],
-  },
-  {
-    title: '열린참여마당',
-    type: '2depth',
-    items: [
-      { label: '도서관에 바란다', href: './03_도서관에바란다', isSelected: true },
-      { label: '희망도서신청', href: './21.희망도서신청', isSelected: false },
-      { label: '자원봉사', href: '/participation/volunteer', isSelected: false },
-      { label: '도서관 견학', href: '/participation/tour', isSelected: false },
-      { label: '도서기증', href: '/participation/donation', isSelected: false },
-      { label: '독서마라톤', href: '/participation/reading-marathon', isSelected: false },
-      { label: '독서왕', href: '/participation/reading-king', isSelected: false },
-      { label: '출석체크 이벤트', href: '/participation/attendance', isSelected: false },
-    ],
-  },
-  {
-    title: '문화마당',
-    type: '2depth',
-    items: [
-      { label: '문화행사 신청', href: '/culture/events' },
-      { label: '프로그램 신청', href: '/culture/programs' },
-      { label: '영화상영', href: '/culture/movies' },
-      { label: '대관신청', href: '/culture/rental' },
-    ],
-  },
-  {
-    title: '도서관소개',
-    type: '3depth',
-    items: [
-      { label: '인사말', href: '/about/greeting', isSelected: true },
-      { label: '연혁', href: '/about/history', isSelected: false },
-      { label: '상징', href: '/about/symbol', isSelected: false },
-      { label: '조직도', href: '/about/organization', isSelected: false },
-      { label: '자료현황', href: '/about/materials', isSelected: false },
-      {
-        label: '구립도서관',
-        href: '/about/libraries',
-        isSelected: false,
-        subItems: [
-          { label: '송도국제도서관', href: '/about/libraries/songdo', isSelected: false },
-          { label: '연수청학도서관', href: '/about/libraries/cheonghak', isSelected: false },
-          { label: '연수꿈담도서관', href: '/about/libraries/ggumdam', isSelected: false },
-          { label: '송도국제어린이도서관', href: '/about/libraries/songdo-children', isSelected: false },
-          { label: '해돋이도서관', href: '/about/libraries/haedoji', isSelected: false },
-          { label: '선학별빛도서관', href: '/about/libraries/sunhak', isSelected: false },
-          { label: '동춘나래도서관', href: '/about/libraries/dongchun', isSelected: false },
-          { label: '함박비류도서관', href: '/about/libraries/hambak', isSelected: false },
-        ],
-      },
-      {
-        label: '공립작은도서관',
-        href: '/about/small-libraries',
-        isSelected: false,
-        subItems: [
-          { label: '옥련1동작은도서관', href: '/about/small-libraries/okryeon1', isSelected: false },
-          { label: '옥련2동어린이작은도서관', href: '/about/small-libraries/okryeon2-children', isSelected: false },
-          { label: '연수1동작은도서관', href: '/about/small-libraries/yeonsu1', isSelected: false },
-          { label: '송도2동작은도서관', href: '/about/small-libraries/songdo2', isSelected: false },
-          { label: '송도3동작은도서관', href: '/about/small-libraries/songdo3', isSelected: false },
-          { label: '송도5동작은도서관', href: '/about/small-libraries/songdo5', isSelected: false },
-          { label: '솔안공원작은도서관', href: '/about/small-libraries/solan-park', isSelected: false },
-          { label: '해찬솔공원작은도서관', href: '/about/small-libraries/haechansol-park', isSelected: false },
-          { label: '누리공원작은도서관', href: '/about/small-libraries/nuri-park', isSelected: false },
-          { label: '문화공원 북크로싱 센터', href: '/about/small-libraries/culture-park-bookcrossing', isSelected: false },
-        ],
-      },
-    ],
-  },
-  {
-    title: '나의도서관',
-    type: '3depth',
-    items: [
-      {
-        label: '대출/예약',
-        href: '/mypage/loans',
-        isSelected: true,
-        subItems: [
-          { label: '대출현황', href: './11.대출현황', isSelected: true },
-          { label: '대출이력', href: './12.대출이력', isSelected: false },
-          { label: '일반예약현황', href: './13.일반예약현황', isSelected: false },
-          { label: '상호대차현황', href: './14.상호대차현황', isSelected: false },
-        ],
-      },
-      {
-        label: '희망신청',
-        href: '/mypage/requests',
-        isSelected: false,
-        subItems: [
-          { label: '희망도서신청현황', href: './15.희망도서신청현황', isSelected: false },
-          { label: '희망전자책신청현황', href: './16.희망전자책신청현황', isSelected: false },
-        ],
-      },
-      { label: '내책장', href: './17.내책장', isSelected: false },
-      { label: '전자도서관', href: './20.전자도서관', isSelected: false },
-      {
-        label: '신청조회',
-        href: '/mypage/applications',
-        isSelected: false,
-        subItems: [
-          { label: '행사신청 조회', href: './18.행사신청조회', isSelected: false },
-          { label: '프로그램신청 조회', href: './19.프로그램신청조회', isSelected: false },
-          { label: '견학신청 조회', href: './견학신청조회', isSelected: false },
-          { label: '대관신청 조회', href: './대관신청조회', isSelected: false },
-          { label: '영유아전집신청 조회', href: './영유아전집신청조회', isSelected: false },
-        ],
-      },
-    ],
-  },
-];
+/**
+ * GNB (Global Navigation Bar) 컴포넌트
+ * 연수구립도서관 메인 네비게이션 메뉴
+ * 새로운 메뉴 구조 데이터를 import하여 사용
+ */
+import { menuConfig } from '../../../src/data/menuData';
+
+// 현재 페이지 URL 가져오기 (Astro.url 사용)
+const currentPath = Astro.url.pathname;
+
+// GNB에서 표시할 메뉴 항목들 정의 (모든 메뉴를 표시)
+const gnbMenuItems = ['도서검색', '책 읽는 연수구', '안내마당', '도서서비스', '열린참여마당', '문화마당', '도서관소개', '나의도서관'];
+
+// 메뉴 데이터를 GNB 형태로 변환하는 함수
+function convertToGnbFormat(menuKey) {
+  const menu = menuConfig[menuKey];
+  if (!menu) return null;
+
+  return {
+    title: menu.title,
+    // 3depth가 있는 메뉴인지 확인 (하위 아이템에 items가 있는 경우)
+    type: menu.sections.some(section => section.items && section.items.length > 0) ? '3depth' : '2depth',
+    items: menu.sections.map(section => {
+      // 현재 페이지가 이 섹션에 속하는지 확인
+      const isSelected = section.href
+        ? currentPath.includes(section.href)
+        : section.items
+          ? section.items.some(item => currentPath.includes(item.href))
+          : false;
+
+      return {
+        label: section.title,
+        href: section.href || (section.items && section.items.length > 0 ? section.items[0].href : '#'),
+        isSelected,
+        subItems: section.items
+          ? section.items.map(item => ({
+              label: item.label,
+              href: item.href,
+              isSelected: currentPath.includes(item.href),
+            }))
+          : undefined,
+      };
+    }),
+  };
+}
+
+// GNB용 메뉴 데이터 생성
+const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter(Boolean);
 ---
 
 <nav class="gnb" id="gnb" role="navigation" aria-label="주 메뉴">
@@ -210,78 +54,81 @@ const menuData = [
     <div class="gnb-container">
       <ul class="gnb-main-list" role="menubar">
         {
-          menuData.map((menu, index) => (
-            <li class="gnb-main-item" role="none">
-              <a
-                href={menu.items[0]?.href}
-                class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
-                role="menuitem"
-                data-menu-index={index}
-              >
-                <span class="gnb-main-text">{menu.title}</span>
-                {menu.type !== '1depth' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
-              </a>
+          menuData.map(
+            (menu, index) =>
+              menu && (
+                <li class="gnb-main-item" role="none">
+                  <a
+                    href={menu.items?.[0]?.href || '#'}
+                    class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
+                    role="menuitem"
+                    data-menu-index={index}
+                  >
+                    <span class="gnb-main-text">{menu.title}</span>
+                    {menu.type !== '1depth' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
+                  </a>
 
-              {/* 서브메뉴 */}
-              {menu.type !== '1depth' && (
-                <div class="gnb-sub" hidden>
-                  <div class="gnb-container">
-                    <div class="gnb-sub-content">
-                      <div class="gnb-sub-title">
-                        <h2 class="gnb-sub-title-text">{menu.title}</h2>
-                      </div>
-
-                      <div class="gnb-sub-menu">
-                        {menu.items.map((item, itemIndex) => (
-                          <div
-                            class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}
-                            data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
-                          >
-                            <a href={item.href} class="gnb-sub-link" role="menuitem">
-                              <span class="gnb-sub-text">{item.label}</span>
-                              {item.subItems && <img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />}
-                            </a>
+                  {/* 서브메뉴 */}
+                  {menu.type !== '1depth' && menu.items && (
+                    <div class="gnb-sub" hidden>
+                      <div class="gnb-container">
+                        <div class="gnb-sub-content">
+                          <div class="gnb-sub-title">
+                            <h2 class="gnb-sub-title-text">{menu.title}</h2>
                           </div>
-                        ))}
-                      </div>
 
-                      <div class="gnb-third" role="region" aria-label="세부 메뉴">
-                        <div class="gnb-third-title">
-                          <h3 class="gnb-third-title-text" data-third-title>
-                            {(() => {
-                              const selectedItem = menu.items.find(item => item.isSelected);
-                              const targetItem = selectedItem || menu.items[0];
-                              return targetItem?.label || '메뉴';
-                            })()}
-                          </h3>
-                        </div>
-                        <div class="gnb-third-items" data-third-items>
-                          <div class="gnb-third-column">
-                            {(() => {
-                              const selectedItem = menu.items.find(item => item.isSelected);
-                              const targetItem = selectedItem || menu.items[0];
+                          <div class="gnb-sub-menu">
+                            {menu.items.map((item, itemIndex) => (
+                              <div
+                                class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}
+                                data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
+                              >
+                                <a href={item.href} class="gnb-sub-link" role="menuitem">
+                                  <span class="gnb-sub-text">{item.label}</span>
+                                  {item.subItems && <img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />}
+                                </a>
+                              </div>
+                            ))}
+                          </div>
 
-                              if (targetItem?.subItems && targetItem.subItems.length > 0) {
-                                return targetItem.subItems.map(item => (
-                                  <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
-                                    <a href={item.href} class="gnb-third-link">
-                                      <span class="gnb-third-text">{item.label}</span>
-                                    </a>
-                                  </div>
-                                ));
-                              }
-                              // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
-                              return null;
-                            })()}
+                          <div class="gnb-third" role="region" aria-label="세부 메뉴">
+                            <div class="gnb-third-title">
+                              <h3 class="gnb-third-title-text" data-third-title>
+                                {(() => {
+                                  const selectedItem = menu.items?.find(item => item.isSelected);
+                                  const targetItem = selectedItem || menu.items?.[0];
+                                  return targetItem?.label || '메뉴';
+                                })()}
+                              </h3>
+                            </div>
+                            <div class="gnb-third-items" data-third-items>
+                              <div class="gnb-third-column">
+                                {(() => {
+                                  const selectedItem = menu.items?.find(item => item.isSelected);
+                                  const targetItem = selectedItem || menu.items?.[0];
+
+                                  if (targetItem?.subItems && targetItem.subItems.length > 0) {
+                                    return targetItem.subItems.map(item => (
+                                      <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
+                                        <a href={item.href} class="gnb-third-link">
+                                          <span class="gnb-third-text">{item.label}</span>
+                                        </a>
+                                      </div>
+                                    ));
+                                  }
+                                  // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
+                                  return null;
+                                })()}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              )}
-            </li>
-          ))
+                  )}
+                </li>
+              )
+          )
         }
       </ul>
     </div>

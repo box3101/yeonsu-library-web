@@ -138,7 +138,7 @@
   &-link {
     @include flex(row, space-between, center);
     width: 100%;
-    padding: to-rem(16);
+    padding: to-rem(12) to-rem(16);
     text-decoration: none;
     background: none;
     border: none;

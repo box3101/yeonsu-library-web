@@ -1,84 +1,85 @@
 ---
-import { menuConfig, getMenuTypeFromPath, getExpandedSectionsForPath } from '@/data/menuData';
+/**
+ * LeftMenu 컴포넌트
+ * 서브 페이지에서 사용되는 좌측 사이드바 메뉴
+ * 현재 페이지에 해당하는 메뉴 카테고리의 2-3depth 메뉴를 표시
+ */
+import { menuConfig, getMenuTypeFromPath, getExpandedSectionsForPath } from '../../../src/data/menuData';
 
-export interface Props {
-  menuType?: string;
-}
+// Props 타입 정의 (Vanilla JS 방식)
+// menuType: 수동으로 메뉴 타입을 지정할 때 사용 (선택사항)
 
 // Props에서 menuType을 받거나, URL 기반으로 자동 감지
 const { menuType } = Astro.props;
 const currentPath = Astro.url.pathname;
-const decodedCurrentPath = decodeURIComponent(currentPath); // URL 디코딩
+const decodedCurrentPath = decodeURIComponent(currentPath); // 한글 URL 디코딩 처리
 const detectedMenuType = menuType || getMenuTypeFromPath(currentPath);
 
-// 해당하는 메뉴 데이터 가져오기
+// 현재 페이지에 해당하는 메뉴 데이터 가져오기
 const currentMenu = menuConfig[detectedMenuType];
 const menuItems = currentMenu?.sections || [];
 
-// 현재 URL에 따른 확장 상태 설정
+// 현재 URL에 따른 메뉴 섹션 확장 상태 설정
+// 사용자가 현재 보고 있는 페이지와 관련된 메뉴 항목들을 자동으로 열어서 보여줌
 const expandedSections = getExpandedSectionsForPath(currentPath, detectedMenuType);
 
-// URL 비교 함수
+/**
+ * URL 경로 비교 함수
+ * 현재 페이지 URL과 메뉴 아이템의 href를 비교하여 활성 상태를 판단
+ * 한글 URL 인코딩/디코딩 문제를 해결하기 위해 여러 방식으로 비교
+ */
 const isActivePath = (href: string) => {
   return currentPath === href || decodedCurrentPath === href || currentPath === encodeURIComponent(href);
 };
 
-// 섹션이 확장되어야 하는지 확인하는 함수
-const shouldBeExpanded = (section: any) => {
+/**
+ * 메뉴 섹션이 확장되어야 하는지 확인하는 함수
+ * 1. expandedSections에서 계산된 확장 상태
+ * 2. 섹션 자체의 isExpanded 속성
+ * 위 조건 중 하나라도 true면 확장 상태로 표시
+ */
+const shouldBeExpanded = section => {
   return expandedSections[section.title] || section.isExpanded || false;
 };
 ---
 
+<!-- 좌측 사이드바 메뉴 네비게이션 -->
 <nav class="left-menu-nav">
+  <!-- 메뉴 카테고리 제목 -->
   <div class="left-menu-title">
     <h2 class="left-menu-title-text">{currentMenu?.title || '메뉴'}</h2>
   </div>
+
   {
+    /* 메뉴 섹션들을 반복하여 렌더링 */
     menuItems.map((section, index) => (
       <div class="menu-section">
         {section.href ? (
-          <!-- 2depth만 있는 경우: 직접 링크 -->
-          <a
-            href={section.href}
-            class={`menu-section-title direct-link ${isActivePath(section.href) ? 'active' : ''}`}
-          >
+          /* 2depth만 있는 경우: 바로 페이지로 이동하는 직접 링크 */
+          <a href={section.href} class={`menu-section-title direct-link ${isActivePath(section.href) ? 'active' : ''}`}>
             <span class="menu-title-text">{section.title}</span>
           </a>
         ) : (
-          <!-- 3depth가 있는 경우: 토글 버튼 -->
+          /* 3depth가 있는 경우: 하위 메뉴를 토글하는 버튼과 하위 메뉴 리스트 */
           <>
+            {/* 메뉴 섹션 토글 버튼 */}
             <button
               class={`menu-section-title ${shouldBeExpanded(section) ? 'expanded' : ''}`}
               data-menu-toggle={index}
               aria-expanded={shouldBeExpanded(section)}
             >
               <span class="menu-title-text">{section.title}</span>
-              <svg
-                class="menu-arrow"
-                width="12"
-                height="8"
-                viewBox="0 0 12 8"
-                fill="none"
-              >
-                <path
-                  d="M1 1L6 6L11 1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              {/* 확장/축소 상태를 나타내는 화살표 아이콘 */}
+              <svg class="menu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
-            <ul
-              class={`menu-list ${shouldBeExpanded(section) ? 'expanded' : ''}`}
-              data-menu-content={index}
-            >
+
+            {/* 하위 메뉴 아이템들 리스트 */}
+            <ul class={`menu-list ${shouldBeExpanded(section) ? 'expanded' : ''}`} data-menu-content={index}>
               {section.items?.map(item => (
                 <li class="menu-item">
-                  <a
-                    href={item.href}
-                    class={`menu-link ${isActivePath(item.href) ? 'active' : ''}`}
-                  >
+                  <a href={item.href} class={`menu-link ${isActivePath(item.href) ? 'active' : ''}`}>
                     {item.label}
                   </a>
                 </li>

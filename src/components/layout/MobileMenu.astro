@@ -1,243 +1,51 @@
 ---
-const menuCategories = ['도서검색', '책 읽는 연수구', '안내마당', '도서서비스', '열린참여마당', '문화마당', '도서관소개'];
+/**
+ * MobileMenu 컴포넌트
+ * 모바일 환경에서 사용되는 햄버거 메뉴
+ * 새로운 메뉴 구조 데이터를 import하여 사용
+ */
+import { menuConfig } from '../../../src/data/menuData';
 
-// 타입 정의
-interface MenuItem {
-  title: string;
-  url?: string;
-  children?: MenuItem[];
+// 모바일 메뉴에서 표시할 메뉴 카테고리들 (회원서비스, 기타 제외)
+const menuCategories = ['도서검색', '책 읽는 연수구', '안내마당', '도서서비스', '열린참여마당', '문화마당', '도서관소개', '나의도서관'];
+
+// 모바일 메뉴 전용 데이터 구조 (Vanilla JS 방식)
+// MobileMenuItem: { title: string, url?: string, children?: MobileMenuItem[] }
+// MobileMenuSection: { title: string, children: MobileMenuItem[] }
+
+// 메뉴 데이터를 모바일 메뉴 형태로 변환하는 함수
+function convertToMobileFormat(menuKey) {
+  const menu = menuConfig[menuKey];
+  if (!menu) return [];
+
+  return [
+    {
+      title: menu.title,
+      children: menu.sections.map(section => {
+        const mobileItem = {
+          title: section.title,
+          url: section.href,
+        };
+
+        // 3depth 메뉴가 있는 경우 children으로 추가
+        if (section.items && section.items.length > 0) {
+          mobileItem.children = section.items.map(item => ({
+            title: item.label,
+            url: item.href,
+          }));
+        }
+
+        return mobileItem;
+      }),
+    },
+  ];
 }
 
-interface MenuSection {
-  title: string;
-  children: MenuItem[];
-}
-
-// 각 카테고리별 메뉴 데이터 (2depth, 3depth 구조)
-const menuData: Record<string, MenuSection[]> = {
-  도서검색: [
-    {
-      title: '도서검색',
-      children: [
-        { title: '소장도서검색', url: '/01_소장도서검색' },
-        { title: '통합검색', url: '/05_통합검색' },
-        {
-          title: '인기/신착/추천도서',
-          url: '/search/popular',
-          children: [
-            { title: '인기도서', url: '/06_인기도서' },
-            { title: '신착도서', url: '/search/popular/new' },
-            { title: '추천도서', url: '/search/popular/recommended' },
-          ],
-        },
-        { title: '인생서가', url: '/search/life-books' },
-        { title: '스쿨북스', url: '/search/school-books' },
-        {
-          title: '도서탐색',
-          url: '/search/explore',
-          children: [
-            { title: '카테고리분류', url: '/search/explore/category' },
-            { title: '한국십진분류', url: '/search/explore/decimal' },
-          ],
-        },
-        { title: '스마트도서관비치도서', url: '/02_스마트도서관비치도서' },
-      ],
-    },
-  ],
-
-  '책 읽는 연수구': [
-    {
-      title: '책 읽는 연수구',
-      children: [
-        { title: '북스타트', url: '/reading-yeonsu/bookstart' },
-        { title: '북메이트', url: '/reading-yeonsu/bookmate' },
-        { title: '독서동아리 지원 사업', url: '/reading-yeonsu/reading-clubs' },
-        { title: '범구민 책읽어주기 문화운동', url: '/reading-yeonsu/reading-campaign' },
-        { title: '북크로싱 센터', url: '/reading-yeonsu/bookcrossing' },
-        { title: '영유아 전집 대여 사업', url: '/reading-yeonsu/children-books' },
-      ],
-    },
-  ],
-
-  안내마당: [
-    {
-      title: '안내마당',
-      children: [
-        { title: '공지사항', url: '/04_공지사항' },
-        { title: '신간희망자료', url: '/info/new-request' },
-        { title: '도서관 유튜브', url: '/info/youtube' },
-        { title: '도서관 소식지', url: '/info/newsletter' },
-        { title: '연수구 지역서점', url: '/info/local-bookstores' },
-        { title: '부대시설', url: '/info/facilities' },
-        { title: '자주하는 질문', url: '/info/faq' },
-      ],
-    },
-  ],
-
-  도서서비스: [
-    {
-      title: '도서서비스',
-      children: [
-        { title: '통합도서서비스', url: '/service/integrated' },
-        { title: '상호대차서비스', url: '/service/interlibrary' },
-        { title: '책바다서비스', url: '/service/bookbada' },
-        { title: '책나래서비스', url: '/service/booknare' },
-        { title: '모바일도서관', url: '/service/mobile' },
-        { title: '스마트도서관', url: '/service/smart' },
-        { title: '전자도서관', url: '/service/ebooks' },
-        {
-          title: '희망도서 신청',
-          url: '/service/book-request',
-          children: [
-            { title: '서비스 안내', url: '/service/book-request/info' },
-            { title: '서비스 신청', url: '/service/book-request/apply' },
-          ],
-        },
-        {
-          title: '희망전자책 신청',
-          url: '/service/ebook-request',
-          children: [
-            { title: '서비스 안내', url: '/service/ebook-request/info' },
-            { title: '서비스 신청', url: '/service/ebook-request/apply' },
-          ],
-        },
-        {
-          title: '무료택배도서대출',
-          url: '/service/delivery',
-          children: [
-            { title: '서비스 안내', url: '/service/delivery/info' },
-            { title: '서비스 신청', url: '/service/delivery/apply' },
-          ],
-        },
-      ],
-    },
-  ],
-
-  열린참여마당: [
-    {
-      title: '열린참여마당',
-      children: [
-        { title: '도서관에 바란다', url: '/03_도서관에바란다' },
-        { title: '자원봉사', url: '/participation/volunteer' },
-        {
-          title: '도서관 견학',
-          url: '/participation/tour',
-          children: [
-            { title: '도서관 견학 안내', url: '/participation/tour/info' },
-            { title: '도서관 견학 신청', url: '/participation/tour/apply' },
-          ],
-        },
-        {
-          title: '도서기증',
-          url: '/participation/donation',
-          children: [
-            { title: '기증안내', url: '/participation/donation/info' },
-            { title: '서약서작성', url: '/participation/donation/pledge' },
-            { title: '기증신청조회', url: '/participation/donation/status' },
-          ],
-        },
-        {
-          title: '독서마라톤',
-          url: '/participation/reading-marathon',
-          children: [
-            { title: '독서마라톤 안내', url: '/participation/reading-marathon/info' },
-            { title: '독서마라톤 참여', url: '/participation/reading-marathon/join' },
-          ],
-        },
-        {
-          title: '독서왕',
-          url: '/participation/reading-king',
-          children: [
-            { title: '독서왕 안내', url: '/participation/reading-king/info' },
-            { title: '독서왕 참여', url: '/participation/reading-king/join' },
-          ],
-        },
-        {
-          title: '출석체크 이벤트',
-          url: '/participation/attendance',
-          children: [
-            { title: '출석체크 안내', url: '/participation/attendance/info' },
-            { title: '출석하기', url: '/participation/attendance/check' },
-          ],
-        },
-      ],
-    },
-  ],
-
-  문화마당: [
-    {
-      title: '문화마당',
-      children: [
-        { title: '문화행사 신청', url: '/culture/events' },
-        { title: '프로그램 신청', url: '/culture/programs' },
-        {
-          title: '영화상영',
-          url: '/culture/movies',
-          children: [
-            { title: '이용안내', url: '/culture/movies/info' },
-            { title: '상영작', url: '/culture/movies/schedule' },
-          ],
-        },
-        {
-          title: '대관신청',
-          url: '/culture/rental',
-          children: [
-            { title: '공연장(청학,꿈담,송도,해돋이)', url: '/culture/rental/performance' },
-            { title: '세미나실대관(청학)', url: '/culture/rental/seminar' },
-            { title: '커뮤니티룸대관(동춘)', url: '/culture/rental/community' },
-            { title: '프로그램실(함박)', url: '/culture/rental/program' },
-            { title: '독서토론실대관(송도)', url: '/culture/rental/discussion' },
-            { title: '하늘빛정원대관(청학)', url: '/culture/rental/garden' },
-            { title: '동아리실대관(꿈담)', url: '/culture/rental/club' },
-          ],
-        },
-      ],
-    },
-  ],
-
-  도서관소개: [
-    {
-      title: '도서관소개',
-      children: [
-        { title: '인사말', url: '/about/greeting' },
-        { title: '연혁', url: '/about/history' },
-        { title: '상징', url: '/about/symbol' },
-        { title: '조직도', url: '/about/organization' },
-        { title: '자료현황', url: '/about/materials' },
-        {
-          title: '구립도서관',
-          url: '/about/libraries',
-          children: [
-            { title: '송도국제도서관', url: '/about/libraries/songdo' },
-            { title: '연수청학도서관', url: '/about/libraries/cheonghak' },
-            { title: '연수꿈담도서관', url: '/about/libraries/ggumdam' },
-            { title: '송도국제어린이도서관', url: '/about/libraries/songdo-children' },
-            { title: '해돋이도서관', url: '/about/libraries/haedoji' },
-            { title: '선학별빛도서관', url: '/about/libraries/sunhak' },
-            { title: '동춘나래도서관', url: '/about/libraries/dongchun' },
-            { title: '함박비류도서관', url: '/about/libraries/hambak' },
-          ],
-        },
-        {
-          title: '공립작은도서관',
-          url: '/about/small-libraries',
-          children: [
-            { title: '옥련1동작은도서관', url: '/about/small-libraries/okryeon1' },
-            { title: '옥련2동어린이작은도서관', url: '/about/small-libraries/okryeon2-children' },
-            { title: '연수1동작은도서관', url: '/about/small-libraries/yeonsu1' },
-            { title: '송도2동작은도서관', url: '/about/small-libraries/songdo2' },
-            { title: '송도3동작은도서관', url: '/about/small-libraries/songdo3' },
-            { title: '송도5동작은도서관', url: '/about/small-libraries/songdo5' },
-            { title: '솔안공원작은도서관', url: '/about/small-libraries/solan-park' },
-            { title: '해찬솔공원작은도서관', url: '/about/small-libraries/haechansol-park' },
-            { title: '누리공원작은도서관', url: '/about/small-libraries/nuri-park' },
-            { title: '문화공원 북크로싱 센터', url: '/about/small-libraries/culture-park-bookcrossing' },
-          ],
-        },
-      ],
-    },
-  ],
-};
+// 각 카테고리별 모바일 메뉴 데이터 생성
+const menuData = {};
+menuCategories.forEach(category => {
+  menuData[category] = convertToMobileFormat(category);
+});
 ---
 
 <!-- 모바일 메뉴 오버레이 -->
@@ -294,7 +102,7 @@ const menuData: Record<string, MenuSection[]> = {
                 </div>
 
                 <div class="menu-section-items">
-                  {menu.children?.map((child: MenuItem, childIndex: number) => (
+                  {menu.children?.map((child, childIndex) => (
                     <div class="menu-item-group">
                       {child.children ? (
                         <button
@@ -316,7 +124,7 @@ const menuData: Record<string, MenuSection[]> = {
                           class={`menu-submenu ${menuIndex === 0 && childIndex === 0 ? 'active' : ''}`}
                           data-submenu={`${categoryIndex}-${menuIndex}-${childIndex}`}
                         >
-                          {child.children.map((subChild: MenuItem) => (
+                          {child.children.map(subChild => (
                             <a href={subChild.url} class="menu-submenu-link">
                               <span class="bullet" />
                               <span>{subChild.title}</span>

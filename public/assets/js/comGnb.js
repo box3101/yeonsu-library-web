@@ -151,9 +151,9 @@ $(document).ready(function () {
           {
             scrollTop: scrollPosition,
           },
-          300
+          10
         );
-      }, 250);
+      }, 10);
     }
 
     // 이벤트 리스너 등록
