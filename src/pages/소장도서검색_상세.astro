@@ -5,7 +5,7 @@ import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiBookCardDetail, UiCollectionAccordion, UiAccordion, UiButton, UiNavButton, UiTab, UiTable } from '@components';
 
 // 브레드크럼 네비게이션 경로 설정
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: './소장도서검색' }];
 
 // 소장정보 테이블 컬럼 정의
 const columns = [
@@ -165,7 +165,7 @@ const books = [
         icon="icon-xxsm icon-arrow-left icon-primary"
         iconPosition="left"
         type="link"
-        href="./01_소장도서검색"
+        href="./소장도서검색"
       />
     </div>
 
@@ -394,7 +394,7 @@ const books = [
 
   // 연수도서관용 태그 클라우드 검색 함수
   function fn_tagCloudSearch(word) {
-    const searchUrl = `/01_소장도서검색?keyword=${encodeURIComponent(word)}`;
+    const searchUrl = `소장도서검색?keyword=${encodeURIComponent(word)}`;
     window.location.href = searchUrl;
   }
 
