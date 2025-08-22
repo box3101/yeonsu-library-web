@@ -119,10 +119,9 @@ const containerStyle = width ? `width: ${typeof width === 'number' ? width + 'px
       )
     }
   </div>
-
   {
     (hasHelperText || hasErrorMessage) && (
-      <div id={`${inputId}-help`} class="ui-input__help">
+      <div id={`${inputId}-help`} class={`ui-input__help ${isError ? 'ui-input__help--error' : ''}`}>
         {isError && hasErrorMessage ? errorMessage : helperText}
       </div>
     )

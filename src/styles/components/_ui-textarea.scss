@@ -3,32 +3,36 @@
 @use '../variables/layout' as *;
 @use '../variables/typography' as *;
 
-.ui-input-container {
+// Textarea 컨테이너
+.ui-textarea-container {
   display: flex;
   flex-direction: column;
   gap: to-rem(8);
   position: relative;
 }
 
-.ui-input__label {
+// Textarea 라벨
+.ui-textarea__label {
   font-size: 0.875rem;
   font-weight: $font-medium;
   color: $gray-700;
   line-height: 1.4;
 
-  .ui-input__required {
+  .ui-textarea__required {
     color: $error-color;
     margin-left: to-rem(2);
   }
 }
 
-.ui-input__wrapper {
+// Textarea 래퍼
+.ui-textarea__wrapper {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.ui-input {
+// Textarea 기본 스타일
+.ui-textarea {
   width: 100%;
   font-family: $font-family-primary;
   font-size: $ui-text-medium;
@@ -40,6 +44,7 @@
   color: $ui-text-primary;
   transition: all 0.2s ease;
   outline: none;
+  min-height: to-rem(100); // 최소 높이 설정
 
   @include mobile {
     font-size: $ui-text-medium-mobile;
@@ -60,57 +65,52 @@
 
   // 크기 variants
   &--xsmall {
-    padding: to-rem(6) to-rem(10);
+    padding: to-rem(8) to-rem(10);
     font-size: $ui-text-xsmall;
-    height: $component-height-xsmall;
+    min-height: to-rem(60);
 
     @include mobile {
       font-size: $ui-text-xsmall-mobile;
-      height: $component-height-xsmall-mobile;
     }
   }
 
   &--small {
-    padding: to-rem(8) to-rem(12);
+    padding: to-rem(10) to-rem(12);
     font-size: $ui-text-small;
-    height: $component-height-small;
+    min-height: to-rem(80);
 
     @include mobile {
       font-size: $ui-text-small-mobile;
-      height: $component-height-small-mobile;
     }
   }
 
   &--medium {
     padding: to-rem(12) to-rem(16);
     font-size: $ui-text-medium;
-    height: $component-height-medium;
+    min-height: to-rem(100);
 
     @include mobile {
       font-size: $ui-text-medium-mobile;
-      height: $component-height-medium-mobile;
     }
   }
 
   &--large {
     padding: to-rem(16) to-rem(20);
     font-size: $ui-text-large;
-    height: $component-height-large;
+    min-height: to-rem(120);
 
     @include mobile {
       font-size: $ui-text-large-mobile;
-      height: $component-height-large-mobile;
     }
   }
 
   &--xlarge {
     padding: to-rem(20) to-rem(24);
     font-size: $ui-text-xlarge;
-    height: $component-height-xlarge;
+    min-height: to-rem(140);
 
     @include mobile {
       font-size: $ui-text-xlarge-mobile;
-      height: $component-height-xlarge-mobile;
     }
   }
 
@@ -180,49 +180,21 @@
     }
   }
 
-  // 아이콘이 있을 때 패딩 조정
-  &--icon-left {
-    &.ui-input--xsmall {
-      padding-left: to-rem(32);
-    }
-
-    &.ui-input--small {
-      padding-left: to-rem(36);
-    }
-
-    &.ui-input--medium {
-      padding-left: to-rem(44);
-    }
-
-    &.ui-input--large {
-      padding-left: to-rem(52);
-    }
-
-    &.ui-input--xlarge {
-      padding-left: to-rem(56);
-    }
+  // Resize variants
+  &--resize-none {
+    resize: none;
   }
 
-  &--icon-right {
-    &.ui-input--xsmall {
-      padding-right: to-rem(32);
-    }
+  &--resize-vertical {
+    resize: vertical;
+  }
 
-    &.ui-input--small {
-      padding-right: to-rem(36);
-    }
+  &--resize-horizontal {
+    resize: horizontal;
+  }
 
-    &.ui-input--medium {
-      padding-right: to-rem(44);
-    }
-
-    &.ui-input--large {
-      padding-right: to-rem(52);
-    }
-
-    &.ui-input--xlarge {
-      padding-right: to-rem(56);
-    }
+  &--resize-both {
+    resize: both;
   }
 
   // 비활성화 상태
@@ -230,6 +202,7 @@
     background-color: $gray-100;
     color: $ui-text-disabled;
     cursor: not-allowed;
+    resize: none; // 비활성화 시 리사이즈 비활성화
 
     &::placeholder {
       color: $ui-text-disabled;
@@ -240,101 +213,43 @@
   &--readonly {
     background-color: $gray-50;
     cursor: default;
-  }
-
-  // Clear 버튼이 있을 때 패딩 조정
-  &--clearable {
-    &.ui-input--xsmall {
-      padding-right: to-rem(32);
-    }
-
-    &.ui-input--small {
-      padding-right: to-rem(36);
-    }
-
-    &.ui-input--medium {
-      padding-right: to-rem(44);
-    }
-
-    &.ui-input--large {
-      padding-right: to-rem(52);
-    }
-
-    &.ui-input--xlarge {
-      padding-right: to-rem(56);
-    }
+    resize: none; // 읽기 전용 시 리사이즈 비활성화
   }
 }
 
-.ui-input__icon {
+// 문자 수 카운터
+.ui-textarea__counter {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $gray-400;
+  bottom: to-rem(8);
+  right: to-rem(12);
+  font-size: 0.75rem;
+  color: $gray-500;
+  background-color: rgba($white, 0.9);
+  padding: to-rem(2) to-rem(6);
+  border-radius: to-rem(4);
+  backdrop-filter: blur(4px);
   pointer-events: none;
   z-index: 1;
 
-  img {
-    width: to-rem(16);
-    height: to-rem(16);
-    opacity: 0.6;
+  .ui-textarea__counter-separator {
+    margin: 0 to-rem(2);
   }
 
-  &--left {
-    left: to-rem(12);
+  // 경고 상태 (90% 이상)
+  &--warning {
+    color: $warning-color;
+    background-color: rgba($warning-color, 0.1);
   }
 
-  &--right {
-    right: to-rem(12);
-  }
-}
-
-.ui-input__clear {
-  position: absolute;
-  right: to-rem(14);
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: to-rem(4);
-  border-radius: to-rem(4);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  z-index: 2;
-  width: to-rem(20);
-  height: to-rem(20);
-
-  &:hover {
-    background-color: alpha($gray-500, 0.1);
-  }
-
-  &:focus {
-    outline: 2px solid $blue-500;
-    outline-offset: 2px;
-  }
-
-  // Input에 값이 있을 때만 표시
-  .ui-input-container:hover &,
-  .ui-input:focus ~ &,
-  &.is-visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .ui-input--disabled ~ & {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .ui-input--readonly ~ & {
-    display: none;
+  // 에러 상태 (100% 이상)
+  &--error {
+    color: $error-color;
+    background-color: rgba($error-color, 0.1);
   }
 }
 
-.ui-input__help {
+// 도움말 텍스트
+.ui-textarea__help {
   font-size: 0.75rem;
   line-height: 1.4;
   color: $gray-500;
@@ -352,5 +267,24 @@
 
   &--success {
     color: $success-color;
+  }
+}
+
+// 카운터가 있을 때 textarea 하단 패딩 조정
+.ui-textarea-container:has(.ui-textarea__counter) .ui-textarea {
+  padding-bottom: to-rem(32);
+}
+
+// 모바일에서 카운터 위치 조정
+@include mobile {
+  .ui-textarea__counter {
+    bottom: to-rem(6);
+    right: to-rem(8);
+    font-size: 0.6875rem;
+    padding: to-rem(1) to-rem(4);
+  }
+
+  .ui-textarea-container:has(.ui-textarea__counter) .ui-textarea {
+    padding-bottom: to-rem(28);
   }
 }

@@ -300,3 +300,22 @@
     transform: translateY(-50%) rotate(180deg);
   }
 }
+.ui-select-container--error {
+  .ui-select__element {
+    border-color: $error-color;
+  }
+}
+.ui-select__help {
+  position: absolute;
+  left: 0;
+  top: 111%;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: $gray-500;
+}
+.ui-select__help--error {
+  color: $error-color;
+}
+.ui-select-container {
+  position: relative;
+}

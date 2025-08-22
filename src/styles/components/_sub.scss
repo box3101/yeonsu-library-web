@@ -1460,7 +1460,7 @@ div.bookshelf-item {
 /* ========================================
    서브 페이지 레이아웃 스타일
    - sub-layout__content-inner: 메인 콘텐츠 영역
-   - sub-layout__content-inner-header: 페이지 제목/설명 영역  
+   - sub-layout__content-inner-header: 페이지 제목/설명 영역
    - sub-layout__content-inner-body: 본문 콘텐츠 영역
    - policy-table: 정책 테이블 래퍼
 ======================================== */
@@ -1527,7 +1527,7 @@ div.bookshelf-item {
     // 개별 콘텐츠 아이템 (리스트 + 테이블 등)
     display: flex;
     flex-direction: column;
-    gap: to-rem(16);
+    gap: to-rem(25);
 
     @include mobile {
       gap: 12px;
@@ -1806,5 +1806,86 @@ div.bookshelf-item {
   50% {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba($warning-color, 0.6);
+  }
+}
+
+/* ========================================
+   희망도서신청 신청자 정보
+======================================== */
+.sub-layout__content-inner-body-item-content {
+  display: flex;
+  gap: to-rem(16);
+  @include mobile {
+    flex-direction: column;
+  }
+  .sub-layout__content-inner-body-item-content-item {
+    flex: 1;
+  }
+}
+
+.sub-layout__content-inner-body-item-content-item-label {
+  font-weight: 700;
+  font-size: to-rem(17);
+  line-height: 1.5;
+  color: $black;
+
+  // 모바일에서는 폰트 크기를 작게 조정
+  @include mobile {
+    font-size: 15px;
+  }
+}
+.sub-layout__content-inner-body-item-content-item-value {
+  margin-top: 8px;
+  font-weight: 400;
+
+  // 모바일에서는 여백을 줄임
+  @include mobile {
+    margin-top: 6px;
+  }
+}
+.text-red {
+  color: #d7424e;
+}
+.sub-layout__content-inner-body-item-title-text-noti {
+  display: flex;
+  gap: to-rem(8);
+  padding: to-rem(16);
+  align-items: center;
+  border-radius: var(--radius-xlarge2, 12px);
+  border: var(--border-width-static-regular, 1px) solid var(--color-border-gray-light, #cdd1d5);
+  background: var(--color-surface-gray-subtler, #f4f5f6);
+  margin-top: to-rem(16);
+
+  // 모바일에서는 패딩과 여백을 줄이고 gap도 조정 (px 단위 사용)
+  @include mobile {
+    gap: 6px;
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  svg {
+    width: to-rem(20);
+    height: to-rem(20);
+    flex-shrink: 0;
+
+    // 모바일에서는 아이콘 크기를 약간 작게 (px 단위 사용)
+    @include mobile {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+.sub-layout__content-inner-body-footer {
+  display: flex;
+  gap: to-rem(8);
+  max-width: to-rem(300);
+  margin: 0 auto;
+  margin-top: to-rem(24);
+
+  // 모바일에서는 세로 정렬과 여백 조정 (px 단위 사용)
+  @include mobile {
+    margin-top: 16px;
+    flex-direction: column;
+    max-width: 100%;
   }
 }

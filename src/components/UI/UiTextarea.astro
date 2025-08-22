@@ -1,0 +1,249 @@
+---
+export interface Props {
+  /**
+   * textarea의 name 속성
+   */
+  name?: string;
+  /**
+   * textarea의 id 속성 (자동 생성됨)
+   */
+  id?: string;
+  /**
+   * placeholder 텍스트
+   */
+  placeholder?: string;
+  /**
+   * 기본값
+   */
+  value?: string;
+  /**
+   * 비활성화 여부
+   */
+  disabled?: boolean;
+  /**
+   * 읽기 전용 여부
+   */
+  readonly?: boolean;
+  /**
+   * 필수 입력 여부
+   */
+  required?: boolean;
+  /**
+   * 크기 variant
+   */
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  /**
+   * 스타일 variant
+   */
+  variant?: 'default' | 'filled' | 'outlined' | 'ghost';
+  /**
+   * 상태 (기본, 에러, 성공, 경고, 입력완료)
+   */
+  state?: 'default' | 'success' | 'error' | 'warning' | 'filled';
+  /**
+   * 라벨 텍스트
+   */
+  label?: string;
+  /**
+   * 도움말 텍스트
+   */
+  helperText?: string;
+  /**
+   * 에러 메시지
+   */
+  errorMessage?: string;
+  /**
+   * 너비 설정 (px 또는 % 등의 CSS 단위)
+   */
+  width?: string | number;
+  /**
+   * 최대 문자 수
+   */
+  maxlength?: number;
+  /**
+   * 표시할 줄 수 (높이 조절)
+   */
+  rows?: number;
+  /**
+   * 표시할 열 수 (너비 조절, 권장하지 않음 - CSS로 제어)
+   */
+  cols?: number;
+  /**
+   * resize 동작 제어
+   */
+  resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+  /**
+   * 문자 수 카운터 표시 여부
+   */
+  showCounter?: boolean;
+  /**
+   * 추가 CSS 클래스
+   */
+  class?: string;
+}
+
+const {
+  name,
+  id,
+  placeholder,
+  value,
+  disabled = false,
+  readonly = false,
+  required = false,
+  size = 'medium',
+  variant = 'default',
+  state = 'default',
+  label,
+  helperText,
+  errorMessage,
+  width,
+  maxlength,
+  rows = 4,
+  cols,
+  resize = 'vertical',
+  showCounter = false,
+  class: className = '',
+} = Astro.props;
+
+// 고유 ID 생성
+const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+
+// 상태 체크
+const hasLabel = label && label.length > 0;
+const hasHelperText = helperText && helperText.length > 0;
+const hasErrorMessage = errorMessage && errorMessage.length > 0;
+const isError = state === 'error';
+const isFilled = state === 'filled' || (value && value.length > 0);
+const shouldShowCounter = showCounter && maxlength;
+
+// 컨테이너 클래스
+const containerClasses = ['ui-textarea-container', className].filter(Boolean).join(' ');
+
+// Textarea 클래스
+const textareaClasses = [
+  'ui-textarea',
+  `ui-textarea--${size}`,
+  `ui-textarea--${variant}`,
+  `ui-textarea--${isFilled ? 'filled' : state}`,
+  `ui-textarea--resize-${resize}`,
+  disabled ? 'ui-textarea--disabled' : '',
+  readonly ? 'ui-textarea--readonly' : '',
+]
+  .filter(Boolean)
+  .join(' ');
+
+// 컨테이너 스타일
+const containerStyle = width ? `width: ${typeof width === 'number' ? width + 'px' : width}` : '';
+---
+
+<div class={containerClasses} style={containerStyle}>
+  <!-- 라벨 -->
+  {
+    hasLabel && (
+      <label for={textareaId} class="ui-textarea__label">
+        {label}
+        {required && <span class="ui-textarea__required">*</span>}
+      </label>
+    )
+  }
+
+  <!-- Textarea 래퍼 -->
+  <div class="ui-textarea__wrapper">
+    <textarea
+      id={textareaId}
+      name={name}
+      class={textareaClasses}
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+      readonly={readonly}
+      required={required}
+      maxlength={maxlength}
+      rows={rows}
+      cols={cols}
+      aria-invalid={isError}
+      aria-describedby={hasHelperText || hasErrorMessage ? `${textareaId}-help` : undefined}></textarea>
+
+    <!-- 문자 수 카운터 -->
+    {
+      shouldShowCounter && (
+        <div class="ui-textarea__counter">
+          <span class="ui-textarea__counter-current">0</span>
+          <span class="ui-textarea__counter-separator">/</span>
+          <span class="ui-textarea__counter-max">{maxlength}</span>
+        </div>
+      )
+    }
+  </div>
+
+  <!-- 도움말 또는 에러 메시지 -->
+  {
+    (hasHelperText || hasErrorMessage) && (
+      <div id={`${textareaId}-help`} class={`ui-textarea__help ${isError ? 'ui-textarea__help--error' : ''}`}>
+        {isError && hasErrorMessage ? errorMessage : helperText}
+      </div>
+    )
+  }
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 모든 ui-textarea에 대해 동적 처리
+    const allTextareas = document.querySelectorAll('.ui-textarea');
+
+    allTextareas.forEach(textarea => {
+      const container = textarea.closest('.ui-textarea-container');
+      const counter = container?.querySelector('.ui-textarea__counter-current');
+      const maxlengthAttr = textarea.getAttribute('maxlength');
+
+      // 입력 상태에 따른 클래스 토글 함수
+      function toggleFilledState() {
+        if (textarea.value && textarea.value.length > 0) {
+          textarea.classList.add('ui-textarea--filled');
+        } else {
+          textarea.classList.remove('ui-textarea--filled');
+        }
+      }
+
+      // 문자 수 카운터 업데이트 함수
+      function updateCounter() {
+        if (counter && maxlengthAttr) {
+          const currentLength = textarea.value.length;
+          const maxLength = parseInt(maxlengthAttr);
+
+          counter.textContent = currentLength.toString();
+
+          // 최대 글자 수에 가까워지면 경고 색상 표시
+          const counterContainer = counter.closest('.ui-textarea__counter');
+          if (currentLength >= maxLength * 0.9) {
+            counterContainer?.classList.add('ui-textarea__counter--warning');
+          } else {
+            counterContainer?.classList.remove('ui-textarea__counter--warning');
+          }
+
+          // 최대 글자 수를 초과하면 에러 색상 표시
+          if (currentLength >= maxLength) {
+            counterContainer?.classList.add('ui-textarea__counter--error');
+          } else {
+            counterContainer?.classList.remove('ui-textarea__counter--error');
+          }
+        }
+      }
+
+      // 이벤트 리스너 등록
+      textarea.addEventListener('input', function () {
+        toggleFilledState();
+        updateCounter();
+      });
+
+      textarea.addEventListener('change', function () {
+        toggleFilledState();
+        updateCounter();
+      });
+
+      // 초기 상태 설정
+      toggleFilledState();
+      updateCounter();
+    });
+  });
+</script>
