@@ -31,32 +31,32 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '소장도서검색',
-        href: './01_소장도서검색',
+        href: './소장도서검색',
       },
       {
         title: '통합검색',
-        href: './05_통합검색',
+        href: './통합검색',
       },
       {
         title: '인기/신착/추천도서',
         items: [
-          { label: '인기도서', href: './06_인기도서' },
-          { label: '신착도서', href: './07_신착도서' },
-          { label: '추천도서', href: './08_추천도서' },
-          { label: '인생서가', href: '/books/life-library' },
-          { label: '스쿨북스', href: '/books/school-books' },
+          { label: '인기도서', href: './인기도서' },
+          { label: '신착도서', href: './신착도서' },
+          { label: '추천도서', href: './추천도서' },
+          { label: '인생서가', href: './인생서가' },
+          { label: '스쿨북스', href: './스쿨북스' },
         ],
       },
       {
         title: '도서탐색',
         items: [
-          { label: '카테고리분류', href: './09_카테고리분류' },
-          { label: '한국십진분류', href: './10_한국십진분류' },
+          { label: '카테고리분류', href: './카테고리분류' },
+          { label: '한국십진분류', href: './한국십진분류' },
         ],
       },
       {
         title: '스마트도서관비치도서',
-        href: './02_스마트도서관비치도서',
+        href: './스마트도서관비치도서',
       },
     ],
   },
@@ -66,40 +66,40 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '연수북페스티벌',
-        href: '/reading-yeonsu/book-festival',
+        href: './연수북페스티벌',
       },
       {
         title: '희희낙락 북콘서트',
-        href: '/reading-yeonsu/book-concert',
+        href: './희희낙락 북콘서트',
       },
       {
         title: '북스타트',
-        href: '/reading-yeonsu/book-start',
+        href: './북스타트',
       },
       {
         title: '북메이트',
-        href: '/reading-yeonsu/book-mate',
+        href: './북메이트',
       },
       {
         title: '독서동아리 지원 사업',
         items: [
-          { label: '독서동아리 안내', href: '/reading-yeonsu/reading-club/info' },
-          { label: '독서동아리 자료', href: '/reading-yeonsu/reading-club/materials' },
+          { label: '독서동아리 안내', href: './독서동아리 안내' },
+          { label: '독서동아리 자료', href: './독서동아리 자료' },
         ],
       },
       {
         title: '범구민 책읽어주기 문화운동',
-        href: '/reading-yeonsu/reading-culture-movement',
+        href: './범구민 책읽어주기 문화운동',
       },
       {
         title: '북크로싱 센터',
-        href: '/reading-yeonsu/book-crossing',
+        href: './북크로싱 센터',
       },
       {
         title: '영유아 전집 대여 사업',
         items: [
-          { label: '서비스 안내', href: '/reading-yeonsu/infant-books/info' },
-          { label: '서비스 신청', href: '/reading-yeonsu/infant-books/apply' },
+          { label: '서비스 안내', href: './서비스 안내' },
+          { label: '서비스 신청', href: './서비스 신청' },
         ],
       },
     ],
@@ -110,55 +110,55 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '공지사항',
-        href: './04_공지사항',
+        href: './공지사항',
       },
       {
         title: '이용안내',
-        href: '/info/guide',
+        href: './이용안내',
       },
       {
         title: '도서관 일정',
-        href: '/info/schedule',
+        href: './도서관 일정',
       },
       {
         title: '회원대출규정',
-        href: '/info/loan-rules',
+        href: './회원대출규정',
       },
       {
         title: '신간희망자료',
-        href: '/info/new-request',
+        href: './신간희망자료',
       },
       {
         title: '디지털자료실',
-        href: '/info/digital-room',
+        href: './디지털자료실',
       },
       {
         title: '학습열람실',
-        href: '/info/study-room',
+        href: './학습열람실',
       },
       {
         title: '천체투영관',
-        href: '/info/planetarium',
+        href: './천체투영관',
       },
       {
         title: '도서관 유튜브',
-        href: '/info/youtube',
+        href: './도서관 유튜브',
       },
       {
         title: '도서관 소식지',
-        href: '/info/newsletter',
+        href: './도서관 소식지',
       },
       {
         title: '연수구 지역서점',
-        href: '/info/local-bookstores',
+        href: './연수구 지역서점',
       },
       {
         title: '부대시설',
-        href: '/info/facilities',
+        href: './부대시설',
       },
       {
         title: '자주하는 질문',
-        href: '/info/faq',
+        href: './자주하는 질문',
       },
     ],
   },
@@ -168,51 +168,51 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '통합도서서비스',
-        href: '/services/integrated-library',
+        href: './통합도서서비스',
       },
       {
         title: '상호대차서비스',
-        href: '/services/interlibrary-loan',
+        href: './상호대차서비스',
       },
       {
         title: '책바다서비스',
-        href: '/services/book-sea',
+        href: './책바다서비스',
       },
       {
         title: '책나래서비스',
-        href: '/services/book-wing',
+        href: './책나래서비스',
       },
       {
         title: '모바일도서관',
-        href: '/services/mobile-library',
+        href: './모바일도서관',
       },
       {
         title: '스마트도서관',
-        href: '/services/smart-library',
+        href: './스마트도서관',
       },
       {
         title: '전자도서관',
-        href: './20.전자도서관',
+        href: './전자도서관',
       },
       {
         title: '희망도서 신청',
         items: [
-          { label: '서비스 안내', href: './21.희망도서신청-서비스안내' },
-          { label: '서비스 신청', href: './21.희망도서신청-서비스신청' },
+          { label: '서비스 안내', href: './서비스 안내' },
+          { label: '서비스 신청', href: './서비스 신청' },
         ],
       },
       {
         title: '희망전자책 신청',
         items: [
-          { label: '서비스 안내', href: '/services/ebook-request/info' },
-          { label: '서비스 신청', href: '/services/ebook-request/apply' },
+          { label: '서비스 안내', href: './서비스 안내' },
+          { label: '서비스 신청', href: './서비스 신청' },
         ],
       },
       {
         title: '무료택배도서대출',
         items: [
-          { label: '서비스 안내', href: '/services/delivery-loan/info' },
-          { label: '서비스 신청', href: '/services/delivery-loan/apply' },
+          { label: '서비스 안내', href: './서비스 안내' },
+          { label: '서비스 신청', href: './서비스 신청' },
         ],
       },
     ],
@@ -223,46 +223,46 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '도서관에 바란다',
-        href: './03_도서관에바란다',
+        href: './도서관에 바란다',
       },
       {
         title: '자원봉사',
-        href: '/participation/volunteer',
+        href: './자원봉사',
       },
       {
         title: '도서관 견학',
         items: [
-          { label: '도서관 견학 안내', href: '/participation/tour/info' },
-          { label: '도서관 견학 신청', href: '/participation/tour/apply' },
+          { label: '도서관 견학 안내', href: './도서관 견학 안내' },
+          { label: '도서관 견학 신청', href: './도서관 견학 신청' },
         ],
       },
       {
         title: '도서기증',
         items: [
-          { label: '기증안내', href: '/participation/donation/info' },
-          { label: '서약서작성', href: '/participation/donation/pledge' },
-          { label: '기증신청조회', href: '/participation/donation/status' },
+          { label: '기증안내', href: './기증안내' },
+          { label: '서약서작성', href: './서약서작성' },
+          { label: '기증신청조회', href: './기증신청조회' },
         ],
       },
       {
         title: '독서마라톤',
         items: [
-          { label: '독서마라톤 안내', href: '/participation/reading-marathon/info' },
-          { label: '독서마라톤 참여', href: '/participation/reading-marathon/join' },
+          { label: '독서마라톤 안내', href: './독서마라톤 안내' },
+          { label: '독서마라톤 참여', href: './독서마라톤 참여' },
         ],
       },
       {
         title: '독서왕',
         items: [
-          { label: '독서왕 안내', href: '/participation/reading-king/info' },
-          { label: '독서왕 참여', href: '/participation/reading-king/join' },
+          { label: '독서왕 안내', href: './독서왕 안내' },
+          { label: '독서왕 참여', href: './독서왕 참여' },
         ],
       },
       {
         title: '출석체크 이벤트',
         items: [
-          { label: '출석체크 안내', href: '/participation/attendance/info' },
-          { label: '출석하기', href: '/participation/attendance/check' },
+          { label: '출석체크 안내', href: './출석체크 안내' },
+          { label: '출석하기', href: './출석하기' },
         ],
       },
     ],
@@ -273,30 +273,30 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '문화행사 신청',
-        href: '/culture/events',
+        href: './문화행사 신청',
       },
       {
         title: '프로그램 신청',
-        href: '/culture/programs',
+        href: './프로그램 신청',
       },
       {
         title: '영화상영',
         items: [
-          { label: '이용안내', href: '/culture/movie/info' },
-          { label: '상영작', href: '/culture/movie/schedule' },
+          { label: '이용안내', href: './이용안내' },
+          { label: '상영작', href: './상영작' },
         ],
       },
       {
         title: '대관안내',
         items: [
-          { label: '대관신청', href: '/culture/rental/apply' },
-          { label: '공연장', href: '/culture/rental/performance-hall' },
-          { label: '세미나실대관', href: '/culture/rental/seminar-room' },
-          { label: '커뮤니티룸대관', href: '/culture/rental/community-room' },
-          { label: '프로그램실', href: '/culture/rental/program-room' },
-          { label: '독서토론실대관', href: '/culture/rental/discussion-room' },
-          { label: '하늘빛정원대관', href: '/culture/rental/sky-garden' },
-          { label: '동아리실대관', href: '/culture/rental/club-room' },
+          { label: '대관신청', href: './대관신청' },
+          { label: '공연장', href: './공연장' },
+          { label: '세미나실대관', href: './세미나실대관' },
+          { label: '커뮤니티룸대관', href: './커뮤니티룸대관' },
+          { label: '프로그램실', href: './프로그램실' },
+          { label: '독서토론실대관', href: './독서토론실대관' },
+          { label: '하늘빛정원대관', href: './하늘빛정원대관' },
+          { label: '동아리실대관', href: './동아리실대관' },
         ],
       },
     ],
@@ -307,50 +307,50 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '인사말',
-        href: '/about/greeting',
+        href: './인사말',
       },
       {
         title: '연혁',
-        href: '/about/history',
+        href: './연혁',
       },
       {
         title: '상징',
-        href: '/about/symbol',
+        href: './상징',
       },
       {
         title: '조직도',
-        href: '/about/organization',
+        href: './조직도',
       },
       {
         title: '자료현황',
-        href: '/about/collection-status',
+        href: './자료현황',
       },
       {
         title: '구립도서관',
         items: [
-          { label: '송도국제도서관', href: '/about/district-libraries/songdo-international' },
-          { label: '연수청학도서관', href: '/about/district-libraries/yeonsu-cheonghak' },
-          { label: '연수꿈담도서관', href: '/about/district-libraries/yeonsu-kkumdam' },
-          { label: '송도국제어린이도서관', href: '/about/district-libraries/songdo-children' },
-          { label: '해돋이도서관', href: '/about/district-libraries/haedoji' },
-          { label: '선학별빛도서관', href: '/about/district-libraries/seonhak-starlight' },
-          { label: '동춘나래도서관', href: '/about/district-libraries/dongchun-narae' },
-          { label: '함박비류도서관', href: '/about/district-libraries/hambak-biryu' },
+          { label: '송도국제도서관', href: './송도국제도서관' },
+          { label: '연수청학도서관', href: './연수청학도서관' },
+          { label: '연수꿈담도서관', href: './연수꿈담도서관' },
+          { label: '송도국제어린이도서관', href: './송도국제어린이도서관' },
+          { label: '해돋이도서관', href: './해돋이도서관' },
+          { label: '선학별빛도서관', href: './선학별빛도서관' },
+          { label: '동춘나래도서관', href: './동춘나래도서관' },
+          { label: '함박비류도서관', href: './함박비류도서관' },
         ],
       },
       {
         title: '공립작은도서관',
         items: [
-          { label: '옥련1동작은도서관', href: '/about/small-libraries/okryeon1' },
-          { label: '옥련2동어린이작은도서관', href: '/about/small-libraries/okryeon2-children' },
-          { label: '연수1동작은도서관', href: '/about/small-libraries/yeonsu1' },
-          { label: '송도2동작은도서관', href: '/about/small-libraries/songdo2' },
-          { label: '송도3동작은도서관', href: '/about/small-libraries/songdo3' },
-          { label: '송도5동작은도서관', href: '/about/small-libraries/songdo5' },
-          { label: '솔안공원작은도서관', href: '/about/small-libraries/solan-park' },
-          { label: '해찬솔공원작은도서관', href: '/about/small-libraries/haechan-park' },
-          { label: '누리공원작은도서관', href: '/about/small-libraries/nuri-park' },
-          { label: '문화공원 북크로싱 센터', href: '/about/small-libraries/culture-park-bookcrossing' },
+          { label: '옥련1동작은도서관', href: './옥련1동작은도서관' },
+          { label: '옥련2동어린이작은도서관', href: './옥련2동어린이작은도서관' },
+          { label: '연수1동작은도서관', href: './연수1동작은도서관' },
+          { label: '송도2동작은도서관', href: './송도2동작은도서관' },
+          { label: '송도3동작은도서관', href: './송도3동작은도서관' },
+          { label: '송도5동작은도서관', href: './송도5동작은도서관' },
+          { label: '솔안공원작은도서관', href: './솔안공원작은도서관' },
+          { label: '해찬솔공원작은도서관', href: './해찬솔공원작은도서관' },
+          { label: '누리공원작은도서관', href: './누리공원작은도서관' },
+          { label: '문화공원 북크로싱 센터', href: './문화공원 북크로싱 센터' },
         ],
       },
     ],
@@ -361,71 +361,71 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '내정보',
-        href: '/my-library/profile',
+        href: './내정보',
       },
       {
         title: '모바일회원증',
-        href: '/my-library/mobile-card',
+        href: './모바일회원증',
       },
       {
         title: '정회원인증',
-        href: '/my-library/member-verification',
+        href: './정회원인증',
       },
       {
         title: '대출현황',
-        href: './11.대출현황',
+        href: './대출현황',
       },
       {
         title: '대출이력',
-        href: './12.대출이력',
+        href: './대출이력',
       },
       {
         title: '일반예약현황',
-        href: './13.일반예약현황',
+        href: './일반예약현황',
       },
       {
         title: '상호대차현황',
-        href: './14.상호대차현황',
+        href: './상호대차현황',
       },
       {
         title: '희망도서신청현황',
-        href: './15.희망도서신청현황',
+        href: './희망도서신청현황',
       },
       {
         title: '희망전자책신청현황',
-        href: './16.희망전자책신청현황',
+        href: './희망전자책신청현황',
       },
       {
         title: '내책장',
-        href: './17.내책장',
+        href: './내책장',
       },
       {
         title: '행사신청 조회',
-        href: './18.행사신청조회',
+        href: './행사신청 조회',
       },
       {
         title: '프로그램신청 조회',
-        href: './19.프로그램신청조회',
+        href: './프로그램신청 조회',
       },
       {
         title: '견학신청 조회',
-        href: './견학신청조회',
+        href: './견학신청 조회',
       },
       {
         title: '대관신청 조회',
         items: [
-          { label: '공연장대관신청 조회', href: '/my-library/rental-status/performance-hall' },
-          { label: '세미나실대관신청 조회', href: '/my-library/rental-status/seminar-room' },
-          { label: '커뮤니티룸대관신청 조회', href: '/my-library/rental-status/community-room' },
-          { label: '프로그램실대관신청 조회', href: '/my-library/rental-status/program-room' },
-          { label: '독서토론실대관신청 조회', href: '/my-library/rental-status/discussion-room' },
-          { label: '하늘빛정원대관신청 조회', href: '/my-library/rental-status/sky-garden' },
-          { label: '동아리실대관신청 조회', href: '/my-library/rental-status/club-room' },
+          { label: '공연장대관신청 조회', href: './공연장대관신청 조회' },
+          { label: '세미나실대관신청 조회', href: './세미나실대관신청 조회' },
+          { label: '커뮤니티룸대관신청 조회', href: './커뮤니티룸대관신청 조회' },
+          { label: '프로그램실대관신청 조회', href: './프로그램실대관신청 조회' },
+          { label: '독서토론실대관신청 조회', href: './독서토론실대관신청 조회' },
+          { label: '하늘빛정원대관신청 조회', href: './하늘빛정원대관신청 조회' },
+          { label: '동아리실대관신청 조회', href: './동아리실대관신청 조회' },
         ],
       },
       {
         title: '영유아전집신청 조회',
-        href: './영유아전집신청조회',
+        href: './영유아전집신청 조회',
       },
     ],
   },
@@ -435,19 +435,19 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '로그인',
-        href: '/member/login',
+        href: './로그인',
       },
       {
         title: '아이디찾기',
-        href: '/member/find-id',
+        href: './아이디찾기',
       },
       {
         title: '비밀번호찾기',
-        href: '/member/find-password',
+        href: './비밀번호찾기',
       },
       {
         title: '회원가입',
-        href: '/member/join',
+        href: './회원가입',
       },
     ],
   },
@@ -457,19 +457,19 @@ export const menuConfig: Record<string, MenuConfig> = {
     sections: [
       {
         title: '사이트맵',
-        href: '/etc/sitemap',
+        href: './사이트맵',
       },
       {
         title: '개인정보처리방침',
-        href: '/etc/privacy-policy',
+        href: './개인정보처리방침',
       },
       {
         title: "도서관 고양이 '관이'의 하루",
-        href: '/etc/library-cat',
+        href: "/도서관 고양이 '관이'의 하루",
       },
       {
         title: '열람실현황',
-        href: '/etc/reading-room-status',
+        href: './열람실현황',
       },
     ],
   },
