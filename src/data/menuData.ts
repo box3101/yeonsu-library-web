@@ -197,22 +197,22 @@ export const menuConfig: Record<string, MenuConfig> = {
       {
         title: '희망도서 신청',
         items: [
-          { label: '서비스 안내', href: './서비스 안내' },
-          { label: '서비스 신청', href: './서비스 신청' },
+          { label: '서비스 안내', href: './희망도서신청-서비스안내' },
+          { label: '서비스 신청', href: './희망도서신청-서비스신청' },
         ],
       },
       {
         title: '희망전자책 신청',
         items: [
-          { label: '서비스 안내', href: './서비스 안내' },
-          { label: '서비스 신청', href: './서비스 신청' },
+          { label: '서비스 안내', href: './희망전자책신청-서비스안내' },
+          { label: '서비스 신청', href: './희망전자책신청-서비스신청' },
         ],
       },
       {
         title: '무료택배도서대출',
         items: [
-          { label: '서비스 안내', href: './서비스 안내' },
-          { label: '서비스 신청', href: './서비스 신청' },
+          { label: '서비스 안내', href: './무료택배도서대출-서비스안내' },
+          { label: '서비스 신청', href: './무료택배도서대출-서비스신청' },
         ],
       },
     ],
