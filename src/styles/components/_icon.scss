@@ -17,6 +17,14 @@
   filter: invert(37%) sepia(99%) saturate(676%) hue-rotate(192deg) brightness(95%) contrast(95%);
 }
 
+.icon-xxxsm {
+  width: 14px !important;
+  height: 14px !important;
+  @include mobile {
+    width: 11px !important;
+    height: 11px !important;
+  }
+}
 .icon-xxsm {
   width: 16px !important;
   height: 16px !important;

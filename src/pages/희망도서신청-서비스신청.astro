@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiPagination, UiSelect, UiButton, UiTab, UiInput, UiKeyboard, UiSmartLibraryBookCard } from '@components';
+import { UiPagination, UiSelect, UiButton, UiTab, UiInput, UiKeyboard, UiSmartLibraryBookCardType2 } from '@components';
 
 const breadcrumbItems = [
   { text: '홈', link: '/' },
@@ -39,11 +39,11 @@ const breadcrumbItems = [
             <div class="ui-keyboard-container">
               <UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
             </div>
-            <UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
+            <UiButton text="검색" variant="primary" size="medium" icon="icon-search" iconPosition="left" class="ui-library-filter__search-button" />
             <UiButton
               text="직접입력"
-              variant="darkBlue"
-              icon="icon-search-advanced"
+              variant="secondary"
+              icon="icon-pencil"
               iconPosition="left"
               size="medium"
               class="ui-library-filter__search-button"
@@ -104,9 +104,9 @@ const breadcrumbItems = [
       <!-- 카드 -->
       <div class="card-container card-container--col-2">
         {
-          Array.from({ length: 4 }, (_, i) => (
+          Array.from({ length: 2 }, (_, i) => (
             <div class="card-container__item">
-              <UiSmartLibraryBookCard
+              <UiSmartLibraryBookCardType2
                 index={i + 1}
                 title="글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트"
                 author="박과학 지음"
@@ -115,6 +115,23 @@ const breadcrumbItems = [
                 library="송도2동 스마트도서관"
                 status="available"
                 imageUrl="./assets/images/content-infant-books.png"
+              />
+            </div>
+          ))
+        }
+        {
+          Array.from({ length: 2 }, (_, i) => (
+            <div class="card-container__item">
+              <UiSmartLibraryBookCardType2
+                index={i + 1}
+                title="글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트"
+                author="박과학 지음"
+                publisher="과학나라"
+                publishYear="2024"
+                library="송도2동 스마트도서관"
+                status="available"
+                imageUrl="./assets/images/content-infant-books.png"
+                disabled={true}
               />
             </div>
           ))

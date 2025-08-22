@@ -58827,6 +58827,17 @@ h6 {
   filter: invert(37%) sepia(99%) saturate(676%) hue-rotate(192deg) brightness(95%) contrast(95%);
 }
 
+.icon-xxxsm {
+  width: 14px !important;
+  height: 14px !important;
+}
+@media (max-width: 900px) {
+  .icon-xxxsm {
+    width: 11px !important;
+    height: 11px !important;
+  }
+}
+
 .icon-xxsm {
   width: 16px !important;
   height: 16px !important;
@@ -61708,7 +61719,7 @@ body.modal-open {
 }
 .ui-smart-library-book-card__content {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 .ui-smart-library-book-card__left {
   display: flex;
@@ -61767,7 +61778,6 @@ body.modal-open {
   font-size: 1.5rem;
   line-height: 1.5;
   color: #000000;
-  width: 250px;
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -61793,9 +61803,14 @@ body.modal-open {
 .ui-smart-library-book-card__detail-label {
   font-weight: 700;
   font-size: 1.0625rem;
+  min-width: 60px;
   line-height: 1.5;
   color: #000000;
   flex-shrink: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .ui-smart-library-book-card__detail-value {
   font-weight: 500;
@@ -61803,6 +61818,10 @@ body.modal-open {
   line-height: 1.5;
   color: #000000;
   flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .ui-smart-library-book-card__status-wrapper {
   display: flex;
@@ -62162,7 +62181,7 @@ body.modal-open {
   }
 }
 .ui-button--large {
-  padding: 1rem 0.75rem;
+  padding: 1rem 1.25rem;
   font-size: 1.125rem;
   height: 3.5rem;
   border-radius: 0.5rem;

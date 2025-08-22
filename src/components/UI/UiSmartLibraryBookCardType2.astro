@@ -1,0 +1,112 @@
+---
+// UiSmartLibraryBookCard2.astro
+// 스마트도서관 도서 정보 카드 컴포넌트
+import { UiButton } from '@components';
+
+export interface Props {
+  index?: number;
+  title: string;
+  author: string;
+  publisher: string;
+  publishYear: string;
+  library: string;
+  status: 'available' | 'checked-out';
+  imageUrl?: string | undefined;
+  className?: string;
+  disabled?: boolean;
+}
+
+const { index, title, author, publisher, publishYear, library, status, imageUrl, className = '', disabled = false } = Astro.props;
+
+// 상태에 따른 클래스와 텍스트 설정
+const statusConfig = {
+  available: {
+    class: 'ui-smart-library-book-card__status--available',
+    text: '대출가능',
+  },
+  'checked-out': {
+    class: 'ui-smart-library-book-card__status--checked-out',
+    text: '대출중',
+  },
+};
+
+const currentStatus = statusConfig[status];
+---
+
+<div class={`ui-smart-library-book-card flex-col gap-24${className}`}>
+  <div class="ui-smart-library-book-card__content">
+    <!-- 인덱스 번호와 도서 이미지 -->
+    <div class="ui-smart-library-book-card__left">
+      {
+        index && (
+          <div class="ui-smart-library-book-card__index">
+            <span class="ui-smart-library-book-card__index-number">{index}.</span>
+          </div>
+        )
+      }
+
+      <div class="ui-smart-library-book-card__image">
+        {
+          imageUrl ? (
+            <img src={imageUrl} alt={title} class="ui-smart-library-book-card__book-image" />
+          ) : (
+            <div class="ui-smart-library-book-card__book-placeholder" />
+          )
+        }
+      </div>
+    </div>
+
+    <!-- 도서 정보 -->
+    <div class="ui-smart-library-book-card__info">
+      <!-- 도서 제목 -->
+      <div class="ui-smart-library-book-card__title-wrapper">
+        <h3 class="ui-smart-library-book-card__title">{title}</h3>
+      </div>
+
+      <!-- 도서 상세 정보 -->
+      <div class="ui-smart-library-book-card__details">
+        <div class="ui-smart-library-book-card__detail-section">
+          <!-- 저자 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">저자</span>
+            <span class="ui-smart-library-book-card__detail-value">남기탁, 한국어문교육연구회 (지은이)</span>
+          </div>
+
+          <!-- 발행자 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">발행자</span>
+            <span class="ui-smart-library-book-card__detail-value">한국어문교육연구회</span>
+          </div>
+
+          <!-- 발행년도 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">발행년도</span>
+            <span class="ui-smart-library-book-card__detail-value">2026</span>
+          </div>
+
+          <!-- ISBN -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">ISBN</span>
+            <span class="ui-smart-library-book-card__detail-value">9791191238853</span>
+          </div>
+
+          <!-- 가격 -->
+          <div class="ui-smart-library-book-card__detail-item">
+            <span class="ui-smart-library-book-card__detail-label">가격</span>
+            <span class="ui-smart-library-book-card__detail-value">29,000원</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <UiButton
+    variant="secondary"
+    text="신청"
+    icon="icon-arrow-right"
+    iconAddClass="icon icon-xxxsm icon-primary"
+    iconPosition="right"
+    class="ui-smart-library-book-card__detail-button"
+    disabled={disabled}
+  />
+</div>

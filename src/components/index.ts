@@ -18,6 +18,7 @@ export { default as UiCollectionModal } from './UI/UiCollectionModal.astro';
 export { default as UiCollectionAccordion } from './UI/UiCollectionAccordion.astro';
 export { default as UiSearchbar } from './UI/UiSearchbar.astro';
 export { default as UiSmartLibraryBookCard } from './UI/UiSmartLibraryBookCard.astro';
+export { default as UiSmartLibraryBookCardType2 } from './UI/UiSmartLibraryBookCardType2.astro';
 export { default as UiTable } from './UI/UiTable.astro';
 export { default as UiKeyboard } from './UI/UiKeyboard.astro';
 export { default as UiDatePicker } from './UI/UiDatePicker.astro';

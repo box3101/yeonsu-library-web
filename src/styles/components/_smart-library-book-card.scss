@@ -14,10 +14,13 @@
   box-sizing: border-box;
   width: 100%;
 
+  &.type2 {
+  }
+
   // 카드 내용 영역
   &__content {
     display: flex;
-    gap: 20px;
+    gap: 12px;
   }
 
   // 왼쪽 영역 (인덱스 + 도서 이미지)
@@ -90,7 +93,6 @@
     font-size: to-rem(24);
     line-height: 1.5;
     color: $black;
-    width: 250px;
     margin: 0;
     overflow: hidden;
     display: -webkit-box;
@@ -121,9 +123,11 @@
   &__detail-label {
     font-weight: 700;
     font-size: to-rem(17);
+    min-width: 60px;
     line-height: 1.5;
     color: $black;
     flex-shrink: 0;
+    @include text-truncate-lines(1);
   }
 
   &__detail-value {
@@ -132,6 +136,7 @@
     line-height: 1.5;
     color: $black;
     flex: 1;
+    @include text-truncate-lines(1);
   }
 
   // 대출 상태 영역
