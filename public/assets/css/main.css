@@ -66099,7 +66099,7 @@ body.modal-open {
   position: absolute;
   z-index: 10;
   background: #00b248;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 70%, 0% 100%);
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2));
 }
 @media (max-width: 900px) {
