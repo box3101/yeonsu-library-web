@@ -84,6 +84,11 @@
 .search-result-container {
   li {
     margin-top: to-rem(40);
+
+    p {
+      margin-top: 10px;
+    }
+
     &:first-child {
       margin-top: 0;
       .search-result-header {

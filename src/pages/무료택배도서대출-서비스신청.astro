@@ -1,0 +1,267 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '열린참여마당', href: '/support' }, { label: '무료택배도서대출' }];
+const columns = [
+  {
+    key: 'title',
+    label: '제목',
+    sortable: true,
+    headerAlign: 'center',
+    align: 'left',
+  },
+  {
+    key: 'author',
+    label: '작성자',
+    width: '100px',
+    headerAlign: 'center',
+    align: 'center',
+  },
+  {
+    key: 'date',
+    label: '반납신청일',
+    width: '150px',
+    headerAlign: 'center',
+    align: 'center',
+  },
+];
+const rows = [
+  {
+    number: 438,
+    title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
+    author: '김현미',
+    date: '2025.08.09',
+    count: 53,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: true,
+    hasIcon: true,
+    status: '취소완료',
+  },
+  {
+    number: 437,
+    title: '장기 주차 자전거 폐기 안내(9월 1일)',
+    author: '박성훈',
+    date: '2025.08.01',
+    count: 98,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: true,
+    hasIcon: true,
+    status: '대출완료',
+  },
+  {
+    number: 436,
+    title: '7월의 특별 혜택 당첨자 안내',
+    author: '이소영',
+    date: '2025.08.01',
+    count: 305,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: true,
+    hasIcon: true,
+    status: '접수대기',
+  },
+  {
+    number: 435,
+    title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
+    author: '정민준',
+    date: '2025.07.30',
+    count: 310,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '대출완료',
+  },
+  {
+    number: 434,
+    title: '2025년 하반기 정규프로그램 운영 안내',
+    author: '홍지우',
+    date: '2025.07.29',
+    count: 620,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '접수대기',
+  },
+  {
+    number: 433,
+    title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
+    author: '윤채원',
+    date: '2025.07.25',
+    count: 346,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '대출완료',
+  },
+  {
+    number: 432,
+    title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
+    author: '강도현',
+    date: '2025.07.20',
+    count: 254,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '접수대기',
+  },
+  {
+    number: 431,
+    title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
+    author: '문서연',
+    date: '2025.07.17',
+    count: 283,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '대출완료',
+  },
+  {
+    number: 430,
+    title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
+    author: '최준혁',
+    date: '2025.07.16',
+    count: 307,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '접수대기',
+  },
+  {
+    number: 429,
+    title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
+    author: '장예나',
+    date: '2025.07.16',
+    count: 1947,
+    href: './무료택배도서대출-서비스신청-상세',
+    isNew: false,
+    hasIcon: true,
+    status: '대출완료',
+  },
+];
+---
+
+<Layout title="도서관에 바란다">
+  <SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+    <UiTab
+      tabs={[
+        { id: 'info', label: '서비스 안내', href: './무료택배도서대출-서비스안내' },
+        { id: 'apply', label: '서비스 신청', active: true, href: './무료택배도서대출-서비스신청' },
+      ]}
+      className="mb-4 search-type-tabs ui-tab--grid-5"
+    />
+
+    <div class="sub-layout__content">
+      <div class="bbs-list-container">
+        <!-- 알려드립니다  -->
+        <div class="notice-box type2">
+          <div class="notice-box-header">
+            <div class="notice-icon">
+              <img src="./assets/images/icon/icon-noti3.svg" alt="info" class="notice-icon-img" />
+            </div>
+            <h3 class="notice-title">무료택배 도서대출 신청 전에 꼭! 확인해주세요.</h3>
+          </div>
+          <div class="notice-content">
+            <ul>
+              <li>
+                <dl>
+                  <dt>1.</dt>
+                  <dd>
+                    무료택배 도서대출 회원에 한해 신청 가능합니다. <br />
+                    (※ 가입안내: 홈페이지> 열린참여마당> 무료택배 도서대출)
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>2.</dt>
+                  <dd>연수청학도서관 '대출가능' 도서만 신청 가능합니다.</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>3.</dt>
+                  <dd>13세 이하 어린이 회원의 경우, 연수청학도서관 어린이자료실 및 청소년 자료만 신청 가능합니다.</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>4.</dt>
+                  <dd>
+                    1인 5권 22일(배송기간포함 / 반납연기 1회 가능): 대출일-택배발송일, 반납일-도서 도착일 <br />
+                    ※자료가 연체될 경우, 연체일수만큼 대출이 제한되므로, 반납예정일 5일 전에 반납신청바랍니다.
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>5.</dt>
+                  <dd>
+                    반납신청은 해당 게시글의 "반납신청"버튼을 클릭해주세요. <br />
+                    예) 제목: 반납 신청/ 내용: 불필요. 단, 별도의 특이사항이 있을 경우 표기
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>6.</dt>
+                  <dd>도서만 신청 가능(잡지 및 DVD 불가)하며, 도서 크기가 운반가방보다 큰 경우 취소될 수 있습니다</dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 공통 검색바 -->
+      <UiSearchbar
+        selectOptions={[
+          { value: '', label: '전체' },
+          { value: 'title', label: '제목' },
+          { value: 'author', label: '저자' },
+          { value: 'publisher', label: '출판사' },
+          { value: 'isbn', label: 'ISBN' },
+        ]}
+        libraryOptions={[
+          { value: '', label: '전체도서관' },
+          { value: 'central', label: '중앙도서관' },
+          { value: 'branch1', label: '분관1' },
+          { value: 'branch2', label: '분관2' },
+        ]}
+        titleOptions={[
+          { value: '', label: '제목' },
+          { value: 'exact', label: '정확한 제목' },
+          { value: 'contains', label: '포함된 제목' },
+        ]}
+        placeholder="검색어를 입력해주세요."
+        buttonText="검색"
+        fullWidth={true}
+        class="smart-library-searchbar mt24"
+      />
+
+      <!-- 게시글 헤더 -->
+      <div class="bbs-header">
+        <div class="bbs-total">
+          총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
+        </div>
+        <div class="bbs-actions">
+          <UiButton variant="tertiary" text="로그인" />
+          <UiButton variant="primary" text="글쓰기" />
+        </div>
+      </div>
+
+      <!-- 게시글 목록 -->
+      <UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" showStatus={true} />
+      <!-- 페이징 네비게이션 -->
+      <div class="pagination-section">
+        <UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+      </div>
+
+      <!-- 로그인 , 글쓰기 버튼 -->
+      <div class="bbs-actions flex justify-end items-center gap-8">
+        <UiButton variant="tertiary" text="로그인" />
+        <UiButton variant="primary" text="글쓰기" />
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
