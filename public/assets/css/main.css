@@ -2,7 +2,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
 /**
  * PretendardGOV 폰트 로컬 파일 @font-face 선언
- * public/assets/fonts/ 폴더의 폰트 파일들을 사용
+ * public../fonts/ 폴더의 폰트 파일들을 사용
  * 모든 웨이트를 지원하는 개별 폰트 페이스 정의
  */
 /* PretendardGOV Thin (100) */
@@ -11,7 +11,7 @@
   font-weight: 100;
   font-style: normal;
   font-display: swap; /* 폰트 로딩 성능 최적화 */
-  src: url("/assets/fonts/PretendardGOV-Thin.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Thin.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Thin.woff2") format("woff2"), url("../fonts/PretendardGOV-Thin.woff") format("woff");
 }
 /* PretendardGOV ExtraLight (200) */
 @font-face {
@@ -19,7 +19,7 @@
   font-weight: 200;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-ExtraLight.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-ExtraLight.woff") format("woff");
+  src: url("../fonts/PretendardGOV-ExtraLight.woff2") format("woff2"), url("../fonts/PretendardGOV-ExtraLight.woff") format("woff");
 }
 /* PretendardGOV Light (300) */
 @font-face {
@@ -27,7 +27,7 @@
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-Light.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Light.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Light.woff2") format("woff2"), url("../fonts/PretendardGOV-Light.woff") format("woff");
 }
 /* PretendardGOV Regular (400) */
 @font-face {
@@ -35,7 +35,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-Regular.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Regular.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Regular.woff2") format("woff2"), url("../fonts/PretendardGOV-Regular.woff") format("woff");
 }
 /* PretendardGOV Medium (500) */
 @font-face {
@@ -43,7 +43,7 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-Medium.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Medium.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Medium.woff2") format("woff2"), url("../fonts/PretendardGOV-Medium.woff") format("woff");
 }
 /* PretendardGOV SemiBold (600) */
 @font-face {
@@ -51,7 +51,7 @@
   font-weight: 600;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-SemiBold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-SemiBold.woff") format("woff");
+  src: url("../fonts/PretendardGOV-SemiBold.woff2") format("woff2"), url("../fonts/PretendardGOV-SemiBold.woff") format("woff");
 }
 /* PretendardGOV Bold (700) */
 @font-face {
@@ -59,7 +59,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-Bold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Bold.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Bold.woff2") format("woff2"), url("../fonts/PretendardGOV-Bold.woff") format("woff");
 }
 /* PretendardGOV ExtraBold (800) */
 @font-face {
@@ -67,7 +67,7 @@
   font-weight: 800;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-ExtraBold.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-ExtraBold.woff") format("woff");
+  src: url("../fonts/PretendardGOV-ExtraBold.woff2") format("woff2"), url("../fonts/PretendardGOV-ExtraBold.woff") format("woff");
 }
 /* PretendardGOV Black (900) */
 @font-face {
@@ -75,7 +75,7 @@
   font-weight: 900;
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardGOV-Black.woff2") format("woff2"), url("/assets/fonts/PretendardGOV-Black.woff") format("woff");
+  src: url("../fonts/PretendardGOV-Black.woff2") format("woff2"), url("../fonts/PretendardGOV-Black.woff") format("woff");
 }
 /* Variable Font (선택사항 - 더 작은 파일 크기) */
 @font-face {
@@ -83,7 +83,7 @@
   font-weight: 100 900; /* Variable font는 범위로 지정 */
   font-style: normal;
   font-display: swap;
-  src: url("/assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+  src: url("../fonts/PretendardVariable.woff2") format("woff2-variations");
 }
 @media (max-width: 900px) {
   html {
