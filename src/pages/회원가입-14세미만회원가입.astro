@@ -1,0 +1,242 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiRadio, UiCheckbox } from '@components';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '회원가입', href: '/회원가입' },
+  { label: '해당유형 선택', href: '/회원가입-해당유형' },
+  { label: '이용약관 동의', href: '/회원가입-이용약관' },
+  { label: '본인인증', href: '/회원가입-본인인증' },
+  { label: '회원가입' },
+];
+---
+
+<Layout title="회원가입 - 회원가입">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 회원가입 섹션 -->
+            <div class="signup-form">
+              <!-- 폼 컨테이너 -->
+              <div class="signup-form__content">
+                <!-- 보호자정보입력 섹션 -->
+                <section class="guardian-section">
+                  <h3 class="section-title">보호자정보입력</h3>
+
+                  <div class="form-grid">
+                    <!-- 성명 -->
+                    <div class="form-field">
+                      <label class="form-label required">성명</label>
+                      <UiInput placeholder="홍길동" size="large" />
+                    </div>
+
+                    <!-- 관계 -->
+                    <div class="form-field">
+                      <label class="form-label required">관계</label>
+                      <UiSelect
+                        placeholder="관계를 선택해주세요."
+                        size="large"
+                        required
+                        options={[
+                          { label: '부', value: 'father' },
+                          { label: '모', value: 'mother' },
+                          { label: '조부', value: 'grandfather' },
+                          { label: '조모', value: 'grandmother' },
+                          { label: '기타', value: 'other' },
+                        ]}
+                      />
+                    </div>
+                  </div>
+
+                  <!-- 14세 미만 체크박스 -->
+                  <div class="age-checkbox">
+                    <UiCheckbox
+                      id="minor-check"
+                      size="medium"
+                      label="14세 미만 아이이며/아동복지법에 보호자의복지의의자외 확인합니다."
+                      variant="default"
+                      checked
+                    />
+                  </div>
+                </section>
+
+                <!-- 가입정보입력 섹션 -->
+                <section class="member-section">
+                  <h3 class="section-title">가입정보입력</h3>
+
+                  <!-- 입력안내 박스 -->
+                  <div class="info-box">
+                    <div class="info-box__header">
+                      <div class="info-box__icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path
+                            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V9H11V15ZM11 7H9V5H11V7Z"
+                            fill="#4b4d4d"></path>
+                        </svg>
+                      </div>
+                      <h4 class="info-box__title">입력안내</h4>
+                    </div>
+                    <div class="info-box__content">
+                      <ul class="info-list">
+                        <li>아이디는 영문자 조합 또는 영문/숫자 조합으로 4~15자로 입력해주세요</li>
+                        <li>비밀번호는 영문자, 숫자, 특수문자를 1개 이상 포함하여 9~15자리로 입력해주세요. (※ 특수기호 '#','^' 제외)</li>
+                        <li>카드비밀번호는 온라인회원증 카드비밀번호입니다. 회원증 발급 후 비밀번호로 활용됩니다.</li>
+                        <li>카드비밀번호는 숫자 4자리로 입력해주세요.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="form-grid">
+                    <!-- 도서관 -->
+                    <div class="form-field">
+                      <label class="form-label required">도서관</label>
+                      <UiSelect
+                        placeholder="도서관을 선택해주세요."
+                        size="large"
+                        required
+                        options={[
+                          { label: '연수도서관', value: 'yeonsu' },
+                          { label: '송도국제기구도서관', value: 'songdo' },
+                          { label: '청학도서관', value: 'cheonghak' },
+                        ]}
+                      />
+                    </div>
+
+                    <!-- 성명 -->
+                    <div class="form-field">
+                      <label class="form-label required">성명</label>
+                      <div class="input-with-button input-with-button--triple">
+                        <UiInput placeholder="홍길동" size="large" />
+                        <UiButton variant="tertiary" size="large" text="I-PIN 인증" />
+                        <UiButton variant="tertiary" size="large" text="공인인증서 인증" />
+                      </div>
+                    </div>
+
+                    <!-- 휴대폰번호 -->
+                    <div class="form-field">
+                      <label class="form-label required">휴대폰번호</label>
+                      <UiInput
+                        placeholder="010-1234-4567"
+                        size="large"
+                        value="010-1234-4567"
+                        state="error"
+                        helperText="휴대폰번호를 올바르게 입력해주세요."
+                      />
+                    </div>
+
+                    <!-- 제2 연락처 -->
+                    <div class="form-field">
+                      <label class="form-label required">제2 연락처</label>
+                      <UiInput
+                        placeholder="010-1234-4567"
+                        size="large"
+                        value="010-1234-4567"
+                        state="error"
+                        helperText="제2 연락처를 올바르게 입력해주세요."
+                      />
+                    </div>
+
+                    <!-- 생년월일 -->
+                    <div class="form-field">
+                      <label class="form-label required">생년월일</label>
+                      <div class="birth-group">
+                        <UiInput placeholder="20250101" size="large" value="20250101" state="error" helperText="생년월일을 올바르게 입력해주세요." />
+                        <div class="radio-group">
+                          <UiRadio name="birth-type" value="solar" id="solar" label="양력" size="medium" checked />
+                          <UiRadio name="birth-type" value="lunar" id="lunar" label="음력" size="medium" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 성별 -->
+                    <div class="form-field">
+                      <label class="form-label required">성별</label>
+                      <div class="radio-group">
+                        <UiRadio name="gender" value="male" id="male" label="남성" size="medium" checked />
+                        <UiRadio name="gender" value="female" id="female" label="여성" size="medium" />
+                      </div>
+                    </div>
+
+                    <!-- 아이디 -->
+                    <div class="form-field">
+                      <label class="form-label required">아이디</label>
+                      <div class="input-with-button">
+                        <UiInput placeholder="영문 소문자" size="large" />
+                        <UiButton variant="tertiary" size="large" text="중복확인" disabled />
+                      </div>
+                    </div>
+
+                    <!-- 비밀번호 -->
+                    <div class="form-field">
+                      <label class="form-label required">비밀번호</label>
+                      <UiInput type="password" placeholder="10-16자의 영문자, 숫자, 특수문자 조합" size="large" />
+                    </div>
+
+                    <!-- 비밀번호 확인 -->
+                    <div class="form-field">
+                      <label class="form-label required">비밀번호 확인</label>
+                      <UiInput type="password" placeholder="10-16자의 영문자, 숫자, 특수문자 조합" size="large" />
+                    </div>
+
+                    <!-- 카드비밀번호 -->
+                    <div class="form-field">
+                      <label class="form-label required">카드비밀번호</label>
+                      <UiInput type="password" placeholder="카드비밀번호" size="large" />
+                    </div>
+
+                    <!-- 이메일 -->
+                    <div class="form-field">
+                      <label class="form-label">이메일</label>
+                      <UiInput type="email" placeholder="이메일" size="large" />
+                    </div>
+
+                    <!-- 주소 -->
+                    <div class="form-field form-field--full">
+                      <label class="form-label required">주소</label>
+                      <div class="address-group">
+                        <div class="input-with-button">
+                          <UiInput placeholder="우편번호" size="large" readonly />
+                          <UiButton variant="tertiary" size="large" text="우편번호" disabled />
+                        </div>
+                        <UiInput placeholder="주소" size="large" readonly />
+                        <UiInput placeholder="상세주소" size="large" />
+                      </div>
+                    </div>
+
+                    <!-- SMS수신여부 -->
+                    <div class="form-field">
+                      <label class="form-label required">SMS수신여부</label>
+                      <div class="radio-group">
+                        <UiRadio name="sms-consent" value="agree" id="sms-agree" label="동의함" size="medium" checked />
+                        <UiRadio name="sms-consent" value="disagree" id="sms-disagree" label="동의안함" size="medium" />
+                      </div>
+                    </div>
+
+                    <!-- 이메일수신여부 -->
+                    <div class="form-field">
+                      <label class="form-label required">이메일수신여부</label>
+                      <div class="radio-group">
+                        <UiRadio name="email-consent" value="agree" id="email-agree" label="동의함" size="medium" checked />
+                        <UiRadio name="email-consent" value="disagree" id="email-disagree" label="동의안함" size="medium" />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- 버튼 영역 -->
+              <div class="signup-form__actions">
+                <UiButton variant="primary" size="large" text="가입하기" class="w-180-mobile-full" href="/회원가입-완료" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

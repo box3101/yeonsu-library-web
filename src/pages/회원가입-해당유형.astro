@@ -1,0 +1,80 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '회원가입', href: '/회원가입' },
+  { label: '해당유형 선택' },
+];
+---
+
+<Layout title="회원가입 - 해당유형 선택">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 해당유형 선택 섹션 -->
+            <div class="membership-type-selection">
+              <div class="membership-type-selection__container">
+                <!-- 좌측 안내 배너 -->
+                <div class="membership-type-selection__banner">
+                  <div class="banner-content">
+                    <div class="banner-text">
+                      <h2 class="banner-title">해당하는 유형을<br />선택해주세요.</h2>
+                      <div class="banner-description">
+                        <p>원활한 서비스 이용(가입자 중복확인 등)을 위해<br class="is-mo-hide" />본인인증 절차(검증)을 수행합니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 구분선 -->
+                <div class="divider"></div>
+
+                <!-- 우측 선택 옵션 -->
+                <div class="membership-type-selection__options">
+                  <!-- 일반 회원가입 (14세 이상) -->
+                  <a href="./회원가입-이용약관" class="type-button type-button--adult" data-type="adult">
+                    <div class="type-content">
+                      <span class="type-title">일반 회원가입</span>
+                      <span class="type-subtitle">(14세 이상)</span>
+                    </div>
+                    <div class="type-arrow">
+                      <img src="./assets/images/icon/icon-arrow-right.svg" alt="화살표" class="type-icon-img" />
+                    </div>
+                  </a>
+
+                  <!-- 미성년 회원가입 (14세 미만) -->
+                  <a href="./회원가입-이용약관" class="type-button type-button--minor" data-type="minor">
+                    <div class="type-content">
+                      <span class="type-title">미성년 회원가입</span>
+                      <span class="type-subtitle">(14세 미만)</span>
+                    </div>
+                    <div class="type-arrow">
+                      <img src="./assets/images/icon/icon-arrow-right.svg" alt="화살표" class="type-icon-img" />
+                    </div>
+                  </a>
+
+                  <!-- 안내 문구 -->
+                  <div class="notice-text">
+                    <span class="notice-symbol">※</span>
+                    <div class="notice-content">
+                      <p>
+                        14세 미만 회원가입시, <span class="highlight">보호자(법정대리인) 인증</span> 후<br class="is-mo-hide" />본인(미성년자) 인증을
+                        수행합니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

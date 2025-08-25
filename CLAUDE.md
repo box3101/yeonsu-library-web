@@ -40,20 +40,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **Scripts & Utilities**
 
 - `npm run remove-astro-attrs` - Remove Astro attributes for JSP compatibility
-- `npm run update-guide` - Update project guide
-- `npm run setup-hooks` - Setup Git hooks
+- `npm run update-guide` - Update project guide (placeholder - not implemented)
+- `npm run setup-hooks` - Setup Git hooks (placeholder - not implemented)
 - `npm run pre-commit` - Pre-commit hook (runs update-guide)
 
 ## Architecture Overview
 
 ### Tech Stack
 
-- **Framework**: Astro 4.15.0 (static site generation)
+- **Framework**: Astro 2.0.6 (static site generation)
 - **Styling**: SCSS with 7-1 architecture + BEM methodology
 - **JavaScript**: **Vanilla JS only** (TypeScript prohibited per .cursorrules)
-- **State Management**: Nanostores for client-side state
-- **UI Library**: Swiper.js for sliders
-- **Testing**: Vitest with jsdom environment
+- **State Management**: Nanostores for client-side state (configured but not actively used)
+- **UI Library**: Swiper.js for sliders, jQuery for legacy features
+- **Testing**: Vitest (configured but tests not implemented yet)
+- **Special Requirements**: JSP compatibility mode via Astro attribute removal
 
 ### Project Structure
 
@@ -81,7 +82,7 @@ src/
 - `SearchLayout.astro` - Search-specific layout
 - `SubLayout.astro` - Sub-page layout
 
-**JavaScript Pattern**: Modular vanilla JS with feature registration system. Each feature registers with `LibraryCommon.features` and uses data attributes for initialization.
+**JavaScript Pattern**: Modular vanilla JS/jQuery hybrid approach. Legacy components use jQuery (comGnb.js), while newer components should use vanilla JS with data attributes for initialization.
 
 ### Styling System (SCSS 7-1)
 
@@ -133,21 +134,22 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 ### Scripts Organization
 
 - Individual feature scripts in `/public/assets/js/`
-- Central registration via `LibraryCommon.features`
-- Selective loading based on page requirements
+- jQuery-based legacy patterns (comGnb.js uses jQuery)
+- Each script is self-contained and independently loadable
 - Data-driven initialization with aria attributes for accessibility
+- **No central LibraryCommon system implemented yet** - each module operates independently
 
 ### Available JavaScript Modules
 
 ```
 public/assets/js/
-├── common.js           # Core LibraryCommon + global initialization
 ├── collectAccordion.js # Accordion/collapsible components
 ├── collection.js       # Collection management features
 ├── collectionModal.js  # Collection-specific modals
 ├── comAccordian.js     # Common accordion functionality
-├── comGnb.js          # Global navigation bar
+├── comGnb.js          # Global navigation bar (jQuery-based)
 ├── comTab.js          # General tab components
+├── leftMenu.js        # Left sidebar menu functionality
 ├── modal.js           # Modal dialog components
 ├── swiper.js          # Swiper slider integration
 ├── tagsCloud.js       # Tag cloud visualization
@@ -158,6 +160,8 @@ public/assets/js/
 │   └── filter.js      # Search and content filtering
 └── vendor/            # Third-party libraries
 ```
+
+**Note**: No global `common.js` exists yet - each feature is self-contained with jQuery dependencies.
 
 ### Color System
 
@@ -213,3 +217,44 @@ Menu configuration is centralized in `src/data/menuData.ts` with TypeScript inte
 6. **Mobile-first responsive design** with defined breakpoints
 7. **No TypeScript** - use vanilla JavaScript with extensive comments
 8. **Publishing-only** - no real backend integration or API calls
+
+### Build Configuration
+
+**Astro Config Key Features**:
+- `format: 'file'` - Generates `page.html` instead of `page/index.html`
+- `assets: '_custom'` - Custom assets directory naming
+- JSP compatibility mode via post-build attribute removal
+- Path aliases configured for cleaner imports
+- Dev toolbar disabled for cleaner development experience
+
+**JSP Compatibility**:
+- `npm run build:jsp` removes Astro-specific attributes from HTML
+- Uses custom script (`scripts/remove-astro-attrs.cjs`) for post-processing
+- Ensures compatibility with JSP template systems
+
+### Testing Strategy
+
+**Current State**: 
+- Vitest configured but no tests implemented yet
+- HTML beautification and Prettier formatting for consistent output
+- Manual testing through development server
+
+**Recommended Test Commands**:
+- `npm run test:run` - Single test run (CI mode)
+- `npm run test:watch` - Watch mode for development
+- `npm run test:ui` - Visual test interface
+- `npm run test:coverage` - Coverage reporting
+
+### Korean Naming Conventions
+
+This project uses Korean file names for pages to match the Korean library system:
+
+**Page Naming Pattern**:
+- Korean descriptive names: `소장도서검색.astro`, `통합검색.astro`, `내책장.astro`
+- Service-specific pages: `무료택배도서대출-서비스신청.astro`
+- Status/history pages: `대출현황.astro`, `희망도서신청현황.astro`
+
+**Menu Data Structure**:
+- Menu keys use Korean: `도서검색`, `디지털자료`, `문화프로그램`
+- Institution colors mapped to Korean names: `$institution-연수꿈담`, `$institution-송도국제`
+- Supports 3-level menu hierarchy with Korean labels

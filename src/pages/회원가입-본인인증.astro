@@ -1,0 +1,80 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '회원가입', href: '/회원가입' },
+  { label: '해당유형 선택' },
+];
+---
+
+<Layout title="회원가입 - 해당유형 선택">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 해당유형 선택 섹션 -->
+            <div class="membership-type-selection">
+              <div class="membership-type-selection__container">
+                <!-- 좌측 안내 배너 -->
+                <div class="membership-type-selection__banner">
+                  <div class="banner-content">
+                    <div class="banner-text">
+                      <h2 class="banner-title">본인인증</h2>
+                      <div class="banner-description">
+                        <p>
+                          본인인증을 위해 아래의 <strong class="text-primary">'I-PIN 인증'</strong> 또는 <br />
+                          <strong class="text-primary">'휴대폰 인증'</strong> 버튼 중 하나를 선택해주세요.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 구분선 -->
+                <div class="divider"></div>
+
+                <!-- 우측 선택 옵션 -->
+                <div class="membership-type-selection__options">
+                  <!-- I-PIN -->
+                  <a href="./회원가입-14세이상회원가입" class="type-button type-button--adult" data-type="adult">
+                    <div class="type-content">
+                      <span class="type-title">I-PIN</span>
+                      <span class="type-subtitle">인증</span>
+                    </div>
+                    <div class="type-arrow">
+                      <img src="./assets/images/icon/icon-arrow-right.svg" alt="화살표" class="type-icon-img" />
+                    </div>
+                  </a>
+
+                  <!-- 휴대폰 -->
+                  <a href="./회원가입-14세이상회원가입" class="type-button type-button--minor" data-type="minor">
+                    <div class="type-content">
+                      <span class="type-title">휴대폰</span>
+                      <span class="type-subtitle">인증</span>
+                    </div>
+                    <div class="type-arrow">
+                      <img src="./assets/images/icon/icon-arrow-right.svg" alt="화살표" class="type-icon-img" />
+                    </div>
+                  </a>
+
+                  <!-- 안내 문구 -->
+                  <div class="notice-text">
+                    <span class="notice-symbol">※</span>
+                    <div class="notice-content">
+                      <p>본인 인증시 입력하신 정보는 본인 인증을 위해서만 사용할 뿐 따로 저장되지 않습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

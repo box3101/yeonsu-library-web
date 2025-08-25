@@ -141,28 +141,28 @@
 
   // 상태 variants
   &--success {
-    border-color: $success-color;
+    border-color: $success-color !important;
 
     &:focus {
-      border-color: $success-color;
+      border-color: $success-color !important;
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
     }
   }
 
   &--error {
-    border-color: $error-color;
+    border-color: $error-color !important;
 
     &:focus {
-      border-color: $error-color;
+      border-color: $error-color !important;
       box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
     }
   }
 
   &--warning {
-    border-color: $warning-color;
+    border-color: $warning-color !important;
 
     &:focus {
-      border-color: $warning-color;
+      border-color: $warning-color !important;
       box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
     }
   }

@@ -15,6 +15,1196 @@
 }
 
 /* ========================================
+   가입정보입력 폼
+======================================== */
+.signup-form {
+  &__header {
+    margin-bottom: to-rem(24);
+  }
+
+  &__title {
+    font-size: to-rem(28);
+    font-weight: bold;
+    color: #191a1a;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    margin-bottom: to-rem(48);
+  }
+
+  &__actions {
+    display: flex;
+    gap: to-rem(16);
+    justify-content: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(12);
+    }
+  }
+
+  .ui-select--large .ui-select__element {
+    padding: to-rem(16) to-rem(24);
+    @include mobile {
+      padding: to-rem(12) to-rem(16);
+    }
+  }
+}
+
+.info-box {
+  background-color: #f4f5f6;
+  border: 1px solid #cdd1d5;
+  border-radius: to-rem(12);
+  padding: to-rem(16);
+  margin-bottom: to-rem(32);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: to-rem(8);
+    margin-bottom: to-rem(16);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: to-rem(20);
+    height: to-rem(20);
+  }
+
+  &__title {
+    font-size: to-rem(17);
+    font-weight: bold;
+    color: #1e2124;
+    margin: 0;
+  }
+
+  &__content {
+    padding-left: to-rem(28);
+  }
+
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      font-size: to-rem(15);
+      color: #4b4d4d;
+      line-height: 1.5;
+      padding-left: to-rem(16);
+      margin-bottom: to-rem(8);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: to-rem(8);
+        width: to-rem(6);
+        height: to-rem(6);
+        background-color: #4b4d4d;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: to-rem(48) to-rem(32);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: to-rem(24);
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(8);
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+
+  .form-label {
+    font-size: to-rem(19);
+    font-weight: bold;
+    color: #4b4d4d;
+
+    &.required::after {
+      content: '*';
+      color: #d7424e;
+      margin-left: to-rem(2);
+      font-size: to-rem(16);
+      vertical-align: super;
+    }
+  }
+
+  .radio-group {
+    display: flex;
+    gap: to-rem(16);
+    align-items: center;
+    height: 100%;
+  }
+
+  .birth-group {
+    display: flex;
+    gap: to-rem(16);
+    align-items: flex-start;
+
+    @include mobile {
+      gap: to-rem(12);
+    }
+
+    > :first-child {
+      flex: 1;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: to-rem(16);
+      align-items: center;
+
+      @include mobile {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .input-with-button {
+    display: flex;
+    gap: to-rem(12);
+    align-items: flex-start;
+
+    > :first-child {
+      flex: 1;
+    }
+  }
+
+  .address-group {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+
+    .input-with-button {
+      flex-direction: row;
+    }
+  }
+}
+
+/* ========================================
+   14세 미만 회원가입 추가 스타일
+======================================== */
+.guardian-section,
+.member-section {
+  margin-bottom: to-rem(40);
+
+  .section-title {
+    font-size: to-rem(24);
+    font-weight: bold;
+    color: #191a1a;
+    margin-bottom: to-rem(20);
+    padding-bottom: to-rem(8);
+    border-bottom: 2px solid #ecf2fe;
+  }
+}
+
+.age-checkbox {
+  margin-top: to-rem(16);
+  padding: to-rem(12) 0;
+}
+
+.input-with-button {
+  &--triple {
+    display: flex;
+    gap: to-rem(8);
+    align-items: flex-start;
+
+    > :first-child {
+      flex: 1;
+    }
+
+    .ui-button {
+      min-width: to-rem(120);
+      white-space: nowrap;
+    }
+  }
+}
+
+/* ========================================
+   대출자정보 추가 스타일
+======================================== */
+.member-verification-section {
+  margin-bottom: to-rem(40);
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #191a1a;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ecf2fe;
+  }
+}
+
+.verification-form-box {
+  border: 1px solid #b1b3b3;
+  border-radius: to-rem(12);
+  padding: to-rem(40);
+  margin-bottom: to-rem(24);
+
+  .form-grid-wrp {
+    max-width: to-rem(440);
+    margin: 0 auto;
+  }
+
+  .form-field {
+    margin-bottom: to-rem(24);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.verification-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: to-rem(40);
+}
+
+.form-grid {
+  &--single {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(24);
+    max-width: to-rem(472);
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+}
+
+/* ========================================
+   간단한 대출자정보 회원가입 스타일
+======================================== */
+.simple-signup-section {
+  margin-bottom: to-rem(40);
+
+  .section-title {
+    font-size: to-rem(28);
+    font-weight: bold;
+    color: #191a1a;
+    margin-bottom: to-rem(20);
+    padding-bottom: to-rem(8);
+    border-bottom: 2px solid #ecf2fe;
+  }
+}
+
+.simple-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(24);
+  max-width: 100%;
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+  }
+
+  .password-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: to-rem(32);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: to-rem(24);
+    }
+  }
+
+  .input-with-button {
+    display: flex;
+    gap: to-rem(12);
+    align-items: flex-start;
+    max-width: to-rem(472);
+
+    > :first-child {
+      flex: 1;
+    }
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+}
+
+/* ========================================
+   회원가입 선택
+======================================== */
+.membership-selection {
+  &__container {
+    display: flex;
+    gap: to-rem(40);
+    padding: to-rem(32);
+    border-bottom: 1px solid #8a949e;
+    border-top: 1px solid #8a949e;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(24);
+      padding: to-rem(20);
+    }
+  }
+
+  &__banner {
+    flex: 1;
+    background-color: #ecf2f9;
+    border-radius: to-rem(12);
+    padding: to-rem(32);
+
+    @include mobile {
+      padding: to-rem(20);
+    }
+
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      gap: to-rem(40);
+      height: 100%;
+
+      @include mobile {
+        gap: to-rem(24);
+      }
+    }
+
+    .banner-text {
+      display: flex;
+      flex-direction: column;
+      gap: to-rem(16);
+    }
+
+    .banner-title {
+      font-size: to-rem(24);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #191a1a;
+      margin: 0;
+
+      @include mobile {
+        font-size: to-rem(20);
+      }
+    }
+
+    .banner-description {
+      font-size: to-rem(19);
+      line-height: 1.5;
+      color: #191a1a;
+
+      @include mobile {
+        font-size: to-rem(16);
+      }
+
+      p {
+        margin: 0 0 to-rem(4) 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .highlight {
+        background: none;
+        color: $primary-color;
+        font-weight: 700;
+      }
+    }
+
+    .banner-image {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex: 1;
+
+      @include mobile {
+        justify-content: center;
+      }
+    }
+
+    .banner-img {
+      width: to-rem(163);
+      height: to-rem(120);
+      object-fit: contain;
+
+      @include mobile {
+        width: to-rem(120);
+        height: to-rem(90);
+      }
+    }
+  }
+
+  .divider {
+    width: 1px;
+    background-color: #8a949e;
+    align-self: stretch;
+
+    @include mobile {
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  &__options {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+  }
+
+  .option-card {
+    background-color: #ffffff;
+    border-radius: to-rem(12);
+    padding: to-rem(28);
+    cursor: pointer;
+    transition:
+      all 0.2s ease,
+      transform 0.15s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+      padding: to-rem(20);
+    }
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--no {
+      border: 2px solid #df6871;
+
+      &:hover {
+        background-color: rgba(223, 104, 113, 0.05);
+      }
+    }
+
+    &--yes {
+      border: 2px solid #f1f2f2;
+      background-color: #f1f2f2;
+
+      &:hover {
+        background-color: rgba(60, 121, 194, 0.05);
+      }
+    }
+
+    .option-header {
+      display: flex;
+      align-items: center;
+      gap: to-rem(24);
+      margin-bottom: to-rem(8);
+
+      @include mobile {
+        gap: to-rem(16);
+      }
+    }
+
+    .option-icon {
+      width: to-rem(40);
+      height: to-rem(40);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      &--danger {
+        background-color: rgba(223, 104, 113, 0.1);
+        color: #df6871;
+      }
+
+      &--success {
+        background-color: rgba(60, 121, 194, 0.1);
+        color: $primary-color;
+      }
+
+      svg {
+        width: to-rem(24);
+        height: to-rem(24);
+      }
+    }
+
+    .option-title {
+      flex: 1;
+      font-size: to-rem(19);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #1e2124;
+      margin: 0;
+
+      @include mobile {
+        font-size: to-rem(17);
+      }
+    }
+
+    .option-arrow {
+      color: #4b4d4d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: to-rem(24);
+        height: to-rem(24);
+      }
+    }
+
+    .option-content {
+      margin-left: to-rem(64);
+
+      @include mobile {
+        margin-left: to-rem(56);
+      }
+    }
+
+    .option-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        position: relative;
+        padding-left: to-rem(24);
+        font-size: to-rem(17);
+        line-height: 1.5;
+        color: #4b4d4d;
+        margin-bottom: to-rem(8);
+
+        @include mobile {
+          font-size: to-rem(15);
+          padding-left: to-rem(20);
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: to-rem(8);
+          top: 11px;
+          transform: translateY(-50%);
+          width: to-rem(6);
+          height: to-rem(6);
+          background-color: #4b4d4d;
+          border-radius: 50%;
+
+          @include mobile {
+            left: to-rem(6);
+            width: to-rem(4);
+            height: to-rem(4);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ========================================
+   회원가입 유형 선택
+======================================== */
+.membership-type-selection {
+  &__container {
+    display: flex;
+    gap: to-rem(40);
+    padding: to-rem(32);
+    border-bottom: 1px solid #8a949e;
+    border-top: 1px solid #8a949e;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(24);
+      padding: to-rem(20);
+    }
+  }
+
+  &__banner {
+    flex: 1;
+    background-color: #ecf2f9;
+    border-radius: to-rem(12);
+    padding: to-rem(32);
+
+    @include mobile {
+      padding: to-rem(20);
+    }
+
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .banner-text {
+      display: flex;
+      flex-direction: column;
+      gap: to-rem(16);
+    }
+
+    .banner-title {
+      font-size: to-rem(24);
+      font-weight: 700;
+      line-height: 1.5;
+      color: #191a1a;
+      margin: 0;
+
+      @include mobile {
+        font-size: to-rem(20);
+      }
+    }
+
+    .banner-description {
+      font-size: to-rem(19);
+      line-height: 1.5;
+      color: #191a1a;
+
+      @include mobile {
+        font-size: to-rem(16);
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .divider {
+    width: 1px;
+    background-color: #8a949e;
+    align-self: stretch;
+
+    @include mobile {
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  &__options {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(24);
+    justify-content: center;
+  }
+
+  .type-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem(4);
+    height: to-rem(56);
+    padding: 0 to-rem(20);
+    border: 1px solid #58616a;
+    border-radius: to-rem(8);
+    background-color: transparent;
+    cursor: pointer;
+    transition:
+      all 0.2s ease,
+      transform 0.15s ease;
+
+    @include mobile {
+      height: to-rem(48);
+      padding: 0 to-rem(16);
+    }
+
+    &:hover {
+      background-color: rgba(60, 121, 194, 0.05);
+      border-color: $primary-color;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    .type-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: to-rem(4);
+    }
+
+    .type-title {
+      font-size: to-rem(19);
+      font-weight: 700;
+      color: #18304d;
+      line-height: 1.5;
+
+      @include mobile {
+        font-size: to-rem(17);
+      }
+    }
+
+    .type-subtitle {
+      font-size: to-rem(19);
+      font-weight: 400;
+      color: #191a1a;
+      line-height: 1.5;
+
+      @include mobile {
+        font-size: to-rem(17);
+      }
+    }
+
+    .type-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #58616a;
+
+      svg {
+        width: to-rem(16);
+        height: to-rem(16);
+      }
+    }
+  }
+
+  .notice-text {
+    display: flex;
+    gap: to-rem(8);
+    align-items: flex-start;
+
+    @include mobile {
+      gap: to-rem(6);
+    }
+
+    .notice-symbol {
+      font-size: to-rem(17);
+      color: #4b4d4d;
+      line-height: 1.5;
+      flex-shrink: 0;
+      height: to-rem(26);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include mobile {
+        font-size: to-rem(15);
+        height: to-rem(22);
+      }
+    }
+
+    .notice-content {
+      flex: 1;
+
+      p {
+        font-size: to-rem(19);
+        line-height: 1.5;
+        letter-spacing: -0.05em;
+        color: #191a1a;
+        margin: 0;
+
+        @include mobile {
+          font-size: to-rem(16);
+        }
+      }
+
+      .highlight {
+        color: #244874;
+        font-weight: 700;
+        background: none;
+      }
+    }
+  }
+}
+
+/* ========================================
+   이용약관 동의
+======================================== */
+.terms-agreement {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(32);
+
+  @include mobile {
+    gap: to-rem(24);
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+
+    @include mobile {
+      gap: to-rem(12);
+    }
+  }
+
+  &__title {
+    font-size: to-rem(28);
+    font-weight: 700;
+    line-height: 1;
+    color: #191a1a;
+    margin: 0;
+
+    @include mobile {
+      font-size: to-rem(24);
+    }
+  }
+
+  &__description {
+    font-size: to-rem(19);
+    line-height: 1.5;
+    color: #191a1a;
+    margin: 0;
+
+    @include mobile {
+      font-size: to-rem(16);
+    }
+  }
+
+  &__all-agree {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(24);
+
+    @include mobile {
+      gap: to-rem(20);
+    }
+
+    .all-agree-checkbox {
+      display: flex;
+      align-items: center;
+      gap: to-rem(10);
+    }
+  }
+
+  &__content {
+    border: 1px solid #cbcccc;
+    border-radius: to-rem(12);
+    padding: to-rem(40);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(24);
+
+    @include mobile {
+      padding: to-rem(20);
+      gap: to-rem(20);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: to-rem(24);
+    justify-content: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: to-rem(16);
+    }
+
+    .btn {
+      width: to-rem(180);
+      height: to-rem(56);
+      border-radius: to-rem(8);
+      font-size: to-rem(19);
+      font-weight: 400;
+      line-height: 1.5;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      @include mobile {
+        width: 100%;
+        height: to-rem(48);
+        font-size: to-rem(17);
+      }
+
+      &--secondary {
+        background-color: transparent;
+        border: 1px solid #58616a;
+        color: #1e2124;
+
+        &:hover {
+          background-color: rgba(88, 97, 106, 0.1);
+        }
+      }
+
+      &--primary {
+        background-color: #3c79c2;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #2a5a94;
+        }
+      }
+    }
+  }
+}
+
+.terms-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(32);
+
+  @include mobile {
+    gap: to-rem(24);
+  }
+}
+
+.terms-item {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(16);
+  padding-bottom: to-rem(32);
+  border-bottom: 1px solid #cbcccc;
+
+  @include mobile {
+    gap: to-rem(12);
+    padding-bottom: to-rem(24);
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: to-rem(10);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(16);
+
+    @include mobile {
+      gap: to-rem(12);
+    }
+  }
+
+  &__radio {
+    background-color: #f1f2f2;
+    padding: to-rem(24);
+    border-radius: to-rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: to-rem(40);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+      gap: to-rem(16);
+      padding: to-rem(16);
+    }
+
+    .radio-question {
+      font-size: to-rem(17);
+      line-height: 1.5;
+      color: #1e2124;
+      margin: 0;
+      flex: 1;
+
+      @include mobile {
+        font-size: to-rem(15);
+      }
+    }
+
+    .radio-group {
+      display: flex;
+      gap: to-rem(24);
+
+      @include mobile {
+        gap: to-rem(16);
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.terms-scroll-box {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: to-rem(10);
+  padding: to-rem(16) to-rem(8) to-rem(16) to-rem(16);
+  height: to-rem(200);
+  display: flex;
+  gap: to-rem(8);
+
+  .terms-content {
+    flex: 1;
+    overflow-y: auto;
+
+    &__placeholder {
+      font-size: to-rem(14);
+      line-height: 1.6;
+      color: #666;
+      padding: to-rem(8);
+
+      @include mobile {
+        font-size: to-rem(13);
+      }
+    }
+  }
+
+  .scroll-bar {
+    background-color: #d8e4f3;
+    border-radius: to-rem(2);
+    flex-shrink: 0;
+
+    @include mobile {
+      width: to-rem(6);
+    }
+  }
+}
+
+// 체크박스 스타일
+.checkbox-input {
+  appearance: none;
+  width: to-rem(20);
+  height: to-rem(20);
+  border: 2px solid #cbcccc;
+  border-radius: to-rem(4);
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+
+  &--large {
+    width: to-rem(24);
+    height: to-rem(24);
+  }
+
+  &:checked {
+    background-color: #256ef4;
+    border-color: #256ef4;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: to-rem(12);
+      height: to-rem(12);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.checkbox-input--large::after {
+      width: to-rem(14);
+      height: to-rem(14);
+    }
+  }
+}
+
+.checkbox-label {
+  font-size: to-rem(19);
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+  cursor: pointer;
+
+  &--large {
+    font-size: to-rem(19);
+    font-weight: 700;
+  }
+
+  @include mobile {
+    font-size: to-rem(17);
+  }
+
+  .required-mark {
+    color: #191a1a;
+  }
+}
+
+// 라디오 버튼 스타일
+.radio-input {
+  appearance: none;
+  width: to-rem(20);
+  height: to-rem(20);
+  border: 1px solid #58616a;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+
+  &:checked {
+    border-color: #256ef4;
+    border-width: to-rem(1.4);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: to-rem(10);
+      height: to-rem(10);
+      background-color: #256ef4;
+      border-radius: 50%;
+    }
+  }
+}
+
+.radio-label {
+  font-size: to-rem(17);
+  line-height: 1.5;
+  color: #131416;
+  cursor: pointer;
+
+  @include mobile {
+    font-size: to-rem(15);
+  }
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: to-rem(10);
+}
+
+.final-agreement {
+  background-color: #ffffff;
+  padding: 0 to-rem(24);
+  display: flex;
+  justify-content: flex-end;
+
+  @include mobile {
+    padding: 0 to-rem(16);
+    justify-content: center;
+  }
+}
+
+/* ========================================
    소장도서 검색
 ======================================== */
 .ui-library-filter {
@@ -58,9 +1248,9 @@
 
   &__main-checkbox {
     :global(.ui-checkbox__title) {
-      font-weight: $font-semibold;
-      color: $gray-800;
-      font-size: to-rem(16);
+      font-weight: 700;
+      color: #191a1a;
+      font-size: to-rem(19);
 
       @include tablet {
         font-size: to-rem(14);
@@ -2246,5 +3436,23 @@ div.bookshelf-item {
   @include mobile {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+.is-mo-hide {
+  display: block;
+  @include mobile {
+    display: none;
+  }
+}
+
+.terms-agreement {
+  .ui-checkbox--medium .ui-checkbox__title,
+  .ui-checkbox--large .ui-checkbox__title {
+    font-size: to-rem(19);
+    line-height: 1.5;
+    letter-spacing: -0.05em;
+    color: #191a1a;
+    font-weight: 700;
   }
 }

@@ -86,7 +86,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
         badges.length > 0 && (
           <div class="ui-book-card__badges">
             {badges.map(badge => (
-              <span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>{badge.label}</span>
+              <span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
+                {badge.label}
+              </span>
             ))}
           </div>
         )
@@ -184,9 +186,17 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 
           <!-- 하단 버튼들 -->
           <div class="ui-book-card__actions">
-            {showBookInfo && <UiButton variant="tertiary" size="medium" text="도서정보" icon="icon icon-md icon-download" iconPosition="left" />}
+            {
+              showBookInfo && (
+                <UiButton variant="tertiary" size="medium" text="도서정보" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+              )
+            }
 
-            {showMARC && <UiButton variant="secondary" size="medium" text="MARC" icon="icon icon-md icon-download" iconPosition="left" />}
+            {
+              showMARC && (
+                <UiButton variant="secondary" size="medium" text="MARC" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+              )
+            }
           </div>
         </div>
       </div>

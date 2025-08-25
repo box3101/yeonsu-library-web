@@ -434,20 +434,33 @@ export const menuConfig: Record<string, MenuConfig> = {
     title: '회원서비스',
     sections: [
       {
-        title: '로그인',
-        href: './로그인',
+        title: '도서검색',
+        href: './도서검색',
       },
       {
-        title: '아이디찾기',
-        href: './아이디찾기',
+        title: '사이트맵',
+        href: './사이트맵',
       },
       {
-        title: '비밀번호찾기',
-        href: './비밀번호찾기',
+        title: '개인정보처리방침',
+        href: './개인정보처리방침',
       },
       {
-        title: '회원가입',
-        href: './회원가입',
+        title: '회원서비스',
+        items: [
+          { label: '로그인', href: './로그인' },
+          { label: '아이디찾기', href: './아이디찾기' },
+          { label: '비밀번호찾기', href: './비밀번호찾기' },
+          { label: '회원가입', href: './회원가입' },
+        ],
+      },
+      {
+        title: "도서관 고양이 '관이'의 하루",
+        href: "/도서관 고양이 '관이'의 하루",
+      },
+      {
+        title: '열람실현황',
+        href: './열람실현황',
       },
     ],
   },

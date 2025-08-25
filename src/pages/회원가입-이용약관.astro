@@ -1,0 +1,171 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiCheckbox, UiRadio } from '@components';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '회원가입', href: '/회원가입' },
+  { label: '해당유형 선택', href: '/회원가입-해당유형' },
+  { label: '이용약관 동의' },
+];
+---
+
+<Layout title="회원가입 - 이용약관 동의">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 이용약관 동의 섹션 -->
+            <div class="terms-agreement">
+              <!-- 헤더 -->
+              <div class="terms-agreement__header">
+                <h2 class="terms-agreement__title">이용 약관에 동의해 주세요.</h2>
+                <p class="terms-agreement__description">가입에 필요한 이용 약관에 동의하시고, 도서관의 편리한 회원서비스를 사용해보세요.</p>
+              </div>
+
+              <!-- 전체 동의 -->
+              <div class="terms-agreement__all-agree">
+                <UiCheckbox id="agree-all" size="large" label="모두 동의합니다." variant="default" />
+              </div>
+
+              <!-- 약관 목록 -->
+              <div class="terms-agreement__content">
+                <div class="terms-list">
+                  <!-- 개인정보 수집·이용 -->
+                  <div class="terms-item">
+                    <div class="terms-item__header">
+                      <div class="terms-item__checkbox">
+                        <UiCheckbox id="agree-privacy-collection" size="medium" label="[필수] 개인정보 수집·이용" variant="default" />
+                      </div>
+                    </div>
+
+                    <div class="terms-item__content">
+                      <div class="terms-scroll-box">
+                        <div class="terms-content">
+                          <div class="terms-content__placeholder">
+                            개인정보 수집·이용 약관 내용이 표시됩니다.<br />
+                            실제 서비스에서는 해당 약관의 상세 내용이 여기에 표시됩니다.
+                          </div>
+                        </div>
+                        <div class="scroll-bar"></div>
+                      </div>
+
+                      <div class="terms-item__radio">
+                        <p class="radio-question">약관 내용을 확인하였으며, 동의하시겠습니까?</p>
+                        <div class="radio-group">
+                          <UiRadio name="privacy-collection" value="disagree" id="privacy-disagree" label="동의안함" size="medium" />
+                          <UiRadio name="privacy-collection" value="agree" id="privacy-agree" label="동의함" size="medium" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 개인정보의 제3자 제공 -->
+                  <div class="terms-item">
+                    <div class="terms-item__header">
+                      <div class="terms-item__checkbox">
+                        <UiCheckbox id="agree-privacy-third" size="medium" label="[필수] 개인정보의 제3자 제공" variant="default" />
+                      </div>
+                    </div>
+
+                    <div class="terms-item__content">
+                      <div class="terms-scroll-box">
+                        <div class="terms-content">
+                          <div class="terms-content__placeholder">
+                            개인정보의 제3자 제공 약관 내용이 표시됩니다.<br />
+                            실제 서비스에서는 해당 약관의 상세 내용이 여기에 표시됩니다.
+                          </div>
+                        </div>
+                        <div class="scroll-bar"></div>
+                      </div>
+
+                      <div class="terms-item__radio">
+                        <p class="radio-question">약관 내용을 확인하였으며, 동의하시겠습니까?</p>
+                        <div class="radio-group">
+                          <UiRadio name="privacy-third" value="disagree" id="third-disagree" label="동의안함" size="medium" />
+                          <UiRadio name="privacy-third" value="agree" id="third-agree" label="동의함" size="medium" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 개인정보의 처리 및 위탁 -->
+                  <div class="terms-item">
+                    <div class="terms-item__header">
+                      <div class="terms-item__checkbox">
+                        <UiCheckbox id="agree-privacy-processing" size="medium" label="[필수] 개인정보의 처리 및 위탁" variant="default" />
+                      </div>
+                    </div>
+
+                    <div class="terms-item__content">
+                      <div class="terms-scroll-box">
+                        <div class="terms-content">
+                          <div class="terms-content__placeholder">
+                            개인정보의 처리 및 위탁 약관 내용이 표시됩니다.<br />
+                            실제 서비스에서는 해당 약관의 상세 내용이 여기에 표시됩니다.
+                          </div>
+                        </div>
+                        <div class="scroll-bar"></div>
+                      </div>
+
+                      <div class="terms-item__radio">
+                        <p class="radio-question">약관 내용을 확인하였으며, 동의하시겠습니까?</p>
+                        <div class="radio-group">
+                          <UiRadio name="privacy-processing" value="disagree" id="processing-disagree" label="동의안함" size="medium" />
+                          <UiRadio name="privacy-processing" value="agree" id="processing-agree" label="동의함" size="medium" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 연수구립도서관 홈페이지 이용약관 -->
+                  <div class="terms-item">
+                    <div class="terms-item__header">
+                      <div class="terms-item__checkbox">
+                        <UiCheckbox id="agree-website-terms" size="medium" label="[필수] 연수구립도서관 홈페이지 이용약관" variant="default" />
+                      </div>
+                    </div>
+
+                    <div class="terms-item__content">
+                      <div class="terms-scroll-box">
+                        <div class="terms-content">
+                          <div class="terms-content__placeholder">
+                            연수구립도서관 홈페이지 이용약관 내용이 표시됩니다.<br />
+                            실제 서비스에서는 해당 약관의 상세 내용이 여기에 표시됩니다.
+                          </div>
+                        </div>
+                        <div class="scroll-bar"></div>
+                      </div>
+
+                      <div class="terms-item__radio">
+                        <p class="radio-question">약관 내용을 확인하였으며, 동의하시겠습니까?</p>
+                        <div class="radio-group">
+                          <UiRadio name="website-terms" value="disagree" id="website-disagree" label="동의안함" size="medium" />
+                          <UiRadio name="website-terms" value="agree" id="website-agree" label="동의함" size="medium" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 전체 약관 동의 -->
+                <div class="final-agreement">
+                  <UiRadio name="final-agreement" value="agree" id="final-agree" label="전체 약관에 동의합니다." size="medium" />
+                </div>
+              </div>
+
+              <!-- 버튼 영역 -->
+              <div class="terms-agreement__actions">
+                <UiButton variant="secondary" size="large" class="btn btn--secondary btn--large" text="동의하지 않습니다" href="/회원가입-해당유형" />
+                <UiButton variant="primary" size="large" class="btn btn--primary btn--large" text="동의합니다" href="/회원가입-본인인증" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

@@ -4,7 +4,7 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
 // 통계 정보
 const stats = [
-  { number: '27', label: '운영중인 페이지' },
+  { number: '45', label: '운영중인 페이지' },
   { number: '25', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
   { number: 'Vanilla JS', label: '순수 자바스크립트' },
@@ -27,106 +27,114 @@ const searchPages = [
   {
     id: 'S01',
     name: '소장도서검색',
-    url: '/01_소장도서검색',
-    file: '01_소장도서검색.astro',
+    url: '/소장도서검색',
+    file: '소장도서검색.astro',
     status: '완료',
     description: '도서관 필터, 상세검색, 자료유형 탭, 소장정보 모달',
   },
   {
     id: 'S01-1',
     name: '소장도서검색_상세',
-    url: '/01-1.소장도서검색_상세',
-    file: '01-1.소장도서검색_상세.astro',
+    url: '/소장도서검색_상세',
+    file: '소장도서검색_상세.astro',
     status: '완료',
     description: '도서 상세 정보 페이지, 소장정보 모달',
   },
   {
     id: 'S01-2',
     name: '소장도서검색_고급검색',
-    url: '/01-2.소장도서검색_고급검색',
-    file: '01-2.소장도서검색_고급검색.astro',
+    url: '/소장도서검색_고급검색',
+    file: '소장도서검색_고급검색.astro',
     status: '완료',
     description: '고급 검색 옵션, 상세 필터링 기능',
   },
   {
     id: 'S02',
     name: '스마트도서관비치도서',
-    url: '/02_스마트도서관비치도서',
-    file: '02_스마트도서관비치도서.astro',
+    url: '/스마트도서관비치도서',
+    file: '스마트도서관비치도서.astro',
     status: '완료',
     description: '스마트도서관 전용 검색 페이지',
   },
   {
     id: 'S03',
     name: '도서관에 바란다',
-    url: '/03_도서관에바란다',
-    file: '03_도서관에바란다.astro',
+    url: '/도서관에바란다',
+    file: '도서관에바란다.astro',
     status: '완료',
     description: '건의사항 게시판, 테이블 기반 목록',
   },
   {
     id: 'S04',
     name: '공지사항',
-    url: '/04_공지사항',
-    file: '04_공지사항.astro',
+    url: '/공지사항',
+    file: '공지사항.astro',
     status: '완료',
     description: '공지사항 게시판, 테이블 기반 목록',
   },
   {
     id: 'S05',
     name: '통합검색',
-    url: '/05_통합검색',
-    file: '05_통합검색.astro',
+    url: '/통합검색',
+    file: '통합검색.astro',
     status: '완료',
     description: '통합검색 결과 페이지, 다양한 검색 결과 표시',
   },
   {
     id: 'S05-1',
     name: '통합검색_Empty',
-    url: '/05-1_통합검색_Empty',
-    file: '05-1_통합검색_Empty.astro',
+    url: '/통합검색_Empty',
+    file: '통합검색_Empty.astro',
     status: '완료',
     description: '통합검색 빈 상태 페이지, UiEmpty 컴포넌트 활용',
   },
   {
     id: 'S06',
     name: '인기도서',
-    url: '/06_인기도서',
-    file: '06_인기도서.astro',
+    url: '/인기도서',
+    file: '인기도서.astro',
     status: '완료',
     description: '인기도서 목록, UiBookListCard 그리드',
   },
   {
     id: 'S07',
     name: '신착도서',
-    url: '/07_신착도서',
-    file: '07_신착도서.astro',
+    url: '/신착도서',
+    file: '신착도서.astro',
     status: '완료',
     description: '신착도서 목록, 최신 입고 도서 정보',
   },
   {
     id: 'S08',
     name: '추천도서',
-    url: '/08_추천도서',
-    file: '08_추천도서.astro',
+    url: '/추천도서',
+    file: '추천도서.astro',
     status: '완료',
     description: '추천도서 목록, 사서 추천 및 테마별 도서',
   },
   {
     id: 'S09',
     name: '카테고리분류',
-    url: '/09_카테고리분류',
-    file: '09_카테고리분류.astro',
+    url: '/카테고리분류',
+    file: '카테고리분류.astro',
     status: '완료',
     description: '주제별 카테고리 도서 분류',
   },
   {
     id: 'S10',
     name: '한국십진분류',
-    url: '/10_한국십진분류',
-    file: '10_한국십진분류.astro',
+    url: '/한국십진분류',
+    file: '한국십진분류.astro',
     status: '완료',
     description: '한국십진분류법 기반 도서 검색',
+  },
+  {
+    id: 'S11',
+    name: '전자도서관',
+    url: '/전자도서관',
+    file: '전자도서관.astro',
+    status: '완료',
+    description: '전자도서관 접속 페이지',
   },
 ];
 
@@ -135,58 +143,66 @@ const myLibraryPages = [
   {
     id: 'M01',
     name: '대출현황',
-    url: '/11.대출현황',
-    file: '11.대출현황.astro',
+    url: '/대출현황',
+    file: '대출현황.astro',
     status: '완료',
     description: '현재 대출중인 도서 목록 및 반납 예정일',
   },
   {
     id: 'M02',
     name: '대출이력',
-    url: '/12.대출이력',
-    file: '12.대출이력.astro',
+    url: '/대출이력',
+    file: '대출이력.astro',
     status: '완료',
     description: '과거 대출 이력 조회',
   },
   {
     id: 'M03',
     name: '일반예약현황',
-    url: '/13.일반예약현황',
-    file: '13.일반예약현황.astro',
+    url: '/일반예약현황',
+    file: '일반예약현황.astro',
     status: '완료',
     description: '예약중인 도서 현황',
   },
   {
     id: 'M04',
     name: '상호대차현황',
-    url: '/14.상호대차현황',
-    file: '14.상호대차현황.astro',
+    url: '/상호대차현황',
+    file: '상호대차현황.astro',
     status: '완료',
     description: '타 도서관 상호대차 신청 현황',
   },
   {
     id: 'M05',
     name: '희망도서신청현황',
-    url: '/15.희망도서신청현황',
-    file: '15.희망도서신청현황.astro',
+    url: '/희망도서신청현황',
+    file: '희망도서신청현황.astro',
     status: '완료',
     description: '희망도서 신청 및 처리 현황',
   },
   {
     id: 'M06',
     name: '희망전자책신청현황',
-    url: '/16.희망전자책신청현황',
-    file: '16.희망전자책신청현황.astro',
+    url: '/희망전자책신청현황',
+    file: '희망전자책신청현황.astro',
     status: '완료',
     description: '희망전자책 신청 및 처리 현황',
   },
   {
     id: 'M07',
     name: '내책장',
-    url: '/17.내책장',
-    file: '17.내책장.astro',
+    url: '/내책장',
+    file: '내책장.astro',
     status: '완료',
     description: '개인 북마크 관리, 태그 클라우드 및 통계 차트 포함',
+  },
+  {
+    id: 'M08',
+    name: '내책장-상세',
+    url: '/내책장-상세',
+    file: '내책장-상세.astro',
+    status: '완료',
+    description: '내책장 상세 정보 페이지',
   },
 ];
 
@@ -195,16 +211,16 @@ const eventPages = [
   {
     id: 'E01',
     name: '행사신청조회',
-    url: '/18.행사신청조회',
-    file: '18.행사신청조회.astro',
+    url: '/행사신청조회',
+    file: '행사신청조회.astro',
     status: '완료',
     description: '도서관 행사 신청 및 조회',
   },
   {
     id: 'E02',
     name: '프로그램신청조회',
-    url: '/19.프로그램신청조회',
-    file: '19.프로그램신청조회.astro',
+    url: '/프로그램신청조회',
+    file: '프로그램신청조회.astro',
     status: '완료',
     description: '교육 프로그램 신청 및 조회',
   },
@@ -231,6 +247,102 @@ const eventPages = [
     file: '영유아전집신청조회.astro',
     status: '완료',
     description: '영유아 대상 전집 대출 신청',
+  },
+];
+
+// 희망도서/전자책 서비스 페이지들
+const servicePages = [
+  {
+    id: 'S12',
+    name: '희망도서신청-서비스안내',
+    url: '/희망도서신청-서비스안내',
+    file: '희망도서신청-서비스안내.astro',
+    status: '완료',
+    description: '희망도서 신청 서비스 안내',
+  },
+  {
+    id: 'S13',
+    name: '희망도서신청-서비스신청',
+    url: '/희망도서신청-서비스신청',
+    file: '희망도서신청-서비스신청.astro',
+    status: '완료',
+    description: '희망도서 신청 폼',
+  },
+  {
+    id: 'S14',
+    name: '희망도서신청',
+    url: '/희망도서신청',
+    file: '희망도서신청.astro',
+    status: '완료',
+    description: '희망도서 신청 메인',
+  },
+  {
+    id: 'S15',
+    name: '희망전자책신청-서비스안내',
+    url: '/희망전자책신청-서비스안내',
+    file: '희망전자책신청-서비스안내.astro',
+    status: '완료',
+    description: '희망전자책 신청 서비스 안내',
+  },
+  {
+    id: 'S16',
+    name: '희망전자책신청-서비스신청',
+    url: '/희망전자책신청-서비스신청',
+    file: '희망전자책신청-서비스신청.astro',
+    status: '완료',
+    description: '희망전자책 신청 폼',
+  },
+  {
+    id: 'S17',
+    name: '무료택배도서대출-서비스안내',
+    url: '/무료택배도서대출-서비스안내',
+    file: '무료택배도서대출-서비스안내.astro',
+    status: '완료',
+    description: '무료택배 도서대출 서비스 안내',
+  },
+  {
+    id: 'S18',
+    name: '무료택배도서대출-서비스신청',
+    url: '/무료택배도서대출-서비스신청',
+    file: '무료택배도서대출-서비스신청.astro',
+    status: '완료',
+    description: '무료택배 도서대출 신청 폼',
+  },
+  {
+    id: 'S19',
+    name: '무료택배도서대출-서비스신청-수정',
+    url: '/무료택배도서대출-서비스신청-수정',
+    file: '무료택배도서대출-서비스신청-수정.astro',
+    status: '완료',
+    description: '무료택배 도서대출 신청 수정',
+  },
+  {
+    id: 'S20',
+    name: '무료택배도서대출-서비스신청-상세',
+    url: '/무료택배도서대출-서비스신청-상세',
+    file: '무료택배도서대출-서비스신청-상세.astro',
+    status: '완료',
+    description: '무료택배 도서대출 신청 상세 보기',
+  },
+];
+
+// 공통/기타 페이지들
+const commonPages = [
+  {
+    id: 'C01',
+    name: '공통팝업',
+    url: '/0.공통팝업',
+    file: '0.공통팝업.astro',
+    status: '완료',
+    description: '공통 팝업 컴포넌트 모음',
+  },
+  {
+    id: 'C02',
+    name: '회원가입',
+    url: '/회원가입',
+    file: '회원가입.astro',
+    status: '완료',
+    description: '회원가입 페이지',
   },
 ];
 
@@ -1133,6 +1245,70 @@ const deployInfo = [
         <tbody>
           {
             eventPages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <div class="section-title">📋 서비스 신청 페이지</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            servicePages.map(page => (
+              <tr>
+                <td>{page.id}</td>
+                <td>{page.name}</td>
+                <td>
+                  <a href={page.url} target="_blank">
+                    {page.file}
+                  </a>
+                </td>
+                <td>
+                  <span class="status-complete">{page.status}</span>
+                </td>
+                <td>{page.description}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+
+      <div class="section-title">🔧 공통/기타 페이지</div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지명</th>
+            <th>URL</th>
+            <th>상태</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            commonPages.map(page => (
               <tr>
                 <td>{page.id}</td>
                 <td>{page.name}</td>

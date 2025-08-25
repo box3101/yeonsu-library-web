@@ -1,0 +1,84 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '열림참여마당', href: '/support' }, { label: '회원가입' }];
+---
+
+<Layout title="회원가입">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 회원가입 선택 섹션 -->
+            <div class="membership-selection">
+              <div class="membership-selection__container">
+                <!-- 좌측 안내 배너 -->
+                <div class="membership-selection__banner">
+                  <div class="banner-content">
+                    <div class="banner-text">
+                      <h2 class="banner-title">가입을 시작합니다.</h2>
+                      <div class="banner-description">
+                        <p>연수구립도서관 <span class="highlight">대출자 번호</span>를 가지고</p>
+                        <p>계신가요?</p>
+                        <p>(연수구립도서관 <span class="highlight">대출회원</span>입니까?)</p>
+                      </div>
+                    </div>
+                    <div class="banner-image">
+                      <img src="./assets/images/library-card-illustration.png" alt="도서관 카드 일러스트" class="banner-img" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 구분선 -->
+                <div class="divider"></div>
+
+                <!-- 우측 선택 옵션 -->
+                <div class="membership-selection__options">
+                  <!-- 아니오 옵션 -->
+                  <a href="./회원가입-해당유형" class="option-card option-card--no" data-membership-type="new">
+                    <div class="option-header">
+                      <div class="option-icon option-icon--danger">
+                        <img src="./assets/images/icon/icon-no.svg" alt="아니오 아이콘" class="option-icon-img" />
+                      </div>
+                      <h3 class="option-title">아니오</h3>
+                      <div class="option-arrow">
+                        <img src="./assets/images/icon/icon-arrow-right2.svg" alt="네 아이콘" class="option-icon-img" />
+                      </div>
+                    </div>
+                    <div class="option-content">
+                      <ul class="option-list">
+                        <li>신규 가입자</li>
+                        <li>연수구 외 타지역 도서관 가입 회원<br />(연수도서관, 인천평생학습관, 송도국제기구도서관 포함)</li>
+                      </ul>
+                    </div>
+                  </a>
+
+                  <!-- 네 옵션 -->
+                  <a href="./회원가입-해당유형" class="option-card option-card--yes" data-membership-type="existing">
+                    <div class="option-header">
+                      <div class="option-icon option-icon--success">
+                        <img src="./assets/images/icon/icon-yes.svg" alt="네 아이콘" class="option-icon-img" />
+                      </div>
+                      <h3 class="option-title">네</h3>
+                      <div class="option-arrow">
+                        <img src="./assets/images/icon/icon-arrow-right2.svg" alt="네 아이콘" class="option-icon-img" />
+                      </div>
+                    </div>
+                    <div class="option-content">
+                      <ul class="option-list">
+                        <li>연수구립도서관 대출회원</li>
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
