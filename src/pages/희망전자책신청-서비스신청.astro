@@ -86,13 +86,21 @@ const bookFields = [
 
 <Layout title="희망도서신청">
   <SubLayout title="희망도서신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+    <UiTab
+      tabs={[
+        { id: 'info', label: '서비스 안내', href: './희망전자책신청-서비스안내' },
+        { id: 'apply', label: '서비스 신청', active: true, href: './희망전자책신청-서비스신청' },
+      ]}
+      className="mb-4 search-type-tabs ui-tab--grid-5"
+    />
+
     <div class="sub-layout__content">
       <div class="sub-layout__content-inner">
         <div class="sub-layout__content-inner-body sub-layout__content-inner-body--form">
           <!-- 신청자 정보 -->
           <div class="sub-layout__content-inner-body-item">
-            <div class="sub-layout__content-inner-body-item-title">
-              <h2 class="sub-layout__content-inner-body-item-title-text">신청자 정보</h2>
+            <div class="sub-layout__content-inner-header">
+              <h2 class="sub-layout__content-inner-header-title">신청자 정보</h2>
             </div>
 
             <!-- 이름, 연락처 -->

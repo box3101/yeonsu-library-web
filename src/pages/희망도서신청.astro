@@ -122,32 +122,6 @@ const bookFields = [
     },
   ],
 ];
-
-// 필드 렌더링 함수
-function renderField(field) {
-  const baseProps = {
-    name: field.name,
-    placeholder: field.placeholder,
-    class: 'w-full',
-    disabled: field.disabled,
-    required: field.required,
-    state: field.state,
-    helperText: field.helperText,
-    errorMessage: field.errorMessage,
-  };
-
-  if (field.type === 'select') {
-    return `<UiSelect options={${JSON.stringify(field.options)}} ${Object.entries(baseProps)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => `${key}="${value}"`)
-      .join(' ')} />`;
-  } else {
-    return `<UiInput ${Object.entries(baseProps)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => `${key}="${value}"`)
-      .join(' ')} />`;
-  }
-}
 ---
 
 <Layout title="희망도서신청">

@@ -1846,6 +1846,15 @@ div.bookshelf-item {
 .text-red {
   color: #d7424e;
 }
+.sub-layout__content-inner-body-item-title-text {
+  margin-top: 2.1875rem !important;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  color: #333;
+  font-weight: 700;
+}
 .sub-layout__content-inner-body-item-title-text-noti {
   display: flex;
   gap: to-rem(8);
@@ -1918,5 +1927,48 @@ div.bookshelf-item {
 .sub-layout__content-inner-body--form {
   .sub-layout__content-inner-body-item {
     gap: to-rem(30);
+  }
+  .sub-layout__content-inner-body-item-title-text {
+    margin-top: 0 !important;
+  }
+}
+.notice-box.type2 {
+  flex-direction: column;
+  border-radius: var(--radius-xlarge2, 12px);
+  border: var(--border-width-static-regular, 1px) solid var(--color-border-secondary-light, #d6e0eb);
+  background: var(--color-surface-secondary-subtler, #eef2f7);
+  .notice-box-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--color-gray-gy-30, #b1b3b3);
+    .notice-title {
+      @include font(to-rem(24), 700, #191919);
+    }
+  }
+  .notice-content {
+    margin-top: 24px;
+    margin-bottom: 0;
+    ul {
+      li {
+        margin-bottom: to-rem(16);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        dl {
+          display: flex;
+          align-items: flex-start;
+          gap: to-rem(12);
+        }
+        dt {
+          @include font(to-rem(17), 700, #3c79c2);
+          line-height: 1.5;
+        }
+        dd {
+          @include font(to-rem(17), 400, #3c79c2);
+          line-height: 1.5;
+        }
+      }
+    }
   }
 }

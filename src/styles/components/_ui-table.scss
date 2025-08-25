@@ -220,17 +220,37 @@
 
   &__badge {
     @include flex(row, center, center);
-    padding: to-rem(2) to-rem(6);
+    padding: to-rem(10) to-rem(14);
+    height: to-rem(32);
+    line-height: to-rem(32);
     border-radius: to-rem(3);
     font-size: to-rem(17);
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
-    line-height: 1.2;
 
     @include mobile {
       font-size: to-rem(12);
       padding: to-rem(2) to-rem(4);
+    }
+
+    // 신청/예약 상태별 배지 스타일
+    &--취소완료 {
+      @include font(to-rem(15), 400, #d7424e);
+      background: #fbeced;
+      border: 1px solid #d7424e;
+    }
+
+    &--대출완료 {
+      @include font(to-rem(15), 400, #244874);
+      background: #ecf2f9;
+      border: 1px solid #244874;
+    }
+
+    &--접수대기 {
+      @include font(to-rem(15), 400, #4b4d4d);
+      background: #f1f2f2;
+      border: 1px solid #4b4d4d;
     }
 
     // 도서관별 색상
@@ -269,67 +289,6 @@
       background: $blue-50;
       color: $blue-700;
       border: 1px solid $blue-200;
-    }
-
-    // 처리상태 배지
-    &--접수대기 {
-      background: #fbeced;
-      color: #d7424e;
-      border: 1px solid #d7424e;
-      border-radius: to-rem(4);
-      padding: to-rem(0) to-rem(10);
-      height: to-rem(32);
-      line-height: to-rem(32);
-      font-size: to-rem(15);
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      @include mobile {
-        padding: to-rem(4) to-rem(8);
-        font-size: to-rem(12);
-        height: to-rem(28);
-        line-height: to-rem(28);
-      }
-    }
-
-    &--접수완료 {
-      background: #f1f2f2;
-      color: #4b4d4d;
-      border: 1px solid #4b4d4d;
-      border-radius: to-rem(4);
-      padding: to-rem(0) to-rem(10);
-      height: to-rem(32);
-      line-height: to-rem(32);
-      font-size: to-rem(15);
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      @include mobile {
-        padding: to-rem(4) to-rem(8);
-        font-size: to-rem(12);
-        height: to-rem(28);
-        line-height: to-rem(28);
-      }
-    }
-
-    &--답변완료 {
-      background: #ecf2f9;
-      color: #244874;
-      border: 1px solid #244874;
-      border-radius: to-rem(4);
-      padding: to-rem(0) to-rem(10);
-      height: to-rem(32);
-      line-height: to-rem(32);
-      font-size: to-rem(17);
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      @include mobile {
-        padding: to-rem(4) to-rem(8);
-        font-size: to-rem(12);
-        height: to-rem(28);
-        line-height: to-rem(28);
-      }
     }
 
     // 기관별 색상 배지 수정
@@ -575,7 +534,7 @@
   }
 
   &__button {
-    padding: to-rem(4) to-rem(12);
+    padding: to-rem(8) to-rem(14);
     border-radius: to-rem(4);
     border: 1px solid transparent;
     cursor: pointer;
