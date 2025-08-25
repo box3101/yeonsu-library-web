@@ -1904,11 +1904,24 @@ div.bookshelf-item {
   margin-top: to-rem(12);
   margin-left: to-rem(16);
   list-style: disc;
+
+  // 모바일에서는 마진 조정 (px 단위 사용)
+  @include mobile {
+    margin-top: 8px;
+    margin-left: 12px;
+  }
+
   li {
     position: relative;
     padding-left: 0;
     @include font(to-rem(17), 400, #464c53);
     word-break: keep-all;
+
+    // 모바일에서는 폰트 크기 조정 (px 단위 사용)
+    @include mobile {
+      font-size: 14px;
+    }
+
     @include makeBefore {
       content: '';
       position: absolute;
@@ -1920,6 +1933,13 @@ div.bookshelf-item {
       height: to-rem(4);
       border-radius: 4px;
       border: 1px solid var(--color-gray-gy-70, #4b4d4d);
+
+      // 모바일에서는 위치와 크기 조정 (px 단위 사용)
+      @include mobile {
+        left: -12px;
+        width: 3px;
+        height: 3px;
+      }
     }
   }
 }
@@ -1927,46 +1947,102 @@ div.bookshelf-item {
 .sub-layout__content-inner-body--form {
   .sub-layout__content-inner-body-item {
     gap: to-rem(30);
+
+    // 모바일에서는 간격 조정 (px 단위 사용)
+    @include mobile {
+      gap: 20px;
+    }
   }
   .sub-layout__content-inner-body-item-title-text {
     margin-top: 0 !important;
   }
 }
+
 .notice-box.type2 {
   flex-direction: column;
   border-radius: var(--radius-xlarge2, 12px);
   border: var(--border-width-static-regular, 1px) solid var(--color-border-secondary-light, #d6e0eb);
   background: var(--color-surface-secondary-subtler, #eef2f7);
+
+  // 모바일에서는 패딩과 보더 반경 조정 (px 단위 사용)
+  @include mobile {
+    border-radius: 8px;
+    padding: 16px;
+  }
+
   .notice-box-header {
     display: flex;
     align-items: center;
     padding-bottom: 16px;
     border-bottom: 1px dashed var(--color-gray-gy-30, #b1b3b3);
+
+    // 모바일에서는 패딩 조정 (px 단위 사용)
+    @include mobile {
+      padding-bottom: 12px;
+    }
+
     .notice-title {
       @include font(to-rem(24), 700, #191919);
+
+      // 모바일에서는 폰트 크기 조정 (px 단위 사용)
+      @include mobile {
+        font-size: 18px;
+      }
     }
   }
+
   .notice-content {
     margin-top: 24px;
     margin-bottom: 0;
+
+    // 모바일에서는 마진 조정 (px 단위 사용)
+    @include mobile {
+      margin-top: 16px;
+    }
+
     ul {
       li {
         margin-bottom: to-rem(16);
         &:last-child {
           margin-bottom: 0;
         }
+
+        // 모바일에서는 마진 조정 (px 단위 사용)
+        @include mobile {
+          margin-bottom: 6px;
+        }
+
         dl {
           display: flex;
           align-items: flex-start;
-          gap: to-rem(12);
+          gap: to-rem(6);
+
+          // 모바일에서는 간격 조정과 세로 정렬 변경 (px 단위 사용)
+          @include mobile {
+            gap: 8px;
+          }
         }
+
         dt {
           @include font(to-rem(17), 700, #3c79c2);
           line-height: 1.5;
+
+          // 모바일에서는 폰트 크기 조정 (px 단위 사용)
+          @include mobile {
+            font-size: 14px;
+            margin-bottom: 4px;
+          }
         }
+
         dd {
           @include font(to-rem(17), 400, #3c79c2);
           line-height: 1.5;
+
+          // 모바일에서는 폰트 크기 조정 (px 단위 사용)
+          @include mobile {
+            font-size: 14px;
+            word-break: keep-all;
+          }
         }
       }
     }
