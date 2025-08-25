@@ -1516,7 +1516,7 @@ div.bookshelf-item {
     // 본문 콘텐츠 영역
     display: flex;
     flex-direction: column;
-    gap: to-rem(16);
+    gap: to-rem(32);
 
     @include mobile {
       // 모바일에서는 간격 축소
@@ -2235,5 +2235,16 @@ div.bookshelf-item {
       width: 20px;
       height: 20px;
     }
+  }
+}
+
+.footer-btn-wrp {
+  display: flex;
+  gap: to-rem(16);
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 10px;
   }
 }

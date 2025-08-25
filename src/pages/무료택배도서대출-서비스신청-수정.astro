@@ -1,0 +1,141 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiPagination, UiSearchbar, UiTable, UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '열린참여마당', href: '/support' }, { label: '무료택배도서대출' }];
+
+const applicantFields = [
+  {
+    name: 'title',
+    label: '제목',
+    placeholder: '제목을 입력해주세요.',
+    required: true,
+  },
+  {
+    name: 'applicant',
+    label: '신청자',
+    placeholder: '신청자를 입력해주세요.',
+    required: true,
+    disabled: true,
+  },
+  {
+    name: 'phone',
+    label: '연락처',
+    placeholder: '연락처를 입력해주세요.',
+    required: true,
+    disabled: true,
+  },
+  {
+    name: 'loanAddress',
+    label: '대출받을 주소',
+    placeholder: '대출받을 주소를 입력해주세요.',
+    required: true,
+    disabled: true,
+  },
+  {
+    name: 'entrancePassword',
+    label: '공동현관 비밀번호',
+    placeholder: '공동현관 비밀번호를 입력해주세요.',
+    required: true,
+    disabled: true,
+  },
+];
+---
+
+<Layout title="도서관에 바란다">
+  <SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+    <UiTab
+      tabs={[
+        { id: 'info', label: '서비스 안내', active: false, href: './무료택배도서대출-서비스안내' },
+        { id: 'apply', label: '서비스 신청', active: true, href: './무료택배도서대출-서비스신청' },
+      ]}
+      className="mb-4 search-type-tabs ui-tab--grid-5"
+    />
+
+    <div class="sub-layout__content-inner">
+      <div class="sub-layout__content-inner-body sub-layout__content-inner-body--form">
+        <div class="sub-layout__content-inner-body-item">
+          <!--  제목, 신청자, 연락처, 대출받을 주소, 공동현관 비밀번호호 -->
+          <div class="sub-layout__content-inner-body-item">
+            {
+              applicantFields.map(field => (
+                <div class="sub-layout__content-inner-body-item-content-item">
+                  <div class="sub-layout__content-inner-body-item-content-item-label">
+                    {field.label}
+                    {field.required && <sup class="text-red">*</sup>}
+                  </div>
+                  <div class="sub-layout__content-inner-body-item-content-item-value">
+                    <UiInput name={field.name} placeholder={field.placeholder} class="w-full" disabled={field.disabled} required={field.required} />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- 신청 도서 목록 테이블 -->
+          <div class="policy-table mt24">
+            <table class="table table--bordered">
+              <colgroup>
+                <col width="10%" />
+                <col width="50%" />
+                <col width="20%" />
+                <col width="20%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" colspan="4">신청 도서 목록</th>
+                </tr>
+                <tr>
+                  <th scope="col" style="background: #ECF2F9;">연번</th>
+                  <th scope="col" style="background: #ECF2F9;">도서명</th>
+                  <th scope="col" style="background: #ECF2F9;">청구기호</th>
+                  <th scope="col" style="background: #ECF2F9;">등록번호</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><UiInput placeholder="도서명을 입력해주세요" class="w-full" /></td>
+                  <td><UiInput placeholder="청구기호" class="w-full" /></td>
+                  <td><UiInput placeholder="등록번호" class="w-full" /></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><UiInput placeholder="도서명을 입력해주세요" class="w-full" /></td>
+                  <td><UiInput placeholder="청구기호" class="w-full" /></td>
+                  <td><UiInput placeholder="등록번호" class="w-full" /></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><UiInput placeholder="도서명을 입력해주세요" class="w-full" /></td>
+                  <td><UiInput placeholder="청구기호" class="w-full" /></td>
+                  <td><UiInput placeholder="등록번호" class="w-full" /></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><UiInput placeholder="도서명을 입력해주세요" class="w-full" /></td>
+                  <td><UiInput placeholder="청구기호" class="w-full" /></td>
+                  <td><UiInput placeholder="등록번호" class="w-full" /></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><UiInput placeholder="도서명을 입력해주세요" class="w-full" /></td>
+                  <td><UiInput placeholder="청구기호" class="w-full" /></td>
+                  <td><UiInput placeholder="등록번호" class="w-full" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 목록, 등록, 취소 -->
+          <div class="footer-btn-wrp">
+            <UiButton variant="tertiary" class="w-120-mobile-full" text="목록" />
+            <UiButton variant="primary" class="w-120-mobile-full" text="등록" />
+            <UiButton variant="secondary" class="w-120-mobile-full" text="취소" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
