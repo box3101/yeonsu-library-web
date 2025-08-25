@@ -6,16 +6,16 @@ import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker, UiTab } from '
 const breadcrumbItems = [
   { text: '홈', link: '/' },
   { text: '내정보', link: '#' },
-  { text: '희망도서신청', link: '#' },
+  { text: '희망전자책신청', link: '#' },
 ];
 ---
 
-<Layout title="희망도서신청">
-  <SubLayout title="희망도서신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+<Layout title="희망전자책신청">
+  <SubLayout title="희망전자책신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
     <UiTab
       tabs={[
-        { id: 'info', label: '서비스 안내', active: true, href: './희망도서신청-서비스안내' },
-        { id: 'apply', label: '서비스 신청', href: './희망도서신청-서비스신청' },
+        { id: 'info', label: '서비스 안내', active: true, href: './희망전자책신청-서비스안내' },
+        { id: 'apply', label: '서비스 신청', href: './희망전자책신청-서비스신청' },
       ]}
       className="mb-4 search-type-tabs ui-tab--grid-5"
     />
@@ -24,10 +24,16 @@ const breadcrumbItems = [
       <!-- 희망도서 신청도서관 소개 -->
       <section class="sub-layout__content-inner">
         <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">희망도서 신청도서관</h2>
-          <p class="sub-layout__content-inner-header-desc">
-            연수청학, 연수꿈담, 송도국제어린이, 해돋이, 선학별빛, 동춘나래, 함박비류, 송도5동, 솔안공원, 해찬솔공원, 누리공원
-          </p>
+          <h2 class="sub-layout__content-inner-header-title">전자책 구입조건</h2>
+        </div>
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <ul class="sub-layout__content-inner-body-item-list">
+              <li>YES24 전자책으로 발간된 자료</li>
+              <li>연수구립도서관에서 운영하는 전자책 솔루션으로 이용 가능한 전자책 중 기관 판매 및 서비스가 가능한 자료</li>
+            </ul>
+            <p class="desc pl16 text-primary">※ 전자책으로 발간되지 않거나 기관 판매되지 않는 도서는 구입 불가</p>
+          </div>
         </div>
       </section>
       <!-- 희망도서 신청도서관 EEE -->
@@ -35,36 +41,20 @@ const breadcrumbItems = [
       <!-- 희망도서 신청기준 -->
       <section class="sub-layout__content-inner">
         <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">희망도서 신청기준</h2>
+          <h2 class="sub-layout__content-inner-header-title">희망전자책 신청기준</h2>
         </div>
         <div class="sub-layout__content-inner-body">
           <ul class="sub-layout__content-inner-body-item-list">
-            <li>월 1인 2권까지 신청</li>
-            <li>희망도서는 월 2회 처리(1일, 15일)</li>
+            <li>신청권수: 월 1인 1권까지 신청</li>
+            <li>
+              신청방법
+              <ul class="sub-layout__content-inner-body-item-list-sub">
+                <li>연수구립도서관 홈페이지에서 신청</li>
+                <li>모바일 리브로피아 앱에서 인증된 연수구립도서관 페이지에서 신청</li>
+                <li>(연수청학도서관 어린이자료실(1층), 종합자료실(2층) 데스크에 비치된 희망전자책 신청서 작성 제출</li>
+              </ul>
+            </li>
           </ul>
-          <!-- 희망도서 신청기준 테이블 -->
-          <div class="policy-table">
-            <table class="table table--bordered">
-              <thead>
-                <tr>
-                  <th scope="col">도서관명</th>
-                  <th scope="col">처리주기</th>
-                  <th scope="col">비고</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>연수청학·연수꿈담·해돋이·선학별빛·동춘나래·함박비류도서관</td>
-                  <td>월 2회 (1일,15일) 전일 신청 분까지</td>
-                  <td rowspan="2">주문 및 도서 입수 2~3주 소요</td>
-                </tr>
-                <tr>
-                  <td>송도국제어린이도서관, 공원작은도서관(해찬솔, 누리, 송도5동, 솔안)</td>
-                  <td>월 1회 (15일) 전일 신청 분까지</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
       <!-- 희망도서 신청기준 EEE -->
@@ -72,14 +62,24 @@ const breadcrumbItems = [
       <!-- 희망도서 신청방법 -->
       <section class="sub-layout__content-inner">
         <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">희망도서 신청방법</h2>
+          <h2 class="sub-layout__content-inner-header-title">희망전자책 신청 제외 대상</h2>
         </div>
         <div class="sub-layout__content-inner-body">
           <div class="sub-layout__content-inner-body-item">
             <ul class="sub-layout__content-inner-body-item-list">
-              <li>연수구립도서관 홈페이지에서 신청</li>
-              <li>각 도서관 도서검색대에 비치된 희망도서 신청서 작성 제출</li>
-              <li>(모바일)리브로피아 앱에 인증된 연수구립도서관 페이지에서 신청</li>
+              <li>연수구립도서관 장서(종이책)로 15권 이상 소장하고 있는 도서</li>
+              <li>당해 연도 기준 5년 이전 출간된 도서</li>
+              <li>만화(웹툰, 학습만화 포함), 판타지, 로맨스, 무협지, 게임 가이드북, 선정적인 도서</li>
+              <li>수험서, 문제집, 학습참고서, 논문, 전문서적 및 전공서적</li>
+              <li>시리즈 및 전집류, 연속간행물(신문, 잡지 등), 원서, 체험판</li>
+              <li>고가의 자료(단가 50,000원 이상) (기관판매 전자책은 개인 전자책 구입가와 다름)</li>
+              <li>품절 및 절판도서</li>
+              <li>기타 전자도서관 장서로 부적합하다고 판단되는 자료 등</li>
+              <li>공중이 이용할 수 없는 도서(워크북 등)</li>
+              <li>독자층이 한정된 고도의 전문지식을 요하는 주제의 도서</li>
+              <li>사전류, 악보, 작품집(도록, 화집, 사진집 포함), 논문집, 통계, 연감, 백서, 보고서, 편람 등의 특수 유형의 자료</li>
+              <li>경전(성경, 불경), 간증, 설교, 전도 등을 목적으로 한 종교 관련 도서</li>
+              <li>영리 목적으로 개인이나 단체가 신청한 도서(출판사 혹은 본인이 저자, 역자) 및 정치 목적의 도서</li>
             </ul>
           </div>
         </div>
@@ -107,7 +107,6 @@ const breadcrumbItems = [
               <li>경전(성경, 불경), 간증, 설교, 전도 등을 목적으로 한 종교 관련 도서</li>
               <li>영리 목적으로 개인이나 단체가 신청한 도서(출판사 본인이 저자, 역자) 및 정치 목적의 도서</li>
             </ul>
-            <p class="desc">※ 희망도서 선정에서 제외된 도서 중 필요하다고 판단되는 경우에는 정기구입 자료선정 위원회에서 심의를 통해 구입</p>
           </div>
         </div>
       </section>
@@ -116,14 +115,17 @@ const breadcrumbItems = [
       <!-- 스텝 -->
       <section class="sub-layout__content-inner">
         <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">희망도서신청 처리과정</h2>
+          <h2 class="sub-layout__content-inner-header-title">희망도서신청 처리절차</h2>
         </div>
         <div class="sub-layout__content-inner-body">
           <div class="sub-layout__content-inner-body-item">
             <div class="step-process">
               <div class="step-item">
                 <div class="step-number">1</div>
-                <div class="step-content">희망도서신청</div>
+                <div class="step-content">
+                  희망전자책신청<br />
+                  <span class="step-sub">(상시, 월 1일 1권)</span>
+                </div>
                 <div class="step-arrow">
                   <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
                 </div>
@@ -131,8 +133,9 @@ const breadcrumbItems = [
               <div class="step-item">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                  소장여부 파악<br />
-                  <span class="step-sub">(신청가능/불가 파악)</span>
+                  자료 소장여부<br />
+                  신청가능/불가 파악<br />
+                  <span class="step-sub">(매월 1일, 전일 신청분까지 처리)</span>
                 </div>
                 <div class="step-arrow">
                   <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
@@ -141,8 +144,9 @@ const breadcrumbItems = [
               <div class="step-item">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                  목록작성 <br /> 및 발주
-                  <span class="step-sub">(월 2회)</span>
+                  목록작성<br />
+                  및 발주<br />
+                  <span class="step-sub">(매월 5일 이전)</span>
                 </div>
                 <div class="step-arrow">
                   <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
@@ -151,8 +155,9 @@ const breadcrumbItems = [
               <div class="step-item">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                  신청도서 <br /> 도착 알림
-                  <span class="step-sub">(SMS 전송)</span>
+                  전자도서관 시스템에<br />
+                  전자책 서버 탑재<br />
+                  <span class="step-sub">(도서 입수 3~4주 소요)</span>
                 </div>
                 <div class="step-arrow">
                   <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
@@ -160,17 +165,7 @@ const breadcrumbItems = [
               </div>
               <div class="step-item">
                 <div class="step-number">5</div>
-                <div class="step-content">
-                  도서예약처리<br />
-                  <span class="step-sub">(5일간)</span>
-                </div>
-                <div class="step-arrow">
-                  <img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="step-arrow-icon" />
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-number">6</div>
-                <div class="step-content">도서대출</div>
+                <div class="step-content">자료대출 실시</div>
               </div>
             </div>
           </div>
@@ -188,7 +183,7 @@ const breadcrumbItems = [
           iconPosition="right"
           class="mt40"
           target="_blank"
-          href="./희망도서신청-서비스신청"
+          href="./희망전자책신청-서비스신청"
         />
       </div>
     </div>

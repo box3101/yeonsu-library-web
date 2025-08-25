@@ -37,40 +37,16 @@ const applicantFields = [
     state: 'error',
     helperText: '연락처를 올바르게 입력해주세요.',
   },
-  {
-    name: 'email',
-    label: '이메일',
-    placeholder: '이메일을 입력해주세요.',
-    required: true,
-    state: 'error',
-    errorMessage: '사용자명이 너무 짧습니다',
-    colSpan: 1, // 한 줄 전체 사용
-  },
 ];
 
 // 도서 정보 필드 설정
 const bookFields = [
   [
     {
-      name: 'library',
-      label: '신청도서관',
-      type: 'select',
-      required: true,
-      state: 'error',
-      helperText: '거주 중인 국가를 선택해주세요',
-      options: [
-        { label: '도서관1', value: '1' },
-        { label: '도서관2', value: '2' },
-      ],
-      colSpan: 1,
-    },
-  ],
-  [
-    {
       name: 'bookTitle',
       type: 'input',
-      label: '희망도서명',
-      placeholder: '희망도서명을 입력해주세요.',
+      label: '희망전자책명',
+      placeholder: '희망전자책명을 입력해주세요.',
       required: true,
     },
     {
@@ -85,8 +61,8 @@ const bookFields = [
     {
       name: 'publisher',
       type: 'input',
-      label: '출판사',
-      placeholder: '출판사를 입력해주세요.',
+      label: '발행처',
+      placeholder: '발행처를 입력해주세요.',
       required: true,
     },
     {
@@ -99,55 +75,13 @@ const bookFields = [
   ],
   [
     {
-      name: 'isbn',
-      type: 'input',
-      label: 'ISBN',
-      placeholder: 'ISBN을 입력해주세요.',
-      required: true,
-    },
-    {
-      name: 'price',
-      type: 'input',
-      label: '정가',
-      placeholder: '정가를 입력해주세요.',
-      required: true,
-    },
-  ],
-  [
-    {
       type: 'textarea',
       label: '신청사유',
-      placeholder: '100 자 이내로 입력해주세요.',
+      placeholder: '200 자 이내로 입력해주세요.',
       colSpan: 1,
     },
   ],
 ];
-
-// 필드 렌더링 함수
-function renderField(field) {
-  const baseProps = {
-    name: field.name,
-    placeholder: field.placeholder,
-    class: 'w-full',
-    disabled: field.disabled,
-    required: field.required,
-    state: field.state,
-    helperText: field.helperText,
-    errorMessage: field.errorMessage,
-  };
-
-  if (field.type === 'select') {
-    return `<UiSelect options={${JSON.stringify(field.options)}} ${Object.entries(baseProps)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => `${key}="${value}"`)
-      .join(' ')} />`;
-  } else {
-    return `<UiInput ${Object.entries(baseProps)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => `${key}="${value}"`)
-      .join(' ')} />`;
-  }
-}
 ---
 
 <Layout title="희망도서신청">
@@ -266,29 +200,13 @@ function renderField(field) {
               ))
             }
           </div>
-
-          <!-- SMS 수신여부  -->
-          <div class="sub-layout__content-inner-body-item">
-            <div class="sub-layout__content-inner-body-item-content">
-              <div class="sub-layout__content-inner-body-item-content-item">
-                <div class="sub-layout__content-inner-body-item-content-item-label">SMS 수신여부</div>
-                <div class="sub-layout__content-inner-body-item-content-item-value">
-                  <div class="flex gap-10">
-                    <UiRadio name="sms" label="동의 함" />
-                    <UiRadio name="sms" label="동의 안함" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- 취소 신청 -->
         <div class="sub-layout__content-inner-body-footer">
-          <UiButton variant="darkGray" text="취소" class="w-full" />
-          <UiButton variant="primary" text="신청" class="w-full" />
+          <UiButton variant="primary" text="신청" class="w-135-mobile-full" />
         </div>
       </div>
-    </div>
-  </SubLayout>
-</Layout>
+    </div></SubLayout
+  ></Layout
+>
