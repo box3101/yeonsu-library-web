@@ -2686,7 +2686,7 @@
       &:last-child {
         margin-bottom: 0;
       }
-      
+
       & {
         line-height: 1.5;
       }
@@ -2864,7 +2864,7 @@ div.bookshelf-item {
     // 페이지 메인 제목 스타일
     margin-top: to-rem(35) !important;
     @include page-title('h2');
-    
+
     & {
       color: $text-color;
       font-weight: 700;
@@ -3832,5 +3832,47 @@ div.bookshelf-item {
 
   .login-form-section {
     padding: 1rem;
+  }
+}
+
+.ui-searchbar {
+  background-color: #eef2f7;
+  border-radius: to-rem(12);
+  padding: to-rem(22) to-rem(32);
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__content {
+    @include flex(row, flex-end, center);
+    gap: to-rem(10);
+    width: 100%;
+  }
+
+  &__select {
+    min-width: to-rem(120);
+    flex-shrink: 0;
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+
+  // 반응형 스타일
+  @include mobile {
+    padding: to-rem(16);
+
+    &__content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: to-rem(12);
+    }
+
+    &__select,
+    &__input,
+    &__button {
+      width: 100%;
+    }
   }
 }

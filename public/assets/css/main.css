@@ -62976,6 +62976,44 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     padding: 1rem;
   }
 }
+.ui-searchbar {
+  background-color: #eef2f7;
+  border-radius: 0.75rem;
+  padding: 1.375rem 2rem;
+}
+.ui-searchbar--full-width {
+  width: 100%;
+}
+.ui-searchbar__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.625rem;
+  width: 100%;
+}
+.ui-searchbar__select {
+  min-width: 7.5rem;
+  flex-shrink: 0;
+}
+.ui-searchbar__button {
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .ui-searchbar {
+    padding: 1rem;
+  }
+  .ui-searchbar__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .ui-searchbar__select, .ui-searchbar__input, .ui-searchbar__button {
+    width: 100%;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
