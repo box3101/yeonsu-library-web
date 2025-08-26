@@ -657,15 +657,17 @@ img {
   border-radius: 0.75rem;
   width: 100%;
   box-sizing: border-box;
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-end;
 }
 @media (max-width: 900px) {
   .search-container-type1 {
     padding: 20px;
     border-radius: 8px;
   }
+}
+.search-container-type1 {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
 }
 @media (max-width: 900px) {
   .search-container-type1 {
@@ -943,6 +945,12 @@ img {
   position: relative;
   flex-shrink: 0;
   transition: transform 0.3s ease;
+}
+@media (max-width: 900px) {
+  .related-site-button__icon {
+    width: auto;
+    height: auto;
+  }
 }
 .related-site-button__icon img {
   display: block;
@@ -61761,7 +61769,6 @@ h6 {
   line-height: 1;
   margin-bottom: 0.75rem;
   word-break: keep-all;
-  line-height: 1.5;
 }
 @media (max-width: 900px) {
   .book-description ul li {
@@ -61805,6 +61812,9 @@ h6 {
 }
 .book-description ul li:last-child {
   margin-bottom: 0;
+}
+.book-description ul li {
+  line-height: 1.5;
 }
 .book-description ul li strong {
   font-size: 0.9375rem;
@@ -62019,8 +62029,6 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   font-weight: 600;
   line-height: 1.25;
   margin: 0;
-  color: #333;
-  font-weight: 700;
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-header-title {
@@ -62031,6 +62039,10 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   .sub-layout__content-inner-header-title {
     font-size: 1.575rem;
   }
+}
+.sub-layout__content-inner-header-title {
+  color: #333;
+  font-weight: 700;
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-header-title {
@@ -69919,7 +69931,7 @@ body.modal-open {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("./assets/images/building-image.png");
+  background-image: url("../images/building-image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -70605,7 +70617,7 @@ body.modal-open {
 .event-section {
   width: 100%;
   padding: 3.75rem 0;
-  background-image: url("./assets/images/bg-event-section.png");
+  background-image: url("../images/bg-event-section.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

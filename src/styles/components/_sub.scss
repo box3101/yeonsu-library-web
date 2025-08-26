@@ -2686,7 +2686,10 @@
       &:last-child {
         margin-bottom: 0;
       }
-      line-height: 1.5;
+      
+      & {
+        line-height: 1.5;
+      }
       strong {
         @include font(to-rem(15), 700, #306199);
 
@@ -2861,12 +2864,15 @@ div.bookshelf-item {
     // 페이지 메인 제목 스타일
     margin-top: to-rem(35) !important;
     @include page-title('h2');
-    color: $text-color;
-    font-weight: 700;
+    
+    & {
+      color: $text-color;
+      font-weight: 700;
 
-    @include mobile {
-      // 모바일에서는 폰트 크기 축소 (85%)
-      font-size: 24px; // 28px의 85%
+      @include mobile {
+        // 모바일에서는 폰트 크기 축소 (85%)
+        font-size: 24px; // 28px의 85%
+      }
     }
   }
 
