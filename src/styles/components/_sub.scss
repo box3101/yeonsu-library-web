@@ -3415,7 +3415,7 @@ div.bookshelf-item {
         }
 
         dd {
-          @include font(to-rem(17), 400, #3c79c2);
+          @include font(to-rem(17), 400, $text-color);
           line-height: 1.5;
 
           // 모바일에서는 폰트 크기 조정 (px 단위 사용)

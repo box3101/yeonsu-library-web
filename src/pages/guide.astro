@@ -4,7 +4,7 @@ const currentDate = new Date().toLocaleDateString('ko-KR');
 
 // 통계 정보
 const stats = [
-  { number: '45', label: '운영중인 페이지' },
+  { number: '52', label: '운영중인 페이지' },
   { number: '25', label: 'UI 컴포넌트' },
   { number: '동적메뉴', label: '1depth 기반' },
   { number: 'Vanilla JS', label: '순수 자바스크립트' },
@@ -400,6 +400,46 @@ const commonPages = [
     status: '완료',
     description: '회원가입 해당유형 선택 페이지',
   },
+  {
+    id: 'C10',
+    name: '회원가입-결과',
+    url: '/회원가입-결과',
+    file: '회원가입-결과.astro',
+    status: '완료',
+    description: '회원가입/로그인/비밀번호 관련 결과 페이지 (4가지 타입 지원)',
+  },
+  {
+    id: 'C11',
+    name: '로그인',
+    url: '/로그인',
+    file: '로그인.astro',
+    status: '완료',
+    description: '로그인 페이지 (좌측 환영 배너 + 우측 로그인 폼)',
+  },
+  {
+    id: 'C12',
+    name: '비밀번호찾기',
+    url: '/비밀번호찾기',
+    file: '비밀번호찾기.astro',
+    status: '완료',
+    description: '비밀번호 찾기 1단계 - 아이디 입력',
+  },
+  {
+    id: 'C13',
+    name: '비밀번호찾기-step2',
+    url: '/비밀번호찾기-step2',
+    file: '비밀번호찾기-step2.astro',
+    status: '완료',
+    description: '비밀번호 찾기 2단계 - 본인인증 방법 선택 (I-PIN/휴대폰)',
+  },
+  {
+    id: 'C14',
+    name: '비밀번호찾기-step3',
+    url: '/비밀번호찾기-step3',
+    file: '비밀번호찾기-step3.astro',
+    status: '완료',
+    description: '비밀번호 찾기 3단계 - 새 비밀번호 설정',
+  },
 ];
 
 // UI 컴포넌트 라이브러리
@@ -710,6 +750,41 @@ const improvements = [
     id: 'R13',
     title: '나의 서재 전체 시스템',
     description: '대출현황, 예약현황, 희망도서 등 개인 서비스 페이지 완성',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R14',
+    title: '로그인 시스템 구현',
+    description: 'Figma 디자인 기반 로그인 페이지, 좌측 환영 배너와 우측 로그인 폼 구조',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R15',
+    title: '비밀번호 찾기 플로우',
+    description: '3단계 비밀번호 찾기 시스템 (아이디 입력 → 본인인증 → 비밀번호 변경)',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R16',
+    title: '통합 결과 페이지 시스템',
+    description: 'URL 파라미터 기반 4가지 결과 타입 지원 (성공/실패/아이디찾기/대출자번호)',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R17',
+    title: '회원가입 스타일 통일',
+    description: '로그인/비밀번호찾기 페이지를 회원가입 스타일 구조로 통일화',
+    date: '2025.08',
+    status: '적용완료',
+  },
+  {
+    id: 'R18',
+    title: '복사 기능 구현',
+    description: 'Clipboard API 활용한 대출자번호 복사 기능, 시각적 피드백 포함',
     date: '2025.08',
     status: '적용완료',
   },
