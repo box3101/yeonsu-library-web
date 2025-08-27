@@ -91,21 +91,7 @@ const buttonClasses = [
   {
     loading && (
       <div class="ui-button__spinner">
-        <svg class="ui-button__spinner-icon" viewBox="0 0 24 24">
-          <circle
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="2"
-            fill="none"
-            stroke-linecap="round"
-            stroke-dasharray="32"
-            stroke-dashoffset="32"
-          >
-            <animate attributeName="stroke-dashoffset" dur="1s" values="32;0;32" repeatCount="indefinite" />
-          </circle>
-        </svg>
+        <img class="ui-button__spinner-icon" src="./assets/images/icon/icon-spinner.svg" alt="" />
       </div>
     )
   }

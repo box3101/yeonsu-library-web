@@ -5,64 +5,61 @@ import Footer from '../components/layout/Footer.astro';
 ---
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <!-- swiper -->
-    <link rel="stylesheet" href="./assets/css/vendor/swiper.css" />
-    <!-- aos -->
-    <link rel="stylesheet" href="./assets/css/vendor/aos.css" />
-    <!-- main -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <title>연수구립도서관</title>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+		<!-- swiper -->
+		<link rel="stylesheet" href="./assets/css/vendor/swiper.css" />
+		<!-- aos -->
+		<link rel="stylesheet" href="./assets/css/vendor/aos.css" />
+		<!-- main -->
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<title>연수구립도서관</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 
-    <!-- VENDOR -->
-    <script is:inline type="text/javascript" src="./assets/js/vendor/jquery.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/vendor/swiper-bundle.min.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/vendor/aos.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/vendor/chat.js"></script>
+		<!-- VENDOR -->
+		<script is:inline type="text/javascript" src="./assets/js/vendor/jquery.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/vendor/swiper-bundle.min.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/vendor/aos.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/vendor/chat.js"></script>
 
-    <!-- LibraryCommon 전역 객체 먼저 로드 -->
-    <script is:inline type="text/javascript" src="./assets/js/common.js"></script>
+		<!-- 기능별 스크립트들 -->
+		<script is:inline type="text/javascript" src="./assets/js/wordcloud2.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/comAccordian.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/comTab.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/collectAccordion.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/swiper.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/collection.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/collectionModal.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/comGnb.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/leftMenu.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/modal.js"></script>
 
-    <!-- 기능별 스크립트들 -->
-    <script is:inline type="text/javascript" src="./assets/js/wordcloud2.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/comAccordian.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/comTab.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/collectAccordion.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/swiper.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/collection.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/collectionModal.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/comGnb.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/leftMenu.js"></script>
-    <script is:inline type="text/javascript" src="./assets/js/modal.js"></script>
+		<!-- 메인 -->
+		<script is:inline type="text/javascript" src="./assets/js/main/searchTab.js"></script>
 
-    <!-- 메인 -->
-    <script is:inline type="text/javascript" src="./assets/js/main/searchTab.js"></script>
+		<!-- 서브 -->
+		<script is:inline type="text/javascript" src="./assets/js/sub/filter.js"></script>
 
-    <!-- 서브 -->
-    <script is:inline type="text/javascript" src="./assets/js/sub/filter.js"></script>
-
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({
-          duration: 600, // 자연스러운 지속 시간 (600ms)
-          easing: 'ease-out-cubic', // 부드러운 이징
-          once: true, // 한 번만 애니메이션 실행
-          offset: 80, // 트리거 지점 (80px 전에 시작)
-          delay: 0, // 지연 시간 없음
-          disable: false, // 모든 기기에서 활성화
-          startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
-        });
-      });
-    </script>
-  </body>
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', function () {
+				AOS.init({
+					duration: 600, // 자연스러운 지속 시간 (600ms)
+					easing: 'ease-out-cubic', // 부드러운 이징
+					once: true, // 한 번만 애니메이션 실행
+					offset: 80, // 트리거 지점 (80px 전에 시작)
+					delay: 0, // 지연 시간 없음
+					disable: false, // 모든 기기에서 활성화
+					startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
+				});
+			});
+		</script>
+	</body>
 </html>

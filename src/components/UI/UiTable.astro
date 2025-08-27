@@ -140,10 +140,7 @@ const getColumnWidthClass = (width) => {
                 {column.label}
                 {column.sortable && (
                   <button class="ui-table__sort-btn" type="button" aria-label={`${column.label} 정렬`}>
-                    <svg class="ui-table__sort-icon" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 2L9 5H3L6 2Z" fill="currentColor" />
-                      <path d="M6 10L3 7H9L6 10Z" fill="currentColor" />
-                    </svg>
+                    <img class="ui-table__sort-icon" src="./assets/images/icon/icon-sort.svg" alt="" />
                   </button>
                 )}
               </div>
