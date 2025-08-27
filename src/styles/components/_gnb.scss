@@ -125,7 +125,7 @@
 	&-item {
 		border-radius: to-rem(8);
 		transition: all 0.2s ease;
-		position: relative; // 3depth 메뉴 위치 참조점
+		// position: relative; // 3depth 메뉴 위치 참조점
 
 		&.selected {
 			background: #ecf2f9;
@@ -256,6 +256,46 @@
 	}
 }
 
+// 3depth 메뉴를 서브메뉴 전체 영역 기준으로 위치 조정
+.gnb-third-list {
+	position: absolute;
+	top: 0; // 서브메뉴 전체 영역 맨 위부터 시작
+	left: 50%;
+	width: to-rem(298);
+	height: 100%;
+	overflow: auto;
+	background: white;
+	border-left: 1px solid #cdd1d5;
+	padding: to-rem(8) to-rem(24);
+	list-style: none;
+	margin: 0;
+	z-index: 1001;
+
+	// 기본적으로 숨김
+	display: none;
+
+	// 부모 li가 hover되거나 선택되었을 때 표시
+	.gnb-sub-item:hover &,
+	.gnb-sub-item.selected & {
+		display: block;
+	}
+}
+
+// gnb-sub-content에 상대 위치 설정 (3depth 메뉴의 기준점)
+.gnb-sub-content {
+	position: relative; // 3depth 메뉴의 기준점이 되도록 설정
+}
+
+// gnb-sub-menu의 기존 position: relative 제거하고 너비 조정
+.gnb-sub-menu {
+	// position: relative 제거
+	// 3depth가 표시될 때 너비를 줄여서 공간 확보
+	.gnb-sub-item:hover ~ .gnb-third-list,
+	.gnb-sub-item.selected ~ .gnb-third-list {
+		display: block;
+	}
+}
+
 @include mobile {
 	.gnb {
 		display: none;
@@ -284,6 +324,7 @@
 		transition: none;
 	}
 }
+
 // 새로 추가된 ul/ol 구조를 위한 스타일
 .gnb-sub {
 	&-list {
@@ -293,63 +334,5 @@
 		display: flex;
 		flex-direction: column;
 		gap: to-rem(4);
-	}
-}
-
-// 3depth 메뉴 - 완전한 ul > li > a > ol 구조
-.gnb-third {
-	// 새로운 일관된 구조: ul > li > a > ol
-	&-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: none; // 기본적으로 숨김
-		position: absolute;
-		top: 0;
-		left: 100%;
-		min-width: to-rem(200);
-		background: white;
-		border: 1px solid #e5e8eb;
-		border-radius: to-rem(8);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		z-index: 1000;
-	}
-
-	&-item {
-		&:first-child .gnb-third-link {
-			border-top: none;
-		}
-
-		&:last-child .gnb-third-link {
-			border-bottom-left-radius: to-rem(8);
-			border-bottom-right-radius: to-rem(8);
-		}
-
-		&.selected .gnb-third-link {
-			background: var(--color-primary-pr01, #d8e4f3);
-			color: $primary-color;
-			font-weight: 700;
-		}
-	}
-
-	&-link {
-		display: block;
-		padding: to-rem(12) to-rem(16);
-		text-decoration: none;
-		color: #333;
-		border-top: 1px solid #f5f6f7;
-		transition: all 0.2s ease;
-
-		&:hover,
-		&:focus {
-			background: var(--color-primary-pr01, #d8e4f3);
-			color: $primary-color;
-			outline: 2px solid #244874;
-			outline-offset: -2px;
-		}
-	}
-
-	&-text {
-		display: block;
 	}
 }
