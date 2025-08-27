@@ -1,319 +1,320 @@
 @use '../globals' as *;
 
 .footer {
-  @include flex;
-  flex-direction: column;
-  width: 100%;
+	@include flex;
+	flex-direction: column;
+	width: 100%;
 
-  &__content {
-    @include flex;
-    flex-direction: column;
-    width: 100%;
-  }
+	&__content {
+		@include flex;
+		flex-direction: column;
+		width: 100%;
+	}
 
-  &__related-site {
-    width: 100%;
-    border-bottom: 1px solid #cdd1d5;
+	&__related-site {
+		width: 100%;
+		border-top: 1px solid $gray-300;
+		border-bottom: 1px solid #cdd1d5;
 
-    .inner {
-      height: to-rem(56);
-      @include flex;
-      align-items: center;
+		.inner {
+			height: to-rem(56);
+			@include flex;
+			align-items: center;
 
-      @include tablet {
-        padding: 0 to-rem(16);
-      }
-    }
+			@include tablet {
+				padding: 0 to-rem(16);
+			}
+		}
 
-    &-box {
-      @include flex;
-      gap: to-rem(8);
-      height: 100%;
-      align-items: center;
-      padding: 0 to-rem(24);
-      flex-grow: 1;
-      border: 1px solid #cdd1d5;
-      border-left: 0;
+		&-box {
+			@include flex;
+			gap: to-rem(8);
+			height: 100%;
+			align-items: center;
+			padding: 0 to-rem(24);
+			flex-grow: 1;
+			border: 1px solid #cdd1d5;
+			border-left: 0;
 
-      @include tablet {
-        padding: 0 to-rem(16);
-        gap: to-rem(6);
-      }
+			@include tablet {
+				padding: 0 to-rem(16);
+				gap: to-rem(6);
+			}
 
-      &-text {
-        font-weight: 400;
-        font-size: to-rem(17);
-        line-height: 1.5;
-        color: #1e2124;
-        flex-grow: 1;
+			&-text {
+				font-weight: 400;
+				font-size: to-rem(17);
+				line-height: 1.5;
+				color: #1e2124;
+				flex-grow: 1;
 
-        @include tablet {
-          font-size: to-rem(15);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(15);
+				}
+			}
 
-      &-icon {
-        width: to-rem(20);
-        height: to-rem(20);
+			&-icon {
+				width: to-rem(20);
+				height: to-rem(20);
 
-        @include tablet {
-          width: to-rem(18);
-          height: to-rem(18);
-        }
+				@include tablet {
+					width: to-rem(18);
+					height: to-rem(18);
+				}
 
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
 
-  &__main {
-    background: #f4f5f6;
-    @include flex;
-    flex-direction: column;
-    gap: to-rem(40);
-    align-items: center;
-    padding: to-rem(40) 0 to-rem(24);
-    width: 100%;
+	&__main {
+		background: #f4f5f6;
+		@include flex;
+		flex-direction: column;
+		gap: to-rem(40);
+		align-items: center;
+		padding: to-rem(40) 0 to-rem(24);
+		width: 100%;
 
-    @include tablet {
-      padding: to-rem(32) to-rem(16) to-rem(16);
-      gap: to-rem(24);
-    }
+		@include tablet {
+			padding: to-rem(32) to-rem(16) to-rem(16);
+			gap: to-rem(24);
+		}
 
-    &-container {
-      @include flex;
-      flex-direction: column;
-      gap: to-rem(40);
-      align-items: flex-start;
-      max-width: to-rem(1200);
-      width: 100%;
+		&-container {
+			@include flex;
+			flex-direction: column;
+			gap: to-rem(40);
+			align-items: flex-start;
+			max-width: to-rem(1200);
+			width: 100%;
 
-      @include tablet {
-        gap: to-rem(24);
-      }
-    }
-  }
+			@include tablet {
+				gap: to-rem(24);
+			}
+		}
+	}
 
-  &__logo {
-    @include flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: to-rem(250);
+	&__logo {
+		@include flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: to-rem(250);
 
-    @include tablet {
-      width: to-rem(200);
-    }
+		@include tablet {
+			width: to-rem(200);
+		}
 
-    &-container {
-      height: to-rem(48);
-      width: 100%;
+		&-container {
+			height: to-rem(48);
+			width: 100%;
 
-      @include tablet {
-        height: to-rem(40);
-      }
+			@include tablet {
+				height: to-rem(40);
+			}
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
 
-  &__libraries {
-    @include flex;
-    gap: to-rem(24);
-    align-items: flex-start;
-    width: 100%;
-    max-width: to-rem(1200);
+	&__libraries {
+		@include flex;
+		gap: to-rem(24);
+		align-items: flex-start;
+		width: 100%;
+		max-width: to-rem(1200);
 
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
+		@include tablet {
+			flex-direction: column;
+			gap: to-rem(16);
+		}
 
-    &-column {
-      @include flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex-grow: 1;
-    }
-  }
+		&-column {
+			@include flex;
+			flex-direction: column;
+			align-items: flex-start;
+			flex-grow: 1;
+		}
+	}
 
-  &__business-number {
-    font-weight: 400;
-    font-size: to-rem(17);
-    line-height: 1;
-    color: #1e2124;
-    margin-bottom: to-rem(16);
+	&__business-number {
+		font-weight: 400;
+		font-size: to-rem(17);
+		line-height: 1;
+		color: #1e2124;
+		margin-bottom: to-rem(16);
 
-    @include tablet {
-      font-size: to-rem(15);
-      margin-bottom: to-rem(12);
-    }
-  }
+		@include tablet {
+			font-size: to-rem(15);
+			margin-bottom: to-rem(12);
+		}
+	}
 
-  &__library {
-    @include flex;
-    flex-direction: column;
-    gap: to-rem(8);
-    align-items: flex-start;
+	&__library {
+		@include flex;
+		flex-direction: column;
+		gap: to-rem(8);
+		align-items: flex-start;
 
-    @include tablet {
-      gap: to-rem(6);
-    }
+		@include tablet {
+			gap: to-rem(6);
+		}
 
-    &-item {
-      @include flex;
-      gap: to-rem(8);
-      align-items: center;
+		&-item {
+			@include flex;
+			gap: to-rem(8);
+			align-items: center;
 
-      @include tablet {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: to-rem(4);
-      }
+			@include tablet {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: to-rem(4);
+			}
 
-      &-name {
-        font-weight: 700;
-        font-size: to-rem(17);
-        line-height: 1.5;
-        color: #1e2124;
+			&-name {
+				font-weight: 700;
+				font-size: to-rem(17);
+				line-height: 1.5;
+				color: #1e2124;
 
-        @include tablet {
-          font-size: to-rem(15);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(15);
+				}
+			}
 
-      &-details {
-        @include flex;
-        gap: to-rem(8);
-        align-items: center;
+			&-details {
+				@include flex;
+				gap: to-rem(8);
+				align-items: center;
 
-        @include tablet {
-          flex-wrap: wrap;
-          gap: to-rem(6);
-        }
+				@include tablet {
+					flex-wrap: wrap;
+					gap: to-rem(6);
+				}
 
-        &-text {
-          font-weight: 400;
-          font-size: to-rem(17);
-          line-height: 1.5;
-          color: #1e2124;
+				&-text {
+					font-weight: 400;
+					font-size: to-rem(17);
+					line-height: 1.5;
+					color: #1e2124;
 
-          @include tablet {
-            font-size: to-rem(14);
-          }
+					@include tablet {
+						font-size: to-rem(14);
+					}
 
-          &--medium {
-            font-weight: 500;
-          }
-        }
+					&--medium {
+						font-weight: 500;
+					}
+				}
 
-        &-divider {
-          background: #6d7882;
-          height: to-rem(12);
-          width: 1px;
+				&-divider {
+					background: #6d7882;
+					height: to-rem(12);
+					width: 1px;
 
-          @include tablet {
-            height: to-rem(10);
-          }
-        }
-      }
-    }
-  }
+					@include tablet {
+						height: to-rem(10);
+					}
+				}
+			}
+		}
+	}
 
-  &__copyright {
-    @include flex;
-    align-items: flex-end;
-    justify-content: center;
-    max-width: to-rem(1200);
-    padding: to-rem(16) 0 0;
-    width: 100%;
-    border-top: 1px solid #cdd1d5;
+	&__copyright {
+		@include flex;
+		align-items: flex-end;
+		justify-content: center;
+		max-width: to-rem(1200);
+		padding: to-rem(16) 0 0;
+		width: 100%;
+		border-top: 1px solid #cdd1d5;
 
-    @include tablet {
-      padding: to-rem(12) 0 0;
-    }
+		@include tablet {
+			padding: to-rem(12) 0 0;
+		}
 
-    &-container {
-      @include flex;
-      gap: to-rem(40);
-      align-items: center;
-      justify-content: center;
-      max-width: to-rem(1200);
-      flex-grow: 1;
+		&-container {
+			@include flex;
+			gap: to-rem(40);
+			align-items: center;
+			justify-content: center;
+			max-width: to-rem(1200);
+			flex-grow: 1;
 
-      @include tablet {
-        flex-direction: column;
-        gap: to-rem(16);
-        align-items: flex-start;
-      }
-    }
+			@include tablet {
+				flex-direction: column;
+				gap: to-rem(16);
+				align-items: flex-start;
+			}
+		}
 
-    &-links {
-      @include flex;
-      gap: to-rem(8);
-      align-items: flex-start;
-      flex-grow: 1;
+		&-links {
+			@include flex;
+			gap: to-rem(8);
+			align-items: flex-start;
+			flex-grow: 1;
 
-      @include tablet {
-        flex-wrap: wrap;
-        gap: to-rem(6);
-        flex-grow: 0;
-      }
+			@include tablet {
+				flex-wrap: wrap;
+				gap: to-rem(6);
+				flex-grow: 0;
+			}
 
-      &-button {
-        @include flex;
-        gap: to-rem(2);
-        height: to-rem(24);
-        align-items: center;
-        justify-content: center;
-        padding: 0 to-rem(2);
-        border-radius: to-rem(4);
+			&-button {
+				@include flex;
+				gap: to-rem(2);
+				height: to-rem(24);
+				align-items: center;
+				justify-content: center;
+				padding: 0 to-rem(2);
+				border-radius: to-rem(4);
 
-        @include tablet {
-          height: to-rem(20);
-        }
+				@include tablet {
+					height: to-rem(20);
+				}
 
-        &-text {
-          font-size: to-rem(15);
-          line-height: 1.5;
-          color: #1e2124;
+				&-text {
+					font-size: to-rem(15);
+					line-height: 1.5;
+					color: #1e2124;
 
-          @include tablet {
-            font-size: to-rem(13);
-          }
+					@include tablet {
+						font-size: to-rem(13);
+					}
 
-          &--bold {
-            font-weight: 700;
-            color: #3c79c2;
-          }
-        }
-      }
-    }
+					&--bold {
+						font-weight: 700;
+						color: #3c79c2;
+					}
+				}
+			}
+		}
 
-    &-text {
-      @include flex;
-      height: to-rem(24);
-      align-items: center;
+		&-text {
+			@include flex;
+			height: to-rem(24);
+			align-items: center;
 
-      @include tablet {
-        height: to-rem(20);
-      }
+			@include tablet {
+				height: to-rem(20);
+			}
 
-      span {
-        font-weight: 400;
-        font-size: to-rem(15);
-        line-height: 1.5;
-        color: #464c53;
+			span {
+				font-weight: 400;
+				font-size: to-rem(15);
+				line-height: 1.5;
+				color: #464c53;
 
-        @include tablet {
-          font-size: to-rem(13);
-        }
-      }
-    }
-  }
+				@include tablet {
+					font-size: to-rem(13);
+				}
+			}
+		}
+	}
 }

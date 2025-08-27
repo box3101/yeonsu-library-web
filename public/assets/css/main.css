@@ -58178,6 +58178,7 @@ h6 {
 }
 .footer__related-site {
   width: 100%;
+  border-top: 1px solid #d1d5db;
   border-bottom: 1px solid #cdd1d5;
 }
 .footer__related-site .inner {
@@ -74123,7 +74124,6 @@ body.modal-open {
   width: 100%;
   padding: 1.5rem 0;
   border-top: 1px solid #d1d5db;
-  border-bottom: 1px solid #d1d5db;
 }
 @media (max-width: 900px) {
   .banner-section {

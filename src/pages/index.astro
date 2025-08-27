@@ -4,870 +4,967 @@ import { UiSelect, UiNavButton, UiTab, UiButton, UiMoreBtn } from '@components';
 
 // 셀렉트 옵션   데이터
 const selectOptions = [
-  { value: 'all', label: '전체' },
-  { value: 'central', label: '중앙도서관' },
-  { value: 'branch', label: '분관' },
+	{ value: 'all', label: '전체' },
+	{ value: 'central', label: '중앙도서관' },
+	{ value: 'branch', label: '분관' },
 ];
 
 // 탭 데이터
 const eventTabs = [
-  { id: 'culture', label: '문화행사', active: true },
-  { id: 'program', label: '프로그램', active: false },
-  { id: 'movie', label: '영화상영', active: false },
+	{ id: 'culture', label: '문화행사', active: true },
+	{ id: 'program', label: '프로그램', active: false },
+	{ id: 'movie', label: '영화상영', active: false },
 ];
 
 // 신규 컨텐츠 바로가기 데이터
 const newContentItems = [
-  {
-    id: 'life-library',
-    title: '인생서가',
-    image: './assets/images/content-life-library.png',
-    backgroundColor: '#AECDFF',
-    link: '#',
-  },
-  {
-    id: 'school-books',
-    title: '스쿨북스',
-    image: './assets/images/content-school-books.png',
-    backgroundColor: '#A5D5DC',
-    link: '#',
-  },
-  {
-    id: 'infant-books',
-    title: '<span>영유아</span>\n전집 대여',
-    image: './assets/images/contents_img.png',
-    backgroundColor: '#FFEE99',
-    link: '#',
-  },
-  {
-    id: 'attendance-event',
-    title: '출석체크\n이벤트',
-    image: './assets/images/content-attendance.png',
-    backgroundColor: '#FFC4C4',
-    link: '#',
-  },
+	{
+		id: 'life-library',
+		title: '인생서가',
+		image: './assets/images/content-life-library.png',
+		backgroundColor: '#AECDFF',
+		link: '#',
+	},
+	{
+		id: 'school-books',
+		title: '스쿨북스',
+		image: './assets/images/content-school-books.png',
+		backgroundColor: '#A5D5DC',
+		link: '#',
+	},
+	{
+		id: 'infant-books',
+		title: '영유아\n전집 대여',
+		image: './assets/images/contents_img.png',
+		backgroundColor: '#FFEE99',
+		link: '#',
+	},
+	{
+		id: 'attendance-event',
+		title: '출석체크\n이벤트',
+		image: './assets/images/content-attendance.png',
+		backgroundColor: '#FFC4C4',
+		link: '#',
+	},
 ];
 
 // 도서관 이용시간 데이터
 const libraryHours = [
-  {
-    sections: [
-      {
-        title: '유아자료실',
-        floor: '1층',
-        times: [{ days: '화-일', hours: '09:00-18:00' }],
-      },
-      {
-        title: '종합자료실',
-        floor: '3층',
-        times: [
-          { days: '화-일', hours: '09:00-22:00' },
-          { days: '토-일', hours: '09:00-18:00' },
-        ],
-      },
-    ],
-  },
-  {
-    sections: [
-      {
-        title: '어린이자료실',
-        floor: '2층',
-        times: [{ days: '화-일', hours: '09:00-18:00' }],
-      },
-      {
-        title: '청소년자료실',
-        floor: '3층',
-        times: [{ days: '화-일', hours: '09:00-22:00' }],
-      },
-    ],
-  },
-  {
-    sections: [
-      {
-        title: '디지털자료실',
-        floor: '4층',
-        times: [
-          { days: '화-금', hours: '09:00-22:00' },
-          { days: '토-일', hours: '09:00-18:00' },
-        ],
-      },
-      {
-        title: '열람실',
-        floor: '5층',
-        times: [{ days: '연중무휴', hours: '06:00-24:00' }],
-      },
-    ],
-  },
+	{
+		sections: [
+			{
+				title: '유아자료실',
+				floor: '1층',
+				times: [{ days: '화-일', hours: '09:00-18:00' }],
+			},
+			{
+				title: '종합자료실',
+				floor: '3층',
+				times: [
+					{ days: '화-일', hours: '09:00-22:00' },
+					{ days: '토-일', hours: '09:00-18:00' },
+				],
+			},
+		],
+	},
+	{
+		sections: [
+			{
+				title: '어린이자료실',
+				floor: '2층',
+				times: [{ days: '화-일', hours: '09:00-18:00' }],
+			},
+			{
+				title: '청소년자료실',
+				floor: '3층',
+				times: [{ days: '화-일', hours: '09:00-22:00' }],
+			},
+		],
+	},
+	{
+		sections: [
+			{
+				title: '디지털자료실',
+				floor: '4층',
+				times: [
+					{ days: '화-금', hours: '09:00-22:00' },
+					{ days: '토-일', hours: '09:00-18:00' },
+				],
+			},
+			{
+				title: '열람실',
+				floor: '5층',
+				times: [{ days: '연중무휴', hours: '06:00-24:00' }],
+			},
+		],
+	},
 ];
 
 // 이벤트 카드 데이터 (더 많은 데이터로 확장)
 const allEventCards = [
-  // 첫 번째 그룹 (4개)
-  {
-    tag: '연수꿈담',
-    tagClass: 'event-card__tag--yeonsu-kkumdham',
-    title: '[여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개) (초등 3~4학년)',
-    educationPeriod: '2025-07-30 ~ 2025-08-02',
-    applicationPeriod: '2025-07-17 ~ 2025-07-17',
-    enrollment: { current: '50', total: '50' },
-    waitlist: { current: '0', total: '50' },
-  },
-  {
-    tag: '송도5동',
-    tagClass: 'event-card__tag--songdo5dong',
-    title: '[대기자접수] [특화/초등3~5학년] AI 머신러닝 3D LAMP',
-    educationPeriod: '2025-07-19 ~ 2025-08-09',
-    applicationPeriod: '2025-07-16 ~ 2025-07-18',
-    enrollment: { current: '50', total: '50' },
-    waitlist: { current: '0', total: '50' },
-  },
-  {
-    tag: '누리공원',
-    tagClass: 'event-card__tag--nuri-park',
-    title: '[한국사 특화/유아] 영어로 소개하는 한국사 위인(여름방학)',
-    educationPeriod: '2025-08-05 ~ 2025-08-14',
-    applicationPeriod: '2025-07-08 ~ 2025-07-18',
-    enrollment: { current: '12', total: '50', status: '(마감)' },
-    waitlist: { current: '0', total: '50' },
-  },
-  {
-    tag: '송도국제',
-    tagClass: 'event-card__tag--songdo-international',
-    title: '[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
-    educationPeriod: '2025-08-05 ~ 2025-08-08',
-    applicationPeriod: '2025-07-24 ~ 2025-08-04',
-    enrollment: { current: '12', total: '50', status: '(마감)' },
-    waitlist: { current: '0', total: '50' },
-  },
-  // 두 번째 그룹 (4개)
-  {
-    tag: '청학',
-    tagClass: 'event-card__tag--cheonghak',
-    title: '[청학도서관] 여름방학 코딩 교실 - 스크래치로 게임 만들기',
-    educationPeriod: '2025-08-01 ~ 2025-08-10',
-    applicationPeriod: '2025-07-15 ~ 2025-07-25',
-    enrollment: { current: '30', total: '40' },
-    waitlist: { current: '5', total: '20' },
-  },
-  {
-    tag: '논현',
-    tagClass: 'event-card__tag--nonhyeon',
-    title: '[논현도서관] 성인 독서토론 클럽 - 현대문학 읽기',
-    educationPeriod: '2025-08-05 ~ 2025-08-26',
-    applicationPeriod: '2025-07-20 ~ 2025-08-02',
-    enrollment: { current: '25', total: '30' },
-    waitlist: { current: '3', total: '15' },
-  },
-  {
-    tag: '옥련',
-    tagClass: 'event-card__tag--okryeon',
-    title: '[옥련도서관] 어린이 영어 스토리텔링',
-    educationPeriod: '2025-08-03 ~ 2025-08-17',
-    applicationPeriod: '2025-07-18 ~ 2025-08-01',
-    enrollment: { current: '40', total: '45' },
-    waitlist: { current: '2', total: '25' },
-  },
-  {
-    tag: '학익',
-    tagClass: 'event-card__tag--hakik',
-    title: '[학익도서관] 시니어 디지털 리터러시 교육',
-    educationPeriod: '2025-08-07 ~ 2025-08-21',
-    applicationPeriod: '2025-07-22 ~ 2025-08-05',
-    enrollment: { current: '18', total: '25' },
-    waitlist: { current: '1', total: '10' },
-  },
-  // 세 번째 그룹 (4개)
-  {
-    tag: '문학',
-    tagClass: 'event-card__tag--literature',
-    title: '[문학도서관] 청소년 창작 워크숍 - 소설 쓰기의 기초',
-    educationPeriod: '2025-08-09 ~ 2025-08-23',
-    applicationPeriod: '2025-07-25 ~ 2025-08-07',
-    enrollment: { current: '22', total: '30' },
-    waitlist: { current: '4', total: '15' },
-  },
-  {
-    tag: '선학',
-    tagClass: 'event-card__tag--seonhak',
-    title: '[선학도서관] 부모와 함께하는 그림책 만들기',
-    educationPeriod: '2025-08-12 ~ 2025-08-19',
-    applicationPeriod: '2025-07-28 ~ 2025-08-10',
-    enrollment: { current: '35', total: '40' },
-    waitlist: { current: '6', total: '20' },
-  },
-  {
-    tag: '동춘나래',
-    tagClass: 'event-card__tag--dongchun-narae',
-    title: '[동춘나래] 중학생 진로탐색 독서 프로그램',
-    educationPeriod: '2025-08-14 ~ 2025-08-28',
-    applicationPeriod: '2025-07-30 ~ 2025-08-12',
-    enrollment: { current: '28', total: '35' },
-    waitlist: { current: '7', total: '18' },
-  },
-  {
-    tag: '해돋이',
-    tagClass: 'event-card__tag--haedoji',
-    title: '[해돋이] 유아 음악 동화 체험교실',
-    educationPeriod: '2025-08-16 ~ 2025-08-30',
-    applicationPeriod: '2025-08-01 ~ 2025-08-14',
-    enrollment: { current: '20', total: '25' },
-    waitlist: { current: '2', total: '12' },
-  },
+	// 첫 번째 그룹 (4개)
+	{
+		tag: '연수꿈담',
+		tagClass: 'event-card__tag--yeonsu-kkumdham',
+		title: '[여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개) (초등 3~4학년)',
+		educationPeriod: '2025-07-30 ~ 2025-08-02',
+		applicationPeriod: '2025-07-17 ~ 2025-07-17',
+		enrollment: { current: '50', total: '50' },
+		waitlist: { current: '0', total: '50' },
+	},
+	{
+		tag: '송도5동',
+		tagClass: 'event-card__tag--songdo5dong',
+		title: '[대기자접수] [특화/초등3~5학년] AI 머신러닝 3D LAMP',
+		educationPeriod: '2025-07-19 ~ 2025-08-09',
+		applicationPeriod: '2025-07-16 ~ 2025-07-18',
+		enrollment: { current: '50', total: '50' },
+		waitlist: { current: '0', total: '50' },
+	},
+	{
+		tag: '누리공원',
+		tagClass: 'event-card__tag--nuri-park',
+		title: '[한국사 특화/유아] 영어로 소개하는 한국사 위인(여름방학)',
+		educationPeriod: '2025-08-05 ~ 2025-08-14',
+		applicationPeriod: '2025-07-08 ~ 2025-07-18',
+		enrollment: { current: '12', total: '50', status: '(마감)' },
+		waitlist: { current: '0', total: '50' },
+	},
+	{
+		tag: '송도국제',
+		tagClass: 'event-card__tag--songdo-international',
+		title: '[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
+		educationPeriod: '2025-08-05 ~ 2025-08-08',
+		applicationPeriod: '2025-07-24 ~ 2025-08-04',
+		enrollment: { current: '12', total: '50', status: '(마감)' },
+		waitlist: { current: '0', total: '50' },
+	},
+	// 두 번째 그룹 (4개)
+	{
+		tag: '청학',
+		tagClass: 'event-card__tag--cheonghak',
+		title: '[청학도서관] 여름방학 코딩 교실 - 스크래치로 게임 만들기',
+		educationPeriod: '2025-08-01 ~ 2025-08-10',
+		applicationPeriod: '2025-07-15 ~ 2025-07-25',
+		enrollment: { current: '30', total: '40' },
+		waitlist: { current: '5', total: '20' },
+	},
+	{
+		tag: '논현',
+		tagClass: 'event-card__tag--nonhyeon',
+		title: '[논현도서관] 성인 독서토론 클럽 - 현대문학 읽기',
+		educationPeriod: '2025-08-05 ~ 2025-08-26',
+		applicationPeriod: '2025-07-20 ~ 2025-08-02',
+		enrollment: { current: '25', total: '30' },
+		waitlist: { current: '3', total: '15' },
+	},
+	{
+		tag: '옥련',
+		tagClass: 'event-card__tag--okryeon',
+		title: '[옥련도서관] 어린이 영어 스토리텔링',
+		educationPeriod: '2025-08-03 ~ 2025-08-17',
+		applicationPeriod: '2025-07-18 ~ 2025-08-01',
+		enrollment: { current: '40', total: '45' },
+		waitlist: { current: '2', total: '25' },
+	},
+	{
+		tag: '학익',
+		tagClass: 'event-card__tag--hakik',
+		title: '[학익도서관] 시니어 디지털 리터러시 교육',
+		educationPeriod: '2025-08-07 ~ 2025-08-21',
+		applicationPeriod: '2025-07-22 ~ 2025-08-05',
+		enrollment: { current: '18', total: '25' },
+		waitlist: { current: '1', total: '10' },
+	},
+	// 세 번째 그룹 (4개)
+	{
+		tag: '문학',
+		tagClass: 'event-card__tag--literature',
+		title: '[문학도서관] 청소년 창작 워크숍 - 소설 쓰기의 기초',
+		educationPeriod: '2025-08-09 ~ 2025-08-23',
+		applicationPeriod: '2025-07-25 ~ 2025-08-07',
+		enrollment: { current: '22', total: '30' },
+		waitlist: { current: '4', total: '15' },
+	},
+	{
+		tag: '선학',
+		tagClass: 'event-card__tag--seonhak',
+		title: '[선학도서관] 부모와 함께하는 그림책 만들기',
+		educationPeriod: '2025-08-12 ~ 2025-08-19',
+		applicationPeriod: '2025-07-28 ~ 2025-08-10',
+		enrollment: { current: '35', total: '40' },
+		waitlist: { current: '6', total: '20' },
+	},
+	{
+		tag: '동춘나래',
+		tagClass: 'event-card__tag--dongchun-narae',
+		title: '[동춘나래] 중학생 진로탐색 독서 프로그램',
+		educationPeriod: '2025-08-14 ~ 2025-08-28',
+		applicationPeriod: '2025-07-30 ~ 2025-08-12',
+		enrollment: { current: '28', total: '35' },
+		waitlist: { current: '7', total: '18' },
+	},
+	{
+		tag: '해돋이',
+		tagClass: 'event-card__tag--haedoji',
+		title: '[해돋이] 유아 음악 동화 체험교실',
+		educationPeriod: '2025-08-16 ~ 2025-08-30',
+		applicationPeriod: '2025-08-01 ~ 2025-08-14',
+		enrollment: { current: '20', total: '25' },
+		waitlist: { current: '2', total: '12' },
+	},
 ];
 
 // 4개씩 그룹으로 나누기
 const eventItemsPerSlide = 4;
 const eventGroups = [];
 for (let i = 0; i < allEventCards.length; i += eventItemsPerSlide) {
-  eventGroups.push(allEventCards.slice(i, i + eventItemsPerSlide));
+	eventGroups.push(allEventCards.slice(i, i + eventItemsPerSlide));
 }
 
 // 공지사항 데이터를 더 많이 준비 (여러 페이지를 위해)
 const allNoticeItems = [
-  // 첫 번째 그룹 (4개)
-  {
-    tag: '선학별빛',
-    tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '동춘나래',
-    tagClass: 'notice-item__tag--gray',
-    title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
-    date: '07.05',
-    isBold: true,
-  },
-  {
-    tag: '해돋이',
-    tagClass: 'notice-item__tag--orange',
-    title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '솔안공원',
-    tagClass: 'notice-item__tag--navy',
-    title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
-    date: '07.05',
-    isBold: false,
-  },
-  // 두 번째 그룹 (4개)
-  {
-    tag: '선학별빛',
-    tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '동춘나래',
-    tagClass: 'notice-item__tag--gray',
-    title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
-    date: '07.05',
-    isBold: true,
-  },
-  {
-    tag: '해돋이',
-    tagClass: 'notice-item__tag--orange',
-    title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '솔안공원',
-    tagClass: 'notice-item__tag--navy',
-    title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
-    date: '07.05',
-    isBold: false,
-  },
-  // 세 번째 그룹 (4개)
-  {
-    tag: '선학별빛',
-    tagClass: 'notice-item__tag--pink',
-    title:
-      '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '동춘나래',
-    tagClass: 'notice-item__tag--gray',
-    title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
-    date: '07.05',
-    isBold: true,
-  },
-  {
-    tag: '해돋이',
-    tagClass: 'notice-item__tag--orange',
-    title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
-    date: '07.05',
-    isBold: false,
-  },
-  {
-    tag: '솔안공원',
-    tagClass: 'notice-item__tag--navy',
-    title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
-    date: '07.05',
-    isBold: false,
-  },
+	// 첫 번째 그룹 (4개)
+	{
+		tag: '선학별빛',
+		tagClass: 'notice-item__tag--pink',
+		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '동춘나래',
+		tagClass: 'notice-item__tag--gray',
+		title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
+		date: '07.05',
+		isBold: true,
+	},
+	{
+		tag: '해돋이',
+		tagClass: 'notice-item__tag--orange',
+		title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '솔안공원',
+		tagClass: 'notice-item__tag--navy',
+		title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
+		date: '07.05',
+		isBold: false,
+	},
+	// 두 번째 그룹 (4개)
+	{
+		tag: '선학별빛',
+		tagClass: 'notice-item__tag--pink',
+		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '동춘나래',
+		tagClass: 'notice-item__tag--gray',
+		title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
+		date: '07.05',
+		isBold: true,
+	},
+	{
+		tag: '해돋이',
+		tagClass: 'notice-item__tag--orange',
+		title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '솔안공원',
+		tagClass: 'notice-item__tag--navy',
+		title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
+		date: '07.05',
+		isBold: false,
+	},
+	// 세 번째 그룹 (4개)
+	{
+		tag: '선학별빛',
+		tagClass: 'notice-item__tag--pink',
+		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '동춘나래',
+		tagClass: 'notice-item__tag--gray',
+		title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
+		date: '07.05',
+		isBold: true,
+	},
+	{
+		tag: '해돋이',
+		tagClass: 'notice-item__tag--orange',
+		title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
+		date: '07.05',
+		isBold: false,
+	},
+	{
+		tag: '솔안공원',
+		tagClass: 'notice-item__tag--navy',
+		title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
+		date: '07.05',
+		isBold: false,
+	},
 ];
 
 // 4개씩 그룹으로 나누기
 const itemsPerSlide = 4;
 const noticeGroups = [];
 for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
-  noticeGroups.push(allNoticeItems.slice(i, i + itemsPerSlide));
+	noticeGroups.push(allNoticeItems.slice(i, i + itemsPerSlide));
 }
 ---
 
 <Layout>
-  <div class="main-container">
-    <!--  비쥬얼 영역 -->
-    <section class="banner container">
-      <!-- 배경 이미지 컨테이너 -->
-      <div class="banner__background"></div>
-      <div class="banner__mask-group"></div>
+	<div class="main-container">
+		<!--  비쥬얼 영역 -->
+		<section class="banner container">
+			<!-- 배경 이미지 컨테이너 -->
+			<div class="banner__background"></div>
+			<div class="banner__mask-group"></div>
 
-      <!-- 메인 콘텐츠 -->
-      <div class="banner__content">
-        <!-- 제목 영역 -->
-        <div class="banner__text-group">
-          <div class="banner__title-section">
-            <h1 class="banner__main-title">
-              마음의 문을 여는 첫 번째 공간, <span>연수구립도서관!</span>
-            </h1>
-          </div>
-        </div>
+			<!-- 메인 콘텐츠 -->
+			<div class="banner__content">
+				<!-- 제목 영역 -->
+				<div class="banner__text-group">
+					<div class="banner__title-section">
+						<h1 class="banner__main-title">
+							마음의 문을 여는 첫 번째 공간, <span>연수구립도서관!</span>
+						</h1>
+					</div>
+				</div>
 
-        <!-- 도서검색, ai책큐 -->
-        <div class="banner__search-container" data-aos="fade-up" data-aos-duration="500">
-          <!-- 탭 네비게이션 -->
-          <div class="search-tabs">
-            <button type="button" class="search-tabs__tab search-tabs__tab--active" data-tab="book-search">
-              <div class="search-tabs__indicator"></div>
-              <div class="search-tabs__content">
-                <img src="./assets/images/icon/search-book.svg" alt="도서검색" class="search-tabs__icon" />
-                <span class="search-tabs__text">도서검색</span>
-              </div>
-            </button>
+				<!-- 도서검색, ai책큐 -->
+				<div class="banner__search-container" data-aos="fade-up" data-aos-duration="500">
+					<!-- 탭 네비게이션 -->
+					<div class="search-tabs">
+						<button type="button" class="search-tabs__tab search-tabs__tab--active" data-tab="book-search">
+							<div class="search-tabs__indicator"></div>
+							<div class="search-tabs__content">
+								<img src="./assets/images/icon/search-book.svg" alt="도서검색" class="search-tabs__icon" />
+								<span class="search-tabs__text">도서검색</span>
+							</div>
+						</button>
 
-            <button type="button" class="search-tabs__tab" data-tab="ai-book">
-              <div class="search-tabs__indicator"></div>
-              <div class="search-tabs__content">
-                <img src="./assets/images/icon/search-ai.svg" alt="AI 책큐" class="search-tabs__icon" />
-                <span class="search-tabs__text">AI 책큐</span>
-              </div>
-            </button>
-          </div>
+						<button type="button" class="search-tabs__tab" data-tab="ai-book">
+							<div class="search-tabs__indicator"></div>
+							<div class="search-tabs__content">
+								<img src="./assets/images/icon/search-ai.svg" alt="AI 책큐" class="search-tabs__icon" />
+								<span class="search-tabs__text">AI 책큐</span>
+							</div>
+						</button>
+					</div>
 
-          <!-- 검색 입력창 -->
-          <div class="search-input">
-            <form class="search-input__form">
-              <div class="search-input__container">
-                <input type="text" class="search-input__field" placeholder="찾고 싶은 도서의 내용을 입력하세요." aria-label="검색어 입력" />
-                <button type="submit" class="search-input__button" aria-label="검색">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path
-                      d="M28.33 28.33L25.15 25.15M26.67 16.67C26.67 22.19 22.19 26.67 16.67 26.67C11.15 26.67 6.67 22.19 6.67 16.67C6.67 11.15 11.15 6.67 16.67 6.67C22.19 6.67 26.67 11.15 26.67 16.67Z"
-                      stroke="#33363D"
-                      stroke-width="2.33"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                    </path>
-                  </svg>
-                </button>
-              </div>
-            </form>
-          </div>
+					<!-- 검색 입력창 -->
+					<div class="search-input">
+						<form class="search-input__form">
+							<div class="search-input__container">
+								<input
+									type="text"
+									class="search-input__field"
+									placeholder="찾고 싶은 도서의 내용을 입력하세요."
+									aria-label="검색어 입력"
+								/>
+								<button type="submit" class="search-input__button" aria-label="검색">
+									<svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+										<path
+											d="M28.33 28.33L25.15 25.15M26.67 16.67C26.67 22.19 22.19 26.67 16.67 26.67C11.15 26.67 6.67 22.19 6.67 16.67C6.67 11.15 11.15 6.67 16.67 6.67C22.19 6.67 26.67 11.15 26.67 16.67Z"
+											stroke="#33363D"
+											stroke-width="2.33"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+										</path>
+									</svg>
+								</button>
+							</div>
+						</form>
+					</div>
 
-          <!-- 책큐 컨텐츠 -->
-          <div class="book-recommendation-slider book-recommendation-slider--hidden" id="bookRecommendationSlider">
-            <div class="book-recommendation-slider__container">
-              <button class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" aria-label="이전 추천"></button>
+					<!-- 책큐 컨텐츠 -->
+					<div class="book-recommendation-slider book-recommendation-slider--hidden" id="bookRecommendationSlider">
+						<div class="book-recommendation-slider__container">
+							<button class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" aria-label="이전 추천"></button>
 
-              <div class="book-recommendation-slider__track">
-                <div class="book-recommendation-slider__slides">
-                  {
-                    [
-                      {
-                        text: '성공한 사람들의\n추천 도서 목록은?',
-                        class: 'book-recommendation-card--active',
-                      },
-                      {
-                        text: '재테크 관련 베스트\n셀러 추천해줘',
-                        class: 'book-recommendation-card--highlighted',
-                      },
-                      { text: '현대인의 시간 관리\n도서 목록', class: '' },
-                      { text: '환경 문제에 대한\n최신 책은?', class: '' },
-                      { text: '요리책 중 최근에\n인기 있는 것은?', class: '' },
-                    ].map((item, index) => (
-                      <div class={`book-recommendation-card ${item.class}`}>
-                        <div class="book-recommendation-card__content">
-                          <span class="book-recommendation-card__text" set:html={item.text.replace('\n', '<br />')} />
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
+							<div class="book-recommendation-slider__track">
+								<div class="book-recommendation-slider__slides">
+									{
+										[
+											{
+												text: '성공한 사람들의\n추천 도서 목록은?',
+												class: 'book-recommendation-card--active',
+											},
+											{
+												text: '재테크 관련 베스트\n셀러 추천해줘',
+												class: 'book-recommendation-card--highlighted',
+											},
+											{ text: '현대인의 시간 관리\n도서 목록', class: '' },
+											{ text: '환경 문제에 대한\n최신 책은?', class: '' },
+											{ text: '요리책 중 최근에\n인기 있는 것은?', class: '' },
+										].map((item, index) => (
+											<div class={`book-recommendation-card ${item.class}`}>
+												<div class="book-recommendation-card__content">
+													<span class="book-recommendation-card__text" set:html={item.text.replace('\n', '<br />')} />
+												</div>
+											</div>
+										))
+									}
+								</div>
+							</div>
 
-              <div class="btn-nav">
-                <UiNavButton
-                  class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
-                  direction="prev"
-                  size={24}
-                  ariaLabel="이전 추천"
-                />
+							<div class="btn-nav">
+								<UiNavButton
+									class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
+									direction="prev"
+									size={24}
+									ariaLabel="이전 추천"
+								/>
 
-                <UiNavButton
-                  class="book-recommendation-slider__nav book-recommendation-slider__nav--next"
-                  direction="next"
-                  size={24}
-                  ariaLabel="다음 추천"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+								<UiNavButton
+									class="book-recommendation-slider__nav book-recommendation-slider__nav--next"
+									direction="next"
+									size={24}
+									ariaLabel="다음 추천"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <p class="banner__description">
-          연수구립도서관에서 <span>다양한 책</span>을 만나보세요!
-        </p>
-      </div>
-    </section>
-    <!-- // 비쥬얼 영역 -->
+				<p class="banner__description">
+					연수구립도서관에서 <span>다양한 책</span>을 만나보세요!
+				</p>
+			</div>
+		</section>
+		<!-- // 비쥬얼 영역 -->
 
-    <!-- 공지사항, 자주 찾는 페이지 -->
-    <section class="notice-section container">
-      <div class="inner">
-        <div class="notice-section__content">
-          <!-- 좌측 공지사항 영역 -->
-          <div class="notice-section__left">
-            <!-- 상단 헤더 -->
-            <div class="notice-section__header">
-              <div class="notice-section__titles">
-                <h2 class="notice-section__title">공지사항</h2>
-              </div>
-              <button class="com-more-btn">
-                <span>더보기</span>
-                <svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </button>
-            </div>
+		<!-- 공지사항, 자주 찾는 페이지 -->
+		<section class="notice-section container">
+			<div class="inner">
+				<div class="notice-section__content">
+					<!-- 좌측 공지사항 영역 -->
+					<div class="notice-section__left">
+						<!-- 상단 헤더 -->
+						<div class="notice-section__header">
+							<div class="notice-section__titles">
+								<h2 class="notice-section__title">공지사항</h2>
+							</div>
+							<button class="com-more-btn">
+								<span>더보기</span>
+								<svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
+									<path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+								</svg>
+							</button>
+						</div>
 
-            <!-- 필터 및 네비게이션 -->
-            <div class="notice-section__controls" data-aos="fade-up" data-aos-duration="500">
-              <div class="notice-section__filter">
-                <UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
-                <div class="notice-section__nav">
-                  <UiNavButton class="notice-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 공지사항" />
-                  <UiNavButton class="notice-swiper-btn-next" direction="next" size={40} ariaLabel="다음 공지사항" />
-                </div>
-              </div>
-            </div>
+						<!-- 필터 및 네비게이션 -->
+						<div class="notice-section__controls" data-aos="fade-up" data-aos-duration="500">
+							<div class="notice-section__filter">
+								<UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
+								<div class="notice-section__nav">
+									<UiNavButton class="notice-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 공지사항" />
+									<UiNavButton class="notice-swiper-btn-next" direction="next" size={40} ariaLabel="다음 공지사항" />
+								</div>
+							</div>
+						</div>
 
-            <!-- 공지사항 스와이퍼 -->
-            <div class="notice-section__swiper" data-aos="fade-up" data-aos-duration="500">
-              <div class="swiper notice-swiper">
-                <div class="swiper-wrapper">
-                  {
-                    noticeGroups.map((group, groupIndex) => (
-                      <div class="swiper-slide">
-                        <div class="notice-section__list">
-                          {group.map((item, itemIndex) => (
-                            <a href="#" class="notice-item" key={`${groupIndex}-${itemIndex}`}>
-                              <div class="notice-item__content">
-                                <div class="notice-item__info">
-                                  <span class={`notice-item__tag ${item.tagClass}`}>{item.tag}</span>
-                                  <h3 class="notice-item__title">{item.title}</h3>
-                                </div>
-                                <span class="notice-item__date">{item.date}</span>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
+						<!-- 공지사항 스와이퍼 -->
+						<div class="notice-section__swiper" data-aos="fade-up" data-aos-duration="500">
+							<div class="swiper notice-swiper">
+								<div class="swiper-wrapper">
+									{
+										noticeGroups.map((group, groupIndex) => (
+											<div class="swiper-slide">
+												<div class="notice-section__list">
+													{group.map((item, itemIndex) => (
+														<a href="#" class="notice-item" key={`${groupIndex}-${itemIndex}`}>
+															<div class="notice-item__content">
+																<div class="notice-item__info">
+																	<span class={`notice-item__tag ${item.tagClass}`}>{item.tag}</span>
+																	<h3 class="notice-item__title">{item.title}</h3>
+																</div>
+																<span class="notice-item__date">{item.date}</span>
+															</div>
+														</a>
+													))}
+												</div>
+											</div>
+										))
+									}
+								</div>
+							</div>
+						</div>
+					</div>
 
-          <!-- 우측 자주 찾는 페이지 영역 -->
-          <div class="notice-section__right">
-            <div class="notice-section__header">
-              <div class="notice-section__titles">
-                <h2 class="notice-section__title">자주찾는 페이지</h2>
-              </div>
-            </div>
-            <div class="quick-links" data-aos="fade-up" data-aos-duration="500">
-              <div class="quick-links__grid">
-                <a href="#" class="quick-link">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link01.svg" alt="반납연기" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">반납연기</span>
-                </a>
-                <a href="#" class="quick-link">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link02.svg" alt="희망자료신청" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">희망자료신청</span>
-                </a>
-                <a href="#" class="quick-link quick-link--primary">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link03.svg" alt="문화행사신청" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">문화행사신청</span>
-                </a>
-                <a href="#" class="quick-link">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link04.svg" alt="프로그램신청" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">프로그램신청</span>
-                </a>
-                <a href="#" class="quick-link">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link05.svg" alt="열람실좌석현황" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">열람실좌석현황</span>
-                </a>
-                <a href="#" class="quick-link">
-                  <div class="quick-link__icon">
-                    <img src="./assets/images/icon/quick-link06.svg" alt="도서관안내" class="quick-link__icon-img" />
-                  </div>
-                  <span class="quick-link__text">도서관안내</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- // 공지사항, 자주 찾는 페이지 -->
+					<!-- 우측 자주 찾는 페이지 영역 -->
+					<div class="notice-section__right">
+						<div class="notice-section__header">
+							<div class="notice-section__titles">
+								<h2 class="notice-section__title">자주찾는 페이지</h2>
+							</div>
+						</div>
+						<div class="quick-links" data-aos="fade-up" data-aos-duration="500">
+							<div class="quick-links__grid">
+								<a href="#" class="quick-link">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link01.svg" alt="반납연기" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">반납연기</span>
+								</a>
+								<a href="#" class="quick-link">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link02.svg" alt="희망자료신청" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">희망자료신청</span>
+								</a>
+								<a href="#" class="quick-link quick-link--primary">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link03.svg" alt="문화행사신청" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">문화행사신청</span>
+								</a>
+								<a href="#" class="quick-link">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link04.svg" alt="프로그램신청" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">프로그램신청</span>
+								</a>
+								<a href="#" class="quick-link">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link05.svg" alt="열람실좌석현황" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">열람실좌석현황</span>
+								</a>
+								<a href="#" class="quick-link">
+									<div class="quick-link__icon">
+										<img src="./assets/images/icon/quick-link06.svg" alt="도서관안내" class="quick-link__icon-img" />
+									</div>
+									<span class="quick-link__text">도서관안내</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- // 공지사항, 자주 찾는 페이지 -->
 
-    <!-- 문화행사, 프로그램, 영화상영 -->
-    <section class="event-section">
-      <div class="container">
-        <div class="event-section__left">
-          <div class="event-section__header flex justify-between items-center">
-            <!-- 공통탭 -->
-            <UiTab tabs={eventTabs} className="event-section__tabs" />
-            <!-- 공통탭 EEE-->
-            <button class="com-more-btn">
-              <span>더보기</span>
-              <svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
-                <path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
-            </button>
-          </div>
-          <!-- 탭 컨텐츠 영역 -->
-          <div class="event-section__content">
-            <!-- 문화행사 탭 패널 -->
-            <div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
-              <div class="event-section__filter flex justify-between items-center" data-aos="fade-up" data-aos-duration="500">
-                <UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
-                <div class="event-section__nav flex items-center gap-4">
-                  <UiNavButton class="event-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 이벤트" />
-                  <UiNavButton class="event-swiper-btn-next" direction="next" size={40} ariaLabel="다음 이벤트" />
-                </div>
-              </div>
+		<!-- 문화행사, 프로그램, 영화상영 -->
+		<section class="event-section">
+			<div class="container">
+				<div class="event-section__left">
+					<div class="event-section__header flex justify-between items-center">
+						<!-- 공통탭 -->
+						<UiTab tabs={eventTabs} className="event-section__tabs" />
+						<!-- 공통탭 EEE-->
+						<button class="com-more-btn">
+							<span>더보기</span>
+							<svg class="com-more-btn__icon" viewBox="0 0 24 24" fill="none">
+								<path d="M12 5V19M5 12L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+							</svg>
+						</button>
+					</div>
+					<!-- 탭 컨텐츠 영역 -->
+					<div class="event-section__content">
+						<!-- 문화행사 탭 패널 -->
+						<div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
+							<div class="event-section__filter flex justify-between items-center" data-aos="fade-up" data-aos-duration="500">
+								<UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
+								<div class="event-section__nav flex items-center gap-4">
+									<UiNavButton class="event-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 이벤트" />
+									<UiNavButton class="event-swiper-btn-next" direction="next" size={40} ariaLabel="다음 이벤트" />
+								</div>
+							</div>
 
-              <!-- 이벤트 카드 스와이퍼 -->
-              <div class="event-section__swiper" data-aos="fade-up" data-aos-duration="500">
-                <div class="swiper event-swiper">
-                  <div class="swiper-wrapper">
-                    {
-                      eventGroups.map((group, groupIndex) => (
-                        <div class="swiper-slide">
-                          <ul class="event-cards">
-                            {group.map((card, cardIndex) => (
-                              <li class="event-card" key={`${groupIndex}-${cardIndex}`}>
-                                <a href="#" class="event-card__link">
-                                  <div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
-                                  <div class="event-card__content">
-                                    <h4 class="event-card__title">{card.title}</h4>
-                                    <div class="event-card__info">
-                                      <div class="event-card__info-left">
-                                        <div class="event-card__info-item">
-                                          <span class="event-card__label">교육기간</span>
-                                          <span class="event-card__value">{card.educationPeriod}</span>
-                                        </div>
-                                        <div class="event-card__info-item">
-                                          <span class="event-card__label">모집인원</span>
-                                          <span class="event-card__value">
-                                            <span class="event-card__highlight">{card.enrollment.current}</span>/{card.enrollment.total}
-                                            {card.enrollment.status || ''}
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <div class="event-card__info-right">
-                                        <div class="event-card__info-item">
-                                          <span class="event-card__label">접수기간</span>
-                                          <span class="event-card__value">{card.applicationPeriod}</span>
-                                        </div>
-                                        <div class="event-card__info-item">
-                                          <span class="event-card__label">예비인원</span>
-                                          <span class="event-card__value">
-                                            <span class="event-card__highlight">{card.waitlist.current}</span>/{card.waitlist.total}
-                                          </span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 프로그램 탭 패널 -->
-            <div id="panel-program" class="ui-tab-panel">프로그램</div>
-            <!-- 프로그램 탭 패널 EEE-->
-            <!-- 영화상영 탭 패널 -->
-            <div id="panel-movie" class="ui-tab-panel">영화상영</div>
-            <!-- 영화상영 탭 패널 EEE-->
-          </div>
-        </div>
-        <!-- 우측 신규 컨텐츠 바로가기 -->
-        <div class="event-section__right">
-          <!-- 신규 컨텐츠 바로가기 -->
-          <div class="new-content-shortcuts">
-            <h3 class="new-content-shortcuts__title">신규 컨텐츠 바로가기</h3>
-            <div class="new-content-shortcuts__grid" data-aos="fade-up" data-aos-duration="500">
-              {
-                newContentItems.map(item => (
-                  <a href={item.link} class={`new-content-item new-content-item--${item.id}`}>
-                    <div class="new-content-item__image">
-                      <img src={item.image} alt={item.title} />
-                    </div>
-                    <div class="new-content-item__content">
-                      <h4 class="new-content-item__title title-single-line" set:html={item.title} />
-                      <div class="new-content-item__arrow">
-                        <img src="./assets/images/icon/icon-arr-right.svg" alt="arrow-right" />
-                      </div>
-                    </div>
-                  </a>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+							<!-- 이벤트 카드 스와이퍼 -->
+							<div class="event-section__swiper" data-aos="fade-up" data-aos-duration="500">
+								<div class="swiper event-swiper">
+									<div class="swiper-wrapper">
+										{
+											eventGroups.map((group, groupIndex) => (
+												<div class="swiper-slide">
+													<ul class="event-cards">
+														{group.map((card, cardIndex) => (
+															<li class="event-card" key={`${groupIndex}-${cardIndex}`}>
+																<a href="#" class="event-card__link">
+																	<div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
+																	<div class="event-card__content">
+																		<h4 class="event-card__title">{card.title}</h4>
+																		<div class="event-card__info">
+																			<div class="event-card__info-left">
+																				<div class="event-card__info-item">
+																					<span class="event-card__label">교육기간</span>
+																					<span class="event-card__value">{card.educationPeriod}</span>
+																				</div>
+																				<div class="event-card__info-item">
+																					<span class="event-card__label">모집인원</span>
+																					<span class="event-card__value">
+																						<span class="event-card__highlight">
+																							{card.enrollment.current}
+																						</span>
+																						/{card.enrollment.total}
+																						{card.enrollment.status || ''}
+																					</span>
+																				</div>
+																			</div>
+																			<div class="event-card__info-right">
+																				<div class="event-card__info-item">
+																					<span class="event-card__label">접수기간</span>
+																					<span class="event-card__value">{card.applicationPeriod}</span>
+																				</div>
+																				<div class="event-card__info-item">
+																					<span class="event-card__label">예비인원</span>
+																					<span class="event-card__value">
+																						<span class="event-card__highlight">
+																							{card.waitlist.current}
+																						</span>
+																						/{card.waitlist.total}
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</a>
+															</li>
+														))}
+													</ul>
+												</div>
+											))
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 프로그램 탭 패널 -->
+						<div id="panel-program" class="ui-tab-panel">프로그램</div>
+						<!-- 프로그램 탭 패널 EEE-->
+						<!-- 영화상영 탭 패널 -->
+						<div id="panel-movie" class="ui-tab-panel">영화상영</div>
+						<!-- 영화상영 탭 패널 EEE-->
+					</div>
+				</div>
+				<!-- 우측 신규 컨텐츠 바로가기 -->
+				<div class="event-section__right">
+					<!-- 신규 컨텐츠 바로가기 -->
+					<div class="new-content-shortcuts">
+						<h3 class="new-content-shortcuts__title">신규 컨텐츠 바로가기</h3>
+						<div class="new-content-shortcuts__grid" data-aos="fade-up" data-aos-duration="500">
+							{
+								newContentItems.map(item => (
+									<a href={item.link} class={`new-content-item new-content-item--${item.id}`}>
+										<div class="new-content-item__image">
+											<img src={item.image} alt={item.title} />
+										</div>
+										<div class="new-content-item__content">
+											<h4 class="new-content-item__title title-single-line" set:html={item.title} />
+											<div class="new-content-item__arrow">
+												<img src="./assets/images/icon/icon-arr-right.svg" alt="arrow-right" />
+											</div>
+										</div>
+									</a>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <!-- 연수구도서관 한눈에 보기, 도서관 이용시간 -->
-    <section class="info-section">
-      <div class="inner">
-        <div class="info-section__content">
-          <div class="info-section__map-area left">
-            <div class="info-section__header">
-              <div class="info-section__left">
-                <h2 class="info-section__title">
-                  연수구도서관 <span>한눈에 보기</span>
-                </h2>
-                <UiSelect
-                  name="library-select"
-                  options={[
-                    { value: 'yeonsu', label: '연수청학도서관' },
-                    { value: 'ggumdan', label: '연수꿈단도서관' },
-                    { value: 'songdo', label: '송도국제어린이도서관' },
-                  ]}
-                  value="yeonsu"
-                  class="w-180"
-                />
-              </div>
-            </div>
-            <!-- 지도 영역 -->
-            <div class="library-map" data-aos="fade-up" data-aos-duration="500">
-              <img src="./assets/images/building-image.png" alt="연수구 도서관 지도" class="library-map__image" />
-            </div>
-          </div>
-          <div class="info-section__right-area">
-            <div class="info-section__right">
-              <h2 class="info-section__title">
-                도서관 <span>이용시간</span>
-              </h2>
-              <UiButton text="도서관 소개 바로가기" variant="darkBlue" size="large" width="250px" icon="icon-arr-right-white" iconPosition="right" />
-            </div>
-            <div class="info-section__schedule-area" data-aos="fade-up" data-aos-duration="500">
-              <!-- 휴관일 안내 -->
-              <div class="holiday-notice flex justify-between items-center">
-                <div class="holiday-notice__left flex gap-2 items-center">
-                  <div class="holiday-notice__icon">
-                    <img src="./assets/images/icon/icon-date.svg" class="icon icon-date" />
-                  </div>
-                  <span class="holiday-notice__text">휴관일 안내</span>
-                </div>
-                <div class="holiday-notice__legends">
-                  <div class="holiday-notice__legend">
-                    <div class="holiday-notice__dot holiday-notice__dot--red"></div>
-                    <span>법정공휴일</span>
-                  </div>
-                  <div class="holiday-notice__legend">
-                    <div class="holiday-notice__dot holiday-notice__dot--orange"></div>
-                    <span>정기휴관</span>
-                  </div>
-                  <div class="holiday-notice__legend">
-                    <div class="holiday-notice__dot holiday-notice__dot--gray"></div>
-                    <span>개관일</span>
-                  </div>
-                </div>
-              </div>
-              <!-- 캘린더 -->
-              <div class="calendar">
-                <div class="calendar__header">
-                  <UiNavButton direction="prev" size={40} ariaLabel="이전 달" />
-                  <div class="calendar__selects">
-                    <UiSelect
-                      name="calendar-year"
-                      options={[
-                        { value: '2024', label: '2024년' },
-                        { value: '2025', label: '2025년' },
-                        { value: '2026', label: '2026년' },
-                      ]}
-                      value="2025"
-                      variant="ghost"
-                      class="w-80"
-                    />
-                    <UiSelect
-                      name="calendar-month"
-                      options={[
-                        { value: '1', label: '1월' },
-                        { value: '2', label: '2월' },
-                        { value: '3', label: '3월' },
-                        { value: '4', label: '4월' },
-                        { value: '5', label: '5월' },
-                        { value: '6', label: '6월' },
-                        { value: '7', label: '7월' },
-                        { value: '8', label: '8월' },
-                        { value: '9', label: '9월' },
-                        { value: '10', label: '10월' },
-                        { value: '11', label: '11월' },
-                        { value: '12', label: '12월' },
-                      ]}
-                      value="5"
-                      variant="ghost"
-                      class="w-80"
-                    />
-                  </div>
-                  <UiNavButton direction="next" size={40} ariaLabel="다음 달" />
-                </div>
-                <div class="calendar__grid">
-                  <div class="calendar__weekdays">
-                    <div class="calendar__weekday">일</div>
-                    <div class="calendar__weekday">월</div>
-                    <div class="calendar__weekday">화</div>
-                    <div class="calendar__weekday">수</div>
-                    <div class="calendar__weekday">목</div>
-                    <div class="calendar__weekday">금</div>
-                    <div class="calendar__weekday">토</div>
-                  </div>
-                  <div class="calendar__days">
-                    <!-- 5월 달력 예시 -->
-                    <div class="calendar__day calendar__day--prev">27</div>
-                    <div class="calendar__day calendar__day--prev">28</div>
-                    <div class="calendar__day calendar__day--prev">29</div>
-                    <div class="calendar__day calendar__day--prev">30</div>
-                    <div class="calendar__day calendar__day--open">1</div>
-                    <div class="calendar__day calendar__day--open">2</div>
-                    <div class="calendar__day calendar__day--open">3</div>
-                    <div class="calendar__day calendar__day--open">4</div>
-                    <div class="calendar__day calendar__day--holiday">5</div>
-                    <div class="calendar__day calendar__day--closed">6</div>
-                    <div class="calendar__day calendar__day--open">7</div>
-                    <div class="calendar__day calendar__day--open">8</div>
-                    <div class="calendar__day calendar__day--open">9</div>
-                    <div class="calendar__day calendar__day--open">10</div>
-                    <div class="calendar__day calendar__day--open">11</div>
-                    <div class="calendar__day calendar__day--closed">12</div>
-                    <div class="calendar__day calendar__day--open">13</div>
-                    <div class="calendar__day calendar__day--open">14</div>
-                    <div class="calendar__day calendar__day--open">15</div>
-                    <div class="calendar__day calendar__day--open">16</div>
-                    <div class="calendar__day calendar__day--open">17</div>
-                    <div class="calendar__day calendar__day--open">18</div>
-                    <div class="calendar__day calendar__day--closed">19</div>
-                    <div class="calendar__day calendar__day--open">20</div>
-                    <div class="calendar__day calendar__day--open">21</div>
-                    <div class="calendar__day calendar__day--open">22</div>
-                    <div class="calendar__day calendar__day--open">23</div>
-                    <div class="calendar__day calendar__day--today">24</div>
-                    <div class="calendar__day calendar__day--open">25</div>
-                    <div class="calendar__day calendar__day--closed">26</div>
-                    <div class="calendar__day calendar__day--open">27</div>
-                    <div class="calendar__day calendar__day--open">28</div>
-                    <div class="calendar__day calendar__day--open">29</div>
-                    <div class="calendar__day calendar__day--open">30</div>
-                    <div class="calendar__day calendar__day--open">31</div>
-                  </div>
-                </div>
-              </div>
+		<!-- 연수구도서관 한눈에 보기, 도서관 이용시간 -->
+		<section class="info-section">
+			<div class="inner">
+				<div class="info-section__content">
+					<div class="info-section__map-area left">
+						<div class="info-section__header">
+							<div class="info-section__left">
+								<h2 class="info-section__title">
+									연수구도서관 <span>한눈에 보기</span>
+								</h2>
+								<UiSelect
+									name="library-select"
+									options={[
+										{ value: 'yeonsu', label: '연수청학도서관' },
+										{ value: 'ggumdan', label: '연수꿈단도서관' },
+										{ value: 'songdo', label: '송도국제어린이도서관' },
+									]}
+									value="yeonsu"
+									class="w-180"
+								/>
+							</div>
+						</div>
+						<!-- 지도 영역 -->
+						<div class="library-map" data-aos="fade-up" data-aos-duration="500">
+							<img src="./assets/images/building-image.png" alt="연수구 도서관 지도" class="library-map__image" />
+						</div>
+					</div>
+					<div class="info-section__right-area">
+						<div class="info-section__right">
+							<h2 class="info-section__title">
+								도서관 <span>이용시간</span>
+							</h2>
+							<UiButton
+								text="도서관 소개 바로가기"
+								variant="darkBlue"
+								size="large"
+								width="250px"
+								icon="icon-arr-right-white"
+								iconPosition="right"
+							/>
+						</div>
+						<div class="info-section__schedule-area" data-aos="fade-up" data-aos-duration="500">
+							<!-- 휴관일 안내 -->
+							<div class="holiday-notice flex justify-between items-center">
+								<div class="holiday-notice__left flex gap-2 items-center">
+									<div class="holiday-notice__icon">
+										<img src="./assets/images/icon/icon-date.svg" class="icon icon-date" />
+									</div>
+									<span class="holiday-notice__text">휴관일 안내</span>
+								</div>
+								<div class="holiday-notice__legends">
+									<div class="holiday-notice__legend">
+										<div class="holiday-notice__dot holiday-notice__dot--red"></div>
+										<span>법정공휴일</span>
+									</div>
+									<div class="holiday-notice__legend">
+										<div class="holiday-notice__dot holiday-notice__dot--orange"></div>
+										<span>정기휴관</span>
+									</div>
+									<div class="holiday-notice__legend">
+										<div class="holiday-notice__dot holiday-notice__dot--gray"></div>
+										<span>개관일</span>
+									</div>
+								</div>
+							</div>
+							<!-- 캘린더 -->
+							<div class="calendar">
+								<div class="calendar__header">
+									<UiNavButton direction="prev" size={40} ariaLabel="이전 달" />
+									<div class="calendar__selects">
+										<UiSelect
+											name="calendar-year"
+											options={[
+												{ value: '2024', label: '2024년' },
+												{ value: '2025', label: '2025년' },
+												{ value: '2026', label: '2026년' },
+											]}
+											value="2025"
+											variant="ghost"
+											class="w-80"
+										/>
+										<UiSelect
+											name="calendar-month"
+											options={[
+												{ value: '1', label: '1월' },
+												{ value: '2', label: '2월' },
+												{ value: '3', label: '3월' },
+												{ value: '4', label: '4월' },
+												{ value: '5', label: '5월' },
+												{ value: '6', label: '6월' },
+												{ value: '7', label: '7월' },
+												{ value: '8', label: '8월' },
+												{ value: '9', label: '9월' },
+												{ value: '10', label: '10월' },
+												{ value: '11', label: '11월' },
+												{ value: '12', label: '12월' },
+											]}
+											value="5"
+											variant="ghost"
+											class="w-80"
+										/>
+									</div>
+									<UiNavButton direction="next" size={40} ariaLabel="다음 달" />
+								</div>
+								<div class="calendar__grid">
+									<div class="calendar__weekdays">
+										<div class="calendar__weekday">일</div>
+										<div class="calendar__weekday">월</div>
+										<div class="calendar__weekday">화</div>
+										<div class="calendar__weekday">수</div>
+										<div class="calendar__weekday">목</div>
+										<div class="calendar__weekday">금</div>
+										<div class="calendar__weekday">토</div>
+									</div>
+									<div class="calendar__days">
+										<!-- 5월 달력 예시 -->
+										<div class="calendar__day calendar__day--prev">27</div>
+										<div class="calendar__day calendar__day--prev">28</div>
+										<div class="calendar__day calendar__day--prev">29</div>
+										<div class="calendar__day calendar__day--prev">30</div>
+										<div class="calendar__day calendar__day--open">1</div>
+										<div class="calendar__day calendar__day--open">2</div>
+										<div class="calendar__day calendar__day--open">3</div>
+										<div class="calendar__day calendar__day--open">4</div>
+										<div class="calendar__day calendar__day--holiday">5</div>
+										<div class="calendar__day calendar__day--closed">6</div>
+										<div class="calendar__day calendar__day--open">7</div>
+										<div class="calendar__day calendar__day--open">8</div>
+										<div class="calendar__day calendar__day--open">9</div>
+										<div class="calendar__day calendar__day--open">10</div>
+										<div class="calendar__day calendar__day--open">11</div>
+										<div class="calendar__day calendar__day--closed">12</div>
+										<div class="calendar__day calendar__day--open">13</div>
+										<div class="calendar__day calendar__day--open">14</div>
+										<div class="calendar__day calendar__day--open">15</div>
+										<div class="calendar__day calendar__day--open">16</div>
+										<div class="calendar__day calendar__day--open">17</div>
+										<div class="calendar__day calendar__day--open">18</div>
+										<div class="calendar__day calendar__day--closed">19</div>
+										<div class="calendar__day calendar__day--open">20</div>
+										<div class="calendar__day calendar__day--open">21</div>
+										<div class="calendar__day calendar__day--open">22</div>
+										<div class="calendar__day calendar__day--open">23</div>
+										<div class="calendar__day calendar__day--today">24</div>
+										<div class="calendar__day calendar__day--open">25</div>
+										<div class="calendar__day calendar__day--closed">26</div>
+										<div class="calendar__day calendar__day--open">27</div>
+										<div class="calendar__day calendar__day--open">28</div>
+										<div class="calendar__day calendar__day--open">29</div>
+										<div class="calendar__day calendar__day--open">30</div>
+										<div class="calendar__day calendar__day--open">31</div>
+									</div>
+								</div>
+							</div>
 
-              <!-- 이용시간 스와이퍼 -->
-              <div class="library-hours">
-                <div class="holiday-notice__left flex gap-2 items-center">
-                  <div class="holiday-notice__icon">
-                    <img src="./assets/images/icon/icon-calendar.svg" class="icon icon-calendar" />
-                  </div>
-                  <span class="holiday-notice__text">이용시간</span>
-                </div>
+							<!-- 이용시간 스와이퍼 -->
+							<div class="library-hours">
+								<div class="holiday-notice__left flex gap-2 items-center">
+									<div class="holiday-notice__icon">
+										<img src="./assets/images/icon/icon-calendar.svg" class="icon icon-calendar" />
+									</div>
+									<span class="holiday-notice__text">이용시간</span>
+								</div>
 
-                <!-- 스와이퍼 컨테이너 -->
-                <div class="library-hours-swiper swiper">
-                  <div class="swiper-wrapper">
-                    {
-                      libraryHours.map((page, pageIndex) => (
-                        <div class="swiper-slide">
-                          <div class="library-hours__grid">
-                            {page.sections.map((section, sectionIndex) => (
-                              <div class="library-hours__section" key={`${pageIndex}-${sectionIndex}`}>
-                                <h5 class="library-hours__section-title">
-                                  {section.title} <span class="library-hours__floor">{section.floor}</span>
-                                </h5>
-                                {section.times.map((time, timeIndex) => (
-                                  <div class="library-hours__time" key={`${pageIndex}-${sectionIndex}-${timeIndex}`}>
-                                    {time.days} <span>{time.hours}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </div>
+								<!-- 스와이퍼 컨테이너 -->
+								<div class="library-hours-swiper swiper">
+									<div class="swiper-wrapper">
+										{
+											libraryHours.map((page, pageIndex) => (
+												<div class="swiper-slide">
+													<div class="library-hours__grid">
+														{page.sections.map((section, sectionIndex) => (
+															<div class="library-hours__section" key={`${pageIndex}-${sectionIndex}`}>
+																<h5 class="library-hours__section-title">
+																	{section.title} <span class="library-hours__floor">{section.floor}</span>
+																</h5>
+																{section.times.map((time, timeIndex) => (
+																	<div
+																		class="library-hours__time"
+																		key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
+																	>
+																		{time.days} <span>{time.hours}</span>
+																	</div>
+																))}
+															</div>
+														))}
+													</div>
+												</div>
+											))
+										}
+									</div>
+								</div>
 
-                <!-- 페이지네이션 -->
-                <div class="library-hours__pagination">
-                  <span class="library-hours__page-info">
-                    <span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">{libraryHours.length}</span
-                    >
-                  </span>
-                  <div class="library-hours__nav">
-                    <UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />
-                    <UiNavButton class="library-hours-btn-prev" direction="prev" size={40} ariaLabel="이전 이용시간" />
-                    <UiNavButton class="library-hours-btn-next" direction="next" size={40} ariaLabel="다음 이용시간" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+								<!-- 페이지네이션 -->
+								<div class="library-hours__pagination">
+									<span class="library-hours__page-info">
+										<span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total"
+											>{libraryHours.length}</span
+										>
+									</span>
+									<div class="library-hours__nav">
+										<UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />
+										<UiNavButton class="library-hours-btn-prev" direction="prev" size={40} ariaLabel="이전 이용시간" />
+										<UiNavButton class="library-hours-btn-next" direction="next" size={40} ariaLabel="다음 이용시간" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="banner-section">
+			<div class="inner">
+				<div class="banner-section__content">
+					<div class="banner-section__left">
+						<div class="banner-section__nav flex gap-4">
+							<UiNavButton
+								class="ui-nav-button--primary banner-swiper-btn-prev"
+								direction="prev"
+								size={40}
+								ariaLabel="이전 배너"
+								iconAddClass="icon-white"
+							/>
+							<UiNavButton
+								class="ui-nav-button--primary banner-swiper-autoplay-toggle"
+								direction="stop-white"
+								size={40}
+								ariaLabel="자동재생 정지"
+								iconAddClass="icon-white"
+							/>
+							<UiNavButton
+								class="ui-nav-button--primary banner-swiper-btn-next"
+								direction="next"
+								size={40}
+								ariaLabel="다음 배너"
+								iconAddClass="icon-white"
+							/>
+						</div>
+					</div>
+					<div class="banner-section__right">
+						<div class="banner-swiper swiper">
+							<div class="swiper-wrapper banner-section__list">
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner01.png" alt="배너01" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner02.png" alt="배너02" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner03.png" alt="배너03" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner04.png" alt="배너04" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner05.png" alt="배너05" class="banner-section__image" />
+									</a>
+								</div>
+								<!-- 무한 루프를 위한 추가 슬라이드 (기존 배너 반복) -->
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner01.png" alt="배너01 (반복)" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner02.png" alt="배너02 (반복)" class="banner-section__image" />
+									</a>
+								</div>
+								<div class="swiper-slide banner-section__item">
+									<a href="#" class="banner-section__link">
+										<img src="./assets/images/banner/banner03.png" alt="배너03 (반복)" class="banner-section__image" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </Layout>

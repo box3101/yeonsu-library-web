@@ -3,1623 +3,1622 @@
 @use '../variables/colors' as *;
 
 .main-container {
-  margin-top: to-rem(41);
+	margin-top: to-rem(41);
 
-  @include mobile {
-    margin-top: to-rem(32);
-  }
+	@include mobile {
+		margin-top: to-rem(32);
+	}
 }
 
 // ============================================
 // Banner Component SCSS
 // ============================================
 .banner {
-  @include relative;
-  height: to-rem(468);
+	@include relative;
+	height: to-rem(468);
 
-  @include mobile {
-    padding: 50px 0;
-    height: auto;
-  }
+	@include mobile {
+		padding: 50px 0;
+		height: auto;
+	}
 
-  &__background {
-    @include absolute(0, null, null, 0);
-    @include bg-image('#{$image-path}building-image.png');
-    width: 100%;
-    height: 100%;
-    border-radius: to-rem(12);
+	&__background {
+		@include absolute(0, null, null, 0);
+		@include bg-image('#{$image-path}building-image.png');
+		width: 100%;
+		height: 100%;
+		border-radius: to-rem(12);
 
-    @include mobile {
-      border-radius: to-rem(8);
-    }
-  }
+		@include mobile {
+			border-radius: to-rem(8);
+		}
+	}
 
-  &__mask-group {
-    @include absolute(0, null, null, 0);
-    width: 100%;
-    height: 100%;
-    background-color: alpha(#000, 0.1);
-    border-radius: to-rem(12);
+	&__mask-group {
+		@include absolute(0, null, null, 0);
+		width: 100%;
+		height: 100%;
+		background-color: alpha(#000, 0.1);
+		border-radius: to-rem(12);
 
-    @include mobile {
-      border-radius: to-rem(8);
-    }
-  }
+		@include mobile {
+			border-radius: to-rem(8);
+		}
+	}
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: to-rem(870);
-    height: 100%;
-    margin: 0 auto;
-    gap: to-rem(10);
-    position: relative;
-    z-index: 10;
-    padding: 0 to-rem(20);
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		max-width: to-rem(870);
+		height: 100%;
+		margin: 0 auto;
+		gap: to-rem(10);
+		position: relative;
+		z-index: 10;
+		padding: 0 to-rem(20);
 
-    @include mobile {
-      padding: 0 to-rem(16);
-      gap: to-rem(8);
-    }
+		@include mobile {
+			padding: 0 to-rem(16);
+			gap: to-rem(8);
+		}
 
-    h1 {
-      margin-bottom: to-rem(24);
-      display: block;
-      text-align: center;
-      color: $white;
-      @include font(to-rem(24), 400, $white);
-      word-break: keep-all;
+		h1 {
+			margin-bottom: to-rem(24);
+			display: block;
+			text-align: center;
+			color: $white;
+			@include font(to-rem(24), 400, $white);
+			word-break: keep-all;
 
-      @include mobile {
-        margin-bottom: to-rem(16);
-        line-height: 1.5;
-      }
+			@include mobile {
+				margin-bottom: to-rem(16);
+				line-height: 1.5;
+			}
 
-      span {
-        color: $white;
-        font-size: to-rem(40);
-        font-weight: 700;
-        line-height: 150%;
-        letter-spacing: 1px;
+			span {
+				color: $white;
+				font-size: to-rem(40);
+				font-weight: 700;
+				line-height: 150%;
+				letter-spacing: 1px;
 
-        @include mobile {
-          font-size: to-rem(20);
-          letter-spacing: 0.5px;
-        }
-      }
-    }
+				@include mobile {
+					font-size: to-rem(20);
+					letter-spacing: 0.5px;
+				}
+			}
+		}
 
-    p {
-      color: $white;
-      font-size: to-rem(19);
-      font-weight: 700;
-      line-height: 150%;
+		p {
+			color: $white;
+			font-size: to-rem(19);
+			font-weight: 700;
+			line-height: 150%;
 
-      @include mobile {
-        font-size: to-rem(14);
-        text-align: center;
-      }
-    }
-  }
+			@include mobile {
+				font-size: to-rem(14);
+				text-align: center;
+			}
+		}
+	}
 
-  // ============================================
-  // 검색 영역 스타일링
-  // ============================================
-  &__search-container {
-    @include flex(column, center, center);
-    width: 100%;
+	// ============================================
+	// 검색 영역 스타일링
+	// ============================================
+	&__search-container {
+		@include flex(column, center, center);
+		width: 100%;
 
-    @include mobile {
-      margin: to-rem(16) 0 0;
-      width: 100%;
-    }
-  }
+		@include mobile {
+			margin: to-rem(16) 0 0;
+			width: 100%;
+		}
+	}
 
-  .banner__description {
-    @include flex(row, flex-end, center);
-    @include font(to-rem(17), 400, $white);
-    line-height: 1;
-    margin-top: 8px;
+	.banner__description {
+		@include flex(row, flex-end, center);
+		@include font(to-rem(17), 400, $white);
+		line-height: 1;
+		margin-top: 8px;
 
-    @include mobile {
-      font-size: to-rem(14);
-      margin-top: to-rem(6);
-    }
+		@include mobile {
+			font-size: to-rem(14);
+			margin-top: to-rem(6);
+		}
 
-    span {
-      display: inline-block;
-      margin: 0 3px;
-      font-size: 24px;
-      font-weight: 700;
+		span {
+			display: inline-block;
+			margin: 0 3px;
+			font-size: 24px;
+			font-weight: 700;
 
-      @include mobile {
-        font-size: to-rem(16);
-        margin: 0 to-rem(2);
-      }
-    }
-  }
+			@include mobile {
+				font-size: to-rem(16);
+				margin: 0 to-rem(2);
+			}
+		}
+	}
 }
 
 // ============================================
 // Search Tabs Component
 // ============================================
 .search-tabs {
-  @include flex(row, center, center);
-  gap: to-rem(16);
+	@include flex(row, center, center);
+	gap: to-rem(16);
 
-  @include tablet {
-    gap: to-rem(12);
-  }
+	@include tablet {
+		gap: to-rem(12);
+	}
 
-  &__tab {
-    @include flex(column, center, center);
-    width: to-rem(180);
-    height: to-rem(62);
-    padding: to-rem(8) to-rem(32);
-    border: to-rem(1) solid $white;
-    border-radius: to-rem(50);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: $white;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-weight: 700;
-    font-size: to-rem(19);
-    line-height: 1.5;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+	&__tab {
+		@include flex(column, center, center);
+		width: to-rem(180);
+		height: to-rem(62);
+		padding: to-rem(8) to-rem(32);
+		border: to-rem(1) solid $white;
+		border-radius: to-rem(50);
+		background-color: rgba(0, 0, 0, 0.5);
+		color: $white;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(19);
+		line-height: 1.5;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
 
-    @include tablet {
-      width: to-rem(140);
-      height: to-rem(50);
-      font-size: to-rem(16);
-      padding: to-rem(6) to-rem(20);
-    }
+		@include tablet {
+			width: to-rem(140);
+			height: to-rem(50);
+			font-size: to-rem(16);
+			padding: to-rem(6) to-rem(20);
+		}
 
-    &:hover {
-      background-color: rgba($primary-color, 0.8);
-      transform: translateY(to-rem(-2));
-    }
+		&:hover {
+			background-color: rgba($primary-color, 0.8);
+			transform: translateY(to-rem(-2));
+		}
 
-    &--active {
-      background-color: $primary-color;
+		&--active {
+			background-color: $primary-color;
 
-      .search-tabs__indicator {
-        opacity: 1;
-      }
-    }
-  }
+			.search-tabs__indicator {
+				opacity: 1;
+			}
+		}
+	}
 
-  &__indicator {
-    position: absolute;
-    top: to-rem(9);
-    right: to-rem(38);
-    width: to-rem(6);
-    height: to-rem(6);
-    background-color: #ffac21;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+	&__indicator {
+		position: absolute;
+		top: to-rem(9);
+		right: to-rem(38);
+		width: to-rem(6);
+		height: to-rem(6);
+		background-color: #ffac21;
+		border-radius: 50%;
+		opacity: 0;
+		transition: opacity 0.3s ease;
 
-    @include tablet {
-      width: to-rem(5);
-      height: to-rem(5);
-      top: to-rem(6);
-      right: to-rem(6);
-    }
-  }
+		@include tablet {
+			width: to-rem(5);
+			height: to-rem(5);
+			top: to-rem(6);
+			right: to-rem(6);
+		}
+	}
 
-  &__content {
-    @include flex(row, center, center);
-    gap: to-rem(12);
-    width: 100%;
-    height: to-rem(37);
+	&__content {
+		@include flex(row, center, center);
+		gap: to-rem(12);
+		width: 100%;
+		height: to-rem(37);
 
-    @include tablet {
-      height: to-rem(30);
-      gap: to-rem(8);
-    }
-  }
+		@include tablet {
+			height: to-rem(30);
+			gap: to-rem(8);
+		}
+	}
 
-  &__icon {
-    width: to-rem(24);
-    height: to-rem(24);
-    flex-shrink: 0;
+	&__icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
 
-    @include tablet {
-      width: to-rem(20);
-      height: to-rem(20);
-    }
-  }
+		@include tablet {
+			width: to-rem(20);
+			height: to-rem(20);
+		}
+	}
 
-  &__text {
-    white-space: nowrap;
-  }
+	&__text {
+		white-space: nowrap;
+	}
 }
 
 // ============================================
 // Search Input Component
 // ============================================
 .search-input {
-  width: 100%;
-  margin-top: to-rem(24);
+	width: 100%;
+	margin-top: to-rem(24);
 
-  @include tablet {
-    width: 100%;
-  }
+	@include tablet {
+		width: 100%;
+	}
 
-  &__form {
-    width: 100%;
-  }
+	&__form {
+		width: 100%;
+	}
 
-  &__container {
-    @include flex(row, space-between, center);
-    width: 100%;
-    padding: 0 to-rem(24);
-    background-color: $white;
-    border: to-rem(1) solid #58616a;
-    border-radius: to-rem(10);
-    gap: to-rem(16);
-    min-height: to-rem(72);
+	&__container {
+		@include flex(row, space-between, center);
+		width: 100%;
+		padding: 0 to-rem(24);
+		background-color: $white;
+		border: to-rem(1) solid #58616a;
+		border-radius: to-rem(10);
+		gap: to-rem(16);
+		min-height: to-rem(72);
 
-    @include tablet {
-      padding: 0 to-rem(16);
-      min-height: to-rem(60);
-      gap: to-rem(12);
-    }
-  }
+		@include tablet {
+			padding: 0 to-rem(16);
+			min-height: to-rem(60);
+			gap: to-rem(12);
+		}
+	}
 
-  &__field {
-    flex: 1;
-    border: none;
-    background: transparent;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-weight: 700;
-    font-size: to-rem(24);
-    line-height: 1.5;
-    color: $text-color;
+	&__field {
+		flex: 1;
+		border: none;
+		background: transparent;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(24);
+		line-height: 1.5;
+		color: $text-color;
 
-    @include tablet {
-      font-size: to-rem(18);
-    }
+		@include tablet {
+			font-size: to-rem(18);
+		}
 
-    &::placeholder {
-      color: #8a949e;
-    }
+		&::placeholder {
+			color: #8a949e;
+		}
 
-    &:focus {
-      outline: none;
-    }
-  }
+		&:focus {
+			outline: none;
+		}
+	}
 
-  &__button {
-    @include flex-center;
-    width: to-rem(40);
-    height: to-rem(40);
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    border-radius: to-rem(8);
-    transition: all 0.2s ease;
-    flex-shrink: 0;
+	&__button {
+		@include flex-center;
+		width: to-rem(40);
+		height: to-rem(40);
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		border-radius: to-rem(8);
+		transition: all 0.2s ease;
+		flex-shrink: 0;
 
-    @include tablet {
-      width: to-rem(36);
-      height: to-rem(36);
-    }
+		@include tablet {
+			width: to-rem(36);
+			height: to-rem(36);
+		}
 
-    &:hover {
-      background-color: rgba($primary-color, 0.1);
-    }
+		&:hover {
+			background-color: rgba($primary-color, 0.1);
+		}
 
-    &:focus {
-      outline: to-rem(2) solid $primary-color;
-      outline-offset: to-rem(2);
-    }
+		&:focus {
+			outline: to-rem(2) solid $primary-color;
+			outline-offset: to-rem(2);
+		}
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 
 // ============================================
 // Notice Section SCSS
 // ============================================
 .notice-section {
-  width: 100%;
-  padding: to-rem(60) 0;
+	width: 100%;
+	padding: to-rem(60) 0;
 
-  @include tablet {
-    padding: to-rem(32) 0;
-  }
+	@include tablet {
+		padding: to-rem(32) 0;
+	}
 
-  &__content {
-    display: flex;
-    gap: to-rem(24);
-    align-items: flex-start;
+	&__content {
+		display: flex;
+		gap: to-rem(24);
+		align-items: flex-start;
 
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			gap: to-rem(16);
+		}
+	}
 
-  // 좌측 공지사항 영역
-  &__left {
-    flex: 1;
-    max-width: to-rem(689);
+	// 좌측 공지사항 영역
+	&__left {
+		flex: 1;
+		max-width: to-rem(689);
 
-    @include tablet {
-      max-width: 100%;
-    }
-  }
+		@include tablet {
+			max-width: 100%;
+		}
+	}
 
-  // 우측 자주찾는 페이지 영역
-  &__right {
-    flex: 1;
-    border-radius: to-rem(12);
+	// 우측 자주찾는 페이지 영역
+	&__right {
+		flex: 1;
+		border-radius: to-rem(12);
 
-    @include tablet {
-      max-width: 100%;
-      width: 100%;
-    }
+		@include tablet {
+			max-width: 100%;
+			width: 100%;
+		}
 
-    .quick-links {
-      border-radius: 12px;
-      background: #f3f3f3;
-    }
-  }
+		.quick-links {
+			border-radius: 12px;
+			background: #f3f3f3;
+		}
+	}
 
-  // 상단 헤더
-  &__header {
-    @include flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: to-rem(24);
-  }
+	// 상단 헤더
+	&__header {
+		@include flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: to-rem(24);
+	}
 
-  &__titles {
-    @include flex;
-    align-items: center;
-    gap: to-rem(4);
-  }
+	&__titles {
+		@include flex;
+		align-items: center;
+		gap: to-rem(4);
+	}
 
-  &__title {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(32);
-    font-weight: 700;
-    line-height: 1.5;
-    color: $text-color;
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(32);
+		font-weight: 700;
+		line-height: 1.5;
+		color: $text-color;
 
-    @include tablet {
-      font-size: to-rem(24);
-    }
+		@include tablet {
+			font-size: to-rem(24);
+		}
 
-    &--notice {
-      position: relative;
+		&--notice {
+			position: relative;
 
-      .notice-section__indicator {
-        display: inline-block;
-        width: to-rem(8);
-        height: to-rem(8);
-        background: transparent;
-        border-radius: 50%;
-        margin-left: to-rem(4);
-      }
-    }
-  }
+			.notice-section__indicator {
+				display: inline-block;
+				width: to-rem(8);
+				height: to-rem(8);
+				background: transparent;
+				border-radius: 50%;
+				margin-left: to-rem(4);
+			}
+		}
+	}
 
-  &__more-btn {
-    @include flex;
-    align-items: center;
-    gap: to-rem(4);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(17);
-    font-weight: 500;
-    color: $text-color;
-    transition: opacity 0.2s ease;
+	&__more-btn {
+		@include flex;
+		align-items: center;
+		gap: to-rem(4);
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 500;
+		color: $text-color;
+		transition: opacity 0.2s ease;
 
-    &:hover {
-      opacity: 0.8;
-    }
+		&:hover {
+			opacity: 0.8;
+		}
 
-    &:focus {
-      outline: to-rem(2) solid $primary-color;
-      outline-offset: to-rem(2);
-    }
-  }
+		&:focus {
+			outline: to-rem(2) solid $primary-color;
+			outline-offset: to-rem(2);
+		}
+	}
 
-  &__more-icon {
-    width: to-rem(24);
-    height: to-rem(24);
-  }
+	&__more-icon {
+		width: to-rem(24);
+		height: to-rem(24);
+	}
 
-  // 필터 및 네비게이션
-  &__controls {
-    margin-bottom: to-rem(16);
-  }
+	// 필터 및 네비게이션
+	&__controls {
+		margin-bottom: to-rem(16);
+	}
 
-  &__filter {
-    @include flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	&__filter {
+		@include flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  &__nav {
-    @include flex;
-    gap: to-rem(4);
-  }
+	&__nav {
+		@include flex;
+		gap: to-rem(4);
+	}
 
-  // 공지사항 목록
-  &__list {
-    @include flex;
-    flex-direction: column;
-    gap: to-rem(15.5);
-  }
+	// 공지사항 목록
+	&__list {
+		@include flex;
+		flex-direction: column;
+		gap: to-rem(15.5);
+	}
 }
 
 // 공지사항 아이템
 .notice-item {
-  padding: 0 to-rem(24);
-  height: to-rem(60);
-  border: 1px solid #c3c9c9;
-  border-radius: to-rem(12);
-  background: $white;
-  @include flex;
-  align-items: center;
-  transition: all 0.2s ease;
+	padding: 0 to-rem(24);
+	height: to-rem(60);
+	border: 1px solid #c3c9c9;
+	border-radius: to-rem(12);
+	background: $white;
+	@include flex;
+	align-items: center;
+	transition: all 0.2s ease;
 
-  @include tablet {
-    height: auto;
-    min-height: to-rem(80);
-    padding: to-rem(16) to-rem(20);
-  }
+	@include tablet {
+		height: auto;
+		min-height: to-rem(80);
+		padding: to-rem(16) to-rem(20);
+	}
 
-  &:hover {
-    border-color: #3c79c2;
-    .notice-item__title {
-      font-weight: 700;
-      color: #191a1a;
-    }
-  }
+	&:hover {
+		border-color: #3c79c2;
+		.notice-item__title {
+			font-weight: 700;
+			color: #191a1a;
+		}
+	}
 
-  &__content {
-    @include flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: to-rem(12);
+	&__content {
+		@include flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		gap: to-rem(12);
 
-    @include tablet {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: to-rem(12);
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: to-rem(12);
+		}
+	}
 
-  &__info {
-    @include flex;
-    align-items: center;
-    gap: to-rem(13);
-    flex: 1;
-    min-width: 0;
+	&__info {
+		@include flex;
+		align-items: center;
+		gap: to-rem(13);
+		flex: 1;
+		min-width: 0;
 
-    @include tablet {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: to-rem(8);
-      width: 100%;
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: to-rem(8);
+			width: 100%;
+		}
+	}
 
-  &__tag {
-    @include flex-center;
-    height: to-rem(32);
-    min-width: to-rem(84);
-    padding: 0 to-rem(16);
-    border-radius: to-rem(32);
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(15);
-    font-weight: 700;
-    color: $white;
-    flex-shrink: 0;
+	&__tag {
+		@include flex-center;
+		height: to-rem(32);
+		min-width: to-rem(84);
+		padding: 0 to-rem(16);
+		border-radius: to-rem(32);
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(15);
+		font-weight: 700;
+		color: $white;
+		flex-shrink: 0;
 
-    &--pink {
-      background: #ffacc1;
-    }
+		&--pink {
+			background: #ffacc1;
+		}
 
-    &--gray {
-      background: #666666;
-    }
+		&--gray {
+			background: #666666;
+		}
 
-    &--orange {
-      background: #ef6601;
-    }
+		&--orange {
+			background: #ef6601;
+		}
 
-    &--navy {
-      background: #40548c;
-    }
-  }
+		&--navy {
+			background: #40548c;
+		}
+	}
 
-  &__title {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(19);
-    font-weight: 400;
-    line-height: 1.5;
-    color: $text-color;
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-weight: 400;
+		line-height: 1.5;
+		color: $text-color;
+		flex: 1;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 
-    &:hover {
-      font-weight: 700;
-    }
+		&:hover {
+			font-weight: 700;
+		}
 
-    @include tablet {
-      white-space: normal;
-      overflow: visible;
-      text-overflow: initial;
-      font-size: to-rem(16);
-    }
-  }
+		@include tablet {
+			white-space: normal;
+			overflow: visible;
+			text-overflow: initial;
+			font-size: to-rem(16);
+		}
+	}
 
-  &__date {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(15);
-    font-weight: 400;
-    line-height: 1.5;
-    color: $text-color;
-    flex-shrink: 0;
+	&__date {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(15);
+		font-weight: 400;
+		line-height: 1.5;
+		color: $text-color;
+		flex-shrink: 0;
 
-    @include tablet {
-      align-self: flex-end;
-      font-size: to-rem(14);
-    }
-  }
+		@include tablet {
+			align-self: flex-end;
+			font-size: to-rem(14);
+		}
+	}
 }
 
 // 자주찾는 페이지
 .quick-links {
-  padding: to-rem(16);
-  box-sizing: border-box;
+	padding: to-rem(16);
+	box-sizing: border-box;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: to-rem(16);
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: to-rem(16);
 
-    @include tablet {
-      grid-template-columns: repeat(3, 1fr);
-      gap: to-rem(8);
-    }
-  }
+		@include tablet {
+			grid-template-columns: repeat(3, 1fr);
+			gap: to-rem(8);
+		}
+	}
 }
 
 .quick-link {
-  @include flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: to-rem(152);
-  background: $white;
-  border: 1px solid #dddddd;
-  border-radius: to-rem(12);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
+	@include flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: to-rem(152);
+	background: $white;
+	border: 1px solid #dddddd;
+	border-radius: to-rem(12);
+	text-decoration: none;
+	transition: all 0.2s ease;
+	cursor: pointer;
 
-  @include tablet {
-    height: to-rem(120);
-    padding: to-rem(12);
-  }
+	@include tablet {
+		height: to-rem(120);
+		padding: to-rem(12);
+	}
 
-  &:hover {
-    background: #f9f9f9;
-    border-color: #c0c0c0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: #6494ce;
+	&:hover {
+		background: #f9f9f9;
+		border-color: #c0c0c0;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		border-color: #6494ce;
 
-    .quick-link__text {
-      color: #3c79c2 !important;
-    }
-  }
+		.quick-link__text {
+			color: #3c79c2 !important;
+		}
+	}
 
-  &__icon {
-    @include flex-center;
-    width: to-rem(67);
-    height: to-rem(50);
-    margin-bottom: to-rem(18);
+	&__icon {
+		@include flex-center;
+		width: to-rem(67);
+		height: to-rem(50);
+		margin-bottom: to-rem(18);
 
-    @include tablet {
-      width: to-rem(40);
-      height: to-rem(30);
-      margin-bottom: to-rem(10);
-    }
+		@include tablet {
+			width: to-rem(40);
+			height: to-rem(30);
+			margin-bottom: to-rem(10);
+		}
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
 
-  &__text {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(19);
-    font-weight: 600;
-    text-align: center;
-    color: #7d8181;
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-weight: 600;
+		text-align: center;
+		color: #7d8181;
 
-    @include tablet {
-      font-size: to-rem(14);
-      line-height: 1.3;
-    }
-  }
+		@include tablet {
+			font-size: to-rem(14);
+			line-height: 1.3;
+		}
+	}
 }
 
 // ============================================
 // Event Section SCSS
 // ============================================
 .event-section {
-  width: 100%;
-  padding: to-rem(60) 0;
-  @include bg-image('#{$image-path}bg-event-section.png');
+	width: 100%;
+	padding: to-rem(60) 0;
+	@include bg-image('#{$image-path}bg-event-section.png');
 
-  @include tablet {
-    padding: to-rem(32) 0;
-  }
+	@include tablet {
+		padding: to-rem(32) 0;
+	}
 
-  .container {
-    @include flex;
-    gap: to-rem(24);
+	.container {
+		@include flex;
+		gap: to-rem(24);
 
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			gap: to-rem(16);
+		}
+	}
 
-  .event-section__left {
-    flex: 1;
-    max-width: to-rem(846);
+	.event-section__left {
+		flex: 1;
+		max-width: to-rem(846);
 
-    @include tablet {
-      max-width: 100%;
-    }
+		@include tablet {
+			max-width: 100%;
+		}
 
-    // 헤더 영역
-    .event-section__header {
-      @include flex-between;
-      margin-bottom: to-rem(24);
+		// 헤더 영역
+		.event-section__header {
+			@include flex-between;
+			margin-bottom: to-rem(24);
 
-      @include tablet {
-        gap: to-rem(16);
-      }
-    }
+			@include tablet {
+				gap: to-rem(16);
+			}
+		}
 
-    // 필터 영역
-    .event-section__filter {
-      @include flex-between;
-      margin-bottom: to-rem(16);
+		// 필터 영역
+		.event-section__filter {
+			@include flex-between;
+			margin-bottom: to-rem(16);
 
-      @include tablet {
-        gap: to-rem(16);
-      }
-    }
+			@include tablet {
+				gap: to-rem(16);
+			}
+		}
 
-    // 네비게이션 버튼 컨테이너
-    .event-section__nav {
-      @include flex;
-      gap: to-rem(4);
-      align-items: center;
-    }
+		// 네비게이션 버튼 컨테이너
+		.event-section__nav {
+			@include flex;
+			gap: to-rem(4);
+			align-items: center;
+		}
 
-    // 컨텐츠 영역
-    .event-section__content {
-      margin-top: to-rem(24);
-    }
+		// 컨텐츠 영역
+		.event-section__content {
+			margin-top: to-rem(24);
+		}
 
-    // 이벤트 카드 목록
-    .event-cards {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+		// 이벤트 카드 목록
+		.event-cards {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
 
-    // 이벤트 카드
-    .event-card {
-      margin-bottom: to-rem(18);
+		// 이벤트 카드
+		.event-card {
+			margin-bottom: to-rem(18);
 
-      &__link {
-        @include flex;
-        text-decoration: none;
-        color: inherit;
-        border-radius: to-rem(12);
-        border: to-rem(2) solid transparent;
-        background: $white;
-        padding: to-rem(20.5);
-        gap: to-rem(12);
-        transition: all 0.2s ease;
-        position: relative;
-        border: 1px solid var(--color-gray-gray03, #9da2a2);
+			&__link {
+				@include flex;
+				text-decoration: none;
+				color: inherit;
+				border-radius: to-rem(12);
+				border: to-rem(2) solid transparent;
+				background: $white;
+				padding: to-rem(20.5);
+				gap: to-rem(12);
+				transition: all 0.2s ease;
+				position: relative;
+				border: 1px solid var(--color-gray-gray03, #9da2a2);
 
-        @include tablet {
-          flex-direction: column;
-          padding: to-rem(16);
-          gap: to-rem(16);
-        }
+				@include tablet {
+					flex-direction: column;
+					padding: to-rem(16);
+					gap: to-rem(16);
+				}
 
-        &:hover {
-          border-color: #6494ce;
-        }
-      }
+				&:hover {
+					border-color: #6494ce;
+				}
+			}
 
-      &__tag {
-        @include flex-center;
-        color: $white;
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(15);
-        font-weight: 700;
-        line-height: 1.5;
-        height: to-rem(32);
-        padding: 0 to-rem(12);
-        border-radius: to-rem(32);
-        flex-shrink: 0;
-        min-width: to-rem(84);
+			&__tag {
+				@include flex-center;
+				color: $white;
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(15);
+				font-weight: 700;
+				line-height: 1.5;
+				height: to-rem(32);
+				padding: 0 to-rem(12);
+				border-radius: to-rem(32);
+				flex-shrink: 0;
+				min-width: to-rem(84);
 
-        @include tablet {
-          align-self: flex-start;
-        }
-      }
+				@include tablet {
+					align-self: flex-start;
+				}
+			}
 
-      &__content {
-        @include flex;
-        flex-direction: column;
-        gap: to-rem(16);
-        flex: 1;
-        min-width: 0;
-      }
+			&__content {
+				@include flex;
+				flex-direction: column;
+				gap: to-rem(16);
+				flex: 1;
+				min-width: 0;
+			}
 
-      &__title {
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(19);
-        font-weight: 700;
-        line-height: 1.5;
-        color: #191a1a;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+			&__title {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(19);
+				font-weight: 700;
+				line-height: 1.5;
+				color: #191a1a;
+				margin: 0;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 
-        @include tablet {
-          font-size: to-rem(16);
-          white-space: normal;
-          overflow: hidden;
-          text-overflow: initial;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          display: -webkit-box;
-          min-height: 45px;
-        }
-      }
+				@include tablet {
+					font-size: to-rem(16);
+					white-space: normal;
+					overflow: hidden;
+					text-overflow: initial;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					display: -webkit-box;
+					min-height: 45px;
+				}
+			}
 
-      &__info {
-        @include flex;
-        gap: to-rem(73);
+			&__info {
+				@include flex;
+				gap: to-rem(73);
 
-        @include tablet {
-          flex-direction: column;
-          gap: to-rem(16);
-        }
-      }
+				@include tablet {
+					flex-direction: column;
+					gap: to-rem(16);
+				}
+			}
 
-      &__info-left,
-      &__info-right {
-        @include flex;
-        flex-direction: column;
-        gap: to-rem(8);
-        flex: 1;
-      }
+			&__info-left,
+			&__info-right {
+				@include flex;
+				flex-direction: column;
+				gap: to-rem(8);
+				flex: 1;
+			}
 
-      &__info-item {
-        @include flex;
-        gap: to-rem(5);
-        align-items: center;
+			&__info-item {
+				@include flex;
+				gap: to-rem(5);
+				align-items: center;
 
-        @include tablet {
-          flex-wrap: wrap;
-        }
-      }
+				@include tablet {
+					flex-wrap: wrap;
+				}
+			}
 
-      &__label {
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(17);
-        font-weight: 700;
-        line-height: 1.5;
-        color: #191a1a;
-        flex-shrink: 0;
-        min-width: to-rem(68);
+			&__label {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(17);
+				font-weight: 700;
+				line-height: 1.5;
+				color: #191a1a;
+				flex-shrink: 0;
+				min-width: to-rem(68);
 
-        @include tablet {
-          font-size: to-rem(15);
-          min-width: to-rem(60);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(15);
+					min-width: to-rem(60);
+				}
+			}
 
-      &__value {
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(17);
-        font-weight: 500;
-        line-height: 1.5;
-        color: #4b4d4d;
-        flex: 1;
+			&__value {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(17);
+				font-weight: 500;
+				line-height: 1.5;
+				color: #4b4d4d;
+				flex: 1;
 
-        @include tablet {
-          font-size: to-rem(15);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(15);
+				}
+			}
 
-      &__highlight {
-        font-weight: 700;
-        color: #fcc975;
-      }
-    }
-  }
+			&__highlight {
+				font-weight: 700;
+				color: #fcc975;
+			}
+		}
+	}
 
-  .event-section__right {
-    flex: 1;
-    max-width: to-rem(410);
+	.event-section__right {
+		flex: 1;
+		max-width: to-rem(410);
 
-    @include tablet {
-      max-width: 100%;
-    }
+		@include tablet {
+			max-width: 100%;
+		}
 
-    // 신규 컨텐츠 바로가기
-    .new-content-shortcuts {
-      &__title {
-        font-size: to-rem(32);
-        font-weight: 700;
-        color: $gray-90;
-        margin-bottom: 28px;
+		// 신규 컨텐츠 바로가기
+		.new-content-shortcuts {
+			&__title {
+				font-size: to-rem(32);
+				font-weight: 700;
+				color: $gray-90;
+				margin-bottom: 28px;
 
-        @include tablet {
-          font-size: to-rem(24);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(24);
+				}
+			}
 
-      &__grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: to-rem(16);
-      }
-    }
+			&__grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: to-rem(16);
+			}
+		}
 
-    // 신규 컨텐츠 아이템
-    .new-content-item {
-      @include flex;
-      align-items: center;
-      padding: to-rem(20);
-      border-radius: to-rem(16);
-      text-decoration: none;
-      color: $white;
-      transition: all 0.2s ease;
-      position: relative;
-      overflow: hidden;
-      height: to-rem(164);
+		// 신규 컨텐츠 아이템
+		.new-content-item {
+			@include flex;
+			align-items: center;
+			padding: to-rem(20);
+			border-radius: to-rem(16);
+			text-decoration: none;
+			color: $white;
+			transition: all 0.2s ease;
+			position: relative;
+			overflow: hidden;
+			height: to-rem(164);
 
-      @include tablet {
-        height: to-rem(120);
-        padding: to-rem(16);
-      }
+			@include tablet {
+				height: to-rem(120);
+				padding: to-rem(16);
+			}
 
-      &:hover {
-        transform: translateY(to-rem(-2));
-        @include shadow(2);
-      }
+			&:hover {
+				transform: translateY(to-rem(-2));
+				@include shadow(2);
+			}
 
-      &__image {
-        @include flex;
-        align-items: center;
-        justify-content: center;
-        width: to-rem(164);
-        height: to-rem(164);
-        flex-shrink: 0;
-        margin-right: to-rem(16);
+			&__image {
+				@include flex;
+				align-items: center;
+				justify-content: center;
+				width: to-rem(164);
+				height: to-rem(164);
+				flex-shrink: 0;
+				margin-right: to-rem(16);
 
-        @include tablet {
-          width: to-rem(80);
-          height: to-rem(80);
-          margin-right: to-rem(12);
-        }
+				@include tablet {
+					width: to-rem(80);
+					height: to-rem(80);
+					margin-right: to-rem(12);
+				}
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
 
-      &__content {
-        @include flex;
-        flex-direction: column;
-        justify-content: center;
-        flex: 1;
-        position: relative;
-      }
+			&__content {
+				@include flex;
+				flex-direction: column;
+				justify-content: center;
+				flex: 1;
+				position: relative;
+			}
 
-      &__title {
-        font-family: 'Pretendard GOV', sans-serif;
-        font-size: to-rem(24);
-        font-style: normal;
-        font-weight: 700;
-        line-height: 150%;
-        letter-spacing: 0;
-        color: #191a1a;
-        padding-right: to-rem(90);
+			&__title {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(24);
+				font-style: normal;
+				font-weight: 700;
+				line-height: 150%;
+				letter-spacing: 0;
+				color: #191a1a;
+				padding-right: to-rem(90);
 
-        span {
-          color: #f98512;
-        }
+				span {
+					color: #f98512;
+				}
 
-        @include tablet {
-          font-size: to-rem(20);
-        }
-      }
+				@include tablet {
+					font-size: to-rem(20);
+				}
+			}
 
-      &__arrow {
-        position: absolute;
-        right: to-rem(16);
-        top: 50%;
-        transform: translateY(-50%);
-        width: to-rem(32);
-        height: to-rem(32);
-        @include flex-center;
-        background: alpha($white, 0.2);
-        border-radius: 50%;
-        color: $white;
+			&__arrow {
+				position: absolute;
+				right: to-rem(16);
+				top: 50%;
+				transform: translateY(-50%);
+				width: to-rem(32);
+				height: to-rem(32);
+				@include flex-center;
+				background: alpha($white, 0.2);
+				border-radius: 50%;
+				color: $white;
 
-        @include tablet {
-          width: to-rem(28);
-          height: to-rem(28);
-          right: to-rem(12);
-        }
+				@include tablet {
+					width: to-rem(28);
+					height: to-rem(28);
+					right: to-rem(12);
+				}
 
-        svg {
-          width: to-rem(16);
-          height: to-rem(16);
+				svg {
+					width: to-rem(16);
+					height: to-rem(16);
 
-          @include tablet {
-            width: to-rem(14);
-            height: to-rem(14);
-          }
-        }
-      }
-    }
-  }
+					@include tablet {
+						width: to-rem(14);
+						height: to-rem(14);
+					}
+				}
+			}
+		}
+	}
 }
 
 .info-section {
-  padding: 64px 0;
-  background: $white;
+	padding: 64px 0;
+	background: $white;
 
-  @include tablet {
-    padding: 32px 0;
-  }
+	@include tablet {
+		padding: 32px 0;
+	}
 
-  &__header {
-    @include flex(row, space-between, flex-start);
-    gap: to-rem(40);
-    margin-bottom: to-rem(28);
+	&__header {
+		@include flex(row, space-between, flex-start);
+		gap: to-rem(40);
+		margin-bottom: to-rem(28);
 
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(16);
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			gap: to-rem(16);
+		}
+	}
 
-  &__left,
-  &__right {
-    flex: 1;
-    @include flex(row, space-between, center);
-    gap: to-rem(16);
+	&__left,
+	&__right {
+		flex: 1;
+		@include flex(row, space-between, center);
+		gap: to-rem(16);
 
-    @include tablet {
-      align-items: flex-start;
-      gap: to-rem(16);
-    }
-  }
+		@include tablet {
+			align-items: flex-start;
+			gap: to-rem(16);
+		}
+	}
 
-  &__title {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(28);
-    font-weight: 700;
-    line-height: 1.4;
-    color: $text-color;
-    margin: 0;
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(28);
+		font-weight: 700;
+		line-height: 1.4;
+		color: $text-color;
+		margin: 0;
 
-    @include tablet {
-      font-size: to-rem(24);
-    }
+		@include tablet {
+			font-size: to-rem(24);
+		}
 
-    span {
-      color: $primary-color;
-    }
-  }
+		span {
+			color: $primary-color;
+		}
+	}
 
-  &__content {
-    @include flex(row, flex-start, stretch);
-    gap: to-rem(40);
+	&__content {
+		@include flex(row, flex-start, stretch);
+		gap: to-rem(40);
 
-    .info-section__map-area {
-      flex: 1;
-      max-width: 50%;
+		.info-section__map-area {
+			flex: 1;
+			max-width: 50%;
 
-      @include tablet {
-        max-width: 100%;
-      }
-    }
-    .info-section__right-area {
-      flex: 1;
-      max-width: 50%;
+			@include tablet {
+				max-width: 100%;
+			}
+		}
+		.info-section__right-area {
+			flex: 1;
+			max-width: 50%;
 
-      @include tablet {
-        max-width: 100%;
-      }
-    }
+			@include tablet {
+				max-width: 100%;
+			}
+		}
 
-    @include tablet {
-      flex-direction: column;
-      gap: to-rem(24);
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			gap: to-rem(24);
+		}
+	}
 
-  &__map-area {
-    position: relative;
-    flex: 1;
+	&__map-area {
+		position: relative;
+		flex: 1;
 
-    @include tablet {
-      width: 100%;
-    }
-  }
+		@include tablet {
+			width: 100%;
+		}
+	}
 
-  &__schedule-area {
-    flex: 1;
-    margin-top: to-rem(24);
+	&__schedule-area {
+		flex: 1;
+		margin-top: to-rem(24);
 
-    @include flex(column, flex-start, stretch);
-    padding: to-rem(32);
-    border-radius: to-rem(12);
-    border: 1px solid $gray-300;
+		@include flex(column, flex-start, stretch);
+		padding: to-rem(32);
+		border-radius: to-rem(12);
+		border: 1px solid $gray-300;
 
-    @include tablet {
-      padding: to-rem(20);
-      margin-top: to-rem(16);
-    }
-  }
+		@include tablet {
+			padding: to-rem(20);
+			margin-top: to-rem(16);
+		}
+	}
 }
 
 // 도서관 지도
 .library-map {
-  position: relative;
-  background: #f8f9fa;
-  border-radius: 12px;
-  overflow: hidden;
-  height: 400px;
+	position: relative;
+	background: #f8f9fa;
+	border-radius: 12px;
+	overflow: hidden;
+	height: 400px;
 
-  @include tablet {
-    height: 300px;
-  }
+	@include tablet {
+		height: 300px;
+	}
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 }
 
 // 휴관일 안내
 .holiday-notice {
-  border-radius: 8px;
-  margin-bottom: 24px;
+	border-radius: 8px;
+	margin-bottom: 24px;
 
-  @include tablet {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+	@include tablet {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
 
-  &__icon {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
+	&__icon {
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+	}
 
-  &__text {
-    font-size: to-rem(24);
-    font-weight: 700;
-    color: $primary-color-light;
+	&__text {
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: $primary-color-light;
 
-    @include tablet {
-      font-size: to-rem(20);
-      flex: none;
-    }
-  }
+		@include tablet {
+			font-size: to-rem(20);
+			flex: none;
+		}
+	}
 
-  &__legends {
-    display: flex;
-    gap: to-rem(12);
-    color: #000;
-    font-size: to-rem(15);
-    font-weight: 500;
-    line-height: 150%;
-    letter-spacing: 0;
+	&__legends {
+		display: flex;
+		gap: to-rem(12);
+		color: #000;
+		font-size: to-rem(15);
+		font-weight: 500;
+		line-height: 150%;
+		letter-spacing: 0;
 
-    @include tablet {
-      flex-wrap: wrap;
-      gap: to-rem(8);
-      font-size: to-rem(14);
-    }
-  }
+		@include tablet {
+			flex-wrap: wrap;
+			gap: to-rem(8);
+			font-size: to-rem(14);
+		}
+	}
 
-  &__legend {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+	&__legend {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
 
-  &__dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
+	&__dot {
+		width: 16px;
+		height: 16px;
+		border-radius: 4px;
 
-    @include tablet {
-      width: 14px;
-      height: 14px;
-    }
+		@include tablet {
+			width: 14px;
+			height: 14px;
+		}
 
-    &--red {
-      background: #ff5252;
-    }
+		&--red {
+			background: #ff5252;
+		}
 
-    &--orange {
-      background: #fcce82;
-    }
+		&--orange {
+			background: #fcce82;
+		}
 
-    &--gray {
-      background: #e0e0e0;
-    }
-  }
+		&--gray {
+			background: #e0e0e0;
+		}
+	}
 }
 
 // 캘린더
 .calendar {
-  background: $white;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e5e5;
+	background: $white;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #e5e5e5;
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
 
-    @include tablet {
-      gap: 12px;
-    }
-  }
+		@include tablet {
+			gap: 12px;
+		}
+	}
 
-  &__selects {
-    display: flex;
-    gap: 4px;
-    align-items: center;
+	&__selects {
+		display: flex;
+		gap: 4px;
+		align-items: center;
 
-    @include tablet {
-      justify-content: center;
-    }
-  }
+		@include tablet {
+			justify-content: center;
+		}
+	}
 
-  &__weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
+	&__weekdays {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
 
-  &__weekday {
-    padding: to-rem(8) 0;
-    border: 1px solid #e0e0e0;
-    border-right: none;
-    background: #f8f9fa;
-    color: #191a1a;
-    text-align: center;
-    font-family: 'Pretendard GOV';
-    font-size: to-rem(15);
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: 0;
-    border-bottom: none;
+	&__weekday {
+		padding: to-rem(8) 0;
+		border: 1px solid #e0e0e0;
+		border-right: none;
+		background: #f8f9fa;
+		color: #191a1a;
+		text-align: center;
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(15);
+		font-weight: 700;
+		line-height: 150%;
+		letter-spacing: 0;
+		border-bottom: none;
 
-    @include tablet {
-      font-size: to-rem(14);
-      padding: to-rem(6) 0;
-    }
+		@include tablet {
+			font-size: to-rem(14);
+			padding: to-rem(6) 0;
+		}
 
-    &:last-child {
-      border-right: 1px solid #e0e0e0;
-    }
-  }
+		&:last-child {
+			border-right: 1px solid #e0e0e0;
+		}
+	}
 
-  &__days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
+	&__days {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
 
-  &__day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    padding: 8px 0;
-    border: 1px solid #e0e0e0;
-    margin-left: -1px;
-    margin-top: -1px;
+	&__day {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: 14px;
+		cursor: pointer;
+		transition: background-color 0.2s;
+		padding: 8px 0;
+		border: 1px solid #e0e0e0;
+		margin-left: -1px;
+		margin-top: -1px;
 
-    @include tablet {
-      padding: 6px 0;
-      font-size: 12px;
-    }
+		@include tablet {
+			padding: 6px 0;
+			font-size: 12px;
+		}
 
-    // 첫 번째 열은 왼쪽 마진 제거
-    &:nth-child(7n + 1) {
-      margin-left: 0;
-    }
+		// 첫 번째 열은 왼쪽 마진 제거
+		&:nth-child(7n + 1) {
+			margin-left: 0;
+		}
 
-    // 첫 번째 행은 위쪽 마진 제거
-    &:nth-child(-n + 7) {
-      margin-top: 0;
-    }
+		// 첫 번째 행은 위쪽 마진 제거
+		&:nth-child(-n + 7) {
+			margin-top: 0;
+		}
 
-    &--prev {
-      color: #d1d5db;
-    }
+		&--prev {
+			color: #d1d5db;
+		}
 
-    &--today {
-      background: $primary-color;
-      color: $white;
-      font-weight: 600;
-    }
+		&--today {
+			background: $primary-color;
+			color: $white;
+			font-weight: 600;
+		}
 
-    &--holiday {
-      background: #ff5252;
-      color: $white;
-    }
+		&--holiday {
+			background: #ff5252;
+			color: $white;
+		}
 
-    &--closed {
-      background: #fcce82;
-      color: #000;
-    }
+		&--closed {
+			background: #fcce82;
+			color: #000;
+		}
 
-    &--open {
-      background: #f8f9fa;
-      color: #000;
-    }
+		&--open {
+			background: #f8f9fa;
+			color: #000;
+		}
 
-    &:hover:not(&--prev):not(&--today):not(&--holiday):not(&--closed) {
-      background: #f3f4f6;
-    }
-  }
+		&:hover:not(&--prev):not(&--today):not(&--holiday):not(&--closed) {
+			background: #f3f4f6;
+		}
+	}
 }
 
 // 도서관 이용시간
 .library-hours {
-  background: $white;
-  padding: 20px 0;
-  padding-bottom: 0;
+	background: $white;
+	padding: 20px 0;
+	padding-bottom: 0;
 
-  // 스와이퍼 컨테이너 스타일
-  .library-hours-swiper {
-    width: 100%;
-    overflow: hidden;
+	// 스와이퍼 컨테이너 스타일
+	.library-hours-swiper {
+		width: 100%;
+		overflow: hidden;
 
-    .swiper-wrapper {
-      width: 100%;
-    }
+		.swiper-wrapper {
+			width: 100%;
+		}
 
-    .swiper-slide {
-      width: 100%;
-      flex-shrink: 0;
-    }
-  }
+		.swiper-slide {
+			width: 100%;
+			flex-shrink: 0;
+		}
+	}
 
-  &__title {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: $text-color;
-    margin: 0 0 16px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		color: $text-color;
+		margin: 0 0 16px 0;
+		display: flex;
+		align-items: center;
+		gap: 8px;
 
-    @include tablet {
-      font-size: 16px;
-    }
-  }
+		@include tablet {
+			font-size: 16px;
+		}
+	}
 
-  &__grid {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-    margin-top: 24px;
+	&__grid {
+		display: flex;
+		gap: 16px;
+		margin-bottom: 20px;
+		margin-top: 24px;
 
-    @include tablet {
-      flex-direction: column;
-      gap: 12px;
-    }
-  }
+		@include tablet {
+			flex-direction: column;
+			gap: 12px;
+		}
+	}
 
-  &__section {
-    flex: 1;
-    padding: 16px;
-    background: #ecf2f9;
-    border-radius: 8px;
-    min-height: to-rem(118);
+	&__section {
+		flex: 1;
+		padding: 16px;
+		background: #ecf2f9;
+		border-radius: 8px;
+		min-height: to-rem(118);
 
-    @include tablet {
-      padding: 12px;
-    }
-  }
+		@include tablet {
+			padding: 12px;
+		}
+	}
 
-  &__section-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: $text-color;
-    margin: 0 0 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+	&__section-title {
+		font-size: 18px;
+		font-weight: 700;
+		color: $text-color;
+		margin: 0 0 8px 0;
+		display: flex;
+		align-items: center;
+		gap: 8px;
 
-    @include tablet {
-      font-size: 14px;
-    }
-  }
+		@include tablet {
+			font-size: 14px;
+		}
+	}
 
-  &__floor {
-    background: $primary-color;
-    color: #fff;
-    text-align: center;
-    font-size: to-rem(17);
-    font-weight: 700;
-    line-height: 100%;
-    padding: to-rem(8) to-rem(15);
-    border-radius: 16px;
-    margin-left: auto;
+	&__floor {
+		background: $primary-color;
+		color: #fff;
+		text-align: center;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 100%;
+		padding: to-rem(8) to-rem(15);
+		border-radius: 16px;
+		margin-left: auto;
 
-    @include tablet {
-      font-size: to-rem(14);
-      padding: to-rem(6) to-rem(12);
-    }
-  }
+		@include tablet {
+			font-size: to-rem(14);
+			padding: to-rem(6) to-rem(12);
+		}
+	}
 
-  &__time {
-    color: #191a1a;
-    font-family: 'Pretendard GOV';
-    font-size: to-rem(15);
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: 0;
+	&__time {
+		color: #191a1a;
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(15);
+		font-weight: 700;
+		line-height: 150%;
+		letter-spacing: 0;
 
-    @include tablet {
-      font-size: to-rem(14);
-    }
+		@include tablet {
+			font-size: to-rem(14);
+		}
 
-    span {
-      color: #244874;
-      font-size: to-rem(15);
-      font-weight: 500;
-      line-height: 150%;
-      letter-spacing: 0;
-      display: inline-block;
-      margin-left: 10px;
+		span {
+			color: #244874;
+			font-size: to-rem(15);
+			font-weight: 500;
+			line-height: 150%;
+			letter-spacing: 0;
+			display: inline-block;
+			margin-left: 10px;
 
-      @include tablet {
-        font-size: to-rem(14);
-        margin-left: 5px;
-      }
-    }
-  }
-  .library-hours-wrp {
-    @include flex(row, space-between, center);
-    gap: to-rem(10);
-    width: 100%;
-    border-top: 1px solid #e5e7eb;
-    padding-top: 16px;
-  }
-  &__pagination {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    align-items: center;
+			@include tablet {
+				font-size: to-rem(14);
+				margin-left: 5px;
+			}
+		}
+	}
+	.library-hours-wrp {
+		@include flex(row, space-between, center);
+		gap: to-rem(10);
+		width: 100%;
+		border-top: 1px solid #e5e7eb;
+		padding-top: 16px;
+	}
+	&__pagination {
+		display: flex;
+		justify-content: flex-end;
+		gap: 8px;
+		align-items: center;
 
-    @include tablet {
-      justify-content: center;
-    }
-  }
+		@include tablet {
+			justify-content: center;
+		}
+	}
 
-  &__page-info {
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: 14px;
-    color: #6b7280;
-    border-radius: var(--radius-max, 1000px);
-    border: 1px solid var(--color-border-gray-light, #cdd1d5);
-    background: var(--color-surface-white, #fff);
-    width: 80px;
-    padding: 6px 0;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1e2124;
-    font-family: 'Pretendard GOV';
-    font-size: to-rem(17);
-    font-weight: 700;
-    line-height: 150%;
-    gap: 5px;
+	&__page-info {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: 14px;
+		color: #6b7280;
+		border-radius: var(--radius-max, 1000px);
+		border: 1px solid var(--color-border-gray-light, #cdd1d5);
+		background: var(--color-surface-white, #fff);
+		width: 80px;
+		padding: 6px 0;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #1e2124;
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 150%;
+		gap: 5px;
 
-    @include tablet {
-      width: 70px;
-      font-size: to-rem(15);
-    }
+		@include tablet {
+			width: 70px;
+			font-size: to-rem(15);
+		}
 
-    .library-hours__page-info-current {
-      color: var(--color-blue-BU600, #0071ba);
-      font-family: 'Pretendard GOV';
-      font-size: to-rem(17);
-      font-style: normal;
-      font-weight: 700;
-      line-height: 150%;
-      letter-spacing: var(--typo-font-New-group-New-group-0, 0);
+		.library-hours__page-info-current {
+			color: var(--color-blue-BU600, #0071ba);
+			font-family: 'Pretendard GOV';
+			font-size: to-rem(17);
+			font-style: normal;
+			font-weight: 700;
+			line-height: 150%;
+			letter-spacing: var(--typo-font-New-group-New-group-0, 0);
 
-      @include tablet {
-        font-size: to-rem(15);
-      }
-    }
+			@include tablet {
+				font-size: to-rem(15);
+			}
+		}
 
-    .library-hours__page-info-total {
-      color: var(--color-text-basic, #1e2124);
-      font-family: 'Pretendard GOV';
-      font-size: 17px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 150%;
+		.library-hours__page-info-total {
+			color: var(--color-text-basic, #1e2124);
+			font-family: 'Pretendard GOV';
+			font-size: 17px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 150%;
 
-      @include tablet {
-        font-size: to-rem(15);
-      }
-    }
-  }
+			@include tablet {
+				font-size: to-rem(15);
+			}
+		}
+	}
 
-  &__nav {
-    display: flex;
-    gap: 4px;
-  }
+	&__nav {
+		display: flex;
+		gap: 4px;
+	}
 
-  &__nav-btn {
-    background: none;
-    border: 1px solid #d1d5db;
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    transition: all 0.2s;
+	&__nav-btn {
+		background: none;
+		border: 1px solid #d1d5db;
+		width: 32px;
+		height: 32px;
+		border-radius: 4px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #6b7280;
+		transition: all 0.2s;
 
-    @include tablet {
-      width: 28px;
-      height: 28px;
-    }
+		@include tablet {
+			width: 28px;
+			height: 28px;
+		}
 
-    &:hover {
-      background: #f3f4f6;
-      border-color: #9ca3af;
-    }
-  }
+		&:hover {
+			background: #f3f4f6;
+			border-color: #9ca3af;
+		}
+	}
 }
 
 // Banner Section
 .banner-section {
-  @include flex(row, flex-start, center);
-  width: 100%;
-  padding: to-rem(24) 0;
-  border-top: 1px solid $gray-300;
-  border-bottom: 1px solid $gray-300;
+	@include flex(row, flex-start, center);
+	width: 100%;
+	padding: to-rem(24) 0;
+	border-top: 1px solid $gray-300;
 
-  @include tablet {
-    padding: to-rem(20) 0;
-  }
+	@include tablet {
+		padding: to-rem(20) 0;
+	}
 
-  @include mobile {
-    padding: 16px 0;
-  }
+	@include mobile {
+		padding: 16px 0;
+	}
 
-  .inner {
-    .banner-section__content {
-      @include flex(row, flex-start, center);
-      gap: to-rem(20);
+	.inner {
+		.banner-section__content {
+			@include flex(row, flex-start, center);
+			gap: to-rem(20);
 
-      @include tablet {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: to-rem(20);
-      }
+			@include tablet {
+				flex-direction: column-reverse;
+				align-items: center;
+				gap: to-rem(20);
+			}
 
-      // Left section (제목 영역)
-      .banner-section__left {
-        flex: 0 0 15%;
+			// Left section (제목 영역)
+			.banner-section__left {
+				flex: 0 0 15%;
 
-        @include tablet {
-          width: 100%;
-          text-align: center;
-          align-items: center;
-          flex: 1;
-          justify-content: center;
-          display: flex;
-        }
-      }
+				@include tablet {
+					width: 100%;
+					text-align: center;
+					align-items: center;
+					flex: 1;
+					justify-content: center;
+					display: flex;
+				}
+			}
 
-      // Right section (배너 링크들)
-      .banner-section__right {
-        flex: 1;
-        max-width: 85%;
+			// Right section (배너 링크들)
+			.banner-section__right {
+				flex: 1;
+				max-width: 85%;
 
-        @include tablet {
-          grid-template-columns: repeat(2, 1fr);
-          width: 100%;
-        }
+				@include tablet {
+					grid-template-columns: repeat(2, 1fr);
+					width: 100%;
+				}
 
-        @include mobile {
-          grid-template-columns: 1fr;
-          width: 100%;
-          gap: 12px;
-        }
-      }
+				@include mobile {
+					grid-template-columns: 1fr;
+					width: 100%;
+					gap: 12px;
+				}
+			}
 
-      .banner-section__item {
-        border-radius: 8px;
-        overflow: hidden;
+			.banner-section__item {
+				border-radius: 8px;
+				overflow: hidden;
 
-        @include mobile {
-          max-width: 300px;
-          margin: 0 auto;
-        }
+				@include mobile {
+					max-width: 300px;
+					margin: 0 auto;
+				}
 
-        .banner-section__link {
-          display: block;
-          transition: transform 0.2s ease;
+				.banner-section__link {
+					display: block;
+					transition: transform 0.2s ease;
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #c9cccc;
-          }
-        }
-      }
-    }
-  }
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 8px;
+						border: 1px solid #c9cccc;
+					}
+				}
+			}
+		}
+	}
 }
