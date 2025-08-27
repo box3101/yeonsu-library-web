@@ -1,6 +1,6 @@
 /**
- * 통합 내비게이션 스크립트 - ES5 + jQuery 단순화 버전
- * - 데스크톱 GNB 드롭다운 메뉴
+ * 통합 내비게이션 스크립트 - 단순화된 ul > li > a > ol 구조
+ * - 데스크톱 GNB 드롭다운 메뉴 (완전한 DOM 기반)
  * - 모바일 햄버거 메뉴
  */
 $(document).ready(function () {
@@ -16,6 +16,7 @@ $(document).ready(function () {
 		// 모든 서브메뉴 숨기기
 		function hideAllSubmenus() {
 			$gnb.find('.gnb-sub').attr('hidden', true);
+			$gnb.find('.gnb-third-list').hide();
 		}
 
 		// 서브메뉴 표시
@@ -24,53 +25,20 @@ $(document).ready(function () {
 			$submenu.attr('hidden', false);
 		}
 
-		// 3depth 컨텐츠 업데이트
-		function updateThirdContent($subItem, $thirdTitle, $thirdItems) {
-			var label = $subItem.find('.gnb-sub-text').text();
-
-			// 기존: var subItemsData = $subItem.attr('data-sub-items');
-			// 변경: DOM에서 직접 3depth 메뉴 데이터 추출
-			var $thirdSubmenu = $subItem.find('.gnb-third-submenu');
-			var subItems = [];
-
-			if ($thirdSubmenu.length > 0) {
-				$thirdSubmenu.find('.gnb-third-sub-item').each(function () {
-					var $item = $(this);
-					var $link = $item.find('.gnb-third-sub-link');
-					subItems.push({
-						label: $item.find('.gnb-third-sub-text').text(),
-						href: $link.attr('href'),
-						isSelected: $item.hasClass('selected'),
-					});
-				});
+		// 3depth 메뉴 표시/숨김 관리
+		function showThirdMenu($subItem) {
+			// 같은 서브메뉴 내의 모든 3depth 메뉴 숨기기
+			$subItem.parent().find('.gnb-third-list').hide();
+			
+			// 선택된 서브메뉴의 3depth 메뉴 표시
+			var $thirdList = $subItem.find('.gnb-third-list');
+			if ($thirdList.length > 0) {
+				$thirdList.show();
 			}
-
+			
 			// 선택 상태 업데이트
 			$subItem.parent().find('.gnb-sub-item').removeClass('selected');
 			$subItem.addClass('selected');
-
-			// 타이틀 업데이트
-			if ($thirdTitle.length > 0 && label) {
-				$thirdTitle.text(label);
-			}
-
-			// 3depth 아이템 렌더링
-			if ($thirdItems.length > 0 && subItems.length > 0) {
-				var html = '<div class="gnb-third-column">';
-
-				for (var i = 0; i < subItems.length; i++) {
-					var item = subItems[i];
-					html += '<div class="gnb-third-item ' + (item.isSelected ? 'selected' : '') + '">';
-					html += '<a href="' + item.href + '" class="gnb-third-link" role="menuitem" tabindex="-1">';
-					html += '<span class="gnb-third-text">' + item.label + '</span>';
-					html += '</a></div>';
-				}
-
-				html += '</div>';
-				$thirdItems.html(html);
-			} else if ($thirdItems.length > 0) {
-				$thirdItems.html('');
-			}
 		}
 
 		// 각 메인 아이템에 이벤트 등록
@@ -84,6 +52,11 @@ $(document).ready(function () {
 			// 호버 이벤트
 			$item.on('mouseenter', function () {
 				showSubmenu($submenu);
+				// 첫 번째 서브메뉴 항목의 3depth 표시 (있을 경우)
+				var $firstSubItem = $submenu.find('.gnb-sub-item').first();
+				if ($firstSubItem.length > 0) {
+					showThirdMenu($firstSubItem);
+				}
 			});
 
 			$item.on('mouseleave', function (e) {
@@ -97,19 +70,21 @@ $(document).ready(function () {
 			// 포커스 이벤트
 			$mainLink.on('focus', function () {
 				showSubmenu($submenu);
+				// 첫 번째 서브메뉴 항목의 3depth 표시 (있을 경우)
+				var $firstSubItem = $submenu.find('.gnb-sub-item').first();
+				if ($firstSubItem.length > 0) {
+					showThirdMenu($firstSubItem);
+				}
 			});
 
-			// 2depth 호버 시 3depth 업데이트
+			// 2depth 호버/포커스 시 3depth 메뉴 표시
 			var $subItems = $submenu.find('.gnb-sub-item');
-			var $thirdTitle = $submenu.find('[data-third-title]');
-			var $thirdItems = $submenu.find('[data-third-items]');
-
 			$subItems.each(function () {
 				var $subItem = $(this);
 				var $subLink = $subItem.find('.gnb-sub-link');
 
 				$subLink.on('mouseenter focus', function () {
-					updateThirdContent($subItem, $thirdTitle, $thirdItems);
+					showThirdMenu($subItem);
 				});
 			});
 		});
@@ -117,7 +92,7 @@ $(document).ready(function () {
 		// GNB 전체 벗어날 때 숨기기
 		$gnb.on('mouseleave', hideAllSubmenus);
 
-		// 키보드 네비게이션 향상
+		// 키보드 네비게이션
 		$gnb.on('keydown', function(e) {
 			var $focused = $(document.activeElement);
 			var key = e.key;
@@ -136,6 +111,7 @@ $(document).ready(function () {
 						var $firstSubLink = $submenu.find('.gnb-sub-link').first();
 						if ($firstSubLink.length > 0) {
 							$firstSubLink.focus();
+							showThirdMenu($firstSubLink.closest('.gnb-sub-item'));
 						}
 					}
 				}
@@ -177,6 +153,10 @@ $(document).ready(function () {
 						var $targetSubmenu = $targetItem.find('.gnb-sub');
 						if ($targetSubmenu.length > 0) {
 							showSubmenu($targetSubmenu);
+							var $firstSubItem = $targetSubmenu.find('.gnb-sub-item').first();
+							if ($firstSubItem.length > 0) {
+								showThirdMenu($firstSubItem);
+							}
 						}
 					}
 				}
@@ -184,44 +164,27 @@ $(document).ready(function () {
 				// 서브메뉴에서 오른쪽 화살표: 3depth로 이동
 				if (key === 'ArrowRight' && $focused.hasClass('gnb-sub-link')) {
 					var $subItem = $focused.closest('.gnb-sub-item');
-					var $submenu = $focused.closest('.gnb-sub');
-					var $thirdTitle = $submenu.find('[data-third-title]');
-					var $thirdItems = $submenu.find('[data-third-items]');
+					var $thirdList = $subItem.find('.gnb-third-list');
 					
-					// 3depth 컨텐츠 업데이트
-					updateThirdContent($subItem, $thirdTitle, $thirdItems);
-					
-					// 첫 번째 3depth 링크에 포커스
-					setTimeout(function() {
-						var $firstThirdLink = $thirdItems.find('.gnb-third-link').first();
+					if ($thirdList.length > 0) {
+						// 3depth 메뉴 표시
+						showThirdMenu($subItem);
+						
+						// 첫 번째 3depth 링크에 포커스
+						var $firstThirdLink = $thirdList.find('.gnb-third-link').first();
 						if ($firstThirdLink.length > 0) {
-							$firstThirdLink.attr('tabindex', '0').focus();
+							$firstThirdLink.focus();
 						}
-					}, 50);
+					}
 				}
 				
 				// 3depth에서 왼쪽 화살표: 2depth로 돌아가기
 				if (key === 'ArrowLeft' && $focused.hasClass('gnb-third-link')) {
-					var $submenu = $focused.closest('.gnb-sub');
-					var $selectedSubLink = $submenu.find('.gnb-sub-item.selected .gnb-sub-link');
-					if ($selectedSubLink.length > 0) {
-						// 모든 3depth 링크의 tabindex 리셋
-						$submenu.find('.gnb-third-link').attr('tabindex', '-1');
-						$selectedSubLink.focus();
+					var $subItem = $focused.closest('.gnb-sub-item');
+					var $subLink = $subItem.find('.gnb-sub-link');
+					if ($subLink.length > 0) {
+						$subLink.focus();
 					}
-				}
-			}
-			
-			// Tab/Shift+Tab으로 3depth 내부 네비게이션
-			if (key === 'Tab' && $focused.hasClass('gnb-third-link')) {
-				var $thirdLinks = $focused.closest('.gnb-third-column').find('.gnb-third-link');
-				var currentIndex = $thirdLinks.index($focused);
-				var nextIndex = e.shiftKey ? currentIndex - 1 : currentIndex + 1;
-				
-				if (nextIndex >= 0 && nextIndex < $thirdLinks.length) {
-					e.preventDefault();
-					$thirdLinks.attr('tabindex', '-1');
-					$thirdLinks.eq(nextIndex).attr('tabindex', '0').focus();
 				}
 			}
 			
@@ -242,8 +205,6 @@ $(document).ready(function () {
 				var $newFocus = $(document.activeElement);
 				if (!$newFocus.closest('#gnb').length) {
 					hideAllSubmenus();
-					// 모든 3depth 링크의 tabindex 리셋
-					$gnb.find('.gnb-third-link').attr('tabindex', '-1');
 				}
 			}, 10);
 		});

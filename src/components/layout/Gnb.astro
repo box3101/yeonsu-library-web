@@ -3,6 +3,7 @@
  * GNB (Global Navigation Bar) 컴포넌트
  * 연수구립도서관 메인 네비게이션 메뉴
  * 새로운 메뉴 구조 데이터를 import하여 사용
+ * 완전한 ul > li > a > ol 구조로 통일
  */
 import { menuConfig } from '../../../src/data/menuData';
 
@@ -70,7 +71,7 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 										)}
 									</a>
 
-									{/* 서브메뉴 */}
+									{/* 서브메뉴 - 완전한 ul > li > a > ol 구조 */}
 									{menu.type !== '1depth' && menu.items && (
 										<div class="gnb-sub" hidden>
 											<div class="gnb-container">
@@ -93,17 +94,13 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																		)}
 																	</a>
 
-																	{/* 3depth 메뉴 구조 */}
+																	{/* 3depth 메뉴 구조 - 완전한 ol 구조 */}
 																	{item.subItems && item.subItems.length > 0 && (
-																		<ol class="gnb-third-submenu">
+																		<ol class="gnb-third-list">
 																			{item.subItems.map(subItem => (
-																				<li
-																					class={`gnb-third-sub-item ${
-																						subItem.isSelected ? 'selected' : ''
-																					}`}
-																				>
-																					<a href={subItem.href} class="gnb-third-sub-link" role="menuitem" tabindex="-1">
-																						<span class="gnb-third-sub-text">{subItem.label}</span>
+																				<li class={`gnb-third-item ${subItem.isSelected ? 'selected' : ''}`}>
+																					<a href={subItem.href} class="gnb-third-link" role="menuitem">
+																						<span class="gnb-third-text">{subItem.label}</span>
 																					</a>
 																				</li>
 																			))}
@@ -112,38 +109,6 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																</li>
 															))}
 														</ul>
-													</div>
-
-													<div class="gnb-third" role="region" aria-label="세부 메뉴">
-														<div class="gnb-third-title">
-															<h3 class="gnb-third-title-text" data-third-title>
-																{(() => {
-																	const selectedItem = menu.items?.find(item => item.isSelected);
-																	const targetItem = selectedItem || menu.items?.[0];
-																	return targetItem?.label || '메뉴';
-																})()}
-															</h3>
-														</div>
-														<div class="gnb-third-items" data-third-items>
-															<div class="gnb-third-column">
-																{(() => {
-																	const selectedItem = menu.items?.find(item => item.isSelected);
-																	const targetItem = selectedItem || menu.items?.[0];
-
-																	if (targetItem?.subItems && targetItem.subItems.length > 0) {
-																		return targetItem.subItems.map(item => (
-																			<div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
-																				<a href={item.href} class="gnb-third-link" role="menuitem" tabindex="-1">
-																					<span class="gnb-third-text">{item.label}</span>
-																				</a>
-																			</div>
-																		));
-																	}
-																	// 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
-																	return null;
-																})()}
-															</div>
-														</div>
 													</div>
 												</div>
 											</div>

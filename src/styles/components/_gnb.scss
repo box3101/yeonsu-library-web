@@ -125,6 +125,7 @@
 	&-item {
 		border-radius: to-rem(8);
 		transition: all 0.2s ease;
+		position: relative; // 3depth 메뉴 위치 참조점
 
 		&.selected {
 			background: #ecf2f9;
@@ -295,20 +296,60 @@
 	}
 }
 
-// 3depth 서브메뉴 (숨김 처리)
+// 3depth 메뉴 - 완전한 ul > li > a > ol 구조
 .gnb-third {
-	&-submenu {
+	// 새로운 일관된 구조: ul > li > a > ol
+	&-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		display: none !important; // 완전히 숨김
-		visibility: hidden;
+		display: none; // 기본적으로 숨김
+		position: absolute;
+		top: 0;
+		left: 100%;
+		min-width: to-rem(200);
+		background: white;
+		border: 1px solid #e5e8eb;
+		border-radius: to-rem(8);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		z-index: 1000;
 	}
 
-	&-sub-item,
-	&-sub-link,
-	&-sub-text {
-		display: none !important; // 완전히 숨김
-		visibility: hidden;
+	&-item {
+		&:first-child .gnb-third-link {
+			border-top: none;
+		}
+
+		&:last-child .gnb-third-link {
+			border-bottom-left-radius: to-rem(8);
+			border-bottom-right-radius: to-rem(8);
+		}
+
+		&.selected .gnb-third-link {
+			background: var(--color-primary-pr01, #d8e4f3);
+			color: $primary-color;
+			font-weight: 700;
+		}
+	}
+
+	&-link {
+		display: block;
+		padding: to-rem(12) to-rem(16);
+		text-decoration: none;
+		color: #333;
+		border-top: 1px solid #f5f6f7;
+		transition: all 0.2s ease;
+
+		&:hover,
+		&:focus {
+			background: var(--color-primary-pr01, #d8e4f3);
+			color: $primary-color;
+			outline: 2px solid #244874;
+			outline-offset: -2px;
+		}
+	}
+
+	&-text {
+		display: block;
 	}
 }
