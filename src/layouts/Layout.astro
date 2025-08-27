@@ -24,8 +24,10 @@ import Footer from '../components/layout/Footer.astro';
 		<title>연수구립도서관</title>
 	</head>
 	<body>
+		<!-- 스킵 링크 (접근성) -->
+		<a href="#main-content" class="skip-link">주요 콘텐츠로 바로가기</a>
 		<Header />
-		<main>
+		<main id="main-content">
 			<slot />
 		</main>
 		<Footer />
