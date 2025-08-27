@@ -71375,6 +71375,27 @@ body.modal-open {
     transition: none;
   }
 }
+.gnb-sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gnb-third-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none !important;
+  visibility: hidden;
+}
+.gnb-third-sub-item, .gnb-third-sub-link, .gnb-third-sub-text {
+  display: none !important;
+  visibility: hidden;
+}
+
 .keyboard-wrapper {
   position: relative;
   z-index: 1000;

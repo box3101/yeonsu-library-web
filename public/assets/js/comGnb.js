@@ -4,267 +4,278 @@
  * - 모바일 햄버거 메뉴
  */
 $(document).ready(function () {
-  // ==========================================
-  // 데스크톱 GNB 관리
-  // ==========================================
-  function initDesktopGNB() {
-    var $gnb = $('#gnb');
-    if ($gnb.length === 0) return;
+	// ==========================================
+	// 데스크톱 GNB 관리
+	// ==========================================
+	function initDesktopGNB() {
+		var $gnb = $('#gnb');
+		if ($gnb.length === 0) return;
 
-    var $mainItems = $gnb.find('.gnb-main-item');
+		var $mainItems = $gnb.find('.gnb-main-item');
 
-    // 모든 서브메뉴 숨기기
-    function hideAllSubmenus() {
-      $gnb.find('.gnb-sub').attr('hidden', true);
-    }
+		// 모든 서브메뉴 숨기기
+		function hideAllSubmenus() {
+			$gnb.find('.gnb-sub').attr('hidden', true);
+		}
 
-    // 서브메뉴 표시
-    function showSubmenu($submenu) {
-      hideAllSubmenus();
-      $submenu.attr('hidden', false);
-    }
+		// 서브메뉴 표시
+		function showSubmenu($submenu) {
+			hideAllSubmenus();
+			$submenu.attr('hidden', false);
+		}
 
-    // 3depth 컨텐츠 업데이트
-    function updateThirdContent($subItem, $thirdTitle, $thirdItems) {
-      var label = $subItem.find('.gnb-sub-text').text();
-      var subItemsData = $subItem.attr('data-sub-items');
+		// 3depth 컨텐츠 업데이트
+		function updateThirdContent($subItem, $thirdTitle, $thirdItems) {
+			var label = $subItem.find('.gnb-sub-text').text();
 
-      // 선택 상태 업데이트
-      $subItem.parent().find('.gnb-sub-item').removeClass('selected');
-      $subItem.addClass('selected');
+			// 기존: var subItemsData = $subItem.attr('data-sub-items');
+			// 변경: DOM에서 직접 3depth 메뉴 데이터 추출
+			var $thirdSubmenu = $subItem.find('.gnb-third-submenu');
+			var subItems = [];
 
-      // 타이틀 업데이트
-      if ($thirdTitle.length > 0 && label) {
-        $thirdTitle.text(label);
-      }
+			if ($thirdSubmenu.length > 0) {
+				$thirdSubmenu.find('.gnb-third-sub-item').each(function () {
+					var $item = $(this);
+					var $link = $item.find('.gnb-third-sub-link');
+					subItems.push({
+						label: $item.find('.gnb-third-sub-text').text(),
+						href: $link.attr('href'),
+						isSelected: $item.hasClass('selected'),
+					});
+				});
+			}
 
-      // 3depth 아이템 렌더링
-      if ($thirdItems.length > 0 && subItemsData) {
-        try {
-          var items = JSON.parse(subItemsData);
-          var html = '<div class="gnb-third-column">';
+			// 선택 상태 업데이트
+			$subItem.parent().find('.gnb-sub-item').removeClass('selected');
+			$subItem.addClass('selected');
 
-          for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-            html += '<div class="gnb-third-item ' + (item.isSelected ? 'selected' : '') + '">';
-            html += '<a href="' + item.href + '" class="gnb-third-link">';
-            html += '<span class="gnb-third-text">' + item.label + '</span>';
-            html += '</a></div>';
-          }
+			// 타이틀 업데이트
+			if ($thirdTitle.length > 0 && label) {
+				$thirdTitle.text(label);
+			}
 
-          html += '</div>';
-          $thirdItems.html(html);
-        } catch (e) {
-          $thirdItems.html('');
-        }
-      } else if ($thirdItems.length > 0) {
-        $thirdItems.html('');
-      }
-    }
+			// 3depth 아이템 렌더링
+			if ($thirdItems.length > 0 && subItems.length > 0) {
+				var html = '<div class="gnb-third-column">';
 
-    // 각 메인 아이템에 이벤트 등록
-    $mainItems.each(function () {
-      var $item = $(this);
-      var $mainLink = $item.find('.gnb-main-link');
-      var $submenu = $item.find('.gnb-sub');
+				for (var i = 0; i < subItems.length; i++) {
+					var item = subItems[i];
+					html += '<div class="gnb-third-item ' + (item.isSelected ? 'selected' : '') + '">';
+					html += '<a href="' + item.href + '" class="gnb-third-link">';
+					html += '<span class="gnb-third-text">' + item.label + '</span>';
+					html += '</a></div>';
+				}
 
-      if ($submenu.length === 0) return;
+				html += '</div>';
+				$thirdItems.html(html);
+			} else if ($thirdItems.length > 0) {
+				$thirdItems.html('');
+			}
+		}
 
-      // 호버 이벤트
-      $item.on('mouseenter', function () {
-        showSubmenu($submenu);
-      });
+		// 각 메인 아이템에 이벤트 등록
+		$mainItems.each(function () {
+			var $item = $(this);
+			var $mainLink = $item.find('.gnb-main-link');
+			var $submenu = $item.find('.gnb-sub');
 
-      $item.on('mouseleave', function (e) {
-        if (!$submenu[0].contains(e.relatedTarget)) {
-          setTimeout(function () {
-            $submenu.attr('hidden', true);
-          }, 100);
-        }
-      });
+			if ($submenu.length === 0) return;
 
-      // 포커스 이벤트
-      $mainLink.on('focus', function () {
-        showSubmenu($submenu);
-      });
+			// 호버 이벤트
+			$item.on('mouseenter', function () {
+				showSubmenu($submenu);
+			});
 
-      // 2depth 호버 시 3depth 업데이트
-      var $subItems = $submenu.find('.gnb-sub-item');
-      var $thirdTitle = $submenu.find('[data-third-title]');
-      var $thirdItems = $submenu.find('[data-third-items]');
+			$item.on('mouseleave', function (e) {
+				if (!$submenu[0].contains(e.relatedTarget)) {
+					setTimeout(function () {
+						$submenu.attr('hidden', true);
+					}, 100);
+				}
+			});
 
-      $subItems.each(function () {
-        var $subItem = $(this);
-        var $subLink = $subItem.find('.gnb-sub-link');
+			// 포커스 이벤트
+			$mainLink.on('focus', function () {
+				showSubmenu($submenu);
+			});
 
-        $subLink.on('mouseenter focus', function () {
-          updateThirdContent($subItem, $thirdTitle, $thirdItems);
-        });
-      });
-    });
+			// 2depth 호버 시 3depth 업데이트
+			var $subItems = $submenu.find('.gnb-sub-item');
+			var $thirdTitle = $submenu.find('[data-third-title]');
+			var $thirdItems = $submenu.find('[data-third-items]');
 
-    // GNB 전체 벗어날 때 숨기기
-    $gnb.on('mouseleave', hideAllSubmenus);
-  }
+			$subItems.each(function () {
+				var $subItem = $(this);
+				var $subLink = $subItem.find('.gnb-sub-link');
 
-  // ==========================================
-  // 모바일 메뉴 관리
-  // ==========================================
-  function initMobileMenu() {
-    var $trigger = $('#mobileMenuTrigger');
-    var $menu = $('#mobileMenu');
-    var $overlay = $('#mobileMenuOverlay');
-    var $close = $('#mobileMenuClose');
-    var $detailArea = $('.mobile-menu-detail');
+				$subLink.on('mouseenter focus', function () {
+					updateThirdContent($subItem, $thirdTitle, $thirdItems);
+				});
+			});
+		});
 
-    // 필수 요소 체크
-    if ($trigger.length === 0 || $menu.length === 0) return;
+		// GNB 전체 벗어날 때 숨기기
+		$gnb.on('mouseleave', hideAllSubmenus);
+	}
 
-    // 메뉴 열기
-    function openMenu() {
-      $menu.addClass('active');
-      $overlay.addClass('active');
-      $trigger.addClass('active');
-      $('body').css('overflow', 'hidden');
-    }
+	// ==========================================
+	// 모바일 메뉴 관리
+	// ==========================================
+	function initMobileMenu() {
+		var $trigger = $('#mobileMenuTrigger');
+		var $menu = $('#mobileMenu');
+		var $overlay = $('#mobileMenuOverlay');
+		var $close = $('#mobileMenuClose');
+		var $detailArea = $('.mobile-menu-detail');
 
-    // 메뉴 닫기
-    function closeMenu() {
-      $menu.removeClass('active');
-      $overlay.removeClass('active');
-      $trigger.removeClass('active');
-      $('body').css('overflow', '');
-      $menu.css('transform', ''); // 스와이프 시 변형 초기화
-    }
+		// 필수 요소 체크
+		if ($trigger.length === 0 || $menu.length === 0) return;
 
-    // 스크롤 이동
-    function smoothScrollTo($container, $target, offset) {
-      if (!$container.length || !$target.length) return;
-      offset = offset || 20;
+		// 메뉴 열기
+		function openMenu() {
+			$menu.addClass('active');
+			$overlay.addClass('active');
+			$trigger.addClass('active');
+			$('body').css('overflow', 'hidden');
+		}
 
-      setTimeout(function () {
-        var containerTop = $container.offset().top;
-        var targetTop = $target.offset().top;
-        var scrollPosition = Math.max(0, $container.scrollTop() + targetTop - containerTop - offset);
+		// 메뉴 닫기
+		function closeMenu() {
+			$menu.removeClass('active');
+			$overlay.removeClass('active');
+			$trigger.removeClass('active');
+			$('body').css('overflow', '');
+			$menu.css('transform', ''); // 스와이프 시 변형 초기화
+		}
 
-        $container.animate(
-          {
-            scrollTop: scrollPosition,
-          },
-          10
-        );
-      }, 10);
-    }
+		// 스크롤 이동
+		function smoothScrollTo($container, $target, offset) {
+			if (!$container.length || !$target.length) return;
+			offset = offset || 20;
 
-    // 이벤트 리스너 등록
-    $trigger.on('click', openMenu);
-    $close.on('click', closeMenu);
-    $overlay.on('click', closeMenu);
+			setTimeout(function () {
+				var containerTop = $container.offset().top;
+				var targetTop = $target.offset().top;
+				var scrollPosition = Math.max(0, $container.scrollTop() + targetTop - containerTop - offset);
 
-    // ESC 키로 닫기
-    $(document).on('keydown', function (e) {
-      if (e.key === 'Escape' && $menu.hasClass('active')) {
-        closeMenu();
-      }
-    });
+				$container.animate(
+					{
+						scrollTop: scrollPosition,
+					},
+					10
+				);
+			}, 10);
+		}
 
-    // 1depth 탭 전환
-    $('.depth-bar-item').on('click', function () {
-      var $item = $(this);
+		// 이벤트 리스너 등록
+		$trigger.on('click', openMenu);
+		$close.on('click', closeMenu);
+		$overlay.on('click', closeMenu);
 
-      // 탭 상태 업데이트
-      $('.depth-bar-item').removeClass('selected');
-      $item.addClass('selected');
+		// ESC 키로 닫기
+		$(document).on('keydown', function (e) {
+			if (e.key === 'Escape' && $menu.hasClass('active')) {
+				closeMenu();
+			}
+		});
 
-      // 컨텐츠 전환
-      var category = $item.attr('data-category');
-      var $targetContent = $('[data-content="' + category + '"]');
+		// 1depth 탭 전환
+		$('.depth-bar-item').on('click', function () {
+			var $item = $(this);
 
-      $('.menu-detail-content').removeClass('active');
+			// 탭 상태 업데이트
+			$('.depth-bar-item').removeClass('selected');
+			$item.addClass('selected');
 
-      if ($targetContent.length > 0) {
-        $targetContent.addClass('active');
-        smoothScrollTo($detailArea, $targetContent);
-      }
-    });
+			// 컨텐츠 전환
+			var category = $item.attr('data-category');
+			var $targetContent = $('[data-content="' + category + '"]');
 
-    // 2depth 아코디언 토글
-    function handleMenuToggle($button) {
-      var toggleId = $button.attr('data-toggle');
-      var $targetSubmenu = $('[data-submenu="' + toggleId + '"]');
+			$('.menu-detail-content').removeClass('active');
 
-      if ($targetSubmenu.length === 0) return;
+			if ($targetContent.length > 0) {
+				$targetContent.addClass('active');
+				smoothScrollTo($detailArea, $targetContent);
+			}
+		});
 
-      var isExpanded = $button.hasClass('expanded');
-      var $parentSection = $button.closest('.menu-section');
+		// 2depth 아코디언 토글
+		function handleMenuToggle($button) {
+			var toggleId = $button.attr('data-toggle');
+			var $targetSubmenu = $('[data-submenu="' + toggleId + '"]');
 
-      if (isExpanded) {
-        // 접기
-        $button.removeClass('expanded selected');
-        $targetSubmenu.removeClass('active');
-      } else {
-        // 같은 섹션의 다른 메뉴들 닫기
-        if ($parentSection.length > 0) {
-          $parentSection.find('.menu-item-toggle').removeClass('expanded selected');
-          $parentSection.find('.menu-submenu').removeClass('active');
-        }
+			if ($targetSubmenu.length === 0) return;
 
-        // 펼치기
-        $button.addClass('expanded selected');
-        $targetSubmenu.addClass('active');
+			var isExpanded = $button.hasClass('expanded');
+			var $parentSection = $button.closest('.menu-section');
 
-        // 펼친 메뉴로 스크롤
-        smoothScrollTo($detailArea, $button);
-      }
-    }
+			if (isExpanded) {
+				// 접기
+				$button.removeClass('expanded selected');
+				$targetSubmenu.removeClass('active');
+			} else {
+				// 같은 섹션의 다른 메뉴들 닫기
+				if ($parentSection.length > 0) {
+					$parentSection.find('.menu-item-toggle').removeClass('expanded selected');
+					$parentSection.find('.menu-submenu').removeClass('active');
+				}
 
-    // 2depth 토글 버튼 이벤트 등록
-    $('.menu-item-toggle').on('click touchend', function (e) {
-      e.preventDefault();
-      handleMenuToggle($(this));
-    });
+				// 펼치기
+				$button.addClass('expanded selected');
+				$targetSubmenu.addClass('active');
 
-    // 스와이프로 메뉴 닫기
-    var touchStart = { x: 0, isDragging: false };
+				// 펼친 메뉴로 스크롤
+				smoothScrollTo($detailArea, $button);
+			}
+		}
 
-    $menu.on('touchstart', function (e) {
-      var touch = e.originalEvent.touches[0];
-      touchStart.x = touch ? touch.clientX : 0;
-      touchStart.isDragging = true;
-    });
+		// 2depth 토글 버튼 이벤트 등록
+		$('.menu-item-toggle').on('click touchend', function (e) {
+			e.preventDefault();
+			handleMenuToggle($(this));
+		});
 
-    $menu.on('touchmove', function (e) {
-      if (!touchStart.isDragging) return;
+		// 스와이프로 메뉴 닫기
+		var touchStart = { x: 0, isDragging: false };
 
-      var touch = e.originalEvent.touches[0];
-      var currentX = touch ? touch.clientX : 0;
-      var diffX = currentX - touchStart.x;
+		$menu.on('touchstart', function (e) {
+			var touch = e.originalEvent.touches[0];
+			touchStart.x = touch ? touch.clientX : 0;
+			touchStart.isDragging = true;
+		});
 
-      // 오른쪽 스와이프 시 메뉴 이동
-      if (diffX > 0) {
-        $menu.css('transform', 'translateX(' + diffX + 'px)');
-      }
-    });
+		$menu.on('touchmove', function (e) {
+			if (!touchStart.isDragging) return;
 
-    $menu.on('touchend', function (e) {
-      if (!touchStart.isDragging) return;
+			var touch = e.originalEvent.touches[0];
+			var currentX = touch ? touch.clientX : 0;
+			var diffX = currentX - touchStart.x;
 
-      var touch = e.originalEvent.changedTouches[0];
-      var currentX = touch ? touch.clientX : 0;
-      var diffX = currentX - touchStart.x;
+			// 오른쪽 스와이프 시 메뉴 이동
+			if (diffX > 0) {
+				$menu.css('transform', 'translateX(' + diffX + 'px)');
+			}
+		});
 
-      touchStart.isDragging = false;
+		$menu.on('touchend', function (e) {
+			if (!touchStart.isDragging) return;
 
-      // 50px 이상 스와이프하면 메뉴 닫기
-      if (diffX > 50) {
-        closeMenu();
-      } else {
-        $menu.css('transform', ''); // 원래 위치로 복원
-      }
-    });
-  }
+			var touch = e.originalEvent.changedTouches[0];
+			var currentX = touch ? touch.clientX : 0;
+			var diffX = currentX - touchStart.x;
 
-  // 초기화 실행
-  initDesktopGNB();
-  initMobileMenu();
+			touchStart.isDragging = false;
+
+			// 50px 이상 스와이프하면 메뉴 닫기
+			if (diffX > 50) {
+				closeMenu();
+			} else {
+				$menu.css('transform', ''); // 원래 위치로 복원
+			}
+		});
+	}
+
+	// 초기화 실행
+	initDesktopGNB();
+	initMobileMenu();
 });

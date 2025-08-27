@@ -14,35 +14,35 @@ const gnbMenuItems = ['도서검색', '책 읽는 연수구', '안내마당', '�
 
 // 메뉴 데이터를 GNB 형태로 변환하는 함수
 function convertToGnbFormat(menuKey) {
-  const menu = menuConfig[menuKey];
-  if (!menu) return null;
+	const menu = menuConfig[menuKey];
+	if (!menu) return null;
 
-  return {
-    title: menu.title,
-    // 3depth가 있는 메뉴인지 확인 (하위 아이템에 items가 있는 경우)
-    type: menu.sections.some(section => section.items && section.items.length > 0) ? '3depth' : '2depth',
-    items: menu.sections.map(section => {
-      // 현재 페이지가 이 섹션에 속하는지 확인
-      const isSelected = section.href
-        ? currentPath.includes(section.href)
-        : section.items
-          ? section.items.some(item => currentPath.includes(item.href))
-          : false;
+	return {
+		title: menu.title,
+		// 3depth가 있는 메뉴인지 확인 (하위 아이템에 items가 있는 경우)
+		type: menu.sections.some(section => section.items && section.items.length > 0) ? '3depth' : '2depth',
+		items: menu.sections.map(section => {
+			// 현재 페이지가 이 섹션에 속하는지 확인
+			const isSelected = section.href
+				? currentPath.includes(section.href)
+				: section.items
+				? section.items.some(item => currentPath.includes(item.href))
+				: false;
 
-      return {
-        label: section.title,
-        href: section.href || (section.items && section.items.length > 0 ? section.items[0].href : '#'),
-        isSelected,
-        subItems: section.items
-          ? section.items.map(item => ({
-              label: item.label,
-              href: item.href,
-              isSelected: currentPath.includes(item.href),
-            }))
-          : undefined,
-      };
-    }),
-  };
+			return {
+				label: section.title,
+				href: section.href || (section.items && section.items.length > 0 ? section.items[0].href : '#'),
+				isSelected,
+				subItems: section.items
+					? section.items.map(item => ({
+							label: item.label,
+							href: item.href,
+							isSelected: currentPath.includes(item.href),
+					  }))
+					: undefined,
+			};
+		}),
+	};
 }
 
 // GNB용 메뉴 데이터 생성
@@ -50,87 +50,110 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 ---
 
 <nav class="gnb" id="gnb" role="navigation" aria-label="주 메뉴">
-  <div class="gnb-main">
-    <div class="gnb-container">
-      <ul class="gnb-main-list" role="menubar">
-        {
-          menuData.map(
-            (menu, index) =>
-              menu && (
-                <li class="gnb-main-item" role="none">
-                  <a
-                    href={menu.items?.[0]?.href || '#'}
-                    class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
-                    role="menuitem"
-                    data-menu-index={index}
-                  >
-                    <span class="gnb-main-text">{menu.title}</span>
-                    {menu.type !== '1depth' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
-                  </a>
+	<div class="gnb-main">
+		<div class="gnb-container">
+			<ul class="gnb-main-list" role="menubar">
+				{
+					menuData.map(
+						(menu, index) =>
+							menu && (
+								<li class="gnb-main-item" role="none">
+									<a
+										href={menu.items?.[0]?.href || '#'}
+										class={`gnb-main-link ${menu.type !== '1depth' ? 'has-dropdown' : ''}`}
+										role="menuitem"
+										data-menu-index={index}
+									>
+										<span class="gnb-main-text">{menu.title}</span>
+										{menu.type !== '1depth' && (
+											<img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
+										)}
+									</a>
 
-                  {/* 서브메뉴 */}
-                  {menu.type !== '1depth' && menu.items && (
-                    <div class="gnb-sub" hidden>
-                      <div class="gnb-container">
-                        <div class="gnb-sub-content">
-                          <div class="gnb-sub-title">
-                            <h2 class="gnb-sub-title-text">{menu.title}</h2>
-                          </div>
+									{/* 서브메뉴 */}
+									{menu.type !== '1depth' && menu.items && (
+										<div class="gnb-sub" hidden>
+											<div class="gnb-container">
+												<div class="gnb-sub-content">
+													<div class="gnb-sub-title">
+														<h2 class="gnb-sub-title-text">{menu.title}</h2>
+													</div>
 
-                          <div class="gnb-sub-menu">
-                            {menu.items.map((item, itemIndex) => (
-                              <div
-                                class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}
-                                data-sub-items={item.subItems ? JSON.stringify(item.subItems) : ''}
-                              >
-                                <a href={item.href} class="gnb-sub-link" role="menuitem">
-                                  <span class="gnb-sub-text">{item.label}</span>
-                                  {item.subItems && <img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />}
-                                </a>
-                              </div>
-                            ))}
-                          </div>
+													<div class="gnb-sub-menu">
+														<ul class="gnb-sub-list">
+															{menu.items.map((item, itemIndex) => (
+																<li class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}>
+																	<a href={item.href} class="gnb-sub-link" role="menuitem">
+																		<span class="gnb-sub-text">{item.label}</span>
+																		{item.subItems && (
+																			<img
+																				src="./assets/images/icon/icon-arrow-right.svg"
+																				class="icon icon-arrow-right"
+																			/>
+																		)}
+																	</a>
 
-                          <div class="gnb-third" role="region" aria-label="세부 메뉴">
-                            <div class="gnb-third-title">
-                              <h3 class="gnb-third-title-text" data-third-title>
-                                {(() => {
-                                  const selectedItem = menu.items?.find(item => item.isSelected);
-                                  const targetItem = selectedItem || menu.items?.[0];
-                                  return targetItem?.label || '메뉴';
-                                })()}
-                              </h3>
-                            </div>
-                            <div class="gnb-third-items" data-third-items>
-                              <div class="gnb-third-column">
-                                {(() => {
-                                  const selectedItem = menu.items?.find(item => item.isSelected);
-                                  const targetItem = selectedItem || menu.items?.[0];
+																	{/* 3depth 메뉴 구조 */}
+																	{item.subItems && item.subItems.length > 0 && (
+																		<ol class="gnb-third-submenu">
+																			{item.subItems.map(subItem => (
+																				<li
+																					class={`gnb-third-sub-item ${
+																						subItem.isSelected ? 'selected' : ''
+																					}`}
+																				>
+																					<a href={subItem.href} class="gnb-third-sub-link">
+																						<span class="gnb-third-sub-text">{subItem.label}</span>
+																					</a>
+																				</li>
+																			))}
+																		</ol>
+																	)}
+																</li>
+															))}
+														</ul>
+													</div>
 
-                                  if (targetItem?.subItems && targetItem.subItems.length > 0) {
-                                    return targetItem.subItems.map(item => (
-                                      <div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
-                                        <a href={item.href} class="gnb-third-link">
-                                          <span class="gnb-third-text">{item.label}</span>
-                                        </a>
-                                      </div>
-                                    ));
-                                  }
-                                  // 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
-                                  return null;
-                                })()}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </li>
-              )
-          )
-        }
-      </ul>
-    </div>
-  </div>
+													<div class="gnb-third" role="region" aria-label="세부 메뉴">
+														<div class="gnb-third-title">
+															<h3 class="gnb-third-title-text" data-third-title>
+																{(() => {
+																	const selectedItem = menu.items?.find(item => item.isSelected);
+																	const targetItem = selectedItem || menu.items?.[0];
+																	return targetItem?.label || '메뉴';
+																})()}
+															</h3>
+														</div>
+														<div class="gnb-third-items" data-third-items>
+															<div class="gnb-third-column">
+																{(() => {
+																	const selectedItem = menu.items?.find(item => item.isSelected);
+																	const targetItem = selectedItem || menu.items?.[0];
+
+																	if (targetItem?.subItems && targetItem.subItems.length > 0) {
+																		return targetItem.subItems.map(item => (
+																			<div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
+																				<a href={item.href} class="gnb-third-link">
+																					<span class="gnb-third-text">{item.label}</span>
+																				</a>
+																			</div>
+																		));
+																	}
+																	// 3depth 없으면 아무것도 렌더링 안 함 (타이틀만 남음)
+																	return null;
+																})()}
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									)}
+								</li>
+							)
+					)
+				}
+			</ul>
+		</div>
+	</div>
 </nav>
