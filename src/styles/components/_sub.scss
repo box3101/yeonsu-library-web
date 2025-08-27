@@ -3646,7 +3646,6 @@ div.bookshelf-item {
   }
 }
 
-<<<<<<< HEAD
 /* ========================================
    인라인 스타일을 클래스로 변환한 스타일들
 ======================================== */
@@ -3792,7 +3791,9 @@ div.bookshelf-item {
 
   &--haedoji {
     background-color: #16a085;
-=======
+  }
+}
+
 .login-container {
   display: flex;
   align-items: stretch;
@@ -4021,6 +4022,5 @@ div.bookshelf-item {
     &__button {
       width: 100%;
     }
->>>>>>> 55e49925346d54493c57061d5e848b4cd10ced4c
   }
 }
