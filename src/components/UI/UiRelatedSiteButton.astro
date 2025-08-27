@@ -9,7 +9,7 @@ export interface Props {
 
 const {
   text = '관련사이트 바로가기',
-  iconSrc = '/assets/images/icon/icon-arr-right.svg',
+  iconSrc = 'assets/images/icon/icon-arr-right.svg',
   options = [
     { label: '인천광역시청', url: 'https://www.incheon.go.kr' },
     { label: '연수구청', url: 'https://www.yeonsu.go.kr' },
@@ -24,7 +24,7 @@ const {
   <button class="related-site-button" type="button">
     <span class="related-site-button__text">{text}</span>
     <div class="related-site-button__icon">
-      <img src={iconSrc} alt="" />
+      <img class="icon icon-xxsm" src={iconSrc} alt="관련사이트 바로가기" />
     </div>
   </button>
 

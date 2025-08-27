@@ -1,0 +1,83 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiInput from '@/components/UI/UiInput.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '비밀번호 찾기', href: '/비밀번호찾기' },
+  { label: '본인인증', href: '/비밀번호찾기-step2' },
+  { label: '비밀번호 변경' },
+];
+---
+
+<Layout title="비밀번호 찾기 - 비밀번호 변경">
+  <SubLayout title="비밀번호 찾기" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 비밀번호 변경 섹션 -->
+            <div class="membership-type-selection">
+              <div class="membership-type-selection__container">
+                <!-- 좌측 안내 배너 -->
+                <div class="membership-type-selection__banner">
+                  <div class="banner-content">
+                    <div class="banner-text">
+                      <h2 class="banner-title">입력안내</h2>
+                      <div class="banner-description">
+                        <p>비밀번호는 영문자, 숫자, 특수문자를 1개 이상 포함하여 9~15자리로 입력해주세요.</p>
+                        <p class="notice-small">(※ 특수기호 '#','^' 제외)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 구분선 -->
+                <div class="divider"></div>
+
+                <!-- 우측 비밀번호 변경 폼 -->
+                <div class="membership-type-selection__options">
+                  <form class="password-change-form" method="post" action="/password-change">
+                    <!-- 새 비밀번호 입력 필드 -->
+                    <div class="form-group">
+                      <UiInput
+                        type="password"
+                        name="password"
+                        id="password"
+                        label="비밀번호"
+                        placeholder="비밀번호를 입력하세요"
+                        size="large"
+                        required
+                      />
+                    </div>
+
+                    <!-- 비밀번호 확인 입력 필드 -->
+                    <div class="form-group">
+                      <UiInput
+                        type="password"
+                        name="password_confirm"
+                        id="password_confirm"
+                        label="비밀번호확인"
+                        placeholder="비밀번호를 다시 입력하세요"
+                        size="large"
+                        required
+                      />
+                    </div>
+
+                    <!-- 변경하기 버튼 -->
+                    <div class="form-group">
+                      <UiButton text="변경하기" variant="primary" size="large" width="100%" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

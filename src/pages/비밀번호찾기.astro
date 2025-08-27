@@ -1,0 +1,63 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiInput from '@/components/UI/UiInput.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '회원서비스', href: '/member' }, { label: '비밀번호 찾기' }];
+---
+
+<Layout title="비밀번호 찾기">
+  <SubLayout title="비밀번호 찾기" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item">
+            <!-- 비밀번호 찾기 섹션 -->
+            <div class="membership-type-selection">
+              <div class="membership-type-selection__container">
+                <!-- 좌측 안내 배너 -->
+                <div class="membership-type-selection__banner">
+                  <div class="banner-content">
+                    <div class="banner-text">
+                      <h2 class="banner-title">비밀번호 변경</h2>
+                      <div class="banner-description">
+                        <p>비밀번호를 변경 하기 위해 아이디 입력후<br />원하는 방식을 선택해 본인인증을 진행해 주세요.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 구분선 -->
+                <div class="divider"></div>
+
+                <!-- 우측 아이디 입력 폼 -->
+                <div class="membership-type-selection__options">
+                  <form class="password-find-form" method="post" action="/find-password">
+                    <!-- 아이디 입력 필드 -->
+                    <div class="form-group">
+                      <UiInput
+                        type="text"
+                        name="userId"
+                        id="userId"
+                        label="아이디"
+                        placeholder="홈페이지 아이디를 입력해주세요."
+                        size="large"
+                        required
+                      />
+                    </div>
+
+                    <!-- 확인 버튼 -->
+                    <div class="form-group mt20">
+                      <UiButton text="확인" variant="primary" size="large" width="100%" href="/비밀번호찾기-step2" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>

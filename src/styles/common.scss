@@ -637,14 +637,16 @@ img {
   }
 
   // Input과 Button의 플렉스 컨테이너
-  display: flex;
-  gap: to-rem(8);
-  align-items: flex-end;
+  & {
+    display: flex;
+    gap: to-rem(8);
+    align-items: flex-end;
 
-  @include mobile {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
+    @include mobile {
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
   }
 
   .search-input {
@@ -937,6 +939,11 @@ img {
     position: relative;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+
+    @include mobile {
+      width: auto;
+      height: auto;
+    }
 
     img {
       display: block;

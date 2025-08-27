@@ -1,0 +1,166 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' },
+  { label: '회원서비스', href: '/member' },
+  { label: '회원가입', href: '/회원가입' },
+  { label: '결과' },
+];
+
+const url = new URL(Astro.request.url);
+const resultType = url.searchParams.get('type') || 'success';
+const userId = url.searchParams.get('userId') || 'test1234';
+const borrowerNumber = url.searchParams.get('borrowerNumber') || '12345671234567';
+---
+
+<Layout title="회원가입 - 결과">
+  <SubLayout title="회원가입" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+    <div class="sub-layout__content">
+      <div class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-body">
+          <div class="sub-layout__content-inner-body-item result-page">
+            <!-- 회원가입 완료 결과 -->
+            <div class="result-container">
+              <div class="result-card">
+                <div class="result-content">
+                  <div class="result-header">
+                    <h2 class="result-title">회원가입 완료</h2>
+                  </div>
+                  <div class="result-message">
+                    <p>
+                      성공적으로 회원가입이 완료되었습니다!
+                      <br />
+                      도서관의 다양한 서비스를 이용해 보세요!
+                    </p>
+                  </div>
+                </div>
+                <div class="result-actions">
+                  <UiButton
+                    text="로그인"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/로그인"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- 비밀번호 변경 실패 결과 -->
+            <div class="result-container">
+              <div class="result-card">
+                <div class="result-content">
+                  <div class="result-header">
+                    <h2 class="result-title">비밀번호 변경 실패</h2>
+                  </div>
+                  <div class="result-message">
+                    <p>회원이력에 이상이 있는 회원입니다. 관리자에게 문의해주세요.</p>
+                  </div>
+                </div>
+                <div class="result-actions result-actions--multiple">
+                  <UiButton
+                    text="로그인"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/로그인"
+                  />
+                  <UiButton
+                    text="회원가입"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/회원가입"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- 아이디 찾기 성공 결과 -->
+            <div class="result-container">
+              <div class="result-card">
+                <div class="result-content">
+                  <div class="result-header">
+                    <h2 class="result-title">아이디 찾기 성공</h2>
+                  </div>
+                  <div class="result-info">
+                    <div class="info-item">
+                      <span class="info-label">아이디</span>
+                      <span class="info-value">{userId}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="result-actions result-actions--multiple">
+                  <UiButton
+                    text="로그인"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/로그인"
+                  />
+                  <UiButton
+                    text="비밀번호 찾기"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/비밀번호찾기"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- 대출자번호 조회 성공 결과 -->
+            <div class="result-container">
+              <div class="result-card">
+                <div class="result-content">
+                  <div class="result-header">
+                    <h2 class="result-title">대출자번호 조회 성공</h2>
+                  </div>
+                  <div class="result-info">
+                    <div class="info-item">
+                      <span class="info-label">대출자번호</span>
+                      <div class="info-value-with-copy">
+                        <span class="info-value">{borrowerNumber}</span>
+                        <button class="copy-button" data-copy-text={borrowerNumber}> 복사 </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="result-actions">
+                  <UiButton
+                    text="회원가입"
+                    variant="tertiary"
+                    class="w-180-mobile-full"
+                    size="large"
+                    icon="icon-arrow-right"
+                    iconAddClass="icon icon-xxsm"
+                    iconPosition="right"
+                    href="/회원가입"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SubLayout>
+</Layout>
