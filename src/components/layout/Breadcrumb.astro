@@ -1,66 +1,42 @@
 ---
 export interface BreadcrumbItem {
-  label: string;
-  href?: string;
+	label: string;
+	href?: string;
 }
 
 interface Props {
-  items: BreadcrumbItem[];
+	items: BreadcrumbItem[];
 }
 
 const { items } = Astro.props;
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb">
-  <div class="breadcrumb-container">
-    <svg
-      class="breadcrumb-home-icon"
-      width="16"
-      height="16"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-      ></path>
-    </svg>
-    <ol class="breadcrumb-list">
-      {
-        items.map((item, index) => (
-          <li class="breadcrumb-item">
-            {index > 0 && (
-              <span class="breadcrumb-separator" aria-hidden="true">
-                <svg
-                  width="6"
-                  height="10"
-                  viewBox="0 0 6 10"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M1 1l4 4-4 4"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    fill="none"
-                  />
-                </svg>
-              </span>
-            )}
-            {item.href ? (
-              <a href={item.href} class="breadcrumb-link">
-                {item.label}
-              </a>
-            ) : (
-              <span class="breadcrumb-current" aria-current="page">
-                {item.label}
-              </span>
-            )}
-          </li>
-        ))
-      }
-    </ol>
-  </div>
+	<div class="breadcrumb-container">
+		<img class="breadcrumb-home-icon" src="/assets/images/icon/icon-home.svg" alt="홈" width="16" height="16" />
+		<ol class="breadcrumb-list">
+			{
+				items.map((item, index) => (
+					<li class="breadcrumb-item">
+						{index > 0 && (
+							<span class="breadcrumb-separator" aria-hidden="true">
+								<img src="/assets/images/icon/icon-breadcrumb-arrow.svg" alt="" width="6" height="10" />
+							</span>
+						)}
+						{item.href ? (
+							<a href={item.href} class="breadcrumb-link">
+								{item.label}
+							</a>
+						) : (
+							<span class="breadcrumb-current" aria-current="page">
+								{item.label}
+							</span>
+						)}
+					</li>
+				))
+			}
+		</ol>
+	</div>
 </nav>
 
 <!-- 스타일은 _breadcrumb.scss에서 관리됩니다 -->
