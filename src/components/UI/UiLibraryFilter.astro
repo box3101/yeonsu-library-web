@@ -92,7 +92,7 @@ const popularSearches = [
       <div class="ui-library-filter__subtitle">
         {subtitle}
       </div>
-      <div class="ui-library-filter__grid" style={`grid-template-columns: repeat(${gridColumns}, 1fr);`}>
+      <div class={`ui-library-filter__grid grid-cols-${gridColumns}`}>
         {
           libraries.map(library => (
             <div class="ui-library-filter__item">

@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 @use '../variables/colors' as *;
 @use 'sass:color';
+@use 'sass:math';
 
 /*
    * 결과 페이지 스타일
@@ -4023,4 +4024,192 @@ div.bookshelf-item {
       width: 100%;
     }
   }
+}
+
+// 동적 크기 클래스들 (UI 컴포넌트용)
+@for $i from 1 through 100 {
+  .w-dynamic-#{$i} {
+    width: #{$i}px !important;
+  }
+
+  .h-dynamic-#{$i} {
+    height: #{$i}px !important;
+  }
+
+  .w-rem#{$i} {
+    width: #{math.div($i, 16)}rem !important;
+  }
+
+  .h-rem#{$i} {
+    height: #{math.div($i, 16)}rem !important;
+  }
+}
+
+// 그리드 컬럼 클래스들
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr) !important;
+  }
+}
+
+// 테이블 관련 클래스들
+.table-overflow-auto {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+// 컬럼 너비 클래스들
+@for $i from 1 through 50 {
+  .col-w-#{$i * 10}px {
+    width: #{$i * 10}px !important;
+    min-width: #{$i * 10}px !important;
+  }
+
+  .col-w-#{$i * 10}per {
+    width: #{$i * 2}#{'%'} !important;
+    min-width: #{$i * 2}#{'%'} !important;
+  }
+}
+
+// 컨테이너 너비 클래스들
+.container-full-width {
+  width: 100% !important;
+}
+.container-auto-width {
+  width: auto !important;
+}
+
+@for $i from 10 through 100 {
+  @if $i % 5 == 0 {
+    .container-w-#{$i * 10} {
+      width: #{$i * 10}px !important;
+    }
+  }
+}
+
+// 절대적 크기 클래스들
+.size-40x40 {
+  width: 40px !important;
+  height: 40px !important;
+
+  @media (max-width: 768px) {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+.size-48x48 {
+  width: 48px !important;
+  height: 48px !important;
+
+  @media (max-width: 768px) {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.size-56x56 {
+  width: 56px !important;
+  height: 56px !important;
+
+  @media (max-width: 768px) {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+.size-64x64 {
+  width: 64px !important;
+  height: 64px !important;
+
+  @media (max-width: 768px) {
+    width: 56px !important;
+    height: 56px !important;
+  }
+}
+
+// rem 기반 크기 클래스들
+.size-2-5rem {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+.size-3rem {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+.size-3-5rem {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+}
+.size-4rem {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+// Table wrapper max-height classes
+@for $height from 200 through 800 {
+  @if $height % 50 == 0 {
+    .table-max-height-#{$height} {
+      max-height: #{$height}px !important;
+      overflow-y: auto !important;
+    }
+  }
+}
+
+// Column width classes for tables
+.col-width-50 {
+  width: 50px !important;
+  min-width: 50px !important;
+}
+.col-width-80 {
+  width: 80px !important;
+  min-width: 80px !important;
+}
+.col-width-100 {
+  width: 100px !important;
+  min-width: 100px !important;
+}
+.col-width-120 {
+  width: 120px !important;
+  min-width: 120px !important;
+}
+.col-width-150 {
+  width: 150px !important;
+  min-width: 150px !important;
+}
+.col-width-180 {
+  width: 180px !important;
+  min-width: 180px !important;
+}
+.col-width-200 {
+  width: 200px !important;
+  min-width: 200px !important;
+}
+.col-width-230 {
+  width: 230px !important;
+  min-width: 230px !important;
+}
+.col-width-250 {
+  width: 250px !important;
+  min-width: 250px !important;
+}
+.col-width-280 {
+  width: 280px !important;
+  min-width: 280px !important;
+}
+.col-width-300 {
+  width: 300px !important;
+  min-width: 300px !important;
+}
+
+// 유틸리티 클래스들
+.no-inline-style {
+  // 모든 인라인 스타일을 무효화
+  width: unset !important;
+  height: unset !important;
+  max-width: unset !important;
+  max-height: unset !important;
+  background-color: unset !important;
+  color: unset !important;
+  grid-template-columns: unset !important;
 }

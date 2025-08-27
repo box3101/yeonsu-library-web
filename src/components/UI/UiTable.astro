@@ -80,10 +80,30 @@ const {
 } = Astro.props;
 
 const tableId = id || `table-${Math.random().toString(36).substr(2, 9)}`;
-const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
+
+// Convert maxHeight to class
+const getMaxHeightClass = () => {
+  if (!maxHeight) return '';
+  const heightValue = parseInt(maxHeight);
+  if (heightValue >= 200 && heightValue <= 800 && heightValue % 50 === 0) {
+    return `table-max-height-${heightValue}`;
+  }
+  return '';
+};
+
+// Convert column width to class
+const getColumnWidthClass = (width) => {
+  if (!width) return '';
+  const widthValue = parseInt(width);
+  const availableWidths = [50, 80, 100, 120, 150, 180, 200, 230, 250, 280, 300];
+  if (availableWidths.includes(widthValue)) {
+    return `col-width-${widthValue}`;
+  }
+  return '';
+};
 ---
 
-<div class={`ui-table-wrapper ${stickyHeader ? 'ui-table-wrapper--sticky' : ''} ${className}`} style={wrapperStyles} {...rest}>
+<div class={`ui-table-wrapper ${stickyHeader ? 'ui-table-wrapper--sticky' : ''} ${getMaxHeightClass()} ${className}`} {...rest}>
   <table class="ui-table" id={tableId}>
     {caption && <caption class="ui-table__caption">{caption}</caption>}
 
@@ -94,8 +114,7 @@ const wrapperStyles = maxHeight ? { maxHeight, overflowY: 'auto' } : {};
       {
         columns.map(column => (
           <col
-            class={`ui-table__col--${column.key}`}
-            style={column.width ? `width: ${column.width}; min-width: ${column.minWidth || column.width};` : undefined}
+            class={`ui-table__col--${column.key} ${getColumnWidthClass(column.width)}`}
           />
         ))
       }

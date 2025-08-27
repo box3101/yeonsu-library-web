@@ -57,6 +57,21 @@ const buttonProps = href
 const hasIcon = icon && icon.length > 0;
 const hasText = text && text.length > 0 && !iconOnly;
 
+// 동적 크기를 클래스로 변환
+const getSizeClass = (value) => {
+  if (!value) return '';
+  const numValue = typeof value === 'number' ? value : parseInt(value);
+  if (numValue <= 100) return `w-dynamic-${numValue}`;
+  return `container-w-${Math.round(numValue / 10) * 10}`;
+};
+
+const getHeightClass = (value) => {
+  if (!value) return '';
+  const numValue = typeof value === 'number' ? value : parseInt(value);
+  if (numValue <= 100) return `h-dynamic-${numValue}`;
+  return `h-dynamic-${numValue}`;
+};
+
 const buttonClasses = [
   'ui-button',
   `ui-button--${variant}`,
@@ -64,20 +79,15 @@ const buttonClasses = [
   iconOnly ? 'ui-button--icon-only' : '',
   loading ? 'ui-button--loading' : '',
   disabled ? 'ui-button--disabled' : '',
+  width ? getSizeClass(width) : '',
+  height ? getHeightClass(height) : '',
   className,
 ]
   .filter(Boolean)
   .join(' ');
-
-const buttonStyle = [
-  width ? `width: ${typeof width === 'number' ? width + 'px' : width}` : '',
-  height ? `height: ${typeof height === 'number' ? height + 'px' : height}` : '',
-]
-  .filter(Boolean)
-  .join('; ');
 ---
 
-<Tag class={buttonClasses} style={buttonStyle || undefined} aria-disabled={disabled || loading} {...linkProps} {...buttonProps}>
+<Tag class={buttonClasses} aria-disabled={disabled || loading} {...linkProps} {...buttonProps}>
   {
     loading && (
       <div class="ui-button__spinner">
