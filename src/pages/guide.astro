@@ -938,7 +938,11 @@ const deployInfo = [
     <title>연수구립도서관 - 작업 가이드</title>
     <meta name="description" content="연수구립도서관 웹사이트 개발 작업 가이드 및 페이지 인덱스" />
     <meta name="author" content="Development Team" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css" />
+    <!-- NanumSquareRound 폰트 - 보안상 로컬 파일 사용 권장 또는 신뢰할 수 있는 CDN 사용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 임시로 Google Fonts 사용 (실제로는 NanumSquare 로컬 파일 권장) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous" />
 
     <style>
       body {
@@ -1284,7 +1288,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1316,7 +1320,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1348,7 +1352,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1380,7 +1384,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1412,7 +1416,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1444,7 +1448,7 @@ const deployInfo = [
                 <td>{page.id}</td>
                 <td>{page.name}</td>
                 <td>
-                  <a href={page.url} target="_blank">
+                  <a href={page.url} target="_blank" rel="noopener noreferrer">
                     {page.file}
                   </a>
                 </td>
@@ -1649,7 +1653,7 @@ const deployInfo = [
           <strong>연수구립도서관 웹사이트</strong><br />
           Astro + SCSS + TypeScript<br />
           개발일: {currentDate} |
-          <a href="https://github.com/box3101/yeonsu-library-web" target="_blank">GitHub Repository</a>
+          <a href="https://github.com/box3101/yeonsu-library-web" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
         </p>
       </div>
     </div>

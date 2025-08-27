@@ -8,6 +8,12 @@ import Footer from '../components/layout/Footer.astro';
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- 보안 관련 메타 태그 -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="X-Frame-Options" content="DENY" />
+		<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
 		<!-- swiper -->
 		<link rel="stylesheet" href="./assets/css/vendor/swiper.css" />

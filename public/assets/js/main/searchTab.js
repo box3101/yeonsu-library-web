@@ -79,7 +79,6 @@ SearchTabs.prototype.onTabChange = function (tabId) {
   // jQuery 커스텀 이벤트 사용
   $(document).trigger('searchTabChanged', { tabId: tabId });
 
-  console.log('탭 변경됨: ' + tabId);
 };
 
 SearchTabs.prototype.setActiveTab = function (tabId) {
