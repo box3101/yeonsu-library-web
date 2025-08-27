@@ -102,7 +102,7 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																						subItem.isSelected ? 'selected' : ''
 																					}`}
 																				>
-																					<a href={subItem.href} class="gnb-third-sub-link">
+																					<a href={subItem.href} class="gnb-third-sub-link" role="menuitem" tabindex="-1">
 																						<span class="gnb-third-sub-text">{subItem.label}</span>
 																					</a>
 																				</li>
@@ -133,7 +133,7 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																	if (targetItem?.subItems && targetItem.subItems.length > 0) {
 																		return targetItem.subItems.map(item => (
 																			<div class={`gnb-third-item ${item.isSelected ? 'selected' : ''}`}>
-																				<a href={item.href} class="gnb-third-link">
+																				<a href={item.href} class="gnb-third-link" role="menuitem" tabindex="-1">
 																					<span class="gnb-third-text">{item.label}</span>
 																				</a>
 																			</div>

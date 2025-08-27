@@ -61,7 +61,7 @@ $(document).ready(function () {
 				for (var i = 0; i < subItems.length; i++) {
 					var item = subItems[i];
 					html += '<div class="gnb-third-item ' + (item.isSelected ? 'selected' : '') + '">';
-					html += '<a href="' + item.href + '" class="gnb-third-link">';
+					html += '<a href="' + item.href + '" class="gnb-third-link" role="menuitem" tabindex="-1">';
 					html += '<span class="gnb-third-text">' + item.label + '</span>';
 					html += '</a></div>';
 				}
@@ -116,6 +116,137 @@ $(document).ready(function () {
 
 		// GNB 전체 벗어날 때 숨기기
 		$gnb.on('mouseleave', hideAllSubmenus);
+
+		// 키보드 네비게이션 향상
+		$gnb.on('keydown', function(e) {
+			var $focused = $(document.activeElement);
+			var key = e.key;
+			
+			// 현재 포커스된 요소가 GNB 내부에 있는지 확인
+			if (!$focused.closest('#gnb').length) return;
+			
+			if (key === 'ArrowDown' || key === 'ArrowUp') {
+				e.preventDefault();
+				
+				// 메인 메뉴에서 아래 화살표: 서브메뉴로 이동
+				if (key === 'ArrowDown' && $focused.hasClass('gnb-main-link')) {
+					var $submenu = $focused.closest('.gnb-main-item').find('.gnb-sub');
+					if ($submenu.length > 0) {
+						showSubmenu($submenu);
+						var $firstSubLink = $submenu.find('.gnb-sub-link').first();
+						if ($firstSubLink.length > 0) {
+							$firstSubLink.focus();
+						}
+					}
+				}
+				
+				// 서브메뉴에서 위 화살표: 메인 메뉴로 이동
+				if (key === 'ArrowUp' && $focused.hasClass('gnb-sub-link')) {
+					var $mainLink = $focused.closest('.gnb-main-item').find('.gnb-main-link');
+					if ($mainLink.length > 0) {
+						$mainLink.focus();
+					}
+				}
+			}
+			
+			if (key === 'ArrowLeft' || key === 'ArrowRight') {
+				e.preventDefault();
+				
+				// 메인 메뉴 좌우 이동
+				if ($focused.hasClass('gnb-main-link')) {
+					var $currentItem = $focused.closest('.gnb-main-item');
+					var $targetItem = null;
+					
+					if (key === 'ArrowRight') {
+						$targetItem = $currentItem.next('.gnb-main-item');
+						if ($targetItem.length === 0) {
+							$targetItem = $currentItem.parent().find('.gnb-main-item').first();
+						}
+					} else {
+						$targetItem = $currentItem.prev('.gnb-main-item');
+						if ($targetItem.length === 0) {
+							$targetItem = $currentItem.parent().find('.gnb-main-item').last();
+						}
+					}
+					
+					if ($targetItem.length > 0) {
+						var $targetLink = $targetItem.find('.gnb-main-link');
+						$targetLink.focus();
+						
+						// 서브메뉴가 있으면 표시
+						var $targetSubmenu = $targetItem.find('.gnb-sub');
+						if ($targetSubmenu.length > 0) {
+							showSubmenu($targetSubmenu);
+						}
+					}
+				}
+				
+				// 서브메뉴에서 오른쪽 화살표: 3depth로 이동
+				if (key === 'ArrowRight' && $focused.hasClass('gnb-sub-link')) {
+					var $subItem = $focused.closest('.gnb-sub-item');
+					var $submenu = $focused.closest('.gnb-sub');
+					var $thirdTitle = $submenu.find('[data-third-title]');
+					var $thirdItems = $submenu.find('[data-third-items]');
+					
+					// 3depth 컨텐츠 업데이트
+					updateThirdContent($subItem, $thirdTitle, $thirdItems);
+					
+					// 첫 번째 3depth 링크에 포커스
+					setTimeout(function() {
+						var $firstThirdLink = $thirdItems.find('.gnb-third-link').first();
+						if ($firstThirdLink.length > 0) {
+							$firstThirdLink.attr('tabindex', '0').focus();
+						}
+					}, 50);
+				}
+				
+				// 3depth에서 왼쪽 화살표: 2depth로 돌아가기
+				if (key === 'ArrowLeft' && $focused.hasClass('gnb-third-link')) {
+					var $submenu = $focused.closest('.gnb-sub');
+					var $selectedSubLink = $submenu.find('.gnb-sub-item.selected .gnb-sub-link');
+					if ($selectedSubLink.length > 0) {
+						// 모든 3depth 링크의 tabindex 리셋
+						$submenu.find('.gnb-third-link').attr('tabindex', '-1');
+						$selectedSubLink.focus();
+					}
+				}
+			}
+			
+			// Tab/Shift+Tab으로 3depth 내부 네비게이션
+			if (key === 'Tab' && $focused.hasClass('gnb-third-link')) {
+				var $thirdLinks = $focused.closest('.gnb-third-column').find('.gnb-third-link');
+				var currentIndex = $thirdLinks.index($focused);
+				var nextIndex = e.shiftKey ? currentIndex - 1 : currentIndex + 1;
+				
+				if (nextIndex >= 0 && nextIndex < $thirdLinks.length) {
+					e.preventDefault();
+					$thirdLinks.attr('tabindex', '-1');
+					$thirdLinks.eq(nextIndex).attr('tabindex', '0').focus();
+				}
+			}
+			
+			// Escape: 메뉴 닫기
+			if (key === 'Escape') {
+				hideAllSubmenus();
+				var $mainLink = $focused.closest('.gnb-main-item').find('.gnb-main-link');
+				if ($mainLink.length > 0) {
+					$mainLink.focus();
+				}
+			}
+		});
+		
+		// 포커스 떠날 때 서브메뉴 숨기기 (키보드 사용자를 위해)
+		$gnb.on('focusout', function(e) {
+			// 포커스가 GNB 외부로 나갔는지 확인
+			setTimeout(function() {
+				var $newFocus = $(document.activeElement);
+				if (!$newFocus.closest('#gnb').length) {
+					hideAllSubmenus();
+					// 모든 3depth 링크의 tabindex 리셋
+					$gnb.find('.gnb-third-link').attr('tabindex', '-1');
+				}
+			}, 10);
+		});
 	}
 
 	// ==========================================
