@@ -20,7 +20,7 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "format:src": "prettier --write \"src/**/*.{astro,ts,js,scss}\"",
-    "format:dist": "prettier --write \"dist/**/*.{css,js}\" && js-beautify --type html --indent-with-tabs --end-with-newline --max-preserve-newlines 1 --unformatted \"\" --content_unformatted \"\" --wrap-line-length 150 --replace \"dist/**/*.html\" && node scripts/format-tags.cjs",
+    "format:dist": "prettier --write \"dist/**/*.{css,js}\" && js-beautify --type html --indent-with-tabs --end-with-newline --max-preserve-newlines 0 --preserve-newlines false --unformatted \"\" --content_unformatted \"\" --wrap-line-length 150 --replace \"dist/**/*.html\" && node scripts/format-tags.cjs",
     "watch:scss": "sass --watch src/styles/main.scss:public/assets/css/main.css",
     "watch:files": "echo 'File watching not implemented'",
     "remove-astro-attrs": "node scripts/remove-astro-attrs.cjs",
