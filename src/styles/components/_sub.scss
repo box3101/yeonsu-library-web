@@ -3456,3 +3456,151 @@ div.bookshelf-item {
     font-weight: 700;
   }
 }
+
+/* ========================================
+   인라인 스타일을 클래스로 변환한 스타일들
+======================================== */
+
+/* 주요키워드 워드클라우드 영역 */
+.keywords-content {
+  height: to-rem(400);
+  background-color: #f8f8f8;
+
+  @include mobile {
+    height: 300px;
+  }
+}
+
+/* 워드클라우드 캔버스 */
+.wordcloud-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* 통계 차트 컨테이너 아이템 */
+.statistics-chart-item {
+  width: 50%;
+
+  @include mobile {
+    width: 100% !important;
+  }
+}
+
+/* 테이블 헤더 배경색 */
+.table-header-bg {
+  background: #ecf2f9;
+}
+
+/* 책 추천 슬라이더 숨김 처리 */
+.book-recommendation-slider--hidden {
+  display: none;
+}
+
+/* 언어 콘텐츠 숨김 처리 */
+.language-content--hidden {
+  display: none;
+}
+
+/* 소장정보 래퍼 숨김 처리 */
+.collection-wrapper--hidden {
+  display: none;
+}
+
+/* 키보드 래퍼 상대 위치 */
+.keyboard-wrapper {
+  position: relative;
+}
+
+/* 다국어 입력 래퍼 */
+.worldword-wrap {
+  top: 100%;
+  margin-top: to-rem(-10);
+  display: none;
+
+  &--visible {
+    display: block;
+  }
+}
+
+/* 한 줄 제목 스타일 */
+.title-single-line {
+  white-space: pre-line;
+  text-align: right;
+}
+
+/* 신규 컨텐츠 아이템 배경색 클래스들 */
+.new-content-item {
+  /* 기본 배경색은 기존 스타일을 유지 */
+
+  /* 각 컨텐츠별 배경색 클래스 */
+  &--life-library {
+    background-color: #aecdff;
+  }
+
+  &--school-books {
+    background-color: #a5d5dc;
+  }
+
+  &--infant-books {
+    background-color: #ffee99;
+  }
+
+  &--attendance-event {
+    background-color: #ffc4c4;
+  }
+}
+
+/* 이벤트 카드 태그 색상 클래스들 */
+.event-card__tag {
+  /* 기본 배경색 */
+  background-color: #333;
+
+  /* 각 도서관/지역별 태그 색상 클래스 */
+  &--yeonsu-kkumdham {
+    background-color: #a3cf62;
+  }
+
+  &--songdo5dong {
+    background-color: #e45f53;
+  }
+
+  &--nuri-park {
+    background-color: #7b19d7;
+  }
+
+  &--songdo-international {
+    background-color: #8e63aa;
+  }
+
+  &--cheonghak {
+    background-color: #4a90e2;
+  }
+
+  &--nonhyeon {
+    background-color: #f5a623;
+  }
+
+  &--okryeon {
+    background-color: #50e3c2;
+  }
+
+  &--hakik {
+    background-color: #bd10e0;
+  }
+
+  &--literature {
+    background-color: #e74c3c;
+  }
+
+  &--seonhak {
+    background-color: #9b59b6;
+  }
+
+  &--dongchun-narae {
+    background-color: #34495e;
+  }
+
+  &--haedoji {
+    background-color: #16a085;
+  }
+}
