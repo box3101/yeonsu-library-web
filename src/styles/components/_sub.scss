@@ -227,6 +227,9 @@
 	border-radius: to-rem(12);
 	padding: to-rem(16);
 	margin-bottom: to-rem(32);
+	@include mobile {
+		margin-bottom: to-rem(2);
+	}
 
 	&__header {
 		display: flex;
@@ -4196,6 +4199,9 @@ div.bookshelf-item {
 .verification-section {
 	max-width: to-rem(976);
 	margin: 0 auto;
+	@include mobile {
+		max-width: 100%;
+	}
 }
 
 /* 동의 영역 */
@@ -4213,9 +4219,17 @@ div.bookshelf-item {
 	align-items: center;
 	gap: to-rem(4);
 
+	@include mobile {
+		flex-direction: column;
+	}
+
 	.verification-input {
 		flex: 0 0 auto;
 		width: auto;
+
+		@include mobile {
+			width: 100%;
+		}
 	}
 
 	@include mobile {
@@ -5595,6 +5609,9 @@ div.bookshelf-item {
 }
 
 .verification-section-custom {
+	.verification-agreement {
+		width: 100%;
+	}
 	.info-box {
 		height: auto;
 		max-height: to-rem(220);
