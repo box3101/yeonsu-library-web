@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+import UiInput from '../components/UI/UiInput.astro';
+import UiCheckbox from '../components/UI/UiCheckbox.astro';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '회원탈퇴', href: '/내정보-회원탈퇴' },
+];
+---
+
+<Layout title="내정보 - 회원탈퇴">
+	<SubLayout title="내정보 - 회원탈퇴" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<!-- 회원탈퇴 페이지 - 로그인 페이지와 동일한 구조 사용 -->
+			<div class="login-container">
+				<!-- 좌측 안내 배너 -->
+				<div class="login-banner">
+					<div class="login-banner__content">
+						<div class="login-banner__text-group">
+							<h1 class="login-banner__title">회원탈퇴</h1>
+
+							<!-- 안내 메시지 -->
+							<div class="info-notice">
+								<div class="info-notice__header">
+									<div class="info-notice__icon">
+										<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+									</div>
+									<h3 class="info-notice__title">안내</h3>
+								</div>
+								<div class="withdrawal-notice__content">
+									<p class="withdrawal-notice__text">
+										홈페이지 탈퇴 기능은 홈페이지 회원 탈퇴를 의미하며, 대출회원 탈퇴를 원하시는 경우 도서관에 별도로 문의 바랍니다.
+									</p>
+
+									<div class="withdrawal-notice__section">
+										<p class="withdrawal-notice__subtitle">[책이음 회원(통합회원) 탈퇴하는 법]</p>
+									</div>
+
+									<div class="withdrawal-notice__section">
+										<p class="withdrawal-notice__text">
+											공공도서관지원서비스(books.nl.go.kr) 접속 → 회원가입(혹은 로그인) → 책이음서비스 →
+											내정보 → 가입도서관조회 → 탈퇴하고자 하는 도서관 선택 → 탈퇴(대출 중인 자료가 있을
+											경우, 탈퇴 버튼 비활성화)
+										</p>
+									</div>
+
+									<div class="withdrawal-notice__section">
+										<p class="withdrawal-notice__text">
+											탈퇴 시 연수구립공공도서관 홈페이지와 연동된 전자도서관, 카카오톡 챗봇 서비스를 이용할 수 없습니다.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 구분선 -->
+				<div class="login-divider"></div>
+
+				<!-- 우측 회원탈퇴 폼 -->
+				<div class="login-form-section">
+					<!-- 회원 정보 표시 -->
+					<div class="member-info-display-container">
+						<div class="member-info-display">
+							<div class="info-row">
+								<span class="info-label">성명</span>
+								<span class="info-value">홍길동</span>
+							</div>
+							<div class="info-row">
+								<span class="info-label">아이디</span>
+								<span class="info-value">test</span>
+							</div>
+						</div>
+
+						<form class="login-form" method="post" action="/member-withdrawal">
+							<!-- 비밀번호 입력 필드 -->
+							<UiInput
+								type="password"
+								name="password"
+								label="비밀번호"
+								placeholder="*************"
+								size="large"
+								required={true}
+							/>
+
+							<UiButton
+								variant="secondary"
+								size="medium"
+								text="확인"
+								class=""
+							/>
+
+
+							<!-- 동의 체크박스 -->
+							<div class="withdrawal-agreement">
+								<UiCheckbox
+									id="withdrawal-agree"
+									name="withdrawal-agree"
+									size="medium"
+									label="안내사항을 모두 확인하였으며, 이에 동의합니다."
+									required={true}
+								/>
+							</div>
+
+							<!-- 탈퇴하기 버튼 -->
+							<UiButton
+								text="탈퇴하기"
+								variant="primary"
+								size="large"
+								width="100%"
+								class="withdrawal-submit-btn"
+								/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

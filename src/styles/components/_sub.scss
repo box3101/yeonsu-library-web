@@ -4124,6 +4124,74 @@ div.bookshelf-item {
 	}
 }
 
+/* ========================================
+   회원탈퇴 페이지 스타일
+======================================== */
+
+/* 탈퇴 안내 콘텐츠 */
+.withdrawal-notice__content {
+	margin-top: to-rem(8);
+}
+
+.withdrawal-notice__text {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(17);
+	font-weight: 400;
+	line-height: 1.5;
+	color: #4b4d4d;
+	margin: 0 0 to-rem(12) to-rem(28); /* 아이콘 + 간격만큼 들여쓰기 */
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include mobile {
+		font-size: to-rem(15);
+		margin-left: to-rem(24);
+		margin-bottom: to-rem(10);
+	}
+}
+
+.withdrawal-notice__section {
+	margin-bottom: to-rem(8);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.withdrawal-notice__subtitle {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(19);
+	font-weight: 700;
+	line-height: 1.5;
+	color: #3c79c2;
+	margin: 0 0 to-rem(8) to-rem(28); /* 아이콘 + 간격만큼 들여쓰기 */
+
+	@include mobile {
+		font-size: to-rem(16);
+		margin-left: to-rem(24);
+	}
+}
+
+/* 동의 체크박스 영역 */
+.withdrawal-agreement {
+	margin: to-rem(24) 0;
+	margin-top: 0;
+	padding-top: 24px;
+	border-top: 1px solid #b1b3b3;
+
+	@include mobile {
+		margin: to-rem(16) 0;
+		padding-top: 16px;
+	}
+}
+
+/* 탈퇴하기 버튼 여백 */
+.withdrawal-submit-btn {
+	margin-top: to-rem(8);
+}
+
 /* 안내 메시지 컴포넌트 - 로그인 배너 내부에서 사용 */
 
 .info-notice__header {
