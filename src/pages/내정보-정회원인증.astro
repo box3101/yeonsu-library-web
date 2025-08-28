@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+import UiInput from '../components/UI/UiInput.astro';
+import UiCheckbox from '../components/UI/UiCheckbox.astro';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '회원탈퇴', href: '/내정보-회원탈퇴' },
+];
+---
+
+<Layout title="내정보 - 회원탈퇴">
+	<SubLayout title="내정보 - 회원탈퇴" breadcrumbItems={breadcrumbItems} menuType="나의도서관">23</SubLayout>
+</Layout>

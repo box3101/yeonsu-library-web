@@ -52,7 +52,7 @@
     "glob": "^11.0.3",
     "js-beautify": "^1.15.4",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.9.1",
+    "prettier-plugin-astro": "^0.8.0",
     "sass": "^1.64.1"
   },
   "description": "``` npm create astro@latest -- --template basics ```",
