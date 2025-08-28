@@ -653,9 +653,7 @@
 		border-radius: to-rem(12);
 		padding: to-rem(28);
 		cursor: pointer;
-		transition:
-			all 0.2s ease,
-			transform 0.15s ease;
+		transition: all 0.2s ease, transform 0.15s ease;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
 		@include mobile {
@@ -910,9 +908,7 @@
 		border-radius: to-rem(8);
 		background-color: transparent;
 		cursor: pointer;
-		transition:
-			all 0.2s ease,
-			transform 0.15s ease;
+		transition: all 0.2s ease, transform 0.15s ease;
 
 		@include mobile {
 			height: to-rem(48);
@@ -4192,6 +4188,94 @@ div.bookshelf-item {
 	margin-top: to-rem(8);
 }
 
+/* ========================================
+   정회원인증 페이지 스타일
+======================================== */
+
+/* 인증 섹션 */
+.verification-section {
+	max-width: to-rem(976);
+	margin: 0 auto;
+}
+
+/* 동의 영역 */
+.verification-agreement {
+	margin-bottom: to-rem(24);
+
+	@include mobile {
+		margin-bottom: to-rem(16);
+	}
+}
+
+/* 주민등록번호 입력 그룹 */
+.verification-input-group {
+	display: flex;
+	align-items: center;
+	gap: to-rem(4);
+
+	.verification-input {
+		flex: 0 0 auto;
+		width: auto;
+	}
+
+	@include mobile {
+		gap: to-rem(2);
+	}
+}
+
+.input-separator {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(17);
+	font-weight: 400;
+	color: #646767;
+	margin: 0 to-rem(2);
+
+	@include mobile {
+		font-size: to-rem(15);
+	}
+}
+
+/* 인증 버튼 영역 */
+.verification-actions {
+	display: flex;
+	justify-content: center;
+	margin-top: to-rem(24);
+
+	@include mobile {
+		margin-top: to-rem(20);
+	}
+}
+
+/* 필수 표시가 있는 라디오 질문 */
+.radio-question.required {
+	color: #d7424e;
+	font-weight: 400;
+
+	@include mobile {
+		font-size: to-rem(15);
+	}
+}
+
+/* 텍스트 스타일 변형 */
+.text-muted {
+	color: #464c53 !important;
+}
+
+.text-note {
+	color: #4b4d4d !important;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		width: to-rem(6);
+		height: to-rem(6);
+		background-color: #4b4d4d;
+		border-radius: to-rem(4);
+		margin-right: to-rem(8);
+		vertical-align: middle;
+	}
+}
+
 /* 안내 메시지 컴포넌트 - 로그인 배너 내부에서 사용 */
 
 .info-notice__header {
@@ -5507,5 +5591,13 @@ div.bookshelf-item {
 		@include mobile {
 			padding: 16px;
 		}
+	}
+}
+
+.verification-section-custom {
+	.info-box {
+		height: auto;
+		max-height: to-rem(220);
+		overflow-y: auto;
 	}
 }

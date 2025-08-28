@@ -1,19 +1,99 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SubLayout from '../components/layout/SubLayout.astro';
-import UiButton from '../components/UI/UiButton.astro';
-import UiInput from '../components/UI/UiInput.astro';
-import UiCheckbox from '../components/UI/UiCheckbox.astro';
+import { UiButton, UiInput, UiRadio } from '../components';
 
 // 브레드크럼브 데이터
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
 	{ label: '나의도서관', href: '/my-library' },
 	{ label: '내정보', href: '/내정보' },
-	{ label: '회원탈퇴', href: '/내정보-회원탈퇴' },
+	{ label: '정회원인증', href: '/내정보-정회원인증' },
 ];
 ---
 
-<Layout title="내정보 - 회원탈퇴">
-	<SubLayout title="내정보 - 회원탈퇴" breadcrumbItems={breadcrumbItems} menuType="나의도서관">23</SubLayout>
+<Layout title="내정보 - 정회원인증">
+	<SubLayout title="내정보 - 정회원인증" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<div class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<!-- 정회원 인증 섹션 -->
+						<div class="verification-section verification-section-custom">
+							<!-- 페이지 제목 -->
+							<h2 class="section-title section-title--main">정회원 인증</h2>
+
+							<!-- 개인정보 수집 및 이용 동의 박스 -->
+							<div class="verification-agreement">
+								<!-- 개인정보 동의 박스 -->
+								<div class="terms-item">
+									<div class="terms-item__content">
+										<!-- 스크롤 박스 -->
+										<div class="terms-scroll-box">
+											<!-- 정보 박스 헤더 -->
+											<div class="info-box">
+												<div class="info-box__header">
+													<div class="info-box__icon">
+														<img src="./assets/images/icon/icon-info.svg" alt="정보" />
+													</div>
+													<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
+												</div>
+												<div class="info-box__content">
+													<ul class="info-list">
+														<li>제공기관 : 행정안전부 행정정보공동이용</li>
+														<li>제공정보 : 주민등록번호</li>
+														<li>제공목적 : 비대면 자격확인을 통한 정회원 가입 (인천광역시 거주 여부 확인)</li>
+														<li class="text-muted">제공정보 보유 및 이용기간 : 자격확인 후 즉시 파기</li>
+														<li class="text-note">
+															※ 위의 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있습니다. 그러나 거부 시 서비스 이용에 제한을 받을 수 있습니다.
+														</li>
+													</ul>
+												</div>
+											</div>
+											<!-- 스크롤바 -->
+											<div class="scroll-bar"></div>
+										</div>
+
+										<!-- 동의 라디오 버튼 -->
+										<div class="terms-item__radio">
+											<p class="radio-question required">[필수] 위와 같이 개인정보를 수집 및 이용하는데 동의하십니까?</p>
+											<div class="radio-group">
+												<UiRadio name="privacy-agree" value="disagree" id="privacy-disagree" label="동의안함" size="medium" />
+												<UiRadio name="privacy-agree" value="agree" id="privacy-agree" label="동의함" size="medium" checked />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 회원 정보 표시 -->
+							<div class="member-info-display">
+								<div class="info-row">
+									<span class="info-label">성명</span>
+									<span class="info-value">홍길동</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">아이디</span>
+									<span class="info-value">ecotest</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">주민등록번호</span>
+									<div class="verification-input-group">
+										<UiInput placeholder="20250101" size="medium" class="verification-input" />
+										<span class="input-separator">-</span>
+										<UiInput placeholder="1111111" size="medium" class="verification-input" />
+									</div>
+								</div>
+							</div>
+
+							<!-- 인증하기 버튼 -->
+							<div class="verification-actions">
+								<UiButton text="인증하기" variant="primary" size="large" class="w-180-mobile-full" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
 </Layout>
