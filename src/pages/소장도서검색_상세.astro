@@ -251,7 +251,7 @@ const books = [
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="" />
+                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -274,7 +274,7 @@ const books = [
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="" />
+                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -297,7 +297,7 @@ const books = [
                 {
                   books.map(book => (
                     <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="" />
+                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
                       <p class="tit">{book.title}</p>
                       <div class="txt">{book.author}</div>
                     </li>
@@ -314,18 +314,18 @@ const books = [
 
         <!-- 주요키워드 -->
         <UiAccordion title="주요키워드" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="keywords-content" style="height: 400px; background-color: #f8f8f8;">
-            <div id="wordCloudCanvas" style="width: 100%; height: 100%;"></div>
+          <div class="keywords-content">
+            <div id="wordCloudCanvas" class="wordcloud-canvas"></div>
           </div>
         </UiAccordion>
 
         <!-- 통계 -->
         <UiAccordion title="통계" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
           <div class="statistics-content flex gap-16">
-            <div class="statistics-content__item" style="width: 50%;">
+            <div class="statistics-content__item statistics-chart-item">
               <canvas id="myChart1"></canvas>
             </div>
-            <div class="statistics-content__item" style="width: 50%;">
+            <div class="statistics-content__item statistics-chart-item">
               <canvas id="myChart2"></canvas>
             </div>
           </div>

@@ -5,165 +5,72 @@ export interface Props {
   class?: string;
 }
 
-const {
-  id = 'worldword-keyboard',
-  targetInputId = '',
-  class: className = '',
-} = Astro.props;
+const { id = 'worldword-keyboard', targetInputId = '', class: className = '' } = Astro.props;
 ---
 
-<div
-  class={`keyboard-wrapper ${className}`}
-  id={id}
-  style="position: relative;"
->
-  <div
-    class="worldword-wrap"
-    style="top: 100%; margin-top: -10px; display: none;"
-  >
+<div class={`keyboard-wrapper ${className}`} id={id}>
+  <div class="worldword-wrap">
     <fieldset>
       <legend>다국어 입력</legend>
       <strong class="worldword-title">다국어 입력</strong>
       <div class="worldword">
         <ul class="language">
           <li>
-            <a
-              href="#none"
-              data-type="히라가나"
-              data-focus-next="lang01List"
-              data-focus="lang01"
-              class="selected">히라가나</a
-            >
+            <a href="#none" data-type="히라가나" data-focus-next="lang01List" data-focus="lang01" class="selected">히라가나</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="가타카나"
-              data-focus-next="lang02List"
-              data-focus="lang02">가타카나</a
-            >
+            <a href="#none" data-type="가타카나" data-focus-next="lang02List" data-focus="lang02">가타카나</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="한글고어"
-              data-focus-next="lang03List"
-              data-focus="lang03">한글고어</a
-            >
+            <a href="#none" data-type="한글고어" data-focus-next="lang03List" data-focus="lang03">한글고어</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="그리스문자"
-              data-focus-next="lang04List"
-              data-focus="lang04">그리스문자</a
-            >
+            <a href="#none" data-type="그리스문자" data-focus-next="lang04List" data-focus="lang04">그리스문자</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="라틴문자"
-              data-focus-next="lang05List"
-              data-focus="lang05">라틴문자</a
-            >
+            <a href="#none" data-type="라틴문자" data-focus-next="lang05List" data-focus="lang05">라틴문자</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="키릴문자"
-              data-focus-next="lang06List"
-              data-focus="lang06">키릴문자</a
-            >
+            <a href="#none" data-type="키릴문자" data-focus-next="lang06List" data-focus="lang06">키릴문자</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="로마자"
-              data-focus-next="lang07List"
-              data-focus="lang07">로마자</a
-            >
+            <a href="#none" data-type="로마자" data-focus-next="lang07List" data-focus="lang07">로마자</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="태국어"
-              data-focus-next="lang08List"
-              data-focus="lang08">태국어</a
-            >
+            <a href="#none" data-type="태국어" data-focus-next="lang08List" data-focus="lang08">태국어</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="아랍어"
-              data-focus-next="lang09List"
-              data-focus="lang09">아랍어</a
-            >
+            <a href="#none" data-type="아랍어" data-focus-next="lang09List" data-focus="lang09">아랍어</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="확장문자"
-              data-focus-next="lang10List"
-              data-focus="lang10">확장문자</a
-            >
+            <a href="#none" data-type="확장문자" data-focus-next="lang10List" data-focus="lang10">확장문자</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="일반기호"
-              data-focus-next="lang11List"
-              data-focus="lang11">일반기호</a
-            >
+            <a href="#none" data-type="일반기호" data-focus-next="lang11List" data-focus="lang11">일반기호</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="괄호기호"
-              data-focus-next="lang12List"
-              data-focus="lang12">괄호기호</a
-            >
+            <a href="#none" data-type="괄호기호" data-focus-next="lang12List" data-focus="lang12">괄호기호</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="학술기호"
-              data-focus-next="lang13List"
-              data-focus="lang13">학술기호</a
-            >
+            <a href="#none" data-type="학술기호" data-focus-next="lang13List" data-focus="lang13">학술기호</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="기술기호"
-              data-focus-next="lang14List"
-              data-focus="lang14">기술기호</a
-            >
+            <a href="#none" data-type="기술기호" data-focus-next="lang14List" data-focus="lang14">기술기호</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="단위기호"
-              data-focus-next="lang15List"
-              data-focus="lang15">단위기호</a
-            >
+            <a href="#none" data-type="단위기호" data-focus-next="lang15List" data-focus="lang15">단위기호</a>
           </li>
           <li>
-            <a
-              href="#none"
-              data-type="첨자기호"
-              data-focus-next="lang16List"
-              data-focus="lang16">첨자기호 · 분수</a
-            >
+            <a href="#none" data-type="첨자기호" data-focus-next="lang16List" data-focus="lang16">첨자기호 · 분수</a>
           </li>
         </ul>
 
         <!-- 히라가나 -->
-        <div class="language-contents" data-type="히라가나" style="">
+        <div class="language-contents" data-type="히라가나">
           <h5 class="ir_text">히라가나</h5>
           <ul>
             <li>
-              <a href="#" data-focus-prev="lang01" data-focus="lang01List">あ</a
-              >
+              <a href="#" data-focus-prev="lang01" data-focus="lang01List">あ</a>
             </li>
             <li><a href="#">ぁ</a></li>
             <li><a href="#">か</a></li>
@@ -265,16 +172,11 @@ const {
         </div>
 
         <!-- 가타카나 -->
-        <div
-          class="language-contents"
-          data-type="가타카나"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="가타카나">
           <h5 class="ir_text">가타카나</h5>
           <ul>
             <li>
-              <a href="#" data-focus-prev="lang02" data-focus="lang02List">ア</a
-              >
+              <a href="#" data-focus-prev="lang02" data-focus="lang02List">ア</a>
             </li>
             <li><a href="#">ァ</a></li>
             <li><a href="#">カ</a></li>
@@ -377,16 +279,11 @@ const {
         </div>
 
         <!-- 한글고어 -->
-        <div
-          class="language-contents"
-          data-type="한글고어"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="한글고어">
           <h5 class="ir_text">한글고어</h5>
           <ul>
             <li>
-              <a href="#" data-focus-prev="lang03" data-focus="lang03List">ㅥ</a
-              >
+              <a href="#" data-focus-prev="lang03" data-focus="lang03List">ㅥ</a>
             </li>
             <li><a href="#">ㅦ</a></li>
             <li><a href="#">ㅧ</a></li>
@@ -433,11 +330,7 @@ const {
         </div>
 
         <!-- 그리스문자 -->
-        <div
-          class="language-contents"
-          data-type="그리스문자"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="그리스문자">
           <h5 class="ir_text">그리스문자</h5>
           <ul>
             <li>
@@ -494,11 +387,7 @@ const {
         </div>
 
         <!-- 라틴문자 -->
-        <div
-          class="language-contents"
-          data-type="라틴문자"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="라틴문자">
           <h5 class="ir_text">라틴문자</h5>
           <ul>
             <li>
@@ -533,11 +422,7 @@ const {
         </div>
 
         <!-- 키릴문자 -->
-        <div
-          class="language-contents"
-          data-type="키릴문자"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="키릴문자">
           <h5 class="ir_text">키릴문자</h5>
           <ul>
             <li>
@@ -612,7 +497,7 @@ const {
         </div>
 
         <!-- 로마자 -->
-        <div class="language-contents" data-type="로마자" style="display: none">
+        <div class="language-contents language-content--hidden" data-type="로마자">
           <h5 class="ir_text">로마자</h5>
           <ul>
             <li>
@@ -641,7 +526,7 @@ const {
         </div>
 
         <!-- 태국어 -->
-        <div class="language-contents" data-type="태국어" style="display: none">
+        <div class="language-contents language-content--hidden" data-type="태국어">
           <h5 class="ir_text">태국어</h5>
           <ul>
             <li>
@@ -737,7 +622,7 @@ const {
         </div>
 
         <!-- 아랍어 -->
-        <div class="language-contents" data-type="아랍어" style="display: none">
+        <div class="language-contents language-content--hidden" data-type="아랍어">
           <h5 class="ir_text">아랍어</h5>
           <ul>
             <li>
@@ -991,20 +876,14 @@ const {
         </div>
 
         <!-- 확장문자 -->
-        <div
-          class="language-contents"
-          data-type="확장문자"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="확장문자">
           <h5 class="ir_text">확장문자</h5>
           <ul class="new_edit_keyboard">
             <li>
               <p>양음 부호</p>
               <ul>
                 <li>
-                  <a href="#" data-focus-prev="lang10" data-focus="lang10List"
-                    >Á</a
-                  >
+                  <a href="#" data-focus-prev="lang10" data-focus="lang10List">Á</a>
                 </li>
                 <li><a href="#">É</a></li>
                 <li><a href="#">Í</a></li>
@@ -1125,11 +1004,7 @@ const {
         </div>
 
         <!-- 일반기호 -->
-        <div
-          class="language-contents"
-          data-type="일반기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="일반기호">
           <h5 class="ir_text">일반기호</h5>
           <ul>
             <li>
@@ -1210,11 +1085,7 @@ const {
         </div>
 
         <!-- 괄호기호 -->
-        <div
-          class="language-contents"
-          data-type="괄호기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="괄호기호">
           <h5 class="ir_text">괄호기호</h5>
           <ul>
             <li>
@@ -1244,11 +1115,7 @@ const {
         </div>
 
         <!-- 학술기호 -->
-        <div
-          class="language-contents"
-          data-type="학술기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="학술기호">
           <h5 class="ir_text">학술기호</h5>
           <ul>
             <li>
@@ -1305,16 +1172,11 @@ const {
         </div>
 
         <!-- 기술기호 -->
-        <div
-          class="language-contents"
-          data-type="기술기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="기술기호">
           <h5 class="ir_text">기술기호</h5>
           <ul>
             <li>
-              <a href="#" data-focus-prev="lang14" data-focus="lang14List">、</a
-              >
+              <a href="#" data-focus-prev="lang14" data-focus="lang14List">、</a>
             </li>
             <li><a href="#">。</a></li>
             <li><a href="#">·</a></li>
@@ -1356,11 +1218,7 @@ const {
         </div>
 
         <!-- 단위기호 -->
-        <div
-          class="language-contents"
-          data-type="단위기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="단위기호">
           <h5 class="ir_text">단위기호</h5>
           <ul>
             <li>
@@ -1461,11 +1319,7 @@ const {
         </div>
 
         <!-- 첨자기호 -->
-        <div
-          class="language-contents"
-          data-type="첨자기호"
-          style="display: none"
-        >
+        <div class="language-contents language-content--hidden" data-type="첨자기호">
           <h5 class="ir_text">첨자기호</h5>
           <ul>
             <li>
@@ -1504,11 +1358,8 @@ const {
     const keyboardPanel = keyboardWrapper?.querySelector('.worldword-wrap');
     const closeButton = keyboardWrapper?.querySelector('.worldword-close');
     const languageButtons = keyboardWrapper?.querySelectorAll('.language a');
-    const languageContents =
-      keyboardWrapper?.querySelectorAll('.language-contents');
-    const characterButtons = keyboardWrapper?.querySelectorAll(
-      '.language-contents a'
-    );
+    const languageContents = keyboardWrapper?.querySelectorAll('.language-contents');
+    const characterButtons = keyboardWrapper?.querySelectorAll('.language-contents a');
 
     if (!keyboardWrapper || !keyboardPanel) return;
 
@@ -1550,9 +1401,7 @@ const {
         });
 
         // 선택된 언어 컨텐츠 표시
-        const targetContent = keyboardWrapper.querySelector(
-          `.language-contents[data-type="${targetType}"]`
-        );
+        const targetContent = keyboardWrapper.querySelector(`.language-contents[data-type="${targetType}"]`);
         if (targetContent) {
           targetContent.style.display = 'block';
         }

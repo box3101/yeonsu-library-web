@@ -9,8 +9,9 @@
     "dev:turbo": "concurrently \"npm run dev\" \"npm run watch:scss\"",
     "dev:full": "concurrently \"npm run dev\" \"npm run watch:scss\" \"npm run watch:files\"",
     "start": "npm run dev",
-    "build": "astro build && npm run format:dist",
-    "build:clean": "astro build && npm run format:dist",
+    "build": "astro build",
+    "build:clean": "astro build",
+    "prettier": "prettier --write \"**/*.html\"",
     "build:jsp": "astro build && npm run remove-astro-attrs && npm run format:dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -20,14 +21,12 @@
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "format:src": "prettier --write \"src/**/*.{astro,ts,js,scss}\"",
-    "format:dist": "prettier --write \"dist/**/*.{css,js}\" && js-beautify --type html --indent-size 2 --end-with-newline --max-preserve-newlines 1 --wrap-line-length 150 --replace \"dist/**/*.html\"",
-    "watch:scss": "sass --watch src/styles/main.scss:public/assets/css/main.css",
+    "format:dist": "prettier --write \"dist/**/*.{css,js,html}\"",
     "watch:files": "echo 'File watching not implemented'",
     "remove-astro-attrs": "node scripts/remove-astro-attrs.cjs",
     "update-guide": "echo 'Update guide script not implemented'",
     "setup-hooks": "echo 'Setup hooks script not implemented'",
     "pre-commit": "npm run update-guide",
-    "prettier": "prettier --write \"**/*.html\" --ignore-path=.gitignore",
     "sass": "concurrently \"sass --watch src/styles/main.scss:public/assets/css/main.css\""
   },
   "dependencies": {
@@ -35,7 +34,6 @@
     "@astrojs/renderer-react": "^0.5.0",
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
-    "astro": "^2.0.6",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -49,11 +47,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "astro": "^2.10.15",
     "concurrently": "^8.2.0",
     "glob": "^11.0.3",
     "js-beautify": "^1.15.4",
-    "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.64.1"
   },
   "description": "``` npm create astro@latest -- --template basics ```",

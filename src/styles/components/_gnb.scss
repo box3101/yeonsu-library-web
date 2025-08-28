@@ -2,284 +2,337 @@
 @use '../variables/colors' as *;
 
 .gnb {
-  position: relative;
-  z-index: 1000;
-  --radius-medium2: #{to-rem(6)};
-  --color-primary-pr01: #d8e4f3;
+	position: relative;
+	z-index: 1000;
+	--radius-medium2: #{to-rem(6)};
+	--color-primary-pr01: #d8e4f3;
 
-  &-container {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+	&-container {
+		max-width: 1280px;
+		margin: 0 auto;
+	}
 }
 
 // 메인 메뉴 바
 .gnb-main {
-  background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
+	background: #ffffff;
+	border-top: 1px solid #cdd1d5;
+	border-bottom: 1px solid #cdd1d5;
 
-  &-list {
-    @include flex(row, flex-start, stretch);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: to-rem(16);
-    height: to-rem(56);
-  }
+	&-list {
+		@include flex(row, flex-start, stretch);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: to-rem(16);
+		height: to-rem(56);
+	}
 
-  &-link {
-    @include flex(row, space-between, center);
-    gap: to-rem(8);
-    padding: 0 to-rem(16);
-    height: to-rem(56);
-    width: to-rem(169);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(19);
-    font-weight: 700;
-    line-height: 1.5;
-    color: #464c53;
-    transition: all 0.2s ease;
-    text-decoration: none;
+	&-link {
+		@include flex(row, space-between, center);
+		gap: to-rem(8);
+		padding: 0 to-rem(16);
+		height: to-rem(56);
+		width: to-rem(169);
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #464c53;
+		transition: all 0.2s ease;
+		text-decoration: none;
 
-    &:hover {
-      background: #f8fafc;
-    }
+		&:hover {
+			background: #f8fafc;
+		}
 
-    &.selected {
-      border-bottom: 4px solid #244874;
-      background: #ffffff;
-    }
+		&.selected {
+			border-bottom: 4px solid #244874;
+			background: #ffffff;
+		}
 
-    &:focus {
-      outline: 2px solid #244874;
-      outline-offset: 2px;
-    }
-  }
+		&:focus {
+			outline: 2px solid #244874;
+			outline-offset: 2px;
+		}
+	}
 
-  &-text {
-    flex: 1;
-    text-align: left;
-    white-space: nowrap;
-    // display: none;
-  }
+	&-text {
+		flex: 1;
+		text-align: left;
+		white-space: nowrap;
+		// display: none;
+	}
 }
 
 // 서브 메뉴 영역
 .gnb-sub {
-  background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+	background: #ffffff;
+	border-top: 1px solid #cdd1d5;
+	border-bottom: 1px solid #cdd1d5;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: all 0.3s ease;
 
-  &[hidden] {
-    display: none !important;
-  }
+	&[hidden] {
+		display: none !important;
+	}
 
-  &:not([hidden]) {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+	&:not([hidden]) {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
 
-  &-content {
-    @include flex(row, flex-start, stretch);
-    padding: to-rem(16) 0;
-    gap: to-rem(24);
-  }
+	&-content {
+		@include flex(row, flex-start, stretch);
+		padding: to-rem(16) 0;
+		gap: to-rem(24);
+	}
 
-  &-title {
-    width: to-rem(306);
-    padding-right: to-rem(24);
+	&-title {
+		width: to-rem(306);
+		padding-right: to-rem(24);
 
-    &-text {
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(24);
-      font-weight: 700;
-      line-height: 1.5;
-      color: #1e2124;
-      margin: 0;
-      padding: to-rem(16) to-rem(4);
-    }
-  }
+		&-text {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(24);
+			font-weight: 700;
+			line-height: 1.5;
+			color: #1e2124;
+			margin: 0;
+			padding: to-rem(16) to-rem(4);
+		}
+	}
 
-  &-menu {
-    width: to-rem(306);
-    padding-top: to-rem(8);
-    padding-right: to-rem(24);
-    @include flex(column, flex-start, stretch);
-    gap: to-rem(4);
-  }
+	&-menu {
+		width: to-rem(306);
+		padding-top: to-rem(8);
+		padding-right: to-rem(24);
+		@include flex(column, flex-start, stretch);
+		gap: to-rem(4);
+	}
 
-  &-item {
-    border-radius: to-rem(8);
-    transition: all 0.2s ease;
+	&-item {
+		border-radius: to-rem(8);
+		transition: all 0.2s ease;
+		// position: relative; // 3depth 메뉴 위치 참조점
 
-    &.selected {
-      background: #ecf2f9;
-    }
+		&.selected {
+			background: #ecf2f9;
+		}
 
-    &:hover {
-      background: #f8fafc;
-    }
-  }
+		&:hover {
+			background: #f8fafc;
+		}
+	}
 
-  &-link {
-    @include flex(row, space-between, center);
-    width: 100%;
-    padding: to-rem(12) to-rem(16);
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-radius: to-rem(8);
-    color: inherit;
+	&-link {
+		@include flex(row, space-between, center);
+		width: 100%;
+		padding: to-rem(12) to-rem(16);
+		text-decoration: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		border-radius: to-rem(8);
+		color: inherit;
 
-    &:focus {
-      outline: 2px solid #244874;
-      outline-offset: 2px;
-      background: #f8fafc;
-    }
-  }
+		&:focus {
+			outline: 2px solid #244874;
+			outline-offset: 2px;
+			background: #f8fafc;
+		}
+	}
 
-  &-text {
-    flex: 1;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(17);
-    font-weight: 400;
-    line-height: 1.5;
-    color: #1e2124;
-    text-align: left;
+	&-text {
+		flex: 1;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #1e2124;
+		text-align: left;
 
-    .selected & {
-      font-weight: 700;
-      color: #052b57;
-    }
-  }
+		.selected & {
+			font-weight: 700;
+			color: #052b57;
+		}
+	}
 }
 
 // 3depth 메뉴
 .gnb-third {
-  flex: 1;
-  align-self: stretch;
-  border-left: 1px solid #cdd1d5;
-  padding: to-rem(8) to-rem(24);
+	flex: 1;
+	align-self: stretch;
+	border-left: 1px solid #cdd1d5;
+	padding: to-rem(8) to-rem(24);
 
-  &-title {
-    margin-bottom: to-rem(16);
+	&-title {
+		margin-bottom: to-rem(16);
 
-    &-text {
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(20);
-      font-weight: 700;
-      line-height: 1.5;
-      color: #1e2124;
-      margin: 0;
-      padding: to-rem(8) 0;
-    }
-  }
+		&-text {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(20);
+			font-weight: 700;
+			line-height: 1.5;
+			color: #1e2124;
+			margin: 0;
+			padding: to-rem(8) 0;
+		}
+	}
 
-  &-items {
-    &:empty {
-      display: none;
-    }
-  }
+	&-items {
+		&:empty {
+			display: none;
+		}
+	}
 
-  &-column {
-    @include flex(column, flex-start, stretch);
-    width: to-rem(298);
-  }
+	&-column {
+		@include flex(column, flex-start, stretch);
+		width: to-rem(298);
+	}
 
-  &-item {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-2, 4px);
-    align-self: stretch;
-    border-radius: var(--radius-medium2, 6px);
-    background: var(--color-action-secondary, rgba(255, 255, 255, 0));
-    position: relative;
-    transition: all 0.2s ease;
+	&-item {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-2, 4px);
+		align-self: stretch;
+		border-radius: var(--radius-medium2, 6px);
+		background: var(--color-action-secondary, rgba(255, 255, 255, 0));
+		position: relative;
+		transition: all 0.2s ease;
 
-    &.selected {
-      background: var(--color-primary-pr01);
-    }
+		&.selected {
+			background: var(--color-primary-pr01);
+		}
 
-    @include makeBefore {
-      @include ab-y;
-      left: 6px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #000;
-    }
+		@include makeBefore {
+			@include ab-y;
+			left: 6px;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background: #000;
+		}
 
-    &:hover {
-      border-radius: var(--radius-medium2, 6px);
-      background: var(--color-primary-pr01, #d8e4f3);
+		&:hover {
+			border-radius: var(--radius-medium2, 6px);
+			background: var(--color-primary-pr01, #d8e4f3);
 
-      .gnb-third-text {
-        color: $primary-color !important;
-        font-weight: 700 !important;
-      }
-    }
-  }
+			.gnb-third-text {
+				color: $primary-color !important;
+				font-weight: 700 !important;
+			}
+		}
+	}
 
-  &-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: var(--padding-4, 18px) var(--padding-3, 8px);
-    padding-left: 22px;
-    text-decoration: none;
-    color: inherit;
+	&-link {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: var(--padding-4, 18px) var(--padding-3, 8px);
+		padding-left: 22px;
+		text-decoration: none;
+		color: inherit;
 
-    &:focus {
-      outline: 2px solid #244874;
-      outline-offset: 2px;
-    }
-  }
+		&:focus {
+			outline: 2px solid #244874;
+			outline-offset: 2px;
+		}
+	}
 
-  &-text {
-    @include font(to-rem(17), 400, #121212);
-  }
+	&-text {
+		@include font(to-rem(17), 400, #121212);
+	}
+}
+
+// 3depth 메뉴를 서브메뉴 전체 영역 기준으로 위치 조정
+.gnb-third-list {
+	position: absolute;
+	top: 0; // 서브메뉴 전체 영역 맨 위부터 시작
+	left: 50%;
+	width: to-rem(298);
+	height: 100%;
+	overflow: auto;
+	background: white;
+	border-left: 1px solid #cdd1d5;
+	padding: to-rem(8) to-rem(24);
+	list-style: none;
+	margin: 0;
+	z-index: 1001;
+
+	// 기본적으로 숨김
+	display: none;
+
+	// 부모 li가 hover되거나 선택되었을 때 표시
+	.gnb-sub-item:hover &,
+	.gnb-sub-item.selected & {
+		display: block;
+	}
+}
+
+// gnb-sub-content에 상대 위치 설정 (3depth 메뉴의 기준점)
+.gnb-sub-content {
+	position: relative; // 3depth 메뉴의 기준점이 되도록 설정
+}
+
+// gnb-sub-menu의 기존 position: relative 제거하고 너비 조정
+.gnb-sub-menu {
+	// position: relative 제거
+	// 3depth가 표시될 때 너비를 줄여서 공간 확보
+	.gnb-sub-item:hover ~ .gnb-third-list,
+	.gnb-sub-item.selected ~ .gnb-third-list {
+		display: block;
+	}
 }
 
 @include mobile {
-  .gnb {
-    display: none;
-  }
+	.gnb {
+		display: none;
+	}
 }
 
 @media (prefers-contrast: high) {
-  .gnb {
-    &-main-link:focus,
-    &-sub-link:focus,
-    &-third-link:focus {
-      outline: 3px solid #000;
-      outline-offset: 2px;
-    }
-  }
+	.gnb {
+		&-main-link:focus,
+		&-sub-link:focus,
+		&-third-link:focus {
+			outline: 3px solid #000;
+			outline-offset: 2px;
+		}
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gnb-sub {
-    transition: none;
-  }
+	.gnb-sub {
+		transition: none;
+	}
 
-  .gnb-main-link,
-  .gnb-sub-item,
-  .gnb-third-item {
-    transition: none;
-  }
+	.gnb-main-link,
+	.gnb-sub-item,
+	.gnb-third-item {
+		transition: none;
+	}
+}
+
+// 새로 추가된 ul/ol 구조를 위한 스타일
+.gnb-sub {
+	&-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+	}
 }

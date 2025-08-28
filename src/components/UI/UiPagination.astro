@@ -89,14 +89,7 @@ const isNextDisabled = currentPage >= totalPages;
       disabled={isPrevDisabled}
       type="button"
     >
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path
-          d="M12.5 15L7.5 10L12.5 5"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
+      <img src="./assets/images/icon/icon-chevron-left.svg" alt="이전" />
       <span>이전</span>
     </button>
 
@@ -107,11 +100,7 @@ const isNextDisabled = currentPage >= totalPages;
           if (page === 'ellipsis') {
             return (
               <div class="ui-pagination__ellipsis" key={`ellipsis-${index}`}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <circle cx="4" cy="10" r="1.5" fill="currentColor" />
-                  <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-                  <circle cx="16" cy="10" r="1.5" fill="currentColor" />
-                </svg>
+                <img src="./assets/images/icon/icon-dots.svg" alt="..." />
               </div>
             );
           }
@@ -146,14 +135,7 @@ const isNextDisabled = currentPage >= totalPages;
       type="button"
     >
       <span>다음</span>
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path
-          d="M7.5 15L12.5 10L7.5 5"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
+      <img src="./assets/images/icon/icon-chevron-right.svg" alt="다음" />
     </button>
   </div>
 </div>

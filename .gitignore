@@ -35,3 +35,11 @@ pnpm-debug.log*
 
 # zip 파일
 *.zip
+
+# Windows temporary files
+nul
+NUL
+
+# Other temporary files
+.tmp
+.temp

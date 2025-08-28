@@ -39,7 +39,7 @@ const highlightedDescription = highlightSearchTerm(description, searchTerm);
 
 <div class={resultClasses} {...rest}>
   <div class="result-body">
-    <img src="./assets/images/ex01.png" alt="" class="result-image" />
+    <img src="./assets/images/ex01.png" alt={`${title} 관련 이미지`} class="result-image" />
     <div class="result-content">
       <h3 class="result-title" set:html={highlightedTitle}></h3>
       <p class="result-description" set:html={highlightedDescription}></p>

@@ -54,10 +54,6 @@ $(document).ready(function () {
       });
     });
 
-    var buttonCount = $('.collection-toggle-button').length;
-    if (buttonCount > 0) {
-      console.log('Book Card Collection initialized (' + buttonCount + ' buttons)');
-    }
   }
 
   // 초기화 실행

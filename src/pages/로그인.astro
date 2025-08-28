@@ -9,55 +9,63 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '회원서비스'
 ---
 
 <Layout title="로그인">
-  <SubLayout title="로그인" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
-    <div class="sub-layout__content">
-      <!-- 로그인 페이지 컨테이너 -->
-      <div class="login-container">
-        <!-- 좌측 환영 배너 -->
-        <div class="login-banner">
-          <div class="login-banner__content">
-            <div class="login-banner__text-group">
-              <h1 class="login-banner__title">
-                연수구립도서관에 오신 것을 <br />
-                환영합니다.
-              </h1>
-              <p class="login-banner__description">로그인 후 다양한 서비스를 이용해 보세요.</p>
-            </div>
-            <div class="login-banner__image">
-              <img src="assets/images/login-banner-image.png" alt="도서관 일러스트" class="login-banner__img" />
-            </div>
-          </div>
-        </div>
+	<SubLayout title="로그인" breadcrumbItems={breadcrumbItems} menuType="회원서비스">
+		<div class="sub-layout__content">
+			<!-- 로그인 페이지 컨테이너 -->
+			<div class="login-container">
+				<!-- 좌측 환영 배너 -->
+				<div class="login-banner">
+					<div class="login-banner__content">
+						<div class="login-banner__text-group">
+							<h1 class="login-banner__title">
+								연수구립도서관에 오신 것을 <br />
+								환영합니다.
+							</h1>
+							<p class="login-banner__description">로그인 후 다양한 서비스를 이용해 보세요.</p>
+						</div>
+						<div class="login-banner__image">
+							<img src="assets/images/login-banner-image.png" alt="도서관 일러스트" class="login-banner__img" />
+						</div>
+					</div>
+				</div>
 
-        <!-- 구분선 -->
-        <div class="login-divider"></div>
+				<!-- 구분선 -->
+				<div class="login-divider"></div>
 
-        <!-- 우측 로그인 폼 -->
-        <div class="login-form-section">
-          <form class="login-form" method="post" action="/login">
-            <!-- 아이디 입력 필드 -->
-            <UiInput type="text" name="username" id="username" label="아이디" placeholder="아이디를 입력하세요" size="large" required />
+				<!-- 우측 로그인 폼 -->
+				<div class="login-form-section">
+					<form class="login-form" method="post" action="/login">
+						<!-- 아이디 입력 필드 -->
+						<UiInput type="text" name="username" id="username" label="아이디" placeholder="아이디를 입력하세요" size="large" required />
 
-            <!-- 비밀번호 입력 필드 -->
-            <UiInput type="password" name="password" id="password" label="비밀번호" placeholder="비밀번호를 입력하세요" size="large" required />
+						<!-- 비밀번호 입력 필드 -->
+						<UiInput
+							type="password"
+							name="password"
+							id="password"
+							label="비밀번호"
+							placeholder="비밀번호를 입력하세요"
+							size="large"
+							required
+						/>
 
-            <!-- 아이디 저장 체크박스 -->
-            <UiCheckbox name="remember" id="remember" label="아이디 저장" size="medium" />
+						<!-- 아이디 저장 체크박스 -->
+						<UiCheckbox name="remember" id="remember" label="아이디 저장" size="medium" />
 
-            <!-- 로그인 버튼 -->
-            <UiButton text="로그인" variant="primary" size="large" width="100%" />
+						<!-- 로그인 버튼 -->
+						<UiButton text="로그인" variant="primary" size="large" width="100%" />
 
-            <!-- 하단 버튼 그룹 (아이디찾기, 비밀번호찾기, 회원가입) -->
-            <div class="login-form__button-group">
-              <UiButton text="아이디 찾기" variant="ghost" size="medium" href="/아이디찾기" />
-              <span class="login-form__divider">|</span>
-              <UiButton text="비밀번호 찾기" variant="ghost" size="medium" href="/비밀번호찾기" />
-              <span class="login-form__divider">|</span>
-              <UiButton text="회원가입" variant="ghost" size="medium" href="/회원가입" />
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </SubLayout>
+						<!-- 하단 버튼 그룹 (아이디찾기, 비밀번호찾기, 회원가입) -->
+						<div class="login-form__button-group">
+							<UiButton text="아이디 찾기" variant="ghost" size="medium" href="/아이디찾기" />
+							<span class="login-form__divider">|</span>
+							<UiButton text="비밀번호 찾기" variant="ghost" size="medium" href="/비밀번호찾기" />
+							<span class="login-form__divider">|</span>
+							<UiButton text="회원가입" variant="ghost" size="medium" href="/회원가입" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
 </Layout>

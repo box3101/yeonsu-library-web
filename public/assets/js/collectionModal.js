@@ -61,13 +61,11 @@ $(document).ready(function () {
 
       // 탭에 따른 콘텐츠 필터링
       var selectedTab = $button.data('tab');
-      console.log('Selected library tab:', selectedTab);
 
       // TODO: 실제로는 선택된 도서관에 따라 테이블 데이터 필터링
       // filterCollectionsByLibrary(selectedTab);
     });
 
-    console.log('Collection Modal initialized');
   }
 
   // 첫 번째 탭 활성화

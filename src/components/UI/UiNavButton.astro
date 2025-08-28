@@ -34,12 +34,29 @@ const { direction, size = 40, disabled = false, onClick, class: className = '', 
 
 const defaultAriaLabel = direction === 'prev' ? '이전' : direction === 'next' ? '다음' : '정지';
 const buttonAriaLabel = ariaLabel || defaultAriaLabel;
+
+// 크기를 클래스로 변환
+const getSizeClass = () => {
+  if (size === 40) return 'size-40x40';
+  if (size === 48) return 'size-48x48';
+  if (size === 56) return 'size-56x56';
+  if (size === 64) return 'size-64x64';
+  return `w-dynamic-${size} h-dynamic-${size}`;
+};
+
+const buttonClasses = [
+  'ui-nav-button',
+  `ui-nav-button--${direction}`,
+  getSizeClass(),
+  className
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
 <button
   type="button"
-  class={`ui-nav-button ui-nav-button--${direction} ${className}`}
-  style={`width: ${size / 16}rem; height: ${size / 16}rem;`}
+  class={buttonClasses}
   disabled={disabled}
   aria-label={buttonAriaLabel}
   onclick={onClick}

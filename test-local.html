@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>로컬 테스트 - 연수구 도서관</title>
+
+		<!-- Swiper CDN - 안정적인 8.4.7 버전 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
+
+		<!-- 공통 CSS -->
+		<link rel="stylesheet" href="./public/assets/css/main.css" />
+
+		<!-- 공통 JavaScript -->
+		<script type="text/javascript" src="./public/assets/js/common.js"></script>
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.test-swiper {
+				width: 100%;
+				height: 200px;
+				background: #f0f0f0;
+				border-radius: 8px;
+				margin: 20px 0;
+			}
+			.swiper-slide {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				font-size: 24px;
+				border-radius: 8px;
+			}
+			.swiper-button-next,
+			.swiper-button-prev {
+				color: #333 !important;
+			}
+			.swiper-pagination-bullet-active {
+				background: #333 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>로컬 파일 환경 테스트</h1>
+		<p>이 파일은 브라우저에서 직접 열어서 테스트할 수 있습니다.</p>
+
+		<h2>Swiper 테스트</h2>
+		<div class="swiper test-swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">슬라이드 1</div>
+				<div class="swiper-slide">슬라이드 2</div>
+				<div class="swiper-slide">슬라이드 3</div>
+				<div class="swiper-slide">슬라이드 4</div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+
+		<script>
+			// 테스트 스크립트
+			document.addEventListener('DOMContentLoaded', function () {
+				console.log('DOM 로드 완료');
+				console.log('YeonsuLibrary 객체:', typeof YeonsuLibrary !== 'undefined' ? YeonsuLibrary : '없음');
+				console.log('Swiper 객체:', typeof Swiper !== 'undefined' ? Swiper : '없음');
+
+				// 테스트 스와이퍼 초기화
+				if (typeof Swiper !== 'undefined') {
+					var testSwiper = new Swiper('.test-swiper', {
+						slidesPerView: 1,
+						spaceBetween: 10,
+						loop: true,
+						autoplay: {
+							delay: 3000,
+							disableOnInteraction: false,
+						},
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true,
+						},
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						},
+					});
+					console.log('테스트 Swiper 초기화 완료:', testSwiper);
+				}
+
+				// YeonsuLibrary 공통 라이브러리 테스트
+				if (typeof YeonsuLibrary !== 'undefined') {
+					console.log('YeonsuLibrary 라이브러리 사용 가능');
+					console.log('초기화 상태:', YeonsuLibrary.initialized);
+
+					// 범용 스와이퍼 테스트
+					var customSwiper = YeonsuLibrary.swiper.initSwiper('.test-swiper', {
+						slidesPerView: 1,
+						autoplay: { delay: 2000 },
+						pagination: { el: '.swiper-pagination', clickable: true },
+					});
+					console.log('YeonsuLibrary로 초기화한 Swiper:', customSwiper);
+				}
+			});
+
+			// 창 로드 후 추가 테스트
+			window.addEventListener('load', function () {
+				console.log('모든 리소스 로드 완료');
+				console.log('최종 상태 확인:');
+				console.log('- Swiper:', typeof Swiper);
+				console.log('- YeonsuLibrary:', typeof YeonsuLibrary);
+			});
+		</script>
+	</body>
+</html>
