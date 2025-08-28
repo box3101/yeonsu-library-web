@@ -4047,6 +4047,177 @@ div.bookshelf-item {
 // 	}
 // }
 
+/* ========================================
+   회원정보수정 페이지 스타일 (로그인 스타일 확장)
+======================================== */
+
+/* 회원정보수정 Step2 - 기본 정보 표시 영역 */
+.member-info-display {
+	padding: to-rem(24) 0;
+	margin-bottom: to-rem(24);
+	border-top: 1px solid #b1b3b3;
+	border-bottom: 1px solid #b1b3b3;
+
+	@include mobile {
+		padding: to-rem(16) 0;
+		margin-bottom: to-rem(16);
+	}
+}
+
+.info-row {
+	display: flex;
+	align-items: center;
+	padding: 0 to-rem(24);
+	margin-bottom: to-rem(16);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include mobile {
+		padding: 0 to-rem(16);
+		margin-bottom: to-rem(12);
+	}
+}
+
+.info-label {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(17);
+	font-weight: 700;
+	line-height: 1.5;
+	color: #191a1a;
+	width: to-rem(180);
+	flex-shrink: 0;
+
+	@include mobile {
+		font-size: to-rem(15);
+		width: to-rem(120);
+	}
+}
+
+.info-value {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(17);
+	font-weight: 400;
+	line-height: 1.5;
+	color: #191a1a;
+	flex: 1;
+
+	@include mobile {
+		font-size: to-rem(15);
+	}
+}
+
+/* 메인 섹션 타이틀 스타일 */
+.section-title--main {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(28);
+	font-weight: 700;
+	line-height: 1.193;
+	color: #191a1a;
+	margin: 0 0 to-rem(24) 0;
+	width: 100%;
+
+	@include mobile {
+		font-size: to-rem(24);
+		margin-bottom: to-rem(16);
+	}
+}
+
+/* 안내 메시지 컴포넌트 - 로그인 배너 내부에서 사용 */
+
+.info-notice__header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.info-notice__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+}
+
+.info-notice__title {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: 1.0625rem; /* 17px */
+	font-weight: 700;
+	line-height: 1.5;
+	color: #191a1a;
+	margin: 0;
+}
+
+.info-notice__description {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: 1.0625rem; /* 17px */
+	font-weight: 400;
+	line-height: 1.5;
+	color: #464c53;
+	margin: 0;
+	margin-left: 1.75rem; /* 아이콘 + 간격만큼 들여쓰기 */
+}
+
+/* 회원정보수정 버튼 그룹 - 취소/확인 버튼을 가로로 배치 */
+.member-edit-buttons {
+	display: flex;
+	gap: 1.5rem; /* 24px */
+	width: 100%;
+
+	.cancel-button,
+	.confirm-button {
+		flex: 1; /* 동일한 너비로 분할 */
+	}
+}
+
+/* 반응형 처리 - 모바일에서 버튼을 세로로 배치 */
+@media (max-width: 900px) {
+	.info-notice {
+		margin-top: 1rem;
+		padding: 0.75rem;
+	}
+
+	.info-notice__title {
+		font-size: 1rem; /* 16px */
+	}
+
+	.info-notice__description {
+		font-size: 0.9375rem; /* 15px */
+		margin-left: 1.5rem;
+	}
+
+	.member-edit-buttons {
+		flex-direction: column;
+		gap: 1rem;
+
+		.cancel-button,
+		.confirm-button {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.info-notice {
+		padding: 0.5rem;
+	}
+
+	.info-notice__header {
+		gap: 0.375rem;
+	}
+
+	.info-notice__title {
+		font-size: 0.9375rem; /* 15px */
+	}
+
+	.info-notice__description {
+		font-size: 0.875rem; /* 14px */
+		margin-left: 1.25rem;
+	}
+}
+
 // 그리드 컬럼 클래스들
 @for $i from 1 through 12 {
 	.grid-cols-#{$i} {

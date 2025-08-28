@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiRadio, UiCheckbox } from '../components';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '회원정보수정', href: '/내정보-회원정보수정-step1' },
+];
+---
+
+<Layout title="내정보 - 회원정보수정">
+	<SubLayout title="내정보 - 회원정보수정" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<div class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<!-- 회원정보수정 섹션 -->
+						<div class="signup-form">
+							<!-- 제목 -->
+							<h2 class="section-title section-title--main">회원정보설정</h2>
+
+							<!-- 기본 정보 표시 -->
+							<div class="member-info-display">
+								<div class="info-row">
+									<span class="info-label">도서관</span>
+									<span class="info-value">연수청학도서관</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">성명</span>
+									<span class="info-value">홍길동</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">아이디</span>
+									<span class="info-value">test</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">성별</span>
+									<span class="info-value">남성</span>
+								</div>
+							</div>
+
+							<!-- 입력안내 박스 -->
+							<div class="info-box">
+								<div class="info-box__header">
+									<div class="info-box__icon">
+										<img src="./assets/images/icon/icon-info.svg" alt="정보" />
+									</div>
+									<h4 class="info-box__title">입력안내</h4>
+								</div>
+								<div class="info-box__content">
+									<ul class="info-list">
+										<li>비밀번호는 영문자, 숫자, 특수문자를 1개 이상 포함하여 9~15자리로 입력해주세요. (※ 특수기호 '#','^' 제외)</li>
+										<li>카드비밀번호는 온라인회원증 카드비밀번호입니다. 회원증 발급 후 비밀번호로 활용됩니다.</li>
+										<li>카드비밀번호는 숫자 4자리로 입력해주세요.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- 폼 컨테이너 -->
+							<div class="signup-form__content">
+								<!-- 회원정보수정 섹션 -->
+								<section class="member-section">
+									<div class="form-grid">
+										<!-- 휴대폰번호 -->
+										<div class="form-field">
+											<label class="form-label required">휴대폰번호</label>
+											<UiInput
+												placeholder="010-1234-4567"
+												size="large"
+												value="010-1234-4567"
+												state="error"
+												errorMessage="휴대폰번호를 올바르게 입력해주세요."
+											/>
+										</div>
+
+										<!-- 제2 연락처 -->
+										<div class="form-field">
+											<label class="form-label required">제2 연락처</label>
+											<UiInput
+												placeholder="010-1234-4567"
+												size="large"
+												value="010-1234-4567"
+												state="error"
+												errorMessage="제2 연락처를 올바르게 입력해주세요."
+											/>
+										</div>
+
+										<!-- 생년월일 -->
+										<div class="form-field ">
+											<label class="form-label required">생년월일</label>
+											<div class="birth-group">
+												<UiInput
+													placeholder="20250101"
+													size="large"
+													value="20250101"
+													disabled={true}
+												/>
+												<div class="radio-group">
+													<UiRadio name="birth-type" value="solar" id="solar" label="양력" size="medium" checked />
+													<UiRadio name="birth-type" value="lunar" id="lunar" label="음력" size="medium" />
+												</div>
+											</div>
+										</div>
+
+										<!-- 이메일 -->
+										<div class="form-field">
+										</div>
+
+										<!-- 비밀번호 -->
+										<div class="form-field">
+											<label class="form-label required">비밀번호</label>
+											<UiInput
+												type="password"
+												placeholder="10-16자의 영문자, 숫자, 특수문자 조합"
+												size="large"
+											/>
+										</div>
+
+										<!-- 비밀번호 확인 -->
+										<div class="form-field">
+											<label class="form-label required">비밀번호 확인</label>
+											<UiInput
+												type="password"
+												placeholder="10-16자의 영문자, 숫자, 특수문자 조합"
+												size="large"
+											/>
+										</div>
+
+										<!-- 카드비밀번호 -->
+										<div class="form-field">
+											<label class="form-label required">카드비밀번호</label>
+											<UiInput
+												type="password"
+												placeholder="카드비밀번호"
+												size="large"
+											/>
+										</div>
+
+										<!-- 이메일 -->
+										<div class="form-field">
+											<label class="form-label">이메일</label>
+											<UiInput
+												type="email"
+												placeholder="이메일"
+												size="large"
+											/>
+										</div>
+
+										<!-- 주소 -->
+										<div class="form-field form-field--full">
+											<label class="form-label required">주소</label>
+											<div class="address-group">
+												<div class="input-with-button">
+													<UiInput placeholder="우편번호" size="large" readonly />
+													<UiButton variant="primary" size="large" text="우편번호" />
+												</div>
+												<UiInput placeholder="주소" size="large" readonly />
+												<UiInput placeholder="상세주소" size="large" />
+											</div>
+										</div>
+
+										<!-- SMS수신여부 -->
+										<div class="form-field">
+											<label class="form-label required">SMS수신여부</label>
+											<div class="radio-group">
+												<UiRadio name="sms-consent" value="agree" id="sms-agree" label="동의함" size="medium" checked />
+												<UiRadio name="sms-consent" value="disagree" id="sms-disagree" label="동의안함" size="medium" />
+											</div>
+										</div>
+
+										<!-- 이메일수신여부 -->
+										<div class="form-field">
+											<label class="form-label required">이메일수신여부</label>
+											<div class="radio-group">
+												<UiRadio name="email-consent" value="agree" id="email-agree" label="동의함" size="medium" checked />
+												<UiRadio name="email-consent" value="disagree" id="email-disagree" label="동의안함" size="medium" />
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+
+							<!-- 버튼 영역 -->
+							<div class="signup-form__actions">
+								<UiButton
+									variant="tertiary"
+									size="large"
+									text="수정하기"
+									icon="icon-arrow-right"
+									iconAddClass="icon icon-xxxsm"
+									iconPosition="right"
+									class="w-180-mobile-full"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

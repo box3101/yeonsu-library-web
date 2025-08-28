@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+import UiInput from '../components/UI/UiInput.astro';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '회원정보수정', href: '/내정보-회원정보수정-step1' },
+];
+---
+
+<Layout title="내정보 - 회원정보수정">
+		<SubLayout title="내정보 - 회원정보수정" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<!-- 회원정보수정 비밀번호 확인 페이지 - 로그인 페이지와 동일한 구조 사용 -->
+			<div class="login-container">
+				<!-- 좌측 안내 배너 -->
+				<div class="login-banner">
+					<div class="login-banner__content">
+						<div class="login-banner__text-group">
+							<h1 class="login-banner__title">회원정보수정</h1>
+
+							<!-- 안내 메시지 -->
+							<div class="info-notice">
+								<div class="info-notice__header">
+									<div class="info-notice__icon">
+										<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+									</div>
+									<h3 class="info-notice__title">안내</h3>
+								</div>
+								<p class="info-notice__description">
+									안전한 정보 관리를 위해, 비밀번호 확인 후 계속 진행됩니다.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 구분선 -->
+				<div class="login-divider"></div>
+
+				<!-- 우측 비밀번호 확인 폼 -->
+				<div class="login-form-section">
+					<form class="login-form" method="post" action="/member-info-edit">
+						<!-- 비밀번호 입력 필드 -->
+						<UiInput
+							type="password"
+							name="password"
+							label="비밀번호"
+							placeholder="*************"
+							size="large"
+							required={true}
+						/>
+
+						<!-- 버튼 그룹 -->
+						<div class="member-edit-buttons">
+							<!-- 취소 버튼 -->
+							<UiButton
+								text="취소"
+								variant="tertiary"
+								size="large"
+								class="cancel-button"
+							/>
+
+							<!-- 확인 버튼 -->
+							<UiButton
+								text="확인"
+								variant="primary"
+								size="large"
+								class="confirm-button"
+							/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
