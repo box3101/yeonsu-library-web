@@ -97,6 +97,9 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																	{/* 3depth 메뉴 구조 - 완전한 ol 구조 */}
 																	{item.subItems && item.subItems.length > 0 && (
 																		<ol class="gnb-third-list">
+																			<div class="title">
+																				<h3 class="gnb-third-title-text">{item.label}</h3>
+																			</div>
 																			{item.subItems.map(subItem => (
 																				<li class={`gnb-third-item ${subItem.isSelected ? 'selected' : ''}`}>
 																					<a href={subItem.href} class="gnb-third-link" role="menuitem">

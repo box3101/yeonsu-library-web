@@ -2739,6 +2739,7 @@
 	background: var(--color-action-secondary, rgba(255, 255, 255, 0));
 	position: relative;
 	margin-bottom: to-rem(4);
+
 	@include makeBefore {
 		@include ab-y;
 		left: 6px;
@@ -2754,7 +2755,7 @@
 		padding: var(--padding-4, 16px) var(--padding-3, 8px);
 		padding-left: 22px;
 		.gnb-third-text {
-			@include font(to-rem(17), 400, #121212);
+			@include font(to-rem(16), 400, #121212);
 		}
 	}
 	&:hover {
