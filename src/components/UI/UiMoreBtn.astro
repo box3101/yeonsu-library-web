@@ -6,24 +6,3 @@
   <span class="ui-more-btn__text">더보기</span>
   <img src="./assets/images/icon/btn-more.svg" alt="더보기" class="" />
 </button>
-
-<style lang="scss" scoped>
-  @use '@styles/abstracts' as *;
-  @use '@styles/variables/colors' as *;
-  @use '@styles/variables/layout' as *;
-  @use '@styles/variables/typography' as *;
-  .ui-more-btn {
-    @include flex {
-      gap: to-rem(5);
-      align-items: center;
-    }
-    &__text {
-      @include font(to-rem(17), 500, #191a1a);
-    }
-    &:hover {
-      .ui-more-btn__text {
-        color: $primary-color;
-      }
-    }
-  }
-</style>

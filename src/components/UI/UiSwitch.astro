@@ -25,13 +25,7 @@ const {
 
 const switchId = id || `switch-${Math.random().toString(36).substr(2, 9)}`;
 
-const switchClasses = [
-  'ui-switch',
-  `ui-switch--${size}`,
-  `ui-switch--${variant}`,
-  disabled ? 'ui-switch--disabled' : '',
-  className,
-]
+const switchClasses = ['ui-switch', `ui-switch--${size}`, `ui-switch--${variant}`, disabled ? 'ui-switch--disabled' : '', className]
   .filter(Boolean)
   .join(' ');
 ---
@@ -44,17 +38,9 @@ const switchClasses = [
       </label>
     )
   }
-  
+
   <div class={switchClasses}>
-    <input
-      type="checkbox"
-      id={switchId}
-      name={name}
-      checked={checked}
-      disabled={disabled}
-      class="ui-switch__input"
-      role="switch"
-    />
+    <input type="checkbox" id={switchId} name={name} checked={checked} disabled={disabled} class="ui-switch__input" role="switch" />
     <div class="ui-switch__track">
       <div class="ui-switch__thumb"></div>
     </div>
@@ -68,155 +54,3 @@ const switchClasses = [
     )
   }
 </div>
-
-<style lang="scss" is:global>
-  @use '@styles/abstracts' as *;
-  @use '@styles/variables/colors' as *;
-
-  .ui-switch-container {
-    display: flex;
-    align-items: center;
-    gap: to-rem(8);
-  }
-
-  .ui-switch {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-
-    &--disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
-
-  .ui-switch__input {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-  }
-
-  .ui-switch__track {
-    position: relative;
-    border-radius: to-rem(20);
-    background-color: $gray-300;
-    transition: all 0.2s ease;
-    
-    .ui-switch--small & {
-      width: to-rem(32);
-      height: to-rem(18);
-    }
-
-    .ui-switch--medium & {
-      width: to-rem(44);
-      height: to-rem(24);
-    }
-
-    .ui-switch--large & {
-      width: to-rem(56);
-      height: to-rem(30);
-    }
-
-    // Checked state
-    .ui-switch__input:checked + & {
-      background-color: $blue-500;
-    }
-
-    // Variant colors
-    .ui-switch--success .ui-switch__input:checked + & {
-      background-color: $success-color;
-    }
-
-    .ui-switch--warning .ui-switch__input:checked + & {
-      background-color: $warning-color;
-    }
-
-    .ui-switch--error .ui-switch__input:checked + & {
-      background-color: $error-color;
-    }
-
-    // Focus state
-    .ui-switch__input:focus + & {
-      box-shadow: 0 0 0 3px alpha($blue-500, 0.1);
-    }
-
-    // Hover state
-    .ui-switch:hover:not(.ui-switch--disabled) & {
-      background-color: $gray-400;
-    }
-
-    .ui-switch:hover:not(.ui-switch--disabled) .ui-switch__input:checked + & {
-      background-color: $blue-600;
-    }
-  }
-
-  .ui-switch__thumb {
-    position: absolute;
-    top: 50%;
-    background-color: $white;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px alpha($black, 0.2);
-    
-    .ui-switch--small & {
-      width: to-rem(14);
-      height: to-rem(14);
-      left: to-rem(2);
-      transform: translateY(-50%);
-    }
-
-    .ui-switch--medium & {
-      width: to-rem(20);
-      height: to-rem(20);
-      left: to-rem(2);
-      transform: translateY(-50%);
-    }
-
-    .ui-switch--large & {
-      width: to-rem(26);
-      height: to-rem(26);
-      left: to-rem(2);
-      transform: translateY(-50%);
-    }
-
-    // Checked state - move thumb to right
-    .ui-switch--small .ui-switch__input:checked + .ui-switch__track & {
-      left: to-rem(16);
-    }
-
-    .ui-switch--medium .ui-switch__input:checked + .ui-switch__track & {
-      left: to-rem(22);
-    }
-
-    .ui-switch--large .ui-switch__input:checked + .ui-switch__track & {
-      left: to-rem(28);
-    }
-  }
-
-  .ui-switch__label {
-    font-size: to-rem(14);
-    color: $gray-700;
-    user-select: none;
-    cursor: pointer;
-    line-height: 1.4;
-
-    .ui-switch--small & {
-      font-size: to-rem(13);
-    }
-
-    .ui-switch--large & {
-      font-size: to-rem(16);
-    }
-
-    &--left {
-      order: -1;
-    }
-
-    .ui-switch--disabled & {
-      color: $gray-400;
-      cursor: not-allowed;
-    }
-  }
-</style>
