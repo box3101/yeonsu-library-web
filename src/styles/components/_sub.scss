@@ -5018,36 +5018,6 @@ div.bookshelf-item {
    - CSS Grid 레이아웃 사용으로 깔끔한 그리드 구성
    - 반응형: 데스크톱 4열, 모바일 1열
 ================================ */
-.service-status-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr); // 데스크톱: 4열 그리드
-	gap: to-rem(16); // 16px 간격
-	width: 100%;
-	max-width: to-rem(976); // 최대 너비 제한
-
-	@include mobile {
-		grid-template-columns: 1fr; // 모바일: 1열로 변경
-		gap: 16px;
-	}
-}
-
-.service-card {
-	background: $white;
-	border: 2px solid #6494ce;
-	border-radius: to-rem(6);
-	padding: to-rem(24);
-	@include flex(column, space-between, stretch, nowrap);
-	min-height: to-rem(144); // 카드 최소 높이 설정으로 일관성 유지
-
-	@include mobile {
-		padding: 16px;
-		border: 1px solid #6494ce;
-		min-height: auto; // 모바일에서는 내용에 따라 높이 조절
-	}
-
-	// Grid를 사용하므로 nth-child 위치 지정 불필요
-	// CSS Grid가 자동으로 4x2 레이아웃 생성
-}
 
 .card-header {
 	@include flex(column, flex-start, stretch, nowrap);
@@ -5071,6 +5041,12 @@ div.bookshelf-item {
 	@include flex(row, space-between, center, nowrap);
 	width: 100%;
 	margin-bottom: to-rem(7);
+
+	@include mobile {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
 
 	h4 {
 		font-family: 'Pretendard GOV', sans-serif;
@@ -5121,7 +5097,7 @@ div.bookshelf-item {
 }
 
 .card-content {
-	@include flex(row, space-between, center, nowrap);
+	@include flex(row, flex-end, center, nowrap);
 	gap: to-rem(10);
 	padding-top: to-rem(8);
 	border-top: 1px solid #cbcccc;
@@ -5210,12 +5186,12 @@ div.bookshelf-item {
    범례 영역
 ================================ */
 .legend-section {
-	@include flex(row, flex-start, center, nowrap);
+	@include flex(row, flex-end, center, nowrap);
 	gap: to-rem(24);
 
 	@include mobile {
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: flex-end;
 		gap: 8px;
 	}
 }
@@ -5266,5 +5242,31 @@ div.bookshelf-item {
 
 	&.none {
 		color: $black;
+	}
+}
+
+.service-status-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: to-rem(16);
+	width: 100%;
+	max-width: to-rem(976);
+
+	@include mobile {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.service-card {
+		border-radius: 6px;
+		border: 1px solid var(--color-gray-gy-30, #b1b3b3);
+		background: var(--color-gray-wt, #fff);
+		padding: to-rem(24);
+		@include flex(column, flex-start, stretch, nowrap);
+		gap: to-rem(16);
+
+		@include mobile {
+			padding: 16px;
+		}
 	}
 }
