@@ -1,0 +1,285 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+];
+---
+
+<Layout title="내정보">
+	<SubLayout title="내정보" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<!-- 내정보 페이지 콘텐츠 시작 -->
+		<div class="my-info-container">
+			<!-- 회원 정보 카드 섹션 -->
+			<div class="member-info-card">
+				<div class="member-profile">
+					<!-- 프로필 영역 -->
+					<div class="profile-section">
+						<div class="profile-icon">
+							<div class="profile-bg">
+								<img src="../assets/images/icon/icon_profile.svg" alt="프로필" />
+							</div>
+						</div>
+						<h3 class="member-name">(정회원) 홍길동님</h3>
+					</div>
+
+					<!-- 상세 정보 영역 -->
+					<div class="member-details">
+						<!-- 아이디 -->
+						<div class="detail-row">
+							<span class="detail-label">아이디</span>
+							<span class="detail-value">ecotest</span>
+						</div>
+
+						<!-- 대출가능여부 -->
+						<div class="detail-row">
+							<span class="detail-label">대출가능여부</span>
+							<span class="detail-value">대출가능 회원입니다.</span>
+						</div>
+
+						<!-- 대출자번호 -->
+						<div class="detail-row">
+							<span class="detail-label">대출자번호</span>
+							<div class="number-with-copy">
+								<span class="detail-value">1234567890_</span>
+								<UiButton variant="secondary" size="xsmall" text="복사" />
+							</div>
+						</div>
+
+						<!-- 책이음회원 여부 -->
+						<div class="detail-row">
+							<span class="detail-label">책이음회원 여부</span>
+							<div class="bookium-status">
+								<span class="detail-value">책이음 회원이 아닙니다.</span>
+								<UiButton
+									variant="secondary"
+									size="xsmall"
+									text="가입하기"
+									icon="icon-arrow-right"
+									iconAddClass="icon icon-xxxsm icon-primary"
+									iconPosition="right"
+								/>
+							</div>
+						</div>
+
+						<!-- 가입일 -->
+						<div class="detail-row">
+							<span class="detail-label">가입일</span>
+							<span class="detail-value">2017년 05월 11일</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 버튼 영역 -->
+				<div class="action-buttons">
+					<UiButton
+						variant="secondary"
+						size="medium"
+						text="정보수정"
+						icon="icon-arrow-right"
+						iconAddClass="icon icon-xxxsm icon-primary"
+						iconPosition="right"
+						class="w-130-mobile-full"
+					/>
+					<UiButton
+						variant="secondary"
+						size="medium"
+						text="간편조회"
+						icon="icon-arrow-right"
+						iconAddClass="icon icon-xxxsm icon-primary"
+						iconPosition="right"
+						class="w-130-mobile-full"
+					/>
+					<UiButton
+						variant="secondary"
+						size="medium"
+						text="개명회원"
+						icon="icon-arrow-right"
+						iconAddClass="icon icon-xxxsm icon-primary"
+						iconPosition="right"
+						class="w-130-mobile-full"
+					/>
+					<UiButton
+						variant="secondary"
+						size="medium"
+						text="회원탈퇴"
+						icon="icon-arrow-right"
+						iconAddClass="icon icon-xxxsm icon-primary"
+						iconPosition="right"
+						class="w-130-mobile-full"
+					/>
+				</div>
+			</div>
+
+			<!-- 서비스 현황 카드 그리드 -->
+			<div class="service-status-grid">
+				<!-- 대출(연체) 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<div class="title-with-badge">
+								<h4>대출(연체)</h4>
+								<div class="badge">도서관별</div>
+							</div>
+							<p class="subtitle">[현재대출권수/대출가능권수]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-numbers">
+							<span class="current-count">0</span>
+							<span class="overdue-count">(0)</span>
+							<span class="divider">/</span>
+							<span class="total-count">30</span>
+						</div>
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 일반예약 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<div class="title-with-badge">
+								<h4>일반예약</h4>
+								<div class="badge">도서관별</div>
+							</div>
+							<p class="subtitle">[현재예약권수/예약가능권수]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-numbers">
+							<span class="current-count">0</span>
+							<span class="divider">/</span>
+							<span class="total-count">30</span>
+						</div>
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 상호대차 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<div class="title-with-badge">
+								<h4>상호대차</h4>
+								<div class="badge">도서관별</div>
+							</div>
+							<p class="subtitle">[현재신청권수/신청가능권수]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-numbers">
+							<span class="current-count">0</span>
+							<span class="divider">/</span>
+							<span class="total-count">3</span>
+						</div>
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 희망도서 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<div class="title-with-badge">
+								<h4>희망도서</h4>
+								<div class="badge">도서관별</div>
+							</div>
+							<p class="subtitle">[현재신청권수/신청가능권수]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-numbers">
+							<span class="current-count">0</span>
+							<span class="overdue-count">(0)</span>
+							<span class="divider">/</span>
+							<span class="total-count">22</span>
+						</div>
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 희망전자책 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<div class="title-with-badge">
+								<h4>희망전자책</h4>
+								<div class="badge">도서관별</div>
+							</div>
+							<p class="subtitle">[신청 현황 (현재 / 전체)]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-numbers">
+							<span class="current-count">0</span>
+							<span class="divider">/</span>
+							<span class="total-count">22</span>
+						</div>
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 행사 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<h4>행사</h4>
+							<p class="subtitle">[접수기간 중인 신청]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-indicator active"></div>
+					</div>
+				</div>
+
+				<!-- 프로그램 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<h4>프로그램</h4>
+							<p class="subtitle">[신청정보가 없음]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-indicator none"></div>
+					</div>
+				</div>
+
+				<!-- 견학 카드 -->
+				<div class="service-card">
+					<div class="card-header">
+						<div class="title-section">
+							<h4>견학</h4>
+							<p class="subtitle">[신청정보가 없음]</p>
+						</div>
+					</div>
+					<div class="card-content">
+						<div class="status-indicator inactive"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 범례 영역 -->
+			<div class="legend-section">
+				<div class="legend-item">
+					<div class="legend-dot active"></div>
+					<span class="legend-text">접수기간 중인 신청(접수/대기) 건이 있는 경우</span>
+				</div>
+				<div class="legend-item">
+					<div class="legend-dot none"></div>
+					<span class="legend-text">신청정보가 없는 경우(검정)</span>
+				</div>
+				<div class="legend-item">
+					<div class="legend-dot inactive"></div>
+					<span class="legend-text">신청정보가 없는 경우(회색)</span>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
