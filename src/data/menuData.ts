@@ -11,6 +11,7 @@
 export interface MenuItem {
 	label: string;
 	href: string;
+	isExternal?: boolean; // 외부 링크 여부를 나타내는 새로운 속성
 }
 
 export interface MenuSection {
@@ -18,6 +19,7 @@ export interface MenuSection {
 	isExpanded?: boolean;
 	href?: string; // 2depth만 있는 경우 직접 링크
 	items?: MenuItem[]; // 3depth가 있는 경우 하위 아이템들
+	isExternal?: boolean; // 섹션 레벨에서도 외부 링크 지원
 }
 
 export interface MenuConfig {
@@ -25,6 +27,21 @@ export interface MenuConfig {
 	sections: MenuSection[];
 }
 
+/**
+ * URL이 외부 링크인지 판단하는 함수
+ * http:// 또는 https://로 시작하거나 isExternal 속성이 true인 경우 외부 링크로 판단
+ */
+export const isExternalLink = (href: string, isExternal?: boolean): boolean => {
+	// isExternal 속성이 명시적으로 설정된 경우 우선 사용
+	if (typeof isExternal === 'boolean') {
+		return isExternal;
+	}
+
+	// URL 패턴으로 외부 링크 자동 감지
+	return href.startsWith('http://') || href.startsWith('https://') || href.startsWith('www.');
+};
+
+// 메인 메뉴 데이터 - 기존의 첫 번째 menuConfig를 삭제하고 여기에 외부 링크 예시를 추가
 export const menuConfig: Record<string, MenuConfig> = {
 	도서검색: {
 		title: '도서검색',
@@ -43,8 +60,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 					{ label: '인기도서', href: './인기도서' },
 					{ label: '신착도서', href: './신착도서' },
 					{ label: '추천도서', href: './추천도서' },
-					{ label: '인생서가', href: './인생서가' },
-					{ label: '스쿨북스', href: './스쿨북스' },
+					{ label: '인생서가', href: 'https://www.inseong.com', isExternal: true },
+					{ label: '스쿨북스', href: 'https://www.schoolbook.com', isExternal: true },
 				],
 			},
 			{
@@ -159,6 +176,17 @@ export const menuConfig: Record<string, MenuConfig> = {
 			{
 				title: '자주하는 질문',
 				href: './자주하는 질문',
+			},
+			// 외부 링크 예시 추가
+			{
+				title: '국가전자도서관',
+				href: 'https://www.nl.go.kr',
+				isExternal: true,
+			},
+			{
+				title: '인천광역시 통합도서관',
+				href: 'https://lib.incheon.go.kr',
+				isExternal: true,
 			},
 		],
 	},

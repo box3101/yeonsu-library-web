@@ -5,7 +5,7 @@
  * 새로운 메뉴 구조 데이터를 import하여 사용
  * 완전한 ul > li > a > ol 구조로 통일
  */
-import { menuConfig } from '../../../src/data/menuData';
+import { menuConfig, isExternalLink } from '../../../src/data/menuData';
 
 // 현재 페이지 URL 가져오기 (Astro.url 사용)
 const currentPath = Astro.url.pathname;
@@ -34,11 +34,13 @@ function convertToGnbFormat(menuKey) {
 				label: section.title,
 				href: section.href || (section.items && section.items.length > 0 ? section.items[0].href : '#'),
 				isSelected,
+				isExternal: isExternalLink(section.href || '', section.isExternal), // 외부 링크 여부 추가
 				subItems: section.items
 					? section.items.map(item => ({
 							label: item.label,
 							href: item.href,
 							isSelected: currentPath.includes(item.href),
+							isExternal: isExternalLink(item.href, item.isExternal), // 3depth에서도 외부 링크 지원
 					  }))
 					: undefined,
 			};
@@ -66,9 +68,7 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 										data-menu-index={index}
 									>
 										<span class="gnb-main-text">{menu.title}</span>
-										{menu.type !== '1depth' && (
-											<img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
-										)}
+										{menu.type !== '1depth' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
 									</a>
 
 									{/* 서브메뉴 - 완전한 ul > li > a > ol 구조 */}
@@ -84,14 +84,19 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 														<ul class="gnb-sub-list">
 															{menu.items.map((item, itemIndex) => (
 																<li class={`gnb-sub-item ${item.isSelected ? 'selected' : ''}`}>
-																	<a href={item.href} class="gnb-sub-link" role="menuitem">
+																	<a
+																		href={item.href}
+																		class="gnb-sub-link"
+																		role="menuitem"
+																		{...(item.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+																	>
 																		<span class="gnb-sub-text">{item.label}</span>
-																		{item.subItems && (
-																			<img
-																				src="./assets/images/icon/icon-arrow-right.svg"
-																				class="icon icon-arrow-right"
-																			/>
-																		)}
+																		{/* 외부 링크 아이콘 또는 화살표 아이콘 표시 */}
+																		{item.isExternal ? (
+																			<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+																		) : item.subItems ? (
+																			<img src="./assets/images/icon/icon-arrow-right.svg" class="icon icon-arrow-right" />
+																		) : null}
 																	</a>
 
 																	{/* 3depth 메뉴 구조 - 완전한 ol 구조 */}
@@ -102,8 +107,21 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																			</div>
 																			{item.subItems.map(subItem => (
 																				<li class={`gnb-third-item ${subItem.isSelected ? 'selected' : ''}`}>
-																					<a href={subItem.href} class="gnb-third-link" role="menuitem">
+																					<a
+																						href={subItem.href}
+																						class="gnb-third-link"
+																						role="menuitem"
+																						{...(subItem.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+																					>
 																						<span class="gnb-third-text">{subItem.label}</span>
+																						{/* 3depth에서도 외부 링크 아이콘 표시 */}
+																						{subItem.isExternal && (
+																							<img
+																								src="./assets/images/icon/icon-external-link.svg"
+																								class="icon icon-external-link"
+																								alt="외부 링크"
+																							/>
+																						)}
 																					</a>
 																				</li>
 																			))}

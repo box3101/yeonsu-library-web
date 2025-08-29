@@ -1,0 +1,89 @@
+---
+import UiButton from '../UI/UiButton.astro';
+import UiInput from '../UI/UiInput.astro';
+
+/**
+ * 만족도 조사 컴포넌트 (UiUserFeedback)
+ *
+ * 서브페이지 하단에 공통으로 들어가는 사용자 만족도 조사 컴포넌트
+ * 5점 척도 라디오 버튼과 의견 입력란, 검색 버튼으로 구성
+ *
+ * Props:
+ * - title?: string - 만족도 조사 제목 (기본값: "해당 페이지의 만족도와 소중한 의견 남겨주세요.")
+ * - placeholder?: string - 의견 입력란 플레이스홀더 (기본값: "의견을 남겨주세요. (60자 내외)")
+ * - buttonText?: string - 제출 버튼 텍스트 (기본값: "검색")
+ * - showTitle?: boolean - 제목 표시 여부 (기본값: true)
+ * - formId?: string - 폼 ID (기본값: "user-feedback-form")
+ */
+
+// Props 인터페이스 정의 (Vanilla JS 방식)
+const {
+	title = '해당 페이지의 만족도와 소중한 의견 남겨주    세요.',
+	placeholder = '의견을 남겨주세요. (60자 내외)',
+	buttonText = '검색',
+	showTitle = true,
+	formId = 'user-feedback-form',
+} = Astro.props;
+
+// 만족도 옵션 배열 - 5점 척도
+const satisfactionOptions = [
+	{ value: '5', label: '매우만족' },
+	{ value: '4', label: '만족' },
+	{ value: '3', label: '보통' },
+	{ value: '2', label: '불만족' },
+	{ value: '1', label: '매우불만족' },
+];
+---
+
+<!-- 만족도 조사 컴포넌트 -->
+<div class="user-feedback">
+	<form class="user-feedback__form" id={formId}>
+		{/* 제목 영역 - showTitle이 true일 때만 표시 */}
+		{
+			showTitle && (
+				<div class="user-feedback__header">
+					<h3 class="user-feedback__title">{title}</h3>
+				</div>
+			)
+		}
+
+		<!-- 만족도 선택 영역 -->
+		<div class="user-feedback__satisfaction">
+			<fieldset class="satisfaction-fieldset">
+				<legend class="sr-only">만족도 평가</legend>
+				<div class="satisfaction-options">
+					{
+						satisfactionOptions.map((option, index) => (
+							<div class="satisfaction-option">
+								<input
+									type="radio"
+									id={`satisfaction-${option.value}`}
+									name="satisfaction"
+									value={option.value}
+									class="satisfaction-radio"
+									{
+									/* 첫 번째 옵션(매우만족)을 기본 선택 */ }
+									{...(index === 0 && { checked: true })}
+								/>
+								<label for={`satisfaction-${option.value}`} class="satisfaction-label">
+									<span class="satisfaction-label__text">{option.label}</span>
+								</label>
+							</div>
+						))
+					}
+				</div>
+			</fieldset>
+		</div>
+
+		<!-- 의견 입력 및 제출 영역 -->
+		<div class="user-feedback__input-section">
+			<!-- 의견 입력란 -->
+			<div class="feedback-input-wrapper">
+				<UiInput placeholder={placeholder} aria-label="의견 입력" />
+			</div>
+
+			<!-- 제출 버튼 -->
+			<UiButton variant="primary" text="등록" class="w-90-mobile-full" />
+		</div>
+	</form>
+</div>

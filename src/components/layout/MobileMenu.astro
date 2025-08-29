@@ -4,7 +4,7 @@
  * 모바일 환경에서 사용되는 햄버거 메뉴
  * 새로운 메뉴 구조 데이터를 import하여 사용
  */
-import { menuConfig } from '../../../src/data/menuData';
+import { menuConfig, isExternalLink } from '../../../src/data/menuData';
 
 // 모바일 메뉴에서 표시할 메뉴 카테고리들 (회원서비스, 기타 제외)
 const menuCategories = ['도서검색', '책 읽는 연수구', '안내마당', '도서서비스', '열린참여마당', '문화마당', '도서관소개', '나의도서관'];
@@ -15,36 +15,38 @@ const menuCategories = ['도서검색', '책 읽는 연수구', '안내마당', 
 
 // 메뉴 데이터를 모바일 메뉴 형태로 변환하는 함수
 function convertToMobileFormat(menuKey) {
-  const menu = menuConfig[menuKey];
-  if (!menu) return [];
+	const menu = menuConfig[menuKey];
+	if (!menu) return [];
 
-  return [
-    {
-      title: menu.title,
-      children: menu.sections.map(section => {
-        const mobileItem = {
-          title: section.title,
-          url: section.href,
-        };
+	return [
+		{
+			title: menu.title,
+			children: menu.sections.map(section => {
+				const mobileItem = {
+					title: section.title,
+					url: section.href,
+					isExternal: isExternalLink(section.href || '', section.isExternal), // 외부 링크 여부 추가
+				};
 
-        // 3depth 메뉴가 있는 경우 children으로 추가
-        if (section.items && section.items.length > 0) {
-          mobileItem.children = section.items.map(item => ({
-            title: item.label,
-            url: item.href,
-          }));
-        }
+				// 3depth 메뉴가 있는 경우 children으로 추가
+				if (section.items && section.items.length > 0) {
+					mobileItem.children = section.items.map(item => ({
+						title: item.label,
+						url: item.href,
+						isExternal: isExternalLink(item.href, item.isExternal), // 3depth에서도 외부 링크 지원
+					}));
+				}
 
-        return mobileItem;
-      }),
-    },
-  ];
+				return mobileItem;
+			}),
+		},
+	];
 }
 
 // 각 카테고리별 모바일 메뉴 데이터 생성
 const menuData = {};
 menuCategories.forEach(category => {
-  menuData[category] = convertToMobileFormat(category);
+	menuData[category] = convertToMobileFormat(category);
 });
 ---
 
@@ -53,102 +55,120 @@ menuCategories.forEach(category => {
 
 <!-- 모바일 메뉴 -->
 <div class="mobile-menu" id="mobileMenu">
-  <!-- 모바일 메뉴 헤더 -->
-  <div class="mobile-menu-header">
-    <!-- 유틸리티 영역 -->
-    <div class="mobile-menu-utility">
-      <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기">
-        <img src="./assets/images/icon/icon-close.svg" class="icon icon-close" />
-      </button>
-    </div>
+	<!-- 모바일 메뉴 헤더 -->
+	<div class="mobile-menu-header">
+		<!-- 유틸리티 영역 -->
+		<div class="mobile-menu-utility">
+			<button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기">
+				<img src="./assets/images/icon/icon-close.svg" class="icon icon-close" />
+			</button>
+		</div>
 
-    <!-- 로그인 영역 -->
-    <div class="mobile-menu-login">
-      <img src="./assets/images/icon/icon-login.svg" class="icon icon-login" />
-      <span>로그인을 해주세요</span>
-    </div>
+		<!-- 로그인 영역 -->
+		<div class="mobile-menu-login">
+			<img src="./assets/images/icon/icon-login.svg" class="icon icon-login" />
+			<span>로그인을 해주세요</span>
+		</div>
 
-    <!-- 검색 영역 -->
-    <div class="mobile-menu-search">
-      <div class="search-box">
-        <input type="text" placeholder="메뉴명을 입력해주세요" class="search-input" />
-        <img src="./assets/images/icon/icon-search.svg" class="icon icon-search" />
-      </div>
-    </div>
-  </div>
+		<!-- 검색 영역 -->
+		<div class="mobile-menu-search">
+			<div class="search-box">
+				<input type="text" placeholder="메뉴명을 입력해주세요" class="search-input" />
+				<img src="./assets/images/icon/icon-search.svg" class="icon icon-search" />
+			</div>
+		</div>
+	</div>
 
-  <!-- 모바일 메뉴 콘텐츠 -->
-  <div class="mobile-menu-content">
-    <!-- 1depth 바 (좌측 고정) -->
-    <div class="mobile-menu-depth-bar">
-      {
-        menuCategories.map((category, index) => (
-          <button type="button" class={`depth-bar-item ${index === 0 ? 'selected' : ''}`} data-category={category} data-index={index}>
-            {category}
-          </button>
-        ))
-      }
-    </div>
+	<!-- 모바일 메뉴 콘텐츠 -->
+	<div class="mobile-menu-content">
+		<!-- 1depth 바 (좌측 고정) -->
+		<div class="mobile-menu-depth-bar">
+			{
+				menuCategories.map((category, index) => (
+					<button type="button" class={`depth-bar-item ${index === 0 ? 'selected' : ''}`} data-category={category} data-index={index}>
+						{category}
+					</button>
+				))
+			}
+		</div>
 
-    <!-- 2-3depth 메뉴 영역 (우측) -->
-    <div class="mobile-menu-detail">
-      {
-        menuCategories.map((category, categoryIndex) => (
-          <div class={`menu-detail-content ${categoryIndex === 0 ? 'active' : ''}`} data-content={category}>
-            {menuData[category]?.map((menu, menuIndex) => (
-              <div class="menu-section">
-                <div class="menu-section-title">
-                  <h3>{menu.title}</h3>
-                </div>
+		<!-- 2-3depth 메뉴 영역 (우측) -->
+		<div class="mobile-menu-detail">
+			{
+				menuCategories.map((category, categoryIndex) => (
+					<div class={`menu-detail-content ${categoryIndex === 0 ? 'active' : ''}`} data-content={category}>
+						{menuData[category]?.map((menu, menuIndex) => (
+							<div class="menu-section">
+								<div class="menu-section-title">
+									<h3>{menu.title}</h3>
+								</div>
 
-                <div class="menu-section-items">
-                  {menu.children?.map((child, childIndex) => (
-                    <div class="menu-item-group">
-                      {child.children ? (
-                        <button
-                          type="button"
-                          class={`menu-item-toggle ${menuIndex === 0 && childIndex === 0 ? 'selected expanded' : ''}`}
-                          data-toggle={`${categoryIndex}-${menuIndex}-${childIndex}`}
-                        >
-                          <span>{child.title}</span>
-                          <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
-                        </button>
-                      ) : (
-                        <a href={child.url} class="menu-item-link">
-                          <span>{child.title}</span>
-                        </a>
-                      )}
+								<div class="menu-section-items">
+									{menu.children?.map((child, childIndex) => (
+										<div class="menu-item-group">
+											{child.children ? (
+												<button
+													type="button"
+													class={`menu-item-toggle ${menuIndex === 0 && childIndex === 0 ? 'selected expanded' : ''}`}
+													data-toggle={`${categoryIndex}-${menuIndex}-${childIndex}`}
+												>
+													<span>{child.title}</span>
+													{/* 외부 링크인 경우 외부 링크 아이콘, 아니면 화살표 아이콘 */}
+													{child.isExternal ? (
+														<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+													) : (
+														<img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
+													)}
+												</button>
+											) : (
+												<a href={child.url} class="menu-item-link" {...(child.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}>
+													<span>{child.title}</span>
+													{/* 외부 링크 아이콘 표시 */}
+													{child.isExternal && (
+														<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+													)}
+												</a>
+											)}
 
-                      {child.children && (
-                        <div
-                          class={`menu-submenu ${menuIndex === 0 && childIndex === 0 ? 'active' : ''}`}
-                          data-submenu={`${categoryIndex}-${menuIndex}-${childIndex}`}
-                        >
-                          {child.children.map(subChild => (
-                            <a href={subChild.url} class="menu-submenu-link">
-                              <span class="bullet" />
-                              <span>{subChild.title}</span>
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))
-      }
-    </div>
-  </div>
+											{/* 3depth 서브메뉴 - 외부 링크 지원 */}
+											{child.children && (
+												<div
+													class={`menu-submenu ${menuIndex === 0 && childIndex === 0 ? 'active' : ''}`}
+													data-submenu={`${categoryIndex}-${menuIndex}-${childIndex}`}
+												>
+													{child.children.map(subChild => (
+														<a
+															href={subChild.url}
+															class="menu-submenu-link"
+															{...(subChild.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+														>
+															<span class="bullet" />
+															<span>{subChild.title}</span>
+															{/* 3depth에서도 외부 링크 아이콘 표시 */}
+															{subChild.isExternal && (
+																<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+															)}
+														</a>
+													))}
+												</div>
+											)}
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				))
+			}
+		</div>
+	</div>
 
-  <!-- 유틸리티 그룹 (하단) -->
+	<!-- 유틸리티 그룹 (하단) -->
 </div>
 
 <!-- 모바일 메뉴 토글 버튼 -->
 <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="메뉴 열기">
-  <span class="mobile-menu-trigger-bar"></span>
-  <span class="mobile-menu-trigger-bar"></span>
-  <span class="mobile-menu-trigger-bar"></span>
+	<span class="mobile-menu-trigger-bar"></span>
+	<span class="mobile-menu-trigger-bar"></span>
+	<span class="mobile-menu-trigger-bar"></span>
 </button>

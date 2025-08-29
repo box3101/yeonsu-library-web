@@ -1,27 +1,32 @@
 ---
-const { title = '', breadcrumbItems = [], menuType } = Astro.props;
+const { title = '', breadcrumbItems = [], menuType, showUserFeedback = true } = Astro.props;
 
 import LeftMenu from '@/components/layout/LeftMenu.astro';
 import Breadcrumb from '@/components/layout/Breadcrumb.astro';
+import UiUserFeedback from '@/components/UI/UiUserFeedback.astro';
 
 export interface Props {
-  title?: string;
-  breadcrumbItems?: Array<{ label: string; href?: string }>;
-  menuType?: string; // 왼쪽 메뉴 타입 지정
+	title?: string;
+	breadcrumbItems?: Array<{ label: string; href?: string }>;
+	menuType?: string; // 왼쪽 메뉴 타입 지정
+	showUserFeedback?: boolean; // 만족도 조사 표시 여부 (기본값: true)
 }
 ---
 
 <div class="sub-layout inner">
-  <aside class="left-menu">
-    <LeftMenu menuType={menuType} />
-  </aside>
+	<aside class="left-menu">
+		<LeftMenu menuType={menuType} />
+	</aside>
 
-  <main class="sub-content">
-    {breadcrumbItems.length > 0 && <Breadcrumb items={breadcrumbItems} />}
-    <div class="flex justify-between">
-      <h1 class="page-title--h1">{title}</h1>
-      <slot name="right" />
-    </div>
-    <slot />
-  </main>
+	<main class="sub-content">
+		{breadcrumbItems.length > 0 && <Breadcrumb items={breadcrumbItems} />}
+		<div class="flex justify-between">
+			<h1 class="page-title--h1">{title}</h1>
+			<slot name="right" />
+		</div>
+		<slot />
+
+		<!-- 만족도 조사 컴포넌트 - showUserFeedback이 true일 때만 표시 -->
+		{showUserFeedback && <UiUserFeedback />}
+	</main>
 </div>
