@@ -1,204 +1,214 @@
 @use '../globals' as *;
 
 .left-menu {
-  flex: 0 0 to-rem(280);
-  position: sticky;
-  top: 0;
-  // height: 100vh;
-  overflow: hidden;
+	flex: 0 0 to-rem(280);
+	position: sticky;
+	top: 0;
+	// height: 100vh;
+	overflow: hidden;
 
-  @include tablet {
-    display: none;
-  }
+	@include tablet {
+		display: none;
+	}
 }
 
 .left-menu-nav {
-  height: 100%;
-  overflow-y: auto;
-  margin-top: to-rem(41);
+	height: 100%;
+	overflow-y: auto;
+	margin-top: to-rem(41);
 
-  .left-menu-title {
-    padding: to-rem(32) 0;
-    border-bottom: 1px solid $gray-300;
+	.left-menu-title {
+		padding: to-rem(32) 0;
+		border-bottom: 1px solid $gray-300;
 
-    .left-menu-title-text {
-      color: #1e2124;
-      font-size: to-rem(24);
-      font-weight: 700;
-      line-height: 1.5;
-      margin-left: to-rem(10);
+		.left-menu-title-text {
+			color: #1e2124;
+			font-size: to-rem(24);
+			font-weight: 700;
+			line-height: 1.5;
+			margin-left: to-rem(10);
 
-      @include tablet {
-        font-size: to-rem(20);
-      }
-    }
-  }
+			@include tablet {
+				font-size: to-rem(20);
+			}
+		}
+	}
 
-  .menu-section {
-    border-bottom: 1px solid #e5e8eb;
+	.menu-section {
+		border-bottom: 1px solid #e5e8eb;
 
-    &:last-child {
-      border-bottom: none;
-    }
+		&.is-active {
+			.menu-section-title {
+				border-bottom: 3px solid $primary-color;
+				background: #eef2f7;
+			}
+			.menu-section-title .menu-title-text {
+				color: $primary-color;
+			}
+		}
 
-    .menu-section-title {
-      width: 100%;
-      @include flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: to-rem(16) to-rem(20);
-      font-size: to-rem(16);
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      text-align: left;
+		&:last-child {
+			border-bottom: none;
+		}
 
-      &:hover {
-        background: #f3f4f6;
-        color: $primary-color;
-      }
+		.menu-section-title {
+			width: 100%;
+			@include flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: to-rem(16) to-rem(20);
+			font-size: to-rem(16);
+			font-weight: 500;
+			border: none;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+			text-align: left;
 
-      &.expanded {
-        background: #e3f2fd;
-        color: $primary-color;
+			&:hover {
+				background: #f3f4f6;
+				color: $primary-color;
+			}
 
-        .menu-arrow {
-          transform: rotate(180deg);
-        }
-      }
+			&.expanded {
+				background: #e3f2fd;
+				color: $primary-color;
 
-      &.active,
-      &.direct-link.active {
-        background: #e3f2fd;
-        color: $primary-color;
-        border-bottom: 3px solid $primary-color;
-      }
+				.menu-arrow {
+					transform: rotate(180deg);
+				}
+			}
 
-      &.direct-link {
-        text-decoration: none;
+			&.active,
+			&.direct-link.active {
+				background: #e3f2fd;
+				color: $primary-color;
+				border-bottom: 3px solid $primary-color;
+			}
 
-        &:hover {
-          background: #f3f4f6;
-          color: $primary-color;
-        }
-      }
+			&.direct-link {
+				text-decoration: none;
 
-      .menu-title-text {
-        flex: 1;
-        font-size: to-rem(17);
-        font-weight: 700;
-        color: #1e2124;
-      }
+				&:hover {
+					background: #f3f4f6;
+					color: $primary-color;
+				}
+			}
 
-      .menu-arrow {
-        flex-shrink: 0;
-        transition: transform 0.2s ease-in-out;
-      }
-    }
+			.menu-title-text {
+				flex: 1;
+				font-size: to-rem(17);
+				font-weight: 700;
+				color: #1e2124;
+			}
 
-    .menu-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
-      background: #ffffff;
+			.menu-arrow {
+				flex-shrink: 0;
+				transition: transform 0.2s ease-in-out;
+			}
+		}
 
-      &.expanded {
-        max-height: to-rem(500);
-      }
+		.menu-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-in-out;
+			background: #ffffff;
 
-      .menu-item {
-        .menu-link {
-          @include flex;
-          align-items: center;
-          padding: to-rem(12) to-rem(20) to-rem(12) to-rem(40);
-          color: $gray-900;
-          font-weight: 500;
-          text-decoration: none;
-          font-size: to-rem(16);
-          line-height: 1.5;
-          transition: all 0.2s ease-out;
-          background: #ffffff;
-          position: relative;
-          border-left: 3px solid transparent;
+			&.expanded {
+				max-height: to-rem(500);
+			}
 
-          // 아이콘을 위한 before 가상 요소
-          &::before {
-            content: '';
-            position: absolute;
-            left: to-rem(20);
-            top: 50%;
-            transform: translateY(-50%);
-            width: to-rem(6);
-            height: to-rem(6);
-            background: $gray-400;
-            border-radius: 50%;
-            transition: all 0.2s ease-out;
-          }
+			.menu-item {
+				.menu-link {
+					@include flex;
+					align-items: center;
+					padding: to-rem(12) to-rem(20) to-rem(12) to-rem(40);
+					color: $gray-900;
+					font-weight: 500;
+					text-decoration: none;
+					font-size: to-rem(16);
+					line-height: 1.5;
+					transition: all 0.2s ease-out;
+					background: #ffffff;
+					position: relative;
+					border-left: 3px solid transparent;
 
-          &:hover {
-            background-color: #f8faff;
-            color: $primary-color;
-            border-left-color: rgba($primary-color, 0.3);
-            transform: translateX(2px);
+					// 아이콘을 위한 before 가상 요소
+					&::before {
+						content: '';
+						position: absolute;
+						left: to-rem(20);
+						top: 50%;
+						transform: translateY(-50%);
+						width: to-rem(6);
+						height: to-rem(6);
+						background: $gray-400;
+						border-radius: 50%;
+						transition: all 0.2s ease-out;
+					}
 
-            &::before {
-              background: $primary-color;
-              transform: translateY(-50%) scale(1.2);
-            }
-          }
+					&:hover {
+						background-color: #f8faff;
+						color: $primary-color;
+						border-left-color: rgba($primary-color, 0.3);
+						transform: translateX(2px);
 
-          // 클릭 효과 (활성화 시뮬레이션)
-          &:active {
-            transform: translateX(1px);
-            background-color: #e3f2fd;
+						&::before {
+							background: $primary-color;
+							transform: translateY(-50%) scale(1.2);
+						}
+					}
 
-            &::before {
-              background: #1976d2;
-              transform: translateY(-50%) scale(0.9);
-            }
-          }
+					// 클릭 효과 (활성화 시뮬레이션)
+					&:active {
+						transform: translateX(1px);
+						background-color: #e3f2fd;
 
-          &.active {
-            background-color: #e1effc;
-            color: $primary-color;
-            font-weight: 500;
-            position: relative;
+						&::before {
+							background: #1976d2;
+							transform: translateY(-50%) scale(0.9);
+						}
+					}
 
-            &::before {
-              content: '';
-              position: absolute;
-              left: 0;
-              top: 0;
-              bottom: 0;
-              width: 3px;
-              background: $primary-color;
-            }
-          }
-        }
-      }
-    }
-  }
+					&.active {
+						background-color: #e1effc;
+						color: $primary-color;
+						font-weight: 500;
+						position: relative;
+
+						&::before {
+							content: '';
+							position: absolute;
+							left: 0;
+							top: 0;
+							bottom: 0;
+							width: 3px;
+							background: $primary-color;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .left-menu-nav {
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
 
-  &::-webkit-scrollbar-thumb {
-    background: #cdd1d5;
-    border-radius: 2px;
+	&::-webkit-scrollbar-thumb {
+		background: #cdd1d5;
+		border-radius: 2px;
 
-    &:hover {
-      background: #b2b8bd;
-    }
-  }
+		&:hover {
+			background: #b2b8bd;
+		}
+	}
 }
