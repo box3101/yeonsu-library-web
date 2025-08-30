@@ -1,0 +1,95 @@
+{
+  "visits": [
+    {
+      "id": 1146,
+      "institution": "선학별빛",
+      "eventName": "[선학] 토요별빛극장(3월 9일 14시)",
+      "applicationDate": "2025.07.23",
+      "status": "접수",
+      "canCancel": true
+    },
+    {
+      "id": 1145,
+      "institution": "해찬솔공원",
+      "eventName": "[해찬솔공원] 임요둠영상 상영 및 해설(3월 3일 14시)",
+      "applicationDate": "2025.07.23",
+      "status": "대기(1위)",
+      "canCancel": true
+    },
+    {
+      "id": 1144,
+      "institution": "송도4동스마트도서관",
+      "eventName": "[송도4동스마트도서관] 임요둠영상 상영 및 해설(3월 3일 14시)",
+      "applicationDate": "2025.07.23",
+      "status": "승인",
+      "canCancel": true
+    },
+    {
+      "id": 1143,
+      "institution": "선학별빛",
+      "eventName": "[대기자참수자정] 그림책으로 키우는 문해력 (주5-1~2학년/화요일)",
+      "applicationDate": "2025.07.23",
+      "status": "취소",
+      "canCancel": false
+    },
+    {
+      "id": 1142,
+      "institution": "연수꿈담",
+      "eventName": "[연수꿈담] 독서교실 프로그램(4월 10일 10시)",
+      "applicationDate": "2025.07.22",
+      "status": "접수",
+      "canCancel": true
+    },
+    {
+      "id": 1141,
+      "institution": "청학도서관",
+      "eventName": "[청학] 어린이 책 읽기 모임(4월 15일 14시)",
+      "applicationDate": "2025.07.21",
+      "status": "승인",
+      "canCancel": true
+    },
+    {
+      "id": 1140,
+      "institution": "해돋이도서관",
+      "eventName": "[해돋이] 가족 독서 캠프(4월 20일 9시)",
+      "applicationDate": "2025.07.20",
+      "status": "대기(2위)",
+      "canCancel": true
+    },
+    {
+      "id": 1139,
+      "institution": "해찬솔공원",
+      "eventName": "[해찬솔공원] 북토크 콘서트(4월 25일 19시)",
+      "applicationDate": "2025.07.19",
+      "status": "접수",
+      "canCancel": true
+    },
+    {
+      "id": 1138,
+      "institution": "누리공원",
+      "eventName": "[누리공원] 어린이 창작 동화(5월 1일 15시)",
+      "applicationDate": "2025.07.18",
+      "status": "승인",
+      "canCancel": true
+    },
+    {
+      "id": 1137,
+      "institution": "선학별빛",
+      "eventName": "[선학별빛] 시민 북클럽(5월 5일 18시)",
+      "applicationDate": "2025.07.17",
+      "status": "접수",
+      "canCancel": true
+    }
+  ],
+  "total": 459,
+  "institutions": [
+    "전체도서관",
+    "선학별빛",
+    "해찬솔공원",
+    "송도4동스마트도서관",
+    "연수꿈담",
+    "청학도서관",
+    "해돋이도서관",
+    "누리공원"
+  ]
+}

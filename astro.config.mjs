@@ -12,7 +12,7 @@ export default defineConfig({
 	compilerOptions: {
 		// 개발/프로덕션 모두에서 astro 디버그 속성 제거
 		jsx: 'preserve',
-		sourcemap: true,
+		sourcemap: false,
 	},
 
 	vite: {
@@ -31,7 +31,7 @@ export default defineConfig({
 
 		// 빌드 시 HTML 후처리로 속성 제거
 		build: {
-			sourcemap: true, // 소스맵 활성화
+			sourcemap: false, // 소스맵 활성화
 			rollupOptions: {
 				output: {
 					// HTML 파일에서 astro 속성 제거하는 플러그인
@@ -57,9 +57,9 @@ export default defineConfig({
 	},
 
 	// 개발 도구 비활성화 (선택사항)
-	// devToolbar: {
-	//   enabled: false,
-	// },
+	devToolbar: {
+		enabled: false,
+	},
 
 	// 서버 설정 통합 - 한 번만 정의
 	server: {
