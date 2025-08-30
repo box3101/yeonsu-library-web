@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+  { label: '홈', href: '/' }, 
+  { label: '나의도서관', href: '/나의도서관' }, 
+  { label: '내정보', href: '/내정보' },
+  { label: '모바일회원증' }
+];
+---
+
+<Layout title="내정보 - 모바일회원증">
+	<SubLayout title="모바일회원증" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<div class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<!-- 모바일 회원증 컨테이너 -->
+						<div class="mobile-card-container">
+							<!-- 모바일 회원증 카드 -->
+							<div class="mobile-card-new">
+								<div class="mobile-card-new__header">
+									<div class="mobile-card-new__title-en">
+										INCHEON Yeonsu Public Library<br />
+										Mobile Card
+									</div>
+									<div class="mobile-card-new__title-ko">인천연수구립도서관</div>
+								</div>
+
+								<div class="mobile-card-new__member-info">
+									<div class="mobile-card-new__row">
+										<span class="mobile-card-new__label">이름</span>
+										<span class="mobile-card-new__value">이시오</span>
+									</div>
+									<div class="mobile-card-new__row">
+										<span class="mobile-card-new__label">회원번호</span>
+										<span class="mobile-card-new__value">1234567891</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- 바코드 섹션 -->
+							<div class="barcode-section">
+								<div class="barcode-section__timestamp">2025.07.23 10:25:52</div>
+								<div class="barcode-section__barcode">
+									<img src="./assets/images/barcode-sample.svg" alt="바코드" />
+								</div>
+								<div class="barcode-section__number">1234567891</div>
+							</div>
+
+							<!-- 통계 정보 -->
+							<div class="member-stats">
+								<div class="member-stats__item">
+									<div class="member-stats__label">대출</div>
+									<div class="member-stats__value">
+										<span class="member-stats__number">0</span>
+										<span class="member-stats__unit">건</span>
+									</div>
+								</div>
+
+								<div class="member-stats__item">
+									<div class="member-stats__label">예약</div>
+									<div class="member-stats__value">
+										<span class="member-stats__number">0</span>
+										<span class="member-stats__unit">건</span>
+									</div>
+								</div>
+
+								<div class="member-stats__item">
+									<div class="member-stats__label">상태</div>
+									<div class="member-stats__status">정상</div>
+								</div>
+							</div>
+
+							<!-- 상태 메시지 -->
+							<div class="member-status-message">대출가능 회원입니다.</div>
+
+							<!-- 이용 안내 -->
+							<div class="info-box">
+								<div class="info-box__content">
+									<ul class="info-list">
+										<li>이용증은 도서관 출입, 대출반납 시 사용 가능합니다.</li>
+										<li>모바일 이용증 리더부와 5~10cm 정도 거리를 유지하여 인식합니다.</li>
+										<li>스마트폰의 화면 밝기를 최대로 조절하여 사용하여 주시기 바랍니다.</li>
+										<li>본 이용증은 타인에게 양도하거나 대여할 수 없습니다.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

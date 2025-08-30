@@ -1,287 +1,281 @@
 ---
 export interface TableColumn {
-  key: string;
-  label: string;
-  width?: string;
-  minWidth?: string;
-  align?: 'left' | 'center' | 'right';
-  headerAlign?: 'left' | 'center' | 'right';
-  type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon' | 'title'; // title 타입 추가
-  sortable?: boolean; // 정렬 가능 여부
+	key: string;
+	label: string;
+	width?: string;
+	minWidth?: string;
+	align?: 'left' | 'center' | 'right';
+	headerAlign?: 'left' | 'center' | 'right';
+	type?: 'text' | 'button' | 'buttons' | 'badge' | 'icon' | 'title'; // title 타입 추가
+	sortable?: boolean; // 정렬 가능 여부
 }
 
 export interface TableButton {
-  text: string;
-  variant?: string; // 버튼 스타일 변형
-  disabled?: boolean;
-  onClick?: () => void;
+	text: string;
+	variant?: string; // 버튼 스타일 변형
+	disabled?: boolean;
+	onClick?: () => void;
 }
 
 export interface TableRow {
-  [key: string]: any;
-  // 각 셀의 값은 string, TableButton, 또는 TableButton[] 가능
+	[key: string]: any;
+	// 각 셀의 값은 string, TableButton, 또는 TableButton[] 가능
 }
 
 export interface Props {
-  /**
-   * 테이블 컬럼 정의
-   */
-  columns: TableColumn[];
-  /**
-   * 테이블 데이터
-   */
-  rows: TableRow[];
-  /**
-   * 테이블 ID
-   */
-  id?: string;
-  /**
-   * 추가 CSS 클래스
-   */
-  class?: string;
-  /**
-   * 테이블 캐션 (접근성)
-   */
-  caption?: string;
-  /**
-   * 체크박스 컬럼 표시 여부
-   */
-  showCheckbox?: boolean;
-  /**
-   * 번호 컬럼 표시 여부
-   */
-  showIndex?: boolean;
-  /**
-   * 상태 컬럼 표시 여부
-   */
-  showStatus?: boolean;
-  /**
-   * 테이블 최대 높이 (px 또는 rem)
-   */
-  maxHeight?: string;
-  /**
-   * 헤더 고정 여부
-   */
-  stickyHeader?: boolean;
+	/**
+	 * 테이블 컬럼 정의
+	 */
+	columns: TableColumn[];
+	/**
+	 * 테이블 데이터
+	 */
+	rows: TableRow[];
+	/**
+	 * 테이블 ID
+	 */
+	id?: string;
+	/**
+	 * 추가 CSS 클래스
+	 */
+	class?: string;
+	/**
+	 * 테이블 캐션 (접근성)
+	 */
+	caption?: string;
+	/**
+	 * 체크박스 컬럼 표시 여부
+	 */
+	showCheckbox?: boolean;
+	/**
+	 * 번호 컬럼 표시 여부
+	 */
+	showIndex?: boolean;
+	/**
+	 * 상태 컬럼 표시 여부
+	 */
+	showStatus?: boolean;
+	/**
+	 * 테이블 최대 높이 (px 또는 rem)
+	 */
+	maxHeight?: string;
+	/**
+	 * 헤더 고정 여부
+	 */
+	stickyHeader?: boolean;
 }
 
 const {
-  columns,
-  rows,
-  id,
-  class: className = '',
-  caption,
-  showCheckbox = false,
-  showIndex = true,
-  showStatus = false,
-  maxHeight,
-  stickyHeader = false,
-  ...rest
+	columns,
+	rows,
+	id,
+	class: className = '',
+	caption,
+	showCheckbox = false,
+	showIndex = true,
+	showStatus = false,
+	maxHeight,
+	stickyHeader = false,
+	...rest
 } = Astro.props;
 
 const tableId = id || `table-${Math.random().toString(36).substr(2, 9)}`;
 
 // Convert maxHeight to class
 const getMaxHeightClass = () => {
-  if (!maxHeight) return '';
-  const heightValue = parseInt(maxHeight);
-  if (heightValue >= 200 && heightValue <= 800 && heightValue % 50 === 0) {
-    return `table-max-height-${heightValue}`;
-  }
-  return '';
+	if (!maxHeight) return '';
+	const heightValue = parseInt(maxHeight);
+	if (heightValue >= 200 && heightValue <= 800 && heightValue % 50 === 0) {
+		return `table-max-height-${heightValue}`;
+	}
+	return '';
 };
 
 // Convert column width to class
-const getColumnWidthClass = (width) => {
-  if (!width) return '';
-  const widthValue = parseInt(width);
-  const availableWidths = [50, 80, 100, 120, 150, 180, 200, 230, 250, 280, 300];
-  if (availableWidths.includes(widthValue)) {
-    return `col-width-${widthValue}`;
-  }
-  return '';
+const getColumnWidthClass = width => {
+	if (!width) return '';
+	const widthValue = parseInt(width);
+	const availableWidths = Array.from({ length: 500 }, (_, i) => i + 1);
+	if (availableWidths.includes(widthValue)) {
+		return `col-width-${widthValue}`;
+	}
+	return '';
 };
 ---
 
 <div class={`ui-table-wrapper ${stickyHeader ? 'ui-table-wrapper--sticky' : ''} ${getMaxHeightClass()} ${className}`} {...rest}>
-  <table class="ui-table" id={tableId}>
-    {caption && <caption class="ui-table__caption">{caption}</caption>}
+	<table class="ui-table" id={tableId}>
+		{caption && <caption class="ui-table__caption">{caption}</caption>}
 
-    <!-- Colgroup으로 컬럼 너비 정의 -->
-    <colgroup>
-      {showCheckbox && <col class="ui-table__col--checkbox" />}
-      {showIndex && <col class="ui-table__col--index" />}
-      {
-        columns.map(column => (
-          <col
-            class={`ui-table__col--${column.key} ${getColumnWidthClass(column.width)}`}
-          />
-        ))
-      }
-      {showStatus && <col class="ui-table__col--status" />}
-    </colgroup>
+		<!-- Colgroup으로 컬럼 너비 정의 -->
+		<colgroup>
+			{showCheckbox && <col class="ui-table__col--checkbox" />}
+			{showIndex && <col class="ui-table__col--index" />}
+			{columns.map(column => <col class={`ui-table__col--${column.key} ${getColumnWidthClass(column.width)}`} />)}
+			{showStatus && <col class="ui-table__col--status" />}
+		</colgroup>
 
-    <thead class="ui-table__head">
-      <tr class="ui-table__row ui-table__row--head">
-        {
-          showCheckbox && (
-            <th class="ui-table__cell ui-table__cell--head ui-table__cell--checkbox">
-              <input type="checkbox" class="ui-table__checkbox" aria-label="전체 선택" />
-            </th>
-          )
-        }
+		<thead class="ui-table__head">
+			<tr class="ui-table__row ui-table__row--head">
+				{
+					showCheckbox && (
+						<th class="ui-table__cell ui-table__cell--head ui-table__cell--checkbox">
+							<input type="checkbox" class="ui-table__checkbox" aria-label="전체 선택" />
+						</th>
+					)
+				}
 
-        {showIndex && <th class="ui-table__cell ui-table__cell--head ui-table__cell--index">번호</th>}
+				{showIndex && <th class="ui-table__cell ui-table__cell--head ui-table__cell--index">번호</th>}
 
-        {
-          columns.map(column => (
-            <th class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`}>
-              <div class={`ui-table__cell-content ui-table__cell-content--${column.headerAlign || column.align || 'left'}`}>
-                {column.label}
-                {column.sortable && (
-                  <button class="ui-table__sort-btn" type="button" aria-label={`${column.label} 정렬`}>
-                    <img class="ui-table__sort-icon" src="./assets/images/icon/icon-sort.svg" alt="정렬" />
-                  </button>
-                )}
-              </div>
-            </th>
-          ))
-        }
+				{
+					columns.map(column => (
+						<th class={`ui-table__cell ui-table__cell--head ${column.sortable ? 'ui-table__cell--sortable' : ''}`}>
+							<div class={`ui-table__cell-content ui-table__cell-content--${column.headerAlign || column.align || 'left'}`}>
+								{column.label}
+								{column.sortable && (
+									<button class="ui-table__sort-btn" type="button" aria-label={`${column.label} 정렬`}>
+										<img class="ui-table__sort-icon" src="./assets/images/icon/icon-sort.svg" alt="정렬" />
+									</button>
+								)}
+							</div>
+						</th>
+					))
+				}
 
-        {showStatus && <th class="ui-table__cell ui-table__cell--head ui-table__cell--action">처리상태</th>}
-      </tr>
-    </thead>
+				{showStatus && <th class="ui-table__cell ui-table__cell--head ui-table__cell--action">처리상태</th>}
+			</tr>
+		</thead>
 
-    <tbody class="ui-table__body">
-      {
-        rows.map((row, index) => (
-          <tr class="ui-table__row ui-table__row--body">
-            {showCheckbox && (
-              <td class="ui-table__cell ui-table__cell--body ui-table__cell--checkbox">
-                <input type="checkbox" class="ui-table__checkbox" value={row.id || index} aria-label={`${index + 1}번 행 선택`} />
-              </td>
-            )}
+		<tbody class="ui-table__body">
+			{
+				rows.map((row, index) => (
+					<tr class="ui-table__row ui-table__row--body">
+						{showCheckbox && (
+							<td class="ui-table__cell ui-table__cell--body ui-table__cell--checkbox">
+								<input type="checkbox" class="ui-table__checkbox" value={row.id || index} aria-label={`${index + 1}번 행 선택`} />
+							</td>
+						)}
 
-            {showIndex && <td class="ui-table__cell ui-table__cell--body ui-table__cell--index">{row.number || rows.length - index}</td>}
+						{showIndex && <td class="ui-table__cell ui-table__cell--body ui-table__cell--index">{row.number || rows.length - index}</td>}
 
-            {columns.map(column => {
-              const cellValue = row[column.key];
-              const columnType = column.type || 'text';
+						{columns.map(column => {
+							const cellValue = row[column.key];
+							const columnType = column.type || 'text';
 
-              return (
-                <td class="ui-table__cell ui-table__cell--body">
-                  <div class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}>
-                    {/* 텍스트 타입 */}
-                    {columnType === 'text' &&
-                      // 제목 컬럼인지 확인 (column.key가 'title'인 경우)
-                      (column.key === 'title' ? (
-                        <div class="ui-table__title-wrapper">
-                          {/* 자물쇠 아이콘 */}
-                          {row.hasIcon && (
-                            <div class="ui-table__lock-icon">
-                              <img src="./assets/images/icon/icon-lock.svg" class="icon icon-lock" />
-                            </div>
-                          )}
+							return (
+								<td class="ui-table__cell ui-table__cell--body">
+									<div class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}>
+										{/* 텍스트 타입 */}
+										{columnType === 'text' &&
+										// 제목 컬럼인지 확인 (column.key가 'title'인 경우)
+											(column.key === 'title' ? (
+												<div class="ui-table__title-wrapper">
+													{/* 자물쇠 아이콘 */}
+													{row.hasIcon && (
+														<div class="ui-table__lock-icon">
+															<img src="./assets/images/icon/icon-lock.svg" class="icon icon-lock" />
+														</div>
+													)}
 
-                          {/* 제목 텍스트 */}
-                          {row.href ? (
-                            <a href={row.href} class="ui-table__text ui-table__text--link" aria-label={`${cellValue} 상세보기`}>
-                              {cellValue}
-                            </a>
-                          ) : (
-                            <span class="ui-table__text" set:html={cellValue} />
-                          )}
+													{/* 제목 텍스트 */}
+													{row.href ? (
+														<a href={row.href} class="ui-table__text ui-table__text--link" aria-label={`${cellValue} 상세보기`}>
+															{cellValue}
+														</a>
+													) : (
+														<span class="ui-table__text" set:html={cellValue} />
+													)}
 
-                          {/* NEW 배지 */}
-                          {row.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
-                        </div>
-                      ) : (
-                        // 일반 텍스트 컬럼
-                        <span class="ui-table__text">{cellValue}</span>
-                      ))}
+													{/* NEW 배지 */}
+													{row.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
+												</div>
+												// 일반 텍스트 컬럼
+											) : (
+												<span class="ui-table__text">{cellValue}</span>
+											))}
 
-                    {/* 배지 타입 */}
-                    {columnType === 'badge' && cellValue && (
-                      <span class={`ui-table__badge ui-table__badge--${cellValue.toLowerCase()}`}>{cellValue}</span>
-                    )}
+										{/* 배지 타입 */}
+										{columnType === 'badge' && cellValue && (
+											<span class={`ui-table__badge ui-table__badge--${cellValue.toLowerCase()}`}>{cellValue}</span>
+										)}
 
-                    {/* 단일 버튼 타입 */}
-                    {columnType === 'button' && cellValue && (
-                      <button
-                        type="button"
-                        disabled={cellValue.disabled || false}
-                        class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`}
-                        onclick={cellValue.onClick}
-                      >
-                        {typeof cellValue === 'string' ? cellValue : cellValue.text}
-                      </button>
-                    )}
+										{/* 단일 버튼 타입 */}
+										{columnType === 'button' && cellValue && (
+											<button
+												type="button"
+												disabled={cellValue.disabled || false}
+												class={`ui-table__button ui-table__button--${cellValue.variant || 'default'}`}
+												onclick={cellValue.onClick}
+											>
+												{typeof cellValue === 'string' ? cellValue : cellValue.text}
+											</button>
+										)}
 
-                    {/* 복수 버튼 타입 */}
-                    {columnType === 'buttons' && Array.isArray(cellValue) && (
-                      <div class="ui-table__button-group">
-                        {cellValue.map((button, btnIndex) => (
-                          <button
-                            type="button"
-                            disabled={button.disabled || false}
-                            class={`ui-table__button ui-table__button--${button.variant || 'default'}`}
-                            onclick={button.onClick}
-                          >
-                            {button.text}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+										{/* 복수 버튼 타입 */}
+										{columnType === 'buttons' && Array.isArray(cellValue) && (
+											<div class="ui-table__button-group">
+												{cellValue.map((button, btnIndex) => (
+													<button
+														type="button"
+														disabled={button.disabled || false}
+														class={`ui-table__button ui-table__button--${button.variant || 'default'}`}
+														onclick={button.onClick}
+													>
+														{button.text}
+													</button>
+												))}
+											</div>
+										)}
 
-                    {/* 아이콘 타입 */}
-                    {columnType === 'icon' && cellValue && <img src={`./assets/images/icon/${cellValue}.svg`} class="ui-table__icon" />}
+										{/* 아이콘 타입 */}
+										{columnType === 'icon' && cellValue && <img src={`./assets/images/icon/${cellValue}.svg`} class="ui-table__icon" />}
 
-                    {/* 새로운 title 타입 */}
-                    {columnType === 'title' && cellValue && (
-                      <div class="ui-table__title-wrapper">
-                        {/* 자물쇠 아이콘 */}
-                        {cellValue.hasIcon && (
-                          <div class="ui-table__lock-icon">
-                            <img src="./assets/images/icon/icon-lock.svg" class="icon icon-lock" />
-                          </div>
-                        )}
+										{/* 새로운 title 타입 */}
+										{columnType === 'title' && cellValue && (
+											<div class="ui-table__title-wrapper">
+												{/* 자물쇠 아이콘 */}
+												{cellValue.hasIcon && (
+													<div class="ui-table__lock-icon">
+														<img src="./assets/images/icon/icon-lock.svg" class="icon icon-lock" />
+													</div>
+												)}
 
-                        {/* 제목 링크 또는 텍스트 */}
-                        {cellValue.href ? (
-                          <a href={cellValue.href} class="ui-table__title-link">
-                            <span class="ui-table__title-text">{cellValue.text}</span>
-                          </a>
-                        ) : (
-                          <span class="ui-table__title-text">{cellValue.text}</span>
-                        )}
+												{/* 제목 링크 또는 텍스트 */}
+												{cellValue.href ? (
+													<a href={cellValue.href} class="ui-table__title-link">
+														<span class="ui-table__title-text">{cellValue.text}</span>
+													</a>
+												) : (
+													<span class="ui-table__title-text">{cellValue.text}</span>
+												)}
 
-                        {/* NEW 배지 */}
-                        {cellValue.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
-                      </div>
-                    )}
-                  </div>
-                </td>
-              );
-            })}
+												{/* NEW 배지 */}
+												{cellValue.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
+											</div>
+										)}
+									</div>
+								</td>
+							);
+						})}
 
-            {showStatus && (
-              <td class="ui-table__cell ui-table__cell--body ui-table__cell--action">
-                <div class="ui-table__cell-content ui-table__cell-content--center">
-                  {row.status && <span class={`ui-table__badge ui-table__badge--${row.status.toLowerCase().replace(' ', '-')}`}>{row.status}</span>}
-                </div>
-              </td>
-            )}
-          </tr>
-        ))
-      }
-    </tbody>
-  </table>
+						{showStatus && (
+							<td class="ui-table__cell ui-table__cell--body ui-table__cell--action">
+								<div class="ui-table__cell-content ui-table__cell-content--center">
+									{row.status && <span class={`ui-table__badge ui-table__badge--${row.status.toLowerCase().replace(' ', '-')}`}>{row.status}</span>}
+								</div>
+							</td>
+						)}
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
 
-  {
-    rows.length === 0 && (
-      <div class="ui-table__empty">
-        <p class="ui-table__empty-text">검색 결과가 없습니다.</p>
-      </div>
-    )
-  }
+	{
+		rows.length === 0 && (
+			<div class="ui-table__empty">
+				<p class="ui-table__empty-text">검색 결과가 없습니다.</p>
+			</div>
+		)
+	}
 </div>

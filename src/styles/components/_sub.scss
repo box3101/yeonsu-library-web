@@ -4,6 +4,161 @@
 @use 'sass:math';
 
 /* ========================================
+   공통 검색 컴포넌트 - Common Search
+   - 테이블 상단 검색 필터 영역
+   - Figma 디자인 기반 구현
+======================================== */
+.com-search {
+	background: #eef2f7;
+	padding: to-rem(22) to-rem(32);
+	border-radius: to-rem(8);
+	margin-bottom: to-rem(24);
+
+	@include mobile {
+		padding: 16px 20px;
+		margin-bottom: 20px;
+	}
+
+	&__filters {
+		@include flex(row, flex-start, center);
+		gap: to-rem(12);
+
+		@include mobile {
+			flex-direction: column;
+			gap: 12px;
+			align-items: stretch;
+		}
+	}
+
+	&__select {
+		min-width: to-rem(200);
+	}
+
+	&__input {
+		flex: 1;
+		min-width: to-rem(360);
+		@include mobile {
+			min-width: auto;
+		}
+	}
+
+	&__button {
+		min-width: to-rem(78);
+
+		.ui-button {
+			background: #244874;
+			border: none;
+			border-radius: to-rem(6);
+			height: to-rem(48);
+			color: white;
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17);
+			font-weight: 400;
+			padding: 0 to-rem(16);
+
+			&:hover {
+				background: #1e3a5f;
+			}
+
+			@include mobile {
+				font-size: 15px;
+			}
+		}
+
+		@include mobile {
+			min-width: auto;
+		}
+	}
+}
+
+/* ========================================
+   만족도 조사 컴포넌트 (UiUserFeedback)
+   - 서브페이지 하단 공통 컴포넌트  
+   - 5점 척도 라디오 버튼 + 의견 입력 + 제출 버튼
+   - Figma 디자인 기반 구현
+======================================== */
+
+.user-feedback {
+	@include flex(column, flex-start, stretch);
+	gap: to-rem(20);
+	margin-bottom: to-rem(24);
+
+	@include mobile {
+		gap: 16px;
+		margin-bottom: 20px;
+	}
+}
+
+.table-filters {
+	@include flex(row, flex-start, center);
+	gap: to-rem(12);
+	flex-wrap: wrap;
+
+	@include mobile {
+		gap: 8px;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	&__select {
+		min-width: to-rem(160);
+
+		@include mobile {
+			min-width: auto;
+		}
+	}
+
+	&__search {
+		flex: 1;
+		min-width: to-rem(200);
+
+		@include mobile {
+			min-width: auto;
+		}
+	}
+
+	&__button {
+		@include mobile {
+			align-self: stretch;
+		}
+	}
+}
+
+.table-results {
+	@include flex(row, space-between, center);
+	padding: to-rem(12) 0;
+	border-bottom: 2px solid #e5e7eb;
+
+	@include mobile {
+		padding: 8px 0;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+
+	&__count {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(16);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 14px;
+		}
+
+		.highlight {
+			font-weight: 700;
+			color: #3c79c2;
+		}
+	}
+
+	&__pagination {
+		// 페이지네이션 스타일은 별도 컴포넌트에서 처리
+	}
+}
+
+/* ========================================
    만족도 조사 컴포넌트 (UiUserFeedback)
    - 서브페이지 하단 공통 컴포넌트
    - 5점 척도 라디오 버튼 + 의견 입력 + 제출 버튼
@@ -296,6 +451,332 @@
 	border: 0;
 }
 
+/* ========================================
+   모바일 회원증 컴포넌트 (새 디자인)
+   - Figma 디자인 기반 카드형 레이아웃
+   - 그라데이션 카드 + 바코드 섹션 + 통계
+======================================== */
+
+.mobile-card-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: to-rem(24);
+	margin: to-rem(24) auto;
+	max-width: to-rem(519);
+
+	@include mobile {
+		gap: to-rem(16);
+		margin: to-rem(16) 0;
+		max-width: 100%;
+	}
+}
+
+/* 메인 카드 (그라데이션 배경) */
+.mobile-card-new {
+	width: 100%;
+	height: to-rem(250);
+	background: radial-gradient(
+		circle at bottom right,
+		#0072bc 0%,
+		#0e7cad 6.25%,
+		#1d859e 12.5%,
+		#399980 25%,
+		#56ac62 37.5%,
+		#72bf44 50%,
+		#94b93a 62.5%,
+		#b6b32f 75%,
+		#faa61a 100%
+	);
+	border-radius: to-rem(12);
+	padding: to-rem(32) to-rem(32) to-rem(24) to-rem(32);
+	color: white;
+	position: relative;
+	overflow: hidden;
+
+	@include mobile {
+		width: 100%;
+		max-width: to-rem(460);
+		height: to-rem(200);
+		padding: to-rem(20);
+	}
+
+	/* 배경 패턴 */
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background: url('./assets/images/card-pattern.svg') no-repeat bottom right;
+		background-size: cover;
+		opacity: 0.6;
+		pointer-events: none;
+	}
+
+	&__header {
+		position: relative;
+		z-index: 2;
+		text-align: right;
+		margin-bottom: to-rem(40);
+
+		@include mobile {
+			margin-bottom: to-rem(24);
+		}
+	}
+
+	&__title-en {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		margin-bottom: to-rem(8);
+		opacity: 0.9;
+
+		@include mobile {
+			font-size: to-rem(14);
+		}
+	}
+
+	&__title-ko {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+
+		@include mobile {
+			font-size: to-rem(20);
+		}
+	}
+
+	&__member-info {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+		width: to-rem(200);
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		gap: 0;
+		height: to-rem(29);
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-weight: 400;
+		line-height: 1.5;
+		width: to-rem(72);
+		flex-shrink: 0;
+
+		@include mobile {
+			font-size: to-rem(16);
+			width: to-rem(60);
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-weight: 700;
+		line-height: 1.5;
+		flex: 1;
+
+		@include mobile {
+			font-size: to-rem(16);
+		}
+	}
+}
+
+/* 바코드 섹션 */
+.barcode-section {
+	width: 100%;
+	height: to-rem(200);
+	background: white;
+	border: 1px solid #cbcccc;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: to-rem(16);
+	position: relative;
+
+	@include mobile {
+		width: 100%;
+		max-width: to-rem(460);
+		height: auto;
+		padding: to-rem(12);
+	}
+
+	&__timestamp {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #3c79c2;
+		text-align: center;
+
+		@include mobile {
+			font-size: to-rem(14);
+		}
+	}
+
+	&__barcode {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		img {
+			max-width: to-rem(308);
+			height: auto;
+
+			@include mobile {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&__number {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #000000;
+		text-align: center;
+
+		@include mobile {
+			font-size: to-rem(14);
+		}
+	}
+}
+
+/* 회원 통계 */
+.member-stats {
+	display: flex;
+	gap: to-rem(12);
+
+	@include mobile {
+		width: 100%;
+		max-width: to-rem(460);
+		gap: to-rem(8);
+	}
+
+	&__item {
+		flex: 1;
+		min-width: to-rem(95);
+		border: 1px solid #cbcccc;
+		border-radius: to-rem(12);
+		padding: to-rem(10);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		height: to-rem(98);
+		background: white;
+
+		@include mobile {
+			min-width: auto;
+			height: to-rem(78);
+			padding: to-rem(8);
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #4b4d4d;
+		text-align: center;
+
+		@include mobile {
+			font-size: to-rem(14);
+		}
+	}
+
+	&__value {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+		padding-top: to-rem(4);
+		border-top: 2px solid #6494ce;
+		min-height: to-rem(40);
+		justify-content: center;
+
+		@include mobile {
+			min-height: to-rem(32);
+		}
+	}
+
+	&__number {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #3c79c2;
+
+		@include mobile {
+			font-size: to-rem(20);
+		}
+	}
+
+	&__unit {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #4b4d4d;
+
+		@include mobile {
+			font-size: to-rem(14);
+		}
+	}
+
+	&__status {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #3c79c2;
+		padding-top: to-rem(4);
+		border-top: 2px solid #6494ce;
+		min-height: to-rem(40);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include mobile {
+			font-size: to-rem(14);
+			min-height: to-rem(32);
+		}
+	}
+}
+
+/* 상태 메시지 */
+.member-status-message {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(17);
+	font-weight: 700;
+	line-height: 1.5;
+	color: #3c79c2;
+	text-align: center;
+
+	@include mobile {
+		width: 100%;
+		max-width: to-rem(460);
+		font-size: to-rem(14);
+	}
+}
+
 /* 반응형 추가 조정 */
 @include tablet {
 	.satisfaction-options {
@@ -311,7 +792,9 @@
 		font-size: to-rem(16);
 	}
 }
-
+.member-info__action {
+	width: 100%;
+}
 /*
    * 결과 페이지 스타일
    * - 피그마 디자인에 맞는 카드형 레이아웃
@@ -535,7 +1018,7 @@
 	border: 1px solid #cdd1d5;
 	border-radius: to-rem(12);
 	padding: to-rem(16);
-	margin-bottom: to-rem(32);
+	margin-bottom: to-rem(16);
 	@include mobile {
 		margin-bottom: to-rem(2);
 	}
@@ -4506,8 +4989,8 @@ div.bookshelf-item {
 
 /* 인증 섹션 */
 .verification-section {
-	max-width: to-rem(976);
 	margin: 0 auto;
+	width: 100%;
 	@include mobile {
 		max-width: 100%;
 	}
@@ -4555,17 +5038,6 @@ div.bookshelf-item {
 
 	@include mobile {
 		font-size: to-rem(15);
-	}
-}
-
-/* 인증 버튼 영역 */
-.verification-actions {
-	display: flex;
-	justify-content: center;
-	margin-top: to-rem(24);
-
-	@include mobile {
-		margin-top: to-rem(20);
 	}
 }
 
@@ -5929,5 +6401,349 @@ div.bookshelf-item {
 		height: auto;
 		max-height: to-rem(220);
 		overflow-y: auto;
+	}
+}
+
+// 정회원인증
+.verification-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	/* 정보 박스 스타일 - 기존 terms-scroll-box 패턴 재사용 */
+
+	.info-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: to-rem(6);
+		}
+
+		li {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(15);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #000000;
+			position: relative;
+			padding-left: to-rem(16);
+
+			@include mobile {
+				font-size: to-rem(13);
+				padding-left: to-rem(14);
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				width: to-rem(6);
+				height: to-rem(6);
+				background: #4b4d4d;
+				border-radius: to-rem(4);
+
+				@include mobile {
+					top: to-rem(9);
+					width: to-rem(5);
+					height: to-rem(5);
+				}
+			}
+
+			&.info-note:before {
+				content: '※';
+				background: none;
+				color: #4b4d4d;
+				font-size: to-rem(17);
+				top: to-rem(-1);
+				left: to-rem(-4);
+				width: auto;
+				height: auto;
+
+				@include mobile {
+					font-size: to-rem(15);
+					top: to-rem(-1);
+					left: to-rem(-3);
+				}
+			}
+		}
+
+		.text-red {
+			color: #d7424e;
+		}
+	}
+
+	/* 동의 여부 라디오 섹션 - 기존 radio-group 스타일 재사용 */
+	.verification-radio {
+		background: #f1f2f2;
+		padding: to-rem(24);
+		border-radius: to-rem(10);
+		display: flex;
+		align-items: center;
+		gap: to-rem(40);
+
+		@include mobile {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: to-rem(16);
+			padding: to-rem(16);
+			border-radius: to-rem(8);
+			margin-top: 20px;
+		}
+
+		&__question {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #d7424e;
+			margin: 0;
+			flex: 1;
+
+			@include mobile {
+				font-size: to-rem(15);
+			}
+		}
+
+		.radio-group {
+			display: flex;
+			gap: to-rem(24);
+			align-items: center;
+
+			@include mobile {
+				gap: to-rem(16);
+			}
+		}
+	}
+
+	/* 회원 정보 표시 섹션 */
+	.member-info {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+
+		@include mobile {
+			gap: to-rem(12);
+		}
+
+		&__row {
+			display: flex;
+			align-items: center;
+			gap: to-rem(24);
+			min-height: to-rem(48);
+
+			@include mobile {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: to-rem(8);
+				min-height: auto;
+			}
+		}
+
+		&__label {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17);
+			font-weight: 700;
+			line-height: 1.5;
+			color: #191a1a;
+			width: to-rem(180);
+			flex-shrink: 0;
+
+			@include mobile {
+				width: auto;
+				font-size: to-rem(15);
+			}
+		}
+
+		&__value {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #191a1a;
+			flex: 1;
+
+			@include mobile {
+				font-size: to-rem(15);
+			}
+		}
+
+		&__input-group {
+			display: flex;
+			align-items: center;
+			gap: to-rem(8);
+			flex: 1;
+
+			@include mobile {
+				gap: to-rem(8);
+			}
+
+			.input-separator {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(17);
+				color: #8a949e;
+			}
+		}
+	}
+
+	/* 인증 버튼 섹션 */
+	.verification-actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: to-rem(24) 0;
+
+		@include mobile {
+			padding: to-rem(16) 0;
+		}
+	}
+
+	/* 모바일 전용 UiRadio 스타일 조정 */
+	@include mobile {
+		.verification-radio .ui-radio {
+			margin: 0;
+			max-width: none;
+		}
+	}
+}
+
+.verification-section {
+	border: 1px solid #cbcccc;
+	border-radius: to-rem(12);
+	padding: to-rem(40);
+	background: #ffffff;
+
+	@include mobile {
+		padding: to-rem(20);
+		border-radius: to-rem(8);
+	}
+
+	&--info {
+		width: 100%;
+		border-top: 1px solid #b1b3b3;
+		border-bottom: 1px solid #b1b3b3;
+		border-left: none;
+		border-right: none;
+		border-radius: 0;
+		padding: to-rem(24) 0;
+		background: transparent;
+		margin-top: 24px;
+
+		@include mobile {
+			margin-top: 16px;
+			padding: to-rem(16) 0;
+		}
+	}
+}
+
+/* ========================================
+   통합회원조회 - Member Info Section
+   - 회원 정보 표시 컴포넌트
+   - Figma 디자인 기반 구현
+======================================== */
+.member-info-section {
+	@include flex(column, flex-start, stretch);
+	gap: to-rem(16);
+	background: white;
+	border-radius: to-rem(8);
+
+	@include mobile {
+		gap: 12px;
+	}
+}
+
+.member-info-item {
+	@include flex(row, flex-start, flex-start);
+	gap: to-rem(24);
+	padding: to-rem(24) 0;
+	border-top: 1px solid #b1b3b3;
+
+	&:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+
+	&:last-child {
+		border-bottom: 1px solid #b1b3b3;
+		padding-bottom: to-rem(24);
+	}
+
+	@include mobile {
+		gap: 16px;
+		padding: 16px 0;
+		flex-direction: column;
+		align-items: flex-start;
+
+		&:last-child {
+			padding-bottom: 16px;
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		width: to-rem(180);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: auto;
+			font-size: 15px;
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__action {
+		flex-shrink: 0;
+
+		.member-info-button {
+			background: #ecf2f9 !important;
+			color: #3c79c2 !important;
+			border: 1px solid #6494ce !important;
+			border-radius: to-rem(6) !important;
+			padding: to-rem(12) to-rem(12) !important;
+			font-size: to-rem(15) !important;
+			height: to-rem(40);
+			min-width: to-rem(64);
+
+			@include flex(row, center, center);
+			gap: to-rem(4);
+
+			&:hover {
+				background: #d9e7f7 !important;
+			}
+
+			svg {
+				width: to-rem(11);
+				height: to-rem(7);
+				transform: rotate(90deg) scaleY(-1);
+				color: #3c79c2;
+			}
+
+			@include mobile {
+				font-size: 13px;
+				padding: 8px 10px !important;
+				height: 32px;
+				min-width: 48px;
+			}
+		}
 	}
 }

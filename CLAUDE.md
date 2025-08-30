@@ -218,6 +218,22 @@ Menu configuration is centralized in `src/data/menuData.ts` with TypeScript inte
 7. **No TypeScript** - use vanilla JavaScript with extensive comments
 8. **Publishing-only** - no real backend integration or API calls
 
+### Figma MCP Integration Guidelines
+
+**Style Reuse Priority Policy**:
+1. **First Priority**: Search and reuse existing styles from the codebase
+   - Check existing components for similar UI patterns before creating new styles
+   - Look for common form layouts, button styles, modal patterns, etc.
+   - Prefer extending existing component variants over creating new ones
+2. **Second Priority**: Create new styles only when no suitable existing styles are found
+   - Follow established SCSS architecture (7-1 pattern)
+   - Use existing design tokens (colors, typography, spacing)
+   - Maintain consistency with existing UI patterns
+3. **Common Form Design**: Design similar forms with shared/common components
+   - Reuse existing form layouts and styling patterns
+   - Standardize form validation, error states, and success states
+   - Create reusable form sections for consistent user experience
+
 ### Build Configuration
 
 **Astro Config Key Features**:

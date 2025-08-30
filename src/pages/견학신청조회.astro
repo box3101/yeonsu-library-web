@@ -1,17 +1,130 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker } from '@components';
+import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker, UiInput } from '@components';
 
-const breadcrumbItems = [
-  { text: '홈', link: '/' },
-  { text: '내정보', link: '#' },
-  { text: '견학신청 조회', link: '#' },
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '대출 이력' }];
+const columns = [
+	{ label: '기관', key: 'institution', align: 'center', headerAlign: 'center', width: '170px', minWidth: '200px' },
+	{ label: '행사명', key: 'eventName', align: 'left', headerAlign: 'center', width: 'auto', minWidth: '200px' },
+	{ label: '신청일', key: 'applicationDate', align: 'center', headerAlign: 'center', width: '120px' },
+	{ label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '100px' },
+	{ label: '신청취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '110px', type: 'button' },
+];
+const rows = [
+	{
+		number: 146,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소불가',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 145,
+		institution: '해찬솔공원',
+		eventName: '[해찬솔공원] 일요돔영상 상영 및 해설( 3월 3일 14시)',
+		applicationDate: '2025.07.23',
+		status: '대기(1위)',
+		cancel: '취소하기',
+	},
+	{
+		number: 144,
+		institution: '송도4동스마트도서관',
+		eventName: '[송도4동스마트도서관] 일요돔영상 상영 및 해설( 3월 3일 14시)',
+		applicationDate: '2025.07.23',
+		status: '승인',
+		cancel: '취소하기',
+	},
+	{
+		number: 143,
+		institution: '선학별빛',
+		eventName: '[대기자접수][정규] 그림책으로 키우는 문해력 (초등1~2학년/화요일)',
+		applicationDate: '2025.07.23',
+		status: '취소',
+		cancel: '취소하기',
+	},
+	{
+		number: 142,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
+	{
+		number: 141,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
+	{
+		number: 140,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
+	{
+		number: 139,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
+	{
+		number: 138,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
+	{
+		number: 137,
+		institution: '선학별빛',
+		eventName: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: '취소하기',
+	},
 ];
 ---
 
 <Layout title="견학신청 조회">
-  <SubLayout title="견학신청 조회" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
-  
-  </SubLayout>
+	<SubLayout title="견학신청 조회" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<!-- 검색바 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect options={[{ value: '', label: '전체' }]} name="library" size="medium" class="w-200-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect options={[{ value: '', label: '전체' }]} name="library" size="medium" class="w-200-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 게시글 목록 -->
+		<UiTable columns={columns} rows={rows} showIndex={true} caption="도서관 건의사항 목록" />
+
+		<!-- 페이징네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
 </Layout>

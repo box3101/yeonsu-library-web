@@ -1,0 +1,67 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '통합회원조회' },
+];
+---
+
+<Layout title="내정보 - 통합회원조회">
+	<SubLayout title="통합회원조회" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<div class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<!-- 통합회원조회 정보 -->
+						<div class="verification-form">
+							<div class="verification-section verification-section--info">
+								<div class="member-info">
+									<div class="member-info__row">
+										<div class="member-info__label">성명</div>
+										<div class="member-info__value">홍길동</div>
+									</div>
+
+									<div class="member-info__row">
+										<div class="member-info__label">아이디</div>
+										<div class="member-info__value">ecotest</div>
+									</div>
+
+									<div class="member-info__row">
+										<div class="member-info__label">통합회원 가입여부</div>
+										<div class="member-info__action">
+											<UiButton
+												variant="secondary"
+												class="member-info-button w-100-mobile-full"
+												text="확인"
+												icon="icon-arrow-right"
+												iconAddClass="icon icon-xxxsm icon-arrow-right icon-primary"
+											/>
+										</div>
+									</div>
+
+									<div class="member-info__row">
+										<div class="member-info__label">통합회원 상세조회</div>
+										<div class="member-info__action">
+											<UiButton
+												variant="secondary"
+												class="member-info-button w-100-mobile-full"
+												text="확인"
+												icon="icon-arrow-right"
+												iconAddClass="icon icon-xxxsm icon-arrow-right icon-primary"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
