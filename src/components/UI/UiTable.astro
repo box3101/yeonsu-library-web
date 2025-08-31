@@ -93,7 +93,7 @@ const getMaxHeightClass = () => {
 
 // Convert column width to class
 const getColumnWidthClass = width => {
-	if (!width) return '';
+	if (!width || width === 'auto') return 'col-width-auto';
 	const widthValue = parseInt(width);
 	const availableWidths = Array.from({ length: 500 }, (_, i) => i + 1);
 	if (availableWidths.includes(widthValue)) {

@@ -5277,6 +5277,15 @@ div.bookshelf-item {
 }
 
 // Column width classes for tables
+.col-width-auto {
+	width: auto !important;
+	
+	@include mobile {
+		width: 150px !important; // 모바일에서는 최소 너비 보장
+		min-width: 150px !important;
+	}
+}
+
 @for $i from 1 through 1000 {
 	.col-width-#{$i} {
 		width: #{$i}px !important;

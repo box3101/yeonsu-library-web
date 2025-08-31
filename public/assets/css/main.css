@@ -65096,6 +65096,16 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   overflow-y: auto !important;
 }
 
+.col-width-auto {
+  width: auto !important;
+}
+@media (max-width: 900px) {
+  .col-width-auto {
+    width: 150px !important;
+    min-width: 150px !important;
+  }
+}
+
 .col-width-1 {
   width: 1px !important;
   min-width: 1px !important;
