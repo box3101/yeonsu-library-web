@@ -4,6 +4,332 @@
 @use 'sass:math';
 
 /* ========================================
+   공연장 달력 컴포넌트 - Hall Calendar
+   - 피그마 디자인 기반 구현
+======================================== */
+.hall-institution-tabs {
+	background: #f1f2f2;
+	border-radius: to-rem(6);
+	padding: to-rem(12);
+	margin-bottom: to-rem(24);
+
+	@include mobile {
+		margin-bottom: to-rem(16);
+	}
+}
+
+.hall-calendar {
+	background: white;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(16);
+		padding: to-rem(24) to-rem(16);
+		border-bottom: 1px solid #cdd1d5;
+
+		@include mobile {
+			padding: to-rem(16) to-rem(8);
+			gap: to-rem(8);
+		}
+	}
+
+	&__nav {
+		background: none;
+		border: 1px solid #cdd1d5;
+		border-radius: 50%;
+		width: to-rem(32);
+		height: to-rem(32);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #6c757d;
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background: #f8f9fa;
+			
+			img {
+				filter: brightness(0) saturate(100%) invert(40%) sepia(73%) saturate(1295%) hue-rotate(202deg) brightness(97%) contrast(89%);
+			}
+		}
+
+		img {
+			width: to-rem(19.2);
+			height: to-rem(19.2);
+			filter: brightness(0) saturate(100%) invert(46%) sepia(0%) saturate(2%) hue-rotate(349deg) brightness(108%) contrast(88%);
+			transition: filter 0.2s ease;
+		}
+	}
+
+	&__date {
+		display: flex;
+		align-items: center;
+		gap: to-rem(8);
+	}
+
+	&__year-select,
+	&__month-select {
+		.ui-select__element {
+			background: none !important;
+			border: none !important;
+			font-size: to-rem(19) !important;
+			font-weight: 700 !important;
+			color: #1e2124 !important;
+			padding: to-rem(8) !important;
+			border-radius: to-rem(6) !important;
+			transition: background-color 0.2s ease;
+			box-shadow: none !important;
+			
+			&:hover {
+				background: #f8f9fa !important;
+			}
+			
+			&:focus {
+				outline: none !important;
+				background: #f8f9fa !important;
+			}
+		}
+		
+		.ui-select__icon {
+			width: to-rem(16);
+			height: to-rem(16);
+			color: #6c757d;
+		}
+	}
+
+	&__weekdays {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		background: #f1f2f2;
+		border-bottom: 1px solid #cbcccc;
+	}
+
+	&__weekday {
+		padding: to-rem(10) to-rem(8);
+		text-align: center;
+		font-weight: 700;
+		font-size: to-rem(17);
+		color: #191a1a;
+		border-right: 1px solid #cbcccc;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		&--sunday {
+			color: #d7424e;
+		}
+
+		&--saturday {
+			color: #3c79c2;
+		}
+
+		@include mobile {
+			padding: to-rem(8) to-rem(4);
+			font-size: to-rem(14);
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	&__cell {
+		min-height: to-rem(105);
+		background: white;
+		border: 1px solid #cbcccc;
+		border-top: none;
+		padding: to-rem(8);
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+
+		&:not(:nth-child(7n)) {
+			border-right: none;
+		}
+
+		@include mobile {
+			min-height: to-rem(80);
+			padding: to-rem(4);
+		}
+
+		&--empty {
+			background: white;
+		}
+
+		&--today {
+			.hall-calendar__day {
+				background: #d8e4f3;
+				color: #18304d;
+				border-radius: to-rem(23);
+				width: to-rem(46);
+				height: to-rem(46);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: to-rem(4);
+					left: 50%;
+					transform: translateX(-50%);
+					width: to-rem(4);
+					height: to-rem(4);
+					background: #18304d;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		&--sunday {
+			.hall-calendar__day {
+				color: #d7424e;
+			}
+		}
+
+		&--saturday {
+			.hall-calendar__day {
+				color: #3c79c2;
+			}
+		}
+	}
+
+	&__day {
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #191a1a;
+		text-align: center;
+		width: to-rem(44);
+		height: to-rem(44);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include mobile {
+			font-size: to-rem(14);
+			width: to-rem(32);
+			height: to-rem(32);
+		}
+	}
+
+	&__status {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(4);
+		padding: to-rem(6) to-rem(12);
+		border-radius: to-rem(18);
+		font-size: to-rem(15);
+		font-weight: 400;
+		color: white;
+		text-align: center;
+		min-height: to-rem(28);
+
+		&--closed {
+			background: #3c79c2;
+			border: 1px solid #244874;
+		}
+
+		&--period {
+			background: #c57eba;
+			color: white;
+
+			img {
+				width: to-rem(24);
+				height: to-rem(24);
+				flex-shrink: 0;
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(17deg) brightness(100%) contrast(100%);
+			}
+		}
+
+		@include mobile {
+			font-size: to-rem(12);
+			padding: to-rem(4) to-rem(8);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(2);
+		align-items: flex-end;
+	}
+
+	&__button {
+		background: #00993e;
+		color: white;
+		border: none;
+		padding: to-rem(4) to-rem(11);
+		border-radius: to-rem(18);
+		font-size: to-rem(15);
+		font-weight: 400;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		min-height: to-rem(28);
+		min-width: to-rem(54);
+
+		&--morning {
+			background: #00993e;
+		}
+
+		&--afternoon {
+			background: #ffac21;
+		}
+
+		&--evening {
+			background: #4b4d4d;
+		}
+
+		&--unavailable {
+			background: #e5e5e5;
+			color: #4b4d4d;
+			border: 1px solid #b1b3b3;
+			cursor: not-allowed;
+
+			&:hover {
+				background: #e5e5e5;
+			}
+		}
+
+		&:hover:not(&--unavailable) {
+			opacity: 0.8;
+		}
+
+		@include mobile {
+			font-size: to-rem(12);
+			padding: to-rem(3) to-rem(8);
+			min-width: to-rem(40);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: to-rem(16);
+		border-top: 1px solid #cdd1d5;
+		padding-right: 0;
+
+		@include mobile {
+			padding: to-rem(12);
+			padding-right: 0;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: to-rem(8);
+	}
+}
+
+/* ========================================
    공통 검색 컴포넌트 - Common Search
    - 테이블 상단 검색 필터 영역
    - Figma 디자인 기반 구현
@@ -5279,7 +5605,7 @@ div.bookshelf-item {
 // Column width classes for tables
 .col-width-auto {
 	width: auto !important;
-	
+
 	@include mobile {
 		width: 150px !important; // 모바일에서는 최소 너비 보장
 		min-width: 150px !important;
