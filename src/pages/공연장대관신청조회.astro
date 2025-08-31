@@ -1,0 +1,223 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiInput } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '나의도서관', href: '/' }, { label: '공연장대관신청조회' }];
+
+const columns = [
+	{ label: '번호', key: 'number', align: 'center', headerAlign: 'center', width: '60', minWidth: '60px' },
+	{ label: '도서관', key: 'library', align: 'center', headerAlign: 'center', width: '111', minWidth: '100px' },
+	{ label: '공연장명', key: 'hallName', align: 'left', headerAlign: 'center', width: '250', minWidth: '200px' },
+	{ label: '신청일', key: 'applicationDate', align: 'center', headerAlign: 'center', width: '111', minWidth: '100px' },
+	{ label: '사용일', key: 'usageDate', align: 'center', headerAlign: 'center', width: '111', minWidth: '100px' },
+	{ label: '사용시간', key: 'usageTime', align: 'center', headerAlign: 'center', width: '111', minWidth: '100px' },
+	{ label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '111', minWidth: '80px' },
+	{ label: '취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '111', minWidth: '80px', type: 'button' },
+];
+
+const rows = [
+	{
+		number: 459,
+		library: '연수도서관',
+		hallName: '대강당',
+		applicationDate: '2024.03.15',
+		usageDate: '2024.04.10',
+		usageTime: '14:00-17:00',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 458,
+		library: '송도국제도서관',
+		hallName: '다목적홀',
+		applicationDate: '2024.03.14',
+		usageDate: '2024.04.08',
+		usageTime: '10:00-12:00',
+		status: '승인대기',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 457,
+		library: '청학도서관',
+		hallName: '소강당',
+		applicationDate: '2024.03.13',
+		usageDate: '2024.04.05',
+		usageTime: '15:00-18:00',
+		status: '반려',
+		cancel: {
+			text: '취소불가',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 456,
+		library: '해돋이도서관',
+		hallName: '세미나실',
+		applicationDate: '2024.03.12',
+		usageDate: '2024.04.03',
+		usageTime: '13:00-16:00',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 455,
+		library: '해찬솔공원도서관',
+		hallName: '대강당',
+		applicationDate: '2024.03.11',
+		usageDate: '2024.04.01',
+		usageTime: '09:00-12:00',
+		status: '취소완료',
+		cancel: {
+			text: '취소완료',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 454,
+		library: '선학별빛도서관',
+		hallName: '다목적홀',
+		applicationDate: '2024.03.10',
+		usageDate: '2024.03.30',
+		usageTime: '14:00-17:00',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 453,
+		library: '누리공원도서관',
+		hallName: '소강당',
+		applicationDate: '2024.03.09',
+		usageDate: '2024.03.28',
+		usageTime: '10:00-13:00',
+		status: '승인대기',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 452,
+		library: '연수도서관',
+		hallName: '세미나실',
+		applicationDate: '2024.03.08',
+		usageDate: '2024.03.25',
+		usageTime: '16:00-18:00',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 451,
+		library: '송도국제도서관',
+		hallName: '대강당',
+		applicationDate: '2024.03.07',
+		usageDate: '2024.03.22',
+		usageTime: '11:00-15:00',
+		status: '반려',
+		cancel: {
+			text: '취소불가',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 450,
+		library: '청학도서관',
+		hallName: '다목적홀',
+		applicationDate: '2024.03.06',
+		usageDate: '2024.03.20',
+		usageTime: '13:00-17:00',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+];
+---
+
+<Layout title="공연장대관신청조회">
+	<SubLayout title="공연장대관신청조회" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<!-- 검색바 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect 
+						options={[
+							{ value: '', label: '도서관 선택' },
+							{ value: 'yeonsu', label: '연수도서관' },
+							{ value: 'songdo', label: '송도국제도서관' },
+							{ value: 'cheonghak', label: '청학도서관' },
+							{ value: 'haedogi', label: '해돋이도서관' },
+							{ value: 'haechansol', label: '해찬솔공원도서관' },
+							{ value: 'sunhak', label: '선학별빛도서관' },
+							{ value: 'nuri', label: '누리공원도서관' },
+						]} 
+						name="library" 
+						size="medium" 
+						class="w-200-mobile-full" 
+						variant="default" 
+					/>
+				</div>
+				<div class="com-search__select">
+					<UiSelect 
+						options={[
+							{ value: '', label: '신청상태' },
+							{ value: 'waiting', label: '승인대기' },
+							{ value: 'approved', label: '승인완료' },
+							{ value: 'rejected', label: '반려' },
+							{ value: 'cancelled', label: '취소완료' },
+						]} 
+						name="status" 
+						size="medium" 
+						class="w-200-mobile-full" 
+						variant="default" 
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="공연장명을 입력하세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 상단 필터 섹션 -->
+		<div class="search-info-summary type2 flex justify-between items-center">
+			<div class="mb0">총 <strong>459</strong>건 (<strong>1</strong> / 46)</div>
+		</div>
+
+		<!-- 테이블 -->
+		<UiTable columns={columns} rows={rows} showIndex={false} caption="공연장 대관 신청 조회 목록" />
+
+		<!-- 페이징네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

@@ -86,8 +86,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './연수북페스티벌',
 			},
 			{
-				title: '희희낙락 북콘서트',
-				href: './희희낙락 북콘서트',
+				title: '희희낙락북콘서트',
+				href: './희희낙락북콘서트',
 			},
 			{
 				title: '북스타트',
@@ -98,25 +98,25 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './북메이트',
 			},
 			{
-				title: '독서동아리 지원 사업',
+				title: '독서동아리지원사업',
 				items: [
-					{ label: '독서동아리 안내', href: './독서동아리 안내' },
-					{ label: '독서동아리 자료', href: './독서동아리 자료' },
+					{ label: '독서동아리안내', href: './독서동아리안내' },
+					{ label: '독서동아리자료', href: './독서동아리자료' },
 				],
 			},
 			{
-				title: '범구민 책읽어주기 문화운동',
-				href: './범구민 책읽어주기 문화운동',
+				title: '범구민책읽어주기문화운동',
+				href: './범구민책읽어주기문화운동',
 			},
 			{
-				title: '북크로싱 센터',
-				href: './북크로싱 센터',
+				title: '북크로싱센터',
+				href: './북크로싱센터',
 			},
 			{
-				title: '영유아 전집 대여 사업',
+				title: '영유아전집대여사업',
 				items: [
-					{ label: '서비스 안내', href: './서비스 안내' },
-					{ label: '서비스 신청', href: './서비스 신청' },
+					{ label: '서비스안내', href: './서비스안내' },
+					{ label: '서비스신청', href: './서비스신청' },
 				],
 			},
 		],
@@ -134,8 +134,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './이용안내',
 			},
 			{
-				title: '도서관 일정',
-				href: './도서관 일정',
+				title: '도서관일정',
+				href: './도서관일정',
 			},
 			{
 				title: '회원대출규정',
@@ -158,33 +158,33 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './천체투영관',
 			},
 			{
-				title: '도서관 유튜브',
-				href: './도서관 유튜브',
+				title: '도서관유튜브',
+				href: './도서관유튜브',
 			},
 			{
-				title: '도서관 소식지',
-				href: './도서관 소식지',
+				title: '도서관소식지',
+				href: './도서관소식지',
 			},
 			{
-				title: '연수구 지역서점',
-				href: './연수구 지역서점',
+				title: '연수구지역서점',
+				href: './연수구지역서점',
 			},
 			{
 				title: '부대시설',
 				href: './부대시설',
 			},
 			{
-				title: '자주하는 질문',
-				href: './자주하는 질문',
+				title: '자주하는질문',
+				href: './자주하는질문',
 			},
-			// 외부 링크 예시 추가
+			//외부링크예시추가
 			{
 				title: '국가전자도서관',
 				href: 'https://www.nl.go.kr',
 				isExternal: true,
 			},
 			{
-				title: '인천광역시 통합도서관',
+				title: '인천광역시통합도서관',
 				href: 'https://lib.incheon.go.kr',
 				isExternal: true,
 			},
@@ -223,24 +223,24 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './전자도서관',
 			},
 			{
-				title: '희망도서 신청',
+				title: '희망도서신청',
 				items: [
-					{ label: '서비스 안내', href: './희망도서신청-서비스안내' },
-					{ label: '서비스 신청', href: './희망도서신청-서비스신청' },
+					{ label: '서비스안내', href: './희망도서신청-서비스안내' },
+					{ label: '서비스신청', href: './희망도서신청-서비스신청' },
 				],
 			},
 			{
-				title: '희망전자책 신청',
+				title: '희망전자책신청',
 				items: [
-					{ label: '서비스 안내', href: './희망전자책신청-서비스안내' },
-					{ label: '서비스 신청', href: './희망전자책신청-서비스신청' },
+					{ label: '서비스안내', href: './희망전자책신청-서비스안내' },
+					{ label: '서비스신청', href: './희망전자책신청-서비스신청' },
 				],
 			},
 			{
 				title: '무료택배도서대출',
 				items: [
-					{ label: '서비스 안내', href: './무료택배도서대출-서비스안내' },
-					{ label: '서비스 신청', href: './무료택배도서대출-서비스신청' },
+					{ label: '서비스안내', href: './무료택배도서대출-서비스안내' },
+					{ label: '서비스신청', href: './무료택배도서대출-서비스신청' },
 				],
 			},
 		],
@@ -250,18 +250,18 @@ export const menuConfig: Record<string, MenuConfig> = {
 		title: '열린참여마당',
 		sections: [
 			{
-				title: '도서관에 바란다',
-				href: './도서관에 바란다',
+				title: '도서관에바란다',
+				href: './도서관에바란다',
 			},
 			{
 				title: '자원봉사',
 				href: './자원봉사',
 			},
 			{
-				title: '도서관 견학',
+				title: '도서관견학',
 				items: [
-					{ label: '도서관 견학 안내', href: './도서관 견학 안내' },
-					{ label: '도서관 견학 신청', href: './도서관 견학 신청' },
+					{ label: '도서관견학안내', href: './도서관견학안내' },
+					{ label: '도서관견학신청', href: './도서관견학신청' },
 				],
 			},
 			{
@@ -275,21 +275,21 @@ export const menuConfig: Record<string, MenuConfig> = {
 			{
 				title: '독서마라톤',
 				items: [
-					{ label: '독서마라톤 안내', href: './독서마라톤 안내' },
-					{ label: '독서마라톤 참여', href: './독서마라톤 참여' },
+					{ label: '독서마라톤안내', href: './독서마라톤안내' },
+					{ label: '독서마라톤참여', href: './독서마라톤참여' },
 				],
 			},
 			{
 				title: '독서왕',
 				items: [
-					{ label: '독서왕 안내', href: './독서왕 안내' },
-					{ label: '독서왕 참여', href: './독서왕 참여' },
+					{ label: '독서왕안내', href: './독서왕안내' },
+					{ label: '독서왕참여', href: './독서왕참여' },
 				],
 			},
 			{
-				title: '출석체크 이벤트',
+				title: '출석체크이벤트',
 				items: [
-					{ label: '출석체크 안내', href: './출석체크 안내' },
+					{ label: '출석체크안내', href: './출석체크안내' },
 					{ label: '출석하기', href: './출석하기' },
 				],
 			},
@@ -300,12 +300,12 @@ export const menuConfig: Record<string, MenuConfig> = {
 		title: '문화마당',
 		sections: [
 			{
-				title: '문화행사 신청',
-				href: './문화행사 신청',
+				title: '문화행사신청',
+				href: './문화행사신청',
 			},
 			{
-				title: '프로그램 신청',
-				href: './프로그램 신청',
+				title: '프로그램신청',
+				href: './프로그램신청',
 			},
 			{
 				title: '영화상영',
@@ -378,7 +378,7 @@ export const menuConfig: Record<string, MenuConfig> = {
 					{ label: '솔안공원작은도서관', href: './솔안공원작은도서관' },
 					{ label: '해찬솔공원작은도서관', href: './해찬솔공원작은도서관' },
 					{ label: '누리공원작은도서관', href: './누리공원작은도서관' },
-					{ label: '문화공원 북크로싱 센터', href: './문화공원 북크로싱 센터' },
+					{ label: '문화공원북크로싱센터', href: './문화공원북크로싱센터' },
 				],
 			},
 		],
@@ -428,32 +428,32 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './내책장',
 			},
 			{
-				title: '행사신청 조회',
-				href: './행사신청 조회',
+				title: '행사신청조회',
+				href: './행사신청조회',
 			},
 			{
-				title: '프로그램신청 조회',
-				href: './프로그램신청 조회',
+				title: '프로그램신청조회',
+				href: './프로그램신청조회',
 			},
 			{
-				title: '견학신청 조회',
-				href: './견학신청 조회',
+				title: '견학신청조회',
+				href: './견학신청조회',
 			},
 			{
-				title: '대관신청 조회',
+				title: '대관신청조회',
 				items: [
-					{ label: '공연장대관신청 조회', href: './공연장대관신청 조회' },
-					{ label: '세미나실대관신청 조회', href: './세미나실대관신청 조회' },
-					{ label: '커뮤니티룸대관신청 조회', href: './커뮤니티룸대관신청 조회' },
-					{ label: '프로그램실대관신청 조회', href: './프로그램실대관신청 조회' },
-					{ label: '독서토론실대관신청 조회', href: './독서토론실대관신청 조회' },
-					{ label: '하늘빛정원대관신청 조회', href: './하늘빛정원대관신청 조회' },
-					{ label: '동아리실대관신청 조회', href: './동아리실대관신청 조회' },
+					{ label: '공연장대관신청조회', href: './공연장대관신청조회' },
+					{ label: '세미나실대관신청조회', href: './세미나실대관신청조회' },
+					{ label: '커뮤니티룸대관신청조회', href: './커뮤니티룸대관신청조회' },
+					{ label: '프로그램실대관신청조회', href: './프로그램실대관신청조회' },
+					{ label: '독서토론실대관신청조회', href: './독서토론실대관신청조회' },
+					{ label: '하늘빛정원대관신청조회', href: './하늘빛정원대관신청조회' },
+					{ label: '동아리실대관신청조회', href: './동아리실대관신청조회' },
 				],
 			},
 			{
-				title: '영유아전집신청 조회',
-				href: './영유아전집신청 조회',
+				title: '영유아전집신청조회',
+				href: './영유아전집신청조회',
 			},
 		],
 	},
@@ -483,8 +483,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 				],
 			},
 			{
-				title: "도서관 고양이 '관이'의 하루",
-				href: "/도서관 고양이 '관이'의 하루",
+				title: "도서관고양이'관이'의하루",
+				href: "/도서관고양이'관이'의하루",
 			},
 			{
 				title: '열람실현황',
@@ -505,8 +505,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './개인정보처리방침',
 			},
 			{
-				title: "도서관 고양이 '관이'의 하루",
-				href: "/도서관 고양이 '관이'의 하루",
+				title: "도서관고양이'관이'의하루",
+				href: "/도서관고양이'관이'의하루",
 			},
 			{
 				title: '열람실현황',
@@ -517,8 +517,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 };
 
 /**
- * 현재 URL에 따라 메뉴 섹션의 확장 상태를 동적으로 설정하는 함수
- * 사용자가 현재 페이지에 해당하는 메뉴 항목을 쉽게 찾을 수 있도록 도움
+ *현재URL에따라메뉴섹션의확장상태를동적으로설정하는함수
+ *사용자가현재페이지에해당하는메뉴항목을쉽게찾을수있도록도움
  */
 export const getExpandedSectionsForPath = (pathname: string, menuType: string): Record<string, boolean> => {
 	const expandedSections: Record<string, boolean> = {};
