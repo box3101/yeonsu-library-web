@@ -6612,9 +6612,7 @@ div.bookshelf-item {
 }
 
 .verification-section {
-	border: 1px solid #cbcccc;
 	border-radius: to-rem(12);
-	padding: to-rem(40);
 	background: #ffffff;
 
 	@include mobile {

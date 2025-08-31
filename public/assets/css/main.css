@@ -71444,9 +71444,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 
 .verification-section {
-  border: 1px solid #cbcccc;
   border-radius: 0.75rem;
-  padding: 2.5rem;
   background: #ffffff;
 }
 @media (max-width: 900px) {
