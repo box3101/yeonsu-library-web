@@ -6957,11 +6957,6 @@ div.bookshelf-item {
 	border-radius: to-rem(12);
 	background: #ffffff;
 
-	@include mobile {
-		padding: to-rem(20);
-		border-radius: to-rem(8);
-	}
-
 	&--info {
 		width: 100%;
 		border-top: 1px solid #b1b3b3;
