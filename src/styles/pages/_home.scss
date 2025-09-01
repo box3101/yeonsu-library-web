@@ -338,7 +338,8 @@
 			outline-offset: to-rem(2);
 		}
 
-		img, svg {
+		img,
+		svg {
 			width: 100%;
 			height: 100%;
 		}
@@ -351,9 +352,13 @@
 .notice-section {
 	width: 100%;
 	padding: to-rem(60) 0;
-
+	padding-bottom: 0;
+	.notice-section__list-container {
+		overflow: hidden;
+	}
 	@include tablet {
 		padding: to-rem(32) 0;
+		padding-bottom: 0;
 	}
 
 	&__content {
@@ -370,9 +375,11 @@
 	// 좌측 공지사항 영역
 	&__left {
 		flex: 1;
+		min-width: to-rem(689);
 		max-width: to-rem(689);
 
 		@include tablet {
+			min-width: auto;
 			max-width: 100%;
 		}
 	}
@@ -482,6 +489,49 @@
 		flex-direction: column;
 		gap: to-rem(15.5);
 	}
+
+	// 공지사항 리스트 컨테이너 (페이지네이션)
+	&__list-container {
+		.notice-list {
+			@include flex;
+			flex-direction: column;
+			gap: to-rem(15.5);
+			overflow: hidden;
+			max-height: #{to-rem(300)};
+			min-height: #{to-rem(300)}; // 4개 아이템 높이 보장
+
+			// 숨겨진 아이템 스타일
+			.notice-item {
+				opacity: 1;
+				transform: translateY(0);
+				transition: all 0.3s ease;
+				min-height: to-rem(60);
+
+				&.hidden {
+					display: none;
+				}
+
+				&.fade-out {
+					opacity: 0;
+					transform: translateY(-10px);
+				}
+
+				&.fade-in {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.notice-empty {
+				p {
+					font-size: to-rem(17);
+					font-weight: 700;
+					color: #191a1a;
+					line-height: 1.5;
+				}
+			}
+		}
+	}
 }
 
 // 공지사항 아이템
@@ -517,9 +567,8 @@
 		gap: to-rem(12);
 
 		@include tablet {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: to-rem(12);
+			align-items: center;
+			gap: to-rem(8);
 		}
 	}
 
@@ -531,9 +580,8 @@
 		min-width: 0;
 
 		@include tablet {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: to-rem(8);
+			align-items: center;
+			gap: to-rem(4);
 			width: 100%;
 		}
 	}
@@ -541,7 +589,7 @@
 	&__tag {
 		@include flex-center;
 		height: to-rem(32);
-		min-width: to-rem(84);
+		min-width: auto;
 		padding: 0 to-rem(16);
 		border-radius: to-rem(32);
 		font-family: 'Pretendard GOV', sans-serif;
@@ -550,20 +598,36 @@
 		color: $white;
 		flex-shrink: 0;
 
-		&--pink {
-			background: #ffacc1;
+		&--전체 {
+			background: $institution-전체;
 		}
 
-		&--gray {
-			background: #666666;
+		&--연수꿈담 {
+			background: $institution-연수꿈담;
 		}
 
-		&--orange {
-			background: #ef6601;
+		&--송도국제 {
+			background: $institution-송도국제;
 		}
 
-		&--navy {
-			background: #40548c;
+		&--청학 {
+			background: $institution-청학;
+		}
+
+		&--누리공원 {
+			background: $institution-누리공원;
+		}
+
+		&--해돋이 {
+			background: $institution-해돋이;
+		}
+
+		&--해찬솔공원 {
+			background: $institution-해찬솔공원;
+		}
+
+		&--선학별빛 {
+			background: $institution-선학별빛;
 		}
 	}
 
@@ -579,15 +643,15 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&:hover {
-			font-weight: 700;
+		@include tablet {
+			font-size: to-rem(16);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
-		@include tablet {
-			white-space: normal;
-			overflow: visible;
-			text-overflow: initial;
-			font-size: to-rem(16);
+		&:hover {
+			font-weight: 700;
 		}
 	}
 
@@ -600,7 +664,6 @@
 		flex-shrink: 0;
 
 		@include tablet {
-			align-self: flex-end;
 			font-size: to-rem(14);
 		}
 	}
@@ -692,10 +755,12 @@
 .event-section {
 	width: 100%;
 	padding: to-rem(60) 0;
+	padding-bottom: 0;
 	@include bg-image('#{$image-path}bg-event-section.png');
 
 	@include tablet {
 		padding: to-rem(32) 0;
+		padding-bottom: 0;
 	}
 
 	.container {

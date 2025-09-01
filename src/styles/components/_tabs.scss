@@ -142,9 +142,8 @@
 		}
 
 		@media (max-width: 768px) {
-			font-size: to-rem(24);
-			height: to-rem(40);
-
+			font-size: 1.4rem;
+			height: 2.5rem;
 			&:hover::after,
 			&--active::after {
 				width: to-rem(6);

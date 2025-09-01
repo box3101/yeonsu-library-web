@@ -66,22 +66,8 @@ function createAutoplayToggle(swiper, toggleButton, iconStop, iconPlay) {
   };
 }
 
-// 공지사항 스와이퍼
-function initNoticeSwiper() {
-  var $swiper = $('.notice-swiper');
-  if ($swiper.length === 0) return;
-
-  new Swiper('.notice-swiper', {
-    slidesPerView: 1,
-    loop: true,
-    speed: SWIPER_CONFIG.speed,
-    // autoplay: SWIPER_CONFIG.autoplay,
-    navigation: {
-      nextEl: '.notice-swiper-btn-next',
-      prevEl: '.notice-swiper-btn-prev',
-    },
-  });
-}
+// 공지사항은 이제 별도의 페이지네이션 스크립트로 처리
+// (noticePagination.js 참조)
 
 // 이벤트 스와이퍼
 function initEventSwiper() {
@@ -236,7 +222,7 @@ $(document).ready(function () {
 
   // 조금 딜레이를 주어서 DOM이 완전히 렌더링된 후 초기화
   setTimeout(function () {
-    initNoticeSwiper();
+    // initNoticeSwiper(); // 제거 - 이제 noticePagination.js에서 처리
     initEventSwiper();
     initBannerSwiper();
     initLibraryHoursSwiper();
