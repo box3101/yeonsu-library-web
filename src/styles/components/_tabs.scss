@@ -9,168 +9,168 @@
 // ==========================================================================
 
 .ui-tab {
-  &__list {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: to-rem(16);
+	&__list {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: to-rem(16);
 
-    @media (max-width: 768px) {
-      gap: to-rem(10);
-      overflow-x: auto;
-      scrollbar-width: none;
+		@media (max-width: 768px) {
+			gap: to-rem(10);
+			overflow-x: auto;
+			scrollbar-width: none;
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
 
-  // Grid Layout Modifier
-  &--grid {
-    .ui-tab__list {
-      display: grid;
-      grid-template-columns: repeat(var(--grid-columns, 4), minmax(0, 1fr));
-      gap: to-rem(12);
-      overflow: visible;
-      width: 100%;
+	// Grid Layout Modifier
+	&--grid {
+		.ui-tab__list {
+			display: grid;
+			grid-template-columns: repeat(var(--grid-columns, 4), minmax(0, 1fr));
+			gap: to-rem(12);
+			overflow: visible;
+			width: 100%;
 
-      @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: to-rem(8);
-      }
-    }
+			@media (max-width: 768px) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: to-rem(8);
+			}
+		}
 
-    .ui-tab__button {
-      width: 100%;
-      min-width: 0; // 그리드 아이템이 축소될 수 있도록
-      justify-content: flex-start;
-      padding: 0 to-rem(12);
-      overflow: hidden; // 내용이 넘치지 않도록
+		.ui-tab__button {
+			width: 100%;
+			min-width: 0; // 그리드 아이템이 축소될 수 있도록
+			justify-content: flex-start;
+			padding: 0 to-rem(12);
+			overflow: hidden; // 내용이 넘치지 않도록
 
-      // 작은 화면 또는 긴 텍스트를 위한 폰트 크기 조정
-      font-size: to-rem(14);
-      height: auto;
-      min-height: to-rem(48);
-      padding: to-rem(8) to-rem(12);
+			// 작은 화면 또는 긴 텍스트를 위한 폰트 크기 조정
+			font-size: to-rem(14);
+			height: auto;
+			min-height: to-rem(48);
+			padding: to-rem(8) to-rem(12);
 
-      display: flex;
-      justify-content: center;
+			display: flex;
+			justify-content: center;
 
-      @media (min-width: 1024px) {
-        font-size: to-rem(16);
-      }
+			@media (min-width: 1024px) {
+				font-size: to-rem(16);
+			}
 
-      // 긴 텍스트 처리
-      .ui-tab__label {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        flex: none;
-        min-width: 0; // flexbox에서 텍스트가 축소될 수 있도록
-      }
+			// 긴 텍스트 처리
+			.ui-tab__label {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				// white-space: nowrap;
+				flex: none;
+				min-width: 0; // flexbox에서 텍스트가 축소될 수 있도록
+			}
 
-      // 카운트 스타일
-      .ui-tab__count {
-        flex-shrink: 0; // 카운트는 축소되지 않도록
-        margin-left: to-rem(4);
-      }
-    }
-  }
+			// 카운트 스타일
+			.ui-tab__count {
+				flex-shrink: 0; // 카운트는 축소되지 않도록
+				margin-left: to-rem(4);
+			}
+		}
+	}
 
-  // Tab Button
-  &__button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: to-rem(4);
-    position: relative;
-    color: #7d8181;
-    text-align: center;
-    font-family: 'Pretendard GOV', sans-serif;
-    font-size: to-rem(32);
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    height: to-rem(52);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    padding: 0;
+	// Tab Button
+	&__button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: to-rem(4);
+		position: relative;
+		color: #7d8181;
+		text-align: center;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(32);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 150%;
+		height: to-rem(52);
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		// white-space: nowrap;
+		padding: 0;
 
-    // Focus state
-    &:focus {
-      // outline: 2px solid #244874;
-      outline-offset: 2px;
-    }
+		// Focus state
+		&:focus {
+			// outline: 2px solid #244874;
+			outline-offset: 2px;
+		}
 
-    // Active state
-    &--active {
-      color: #244874;
-      border-bottom: to-rem(4) solid #244874;
+		// Active state
+		&--active {
+			color: #244874;
+			border-bottom: to-rem(4) solid #244874;
 
-      &::after {
-        position: absolute;
-        top: 0;
-        right: -10px;
-        content: '';
-        width: to-rem(8);
-        height: to-rem(8);
-        background-color: #fcc975;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-    }
+			&::after {
+				position: absolute;
+				top: 0;
+				right: -10px;
+				content: '';
+				width: to-rem(8);
+				height: to-rem(8);
+				background-color: #fcc975;
+				border-radius: 50%;
+				flex-shrink: 0;
+			}
+		}
 
-    // Disabled state
-    &:disabled {
-      color: #ccc;
-      cursor: not-allowed;
+		// Disabled state
+		&:disabled {
+			color: #ccc;
+			cursor: not-allowed;
 
-      &:hover {
-        color: #ccc;
-        border-bottom: none;
+			&:hover {
+				color: #ccc;
+				border-bottom: none;
 
-        &::after {
-          display: none;
-        }
-      }
-    }
+				&::after {
+					display: none;
+				}
+			}
+		}
 
-    @media (max-width: 768px) {
-      font-size: to-rem(24);
-      height: to-rem(40);
+		@media (max-width: 768px) {
+			font-size: to-rem(24);
+			height: to-rem(40);
 
-      &:hover::after,
-      &--active::after {
-        width: to-rem(6);
-        height: to-rem(6);
-      }
-    }
-  }
+			&:hover::after,
+			&--active::after {
+				width: to-rem(6);
+				height: to-rem(6);
+			}
+		}
+	}
 }
 
 // Tab Content Panels (optional utility class)
 .ui-tab-panel {
-  display: none;
+	display: none;
 
-  &--active {
-    display: block;
-    animation: fadeIn 0.2s ease;
-  }
+	&--active {
+		display: block;
+		animation: fadeIn 0.2s ease;
+	}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(0.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(0.5rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

@@ -25,7 +25,6 @@
 			color: #1e2124;
 			font-size: to-rem(24);
 			font-weight: 700;
-			line-height: 1.5;
 			margin-left: to-rem(10);
 
 			@include tablet {
@@ -36,14 +35,19 @@
 
 	.menu-section {
 		border-bottom: 1px solid #e5e8eb;
-
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		width: 100%;
 		&.is-active {
 			.menu-section-title {
-				border-bottom: 3px solid $primary-color;
-				background: #eef2f7;
+				border-bottom: 3px solid var(--color-primary-pr07, #244874);
+				background: var(--color-action-secondary-selected, #eef2f7);
+				box-sizing: border-box;
 			}
 			.menu-section-title .menu-title-text {
-				color: $primary-color;
+				color: var(--color-primary-pr08, #18304d);
 			}
 		}
 
@@ -53,16 +57,18 @@
 
 		.menu-section-title {
 			width: 100%;
+			min-height: 58px;
 			@include flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: to-rem(16) to-rem(20);
 			font-size: to-rem(16);
 			font-weight: 500;
 			border: none;
 			cursor: pointer;
-			transition: all 0.2s ease-in-out;
 			text-align: left;
+			padding: 16px 0;
+			padding-left: to-rem(20);
+			padding-right: to-rem(20);
 
 			&:hover {
 				background: #f3f4f6;
@@ -70,8 +76,11 @@
 			}
 
 			&.expanded {
-				background: #e3f2fd;
-				color: $primary-color;
+				border-bottom: 3px solid var(--color-primary-pr07, #244874);
+				background: var(--color-action-secondary-selected, #eef2f7);
+				.menu-title-text {
+					color: var(--color-primary-pr08, #18304d);
+				}
 
 				.menu-arrow {
 					transform: rotate(180deg);
@@ -115,50 +124,60 @@
 			overflow: hidden;
 			transition: max-height 0.3s ease-in-out;
 			background: #ffffff;
+			margin: 10px 0;
+			display: none;
+			width: 100%;
 
 			&.expanded {
 				max-height: to-rem(500);
+				display: block;
 			}
 
 			.menu-item {
+				width: 100%;
+				margin-bottom: 5px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				&.is-active {
+					.menu-link {
+						border-radius: var(--radius-medium2, 6px);
+						background: var(--color-action-secondary-selected, #eef2f7);
+						color: var(--color-primary-pr08, #18304d);
+						font-weight: 700;
+					}
+				}
+
 				.menu-link {
 					@include flex;
 					align-items: center;
-					padding: to-rem(12) to-rem(20) to-rem(12) to-rem(40);
+					padding: to-rem(16) to-rem(20) to-rem(16) to-rem(40);
 					color: $gray-900;
 					font-weight: 500;
 					text-decoration: none;
-					font-size: to-rem(16);
-					line-height: 1.5;
+					font-size: to-rem(17);
+					line-height: 1;
 					transition: all 0.2s ease-out;
 					background: #ffffff;
 					position: relative;
-					border-left: 3px solid transparent;
 
-					// 아이콘을 위한 before 가상 요소
 					&::before {
 						content: '';
 						position: absolute;
-						left: to-rem(20);
+						left: 20px;
 						top: 50%;
 						transform: translateY(-50%);
-						width: to-rem(6);
-						height: to-rem(6);
-						background: $gray-400;
+						bottom: 0;
+						width: 4px;
+						height: 4px;
 						border-radius: 50%;
-						transition: all 0.2s ease-out;
+						background: #323333;
 					}
 
 					&:hover {
-						background-color: #f8faff;
-						color: $primary-color;
-						border-left-color: rgba($primary-color, 0.3);
+						border-radius: var(--radius-medium2, 6px);
+						background: var(--color-action-secondary-selected, #eef2f7);
 						transform: translateX(2px);
-
-						&::before {
-							background: $primary-color;
-							transform: translateY(-50%) scale(1.2);
-						}
 					}
 
 					// 클릭 효과 (활성화 시뮬레이션)

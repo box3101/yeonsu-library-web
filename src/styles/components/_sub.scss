@@ -50,7 +50,7 @@
 
 		&:hover {
 			background: #f8f9fa;
-			
+
 			img {
 				filter: brightness(0) saturate(100%) invert(40%) sepia(73%) saturate(1295%) hue-rotate(202deg) brightness(97%) contrast(89%);
 			}
@@ -82,17 +82,17 @@
 			border-radius: to-rem(6) !important;
 			transition: background-color 0.2s ease;
 			box-shadow: none !important;
-			
+
 			&:hover {
 				background: #f8f9fa !important;
 			}
-			
+
 			&:focus {
 				outline: none !important;
 				background: #f8f9fa !important;
 			}
 		}
-		
+
 		.ui-select__icon {
 			width: to-rem(16);
 			height: to-rem(16);
@@ -399,7 +399,7 @@
 
 /* ========================================
    만족도 조사 컴포넌트 (UiUserFeedback)
-   - 서브페이지 하단 공통 컴포넌트  
+   - 서브페이지 하단 공통 컴포넌트
    - 5점 척도 라디오 버튼 + 의견 입력 + 제출 버튼
    - Figma 디자인 기반 구현
 ======================================== */
@@ -3085,7 +3085,6 @@
 		color: #666;
 		transition: all 0.2s ease;
 		position: relative;
-		white-space: nowrap;
 		text-align: center;
 		cursor: pointer;
 		display: flex;
@@ -3095,6 +3094,7 @@
 		border: 1px solid #cbcccc;
 		background: #f1f2f2;
 		min-height: to-rem(150);
+		min-width: to-rem(146);
 
 		&:after {
 			display: none;
