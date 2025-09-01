@@ -34,8 +34,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **File Watching & Monitoring**
 
-- `npm run watch:scss` - Watch SCSS files for changes
-- `npm run watch:files` - Watch Astro/TS/JS files for changes
+- `npm run watch:scss` - Watch SCSS files for changes (not yet implemented)
+- `npm run watch:files` - Watch Astro/TS/JS files for changes (not yet implemented)
 
 **Scripts & Utilities**
 
@@ -43,12 +43,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run update-guide` - Update project guide (placeholder - not implemented)
 - `npm run setup-hooks` - Setup Git hooks (placeholder - not implemented)
 - `npm run pre-commit` - Pre-commit hook (runs update-guide)
+- `npm run sass` - Direct SCSS compilation with watch mode
 
 ## Architecture Overview
 
 ### Tech Stack
 
-- **Framework**: Astro 2.0.6 (static site generation)
+- **Framework**: Astro 4.15.0 (static site generation)
 - **Styling**: SCSS with 7-1 architecture + BEM methodology
 - **JavaScript**: **Vanilla JS only** (TypeScript prohibited per .cursorrules)
 - **State Management**: Nanostores for client-side state (configured but not actively used)
@@ -245,7 +246,7 @@ Menu configuration is centralized in `src/data/menuData.ts` with TypeScript inte
 
 **JSP Compatibility**:
 - `npm run build:jsp` removes Astro-specific attributes from HTML
-- Uses custom script (`scripts/remove-astro-attrs.cjs`) for post-processing
+- Uses custom script (`scripts/format-tags.cjs`) for post-processing
 - Ensures compatibility with JSP template systems
 
 ### Testing Strategy

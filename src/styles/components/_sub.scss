@@ -4755,6 +4755,13 @@ div.bookshelf-item {
 	}
 }
 
+.is-mo-show {
+	display: none;
+	@include mobile {
+		display: block;
+	}
+}
+
 .terms-agreement {
 	.ui-checkbox--medium .ui-checkbox__title,
 	.ui-checkbox--large .ui-checkbox__title {

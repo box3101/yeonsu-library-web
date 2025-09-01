@@ -228,7 +228,8 @@ const allNoticeItems = [
 	{
 		tag: '선학별빛',
 		tagClass: 'notice-item__tag--pink',
-		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		title:
+			'선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
 		date: '07.05',
 		isBold: false,
 	},
@@ -257,7 +258,8 @@ const allNoticeItems = [
 	{
 		tag: '선학별빛',
 		tagClass: 'notice-item__tag--pink',
-		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		title:
+			'선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
 		date: '07.05',
 		isBold: false,
 	},
@@ -286,7 +288,8 @@ const allNoticeItems = [
 	{
 		tag: '선학별빛',
 		tagClass: 'notice-item__tag--pink',
-		title: '선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+		title:
+			'선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
 		date: '07.05',
 		isBold: false,
 	},
@@ -365,12 +368,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 					<div class="search-input">
 						<form class="search-input__form">
 							<div class="search-input__container">
-								<input
-									type="text"
-									class="search-input__field"
-									placeholder="찾고 싶은 도서의 내용을 입력하세요."
-									aria-label="검색어 입력"
-								/>
+								<input type="text" class="search-input__field" placeholder="찾고 싶은 도서의 내용을 입력하세요." aria-label="검색어 입력" />
 								<button type="submit" class="search-input__button" aria-label="검색">
 									<img src="./assets/images/icon/icon-search-large.svg" alt="검색" width="40" height="40" />
 								</button>
@@ -592,10 +590,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 																				<div class="event-card__info-item">
 																					<span class="event-card__label">모집인원</span>
 																					<span class="event-card__value">
-																						<span class="event-card__highlight">
-																							{card.enrollment.current}
-																						</span>
-																						/{card.enrollment.total}
+																						<span class="event-card__highlight">{card.enrollment.current}</span>/{card.enrollment.total}
 																						{card.enrollment.status || ''}
 																					</span>
 																				</div>
@@ -608,10 +603,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 																				<div class="event-card__info-item">
 																					<span class="event-card__label">예비인원</span>
 																					<span class="event-card__value">
-																						<span class="event-card__highlight">
-																							{card.waitlist.current}
-																						</span>
-																						/{card.waitlist.total}
+																						<span class="event-card__highlight">{card.waitlist.current}</span>/{card.waitlist.total}
 																					</span>
 																				</div>
 																			</div>
@@ -671,7 +663,8 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 						<div class="info-section__header">
 							<div class="info-section__left">
 								<h2 class="info-section__title">
-									연수구도서관 <span>한눈에 보기</span>
+									연수구도서관 <br class="is-mo-show" />
+									<span>한눈에 보기</span>
 								</h2>
 								<UiSelect
 									name="library-select"
@@ -681,7 +674,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 										{ value: 'songdo', label: '송도국제어린이도서관' },
 									]}
 									value="yeonsu"
-									class="w-180"
+									size="large"
 								/>
 							</div>
 						</div>
@@ -693,16 +686,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 					<div class="info-section__right-area">
 						<div class="info-section__right">
 							<h2 class="info-section__title">
-								도서관 <span>이용시간</span>
+								도서관 <br class="is-mo-show" /><span>이용시간</span>
 							</h2>
-							<UiButton
-								text="도서관 소개 바로가기"
-								variant="darkBlue"
-								size="large"
-								width="250px"
-								icon="icon-arr-right-white"
-								iconPosition="right"
-							/>
+							<UiButton text="도서관 소개 바로가기" variant="darkBlue" size="large" icon="icon-arr-right-white" iconPosition="right" />
 						</div>
 						<div class="info-section__schedule-area" data-aos="fade-up" data-aos-duration="500">
 							<!-- 휴관일 안내 -->
@@ -840,10 +826,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 																	{section.title} <span class="library-hours__floor">{section.floor}</span>
 																</h5>
 																{section.times.map((time, timeIndex) => (
-																	<div
-																		class="library-hours__time"
-																		key={`${pageIndex}-${sectionIndex}-${timeIndex}`}
-																	>
+																	<div class="library-hours__time" key={`${pageIndex}-${sectionIndex}-${timeIndex}`}>
 																		{time.days} <span>{time.hours}</span>
 																	</div>
 																))}
@@ -859,9 +842,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 								<!-- 페이지네이션 -->
 								<div class="library-hours__pagination">
 									<span class="library-hours__page-info">
-										<span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total"
-											>{libraryHours.length}</span
-										>
+										<span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">
+											{libraryHours.length}
+										</span>
 									</span>
 									<div class="library-hours__nav">
 										<UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />

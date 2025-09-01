@@ -4,318 +4,318 @@
 @use '../variables/typography' as *;
 
 .ui-select {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 
-  // Width variants
-  &--width-auto {
-    width: auto;
+	// Width variants
+	&--width-auto {
+		width: auto;
 
-    @include mobile {
-      min-width: to-rem(100);
-    }
-  }
+		@include mobile {
+			min-width: to-rem(100);
+		}
+	}
 
-  &--width-full {
-    width: 100%;
-  }
+	&--width-full {
+		width: 100%;
+	}
 
-  &--width-fit {
-    width: fit-content;
-    min-width: to-rem(80);
+	&--width-fit {
+		width: fit-content;
+		min-width: to-rem(80);
 
-    @include mobile {
-      min-width: to-rem(60);
-    }
-  }
+		@include mobile {
+			min-width: to-rem(60);
+		}
+	}
 
-  &__wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
+	&__wrapper {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+	}
 
-  &__element {
-    width: 100%;
-    padding: to-rem(0) to-rem(16) to-rem(0) to-rem(16);
-    min-width: to-rem(100);
-    border: 1px solid #d1d5db;
-    border-radius: to-rem(6);
-    background: $white;
-    font-family: $font-family-primary;
-    font-size: $ui-text-medium;
-    font-weight: $ui-font-normal;
-    color: $ui-text-primary;
-    appearance: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    height: $component-height-medium;
-    word-break: keep-all;
+	&__element {
+		width: 100%;
+		padding: to-rem(0) to-rem(16) to-rem(0) to-rem(16);
+		min-width: to-rem(100);
+		border: 1px solid #d1d5db;
+		border-radius: to-rem(6);
+		background: $white;
+		font-family: $font-family-primary;
+		font-size: $ui-text-medium;
+		font-weight: $ui-font-normal;
+		color: $ui-text-primary;
+		appearance: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		height: $component-height-medium;
+		word-break: keep-all;
 
-    @include mobile {
-      padding: to-rem(0) to-rem(36) to-rem(0) to-rem(14);
-      font-size: $ui-text-medium-mobile;
-      height: $component-height-medium-mobile;
-      border-radius: to-rem(4);
-    }
+		@include mobile {
+			padding: to-rem(0) to-rem(36) to-rem(0) to-rem(14);
+			font-size: $ui-text-medium-mobile;
+			height: $component-height-medium-mobile;
+			border-radius: to-rem(4);
+		}
 
-    &:focus {
-      outline: to-rem(2) solid $primary-color;
-      outline-offset: to-rem(2);
-      border-color: $primary-color;
-    }
+		&:focus {
+			outline: to-rem(2) solid $primary-color;
+			outline-offset: to-rem(2);
+			border-color: $primary-color;
+		}
 
-    &:disabled {
-      background: $gray-50;
-      color: $ui-text-disabled;
-      cursor: not-allowed;
-      border-color: $gray-200;
-    }
+		&:disabled {
+			background: $gray-50;
+			color: $ui-text-disabled;
+			cursor: not-allowed;
+			border-color: $gray-200;
+		}
 
-    &:hover:not(:disabled) {
-      border-color: $gray-600;
-    }
-  }
+		&:hover:not(:disabled) {
+			border-color: $gray-600;
+		}
+	}
 
-  // 선택 완료 상태
-  &--filled &__element {
-    border-color: $ui-filled-border;
+	// 선택 완료 상태
+	&--filled &__element {
+		border-color: $ui-filled-border;
 
-    &:focus {
-      border-color: $primary-color;
-    }
+		&:focus {
+			border-color: $primary-color;
+		}
 
-    &:hover:not(:disabled) {
-      border-color: $ui-filled-border;
-    }
-  }
+		&:hover:not(:disabled) {
+			border-color: $ui-filled-border;
+		}
+	}
 
-  // Size variants
-  &--xsmall &__element {
-    padding: to-rem(8) to-rem(28) to-rem(8) to-rem(8);
-    font-size: $ui-text-xsmall;
-    height: $component-height-xsmall;
-    border-radius: to-rem(4);
+	// Size variants
+	&--xsmall &__element {
+		padding: to-rem(8) to-rem(28) to-rem(8) to-rem(8);
+		font-size: $ui-text-xsmall;
+		height: $component-height-xsmall;
+		border-radius: to-rem(4);
 
-    @include mobile {
-      padding: to-rem(0) to-rem(26) to-rem(0) to-rem(6);
-      font-size: $ui-text-xsmall-mobile;
-      height: $component-height-xsmall-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(0) to-rem(26) to-rem(0) to-rem(6);
+			font-size: $ui-text-xsmall-mobile;
+			height: $component-height-xsmall-mobile;
+		}
+	}
 
-  &--small &__element {
-    padding: to-rem(12) to-rem(36) to-rem(12) to-rem(12);
-    font-size: $ui-text-small;
-    height: $component-height-small;
-    border-radius: to-rem(4);
+	&--small &__element {
+		padding: to-rem(12) to-rem(36) to-rem(12) to-rem(12);
+		font-size: $ui-text-small;
+		height: $component-height-small;
+		border-radius: to-rem(4);
 
-    @include mobile {
-      padding: to-rem(0) to-rem(32) to-rem(0) to-rem(10);
-      font-size: $ui-text-small-mobile;
-      height: $component-height-small-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(0) to-rem(32) to-rem(0) to-rem(10);
+			font-size: $ui-text-small-mobile;
+			height: $component-height-small-mobile;
+		}
+	}
 
-  &--large &__element {
-    padding: to-rem(20) to-rem(44) to-rem(20) to-rem(20);
-    font-size: $ui-text-large;
-    height: $component-height-large;
-    border-radius: to-rem(8);
+	&--large &__element {
+		padding: to-rem(0) to-rem(44) to-rem(0) to-rem(20);
+		font-size: $ui-text-large;
+		height: $component-height-large;
+		border-radius: to-rem(8);
 
-    @include mobile {
-      padding: to-rem(0) to-rem(40) to-rem(0) to-rem(16);
-      font-size: $ui-text-large-mobile;
-      height: $component-height-large-mobile;
-      border-radius: to-rem(6);
-    }
-  }
+		@include mobile {
+			padding: to-rem(0) to-rem(40) to-rem(0) to-rem(16);
+			font-size: $ui-text-large-mobile;
+			height: $component-height-large-mobile;
+			border-radius: to-rem(6);
+		}
+	}
 
-  &--xlarge &__element {
-    padding: to-rem(24) to-rem(48) to-rem(24) to-rem(24);
-    font-size: $ui-text-xlarge;
-    height: $component-height-xlarge;
-    border-radius: to-rem(8);
+	&--xlarge &__element {
+		padding: to-rem(24) to-rem(48) to-rem(24) to-rem(24);
+		font-size: $ui-text-xlarge;
+		height: $component-height-xlarge;
+		border-radius: to-rem(8);
 
-    @include mobile {
-      padding: to-rem(0) to-rem(44) to-rem(0) to-rem(20);
-      font-size: $ui-text-xlarge-mobile;
-      height: $component-height-xlarge-mobile;
-      border-radius: to-rem(6);
-    }
-  }
+		@include mobile {
+			padding: to-rem(0) to-rem(44) to-rem(0) to-rem(20);
+			font-size: $ui-text-xlarge-mobile;
+			height: $component-height-xlarge-mobile;
+			border-radius: to-rem(6);
+		}
+	}
 
-  // Ghost variant
-  &--ghost &__element {
-    border: none;
-    background: transparent;
-    color: $gray-900;
-    font-weight: 600;
-    padding: to-rem(8) to-rem(24) to-rem(8) to-rem(5);
-    min-height: auto;
-    min-width: max-content;
+	// Ghost variant
+	&--ghost &__element {
+		border: none;
+		background: transparent;
+		color: $gray-900;
+		font-weight: 600;
+		padding: to-rem(8) to-rem(24) to-rem(8) to-rem(5);
+		min-height: auto;
+		min-width: max-content;
 
-    @include mobile {
-      padding: to-rem(6) to-rem(20) to-rem(6) 0;
-      font-size: to-rem(14);
-    }
+		@include mobile {
+			padding: to-rem(6) to-rem(20) to-rem(6) 0;
+			font-size: to-rem(14);
+		}
 
-    &:focus {
-      outline: none;
-      background: rgba(37, 110, 244, 0.1);
-      border-radius: to-rem(4);
-    }
+		&:focus {
+			outline: none;
+			background: rgba(37, 110, 244, 0.1);
+			border-radius: to-rem(4);
+		}
 
-    &:hover:not(:disabled) {
-      background: $gray-50;
-      border-radius: to-rem(4);
-    }
-  }
+		&:hover:not(:disabled) {
+			background: $gray-50;
+			border-radius: to-rem(4);
+		}
+	}
 
-  &--ghost &__arrow {
-    right: 0;
+	&--ghost &__arrow {
+		right: 0;
 
-    @include mobile {
-      right: to-rem(-2);
-    }
-  }
+		@include mobile {
+			right: to-rem(-2);
+		}
+	}
 
-  &--ghost.ui-select--xsmall &__element {
-    padding: to-rem(4) to-rem(16) to-rem(4) 0;
-    font-size: $ui-text-xsmall;
+	&--ghost.ui-select--xsmall &__element {
+		padding: to-rem(4) to-rem(16) to-rem(4) 0;
+		font-size: $ui-text-xsmall;
 
-    @include mobile {
-      padding: to-rem(2) to-rem(14) to-rem(2) 0;
-      font-size: $ui-text-xsmall-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(2) to-rem(14) to-rem(2) 0;
+			font-size: $ui-text-xsmall-mobile;
+		}
+	}
 
-  &--ghost.ui-select--small &__element {
-    padding: to-rem(6) to-rem(20) to-rem(6) 0;
-    font-size: $ui-text-small;
+	&--ghost.ui-select--small &__element {
+		padding: to-rem(6) to-rem(20) to-rem(6) 0;
+		font-size: $ui-text-small;
 
-    @include mobile {
-      padding: to-rem(4) to-rem(18) to-rem(4) 0;
-      font-size: $ui-text-small-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(4) to-rem(18) to-rem(4) 0;
+			font-size: $ui-text-small-mobile;
+		}
+	}
 
-  &--ghost.ui-select--large &__element {
-    padding: to-rem(10) to-rem(28) to-rem(10) 0;
-    font-size: $ui-text-large;
+	&--ghost.ui-select--large &__element {
+		padding: to-rem(10) to-rem(28) to-rem(10) 0;
+		font-size: $ui-text-large;
 
-    @include mobile {
-      padding: to-rem(8) to-rem(24) to-rem(8) 0;
-      font-size: $ui-text-large-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(8) to-rem(24) to-rem(8) 0;
+			font-size: $ui-text-large-mobile;
+		}
+	}
 
-  &--ghost.ui-select--xlarge &__element {
-    padding: to-rem(12) to-rem(32) to-rem(12) 0;
-    font-size: $ui-text-xlarge;
+	&--ghost.ui-select--xlarge &__element {
+		padding: to-rem(12) to-rem(32) to-rem(12) 0;
+		font-size: $ui-text-xlarge;
 
-    @include mobile {
-      padding: to-rem(10) to-rem(28) to-rem(10) 0;
-      font-size: $ui-text-xlarge-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(10) to-rem(28) to-rem(10) 0;
+			font-size: $ui-text-xlarge-mobile;
+		}
+	}
 
-  &__arrow {
-    position: absolute;
-    right: to-rem(16);
-    top: 50%;
-    transform: translateY(-50%);
-    width: to-rem(16);
-    height: to-rem(16);
-    color: $gray-600;
-    pointer-events: none;
-    transition: transform 0.2s ease;
+	&__arrow {
+		position: absolute;
+		right: to-rem(16);
+		top: 50%;
+		transform: translateY(-50%);
+		width: to-rem(16);
+		height: to-rem(16);
+		color: $gray-600;
+		pointer-events: none;
+		transition: transform 0.2s ease;
 
-    @include mobile {
-      right: to-rem(14);
-      width: to-rem(14);
-      height: to-rem(14);
-    }
+		@include mobile {
+			right: to-rem(14);
+			width: to-rem(14);
+			height: to-rem(14);
+		}
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
 
-  // Xsmall variant arrow
-  &--xsmall &__arrow {
-    right: to-rem(8);
-    width: to-rem(12);
-    height: to-rem(12);
+	// Xsmall variant arrow
+	&--xsmall &__arrow {
+		right: to-rem(8);
+		width: to-rem(12);
+		height: to-rem(12);
 
-    @include mobile {
-      right: to-rem(6);
-      width: to-rem(10);
-      height: to-rem(10);
-    }
-  }
+		@include mobile {
+			right: to-rem(6);
+			width: to-rem(10);
+			height: to-rem(10);
+		}
+	}
 
-  // Small variant arrow
-  &--small &__arrow {
-    right: to-rem(12);
-    width: to-rem(14);
-    height: to-rem(14);
+	// Small variant arrow
+	&--small &__arrow {
+		right: to-rem(12);
+		width: to-rem(14);
+		height: to-rem(14);
 
-    @include mobile {
-      right: to-rem(10);
-      width: to-rem(12);
-      height: to-rem(12);
-    }
-  }
+		@include mobile {
+			right: to-rem(10);
+			width: to-rem(12);
+			height: to-rem(12);
+		}
+	}
 
-  // Large variant arrow
-  &--large &__arrow {
-    right: to-rem(20);
-    width: to-rem(18);
-    height: to-rem(18);
+	// Large variant arrow
+	&--large &__arrow {
+		right: to-rem(20);
+		width: to-rem(18);
+		height: to-rem(18);
 
-    @include mobile {
-      right: to-rem(16);
-      width: to-rem(16);
-      height: to-rem(16);
-    }
-  }
+		@include mobile {
+			right: to-rem(16);
+			width: to-rem(16);
+			height: to-rem(16);
+		}
+	}
 
-  // Xlarge variant arrow
-  &--xlarge &__arrow {
-    right: to-rem(24);
-    width: to-rem(20);
-    height: to-rem(20);
+	// Xlarge variant arrow
+	&--xlarge &__arrow {
+		right: to-rem(24);
+		width: to-rem(20);
+		height: to-rem(20);
 
-    @include mobile {
-      right: to-rem(20);
-      width: to-rem(18);
-      height: to-rem(18);
-    }
-  }
+		@include mobile {
+			right: to-rem(20);
+			width: to-rem(18);
+			height: to-rem(18);
+		}
+	}
 
-  // 포커스 시 화살표 회전
-  &__element:focus + &__arrow {
-    transform: translateY(-50%) rotate(180deg);
-  }
+	// 포커스 시 화살표 회전
+	&__element:focus + &__arrow {
+		transform: translateY(-50%) rotate(180deg);
+	}
 }
 .ui-select-container--error {
-  .ui-select__element {
-    border-color: $error-color;
-  }
+	.ui-select__element {
+		border-color: $error-color;
+	}
 }
 .ui-select__help {
-  position: absolute;
-  left: 0;
-  top: 111%;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  color: $gray-500;
+	position: absolute;
+	left: 0;
+	top: 111%;
+	font-size: 0.75rem;
+	line-height: 1.4;
+	color: $gray-500;
 }
 .ui-select__help--error {
-  color: $error-color;
+	color: $error-color;
 }
 .ui-select-container {
-  position: relative;
+	position: relative;
 }

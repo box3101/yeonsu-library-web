@@ -1026,6 +1026,12 @@
 			gap: to-rem(16);
 		}
 	}
+	&__left {
+		@include mobile {
+			width: 100%;
+			@include flex(row, space-between, center);
+		}
+	}
 
 	&__left,
 	&__right {

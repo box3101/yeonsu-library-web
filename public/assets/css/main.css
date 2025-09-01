@@ -63958,6 +63958,15 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 
+.is-mo-show {
+  display: none;
+}
+@media (max-width: 900px) {
+  .is-mo-show {
+    display: block;
+  }
+}
+
 .terms-agreement .ui-checkbox--medium .ui-checkbox__title,
 .terms-agreement .ui-checkbox--large .ui-checkbox__title {
   font-size: 1.1875rem;
@@ -74928,7 +74937,7 @@ body.modal-open {
   }
 }
 .ui-select--large .ui-select__element {
-  padding: 1.25rem 2.75rem 1.25rem 1.25rem;
+  padding: 0rem 2.75rem 1.25rem 1.25rem;
   font-size: 1.125rem;
   height: 3.5rem;
   border-radius: 0.5rem;
@@ -79974,6 +79983,16 @@ body.modal-open {
   .info-section__header {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+@media (max-width: 900px) {
+  .info-section__left {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
   }
 }
 .info-section__left, .info-section__right {
