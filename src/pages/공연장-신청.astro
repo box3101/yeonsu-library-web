@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiTextarea, UiSelect, UiDatePicker, UiRadio, UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '공연장 신청' }];
+
+// 공연장 신청 탭 데이터
+const hallApplicationTabs = [
+	{ id: 'cheonghak', label: '청학', active: true },
+	{ id: 'yeonsukkumdam', label: '연수꿈담' },
+	{ id: 'songdo', label: '송도국제' },
+	{ id: 'haedogi', label: '해돋이' },
+	{ id: 'sunhak', label: '선학별빛' },
+	{ id: 'hambakriyu', label: '함박비류' },
+];
+---
+
+<Layout title="공연장 신청">
+	<SubLayout title="공연장 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 탭 네비게이션 -->
+		<UiTab tabs={hallApplicationTabs} variant="default" size="medium" showCount={false} className="mb-4 search-type-tabs ui-tab--grid-5" />
+
+		<div class="ui-tab-panel ui-tab-panel--active" id="cheonghak">
+			<div class="com-title-type2">
+				<p>대관정보</p>
+				<dl class="info-list">
+					<div class="info-list__item">
+						<dt class="info-list__term">도서관</dt>
+						<dd class="info-list__description">연수청학도서관</dd>
+					</div>
+					<div class="info-list__item">
+						<dt class="info-list__term">희망날짜</dt>
+						<dd class="info-list__description">2025-08-18</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

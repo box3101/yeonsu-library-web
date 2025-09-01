@@ -59369,10 +59369,11 @@ a:hover .icon-external-link {
   font-size: 1.1875rem !important;
   font-weight: 700 !important;
   color: #1e2124 !important;
-  padding: 0.5rem !important;
+  padding: 0 30px !important;
   border-radius: 0.375rem !important;
   transition: background-color 0.2s ease;
   box-shadow: none !important;
+  padding: 0 30px;
 }
 .hall-calendar__year-select .ui-select__element:hover, .hall-calendar__month-select .ui-select__element:hover {
   background: #f8f9fa !important;
@@ -59495,7 +59496,8 @@ a:hover .icon-external-link {
   gap: 0.25rem;
   padding: 0.375rem 0.75rem;
   border-radius: 1.125rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+  letter-spacing: -1px;
   font-weight: 400;
   color: white;
   text-align: center;
@@ -59519,6 +59521,7 @@ a:hover .icon-external-link {
   .hall-calendar__status {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
+    flex-direction: column;
   }
 }
 .hall-calendar__buttons {
@@ -62152,6 +62155,7 @@ a:hover .icon-external-link {
   .search-type-tabs .ui-tab__button {
     flex-shrink: 0;
     min-width: max-content;
+    min-height: 50px;
   }
 }
 .search-type-tabs .ui-tab__button--active {

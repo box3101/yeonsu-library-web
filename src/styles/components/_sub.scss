@@ -78,10 +78,11 @@
 			font-size: to-rem(19) !important;
 			font-weight: 700 !important;
 			color: #1e2124 !important;
-			padding: to-rem(8) !important;
+			padding: 0 30px !important;
 			border-radius: to-rem(6) !important;
 			transition: background-color 0.2s ease;
 			box-shadow: none !important;
+			padding: 0 30px;
 
 			&:hover {
 				background: #f8f9fa !important;
@@ -226,7 +227,8 @@
 		gap: to-rem(4);
 		padding: to-rem(6) to-rem(12);
 		border-radius: to-rem(18);
-		font-size: to-rem(15);
+		font-size: to-rem(14);
+		letter-spacing: -1px;
 		font-weight: 400;
 		color: white;
 		text-align: center;
@@ -252,6 +254,7 @@
 		@include mobile {
 			font-size: to-rem(12);
 			padding: to-rem(4) to-rem(8);
+			flex-direction: column;
 		}
 	}
 
@@ -3033,6 +3036,7 @@
 		@include tablet {
 			flex-shrink: 0;
 			min-width: max-content;
+			min-height: 50px;
 		}
 
 		&--active {
@@ -4770,6 +4774,92 @@ div.bookshelf-item {
 		letter-spacing: -0.05em;
 		color: #191a1a;
 		font-weight: 700;
+	}
+}
+
+/* ========================================
+   공연장 대관정보 스타일 (com-title-type2)
+======================================== */
+
+.com-title-type2 {
+	background: #f8f9fa;
+	border: 1px solid #e9ecef;
+	border-radius: to-rem(12);
+	padding: to-rem(24);
+	margin-bottom: to-rem(32);
+
+	@include mobile {
+		padding: to-rem(16);
+		margin-bottom: to-rem(20);
+		border-radius: to-rem(8);
+	}
+
+	> p {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(20);
+		font-weight: 700;
+		line-height: 1.4;
+		color: #191a1a;
+		margin: 0 0 to-rem(16) 0;
+
+		@include mobile {
+			font-size: to-rem(18);
+			margin-bottom: to-rem(12);
+		}
+	}
+
+	.info-list {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(12);
+		margin: 0;
+		padding: 0;
+
+		@include mobile {
+			gap: to-rem(8);
+		}
+
+		&__item {
+			display: flex;
+			align-items: center;
+			gap: to-rem(16);
+			min-height: to-rem(40);
+
+			@include mobile {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: to-rem(4);
+				min-height: auto;
+			}
+		}
+
+		&__term {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(16);
+			font-weight: 600;
+			line-height: 1.5;
+			color: #495057;
+			width: to-rem(120);
+			flex-shrink: 0;
+
+			@include mobile {
+				width: auto;
+				font-size: to-rem(14);
+			}
+		}
+
+		&__description {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(16);
+			font-weight: 500;
+			line-height: 1.5;
+			color: #191a1a;
+			flex: 1;
+
+			@include mobile {
+				font-size: to-rem(14);
+			}
+		}
 	}
 }
 
