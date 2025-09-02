@@ -4361,11 +4361,20 @@ div.bookshelf-item {
 	color: #4b4d4d;
 	position: relative;
 	margin-top: 5px;
-	margin-bottom: 7px;
+	margin-bottom: 10px;
+	min-height: 29px;
+	display: flex;
+	align-items: flex-end;
 
 	// 모바일에서는 폰트 크기를 작게 조정
 	@include mobile {
 		font-size: 16px;
+	}
+
+	.text-red {
+		position: relative;
+		top: -8px;
+		left: 2px;
 	}
 }
 .sub-layout__content-inner-body-item-content-item-value {

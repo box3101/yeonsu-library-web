@@ -444,149 +444,147 @@
 			font-weight: 500;
 		}
 
-		// 기관별 색상 배지 - 기존 도서관들
-		&--전체 {
+		// 도서관 코드별 색상 배지 (코드 번호 기반)
+		&--0 {
 			background: transparent;
 			border: none;
 			color: $institution-전체;
 			font-weight: 500;
 		}
 
-		&--연수꿈담 {
-			background: transparent;
-			border: none;
-			color: $institution-연수꿈담;
-			font-weight: 500;
-		}
-
-		&--송도국제 {
+		&--128121 {
 			background: transparent;
 			color: $institution-송도국제;
 			font-weight: 500;
 		}
 
-		&--청학 {
-			background: transparent;
-			color: $institution-청학;
-			font-weight: 500;
-		}
-
-		&--누리공원 {
-			background: transparent;
-			color: $institution-누리공원;
-			font-weight: 500;
-		}
-
-		&--해돋이 {
-			background: transparent;
-			color: $institution-해돋이;
-			font-weight: 500;
-		}
-
-		&--해찬솔공원 {
-			background: transparent;
-			color: $institution-해찬솔공원;
-			font-weight: 500;
-		}
-
-		&--선학별빛 {
-			background: transparent;
-			color: $institution-선학별빛;
-			font-weight: 500;
-		}
-
-		// 추가 도서관들 - 누락된 도서관들
-		&--연수어린이 {
+		&--128005 {
 			background: transparent;
 			color: $institution-연수어린이;
 			font-weight: 500;
 		}
 
-		&--송도국제어린이 {
+		&--128058 {
+			background: transparent;
+			color: $institution-청학;
+			font-weight: 500;
+		}
+
+		&--128115 {
+			background: transparent;
+			color: $institution-연수꿈담;
+			font-weight: 500;
+		}
+
+		&--128047 {
 			background: transparent;
 			color: $institution-송도국제어린이;
 			font-weight: 500;
 		}
 
-		&--동춘나래 {
+		&--128099 {
+			background: transparent;
+			color: $institution-해돋이;
+			font-weight: 500;
+		}
+
+		&--128104 {
+			background: transparent;
+			color: $institution-선학별빛;
+			font-weight: 500;
+		}
+
+		&--128108 {
 			background: transparent;
 			color: $institution-동춘나래;
 			font-weight: 500;
 		}
 
-		&--함박비류 {
+		&--128109 {
 			background: transparent;
 			color: $institution-함박비류;
 			font-weight: 500;
 		}
 
-		&--옥련1동작은 {
+		&--128038 {
 			background: transparent;
 			color: $institution-옥련1동작은;
 			font-weight: 500;
 		}
 
-		&--옥련2동어린이작은 {
+		&--128011 {
 			background: transparent;
 			color: $institution-옥련2동어린이작은;
 			font-weight: 500;
 		}
 
-		&--연수1동작은 {
+		&--128100 {
 			background: transparent;
 			color: $institution-연수1동작은;
 			font-weight: 500;
 		}
 
-		&--송도2동작은 {
+		&--128086 {
 			background: transparent;
 			color: $institution-송도2동작은;
 			font-weight: 500;
 		}
 
-		&--송도3동작은 {
+		&--728143 {
 			background: transparent;
 			color: $institution-송도3동작은;
 			font-weight: 500;
 		}
 
-		&--송도5동작은 {
+		&--728211 {
 			background: transparent;
 			color: $institution-송도5동작은;
 			font-weight: 500;
 		}
 
-		&--문화공원작은 {
+		&--128082 {
 			background: transparent;
 			color: $institution-문화공원작은;
 			font-weight: 500;
 		}
 
-		&--솔안공원작은 {
+		&--728210 {
 			background: transparent;
 			color: $institution-솔안공원작은;
 			font-weight: 500;
 		}
 
-		&--송도4동스마트 {
+		&--728220 {
+			background: transparent;
+			color: $institution-해찬솔공원;
+			font-weight: 500;
+		}
+
+		&--728222 {
+			background: transparent;
+			color: $institution-누리공원;
+			font-weight: 500;
+		}
+
+		&--912345 {
 			background: transparent;
 			color: $institution-송도4동스마트;
 			font-weight: 500;
 		}
 
-		&--스퀘어원스마트 {
+		&--912346 {
 			background: transparent;
 			color: $institution-스퀘어원스마트;
 			font-weight: 500;
 		}
 
-		&--연수구청스마트 {
+		&--912347 {
 			background: transparent;
 			color: $institution-연수구청스마트;
 			font-weight: 500;
 		}
 
-		&--선학역스마트 {
+		&--912348 {
 			background: transparent;
 			color: $institution-선학역스마트;
 			font-weight: 500;

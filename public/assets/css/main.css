@@ -63618,12 +63618,20 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   color: #4b4d4d;
   position: relative;
   margin-top: 5px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
+  min-height: 29px;
+  display: flex;
+  align-items: flex-end;
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-body-item-content-item-label {
     font-size: 16px;
   }
+}
+.sub-layout__content-inner-body-item-content-item-label .text-red {
+  position: relative;
+  top: -8px;
+  left: 2px;
 }
 
 .sub-layout__content-inner-body-item-content-item-value {
@@ -74110,124 +74118,123 @@ body.modal-open {
   color: #ffacc1;
   font-weight: 500;
 }
-.ui-table__badge--전체 {
+.ui-table__badge--0 {
   background: transparent;
   border: none;
   color: #008f37;
   font-weight: 500;
 }
-.ui-table__badge--연수꿈담 {
-  background: transparent;
-  border: none;
-  color: #a3cf62;
-  font-weight: 500;
-}
-.ui-table__badge--송도국제 {
+.ui-table__badge--128121 {
   background: transparent;
   color: #8e63aa;
   font-weight: 500;
 }
-.ui-table__badge--청학 {
-  background: transparent;
-  color: #7fa7d7;
-  font-weight: 500;
-}
-.ui-table__badge--누리공원 {
-  background: transparent;
-  color: #7b19d7;
-  font-weight: 500;
-}
-.ui-table__badge--해돋이 {
-  background: transparent;
-  color: #ef6601;
-  font-weight: 500;
-}
-.ui-table__badge--해찬솔공원 {
-  background: transparent;
-  color: #189ba7;
-  font-weight: 500;
-}
-.ui-table__badge--선학별빛 {
-  background: transparent;
-  color: #ffacc1;
-  font-weight: 500;
-}
-.ui-table__badge--연수어린이 {
+.ui-table__badge--128005 {
   background: transparent;
   color: #4ade80;
   font-weight: 500;
 }
-.ui-table__badge--송도국제어린이 {
+.ui-table__badge--128058 {
+  background: transparent;
+  color: #7fa7d7;
+  font-weight: 500;
+}
+.ui-table__badge--128115 {
+  background: transparent;
+  color: #a3cf62;
+  font-weight: 500;
+}
+.ui-table__badge--128047 {
   background: transparent;
   color: #a855f7;
   font-weight: 500;
 }
-.ui-table__badge--동춘나래 {
+.ui-table__badge--128099 {
+  background: transparent;
+  color: #ef6601;
+  font-weight: 500;
+}
+.ui-table__badge--128104 {
+  background: transparent;
+  color: #ffacc1;
+  font-weight: 500;
+}
+.ui-table__badge--128108 {
   background: transparent;
   color: #06b6d4;
   font-weight: 500;
 }
-.ui-table__badge--함박비류 {
+.ui-table__badge--128109 {
   background: transparent;
   color: #f59e0b;
   font-weight: 500;
 }
-.ui-table__badge--옥련1동작은 {
+.ui-table__badge--128038 {
   background: transparent;
   color: #10b981;
   font-weight: 500;
 }
-.ui-table__badge--옥련2동어린이작은 {
+.ui-table__badge--128011 {
   background: transparent;
   color: #8b5cf6;
   font-weight: 500;
 }
-.ui-table__badge--연수1동작은 {
+.ui-table__badge--128100 {
   background: transparent;
   color: #f97316;
   font-weight: 500;
 }
-.ui-table__badge--송도2동작은 {
+.ui-table__badge--128086 {
   background: transparent;
   color: #ec4899;
   font-weight: 500;
 }
-.ui-table__badge--송도3동작은 {
+.ui-table__badge--728143 {
   background: transparent;
   color: #14b8a6;
   font-weight: 500;
 }
-.ui-table__badge--송도5동작은 {
+.ui-table__badge--728211 {
   background: transparent;
   color: #84cc16;
   font-weight: 500;
 }
-.ui-table__badge--문화공원작은 {
+.ui-table__badge--128082 {
   background: transparent;
   color: #6366f1;
   font-weight: 500;
 }
-.ui-table__badge--솔안공원작은 {
+.ui-table__badge--728210 {
   background: transparent;
   color: #d946ef;
   font-weight: 500;
 }
-.ui-table__badge--송도4동스마트 {
+.ui-table__badge--728220 {
+  background: transparent;
+  color: #189ba7;
+  font-weight: 500;
+}
+.ui-table__badge--728222 {
+  background: transparent;
+  color: #7b19d7;
+  font-weight: 500;
+}
+.ui-table__badge--912345 {
   background: transparent;
   color: #22d3ee;
   font-weight: 500;
 }
-.ui-table__badge--스퀘어원스마트 {
+.ui-table__badge--912346 {
   background: transparent;
   color: #fb7185;
   font-weight: 500;
 }
-.ui-table__badge--연수구청스마트 {
+.ui-table__badge--912347 {
   background: transparent;
   color: #34d399;
   font-weight: 500;
 }
-.ui-table__badge--선학역스마트 {
+.ui-table__badge--912348 {
   background: transparent;
   color: #fbbf24;
   font-weight: 500;
@@ -80193,76 +80200,76 @@ body.modal-open {
   color: #ffffff;
   flex-shrink: 0;
 }
-.notice-item__tag--전체 {
+.notice-item__tag--0 {
   background: #008f37;
 }
-.notice-item__tag--연수꿈담 {
-  background: #a3cf62;
-}
-.notice-item__tag--송도국제 {
+.notice-item__tag--128121 {
   background: #8e63aa;
 }
-.notice-item__tag--청학 {
-  background: #7fa7d7;
-}
-.notice-item__tag--누리공원 {
-  background: #7b19d7;
-}
-.notice-item__tag--해돋이 {
-  background: #ef6601;
-}
-.notice-item__tag--해찬솔공원 {
-  background: #189ba7;
-}
-.notice-item__tag--선학별빛 {
-  background: #ffacc1;
-}
-.notice-item__tag--연수어린이 {
+.notice-item__tag--128005 {
   background: #4ade80;
 }
-.notice-item__tag--송도국제어린이 {
+.notice-item__tag--128058 {
+  background: #7fa7d7;
+}
+.notice-item__tag--128115 {
+  background: #a3cf62;
+}
+.notice-item__tag--128047 {
   background: #a855f7;
 }
-.notice-item__tag--동춘나래 {
+.notice-item__tag--128099 {
+  background: #ef6601;
+}
+.notice-item__tag--128104 {
+  background: #ffacc1;
+}
+.notice-item__tag--128108 {
   background: #06b6d4;
 }
-.notice-item__tag--함박비류 {
+.notice-item__tag--128109 {
   background: #f59e0b;
 }
-.notice-item__tag--옥련1동작은 {
+.notice-item__tag--128038 {
   background: #10b981;
 }
-.notice-item__tag--옥련2동어린이작은 {
+.notice-item__tag--128011 {
   background: #8b5cf6;
 }
-.notice-item__tag--연수1동작은 {
+.notice-item__tag--128100 {
   background: #f97316;
 }
-.notice-item__tag--송도2동작은 {
+.notice-item__tag--128086 {
   background: #ec4899;
 }
-.notice-item__tag--송도3동작은 {
+.notice-item__tag--728143 {
   background: #14b8a6;
 }
-.notice-item__tag--송도5동작은 {
+.notice-item__tag--728211 {
   background: #84cc16;
 }
-.notice-item__tag--문화공원작은 {
+.notice-item__tag--128082 {
   background: #6366f1;
 }
-.notice-item__tag--솔안공원작은 {
+.notice-item__tag--728210 {
   background: #d946ef;
 }
-.notice-item__tag--송도4동스마트 {
+.notice-item__tag--728220 {
+  background: #189ba7;
+}
+.notice-item__tag--728222 {
+  background: #7b19d7;
+}
+.notice-item__tag--912345 {
   background: #22d3ee;
 }
-.notice-item__tag--스퀘어원스마트 {
+.notice-item__tag--912346 {
   background: #fb7185;
 }
-.notice-item__tag--연수구청스마트 {
+.notice-item__tag--912347 {
   background: #34d399;
 }
-.notice-item__tag--선학역스마트 {
+.notice-item__tag--912348 {
   background: #fbbf24;
 }
 .notice-item__title {

@@ -598,101 +598,100 @@
 		color: $white;
 		flex-shrink: 0;
 
-		// 기존 도서관들
-		&--전체 {
+		// 도서관 코드별 배경색 (코드 번호 기반)
+		&--0 {
 			background: $institution-전체;
 		}
 
-		&--연수꿈담 {
-			background: $institution-연수꿈담;
-		}
-
-		&--송도국제 {
+		&--128121 {
 			background: $institution-송도국제;
 		}
 
-		&--청학 {
-			background: $institution-청학;
-		}
-
-		&--누리공원 {
-			background: $institution-누리공원;
-		}
-
-		&--해돋이 {
-			background: $institution-해돋이;
-		}
-
-		&--해찬솔공원 {
-			background: $institution-해찬솔공원;
-		}
-
-		&--선학별빛 {
-			background: $institution-선학별빛;
-		}
-
-		// 추가 도서관들 (코드 기반 매핑)
-		&--연수어린이 {
+		&--128005 {
 			background: $institution-연수어린이;
 		}
 
-		&--송도국제어린이 {
+		&--128058 {
+			background: $institution-청학;
+		}
+
+		&--128115 {
+			background: $institution-연수꿈담;
+		}
+
+		&--128047 {
 			background: $institution-송도국제어린이;
 		}
 
-		&--동춘나래 {
+		&--128099 {
+			background: $institution-해돋이;
+		}
+
+		&--128104 {
+			background: $institution-선학별빛;
+		}
+
+		&--128108 {
 			background: $institution-동춘나래;
 		}
 
-		&--함박비류 {
+		&--128109 {
 			background: $institution-함박비류;
 		}
 
-		&--옥련1동작은 {
+		&--128038 {
 			background: $institution-옥련1동작은;
 		}
 
-		&--옥련2동어린이작은 {
+		&--128011 {
 			background: $institution-옥련2동어린이작은;
 		}
 
-		&--연수1동작은 {
+		&--128100 {
 			background: $institution-연수1동작은;
 		}
 
-		&--송도2동작은 {
+		&--128086 {
 			background: $institution-송도2동작은;
 		}
 
-		&--송도3동작은 {
+		&--728143 {
 			background: $institution-송도3동작은;
 		}
 
-		&--송도5동작은 {
+		&--728211 {
 			background: $institution-송도5동작은;
 		}
 
-		&--문화공원작은 {
+		&--128082 {
 			background: $institution-문화공원작은;
 		}
 
-		&--솔안공원작은 {
+		&--728210 {
 			background: $institution-솔안공원작은;
 		}
 
-		&--송도4동스마트 {
+		&--728220 {
+			background: $institution-해찬솔공원;
+		}
+
+		&--728222 {
+			background: $institution-누리공원;
+		}
+
+		&--912345 {
 			background: $institution-송도4동스마트;
 		}
 
-		&--스퀘어원스마트 {
+		&--912346 {
 			background: $institution-스퀘어원스마트;
 		}
 
-		&--연수구청스마트 {
+		&--912347 {
 			background: $institution-연수구청스마트;
 		}
 
-		&--선학역스마트 {
+		&--912348 {
 			background: $institution-선학역스마트;
 		}
 	}
