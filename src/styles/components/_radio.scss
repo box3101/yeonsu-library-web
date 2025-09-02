@@ -165,3 +165,62 @@
   font-weight: $font-normal;
   width: 100%;
 }
+
+// 라디오 버튼 그룹 컨테이너
+.ui-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem(16);
+
+  // 세로 배치
+  &--vertical {
+    flex-direction: column;
+    gap: to-rem(12);
+  }
+
+  // 가로 배치 (기본값)
+  &--horizontal {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  // 2열 그리드
+  &--grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: to-rem(16);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: to-rem(12);
+    }
+  }
+
+  // 3열 그리드
+  &--grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: to-rem(16);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: to-rem(12);
+    }
+  }
+
+  // 4열 그리드
+  &--grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: to-rem(16);
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      gap: to-rem(12);
+    }
+  }
+
+  @include mobile {
+    gap: to-rem(12);
+  }
+}

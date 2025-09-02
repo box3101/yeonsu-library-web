@@ -54,8 +54,21 @@
   }
 
   &__container {
+    @include button-reset;
     @include flex(row, space-between, center);
     gap: to-rem(16);
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
   }
 
   &__title-badge {
@@ -90,25 +103,15 @@
   }
 
   &__toggle {
-    @include button-reset;
     @include flex(column, center, center);
     width: to-rem(24);
     height: to-rem(24);
     color: $secondary-color;
-    cursor: pointer;
     transition: transform 0.2s ease;
+    transform: rotate(0deg);
 
     &.is-active {
       transform: rotate(180deg);
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:focus {
-      outline: 2px solid $primary-color;
-      outline-offset: 2px;
     }
   }
 

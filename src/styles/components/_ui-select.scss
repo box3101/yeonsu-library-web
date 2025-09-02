@@ -10,9 +10,12 @@
 	// Width variants
 	&--width-auto {
 		width: auto;
+		min-width: to-rem(120);
+		max-width: to-rem(280);
 
 		@include mobile {
 			min-width: to-rem(100);
+			max-width: to-rem(240);
 		}
 	}
 
@@ -29,6 +32,36 @@
 		}
 	}
 
+	&--width-small {
+		width: to-rem(160);
+		max-width: to-rem(200);
+
+		@include mobile {
+			width: to-rem(140);
+			max-width: to-rem(180);
+		}
+	}
+
+	&--width-medium {
+		width: to-rem(220);
+		max-width: to-rem(280);
+
+		@include mobile {
+			width: to-rem(180);
+			max-width: to-rem(240);
+		}
+	}
+
+	&--width-large {
+		width: to-rem(320);
+		max-width: to-rem(400);
+
+		@include mobile {
+			width: to-rem(280);
+			max-width: to-rem(360);
+		}
+	}
+
 	&__wrapper {
 		position: relative;
 		display: inline-block;
@@ -37,7 +70,7 @@
 
 	&__element {
 		width: 100%;
-		padding: to-rem(0) to-rem(16) to-rem(0) to-rem(16);
+		padding: to-rem(0) to-rem(40) to-rem(0) to-rem(16);
 		min-width: to-rem(100);
 		border: 1px solid #d1d5db;
 		border-radius: to-rem(6);
@@ -51,6 +84,9 @@
 		transition: all 0.2s ease;
 		height: $component-height-medium;
 		word-break: keep-all;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		@include mobile {
 			padding: to-rem(0) to-rem(36) to-rem(0) to-rem(14);

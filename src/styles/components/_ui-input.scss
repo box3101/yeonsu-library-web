@@ -15,6 +15,9 @@
   font-weight: $font-medium;
   color: $gray-700;
   line-height: 1.4;
+  min-height: 1.225rem;
+  display: flex;
+  align-items: flex-start;
 
   .ui-input__required {
     color: $error-color;

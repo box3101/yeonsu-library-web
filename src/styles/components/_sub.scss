@@ -1454,9 +1454,9 @@
 
 	.radio-group {
 		display: flex;
+		flex-wrap: wrap;
 		gap: to-rem(16);
 		align-items: center;
-		height: 100%;
 	}
 
 	.birth-group {
@@ -3485,7 +3485,7 @@
 			width: to-rem(150);
 
 			@include tablet {
-				width: 100%;
+				// width: 100%;
 			}
 		}
 	}

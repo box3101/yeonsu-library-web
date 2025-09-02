@@ -25,6 +25,12 @@ $(document).ready(function () {
         $this.toggleClass('is-active');
         $target.toggleClass('is-active');
 
+        // 화살표 아이콘 토글 (카테고리 아이템용)
+        var $toggleIcon = $this.find('.ui-category-item__toggle');
+        if ($toggleIcon.length > 0) {
+          $toggleIcon.toggleClass('is-active');
+        }
+
         // aria 속성 업데이트
         $this.attr('aria-expanded', !isActive);
         $target.attr('aria-hidden', isActive);

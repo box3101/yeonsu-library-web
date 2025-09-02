@@ -15,23 +15,23 @@ const uniqueId = title.replace(/[^a-zA-Z0-9가-힣]/g, '-').toLowerCase();
 
 <div class={`ui-category-item ${className}`} data-accordion>
   <div class="ui-category-item__header">
-    <div class="ui-category-item__container">
+    <button 
+      class="ui-category-item__container"
+      data-toggle={uniqueId}
+      aria-expanded={isExpanded}
+      aria-label={`${title} 카테고리 ${isExpanded ? '접기' : '펼치기'}`}
+      type="button"
+    >
       <div class="ui-category-item__title-badge">
         <h3 class="ui-category-item__title">{title}</h3>
         <div class="ui-category-item__badge">
           <span class="ui-category-item__count">{count}</span>
         </div>
       </div>
-      <button
-        class="ui-category-item__toggle is-active"
-        data-toggle={uniqueId}
-        aria-expanded={isExpanded}
-        aria-label={`${title} 카테고리 ${isExpanded ? '접기' : '펼치기'}`}
-        type="button"
-      >
+      <div class="ui-category-item__toggle">
         <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
 
   <div class="ui-category-item__content is-active" data-toggle-target={uniqueId} aria-hidden={!isExpanded}>
