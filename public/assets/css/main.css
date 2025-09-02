@@ -375,6 +375,7 @@ button {
 }
 .card-container__item {
   display: flex;
+  width: 100%;
 }
 .card-container--col-1 .card-container__item {
   flex: 1 1 100%;
@@ -72715,7 +72716,7 @@ body.modal-open {
 }
 .ui-smart-library-book-card {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #ffffff;
   border: 1px solid #d1d5db;
   border-radius: 12px;
@@ -72736,7 +72737,7 @@ body.modal-open {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 24px;
+  width: auto;
   height: 24px;
   padding: 0 7px;
   gap: 10px;
