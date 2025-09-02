@@ -62082,6 +62082,11 @@ a:hover .icon-external-link {
   position: relative;
   margin-bottom: 2.625rem;
 }
+@media (max-width: 900px) {
+  .search-type-tabs {
+    margin-bottom: 15px;
+  }
+}
 .search-type-tabs.ui-tab--grid-6 .ui-tab__list {
   flex-wrap: wrap;
   overflow: hidden;
@@ -63985,6 +63990,92 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   letter-spacing: -0.05em;
   color: #191a1a;
   font-weight: 700;
+}
+
+/* ========================================
+   공연장 대관정보 스타일 (com-title-type2)
+======================================== */
+.com-title-type2 {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 900px) {
+  .com-title-type2 {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
+  }
+}
+.com-title-type2 > p {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #191a1a;
+  margin: 0 0 1rem 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2 > p {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+}
+.com-title-type2 .info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2 .info-list {
+    gap: 0.5rem;
+  }
+}
+.com-title-type2 .info-list__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 2.5rem;
+}
+@media (max-width: 900px) {
+  .com-title-type2 .info-list__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    min-height: auto;
+  }
+}
+.com-title-type2 .info-list__term {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #495057;
+  width: 7.5rem;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2 .info-list__term {
+    width: auto;
+    font-size: 0.875rem;
+  }
+}
+.com-title-type2 .info-list__description {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #191a1a;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .com-title-type2 .info-list__description {
+    font-size: 0.875rem;
+  }
 }
 
 /* ========================================
@@ -77063,35 +77154,47 @@ body.modal-open {
 @media (max-width: 900px) {
   .subtab-container {
     padding: 8px;
+    padding: 0;
   }
 }
 .subtab-container .subtab-list {
   display: flex;
   padding: 0.75rem;
+  padding-bottom: 5px;
   background: #f1f2f2;
   border-radius: 0.25rem;
-  overflow: hidden;
+  overflow-x: auto;
   margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
+  scrollbar-width: thin;
+  -ms-overflow-style: scrollbar;
+}
+.subtab-container .subtab-list::-webkit-scrollbar {
+  display: block;
+  height: 5px;
+}
+.subtab-container .subtab-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.subtab-container .subtab-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+.subtab-container .subtab-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 900px) {
   .subtab-container .subtab-list {
     margin-bottom: 16px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .subtab-container .subtab-list::-webkit-scrollbar {
-    display: none;
   }
 }
 .subtab-container .subtab-item {
-  flex: 1;
+  flex: 1 0 auto;
   background: #fff;
-  min-width: 5rem;
+  min-width: 7.5rem;
   height: 3.5rem;
-  padding: 0.5rem;
-  font-family: "Pretendard GOV", sans-serif;
+  padding: 0.5rem 1rem;
   font-weight: 700;
   font-size: 1.1875rem;
   line-height: 1.5;
@@ -77099,8 +77202,6 @@ body.modal-open {
   border: none;
   border-bottom: 2px solid #b1b8be;
   cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
   text-align: center;
   display: flex;
   align-items: center;
@@ -77108,7 +77209,7 @@ body.modal-open {
 }
 .subtab-container .subtab-item:hover {
   color: #052b57;
-  border-bottom-color: #063a74;
+  border-bottom: 4px solid #063a74;
 }
 .subtab-container .subtab-item.active {
   color: #052b57;

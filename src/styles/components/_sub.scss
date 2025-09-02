@@ -2946,6 +2946,10 @@
 	position: relative;
 	margin-bottom: to-rem(42);
 
+	@include mobile {
+		margin-bottom: 15px;
+	}
+
 	&.ui-tab--grid-6 {
 		.ui-tab__list {
 			flex-wrap: wrap;
