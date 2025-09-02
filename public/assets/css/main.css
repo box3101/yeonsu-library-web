@@ -58839,7 +58839,7 @@ h6 {
 }
 @media (max-width: 768px) {
   .ui-tab__button {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     height: 2.5rem;
   }
   .ui-tab__button:hover::after, .ui-tab__button--active::after {
@@ -59300,6 +59300,13 @@ a:hover .icon-external-link {
     max-width: 7.5rem;
   }
 }
+.notice-empty p {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+}
+
 /* ========================================
    공연장 달력 컴포넌트 - Hall Calendar
    - 피그마 디자인 기반 구현
@@ -79243,7 +79250,8 @@ body.modal-open {
   outline: 0.125rem solid #3c79c2;
   outline-offset: 0.125rem;
 }
-.search-input__button img, .search-input__button svg {
+.search-input__button img,
+.search-input__button svg {
   width: 100%;
   height: 100%;
 }
@@ -79251,10 +79259,15 @@ body.modal-open {
 .notice-section {
   width: 100%;
   padding: 3.75rem 0;
+  padding-bottom: 0;
+}
+.notice-section .notice-section__list-container {
+  overflow: hidden;
 }
 @media (max-width: 900px) {
   .notice-section {
     padding: 2rem 0;
+    padding-bottom: 0;
   }
 }
 .notice-section__content {
@@ -79270,10 +79283,12 @@ body.modal-open {
 }
 .notice-section__left {
   flex: 1;
+  min-width: 43.0625rem;
   max-width: 43.0625rem;
 }
 @media (max-width: 900px) {
   .notice-section__left {
+    min-width: auto;
     max-width: 100%;
   }
 }
@@ -79390,6 +79405,41 @@ body.modal-open {
   flex-direction: column;
   gap: 0.96875rem;
 }
+.notice-section__list-container .notice-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 0.96875rem;
+  overflow: hidden;
+  max-height: 18.75rem;
+  min-height: 18.75rem;
+}
+.notice-section__list-container .notice-list .notice-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  min-height: 3.75rem;
+}
+.notice-section__list-container .notice-list .notice-item.hidden {
+  display: none;
+}
+.notice-section__list-container .notice-list .notice-item.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.notice-section__list-container .notice-list .notice-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.notice-section__list-container .notice-list .notice-empty p {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+}
 
 .notice-item {
   padding: 0 1.5rem;
@@ -79432,9 +79482,8 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .notice-item__content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 .notice-item__info {
@@ -79450,9 +79499,8 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .notice-item__info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.25rem;
     width: 100%;
   }
 }
@@ -79463,7 +79511,7 @@ body.modal-open {
   align-items: center;
   flex-wrap: nowrap;
   height: 2rem;
-  min-width: 5.25rem;
+  min-width: auto;
   padding: 0 1rem;
   border-radius: 2rem;
   font-family: "Pretendard GOV", sans-serif;
@@ -79472,17 +79520,29 @@ body.modal-open {
   color: #ffffff;
   flex-shrink: 0;
 }
-.notice-item__tag--pink {
-  background: #ffacc1;
+.notice-item__tag--전체 {
+  background: #008f37;
 }
-.notice-item__tag--gray {
-  background: #666666;
+.notice-item__tag--연수꿈담 {
+  background: #a3cf62;
 }
-.notice-item__tag--orange {
+.notice-item__tag--송도국제 {
+  background: #8e63aa;
+}
+.notice-item__tag--청학 {
+  background: #7fa7d7;
+}
+.notice-item__tag--누리공원 {
+  background: #7b19d7;
+}
+.notice-item__tag--해돋이 {
   background: #ef6601;
 }
-.notice-item__tag--navy {
-  background: #40548c;
+.notice-item__tag--해찬솔공원 {
+  background: #189ba7;
+}
+.notice-item__tag--선학별빛 {
+  background: #ffacc1;
 }
 .notice-item__title {
   font-family: "Pretendard GOV", sans-serif;
@@ -79496,16 +79556,16 @@ body.modal-open {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.notice-item__title:hover {
-  font-weight: 700;
-}
 @media (max-width: 900px) {
   .notice-item__title {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: initial;
     font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+.notice-item__title:hover {
+  font-weight: 700;
 }
 .notice-item__date {
   font-family: "Pretendard GOV", sans-serif;
@@ -79517,7 +79577,6 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .notice-item__date {
-    align-self: flex-end;
     font-size: 0.875rem;
   }
 }
@@ -79610,6 +79669,7 @@ body.modal-open {
 .event-section {
   width: 100%;
   padding: 3.75rem 0;
+  padding-bottom: 0;
   background-image: url("../images/bg-event-section.png");
   background-size: cover;
   background-position: center;
@@ -79618,6 +79678,7 @@ body.modal-open {
 @media (max-width: 900px) {
   .event-section {
     padding: 2rem 0;
+    padding-bottom: 0;
   }
 }
 .event-section .container {
