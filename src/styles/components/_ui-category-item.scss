@@ -54,27 +54,21 @@
 	}
 
 	&__container {
-		@include button-reset;
 		@include flex(row, space-between, center);
 		gap: to-rem(16);
 		width: 100%;
+	}
+
+	&__title-badge {
+		@include flex(row, flex-start, center);
+		flex: none;
+		gap: to-rem(4);
 		cursor: pointer;
 		transition: all 0.2s ease;
 
 		&:hover {
 			opacity: 0.8;
 		}
-
-		&:focus {
-			outline: 2px solid $primary-color;
-			outline-offset: 2px;
-		}
-	}
-
-	&__title-badge {
-		@include flex(row, flex-start, center);
-		flex: 1;
-		gap: to-rem(4);
 	}
 
 	&__title {
@@ -103,15 +97,32 @@
 	}
 
 	&__toggle {
+		@include button-reset;
 		@include flex(column, center, center);
-		width: to-rem(24);
-		height: to-rem(24);
+		width: to-rem(44);
+		height: to-rem(44);
 		color: $secondary-color;
-		transition: transform 0.2s ease;
+		cursor: pointer;
+		transition: all 0.2s ease;
 		transform: rotate(0deg);
+		border-radius: to-rem(4);
+
+		&:hover {
+			background: rgba($primary-color, 0.1);
+		}
+
+		&:focus {
+			outline: 2px solid $primary-color;
+			outline-offset: 2px;
+		}
 
 		&.is-active {
 			transform: rotate(180deg);
+		}
+
+		img {
+			width: to-rem(24);
+			height: to-rem(24);
 		}
 	}
 

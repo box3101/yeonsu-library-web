@@ -78453,15 +78453,6 @@ body.modal-open {
   border-bottom-color: #e5e7eb;
 }
 .ui-category-item__container {
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-  text-decoration: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -78469,19 +78460,6 @@ body.modal-open {
   flex-wrap: nowrap;
   gap: 1rem;
   width: 100%;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.ui-category-item__container:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-.ui-category-item__container:hover {
-  opacity: 0.8;
-}
-.ui-category-item__container:focus {
-  outline: 2px solid #3c79c2;
-  outline-offset: 2px;
 }
 .ui-category-item__title-badge {
   display: flex;
@@ -78489,8 +78467,13 @@ body.modal-open {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
-  flex: 1;
+  flex: none;
   gap: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ui-category-item__title-badge:hover {
+  opacity: 0.8;
 }
 .ui-category-item__title {
   font-weight: 700;
@@ -78519,19 +78502,45 @@ body.modal-open {
   text-align: center;
 }
 .ui-category-item__toggle {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   color: #063a74;
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
   transform: rotate(0deg);
+  border-radius: 0.25rem;
+}
+.ui-category-item__toggle:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.ui-category-item__toggle:hover {
+  background: rgba(60, 121, 194, 0.1);
+}
+.ui-category-item__toggle:focus {
+  outline: 2px solid #3c79c2;
+  outline-offset: 2px;
 }
 .ui-category-item__toggle.is-active {
   transform: rotate(180deg);
+}
+.ui-category-item__toggle img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .ui-category-item__icon {
   width: 1.5rem;
