@@ -6,348 +6,461 @@
 
 // Spacing values (1px 단위로 변경)
 $spacing-values: (
-  0: 0,
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
-  6: 6,
-  7: 7,
-  8: 8,
-  9: 9,
-  10: 10,
-  11: 11,
-  12: 12,
-  13: 13,
-  14: 14,
-  15: 15,
-  16: 16,
-  17: 17,
-  18: 18,
-  19: 19,
-  20: 20,
-  21: 21,
-  22: 22,
-  23: 23,
-  24: 24,
-  25: 25,
-  26: 26,
-  27: 27,
-  28: 28,
-  29: 29,
-  30: 30,
-  32: 32,
-  36: 36,
-  40: 40,
-  44: 44,
-  48: 48,
-  56: 56,
-  64: 64,
-  72: 72,
-  80: 80,
-  96: 96,
-  112: 112,
-  128: 128,
+	0: 0,
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+	6: 6,
+	7: 7,
+	8: 8,
+	9: 9,
+	10: 10,
+	11: 11,
+	12: 12,
+	13: 13,
+	14: 14,
+	15: 15,
+	16: 16,
+	17: 17,
+	18: 18,
+	19: 19,
+	20: 20,
+	21: 21,
+	22: 22,
+	23: 23,
+	24: 24,
+	25: 25,
+	26: 26,
+	27: 27,
+	28: 28,
+	29: 29,
+	30: 30,
+	32: 32,
+	36: 36,
+	40: 40,
+	44: 44,
+	48: 48,
+	56: 56,
+	64: 64,
+	72: 72,
+	80: 80,
+	96: 96,
+	112: 112,
+	128: 128,
+) !default;
+
+// 모바일 spacing 값을 줄이기 위한 값 (예: 절반)
+$spacing-values-mobile: (
+	0: 0,
+	1: 1,
+	2: 1,
+	3: 2,
+	4: 2,
+	5: 3,
+	6: 3,
+	7: 4,
+	8: 4,
+	9: 5,
+	10: 5,
+	11: 6,
+	12: 6,
+	13: 7,
+	14: 7,
+	15: 8,
+	16: 8,
+	17: 9,
+	18: 9,
+	19: 10,
+	20: 10,
+	21: 11,
+	22: 11,
+	23: 12,
+	24: 12,
+	25: 13,
+	26: 13,
+	27: 14,
+	28: 14,
+	29: 15,
+	30: 15,
+	32: 16,
+	36: 18,
+	40: 20,
+	44: 22,
+	48: 24,
+	56: 28,
+	64: 32,
+	72: 36,
+	80: 40,
+	96: 48,
+	112: 56,
+	128: 64,
 ) !default;
 
 // Margin utilities
 @each $size, $value in $spacing-values {
-  // All sides
-  .m#{$size} {
-    margin: to-rem($value) !important;
-  }
+	// All sides
+	.m#{$size} {
+		margin: to-rem($value) !important;
+	}
 
-  // Top
-  .mt#{$size} {
-    margin-top: to-rem($value) !important;
-  }
+	// Top
+	.mt#{$size} {
+		margin-top: to-rem($value) !important;
+	}
 
-  // Bottom
-  .mb#{$size} {
-    margin-bottom: to-rem($value) !important;
-  }
+	// Bottom
+	.mb#{$size} {
+		margin-bottom: to-rem($value) !important;
+	}
 
-  // Left
-  .ml#{$size} {
-    margin-left: to-rem($value) !important;
-  }
+	// Left
+	.ml#{$size} {
+		margin-left: to-rem($value) !important;
+	}
 
-  // Right
-  .mr#{$size} {
-    margin-right: to-rem($value) !important;
-  }
+	// Right
+	.mr#{$size} {
+		margin-right: to-rem($value) !important;
+	}
 
-  // Horizontal (left + right)
-  .mx#{$size} {
-    margin-left: to-rem($value) !important;
-    margin-right: to-rem($value) !important;
-  }
+	// Horizontal (left + right)
+	.mx#{$size} {
+		margin-left: to-rem($value) !important;
+		margin-right: to-rem($value) !important;
+	}
 
-  // Vertical (top + bottom)
-  .my#{$size} {
-    margin-top: to-rem($value) !important;
-    margin-bottom: to-rem($value) !important;
-  }
+	// Vertical (top + bottom)
+	.my#{$size} {
+		margin-top: to-rem($value) !important;
+		margin-bottom: to-rem($value) !important;
+	}
 }
 
 // Padding utilities
 @each $size, $value in $spacing-values {
-  // All sides
-  .p#{$size} {
-    padding: to-rem($value) !important;
-  }
+	// All sides
+	.p#{$size} {
+		padding: to-rem($value) !important;
+	}
 
-  // Top
-  .pt#{$size} {
-    padding-top: to-rem($value) !important;
-  }
+	// Top
+	.pt#{$size} {
+		padding-top: to-rem($value) !important;
+	}
 
-  // Bottom
-  .pb#{$size} {
-    padding-bottom: to-rem($value) !important;
-  }
+	// Bottom
+	.pb#{$size} {
+		padding-bottom: to-rem($value) !important;
+	}
 
-  // Left
-  .pl#{$size} {
-    padding-left: to-rem($value) !important;
-  }
+	// Left
+	.pl#{$size} {
+		padding-left: to-rem($value) !important;
+	}
 
-  // Right
-  .pr#{$size} {
-    padding-right: to-rem($value) !important;
-  }
+	// Right
+	.pr#{$size} {
+		padding-right: to-rem($value) !important;
+	}
 
-  // Horizontal (left + right)
-  .px#{$size} {
-    padding-left: to-rem($value) !important;
-    padding-right: to-rem($value) !important;
-  }
+	// Horizontal (left + right)
+	.px#{$size} {
+		padding-left: to-rem($value) !important;
+		padding-right: to-rem($value) !important;
+	}
 
-  // Vertical (top + bottom)
-  .py#{$size} {
-    padding-top: to-rem($value) !important;
-    padding-bottom: to-rem($value) !important;
-  }
+	// Vertical (top + bottom)
+	.py#{$size} {
+		padding-top: to-rem($value) !important;
+		padding-bottom: to-rem($value) !important;
+	}
 }
 
 // Negative margins (유용한 몇 개만)
 @each $size, $value in $spacing-values {
-  @if $value > 0 {
-    .-m#{$size} {
-      margin: to-rem(-$value) !important;
-    }
-    .-mt#{$size} {
-      margin-top: to-rem(-$value) !important;
-    }
-    .-mb#{$size} {
-      margin-bottom: to-rem(-$value) !important;
-    }
-    .-ml#{$size} {
-      margin-left: to-rem(-$value) !important;
-    }
-    .-mr#{$size} {
-      margin-right: to-rem(-$value) !important;
-    }
-    .-mx#{$size} {
-      margin-left: to-rem(-$value) !important;
-      margin-right: to-rem(-$value) !important;
-    }
-    .-my#{$size} {
-      margin-top: to-rem(-$value) !important;
-      margin-bottom: to-rem(-$value) !important;
-    }
-  }
+	@if $value > 0 {
+		.-m#{$size} {
+			margin: to-rem(-$value) !important;
+		}
+		.-mt#{$size} {
+			margin-top: to-rem(-$value) !important;
+		}
+		.-mb#{$size} {
+			margin-bottom: to-rem(-$value) !important;
+		}
+		.-ml#{$size} {
+			margin-left: to-rem(-$value) !important;
+		}
+		.-mr#{$size} {
+			margin-right: to-rem(-$value) !important;
+		}
+		.-mx#{$size} {
+			margin-left: to-rem(-$value) !important;
+			margin-right: to-rem(-$value) !important;
+		}
+		.-my#{$size} {
+			margin-top: to-rem(-$value) !important;
+			margin-bottom: to-rem(-$value) !important;
+		}
+	}
 }
 
 // Auto margins
 .m-auto {
-  margin: auto !important;
+	margin: auto !important;
 }
 .mt-auto {
-  margin-top: auto !important;
+	margin-top: auto !important;
 }
 .mb-auto {
-  margin-bottom: auto !important;
+	margin-bottom: auto !important;
 }
 .ml-auto {
-  margin-left: auto !important;
+	margin-left: auto !important;
 }
 .mr-auto {
-  margin-right: auto !important;
+	margin-right: auto !important;
 }
 .mx-auto {
-  margin-left: auto !important;
-  margin-right: auto !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 .my-auto {
-  margin-top: auto !important;
-  margin-bottom: auto !important;
+	margin-top: auto !important;
+	margin-bottom: auto !important;
 }
 
 // Gap utilities (for flex/grid)
 @each $size, $value in $spacing-values {
-  .gap-#{$size} {
-    gap: to-rem($value) !important;
-  }
-  .gap-x-#{$size} {
-    column-gap: to-rem($value) !important;
-  }
-  .gap-y-#{$size} {
-    row-gap: to-rem($value) !important;
-  }
+	.gap-#{$size} {
+		gap: to-rem($value) !important;
+	}
+	.gap-x-#{$size} {
+		column-gap: to-rem($value) !important;
+	}
+	.gap-y-#{$size} {
+		row-gap: to-rem($value) !important;
+	}
+}
+
+// 모바일에서 gap, margin, padding 간격을 줄이기 위한 유틸리티
+@include mobile {
+	@each $size, $value in $spacing-values-mobile {
+		// gap
+		.gap-#{$size} {
+			gap: to-rem($value) !important;
+		}
+		.gap-x-#{$size} {
+			column-gap: to-rem($value) !important;
+		}
+		.gap-y-#{$size} {
+			row-gap: to-rem($value) !important;
+		}
+
+		// margin
+		.m#{$size} {
+			margin: to-rem($value) !important;
+		}
+		.mt#{$size} {
+			margin-top: to-rem($value) !important;
+		}
+		.mb#{$size} {
+			margin-bottom: to-rem($value) !important;
+		}
+		.ml#{$size} {
+			margin-left: to-rem($value) !important;
+		}
+		.mr#{$size} {
+			margin-right: to-rem($value) !important;
+		}
+		.mx#{$size} {
+			margin-left: to-rem($value) !important;
+			margin-right: to-rem($value) !important;
+		}
+		.my#{$size} {
+			margin-top: to-rem($value) !important;
+			margin-bottom: to-rem($value) !important;
+		}
+
+		// padding
+		.p#{$size} {
+			padding: to-rem($value) !important;
+		}
+		.pt#{$size} {
+			padding-top: to-rem($value) !important;
+		}
+		.pb#{$size} {
+			padding-bottom: to-rem($value) !important;
+		}
+		.pl#{$size} {
+			padding-left: to-rem($value) !important;
+		}
+		.pr#{$size} {
+			padding-right: to-rem($value) !important;
+		}
+		.px#{$size} {
+			padding-left: to-rem($value) !important;
+			padding-right: to-rem($value) !important;
+		}
+		.py#{$size} {
+			padding-top: to-rem($value) !important;
+			padding-bottom: to-rem($value) !important;
+		}
+	}
 }
 
 // 반응형 spacing utilities (필요시 추가 가능)
 @include mobile {
-  @each $size, $value in $spacing-values {
-    .sm\:m#{$size} {
-      margin: to-rem($value) !important;
-    }
-    .sm\:mt#{$size} {
-      margin-top: to-rem($value) !important;
-    }
-    .sm\:mb#{$size} {
-      margin-bottom: to-rem($value) !important;
-    }
-    .sm\:ml#{$size} {
-      margin-left: to-rem($value) !important;
-    }
-    .sm\:mr#{$size} {
-      margin-right: to-rem($value) !important;
-    }
-    .sm\:mx#{$size} {
-      margin-left: to-rem($value) !important;
-      margin-right: to-rem($value) !important;
-    }
-    .sm\:my#{$size} {
-      margin-top: to-rem($value) !important;
-      margin-bottom: to-rem($value) !important;
-    }
-    .sm\:p#{$size} {
-      padding: to-rem($value) !important;
-    }
-    .sm\:pt#{$size} {
-      padding-top: to-rem($value) !important;
-    }
-    .sm\:pb#{$size} {
-      padding-bottom: to-rem($value) !important;
-    }
-    .sm\:pl#{$size} {
-      padding-left: to-rem($value) !important;
-    }
-    .sm\:pr#{$size} {
-      padding-right: to-rem($value) !important;
-    }
-    .sm\:px#{$size} {
-      padding-left: to-rem($value) !important;
-      padding-right: to-rem($value) !important;
-    }
-    .sm\:py#{$size} {
-      padding-top: to-rem($value) !important;
-      padding-bottom: to-rem($value) !important;
-    }
-  }
+	@each $size, $value in $spacing-values {
+		.sm\:m#{$size} {
+			margin: to-rem($value) !important;
+		}
+		.sm\:mt#{$size} {
+			margin-top: to-rem($value) !important;
+		}
+		.sm\:mb#{$size} {
+			margin-bottom: to-rem($value) !important;
+		}
+		.sm\:ml#{$size} {
+			margin-left: to-rem($value) !important;
+		}
+		.sm\:mr#{$size} {
+			margin-right: to-rem($value) !important;
+		}
+		.sm\:mx#{$size} {
+			margin-left: to-rem($value) !important;
+			margin-right: to-rem($value) !important;
+		}
+		.sm\:my#{$size} {
+			margin-top: to-rem($value) !important;
+			margin-bottom: to-rem($value) !important;
+		}
+		.sm\:p#{$size} {
+			padding: to-rem($value) !important;
+		}
+		.sm\:pt#{$size} {
+			padding-top: to-rem($value) !important;
+		}
+		.sm\:pb#{$size} {
+			padding-bottom: to-rem($value) !important;
+		}
+		.sm\:pl#{$size} {
+			padding-left: to-rem($value) !important;
+		}
+		.sm\:pr#{$size} {
+			padding-right: to-rem($value) !important;
+		}
+		.sm\:px#{$size} {
+			padding-left: to-rem($value) !important;
+			padding-right: to-rem($value) !important;
+		}
+		.sm\:py#{$size} {
+			padding-top: to-rem($value) !important;
+			padding-bottom: to-rem($value) !important;
+		}
+	}
 }
 
 @include tablet {
-  @each $size, $value in $spacing-values {
-    .md\:m#{$size} {
-      margin: to-rem($value) !important;
-    }
-    .md\:mt#{$size} {
-      margin-top: to-rem($value) !important;
-    }
-    .md\:mb#{$size} {
-      margin-bottom: to-rem($value) !important;
-    }
-    .md\:ml#{$size} {
-      margin-left: to-rem($value) !important;
-    }
-    .md\:mr#{$size} {
-      margin-right: to-rem($value) !important;
-    }
-    .md\:mx#{$size} {
-      margin-left: to-rem($value) !important;
-      margin-right: to-rem($value) !important;
-    }
-    .md\:my#{$size} {
-      margin-top: to-rem($value) !important;
-      margin-bottom: to-rem($value) !important;
-    }
-    .md\:p#{$size} {
-      padding: to-rem($value) !important;
-    }
-    .md\:pt#{$size} {
-      padding-top: to-rem($value) !important;
-    }
-    .md\:pb#{$size} {
-      padding-bottom: to-rem($value) !important;
-    }
-    .md\:pl#{$size} {
-      padding-left: to-rem($value) !important;
-    }
-    .md\:pr#{$size} {
-      padding-right: to-rem($value) !important;
-    }
-    .md\:px#{$size} {
-      padding-left: to-rem($value) !important;
-      padding-right: to-rem($value) !important;
-    }
-    .md\:py#{$size} {
-      padding-top: to-rem($value) !important;
-      padding-bottom: to-rem($value) !important;
-    }
-  }
+	@each $size, $value in $spacing-values {
+		.md\:m#{$size} {
+			margin: to-rem($value) !important;
+		}
+		.md\:mt#{$size} {
+			margin-top: to-rem($value) !important;
+		}
+		.md\:mb#{$size} {
+			margin-bottom: to-rem($value) !important;
+		}
+		.md\:ml#{$size} {
+			margin-left: to-rem($value) !important;
+		}
+		.md\:mr#{$size} {
+			margin-right: to-rem($value) !important;
+		}
+		.md\:mx#{$size} {
+			margin-left: to-rem($value) !important;
+			margin-right: to-rem($value) !important;
+		}
+		.md\:my#{$size} {
+			margin-top: to-rem($value) !important;
+			margin-bottom: to-rem($value) !important;
+		}
+		.md\:p#{$size} {
+			padding: to-rem($value) !important;
+		}
+		.md\:pt#{$size} {
+			padding-top: to-rem($value) !important;
+		}
+		.md\:pb#{$size} {
+			padding-bottom: to-rem($value) !important;
+		}
+		.md\:pl#{$size} {
+			padding-left: to-rem($value) !important;
+		}
+		.md\:pr#{$size} {
+			padding-right: to-rem($value) !important;
+		}
+		.md\:px#{$size} {
+			padding-left: to-rem($value) !important;
+			padding-right: to-rem($value) !important;
+		}
+		.md\:py#{$size} {
+			padding-top: to-rem($value) !important;
+			padding-bottom: to-rem($value) !important;
+		}
+	}
 }
 
 @include desktop {
-  @each $size, $value in $spacing-values {
-    .lg\:m#{$size} {
-      margin: to-rem($value) !important;
-    }
-    .lg\:mt#{$size} {
-      margin-top: to-rem($value) !important;
-    }
-    .lg\:mb#{$size} {
-      margin-bottom: to-rem($value) !important;
-    }
-    .lg\:ml#{$size} {
-      margin-left: to-rem($value) !important;
-    }
-    .lg\:mr#{$size} {
-      margin-right: to-rem($value) !important;
-    }
-    .lg\:mx#{$size} {
-      margin-left: to-rem($value) !important;
-      margin-right: to-rem($value) !important;
-    }
-    .lg\:my#{$size} {
-      margin-top: to-rem($value) !important;
-      margin-bottom: to-rem($value) !important;
-    }
-    .lg\:p#{$size} {
-      padding: to-rem($value) !important;
-    }
-    .lg\:pt#{$size} {
-      padding-top: to-rem($value) !important;
-    }
-    .lg\:pb#{$size} {
-      padding-bottom: to-rem($value) !important;
-    }
-    .lg\:pl#{$size} {
-      padding-left: to-rem($value) !important;
-    }
-    .lg\:pr#{$size} {
-      padding-right: to-rem($value) !important;
-    }
-    .lg\:px#{$size} {
-      padding-left: to-rem($value) !important;
-      padding-right: to-rem($value) !important;
-    }
-    .lg\:py#{$size} {
-      padding-top: to-rem($value) !important;
-      padding-bottom: to-rem($value) !important;
-    }
-  }
+	@each $size, $value in $spacing-values {
+		.lg\:m#{$size} {
+			margin: to-rem($value) !important;
+		}
+		.lg\:mt#{$size} {
+			margin-top: to-rem($value) !important;
+		}
+		.lg\:mb#{$size} {
+			margin-bottom: to-rem($value) !important;
+		}
+		.lg\:ml#{$size} {
+			margin-left: to-rem($value) !important;
+		}
+		.lg\:mr#{$size} {
+			margin-right: to-rem($value) !important;
+		}
+		.lg\:mx#{$size} {
+			margin-left: to-rem($value) !important;
+			margin-right: to-rem($value) !important;
+		}
+		.lg\:my#{$size} {
+			margin-top: to-rem($value) !important;
+			margin-bottom: to-rem($value) !important;
+		}
+		.lg\:p#{$size} {
+			padding: to-rem($value) !important;
+		}
+		.lg\:pt#{$size} {
+			padding-top: to-rem($value) !important;
+		}
+		.lg\:pb#{$size} {
+			padding-bottom: to-rem($value) !important;
+		}
+		.lg\:pl#{$size} {
+			padding-left: to-rem($value) !important;
+		}
+		.lg\:pr#{$size} {
+			padding-right: to-rem($value) !important;
+		}
+		.lg\:px#{$size} {
+			padding-left: to-rem($value) !important;
+			padding-right: to-rem($value) !important;
+		}
+		.lg\:py#{$size} {
+			padding-top: to-rem($value) !important;
+			padding-bottom: to-rem($value) !important;
+		}
+	}
 }

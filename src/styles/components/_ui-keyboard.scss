@@ -208,3 +208,25 @@
 		}
 	}
 }
+
+// 인라인(입력 하단에) 배치용
+.keyboard-wrapper--inline {
+	position: absolute; // 컨테이너 기준
+	.worldword-wrap {
+		position: absolute;
+		top: calc(100% + to-rem(8)); // 인풋 바로 아래
+		left: 0;
+		right: auto;
+		margin-top: 0;
+		max-width: 685px;
+		display: none; // 기본 숨김
+		@include mobile {
+			max-width: calc(100vw - 3.9rem);
+		}
+	}
+}
+
+// 포커스되면 자동 표시(인풋/버튼 클릭 포함)
+.input-with-button:focus-within .keyboard-wrapper--inline .worldword-wrap {
+	display: block;
+}

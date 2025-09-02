@@ -186,114 +186,114 @@ const searchFilterGroups = [
 						</div>
 					</div>
 				</div>
+
+				<!-- 발행연도 필터 -->
+				<div class="filter-section filter-section--single-line filter-section--no-clamp">
+					<span class="filter-label">발행연도</span>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options flex align-center gap-10">
+								<UiDatePicker id="date-range" />
+								<UiButton variant="primary" text="확인" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 언어 필터 -->
+				<div class="filter-section filter-section--single-line">
+					<span class="filter-label">언어</span>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="language" value="korean" label="한국어" />
+								<UiCheckbox name="language" value="english" label="영어" />
+								<UiCheckbox name="language" value="japanese" label="일본어" />
+								<UiCheckbox name="language" value="chinese" label="중국어" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 주제분류 필터 -->
+				<div class="filter-section">
+					<input type="checkbox" id="category-filter-toggle" class="filter-toggle" />
+					<label for="category-filter-toggle" class="filter-label">
+						주제분류
+						<span class="filter-label-btn">
+							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+						</span>
+					</label>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="category" value="000" label="000 총류" />
+								<UiCheckbox name="category" value="100" label="100 철학" />
+								<UiCheckbox name="category" value="200" label="200 종교" />
+								<UiCheckbox name="category" value="300" label="300 사회과학" />
+								<UiCheckbox name="category" value="400" label="400 언어" />
+								<UiCheckbox name="category" value="500" label="500 순수과학" />
+								<UiCheckbox name="category" value="600" label="600 기술과학" />
+								<UiCheckbox name="category" value="700" label="700 예술" />
+								<UiCheckbox name="category" value="800" label="800 문학" />
+								<UiCheckbox name="category" value="900" label="900 역사" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 주제어 필터 -->
+				<div class="filter-section">
+					<input type="checkbox" id="subject-filter-toggle" class="filter-toggle" />
+					<label for="subject-filter-toggle" class="filter-label">
+						주제어
+						<span class="filter-label-btn">
+							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+						</span>
+					</label>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="subject" value="소설" label="소설" />
+								<UiCheckbox name="subject" value="시" label="시" />
+								<UiCheckbox name="subject" value="에세이" label="에세이" />
+								<UiCheckbox name="subject" value="역사" label="역사" />
+								<UiCheckbox name="subject" value="과학" label="과학" />
+								<UiCheckbox name="subject" value="철학" label="철학" />
+								<UiCheckbox name="subject" value="예술" label="예술" />
+								<UiCheckbox name="subject" value="정치" label="정치" />
+								<UiCheckbox name="subject" value="경제" label="경제" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 총서명 필터 -->
+				<div class="filter-section">
+					<input type="checkbox" id="series-filter-toggle" class="filter-toggle" />
+					<label for="series-filter-toggle" class="filter-label">
+						총서명
+						<span class="filter-label-btn">
+							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+						</span>
+					</label>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="subject" value="소설" label="소설" />
+								<UiCheckbox name="subject" value="시" label="시" />
+								<UiCheckbox name="subject" value="에세이" label="에세이" />
+								<UiCheckbox name="subject" value="역사" label="역사" />
+								<UiCheckbox name="subject" value="과학" label="과학" />
+								<UiCheckbox name="subject" value="철학" label="철학" />
+								<UiCheckbox name="subject" value="예술" label="예술" />
+								<UiCheckbox name="subject" value="정치" label="정치" />
+								<UiCheckbox name="subject" value="경제" label="경제" />
+							</div>
+						</div>
+					</div>
+				</div>
 			</UiAccordion>
-
-			<!-- 발행연도 필터 -->
-			<div class="filter-section filter-section--single-line filter-section--no-clamp">
-				<span class="filter-label">발행연도</span>
-				<div class="filter-group-wrapper">
-					<div class="filter-group filter-group--always-visible">
-						<div class="filter-options flex align-center gap-10">
-							<UiDatePicker id="date-range" />
-							<UiButton variant="primary" text="확인" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- 언어 필터 -->
-			<div class="filter-section filter-section--single-line">
-				<span class="filter-label">언어</span>
-				<div class="filter-group-wrapper">
-					<div class="filter-group filter-group--always-visible">
-						<div class="filter-options">
-							<UiCheckbox name="language" value="korean" label="한국어" />
-							<UiCheckbox name="language" value="english" label="영어" />
-							<UiCheckbox name="language" value="japanese" label="일본어" />
-							<UiCheckbox name="language" value="chinese" label="중국어" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- 주제분류 필터 -->
-			<div class="filter-section">
-				<input type="checkbox" id="category-filter-toggle" class="filter-toggle" />
-				<label for="category-filter-toggle" class="filter-label">
-					주제분류
-					<span class="filter-label-btn">
-						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-					</span>
-				</label>
-				<div class="filter-group-wrapper">
-					<div class="filter-group filter-group--always-visible">
-						<div class="filter-options">
-							<UiCheckbox name="category" value="000" label="000 총류" />
-							<UiCheckbox name="category" value="100" label="100 철학" />
-							<UiCheckbox name="category" value="200" label="200 종교" />
-							<UiCheckbox name="category" value="300" label="300 사회과학" />
-							<UiCheckbox name="category" value="400" label="400 언어" />
-							<UiCheckbox name="category" value="500" label="500 순수과학" />
-							<UiCheckbox name="category" value="600" label="600 기술과학" />
-							<UiCheckbox name="category" value="700" label="700 예술" />
-							<UiCheckbox name="category" value="800" label="800 문학" />
-							<UiCheckbox name="category" value="900" label="900 역사" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- 주제어 필터 -->
-			<div class="filter-section">
-				<input type="checkbox" id="subject-filter-toggle" class="filter-toggle" />
-				<label for="subject-filter-toggle" class="filter-label">
-					주제어
-					<span class="filter-label-btn">
-						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-					</span>
-				</label>
-				<div class="filter-group-wrapper">
-					<div class="filter-group filter-group--always-visible">
-						<div class="filter-options">
-							<UiCheckbox name="subject" value="소설" label="소설" />
-							<UiCheckbox name="subject" value="시" label="시" />
-							<UiCheckbox name="subject" value="에세이" label="에세이" />
-							<UiCheckbox name="subject" value="역사" label="역사" />
-							<UiCheckbox name="subject" value="과학" label="과학" />
-							<UiCheckbox name="subject" value="철학" label="철학" />
-							<UiCheckbox name="subject" value="예술" label="예술" />
-							<UiCheckbox name="subject" value="정치" label="정치" />
-							<UiCheckbox name="subject" value="경제" label="경제" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- 총서명 필터 -->
-			<div class="filter-section">
-				<input type="checkbox" id="series-filter-toggle" class="filter-toggle" />
-				<label for="series-filter-toggle" class="filter-label">
-					총서명
-					<span class="filter-label-btn">
-						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-					</span>
-				</label>
-				<div class="filter-group-wrapper">
-					<div class="filter-group filter-group--always-visible">
-						<div class="filter-options">
-							<UiCheckbox name="subject" value="소설" label="소설" />
-							<UiCheckbox name="subject" value="시" label="시" />
-							<UiCheckbox name="subject" value="에세이" label="에세이" />
-							<UiCheckbox name="subject" value="역사" label="역사" />
-							<UiCheckbox name="subject" value="과학" label="과학" />
-							<UiCheckbox name="subject" value="철학" label="철학" />
-							<UiCheckbox name="subject" value="예술" label="예술" />
-							<UiCheckbox name="subject" value="정치" label="정치" />
-							<UiCheckbox name="subject" value="경제" label="경제" />
-						</div>
-					</div>
-				</div>
-			</div>
 		</section>
 
 		<div class="search-detail-section__content">

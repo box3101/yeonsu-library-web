@@ -1,1443 +1,1442 @@
 ---
 export interface Props {
-  id?: string;
-  targetInputId?: string;
-  class?: string;
+	id?: string;
+	targetInputId?: string;
+	class?: string;
 }
 
 const { id = 'worldword-keyboard', targetInputId = '', class: className = '' } = Astro.props;
 ---
 
 <div class={`keyboard-wrapper ${className}`} id={id}>
-  <div class="worldword-wrap">
-    <fieldset>
-      <legend>다국어 입력</legend>
-      <strong class="worldword-title">다국어 입력</strong>
-      <div class="worldword">
-        <ul class="language">
-          <li>
-            <a href="#none" data-type="히라가나" data-focus-next="lang01List" data-focus="lang01" class="selected">히라가나</a>
-          </li>
-          <li>
-            <a href="#none" data-type="가타카나" data-focus-next="lang02List" data-focus="lang02">가타카나</a>
-          </li>
-          <li>
-            <a href="#none" data-type="한글고어" data-focus-next="lang03List" data-focus="lang03">한글고어</a>
-          </li>
-          <li>
-            <a href="#none" data-type="그리스문자" data-focus-next="lang04List" data-focus="lang04">그리스문자</a>
-          </li>
-          <li>
-            <a href="#none" data-type="라틴문자" data-focus-next="lang05List" data-focus="lang05">라틴문자</a>
-          </li>
-          <li>
-            <a href="#none" data-type="키릴문자" data-focus-next="lang06List" data-focus="lang06">키릴문자</a>
-          </li>
-          <li>
-            <a href="#none" data-type="로마자" data-focus-next="lang07List" data-focus="lang07">로마자</a>
-          </li>
-          <li>
-            <a href="#none" data-type="태국어" data-focus-next="lang08List" data-focus="lang08">태국어</a>
-          </li>
-          <li>
-            <a href="#none" data-type="아랍어" data-focus-next="lang09List" data-focus="lang09">아랍어</a>
-          </li>
-          <li>
-            <a href="#none" data-type="확장문자" data-focus-next="lang10List" data-focus="lang10">확장문자</a>
-          </li>
-          <li>
-            <a href="#none" data-type="일반기호" data-focus-next="lang11List" data-focus="lang11">일반기호</a>
-          </li>
-          <li>
-            <a href="#none" data-type="괄호기호" data-focus-next="lang12List" data-focus="lang12">괄호기호</a>
-          </li>
-          <li>
-            <a href="#none" data-type="학술기호" data-focus-next="lang13List" data-focus="lang13">학술기호</a>
-          </li>
-          <li>
-            <a href="#none" data-type="기술기호" data-focus-next="lang14List" data-focus="lang14">기술기호</a>
-          </li>
-          <li>
-            <a href="#none" data-type="단위기호" data-focus-next="lang15List" data-focus="lang15">단위기호</a>
-          </li>
-          <li>
-            <a href="#none" data-type="첨자기호" data-focus-next="lang16List" data-focus="lang16">첨자기호 · 분수</a>
-          </li>
-        </ul>
+	<div class="worldword-wrap">
+		<fieldset>
+			<legend>다국어 입력</legend>
+			<strong class="worldword-title">다국어 입력</strong>
+			<div class="worldword">
+				<ul class="language">
+					<li>
+						<a href="#none" data-type="히라가나" data-focus-next="lang01List" data-focus="lang01" class="selected">히라가나</a>
+					</li>
+					<li>
+						<a href="#none" data-type="가타카나" data-focus-next="lang02List" data-focus="lang02">가타카나</a>
+					</li>
+					<li>
+						<a href="#none" data-type="한글고어" data-focus-next="lang03List" data-focus="lang03">한글고어</a>
+					</li>
+					<li>
+						<a href="#none" data-type="그리스문자" data-focus-next="lang04List" data-focus="lang04">그리스문자</a>
+					</li>
+					<li>
+						<a href="#none" data-type="라틴문자" data-focus-next="lang05List" data-focus="lang05">라틴문자</a>
+					</li>
+					<li>
+						<a href="#none" data-type="키릴문자" data-focus-next="lang06List" data-focus="lang06">키릴문자</a>
+					</li>
+					<li>
+						<a href="#none" data-type="로마자" data-focus-next="lang07List" data-focus="lang07">로마자</a>
+					</li>
+					<li>
+						<a href="#none" data-type="태국어" data-focus-next="lang08List" data-focus="lang08">태국어</a>
+					</li>
+					<li>
+						<a href="#none" data-type="아랍어" data-focus-next="lang09List" data-focus="lang09">아랍어</a>
+					</li>
+					<li>
+						<a href="#none" data-type="확장문자" data-focus-next="lang10List" data-focus="lang10">확장문자</a>
+					</li>
+					<li>
+						<a href="#none" data-type="일반기호" data-focus-next="lang11List" data-focus="lang11">일반기호</a>
+					</li>
+					<li>
+						<a href="#none" data-type="괄호기호" data-focus-next="lang12List" data-focus="lang12">괄호기호</a>
+					</li>
+					<li>
+						<a href="#none" data-type="학술기호" data-focus-next="lang13List" data-focus="lang13">학술기호</a>
+					</li>
+					<li>
+						<a href="#none" data-type="기술기호" data-focus-next="lang14List" data-focus="lang14">기술기호</a>
+					</li>
+					<li>
+						<a href="#none" data-type="단위기호" data-focus-next="lang15List" data-focus="lang15">단위기호</a>
+					</li>
+					<li>
+						<a href="#none" data-type="첨자기호" data-focus-next="lang16List" data-focus="lang16">첨자기호 · 분수</a>
+					</li>
+				</ul>
 
-        <!-- 히라가나 -->
-        <div class="language-contents" data-type="히라가나">
-          <h5 class="ir_text">히라가나</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang01" data-focus="lang01List">あ</a>
-            </li>
-            <li><a href="#">ぁ</a></li>
-            <li><a href="#">か</a></li>
-            <li><a href="#">が</a></li>
-            <li><a href="#">さ</a></li>
-            <li><a href="#">ざ</a></li>
-            <li><a href="#">た</a></li>
-            <li><a href="#">だ</a></li>
-            <li><a href="#">な</a></li>
-            <li><a href="#">は</a></li>
-            <li><a href="#">ば</a></li>
-            <li><a href="#">ぱ</a></li>
-            <li><a href="#">ま</a></li>
-            <li><a href="#">や</a></li>
-            <li><a href="#">ゃ</a></li>
-            <li><a href="#">ら</a></li>
-            <li><a href="#">わ</a></li>
-            <li><a href="#">ゎ</a></li>
-            <li><a href="#">ん</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">い</a></li>
-            <li><a href="#">ぃ</a></li>
-            <li><a href="#">き</a></li>
-            <li><a href="#">ぎ</a></li>
-            <li><a href="#">し</a></li>
-            <li><a href="#">じ</a></li>
-            <li><a href="#">ち</a></li>
-            <li><a href="#">ぢ</a></li>
-            <li><a href="#">に</a></li>
-            <li><a href="#">ひ</a></li>
-            <li><a href="#">び</a></li>
-            <li><a href="#">ぴ</a></li>
-            <li><a href="#">み</a></li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li><a href="#">り</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">う</a></li>
-            <li><a href="#">ぅ</a></li>
-            <li><a href="#">く</a></li>
-            <li><a href="#">ぐ</a></li>
-            <li><a href="#">す</a></li>
-            <li><a href="#">ず</a></li>
-            <li><a href="#">つ</a></li>
-            <li><a href="#">づ</a></li>
-            <li><a href="#">っ</a></li>
-            <li><a href="#">ぬ</a></li>
-            <li><a href="#">ふ</a></li>
-            <li><a href="#">ぶ</a></li>
-            <li><a href="#">ぷ</a></li>
-            <li><a href="#">む</a></li>
-            <li><a href="#">ゆ</a></li>
-            <li><a href="#">ゅ</a></li>
-            <li><a href="#">る</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">え</a></li>
-            <li><a href="#">ぇ</a></li>
-            <li><a href="#">け</a></li>
-            <li><a href="#">げ</a></li>
-            <li><a href="#">せ</a></li>
-            <li><a href="#">ぜ</a></li>
-            <li><a href="#">て</a></li>
-            <li><a href="#">で</a></li>
-            <li><a href="#">ね</a></li>
-            <li><a href="#">へ</a></li>
-            <li><a href="#">べ</a></li>
-            <li><a href="#">ぺ</a></li>
-            <li><a href="#">め</a></li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li><a href="#">れ</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">お</a></li>
-            <li><a href="#">ぉ</a></li>
-            <li><a href="#">こ</a></li>
-            <li><a href="#">ご</a></li>
-            <li><a href="#">そ</a></li>
-            <li><a href="#">ぞ</a></li>
-            <li><a href="#">と</a></li>
-            <li><a href="#">ど</a></li>
-            <li><a href="#">の</a></li>
-            <li><a href="#">ほ</a></li>
-            <li><a href="#">ぼ</a></li>
-            <li><a href="#">ぽ</a></li>
-            <li><a href="#">も</a></li>
-            <li><a href="#">よ</a></li>
-            <li><a href="#">ょ</a></li>
-            <li><a href="#">ろ</a></li>
-            <li><a href="#" data-focus-next="lang02">を</a></li>
-          </ul>
-        </div>
+				<!-- 히라가나 -->
+				<div class="language-contents" data-type="히라가나">
+					<h5 class="ir_text">히라가나</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang01" data-focus="lang01List">あ</a>
+						</li>
+						<li><a href="#">ぁ</a></li>
+						<li><a href="#">か</a></li>
+						<li><a href="#">が</a></li>
+						<li><a href="#">さ</a></li>
+						<li><a href="#">ざ</a></li>
+						<li><a href="#">た</a></li>
+						<li><a href="#">だ</a></li>
+						<li><a href="#">な</a></li>
+						<li><a href="#">は</a></li>
+						<li><a href="#">ば</a></li>
+						<li><a href="#">ぱ</a></li>
+						<li><a href="#">ま</a></li>
+						<li><a href="#">や</a></li>
+						<li><a href="#">ゃ</a></li>
+						<li><a href="#">ら</a></li>
+						<li><a href="#">わ</a></li>
+						<li><a href="#">ゎ</a></li>
+						<li><a href="#">ん</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">い</a></li>
+						<li><a href="#">ぃ</a></li>
+						<li><a href="#">き</a></li>
+						<li><a href="#">ぎ</a></li>
+						<li><a href="#">し</a></li>
+						<li><a href="#">じ</a></li>
+						<li><a href="#">ち</a></li>
+						<li><a href="#">ぢ</a></li>
+						<li><a href="#">に</a></li>
+						<li><a href="#">ひ</a></li>
+						<li><a href="#">び</a></li>
+						<li><a href="#">ぴ</a></li>
+						<li><a href="#">み</a></li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li><a href="#">り</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">う</a></li>
+						<li><a href="#">ぅ</a></li>
+						<li><a href="#">く</a></li>
+						<li><a href="#">ぐ</a></li>
+						<li><a href="#">す</a></li>
+						<li><a href="#">ず</a></li>
+						<li><a href="#">つ</a></li>
+						<li><a href="#">づ</a></li>
+						<li><a href="#">っ</a></li>
+						<li><a href="#">ぬ</a></li>
+						<li><a href="#">ふ</a></li>
+						<li><a href="#">ぶ</a></li>
+						<li><a href="#">ぷ</a></li>
+						<li><a href="#">む</a></li>
+						<li><a href="#">ゆ</a></li>
+						<li><a href="#">ゅ</a></li>
+						<li><a href="#">る</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">え</a></li>
+						<li><a href="#">ぇ</a></li>
+						<li><a href="#">け</a></li>
+						<li><a href="#">げ</a></li>
+						<li><a href="#">せ</a></li>
+						<li><a href="#">ぜ</a></li>
+						<li><a href="#">て</a></li>
+						<li><a href="#">で</a></li>
+						<li><a href="#">ね</a></li>
+						<li><a href="#">へ</a></li>
+						<li><a href="#">べ</a></li>
+						<li><a href="#">ぺ</a></li>
+						<li><a href="#">め</a></li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li><a href="#">れ</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">お</a></li>
+						<li><a href="#">ぉ</a></li>
+						<li><a href="#">こ</a></li>
+						<li><a href="#">ご</a></li>
+						<li><a href="#">そ</a></li>
+						<li><a href="#">ぞ</a></li>
+						<li><a href="#">と</a></li>
+						<li><a href="#">ど</a></li>
+						<li><a href="#">の</a></li>
+						<li><a href="#">ほ</a></li>
+						<li><a href="#">ぼ</a></li>
+						<li><a href="#">ぽ</a></li>
+						<li><a href="#">も</a></li>
+						<li><a href="#">よ</a></li>
+						<li><a href="#">ょ</a></li>
+						<li><a href="#">ろ</a></li>
+						<li><a href="#" data-focus-next="lang02">を</a></li>
+					</ul>
+				</div>
 
-        <!-- 가타카나 -->
-        <div class="language-contents language-content--hidden" data-type="가타카나">
-          <h5 class="ir_text">가타카나</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang02" data-focus="lang02List">ア</a>
-            </li>
-            <li><a href="#">ァ</a></li>
-            <li><a href="#">カ</a></li>
-            <li><a href="#">ガ</a></li>
-            <li><a href="#">サ</a></li>
-            <li><a href="#">ザ</a></li>
-            <li><a href="#">タ</a></li>
-            <li><a href="#">ダ</a></li>
-            <li><a href="#">ナ</a></li>
-            <li><a href="#">ハ</a></li>
-            <li><a href="#">バ</a></li>
-            <li><a href="#">パ</a></li>
-            <li><a href="#">マ</a></li>
-            <li><a href="#">ヤ</a></li>
-            <li><a href="#">ャ</a></li>
-            <li><a href="#">ラ</a></li>
-            <li><a href="#">ワ</a></li>
-            <li><a href="#">ヮ</a></li>
-            <li><a href="#">ン</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">イ</a></li>
-            <li><a href="#">ィ</a></li>
-            <li><a href="#">キ</a></li>
-            <li><a href="#">ギ</a></li>
-            <li><a href="#">シ</a></li>
-            <li><a href="#">ジ</a></li>
-            <li><a href="#">チ</a></li>
-            <li><a href="#">ヂ</a></li>
-            <li><a href="#">ニ</a></li>
-            <li><a href="#">ヒ</a></li>
-            <li><a href="#">ビ</a></li>
-            <li><a href="#">ピ</a></li>
-            <li><a href="#">ミ</a></li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li><a href="#">リ</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">ウ</a></li>
-            <li><a href="#">ゥ</a></li>
-            <li><a href="#">ク</a></li>
-            <li><a href="#">グ</a></li>
-            <li><a href="#">ス</a></li>
-            <li><a href="#">ズ</a></li>
-            <li><a href="#">ツ</a></li>
-            <li><a href="#">ヅ</a></li>
-            <li><a href="#">ッ</a></li>
-            <li><a href="#">ヌ</a></li>
-            <li><a href="#">フ</a></li>
-            <li><a href="#">ブ</a></li>
-            <li><a href="#">プ</a></li>
-            <li><a href="#">ム</a></li>
-            <li><a href="#">ユ</a></li>
-            <li><a href="#">ュ</a></li>
-            <li><a href="#">ル</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">エ</a></li>
-            <li><a href="#">ェ</a></li>
-            <li><a href="#">ケ</a></li>
-            <li><a href="#">ゲ</a></li>
-            <li><a href="#">セ</a></li>
-            <li><a href="#">ゼ</a></li>
-            <li><a href="#">テ</a></li>
-            <li><a href="#">デ</a></li>
-            <li><a href="#">ネ</a></li>
-            <li><a href="#">ヘ</a></li>
-            <li><a href="#">ベ</a></li>
-            <li><a href="#">ペ</a></li>
-            <li><a href="#">メ</a></li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li><a href="#">レ</a></li>
-          </ul>
-          <ul>
-            <li><a href="#">オ</a></li>
-            <li><a href="#">ォ</a></li>
-            <li><a href="#">コ</a></li>
-            <li><a href="#">ゴ</a></li>
-            <li><a href="#">ソ</a></li>
-            <li><a href="#">ゾ</a></li>
-            <li><a href="#">ト</a></li>
-            <li><a href="#">ド</a></li>
-            <li><a href="#">ノ</a></li>
-            <li><a href="#">ホ</a></li>
-            <li><a href="#">ボ</a></li>
-            <li><a href="#">ポ</a></li>
-            <li><a href="#">モ</a></li>
-            <li><a href="#">ヨ</a></li>
-            <li><a href="#">ョ</a></li>
-            <li><a href="#">ロ</a></li>
-            <li><a href="#">ヲ</a></li>
-            <li><a href="#" data-focus-next="lang03">―</a></li>
-          </ul>
-        </div>
+				<!-- 가타카나 -->
+				<div class="language-contents language-content--hidden" data-type="가타카나">
+					<h5 class="ir_text">가타카나</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang02" data-focus="lang02List">ア</a>
+						</li>
+						<li><a href="#">ァ</a></li>
+						<li><a href="#">カ</a></li>
+						<li><a href="#">ガ</a></li>
+						<li><a href="#">サ</a></li>
+						<li><a href="#">ザ</a></li>
+						<li><a href="#">タ</a></li>
+						<li><a href="#">ダ</a></li>
+						<li><a href="#">ナ</a></li>
+						<li><a href="#">ハ</a></li>
+						<li><a href="#">バ</a></li>
+						<li><a href="#">パ</a></li>
+						<li><a href="#">マ</a></li>
+						<li><a href="#">ヤ</a></li>
+						<li><a href="#">ャ</a></li>
+						<li><a href="#">ラ</a></li>
+						<li><a href="#">ワ</a></li>
+						<li><a href="#">ヮ</a></li>
+						<li><a href="#">ン</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">イ</a></li>
+						<li><a href="#">ィ</a></li>
+						<li><a href="#">キ</a></li>
+						<li><a href="#">ギ</a></li>
+						<li><a href="#">シ</a></li>
+						<li><a href="#">ジ</a></li>
+						<li><a href="#">チ</a></li>
+						<li><a href="#">ヂ</a></li>
+						<li><a href="#">ニ</a></li>
+						<li><a href="#">ヒ</a></li>
+						<li><a href="#">ビ</a></li>
+						<li><a href="#">ピ</a></li>
+						<li><a href="#">ミ</a></li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li><a href="#">リ</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">ウ</a></li>
+						<li><a href="#">ゥ</a></li>
+						<li><a href="#">ク</a></li>
+						<li><a href="#">グ</a></li>
+						<li><a href="#">ス</a></li>
+						<li><a href="#">ズ</a></li>
+						<li><a href="#">ツ</a></li>
+						<li><a href="#">ヅ</a></li>
+						<li><a href="#">ッ</a></li>
+						<li><a href="#">ヌ</a></li>
+						<li><a href="#">フ</a></li>
+						<li><a href="#">ブ</a></li>
+						<li><a href="#">プ</a></li>
+						<li><a href="#">ム</a></li>
+						<li><a href="#">ユ</a></li>
+						<li><a href="#">ュ</a></li>
+						<li><a href="#">ル</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">エ</a></li>
+						<li><a href="#">ェ</a></li>
+						<li><a href="#">ケ</a></li>
+						<li><a href="#">ゲ</a></li>
+						<li><a href="#">セ</a></li>
+						<li><a href="#">ゼ</a></li>
+						<li><a href="#">テ</a></li>
+						<li><a href="#">デ</a></li>
+						<li><a href="#">ネ</a></li>
+						<li><a href="#">ヘ</a></li>
+						<li><a href="#">ベ</a></li>
+						<li><a href="#">ペ</a></li>
+						<li><a href="#">メ</a></li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li><a href="#">レ</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">オ</a></li>
+						<li><a href="#">ォ</a></li>
+						<li><a href="#">コ</a></li>
+						<li><a href="#">ゴ</a></li>
+						<li><a href="#">ソ</a></li>
+						<li><a href="#">ゾ</a></li>
+						<li><a href="#">ト</a></li>
+						<li><a href="#">ド</a></li>
+						<li><a href="#">ノ</a></li>
+						<li><a href="#">ホ</a></li>
+						<li><a href="#">ボ</a></li>
+						<li><a href="#">ポ</a></li>
+						<li><a href="#">モ</a></li>
+						<li><a href="#">ヨ</a></li>
+						<li><a href="#">ョ</a></li>
+						<li><a href="#">ロ</a></li>
+						<li><a href="#">ヲ</a></li>
+						<li><a href="#" data-focus-next="lang03">―</a></li>
+					</ul>
+				</div>
 
-        <!-- 한글고어 -->
-        <div class="language-contents language-content--hidden" data-type="한글고어">
-          <h5 class="ir_text">한글고어</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang03" data-focus="lang03List">ㅥ</a>
-            </li>
-            <li><a href="#">ㅦ</a></li>
-            <li><a href="#">ㅧ</a></li>
-            <li><a href="#">ㅨ</a></li>
-            <li><a href="#">ㅩ</a></li>
-            <li><a href="#">ㅪ</a></li>
-            <li><a href="#">ㅫ</a></li>
-            <li><a href="#">ㅬ</a></li>
-            <li><a href="#">ㅭ</a></li>
-            <li><a href="#">ㅮ</a></li>
-            <li><a href="#">ㅯ</a></li>
-            <li><a href="#">ㅰ</a></li>
-            <li><a href="#">ㅱ</a></li>
-            <li><a href="#">ㅲ</a></li>
-            <li><a href="#">ㅳ</a></li>
-            <li><a href="#">ㅴ</a></li>
-            <li><a href="#">ㅵ</a></li>
-            <li><a href="#">ㅶ</a></li>
-            <li><a href="#">ㅷ</a></li>
-            <li><a href="#">ㅸ</a></li>
-            <li><a href="#">ㅹ</a></li>
-            <li><a href="#">ㅺ</a></li>
-            <li><a href="#">ㅻ</a></li>
-            <li><a href="#">ㅼ</a></li>
-            <li><a href="#">ㅽ</a></li>
-            <li><a href="#">ㅾ</a></li>
-            <li><a href="#">ㅿ</a></li>
-            <li><a href="#">ㆀ</a></li>
-            <li><a href="#">ㆁ</a></li>
-            <li><a href="#">ㆂ</a></li>
-            <li><a href="#">ㆃ</a></li>
-            <li><a href="#">ㆄ</a></li>
-            <li><a href="#">ㆅ</a></li>
-            <li><a href="#">ㆆ</a></li>
-            <li><a href="#">ㆇ</a></li>
-            <li><a href="#">ㆈ</a></li>
-            <li><a href="#">ㆉ</a></li>
-            <li><a href="#">ㆊ</a></li>
-            <li><a href="#">ㆋ</a></li>
-            <li><a href="#">ㆌ</a></li>
-            <li><a href="#">ㆍ</a></li>
-            <li><a href="#" data-focus-next="lang04">ㆎ</a></li>
-          </ul>
-        </div>
+				<!-- 한글고어 -->
+				<div class="language-contents language-content--hidden" data-type="한글고어">
+					<h5 class="ir_text">한글고어</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang03" data-focus="lang03List">ㅥ</a>
+						</li>
+						<li><a href="#">ㅦ</a></li>
+						<li><a href="#">ㅧ</a></li>
+						<li><a href="#">ㅨ</a></li>
+						<li><a href="#">ㅩ</a></li>
+						<li><a href="#">ㅪ</a></li>
+						<li><a href="#">ㅫ</a></li>
+						<li><a href="#">ㅬ</a></li>
+						<li><a href="#">ㅭ</a></li>
+						<li><a href="#">ㅮ</a></li>
+						<li><a href="#">ㅯ</a></li>
+						<li><a href="#">ㅰ</a></li>
+						<li><a href="#">ㅱ</a></li>
+						<li><a href="#">ㅲ</a></li>
+						<li><a href="#">ㅳ</a></li>
+						<li><a href="#">ㅴ</a></li>
+						<li><a href="#">ㅵ</a></li>
+						<li><a href="#">ㅶ</a></li>
+						<li><a href="#">ㅷ</a></li>
+						<li><a href="#">ㅸ</a></li>
+						<li><a href="#">ㅹ</a></li>
+						<li><a href="#">ㅺ</a></li>
+						<li><a href="#">ㅻ</a></li>
+						<li><a href="#">ㅼ</a></li>
+						<li><a href="#">ㅽ</a></li>
+						<li><a href="#">ㅾ</a></li>
+						<li><a href="#">ㅿ</a></li>
+						<li><a href="#">ㆀ</a></li>
+						<li><a href="#">ㆁ</a></li>
+						<li><a href="#">ㆂ</a></li>
+						<li><a href="#">ㆃ</a></li>
+						<li><a href="#">ㆄ</a></li>
+						<li><a href="#">ㆅ</a></li>
+						<li><a href="#">ㆆ</a></li>
+						<li><a href="#">ㆇ</a></li>
+						<li><a href="#">ㆈ</a></li>
+						<li><a href="#">ㆉ</a></li>
+						<li><a href="#">ㆊ</a></li>
+						<li><a href="#">ㆋ</a></li>
+						<li><a href="#">ㆌ</a></li>
+						<li><a href="#">ㆍ</a></li>
+						<li><a href="#" data-focus-next="lang04">ㆎ</a></li>
+					</ul>
+				</div>
 
-        <!-- 그리스문자 -->
-        <div class="language-contents language-content--hidden" data-type="그리스문자">
-          <h5 class="ir_text">그리스문자</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang04" data-focus="lang04List">Α</a>
-            </li>
-            <li><a href="#">Β</a></li>
-            <li><a href="#">Γ</a></li>
-            <li><a href="#">Δ</a></li>
-            <li><a href="#">Ε</a></li>
-            <li><a href="#">Ζ</a></li>
-            <li><a href="#">Η</a></li>
-            <li><a href="#">Θ</a></li>
-            <li><a href="#">Ι</a></li>
-            <li><a href="#">Κ</a></li>
-            <li><a href="#">Λ</a></li>
-            <li><a href="#">Μ</a></li>
-            <li><a href="#">Ν</a></li>
-            <li><a href="#">Ξ</a></li>
-            <li><a href="#">Ο</a></li>
-            <li><a href="#">Π</a></li>
-            <li><a href="#">Ρ</a></li>
-            <li><a href="#">Σ</a></li>
-            <li><a href="#">Τ</a></li>
-            <li><a href="#">Υ</a></li>
-            <li><a href="#">Φ</a></li>
-            <li><a href="#">Χ</a></li>
-            <li><a href="#">Ψ</a></li>
-            <li><a href="#">Ω</a></li>
-            <li><a href="#">α</a></li>
-            <li><a href="#">β</a></li>
-            <li><a href="#">γ</a></li>
-            <li><a href="#">δ</a></li>
-            <li><a href="#">ε</a></li>
-            <li><a href="#">ζ</a></li>
-            <li><a href="#">η</a></li>
-            <li><a href="#">θ</a></li>
-            <li><a href="#">ι</a></li>
-            <li><a href="#">κ</a></li>
-            <li><a href="#">λ</a></li>
-            <li><a href="#">μ</a></li>
-            <li><a href="#">ν</a></li>
-            <li><a href="#">ξ</a></li>
-            <li><a href="#">ο</a></li>
-            <li><a href="#">π</a></li>
-            <li><a href="#">ρ</a></li>
-            <li><a href="#">σ</a></li>
-            <li><a href="#">τ</a></li>
-            <li><a href="#">υ</a></li>
-            <li><a href="#">φ</a></li>
-            <li><a href="#">χ</a></li>
-            <li><a href="#">ψ</a></li>
-            <li><a href="#" data-focus-next="lang05">ω</a></li>
-          </ul>
-        </div>
+				<!-- 그리스문자 -->
+				<div class="language-contents language-content--hidden" data-type="그리스문자">
+					<h5 class="ir_text">그리스문자</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang04" data-focus="lang04List">Α</a>
+						</li>
+						<li><a href="#">Β</a></li>
+						<li><a href="#">Γ</a></li>
+						<li><a href="#">Δ</a></li>
+						<li><a href="#">Ε</a></li>
+						<li><a href="#">Ζ</a></li>
+						<li><a href="#">Η</a></li>
+						<li><a href="#">Θ</a></li>
+						<li><a href="#">Ι</a></li>
+						<li><a href="#">Κ</a></li>
+						<li><a href="#">Λ</a></li>
+						<li><a href="#">Μ</a></li>
+						<li><a href="#">Ν</a></li>
+						<li><a href="#">Ξ</a></li>
+						<li><a href="#">Ο</a></li>
+						<li><a href="#">Π</a></li>
+						<li><a href="#">Ρ</a></li>
+						<li><a href="#">Σ</a></li>
+						<li><a href="#">Τ</a></li>
+						<li><a href="#">Υ</a></li>
+						<li><a href="#">Φ</a></li>
+						<li><a href="#">Χ</a></li>
+						<li><a href="#">Ψ</a></li>
+						<li><a href="#">Ω</a></li>
+						<li><a href="#">α</a></li>
+						<li><a href="#">β</a></li>
+						<li><a href="#">γ</a></li>
+						<li><a href="#">δ</a></li>
+						<li><a href="#">ε</a></li>
+						<li><a href="#">ζ</a></li>
+						<li><a href="#">η</a></li>
+						<li><a href="#">θ</a></li>
+						<li><a href="#">ι</a></li>
+						<li><a href="#">κ</a></li>
+						<li><a href="#">λ</a></li>
+						<li><a href="#">μ</a></li>
+						<li><a href="#">ν</a></li>
+						<li><a href="#">ξ</a></li>
+						<li><a href="#">ο</a></li>
+						<li><a href="#">π</a></li>
+						<li><a href="#">ρ</a></li>
+						<li><a href="#">σ</a></li>
+						<li><a href="#">τ</a></li>
+						<li><a href="#">υ</a></li>
+						<li><a href="#">φ</a></li>
+						<li><a href="#">χ</a></li>
+						<li><a href="#">ψ</a></li>
+						<li><a href="#" data-focus-next="lang05">ω</a></li>
+					</ul>
+				</div>
 
-        <!-- 라틴문자 -->
-        <div class="language-contents language-content--hidden" data-type="라틴문자">
-          <h5 class="ir_text">라틴문자</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang05" data-focus="lang05List">Æ</a>
-            </li>
-            <li><a href="#">Ð</a></li>
-            <li><a href="#">Ħ</a></li>
-            <li><a href="#">Ĳ</a></li>
-            <li><a href="#">Ŀ</a></li>
-            <li><a href="#">Ł</a></li>
-            <li><a href="#">Ø</a></li>
-            <li><a href="#">Œ</a></li>
-            <li><a href="#">Þ</a></li>
-            <li><a href="#">Ŧ</a></li>
-            <li><a href="#">Ŋ</a></li>
-            <li><a href="#">æ</a></li>
-            <li><a href="#">đ</a></li>
-            <li><a href="#">ð</a></li>
-            <li><a href="#">ħ</a></li>
-            <li><a href="#">ı</a></li>
-            <li><a href="#">ĳ</a></li>
-            <li><a href="#">ĸ</a></li>
-            <li><a href="#">ŀ</a></li>
-            <li><a href="#">ł</a></li>
-            <li><a href="#">ø</a></li>
-            <li><a href="#">œ</a></li>
-            <li><a href="#">ß</a></li>
-            <li><a href="#">þ</a></li>
-            <li><a href="#">ŧ</a></li>
-            <li><a href="#" data-focus-next="lang06">ŋ</a></li>
-          </ul>
-        </div>
+				<!-- 라틴문자 -->
+				<div class="language-contents language-content--hidden" data-type="라틴문자">
+					<h5 class="ir_text">라틴문자</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang05" data-focus="lang05List">Æ</a>
+						</li>
+						<li><a href="#">Ð</a></li>
+						<li><a href="#">Ħ</a></li>
+						<li><a href="#">Ĳ</a></li>
+						<li><a href="#">Ŀ</a></li>
+						<li><a href="#">Ł</a></li>
+						<li><a href="#">Ø</a></li>
+						<li><a href="#">Œ</a></li>
+						<li><a href="#">Þ</a></li>
+						<li><a href="#">Ŧ</a></li>
+						<li><a href="#">Ŋ</a></li>
+						<li><a href="#">æ</a></li>
+						<li><a href="#">đ</a></li>
+						<li><a href="#">ð</a></li>
+						<li><a href="#">ħ</a></li>
+						<li><a href="#">ı</a></li>
+						<li><a href="#">ĳ</a></li>
+						<li><a href="#">ĸ</a></li>
+						<li><a href="#">ŀ</a></li>
+						<li><a href="#">ł</a></li>
+						<li><a href="#">ø</a></li>
+						<li><a href="#">œ</a></li>
+						<li><a href="#">ß</a></li>
+						<li><a href="#">þ</a></li>
+						<li><a href="#">ŧ</a></li>
+						<li><a href="#" data-focus-next="lang06">ŋ</a></li>
+					</ul>
+				</div>
 
-        <!-- 키릴문자 -->
-        <div class="language-contents language-content--hidden" data-type="키릴문자">
-          <h5 class="ir_text">키릴문자</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang06" data-focus="lang06List">А</a>
-            </li>
-            <li><a href="#">Б</a></li>
-            <li><a href="#">В</a></li>
-            <li><a href="#">Г</a></li>
-            <li><a href="#">Д</a></li>
-            <li><a href="#">Е</a></li>
-            <li><a href="#">Ё</a></li>
-            <li><a href="#">Ж</a></li>
-            <li><a href="#">З</a></li>
-            <li><a href="#">И</a></li>
-            <li><a href="#">Й</a></li>
-            <li><a href="#">К</a></li>
-            <li><a href="#">Л</a></li>
-            <li><a href="#">М</a></li>
-            <li><a href="#">Н</a></li>
-            <li><a href="#">О</a></li>
-            <li><a href="#">П</a></li>
-            <li><a href="#">Р</a></li>
-            <li><a href="#">С</a></li>
-            <li><a href="#">Т</a></li>
-            <li><a href="#">У</a></li>
-            <li><a href="#">Ф</a></li>
-            <li><a href="#">Х</a></li>
-            <li><a href="#">Ц</a></li>
-            <li><a href="#">Ч</a></li>
-            <li><a href="#">Ш</a></li>
-            <li><a href="#">Щ</a></li>
-            <li><a href="#">Ъ</a></li>
-            <li><a href="#">Ы</a></li>
-            <li><a href="#">Ь</a></li>
-            <li><a href="#">Э</a></li>
-            <li><a href="#">Ю</a></li>
-            <li><a href="#">Я</a></li>
-            <li><a href="#">а</a></li>
-            <li><a href="#">б</a></li>
-            <li><a href="#">в</a></li>
-            <li><a href="#">г</a></li>
-            <li><a href="#">д</a></li>
-            <li><a href="#">е</a></li>
-            <li><a href="#">ё</a></li>
-            <li><a href="#">ж</a></li>
-            <li><a href="#">з</a></li>
-            <li><a href="#">и</a></li>
-            <li><a href="#">й</a></li>
-            <li><a href="#">к</a></li>
-            <li><a href="#">л</a></li>
-            <li><a href="#">м</a></li>
-            <li><a href="#">н</a></li>
-            <li><a href="#">о</a></li>
-            <li><a href="#">п</a></li>
-            <li><a href="#">р</a></li>
-            <li><a href="#">с</a></li>
-            <li><a href="#">т</a></li>
-            <li><a href="#">у</a></li>
-            <li><a href="#">ф</a></li>
-            <li><a href="#">х</a></li>
-            <li><a href="#">ц</a></li>
-            <li><a href="#">ч</a></li>
-            <li><a href="#">ш</a></li>
-            <li><a href="#">щ</a></li>
-            <li><a href="#">ъ</a></li>
-            <li><a href="#">ы</a></li>
-            <li><a href="#">ь</a></li>
-            <li><a href="#">э</a></li>
-            <li><a href="#">ю</a></li>
-            <li><a href="#" data-focus-next="lang07">я</a></li>
-          </ul>
-        </div>
+				<!-- 키릴문자 -->
+				<div class="language-contents language-content--hidden" data-type="키릴문자">
+					<h5 class="ir_text">키릴문자</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang06" data-focus="lang06List">А</a>
+						</li>
+						<li><a href="#">Б</a></li>
+						<li><a href="#">В</a></li>
+						<li><a href="#">Г</a></li>
+						<li><a href="#">Д</a></li>
+						<li><a href="#">Е</a></li>
+						<li><a href="#">Ё</a></li>
+						<li><a href="#">Ж</a></li>
+						<li><a href="#">З</a></li>
+						<li><a href="#">И</a></li>
+						<li><a href="#">Й</a></li>
+						<li><a href="#">К</a></li>
+						<li><a href="#">Л</a></li>
+						<li><a href="#">М</a></li>
+						<li><a href="#">Н</a></li>
+						<li><a href="#">О</a></li>
+						<li><a href="#">П</a></li>
+						<li><a href="#">Р</a></li>
+						<li><a href="#">С</a></li>
+						<li><a href="#">Т</a></li>
+						<li><a href="#">У</a></li>
+						<li><a href="#">Ф</a></li>
+						<li><a href="#">Х</a></li>
+						<li><a href="#">Ц</a></li>
+						<li><a href="#">Ч</a></li>
+						<li><a href="#">Ш</a></li>
+						<li><a href="#">Щ</a></li>
+						<li><a href="#">Ъ</a></li>
+						<li><a href="#">Ы</a></li>
+						<li><a href="#">Ь</a></li>
+						<li><a href="#">Э</a></li>
+						<li><a href="#">Ю</a></li>
+						<li><a href="#">Я</a></li>
+						<li><a href="#">а</a></li>
+						<li><a href="#">б</a></li>
+						<li><a href="#">в</a></li>
+						<li><a href="#">г</a></li>
+						<li><a href="#">д</a></li>
+						<li><a href="#">е</a></li>
+						<li><a href="#">ё</a></li>
+						<li><a href="#">ж</a></li>
+						<li><a href="#">з</a></li>
+						<li><a href="#">и</a></li>
+						<li><a href="#">й</a></li>
+						<li><a href="#">к</a></li>
+						<li><a href="#">л</a></li>
+						<li><a href="#">м</a></li>
+						<li><a href="#">н</a></li>
+						<li><a href="#">о</a></li>
+						<li><a href="#">п</a></li>
+						<li><a href="#">р</a></li>
+						<li><a href="#">с</a></li>
+						<li><a href="#">т</a></li>
+						<li><a href="#">у</a></li>
+						<li><a href="#">ф</a></li>
+						<li><a href="#">х</a></li>
+						<li><a href="#">ц</a></li>
+						<li><a href="#">ч</a></li>
+						<li><a href="#">ш</a></li>
+						<li><a href="#">щ</a></li>
+						<li><a href="#">ъ</a></li>
+						<li><a href="#">ы</a></li>
+						<li><a href="#">ь</a></li>
+						<li><a href="#">э</a></li>
+						<li><a href="#">ю</a></li>
+						<li><a href="#" data-focus-next="lang07">я</a></li>
+					</ul>
+				</div>
 
-        <!-- 로마자 -->
-        <div class="language-contents language-content--hidden" data-type="로마자">
-          <h5 class="ir_text">로마자</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang07" data-focus="lang07List">ⅰ</a>
-            </li>
-            <li><a href="#">ⅱ</a></li>
-            <li><a href="#">ⅲ</a></li>
-            <li><a href="#">ⅳ</a></li>
-            <li><a href="#">ⅴ</a></li>
-            <li><a href="#">ⅵ</a></li>
-            <li><a href="#">ⅶ</a></li>
-            <li><a href="#">ⅷ</a></li>
-            <li><a href="#">ⅸ</a></li>
-            <li><a href="#">ⅹ</a></li>
-            <li><a href="#">Ⅰ</a></li>
-            <li><a href="#">Ⅱ</a></li>
-            <li><a href="#">Ⅲ</a></li>
-            <li><a href="#">Ⅳ</a></li>
-            <li><a href="#">Ⅴ</a></li>
-            <li><a href="#">Ⅵ</a></li>
-            <li><a href="#">Ⅶ</a></li>
-            <li><a href="#">Ⅷ</a></li>
-            <li><a href="#">Ⅸ</a></li>
-            <li><a href="#" data-focus-next="lang08">Ⅹ</a></li>
-          </ul>
-        </div>
+				<!-- 로마자 -->
+				<div class="language-contents language-content--hidden" data-type="로마자">
+					<h5 class="ir_text">로마자</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang07" data-focus="lang07List">ⅰ</a>
+						</li>
+						<li><a href="#">ⅱ</a></li>
+						<li><a href="#">ⅲ</a></li>
+						<li><a href="#">ⅳ</a></li>
+						<li><a href="#">ⅴ</a></li>
+						<li><a href="#">ⅵ</a></li>
+						<li><a href="#">ⅶ</a></li>
+						<li><a href="#">ⅷ</a></li>
+						<li><a href="#">ⅸ</a></li>
+						<li><a href="#">ⅹ</a></li>
+						<li><a href="#">Ⅰ</a></li>
+						<li><a href="#">Ⅱ</a></li>
+						<li><a href="#">Ⅲ</a></li>
+						<li><a href="#">Ⅳ</a></li>
+						<li><a href="#">Ⅴ</a></li>
+						<li><a href="#">Ⅵ</a></li>
+						<li><a href="#">Ⅶ</a></li>
+						<li><a href="#">Ⅷ</a></li>
+						<li><a href="#">Ⅸ</a></li>
+						<li><a href="#" data-focus-next="lang08">Ⅹ</a></li>
+					</ul>
+				</div>
 
-        <!-- 태국어 -->
-        <div class="language-contents language-content--hidden" data-type="태국어">
-          <h5 class="ir_text">태국어</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang08" data-focus="lang08List">ก</a>
-            </li>
-            <li><a href="#">ข</a></li>
-            <li><a href="#">ฃ</a></li>
-            <li><a href="#">ค</a></li>
-            <li><a href="#">ฅ</a></li>
-            <li><a href="#">ฆ</a></li>
-            <li><a href="#">ง</a></li>
-            <li><a href="#">จ</a></li>
-            <li><a href="#">ฉ</a></li>
-            <li><a href="#">ช</a></li>
-            <li><a href="#">ซ</a></li>
-            <li><a href="#">ฌ</a></li>
-            <li><a href="#">ญ</a></li>
-            <li><a href="#">ฎ</a></li>
-            <li><a href="#">ฏ</a></li>
-            <li><a href="#">ฐ</a></li>
-            <li><a href="#">ฑ</a></li>
-            <li><a href="#">ฒ</a></li>
-            <li><a href="#">ณ</a></li>
-            <li><a href="#">ด</a></li>
-            <li><a href="#">ต</a></li>
-            <li><a href="#">ถ</a></li>
-            <li><a href="#">ท</a></li>
-            <li><a href="#">ธ</a></li>
-            <li><a href="#">น</a></li>
-            <li><a href="#">บ</a></li>
-            <li><a href="#">ป</a></li>
-            <li><a href="#">ผ</a></li>
-            <li><a href="#">ฝ</a></li>
-            <li><a href="#">พ</a></li>
-            <li><a href="#">ฟ</a></li>
-            <li><a href="#">ภ</a></li>
-            <li><a href="#">ม</a></li>
-            <li><a href="#">ย</a></li>
-            <li><a href="#">ร</a></li>
-            <li><a href="#">ฤ</a></li>
-            <li><a href="#">ล</a></li>
-            <li><a href="#">ฦ</a></li>
-            <li><a href="#">ว</a></li>
-            <li><a href="#">ศ</a></li>
-            <li><a href="#">ษ</a></li>
-            <li><a href="#">ส</a></li>
-            <li><a href="#">ห</a></li>
-            <li><a href="#">ฬ</a></li>
-            <li><a href="#">อ</a></li>
-            <li><a href="#">ฮ</a></li>
-            <li><a href="#">ฯ</a></li>
-            <li><a href="#">ะ</a></li>
-            <li><a href="#">ั</a></li>
-            <li><a href="#">า</a></li>
-            <li><a href="#">ำ</a></li>
-            <li><a href="#">ิ</a></li>
-            <li><a href="#">ี</a></li>
-            <li><a href="#">ึ</a></li>
-            <li><a href="#">ื</a></li>
-            <li><a href="#">ุ</a></li>
-            <li><a href="#">ู</a></li>
-            <li><a href="#">ฺ</a></li>
-            <li><a href="#">฿</a></li>
-            <li><a href="#">เ</a></li>
-            <li><a href="#">แ</a></li>
-            <li><a href="#">โ</a></li>
-            <li><a href="#">ใ</a></li>
-            <li><a href="#">ไ</a></li>
-            <li><a href="#">ๅ</a></li>
-            <li><a href="#">ๆ</a></li>
-            <li><a href="#">็</a></li>
-            <li><a href="#">่</a></li>
-            <li><a href="#">้</a></li>
-            <li><a href="#">๊</a></li>
-            <li><a href="#">๋</a></li>
-            <li><a href="#">์</a></li>
-            <li><a href="#">ํ</a></li>
-            <li><a href="#">๎</a></li>
-            <li><a href="#">๏</a></li>
-            <li><a href="#">๐</a></li>
-            <li><a href="#">๑</a></li>
-            <li><a href="#">๒</a></li>
-            <li><a href="#">๓</a></li>
-            <li><a href="#">๔</a></li>
-            <li><a href="#">๕</a></li>
-            <li><a href="#">๖</a></li>
-            <li><a href="#">๗</a></li>
-            <li><a href="#">๘</a></li>
-            <li><a href="#">๙</a></li>
-            <li><a href="#">๚</a></li>
-            <li><a href="#" data-focus-next="lang09">๛</a></li>
-          </ul>
-        </div>
+				<!-- 태국어 -->
+				<div class="language-contents language-content--hidden" data-type="태국어">
+					<h5 class="ir_text">태국어</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang08" data-focus="lang08List">ก</a>
+						</li>
+						<li><a href="#">ข</a></li>
+						<li><a href="#">ฃ</a></li>
+						<li><a href="#">ค</a></li>
+						<li><a href="#">ฅ</a></li>
+						<li><a href="#">ฆ</a></li>
+						<li><a href="#">ง</a></li>
+						<li><a href="#">จ</a></li>
+						<li><a href="#">ฉ</a></li>
+						<li><a href="#">ช</a></li>
+						<li><a href="#">ซ</a></li>
+						<li><a href="#">ฌ</a></li>
+						<li><a href="#">ญ</a></li>
+						<li><a href="#">ฎ</a></li>
+						<li><a href="#">ฏ</a></li>
+						<li><a href="#">ฐ</a></li>
+						<li><a href="#">ฑ</a></li>
+						<li><a href="#">ฒ</a></li>
+						<li><a href="#">ณ</a></li>
+						<li><a href="#">ด</a></li>
+						<li><a href="#">ต</a></li>
+						<li><a href="#">ถ</a></li>
+						<li><a href="#">ท</a></li>
+						<li><a href="#">ธ</a></li>
+						<li><a href="#">น</a></li>
+						<li><a href="#">บ</a></li>
+						<li><a href="#">ป</a></li>
+						<li><a href="#">ผ</a></li>
+						<li><a href="#">ฝ</a></li>
+						<li><a href="#">พ</a></li>
+						<li><a href="#">ฟ</a></li>
+						<li><a href="#">ภ</a></li>
+						<li><a href="#">ม</a></li>
+						<li><a href="#">ย</a></li>
+						<li><a href="#">ร</a></li>
+						<li><a href="#">ฤ</a></li>
+						<li><a href="#">ล</a></li>
+						<li><a href="#">ฦ</a></li>
+						<li><a href="#">ว</a></li>
+						<li><a href="#">ศ</a></li>
+						<li><a href="#">ษ</a></li>
+						<li><a href="#">ส</a></li>
+						<li><a href="#">ห</a></li>
+						<li><a href="#">ฬ</a></li>
+						<li><a href="#">อ</a></li>
+						<li><a href="#">ฮ</a></li>
+						<li><a href="#">ฯ</a></li>
+						<li><a href="#">ะ</a></li>
+						<li><a href="#">ั</a></li>
+						<li><a href="#">า</a></li>
+						<li><a href="#">ำ</a></li>
+						<li><a href="#">ิ</a></li>
+						<li><a href="#">ี</a></li>
+						<li><a href="#">ึ</a></li>
+						<li><a href="#">ื</a></li>
+						<li><a href="#">ุ</a></li>
+						<li><a href="#">ู</a></li>
+						<li><a href="#">ฺ</a></li>
+						<li><a href="#">฿</a></li>
+						<li><a href="#">เ</a></li>
+						<li><a href="#">แ</a></li>
+						<li><a href="#">โ</a></li>
+						<li><a href="#">ใ</a></li>
+						<li><a href="#">ไ</a></li>
+						<li><a href="#">ๅ</a></li>
+						<li><a href="#">ๆ</a></li>
+						<li><a href="#">็</a></li>
+						<li><a href="#">่</a></li>
+						<li><a href="#">้</a></li>
+						<li><a href="#">๊</a></li>
+						<li><a href="#">๋</a></li>
+						<li><a href="#">์</a></li>
+						<li><a href="#">ํ</a></li>
+						<li><a href="#">๎</a></li>
+						<li><a href="#">๏</a></li>
+						<li><a href="#">๐</a></li>
+						<li><a href="#">๑</a></li>
+						<li><a href="#">๒</a></li>
+						<li><a href="#">๓</a></li>
+						<li><a href="#">๔</a></li>
+						<li><a href="#">๕</a></li>
+						<li><a href="#">๖</a></li>
+						<li><a href="#">๗</a></li>
+						<li><a href="#">๘</a></li>
+						<li><a href="#">๙</a></li>
+						<li><a href="#">๚</a></li>
+						<li><a href="#" data-focus-next="lang09">๛</a></li>
+					</ul>
+				</div>
 
-        <!-- 아랍어 -->
-        <div class="language-contents language-content--hidden" data-type="아랍어">
-          <h5 class="ir_text">아랍어</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang09" data-focus="lang09List">؀</a>
-            </li>
-            <li><a href="#">؁</a></li>
-            <li><a href="#">؂</a></li>
-            <li><a href="#">؃</a></li>
-            <li><a href="#">؈</a></li>
-            <li><a href="#">؋</a></li>
-            <li><a href="#">،</a></li>
-            <li><a href="#">؍</a></li>
-            <li><a href="#">؎</a></li>
-            <li><a href="#">؏</a></li>
-            <li><a href="#">ؐ</a></li>
-            <li><a href="#">ؑ</a></li>
-            <li><a href="#">ؒ</a></li>
-            <li><a href="#">ؓ</a></li>
-            <li><a href="#">ؔ</a></li>
-            <li><a href="#">ؕ</a></li>
-            <li><a href="#">ؖ</a></li>
-            <li><a href="#">ؗ</a></li>
-            <li><a href="#">ؘ</a></li>
-            <li><a href="#">ؙ</a></li>
-            <li><a href="#">ؚ</a></li>
-            <li><a href="#">؛</a></li>
-            <li><a href="#">؞</a></li>
-            <li><a href="#">؟</a></li>
-            <li><a href="#">ء</a></li>
-            <li><a href="#">آ</a></li>
-            <li><a href="#">أ</a></li>
-            <li><a href="#">ؤ</a></li>
-            <li><a href="#">إ</a></li>
-            <li><a href="#">ئ</a></li>
-            <li><a href="#">ا</a></li>
-            <li><a href="#">ب</a></li>
-            <li><a href="#">ة</a></li>
-            <li><a href="#">ت</a></li>
-            <li><a href="#">ث</a></li>
-            <li><a href="#">ج</a></li>
-            <li><a href="#">ح</a></li>
-            <li><a href="#">خ</a></li>
-            <li><a href="#">د</a></li>
-            <li><a href="#">ذ</a></li>
-            <li><a href="#">ر</a></li>
-            <li><a href="#">ز</a></li>
-            <li><a href="#">س</a></li>
-            <li><a href="#">ش</a></li>
-            <li><a href="#">ص</a></li>
-            <li><a href="#">ض</a></li>
-            <li><a href="#">ط</a></li>
-            <li><a href="#">ظ</a></li>
-            <li><a href="#">ع</a></li>
-            <li><a href="#">غ</a></li>
-            <li><a href="#">ػ</a></li>
-            <li><a href="#">ؼ</a></li>
-            <li><a href="#">ؽ</a></li>
-            <li><a href="#">ؾ</a></li>
-            <li><a href="#">ؿ</a></li>
-            <li><a href="#">ـ</a></li>
-            <li><a href="#">ف</a></li>
-            <li><a href="#">ق</a></li>
-            <li><a href="#">ك</a></li>
-            <li><a href="#">ل</a></li>
-            <li><a href="#">م</a></li>
-            <li><a href="#">ن</a></li>
-            <li><a href="#">ه</a></li>
-            <li><a href="#">و</a></li>
-            <li><a href="#">ى</a></li>
-            <li><a href="#">ي</a></li>
-            <li><a href="#">ً</a></li>
-            <li><a href="#">ٌ</a></li>
-            <li><a href="#">ٍ</a></li>
-            <li><a href="#">َ</a></li>
-            <li><a href="#">ُ</a></li>
-            <li><a href="#">ِ</a></li>
-            <li><a href="#">ّ</a></li>
-            <li><a href="#">ْ</a></li>
-            <li><a href="#">ٓ</a></li>
-            <li><a href="#">ٔ</a></li>
-            <li><a href="#">ٕ</a></li>
-            <li><a href="#">ٖ</a></li>
-            <li><a href="#">ٗ</a></li>
-            <li><a href="#">٘</a></li>
-            <li><a href="#">ٙ</a></li>
-            <li><a href="#">ٚ</a></li>
-            <li><a href="#">ٛ</a></li>
-            <li><a href="#">ٜ</a></li>
-            <li><a href="#">ٝ</a></li>
-            <li><a href="#">ٞ</a></li>
-            <li><a href="#">ٟ</a></li>
-            <li><a href="#">٠</a></li>
-            <li><a href="#">١</a></li>
-            <li><a href="#">٢</a></li>
-            <li><a href="#">٣</a></li>
-            <li><a href="#">٤</a></li>
-            <li><a href="#">٥</a></li>
-            <li><a href="#">٦</a></li>
-            <li><a href="#">٧</a></li>
-            <li><a href="#">٨</a></li>
-            <li><a href="#">٩</a></li>
-            <li><a href="#">٪</a></li>
-            <li><a href="#">٫</a></li>
-            <li><a href="#">٬</a></li>
-            <li><a href="#">٭</a></li>
-            <li><a href="#">ٮ</a></li>
-            <li><a href="#">ٯ</a></li>
-            <li><a href="#">ٰ</a></li>
-            <li><a href="#">ٱ</a></li>
-            <li><a href="#">ٲ</a></li>
-            <li><a href="#">ٳ</a></li>
-            <li><a href="#">ٴ</a></li>
-            <li><a href="#">ٵ</a></li>
-            <li><a href="#">ٶ</a></li>
-            <li><a href="#">ٷ</a></li>
-            <li><a href="#">ٸ</a></li>
-            <li><a href="#">ٹ</a></li>
-            <li><a href="#">ٺ</a></li>
-            <li><a href="#">ٻ</a></li>
-            <li><a href="#">ټ</a></li>
-            <li><a href="#">ٽ</a></li>
-            <li><a href="#">پ</a></li>
-            <li><a href="#">ٿ</a></li>
-            <li><a href="#">ڀ</a></li>
-            <li><a href="#">ځ</a></li>
-            <li><a href="#">ڂ</a></li>
-            <li><a href="#">ڃ</a></li>
-            <li><a href="#">ڄ</a></li>
-            <li><a href="#">څ</a></li>
-            <li><a href="#">چ</a></li>
-            <li><a href="#">ڇ</a></li>
-            <li><a href="#">ڈ</a></li>
-            <li><a href="#">ډ</a></li>
-            <li><a href="#">ڊ</a></li>
-            <li><a href="#">ڋ</a></li>
-            <li><a href="#">ڌ</a></li>
-            <li><a href="#">ڍ</a></li>
-            <li><a href="#">ڎ</a></li>
-            <li><a href="#">ڏ</a></li>
-            <li><a href="#">ڐ</a></li>
-            <li><a href="#">ڑ</a></li>
-            <li><a href="#">ڒ</a></li>
-            <li><a href="#">ڔ</a></li>
-            <li><a href="#">ڕ</a></li>
-            <li><a href="#">ږ</a></li>
-            <li><a href="#">ڗ</a></li>
-            <li><a href="#">ژ</a></li>
-            <li><a href="#">ڙ</a></li>
-            <li><a href="#">ښ</a></li>
-            <li><a href="#">ڛ</a></li>
-            <li><a href="#">ڜ</a></li>
-            <li><a href="#">ڝ</a></li>
-            <li><a href="#">ڞ</a></li>
-            <li><a href="#">ڟ</a></li>
-            <li><a href="#">ڠ</a></li>
-            <li><a href="#">ڡ</a></li>
-            <li><a href="#">ڢ</a></li>
-            <li><a href="#">ڣ</a></li>
-            <li><a href="#">ڤ</a></li>
-            <li><a href="#">ڥ</a></li>
-            <li><a href="#">ڦ</a></li>
-            <li><a href="#">ڧ</a></li>
-            <li><a href="#">ڨ</a></li>
-            <li><a href="#">ڪ</a></li>
-            <li><a href="#">ګ</a></li>
-            <li><a href="#">ڬ</a></li>
-            <li><a href="#">ڭ</a></li>
-            <li><a href="#">ڮ</a></li>
-            <li><a href="#">گ</a></li>
-            <li><a href="#">ڰ</a></li>
-            <li><a href="#">ڱ</a></li>
-            <li><a href="#">ڲ</a></li>
-            <li><a href="#">ڳ</a></li>
-            <li><a href="#">ڴ</a></li>
-            <li><a href="#">ڵ</a></li>
-            <li><a href="#">ڶ</a></li>
-            <li><a href="#">ڷ</a></li>
-            <li><a href="#">ڸ</a></li>
-            <li><a href="#">ڹ</a></li>
-            <li><a href="#">ں</a></li>
-            <li><a href="#">ڻ</a></li>
-            <li><a href="#">ڼ</a></li>
-            <li><a href="#">ڽ</a></li>
-            <li><a href="#">ھ</a></li>
-            <li><a href="#">ڿ</a></li>
-            <li><a href="#">ۀ</a></li>
-            <li><a href="#">ہ</a></li>
-            <li><a href="#">ۂ</a></li>
-            <li><a href="#">ۃ</a></li>
-            <li><a href="#">ۄ</a></li>
-            <li><a href="#">ۅ</a></li>
-            <li><a href="#">ۆ</a></li>
-            <li><a href="#">ۇ</a></li>
-            <li><a href="#">ۈ</a></li>
-            <li><a href="#">ۉ</a></li>
-            <li><a href="#">ۊ</a></li>
-            <li><a href="#">ۋ</a></li>
-            <li><a href="#">ی</a></li>
-            <li><a href="#">ۍ</a></li>
-            <li><a href="#">ێ</a></li>
-            <li><a href="#">ۏ</a></li>
-            <li><a href="#">ې</a></li>
-            <li><a href="#">ۑ</a></li>
-            <li><a href="#">ے</a></li>
-            <li><a href="#">ۓ</a></li>
-            <li><a href="#">۔</a></li>
-            <li><a href="#">ە</a></li>
-            <li><a href="#">ۖ</a></li>
-            <li><a href="#">ۗ</a></li>
-            <li><a href="#">ۘ</a></li>
-            <li><a href="#">ۙ</a></li>
-            <li><a href="#">ۚ</a></li>
-            <li><a href="#">ۛ</a></li>
-            <li><a href="#">ۜ</a></li>
-            <li><a href="#">۝</a></li>
-            <li><a href="#">۞</a></li>
-            <li><a href="#">۟</a></li>
-            <li><a href="#">۠</a></li>
-            <li><a href="#">ۡ</a></li>
-            <li><a href="#">ۢ</a></li>
-            <li><a href="#">ۣ</a></li>
-            <li><a href="#">ۤ</a></li>
-            <li><a href="#">ۥ</a></li>
-            <li><a href="#">ۦ</a></li>
-            <li><a href="#">ۧ</a></li>
-            <li><a href="#">ۨ</a></li>
-            <li><a href="#">۩</a></li>
-            <li><a href="#">۪</a></li>
-            <li><a href="#">۫</a></li>
-            <li><a href="#">۬</a></li>
-            <li><a href="#">ۭ</a></li>
-            <li><a href="#">ۮ</a></li>
-            <li><a href="#">ۯ</a></li>
-            <li><a href="#">۰</a></li>
-            <li><a href="#">۱</a></li>
-            <li><a href="#">۲</a></li>
-            <li><a href="#">۳</a></li>
-            <li><a href="#">۴</a></li>
-            <li><a href="#">۵</a></li>
-            <li><a href="#">۶</a></li>
-            <li><a href="#">۷</a></li>
-            <li><a href="#">۸</a></li>
-            <li><a href="#">۹</a></li>
-            <li><a href="#">ۺ</a></li>
-            <li><a href="#">ۻ</a></li>
-            <li><a href="#">ۼ</a></li>
-            <li><a href="#">۽</a></li>
-            <li><a href="#">۾</a></li>
-            <li><a href="#" data-focus-next="lang10">ۿ</a></li>
-          </ul>
-        </div>
+				<!-- 아랍어 -->
+				<div class="language-contents language-content--hidden" data-type="아랍어">
+					<h5 class="ir_text">아랍어</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang09" data-focus="lang09List">؀</a>
+						</li>
+						<li><a href="#">؁</a></li>
+						<li><a href="#">؂</a></li>
+						<li><a href="#">؃</a></li>
+						<li><a href="#">؈</a></li>
+						<li><a href="#">؋</a></li>
+						<li><a href="#">،</a></li>
+						<li><a href="#">؍</a></li>
+						<li><a href="#">؎</a></li>
+						<li><a href="#">؏</a></li>
+						<li><a href="#">ؐ</a></li>
+						<li><a href="#">ؑ</a></li>
+						<li><a href="#">ؒ</a></li>
+						<li><a href="#">ؓ</a></li>
+						<li><a href="#">ؔ</a></li>
+						<li><a href="#">ؕ</a></li>
+						<li><a href="#">ؖ</a></li>
+						<li><a href="#">ؗ</a></li>
+						<li><a href="#">ؘ</a></li>
+						<li><a href="#">ؙ</a></li>
+						<li><a href="#">ؚ</a></li>
+						<li><a href="#">؛</a></li>
+						<li><a href="#">؞</a></li>
+						<li><a href="#">؟</a></li>
+						<li><a href="#">ء</a></li>
+						<li><a href="#">آ</a></li>
+						<li><a href="#">أ</a></li>
+						<li><a href="#">ؤ</a></li>
+						<li><a href="#">إ</a></li>
+						<li><a href="#">ئ</a></li>
+						<li><a href="#">ا</a></li>
+						<li><a href="#">ب</a></li>
+						<li><a href="#">ة</a></li>
+						<li><a href="#">ت</a></li>
+						<li><a href="#">ث</a></li>
+						<li><a href="#">ج</a></li>
+						<li><a href="#">ح</a></li>
+						<li><a href="#">خ</a></li>
+						<li><a href="#">د</a></li>
+						<li><a href="#">ذ</a></li>
+						<li><a href="#">ر</a></li>
+						<li><a href="#">ز</a></li>
+						<li><a href="#">س</a></li>
+						<li><a href="#">ش</a></li>
+						<li><a href="#">ص</a></li>
+						<li><a href="#">ض</a></li>
+						<li><a href="#">ط</a></li>
+						<li><a href="#">ظ</a></li>
+						<li><a href="#">ع</a></li>
+						<li><a href="#">غ</a></li>
+						<li><a href="#">ػ</a></li>
+						<li><a href="#">ؼ</a></li>
+						<li><a href="#">ؽ</a></li>
+						<li><a href="#">ؾ</a></li>
+						<li><a href="#">ؿ</a></li>
+						<li><a href="#">ـ</a></li>
+						<li><a href="#">ف</a></li>
+						<li><a href="#">ق</a></li>
+						<li><a href="#">ك</a></li>
+						<li><a href="#">ل</a></li>
+						<li><a href="#">م</a></li>
+						<li><a href="#">ن</a></li>
+						<li><a href="#">ه</a></li>
+						<li><a href="#">و</a></li>
+						<li><a href="#">ى</a></li>
+						<li><a href="#">ي</a></li>
+						<li><a href="#">ً</a></li>
+						<li><a href="#">ٌ</a></li>
+						<li><a href="#">ٍ</a></li>
+						<li><a href="#">َ</a></li>
+						<li><a href="#">ُ</a></li>
+						<li><a href="#">ِ</a></li>
+						<li><a href="#">ّ</a></li>
+						<li><a href="#">ْ</a></li>
+						<li><a href="#">ٓ</a></li>
+						<li><a href="#">ٔ</a></li>
+						<li><a href="#">ٕ</a></li>
+						<li><a href="#">ٖ</a></li>
+						<li><a href="#">ٗ</a></li>
+						<li><a href="#">٘</a></li>
+						<li><a href="#">ٙ</a></li>
+						<li><a href="#">ٚ</a></li>
+						<li><a href="#">ٛ</a></li>
+						<li><a href="#">ٜ</a></li>
+						<li><a href="#">ٝ</a></li>
+						<li><a href="#">ٞ</a></li>
+						<li><a href="#">ٟ</a></li>
+						<li><a href="#">٠</a></li>
+						<li><a href="#">١</a></li>
+						<li><a href="#">٢</a></li>
+						<li><a href="#">٣</a></li>
+						<li><a href="#">٤</a></li>
+						<li><a href="#">٥</a></li>
+						<li><a href="#">٦</a></li>
+						<li><a href="#">٧</a></li>
+						<li><a href="#">٨</a></li>
+						<li><a href="#">٩</a></li>
+						<li><a href="#">٪</a></li>
+						<li><a href="#">٫</a></li>
+						<li><a href="#">٬</a></li>
+						<li><a href="#">٭</a></li>
+						<li><a href="#">ٮ</a></li>
+						<li><a href="#">ٯ</a></li>
+						<li><a href="#">ٰ</a></li>
+						<li><a href="#">ٱ</a></li>
+						<li><a href="#">ٲ</a></li>
+						<li><a href="#">ٳ</a></li>
+						<li><a href="#">ٴ</a></li>
+						<li><a href="#">ٵ</a></li>
+						<li><a href="#">ٶ</a></li>
+						<li><a href="#">ٷ</a></li>
+						<li><a href="#">ٸ</a></li>
+						<li><a href="#">ٹ</a></li>
+						<li><a href="#">ٺ</a></li>
+						<li><a href="#">ٻ</a></li>
+						<li><a href="#">ټ</a></li>
+						<li><a href="#">ٽ</a></li>
+						<li><a href="#">پ</a></li>
+						<li><a href="#">ٿ</a></li>
+						<li><a href="#">ڀ</a></li>
+						<li><a href="#">ځ</a></li>
+						<li><a href="#">ڂ</a></li>
+						<li><a href="#">ڃ</a></li>
+						<li><a href="#">ڄ</a></li>
+						<li><a href="#">څ</a></li>
+						<li><a href="#">چ</a></li>
+						<li><a href="#">ڇ</a></li>
+						<li><a href="#">ڈ</a></li>
+						<li><a href="#">ډ</a></li>
+						<li><a href="#">ڊ</a></li>
+						<li><a href="#">ڋ</a></li>
+						<li><a href="#">ڌ</a></li>
+						<li><a href="#">ڍ</a></li>
+						<li><a href="#">ڎ</a></li>
+						<li><a href="#">ڏ</a></li>
+						<li><a href="#">ڐ</a></li>
+						<li><a href="#">ڑ</a></li>
+						<li><a href="#">ڒ</a></li>
+						<li><a href="#">ڔ</a></li>
+						<li><a href="#">ڕ</a></li>
+						<li><a href="#">ږ</a></li>
+						<li><a href="#">ڗ</a></li>
+						<li><a href="#">ژ</a></li>
+						<li><a href="#">ڙ</a></li>
+						<li><a href="#">ښ</a></li>
+						<li><a href="#">ڛ</a></li>
+						<li><a href="#">ڜ</a></li>
+						<li><a href="#">ڝ</a></li>
+						<li><a href="#">ڞ</a></li>
+						<li><a href="#">ڟ</a></li>
+						<li><a href="#">ڠ</a></li>
+						<li><a href="#">ڡ</a></li>
+						<li><a href="#">ڢ</a></li>
+						<li><a href="#">ڣ</a></li>
+						<li><a href="#">ڤ</a></li>
+						<li><a href="#">ڥ</a></li>
+						<li><a href="#">ڦ</a></li>
+						<li><a href="#">ڧ</a></li>
+						<li><a href="#">ڨ</a></li>
+						<li><a href="#">ڪ</a></li>
+						<li><a href="#">ګ</a></li>
+						<li><a href="#">ڬ</a></li>
+						<li><a href="#">ڭ</a></li>
+						<li><a href="#">ڮ</a></li>
+						<li><a href="#">گ</a></li>
+						<li><a href="#">ڰ</a></li>
+						<li><a href="#">ڱ</a></li>
+						<li><a href="#">ڲ</a></li>
+						<li><a href="#">ڳ</a></li>
+						<li><a href="#">ڴ</a></li>
+						<li><a href="#">ڵ</a></li>
+						<li><a href="#">ڶ</a></li>
+						<li><a href="#">ڷ</a></li>
+						<li><a href="#">ڸ</a></li>
+						<li><a href="#">ڹ</a></li>
+						<li><a href="#">ں</a></li>
+						<li><a href="#">ڻ</a></li>
+						<li><a href="#">ڼ</a></li>
+						<li><a href="#">ڽ</a></li>
+						<li><a href="#">ھ</a></li>
+						<li><a href="#">ڿ</a></li>
+						<li><a href="#">ۀ</a></li>
+						<li><a href="#">ہ</a></li>
+						<li><a href="#">ۂ</a></li>
+						<li><a href="#">ۃ</a></li>
+						<li><a href="#">ۄ</a></li>
+						<li><a href="#">ۅ</a></li>
+						<li><a href="#">ۆ</a></li>
+						<li><a href="#">ۇ</a></li>
+						<li><a href="#">ۈ</a></li>
+						<li><a href="#">ۉ</a></li>
+						<li><a href="#">ۊ</a></li>
+						<li><a href="#">ۋ</a></li>
+						<li><a href="#">ی</a></li>
+						<li><a href="#">ۍ</a></li>
+						<li><a href="#">ێ</a></li>
+						<li><a href="#">ۏ</a></li>
+						<li><a href="#">ې</a></li>
+						<li><a href="#">ۑ</a></li>
+						<li><a href="#">ے</a></li>
+						<li><a href="#">ۓ</a></li>
+						<li><a href="#">۔</a></li>
+						<li><a href="#">ە</a></li>
+						<li><a href="#">ۖ</a></li>
+						<li><a href="#">ۗ</a></li>
+						<li><a href="#">ۘ</a></li>
+						<li><a href="#">ۙ</a></li>
+						<li><a href="#">ۚ</a></li>
+						<li><a href="#">ۛ</a></li>
+						<li><a href="#">ۜ</a></li>
+						<li><a href="#">۝</a></li>
+						<li><a href="#">۞</a></li>
+						<li><a href="#">۟</a></li>
+						<li><a href="#">۠</a></li>
+						<li><a href="#">ۡ</a></li>
+						<li><a href="#">ۢ</a></li>
+						<li><a href="#">ۣ</a></li>
+						<li><a href="#">ۤ</a></li>
+						<li><a href="#">ۥ</a></li>
+						<li><a href="#">ۦ</a></li>
+						<li><a href="#">ۧ</a></li>
+						<li><a href="#">ۨ</a></li>
+						<li><a href="#">۩</a></li>
+						<li><a href="#">۪</a></li>
+						<li><a href="#">۫</a></li>
+						<li><a href="#">۬</a></li>
+						<li><a href="#">ۭ</a></li>
+						<li><a href="#">ۮ</a></li>
+						<li><a href="#">ۯ</a></li>
+						<li><a href="#">۰</a></li>
+						<li><a href="#">۱</a></li>
+						<li><a href="#">۲</a></li>
+						<li><a href="#">۳</a></li>
+						<li><a href="#">۴</a></li>
+						<li><a href="#">۵</a></li>
+						<li><a href="#">۶</a></li>
+						<li><a href="#">۷</a></li>
+						<li><a href="#">۸</a></li>
+						<li><a href="#">۹</a></li>
+						<li><a href="#">ۺ</a></li>
+						<li><a href="#">ۻ</a></li>
+						<li><a href="#">ۼ</a></li>
+						<li><a href="#">۽</a></li>
+						<li><a href="#">۾</a></li>
+						<li><a href="#" data-focus-next="lang10">ۿ</a></li>
+					</ul>
+				</div>
 
-        <!-- 확장문자 -->
-        <div class="language-contents language-content--hidden" data-type="확장문자">
-          <h5 class="ir_text">확장문자</h5>
-          <ul class="new_edit_keyboard">
-            <li>
-              <p>양음 부호</p>
-              <ul>
-                <li>
-                  <a href="#" data-focus-prev="lang10" data-focus="lang10List">Á</a>
-                </li>
-                <li><a href="#">É</a></li>
-                <li><a href="#">Í</a></li>
-                <li><a href="#">Ó</a></li>
-                <li><a href="#">Ú</a></li>
-                <li><a href="#">Ý</a></li>
-                <li><a href="#">á</a></li>
-                <li><a href="#">é</a></li>
-                <li><a href="#">í</a></li>
-                <li><a href="#">ó</a></li>
-                <li><a href="#">ú</a></li>
-                <li><a href="#">ý</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>억음 부호</p>
-              <ul>
-                <li><a href="#">À</a></li>
-                <li><a href="#">È</a></li>
-                <li><a href="#">Ì</a></li>
-                <li><a href="#">Ò</a></li>
-                <li><a href="#">Ù</a></li>
-                <li><a href="#">à</a></li>
-                <li><a href="#">è</a></li>
-                <li><a href="#">ì</a></li>
-                <li><a href="#">ò</a></li>
-                <li><a href="#">ù</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>곡절 부호</p>
-              <ul>
-                <li><a href="#">Â</a></li>
-                <li><a href="#">Ê</a></li>
-                <li><a href="#">Î</a></li>
-                <li><a href="#">Ô</a></li>
-                <li><a href="#">Û</a></li>
-                <li><a href="#">â</a></li>
-                <li><a href="#">ê</a></li>
-                <li><a href="#">î</a></li>
-                <li><a href="#">ô</a></li>
-                <li><a href="#">û</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>움라우트/트레마</p>
-              <ul>
-                <li><a href="#">Ä</a></li>
-                <li><a href="#">Ë</a></li>
-                <li><a href="#">Ï</a></li>
-                <li><a href="#">Ö</a></li>
-                <li><a href="#">Ü</a></li>
-                <li><a href="#">Ÿ</a></li>
-                <li><a href="#">ä</a></li>
-                <li><a href="#">ë</a></li>
-                <li><a href="#">ï</a></li>
-                <li><a href="#">ö</a></li>
-                <li><a href="#">ü</a></li>
-                <li><a href="#">ÿ</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>세디유</p>
-              <ul>
-                <li><a href="#">Ç</a></li>
-                <li><a href="#">Ş</a></li>
-                <li><a href="#">ç</a></li>
-                <li><a href="#">ş</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>물결표</p>
-              <ul>
-                <li><a href="#">Ã</a></li>
-                <li><a href="#">Õ</a></li>
-                <li><a href="#">Ñ</a></li>
-                <li><a href="#">ã</a></li>
-                <li><a href="#">õ</a></li>
-                <li><a href="#">ñ</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>오고넥</p>
-              <ul>
-                <li><a href="#">Ą</a></li>
-                <li><a href="#">Ę</a></li>
-                <li><a href="#">Į</a></li>
-                <li><a href="#">Ų</a></li>
-                <li><a href="#">ą</a></li>
-                <li><a href="#">ę</a></li>
-                <li><a href="#">į</a></li>
-                <li><a href="#">ų</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>합자</p>
-              <ul>
-                <li><a href="#">Æ</a></li>
-                <li><a href="#">Œ</a></li>
-                <li><a href="#">Ø</a></li>
-                <li><a href="#">Ĳ</a></li>
-                <li><a href="#">ẞ</a></li>
-                <li><a href="#">æ</a></li>
-                <li><a href="#">œ</a></li>
-                <li><a href="#">ø</a></li>
-                <li><a href="#">ĳ</a></li>
-                <li><a href="#">ß</a></li>
-              </ul>
-            </li>
-            <li>
-              <p>룬 문자유래</p>
-              <ul>
-                <li><a href="#">Þ</a></li>
-                <li><a href="#" data-focus-next="lang11">þ</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+				<!-- 확장문자 -->
+				<div class="language-contents language-content--hidden" data-type="확장문자">
+					<h5 class="ir_text">확장문자</h5>
+					<ul class="new_edit_keyboard">
+						<li>
+							<p>양음 부호</p>
+							<ul>
+								<li>
+									<a href="#" data-focus-prev="lang10" data-focus="lang10List">Á</a>
+								</li>
+								<li><a href="#">É</a></li>
+								<li><a href="#">Í</a></li>
+								<li><a href="#">Ó</a></li>
+								<li><a href="#">Ú</a></li>
+								<li><a href="#">Ý</a></li>
+								<li><a href="#">á</a></li>
+								<li><a href="#">é</a></li>
+								<li><a href="#">í</a></li>
+								<li><a href="#">ó</a></li>
+								<li><a href="#">ú</a></li>
+								<li><a href="#">ý</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>억음 부호</p>
+							<ul>
+								<li><a href="#">À</a></li>
+								<li><a href="#">È</a></li>
+								<li><a href="#">Ì</a></li>
+								<li><a href="#">Ò</a></li>
+								<li><a href="#">Ù</a></li>
+								<li><a href="#">à</a></li>
+								<li><a href="#">è</a></li>
+								<li><a href="#">ì</a></li>
+								<li><a href="#">ò</a></li>
+								<li><a href="#">ù</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>곡절 부호</p>
+							<ul>
+								<li><a href="#">Â</a></li>
+								<li><a href="#">Ê</a></li>
+								<li><a href="#">Î</a></li>
+								<li><a href="#">Ô</a></li>
+								<li><a href="#">Û</a></li>
+								<li><a href="#">â</a></li>
+								<li><a href="#">ê</a></li>
+								<li><a href="#">î</a></li>
+								<li><a href="#">ô</a></li>
+								<li><a href="#">û</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>움라우트/트레마</p>
+							<ul>
+								<li><a href="#">Ä</a></li>
+								<li><a href="#">Ë</a></li>
+								<li><a href="#">Ï</a></li>
+								<li><a href="#">Ö</a></li>
+								<li><a href="#">Ü</a></li>
+								<li><a href="#">Ÿ</a></li>
+								<li><a href="#">ä</a></li>
+								<li><a href="#">ë</a></li>
+								<li><a href="#">ï</a></li>
+								<li><a href="#">ö</a></li>
+								<li><a href="#">ü</a></li>
+								<li><a href="#">ÿ</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>세디유</p>
+							<ul>
+								<li><a href="#">Ç</a></li>
+								<li><a href="#">Ş</a></li>
+								<li><a href="#">ç</a></li>
+								<li><a href="#">ş</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>물결표</p>
+							<ul>
+								<li><a href="#">Ã</a></li>
+								<li><a href="#">Õ</a></li>
+								<li><a href="#">Ñ</a></li>
+								<li><a href="#">ã</a></li>
+								<li><a href="#">õ</a></li>
+								<li><a href="#">ñ</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>오고넥</p>
+							<ul>
+								<li><a href="#">Ą</a></li>
+								<li><a href="#">Ę</a></li>
+								<li><a href="#">Į</a></li>
+								<li><a href="#">Ų</a></li>
+								<li><a href="#">ą</a></li>
+								<li><a href="#">ę</a></li>
+								<li><a href="#">į</a></li>
+								<li><a href="#">ų</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>합자</p>
+							<ul>
+								<li><a href="#">Æ</a></li>
+								<li><a href="#">Œ</a></li>
+								<li><a href="#">Ø</a></li>
+								<li><a href="#">Ĳ</a></li>
+								<li><a href="#">ẞ</a></li>
+								<li><a href="#">æ</a></li>
+								<li><a href="#">œ</a></li>
+								<li><a href="#">ø</a></li>
+								<li><a href="#">ĳ</a></li>
+								<li><a href="#">ß</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>룬 문자유래</p>
+							<ul>
+								<li><a href="#">Þ</a></li>
+								<li><a href="#" data-focus-next="lang11">þ</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 
-        <!-- 일반기호 -->
-        <div class="language-contents language-content--hidden" data-type="일반기호">
-          <h5 class="ir_text">일반기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang11" data-focus="lang11List">§</a>
-            </li>
-            <li><a href="#">※</a></li>
-            <li><a href="#">☆</a></li>
-            <li><a href="#">★</a></li>
-            <li><a href="#">○</a></li>
-            <li><a href="#">●</a></li>
-            <li><a href="#">◎</a></li>
-            <li><a href="#">◇</a></li>
-            <li><a href="#">◆</a></li>
-            <li><a href="#">□</a></li>
-            <li><a href="#">■</a></li>
-            <li><a href="#">△</a></li>
-            <li><a href="#">▽</a></li>
-            <li><a href="#">→</a></li>
-            <li><a href="#">←</a></li>
-            <li><a href="#">↑</a></li>
-            <li><a href="#">↓</a></li>
-            <li><a href="#">↔</a></li>
-            <li><a href="#">〓</a></li>
-            <li><a href="#">◁</a></li>
-            <li><a href="#">◀</a></li>
-            <li><a href="#">▷</a></li>
-            <li><a href="#">▶</a></li>
-            <li><a href="#">♤</a></li>
-            <li><a href="#">♠</a></li>
-            <li><a href="#">♡</a></li>
-            <li><a href="#">♥</a></li>
-            <li><a href="#">♧</a></li>
-            <li><a href="#">♣</a></li>
-            <li><a href="#">⊙</a></li>
-            <li><a href="#">◈</a></li>
-            <li><a href="#">▣</a></li>
-            <li><a href="#">◐</a></li>
-            <li><a href="#">◑</a></li>
-            <li><a href="#">▒</a></li>
-            <li><a href="#">▤</a></li>
-            <li><a href="#">▥</a></li>
-            <li><a href="#">▨</a></li>
-            <li><a href="#">▧</a></li>
-            <li><a href="#">▦</a></li>
-            <li><a href="#">▩</a></li>
-            <li><a href="#">♨</a></li>
-            <li><a href="#">☏</a></li>
-            <li><a href="#">☎</a></li>
-            <li><a href="#">☜</a></li>
-            <li><a href="#">☞</a></li>
-            <li><a href="#">¶</a></li>
-            <li><a href="#">†</a></li>
-            <li><a href="#">‡</a></li>
-            <li><a href="#">↕</a></li>
-            <li><a href="#">↗</a></li>
-            <li><a href="#">↙</a></li>
-            <li><a href="#">↖</a></li>
-            <li><a href="#">↘</a></li>
-            <li><a href="#">♭</a></li>
-            <li><a href="#">♩</a></li>
-            <li><a href="#">♪</a></li>
-            <li><a href="#">♬</a></li>
-            <li><a href="#">㉿</a></li>
-            <li><a href="#">㈜</a></li>
-            <li><a href="#">№</a></li>
-            <li><a href="#">㏇</a></li>
-            <li><a href="#">™</a></li>
-            <li><a href="#">㏂</a></li>
-            <li><a href="#">㏘</a></li>
-            <li><a href="#">℡</a></li>
-            <li><a href="#">＃</a></li>
-            <li><a href="#">＆</a></li>
-            <li><a href="#">＊</a></li>
-            <li><a href="#">＠</a></li>
-            <li><a href="#">ª</a></li>
-            <li><a href="#" data-focus-next="lang12">º</a></li>
-          </ul>
-        </div>
+				<!-- 일반기호 -->
+				<div class="language-contents language-content--hidden" data-type="일반기호">
+					<h5 class="ir_text">일반기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang11" data-focus="lang11List">§</a>
+						</li>
+						<li><a href="#">※</a></li>
+						<li><a href="#">☆</a></li>
+						<li><a href="#">★</a></li>
+						<li><a href="#">○</a></li>
+						<li><a href="#">●</a></li>
+						<li><a href="#">◎</a></li>
+						<li><a href="#">◇</a></li>
+						<li><a href="#">◆</a></li>
+						<li><a href="#">□</a></li>
+						<li><a href="#">■</a></li>
+						<li><a href="#">△</a></li>
+						<li><a href="#">▽</a></li>
+						<li><a href="#">→</a></li>
+						<li><a href="#">←</a></li>
+						<li><a href="#">↑</a></li>
+						<li><a href="#">↓</a></li>
+						<li><a href="#">↔</a></li>
+						<li><a href="#">〓</a></li>
+						<li><a href="#">◁</a></li>
+						<li><a href="#">◀</a></li>
+						<li><a href="#">▷</a></li>
+						<li><a href="#">▶</a></li>
+						<li><a href="#">♤</a></li>
+						<li><a href="#">♠</a></li>
+						<li><a href="#">♡</a></li>
+						<li><a href="#">♥</a></li>
+						<li><a href="#">♧</a></li>
+						<li><a href="#">♣</a></li>
+						<li><a href="#">⊙</a></li>
+						<li><a href="#">◈</a></li>
+						<li><a href="#">▣</a></li>
+						<li><a href="#">◐</a></li>
+						<li><a href="#">◑</a></li>
+						<li><a href="#">▒</a></li>
+						<li><a href="#">▤</a></li>
+						<li><a href="#">▥</a></li>
+						<li><a href="#">▨</a></li>
+						<li><a href="#">▧</a></li>
+						<li><a href="#">▦</a></li>
+						<li><a href="#">▩</a></li>
+						<li><a href="#">♨</a></li>
+						<li><a href="#">☏</a></li>
+						<li><a href="#">☎</a></li>
+						<li><a href="#">☜</a></li>
+						<li><a href="#">☞</a></li>
+						<li><a href="#">¶</a></li>
+						<li><a href="#">†</a></li>
+						<li><a href="#">‡</a></li>
+						<li><a href="#">↕</a></li>
+						<li><a href="#">↗</a></li>
+						<li><a href="#">↙</a></li>
+						<li><a href="#">↖</a></li>
+						<li><a href="#">↘</a></li>
+						<li><a href="#">♭</a></li>
+						<li><a href="#">♩</a></li>
+						<li><a href="#">♪</a></li>
+						<li><a href="#">♬</a></li>
+						<li><a href="#">㉿</a></li>
+						<li><a href="#">㈜</a></li>
+						<li><a href="#">№</a></li>
+						<li><a href="#">㏇</a></li>
+						<li><a href="#">™</a></li>
+						<li><a href="#">㏂</a></li>
+						<li><a href="#">㏘</a></li>
+						<li><a href="#">℡</a></li>
+						<li><a href="#">＃</a></li>
+						<li><a href="#">＆</a></li>
+						<li><a href="#">＊</a></li>
+						<li><a href="#">＠</a></li>
+						<li><a href="#">ª</a></li>
+						<li><a href="#" data-focus-next="lang12">º</a></li>
+					</ul>
+				</div>
 
-        <!-- 괄호기호 -->
-        <div class="language-contents language-content--hidden" data-type="괄호기호">
-          <h5 class="ir_text">괄호기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang12" data-focus="lang12List">'</a>
-            </li>
-            <li><a href="#">'</a></li>
-            <li><a href="#">"</a></li>
-            <li><a href="#">"</a></li>
-            <li><a href="#">〔</a></li>
-            <li><a href="#">〕</a></li>
-            <li><a href="#">〈</a></li>
-            <li><a href="#">〉</a></li>
-            <li><a href="#">「</a></li>
-            <li><a href="#">」</a></li>
-            <li><a href="#">『</a></li>
-            <li><a href="#">』</a></li>
-            <li><a href="#">【</a></li>
-            <li><a href="#">】</a></li>
-            <li><a href="#">＂</a></li>
-            <li><a href="#">（</a></li>
-            <li><a href="#">）</a></li>
-            <li><a href="#">［</a></li>
-            <li><a href="#">］</a></li>
-            <li><a href="#">｛</a></li>
-            <li><a href="#" data-focus-next="lang13">｝</a></li>
-          </ul>
-        </div>
+				<!-- 괄호기호 -->
+				<div class="language-contents language-content--hidden" data-type="괄호기호">
+					<h5 class="ir_text">괄호기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang12" data-focus="lang12List">'</a>
+						</li>
+						<li><a href="#">'</a></li>
+						<li><a href="#">"</a></li>
+						<li><a href="#">"</a></li>
+						<li><a href="#">〔</a></li>
+						<li><a href="#">〕</a></li>
+						<li><a href="#">〈</a></li>
+						<li><a href="#">〉</a></li>
+						<li><a href="#">「</a></li>
+						<li><a href="#">」</a></li>
+						<li><a href="#">『</a></li>
+						<li><a href="#">』</a></li>
+						<li><a href="#">【</a></li>
+						<li><a href="#">】</a></li>
+						<li><a href="#">＂</a></li>
+						<li><a href="#">（</a></li>
+						<li><a href="#">）</a></li>
+						<li><a href="#">［</a></li>
+						<li><a href="#">］</a></li>
+						<li><a href="#">｛</a></li>
+						<li><a href="#" data-focus-next="lang13">｝</a></li>
+					</ul>
+				</div>
 
-        <!-- 학술기호 -->
-        <div class="language-contents language-content--hidden" data-type="학술기호">
-          <h5 class="ir_text">학술기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang13" data-focus="lang13List">±</a>
-            </li>
-            <li><a href="#">×</a></li>
-            <li><a href="#">÷</a></li>
-            <li><a href="#">≠</a></li>
-            <li><a href="#">≤</a></li>
-            <li><a href="#">≥</a></li>
-            <li><a href="#">∞</a></li>
-            <li><a href="#">∴</a></li>
-            <li><a href="#">♂</a></li>
-            <li><a href="#">♀</a></li>
-            <li><a href="#">∠</a></li>
-            <li><a href="#">⊥</a></li>
-            <li><a href="#">⌒</a></li>
-            <li><a href="#">∂</a></li>
-            <li><a href="#">∇</a></li>
-            <li><a href="#">≡</a></li>
-            <li><a href="#">≒</a></li>
-            <li><a href="#">≪</a></li>
-            <li><a href="#">≫</a></li>
-            <li><a href="#">√</a></li>
-            <li><a href="#">∽</a></li>
-            <li><a href="#">∝</a></li>
-            <li><a href="#">∵</a></li>
-            <li><a href="#">∫</a></li>
-            <li><a href="#">∬</a></li>
-            <li><a href="#">∈</a></li>
-            <li><a href="#">∋</a></li>
-            <li><a href="#">⊆</a></li>
-            <li><a href="#">⊇</a></li>
-            <li><a href="#">⊂</a></li>
-            <li><a href="#">⊃</a></li>
-            <li><a href="#">∪</a></li>
-            <li><a href="#">∩</a></li>
-            <li><a href="#">∧</a></li>
-            <li><a href="#">∨</a></li>
-            <li><a href="#">￢</a></li>
-            <li><a href="#">⇒</a></li>
-            <li><a href="#">⇔</a></li>
-            <li><a href="#">∀</a></li>
-            <li><a href="#">∃</a></li>
-            <li><a href="#">∮</a></li>
-            <li><a href="#">∑</a></li>
-            <li><a href="#">∏</a></li>
-            <li><a href="#">＋</a></li>
-            <li><a href="#">－</a></li>
-            <li><a href="#">＜</a></li>
-            <li><a href="#">＝</a></li>
-            <li><a href="#" data-focus-next="lang14">＞</a></li>
-          </ul>
-        </div>
+				<!-- 학술기호 -->
+				<div class="language-contents language-content--hidden" data-type="학술기호">
+					<h5 class="ir_text">학술기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang13" data-focus="lang13List">±</a>
+						</li>
+						<li><a href="#">×</a></li>
+						<li><a href="#">÷</a></li>
+						<li><a href="#">≠</a></li>
+						<li><a href="#">≤</a></li>
+						<li><a href="#">≥</a></li>
+						<li><a href="#">∞</a></li>
+						<li><a href="#">∴</a></li>
+						<li><a href="#">♂</a></li>
+						<li><a href="#">♀</a></li>
+						<li><a href="#">∠</a></li>
+						<li><a href="#">⊥</a></li>
+						<li><a href="#">⌒</a></li>
+						<li><a href="#">∂</a></li>
+						<li><a href="#">∇</a></li>
+						<li><a href="#">≡</a></li>
+						<li><a href="#">≒</a></li>
+						<li><a href="#">≪</a></li>
+						<li><a href="#">≫</a></li>
+						<li><a href="#">√</a></li>
+						<li><a href="#">∽</a></li>
+						<li><a href="#">∝</a></li>
+						<li><a href="#">∵</a></li>
+						<li><a href="#">∫</a></li>
+						<li><a href="#">∬</a></li>
+						<li><a href="#">∈</a></li>
+						<li><a href="#">∋</a></li>
+						<li><a href="#">⊆</a></li>
+						<li><a href="#">⊇</a></li>
+						<li><a href="#">⊂</a></li>
+						<li><a href="#">⊃</a></li>
+						<li><a href="#">∪</a></li>
+						<li><a href="#">∩</a></li>
+						<li><a href="#">∧</a></li>
+						<li><a href="#">∨</a></li>
+						<li><a href="#">￢</a></li>
+						<li><a href="#">⇒</a></li>
+						<li><a href="#">⇔</a></li>
+						<li><a href="#">∀</a></li>
+						<li><a href="#">∃</a></li>
+						<li><a href="#">∮</a></li>
+						<li><a href="#">∑</a></li>
+						<li><a href="#">∏</a></li>
+						<li><a href="#">＋</a></li>
+						<li><a href="#">－</a></li>
+						<li><a href="#">＜</a></li>
+						<li><a href="#">＝</a></li>
+						<li><a href="#" data-focus-next="lang14">＞</a></li>
+					</ul>
+				</div>
 
-        <!-- 기술기호 -->
-        <div class="language-contents language-content--hidden" data-type="기술기호">
-          <h5 class="ir_text">기술기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang14" data-focus="lang14List">、</a>
-            </li>
-            <li><a href="#">。</a></li>
-            <li><a href="#">·</a></li>
-            <li><a href="#">‥</a></li>
-            <li><a href="#">…</a></li>
-            <li><a href="#">¨</a></li>
-            <li><a href="#">〃</a></li>
-            <li><a href="#">­</a></li>
-            <li><a href="#">―</a></li>
-            <li><a href="#">∥</a></li>
-            <li><a href="#">＼</a></li>
-            <li><a href="#">∼</a></li>
-            <li><a href="#">´</a></li>
-            <li><a href="#">～</a></li>
-            <li><a href="#">ˇ</a></li>
-            <li><a href="#">˘</a></li>
-            <li><a href="#">˝</a></li>
-            <li><a href="#">˚</a></li>
-            <li><a href="#">˙</a></li>
-            <li><a href="#">¸</a></li>
-            <li><a href="#">˛</a></li>
-            <li><a href="#">¡</a></li>
-            <li><a href="#">¿</a></li>
-            <li><a href="#">ː</a></li>
-            <li><a href="#">！</a></li>
-            <li><a href="#">＇</a></li>
-            <li><a href="#">，</a></li>
-            <li><a href="#">．</a></li>
-            <li><a href="#">／</a></li>
-            <li><a href="#">：</a></li>
-            <li><a href="#">；</a></li>
-            <li><a href="#">？</a></li>
-            <li><a href="#">＾</a></li>
-            <li><a href="#">＿</a></li>
-            <li><a href="#">｀</a></li>
-            <li><a href="#">｜</a></li>
-            <li><a href="#" data-focus-next="lang15">￣</a></li>
-          </ul>
-        </div>
+				<!-- 기술기호 -->
+				<div class="language-contents language-content--hidden" data-type="기술기호">
+					<h5 class="ir_text">기술기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang14" data-focus="lang14List">、</a>
+						</li>
+						<li><a href="#">。</a></li>
+						<li><a href="#">·</a></li>
+						<li><a href="#">‥</a></li>
+						<li><a href="#">…</a></li>
+						<li><a href="#">¨</a></li>
+						<li><a href="#">〃</a></li>
+						<li><a href="#">­</a></li>
+						<li><a href="#">―</a></li>
+						<li><a href="#">∥</a></li>
+						<li><a href="#">＼</a></li>
+						<li><a href="#">∼</a></li>
+						<li><a href="#">´</a></li>
+						<li><a href="#">～</a></li>
+						<li><a href="#">ˇ</a></li>
+						<li><a href="#">˘</a></li>
+						<li><a href="#">˝</a></li>
+						<li><a href="#">˚</a></li>
+						<li><a href="#">˙</a></li>
+						<li><a href="#">¸</a></li>
+						<li><a href="#">˛</a></li>
+						<li><a href="#">¡</a></li>
+						<li><a href="#">¿</a></li>
+						<li><a href="#">ː</a></li>
+						<li><a href="#">！</a></li>
+						<li><a href="#">＇</a></li>
+						<li><a href="#">，</a></li>
+						<li><a href="#">．</a></li>
+						<li><a href="#">／</a></li>
+						<li><a href="#">：</a></li>
+						<li><a href="#">；</a></li>
+						<li><a href="#">？</a></li>
+						<li><a href="#">＾</a></li>
+						<li><a href="#">＿</a></li>
+						<li><a href="#">｀</a></li>
+						<li><a href="#">｜</a></li>
+						<li><a href="#" data-focus-next="lang15">￣</a></li>
+					</ul>
+				</div>
 
-        <!-- 단위기호 -->
-        <div class="language-contents language-content--hidden" data-type="단위기호">
-          <h5 class="ir_text">단위기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang15" data-focus="lang15List">′</a>
-            </li>
-            <li><a href="#">″</a></li>
-            <li><a href="#">℃</a></li>
-            <li><a href="#">Å</a></li>
-            <li><a href="#">￠</a></li>
-            <li><a href="#">￡</a></li>
-            <li><a href="#">￥</a></li>
-            <li><a href="#">¤</a></li>
-            <li><a href="#">℉</a></li>
-            <li><a href="#">‰</a></li>
-            <li><a href="#">＄</a></li>
-            <li><a href="#">％</a></li>
-            <li><a href="#">Ｆ</a></li>
-            <li><a href="#">￦</a></li>
-            <li><a href="#">㎕</a></li>
-            <li><a href="#">㎖</a></li>
-            <li><a href="#">㎗</a></li>
-            <li><a href="#">ℓ</a></li>
-            <li><a href="#">㎘</a></li>
-            <li><a href="#">㏄</a></li>
-            <li><a href="#">㎣</a></li>
-            <li><a href="#">㎤</a></li>
-            <li><a href="#">㎥</a></li>
-            <li><a href="#">㎦</a></li>
-            <li><a href="#">㎙</a></li>
-            <li><a href="#">㎚</a></li>
-            <li><a href="#">㎛</a></li>
-            <li><a href="#">㎜</a></li>
-            <li><a href="#">㎝</a></li>
-            <li><a href="#">㎞</a></li>
-            <li><a href="#">㎟</a></li>
-            <li><a href="#">㎠</a></li>
-            <li><a href="#">㎡</a></li>
-            <li><a href="#">㎢</a></li>
-            <li><a href="#">㏊</a></li>
-            <li><a href="#">㎍</a></li>
-            <li><a href="#">㎎</a></li>
-            <li><a href="#">㎏</a></li>
-            <li><a href="#">㏏</a></li>
-            <li><a href="#">㎈</a></li>
-            <li><a href="#">㎉</a></li>
-            <li><a href="#">㏈</a></li>
-            <li><a href="#">㎧</a></li>
-            <li><a href="#">㎨</a></li>
-            <li><a href="#">㎰</a></li>
-            <li><a href="#">㎱</a></li>
-            <li><a href="#">㎲</a></li>
-            <li><a href="#">㎳</a></li>
-            <li><a href="#">㎴</a></li>
-            <li><a href="#">㎵</a></li>
-            <li><a href="#">㎶</a></li>
-            <li><a href="#">㎷</a></li>
-            <li><a href="#">㎸</a></li>
-            <li><a href="#">㎹</a></li>
-            <li><a href="#">㎀</a></li>
-            <li><a href="#">㎁</a></li>
-            <li><a href="#">㎂</a></li>
-            <li><a href="#">㎃</a></li>
-            <li><a href="#">㎄</a></li>
-            <li><a href="#">㎺</a></li>
-            <li><a href="#">㎻</a></li>
-            <li><a href="#">㎽</a></li>
-            <li><a href="#">㎾</a></li>
-            <li><a href="#">㎿</a></li>
-            <li><a href="#">㎐</a></li>
-            <li><a href="#">㎑</a></li>
-            <li><a href="#">㎒</a></li>
-            <li><a href="#">㎓</a></li>
-            <li><a href="#">㎔</a></li>
-            <li><a href="#">Ω</a></li>
-            <li><a href="#">㏀</a></li>
-            <li><a href="#">㏁</a></li>
-            <li><a href="#">㎊</a></li>
-            <li><a href="#">㎋</a></li>
-            <li><a href="#">㎌</a></li>
-            <li><a href="#">㏖</a></li>
-            <li><a href="#">㏅</a></li>
-            <li><a href="#">㎭</a></li>
-            <li><a href="#">㎮</a></li>
-            <li><a href="#">㎯</a></li>
-            <li><a href="#">㏛</a></li>
-            <li><a href="#">㎩</a></li>
-            <li><a href="#">㎪</a></li>
-            <li><a href="#">㎫</a></li>
-            <li><a href="#">㎬</a></li>
-            <li><a href="#">㏝</a></li>
-            <li><a href="#">㏐</a></li>
-            <li><a href="#">㏓</a></li>
-            <li><a href="#">㏃</a></li>
-            <li><a href="#">㏉</a></li>
-            <li><a href="#">㏜</a></li>
-            <li><a href="#" data-focus-next="lang16">㏆</a></li>
-          </ul>
-        </div>
+				<!-- 단위기호 -->
+				<div class="language-contents language-content--hidden" data-type="단위기호">
+					<h5 class="ir_text">단위기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang15" data-focus="lang15List">′</a>
+						</li>
+						<li><a href="#">″</a></li>
+						<li><a href="#">℃</a></li>
+						<li><a href="#">Å</a></li>
+						<li><a href="#">￠</a></li>
+						<li><a href="#">￡</a></li>
+						<li><a href="#">￥</a></li>
+						<li><a href="#">¤</a></li>
+						<li><a href="#">℉</a></li>
+						<li><a href="#">‰</a></li>
+						<li><a href="#">＄</a></li>
+						<li><a href="#">％</a></li>
+						<li><a href="#">Ｆ</a></li>
+						<li><a href="#">￦</a></li>
+						<li><a href="#">㎕</a></li>
+						<li><a href="#">㎖</a></li>
+						<li><a href="#">㎗</a></li>
+						<li><a href="#">ℓ</a></li>
+						<li><a href="#">㎘</a></li>
+						<li><a href="#">㏄</a></li>
+						<li><a href="#">㎣</a></li>
+						<li><a href="#">㎤</a></li>
+						<li><a href="#">㎥</a></li>
+						<li><a href="#">㎦</a></li>
+						<li><a href="#">㎙</a></li>
+						<li><a href="#">㎚</a></li>
+						<li><a href="#">㎛</a></li>
+						<li><a href="#">㎜</a></li>
+						<li><a href="#">㎝</a></li>
+						<li><a href="#">㎞</a></li>
+						<li><a href="#">㎟</a></li>
+						<li><a href="#">㎠</a></li>
+						<li><a href="#">㎡</a></li>
+						<li><a href="#">㎢</a></li>
+						<li><a href="#">㏊</a></li>
+						<li><a href="#">㎍</a></li>
+						<li><a href="#">㎎</a></li>
+						<li><a href="#">㎏</a></li>
+						<li><a href="#">㏏</a></li>
+						<li><a href="#">㎈</a></li>
+						<li><a href="#">㎉</a></li>
+						<li><a href="#">㏈</a></li>
+						<li><a href="#">㎧</a></li>
+						<li><a href="#">㎨</a></li>
+						<li><a href="#">㎰</a></li>
+						<li><a href="#">㎱</a></li>
+						<li><a href="#">㎲</a></li>
+						<li><a href="#">㎳</a></li>
+						<li><a href="#">㎴</a></li>
+						<li><a href="#">㎵</a></li>
+						<li><a href="#">㎶</a></li>
+						<li><a href="#">㎷</a></li>
+						<li><a href="#">㎸</a></li>
+						<li><a href="#">㎹</a></li>
+						<li><a href="#">㎀</a></li>
+						<li><a href="#">㎁</a></li>
+						<li><a href="#">㎂</a></li>
+						<li><a href="#">㎃</a></li>
+						<li><a href="#">㎄</a></li>
+						<li><a href="#">㎺</a></li>
+						<li><a href="#">㎻</a></li>
+						<li><a href="#">㎽</a></li>
+						<li><a href="#">㎾</a></li>
+						<li><a href="#">㎿</a></li>
+						<li><a href="#">㎐</a></li>
+						<li><a href="#">㎑</a></li>
+						<li><a href="#">㎒</a></li>
+						<li><a href="#">㎓</a></li>
+						<li><a href="#">㎔</a></li>
+						<li><a href="#">Ω</a></li>
+						<li><a href="#">㏀</a></li>
+						<li><a href="#">㏁</a></li>
+						<li><a href="#">㎊</a></li>
+						<li><a href="#">㎋</a></li>
+						<li><a href="#">㎌</a></li>
+						<li><a href="#">㏖</a></li>
+						<li><a href="#">㏅</a></li>
+						<li><a href="#">㎭</a></li>
+						<li><a href="#">㎮</a></li>
+						<li><a href="#">㎯</a></li>
+						<li><a href="#">㏛</a></li>
+						<li><a href="#">㎩</a></li>
+						<li><a href="#">㎪</a></li>
+						<li><a href="#">㎫</a></li>
+						<li><a href="#">㎬</a></li>
+						<li><a href="#">㏝</a></li>
+						<li><a href="#">㏐</a></li>
+						<li><a href="#">㏓</a></li>
+						<li><a href="#">㏃</a></li>
+						<li><a href="#">㏉</a></li>
+						<li><a href="#">㏜</a></li>
+						<li><a href="#" data-focus-next="lang16">㏆</a></li>
+					</ul>
+				</div>
 
-        <!-- 첨자기호 -->
-        <div class="language-contents language-content--hidden" data-type="첨자기호">
-          <h5 class="ir_text">첨자기호</h5>
-          <ul>
-            <li>
-              <a href="#" data-focus-prev="lang16" data-focus="lang16List">½</a>
-            </li>
-            <li><a href="#">⅓</a></li>
-            <li><a href="#">⅔</a></li>
-            <li><a href="#">¼</a></li>
-            <li><a href="#">¾</a></li>
-            <li><a href="#">⅛</a></li>
-            <li><a href="#">⅜</a></li>
-            <li><a href="#">⅝</a></li>
-            <li><a href="#">⅞</a></li>
-            <li><a href="#">¹</a></li>
-            <li><a href="#">²</a></li>
-            <li><a href="#">³</a></li>
-            <li><a href="#">⁴</a></li>
-            <li><a href="#">ⁿ</a></li>
-            <li><a href="#">₁</a></li>
-            <li><a href="#">₂</a></li>
-            <li><a href="#">₃</a></li>
-            <li><a href="#">₄</a></li>
-          </ul>
-        </div>
-      </div>
-    </fieldset>
-    <button type="button" class="worldword-close" data-focus="close">
-      <span class="sp_layout">다국어입력기 닫기</span>
-    </button>
-  </div>
+				<!-- 첨자기호 -->
+				<div class="language-contents language-content--hidden" data-type="첨자기호">
+					<h5 class="ir_text">첨자기호</h5>
+					<ul>
+						<li>
+							<a href="#" data-focus-prev="lang16" data-focus="lang16List">½</a>
+						</li>
+						<li><a href="#">⅓</a></li>
+						<li><a href="#">⅔</a></li>
+						<li><a href="#">¼</a></li>
+						<li><a href="#">¾</a></li>
+						<li><a href="#">⅛</a></li>
+						<li><a href="#">⅜</a></li>
+						<li><a href="#">⅝</a></li>
+						<li><a href="#">⅞</a></li>
+						<li><a href="#">¹</a></li>
+						<li><a href="#">²</a></li>
+						<li><a href="#">³</a></li>
+						<li><a href="#">⁴</a></li>
+						<li><a href="#">ⁿ</a></li>
+						<li><a href="#">₁</a></li>
+						<li><a href="#">₂</a></li>
+						<li><a href="#">₃</a></li>
+						<li><a href="#">₄</a></li>
+					</ul>
+				</div>
+			</div>
+		</fieldset>
+		<button type="button" class="worldword-close" data-focus="close">
+			<span class="sp_layout">다국어입력기 닫기</span>
+		</button>
+	</div>
 </div>
 
 <script define:vars={{ id, targetInputId }}>
-  document.addEventListener('DOMContentLoaded', function () {
-    const keyboardWrapper = document.getElementById(id);
-    const keyboardPanel = keyboardWrapper?.querySelector('.worldword-wrap');
-    const closeButton = keyboardWrapper?.querySelector('.worldword-close');
-    const languageButtons = keyboardWrapper?.querySelectorAll('.language a');
-    const languageContents = keyboardWrapper?.querySelectorAll('.language-contents');
-    const characterButtons = keyboardWrapper?.querySelectorAll('.language-contents a');
+	document.addEventListener('DOMContentLoaded', function () {
+		const keyboardWrapper = document.getElementById(id);
+		const keyboardPanel = keyboardWrapper?.querySelector('.worldword-wrap');
+		const closeButton = keyboardWrapper?.querySelector('.worldword-close');
+		const languageButtons = keyboardWrapper?.querySelectorAll('.language a');
+		const languageContents = keyboardWrapper?.querySelectorAll('.language-contents');
+		const characterButtons = keyboardWrapper?.querySelectorAll('.language-contents a');
 
-    if (!keyboardWrapper || !keyboardPanel) return;
+		if (!keyboardWrapper || !keyboardPanel) return;
 
-    // 키보드 열기 함수
-    window.openKeyboard = function () {
-      keyboardPanel.style.display = 'block';
-    };
+		// 키보드 열기 함수
+		window.openKeyboard = function () {
+			keyboardPanel.style.display = 'block';
+		};
 
-    // 키보드 닫기 함수
-    window.closeKeyboard = function () {
-      keyboardPanel.style.display = 'none';
-    };
+		// 키보드 닫기 함수
+		window.closeKeyboard = function () {
+			keyboardPanel.style.display = 'none';
+		};
 
-    // 닫기 버튼 이벤트
-    if (closeButton) {
-      closeButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.closeKeyboard();
-      });
-    }
+		// 닫기 버튼 이벤트
+		if (closeButton) {
+			closeButton.addEventListener('click', function (e) {
+				e.preventDefault();
+				window.closeKeyboard();
+			});
+		}
 
-    // 언어 탭 전환
-    languageButtons.forEach(function (button) {
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetType = this.getAttribute('data-type');
+		// 언어 탭 전환
+		languageButtons.forEach(function (button) {
+			button.addEventListener('click', function (e) {
+				e.preventDefault();
+				const targetType = this.getAttribute('data-type');
 
-        // 모든 언어 버튼의 selected 클래스 제거
-        languageButtons.forEach(function (btn) {
-          btn.classList.remove('selected');
-        });
+				// 모든 언어 버튼의 selected 클래스 제거
+				languageButtons.forEach(function (btn) {
+					btn.classList.remove('selected');
+				});
 
-        // 현재 버튼에 selected 클래스 추가
-        this.classList.add('selected');
+				// 현재 버튼에 selected 클래스 추가
+				this.classList.add('selected');
 
-        // 모든 언어 컨텐츠 숨기기
-        languageContents.forEach(function (content) {
-          content.style.display = 'none';
-        });
+				// 모든 언어 컨텐츠 숨기기
+				languageContents.forEach(function (content) {
+					content.style.display = 'none';
+				});
 
-        // 선택된 언어 컨텐츠 표시
-        const targetContent = keyboardWrapper.querySelector(`.language-contents[data-type="${targetType}"]`);
-        if (targetContent) {
-          targetContent.style.display = 'block';
-        }
-      });
-    });
+				// 선택된 언어 컨텐츠 표시
+				const targetContent = keyboardWrapper.querySelector(`.language-contents[data-type="${targetType}"]`);
+				if (targetContent) {
+					targetContent.style.display = 'block';
+				}
+			});
+		});
 
-    // 문자 입력
-    characterButtons.forEach(function (button) {
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        const character = this.textContent;
+		// 문자 입력
+		characterButtons.forEach(function (button) {
+			button.addEventListener('click', function (e) {
+				e.preventDefault();
+				const character = this.textContent;
 
-        // 타겟 입력 필드에 문자 추가
-        if (targetInputId) {
-          const targetInput = document.getElementById(targetInputId);
-          if (targetInput) {
-            const currentValue = targetInput.value || '';
-            targetInput.value = currentValue + character;
-            targetInput.focus();
+				// 타겟 입력 필드에 문자 추가
+				if (targetInputId) {
+					const targetInput = document.getElementById(targetInputId);
+					if (targetInput) {
+						const currentValue = targetInput.value || '';
+						targetInput.value = currentValue + character;
+						targetInput.focus();
 
-            // 입력 이벤트 발생시키기 (다른 스크립트에서 감지할 수 있도록)
-            const inputEvent = new Event('input', { bubbles: true });
-            targetInput.dispatchEvent(inputEvent);
-          }
-        }
-      });
-    });
+						// 입력 이벤트 발생시키기 (다른 스크립트에서 감지할 수 있도록)
+						const inputEvent = new Event('input', { bubbles: true });
+						targetInput.dispatchEvent(inputEvent);
+					}
+				}
+			});
+		});
 
-    // ESC 키로 키보드 닫기
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && keyboardPanel.style.display === 'block') {
-        window.closeKeyboard();
-      }
-    });
-  });
+		// ESC 키로 키보드 닫기
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && keyboardPanel.style.display === 'block') {
+				window.closeKeyboard();
+			}
+		});
+	});
 </script>
 
 <!-- 외부 JS 파일에서 처리: keyboard.js -->
-
