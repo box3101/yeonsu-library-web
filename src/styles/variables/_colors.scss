@@ -91,7 +91,7 @@ $radio-text-primary: #131416;
 $radio-text-secondary: #464c53;
 $radio-text-disabled: #8a949e;
 
-// 기관별 색상 (연수구립도서관 시스템)
+// 기관별 색상 (연수구립도서관 시스템) - 확장
 $institution-전체: #008f37;
 $institution-연수꿈담: #a3cf62;
 $institution-송도국제: #8e63aa;
@@ -101,14 +101,49 @@ $institution-해돋이: #ef6601;
 $institution-해찬솔공원: #189ba7;
 $institution-선학별빛: #ffacc1;
 
-// 도서관 분관별 색상 맵 (mixin에서 활용)
+// 추가 도서관 색상 (코드 기반 매핑)
+$institution-연수어린이: #4ade80; // 128005 - 연두색 계열
+$institution-송도국제어린이: #a855f7; // 128047 - 보라색 계열
+$institution-동춘나래: #06b6d4; // 128108 - 시안색 계열
+$institution-함박비류: #f59e0b; // 128109 - 황색 계열
+$institution-옥련1동작은: #10b981; // 128038 - 에메랄드색
+$institution-옥련2동어린이작은: #8b5cf6; // 128011 - 바이올렛색
+$institution-연수1동작은: #f97316; // 128100 - 오렌지색
+$institution-송도2동작은: #ec4899; // 128086 - 핑크색
+$institution-송도3동작은: #14b8a6; // 728143 - 틸색
+$institution-송도5동작은: #84cc16; // 728211 - 라임색
+$institution-문화공원작은: #6366f1; // 128082 - 인디고색
+$institution-솔안공원작은: #d946ef; // 728210 - 후시아색
+$institution-송도4동스마트: #22d3ee; // 912345 - 스카이블루색
+$institution-스퀘어원스마트: #fb7185; // 912346 - 로즈색
+$institution-연수구청스마트: #34d399; // 912347 - 에메랄드색
+$institution-선학역스마트: #fbbf24; // 912348 - 앰버색
+
+// 도서관 분관별 색상 맵 (mixin에서 활용) - 확장
 $institution-colors: (
-  '전체': $institution-전체,
-  '연수꿈담': $institution-연수꿈담,
-  '송도국제': $institution-송도국제,
-  '청학': $institution-청학,
-  '누리공원': $institution-누리공원,
-  '해돋이': $institution-해돋이,
-  '해찬솔공원': $institution-해찬솔공원,
-  '선학별빛': $institution-선학별빛,
+	'전체': $institution-전체,
+	'연수꿈담': $institution-연수꿈담,
+	'송도국제': $institution-송도국제,
+	'청학': $institution-청학,
+	'누리공원': $institution-누리공원,
+	'해돋이': $institution-해돋이,
+	'해찬솔공원': $institution-해찬솔공원,
+	'선학별빛': $institution-선학별빛,
+	// 추가 도서관들
+	'연수어린이': $institution-연수어린이,
+	'송도국제어린이': $institution-송도국제어린이,
+	'동춘나래': $institution-동춘나래,
+	'함박비류': $institution-함박비류,
+	'옥련1동작은': $institution-옥련1동작은,
+	'옥련2동어린이작은': $institution-옥련2동어린이작은,
+	'연수1동작은': $institution-연수1동작은,
+	'송도2동작은': $institution-송도2동작은,
+	'송도3동작은': $institution-송도3동작은,
+	'송도5동작은': $institution-송도5동작은,
+	'문화공원작은': $institution-문화공원작은,
+	'솔안공원작은': $institution-솔안공원작은,
+	'송도4동스마트': $institution-송도4동스마트,
+	'스퀘어원스마트': $institution-스퀘어원스마트,
+	'연수구청스마트': $institution-연수구청스마트,
+	'선학역스마트': $institution-선학역스마트,
 );

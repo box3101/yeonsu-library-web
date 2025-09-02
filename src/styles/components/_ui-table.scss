@@ -5,645 +5,895 @@
 @use '../abstracts' as *;
 
 .ui-table-wrapper {
-  margin-top: to-rem(30);
-  width: 100%;
-  border-bottom: 1px solid #cdd1d5;
+	margin-top: to-rem(30);
+	width: 100%;
+	border-bottom: 1px solid #cdd1d5;
 
-  @include mobile {
-    margin-top: to-rem(20);
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    overflow-x: auto;
-  }
+	@include mobile {
+		margin-top: to-rem(20);
+		border-radius: 0;
+		border-left: none;
+		border-right: none;
+		overflow-x: auto;
+	}
 
-  // 스티키 헤더 옵션
-  &--sticky {
-    .ui-table__head {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: $gray-50;
+	// 스티키 헤더 옵션
+	&--sticky {
+		.ui-table__head {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			background: $gray-50;
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: $gray-300;
-      }
-    }
-  }
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: $gray-300;
+			}
+		}
+	}
 }
 
 .ui-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; // colgroup이 작동하도록 table-layout: fixed 사용
-
-  @include mobile {
-    table-layout: fixed;
-    min-width: 600px;
-  }
-
-  &__caption {
-    @include sr-only;
-  }
-
-  &__head {
-    background: #edf1f1;
-    border-top: 2px solid #004d80;
-    border-bottom: 1px solid #cdd1d5;
-  }
-
-  &__body {
-    // 기본 tbody 스타일 유지
-  }
-
-  &__row--body {
-    min-height: to-rem(50);
-    border-bottom: 1px solid #cdd1d5;
-    transition: background-color 0.2s ease;
-    background: #ffffff;
-
-    @include mobile {
-      min-height: to-rem(48);
-    }
-
-    &:hover {
-      background: $gray-50;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  &__cell {
-    padding: to-rem(12) to-rem(0) !important;
-    vertical-align: middle;
-
-    @include mobile {
-      padding: to-rem(8) to-rem(0);
-    }
-
-    &:last-child {
-      border-right: none;
-    }
-
-    &--head {
-      font-size: to-rem(15);
-      font-weight: 700;
-      color: #000000;
-      text-align: center;
-      height: to-rem(44);
-      line-height: 1.5;
-      background: #edf1f1;
-
-      @include mobile {
-        font-size: to-rem(14);
-        height: to-rem(40);
-        padding: to-rem(6) to-rem(4);
-      }
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    &--body {
-      font-size: to-rem(15);
-      font-weight: 400;
-      color: #464c53;
-      padding: to-rem(12) to-rem(16);
-      line-height: 1.5;
-      font-family: $font-family-primary;
-
-      @include mobile {
-        font-size: to-rem(14);
-        padding: to-rem(8) to-rem(6);
-      }
-    }
-
-    &--checkbox {
-      text-align: center;
-      padding: to-rem(8) to-rem(12);
-
-      @include mobile {
-        padding: to-rem(4);
-      }
-    }
-
-    &--index {
-      text-align: center;
-    }
-
-    &--action {
-      text-align: center;
-    }
-
-    &--sortable {
-      cursor: pointer;
-      user-select: none;
-
-      &:hover {
-        background: $gray-100;
-      }
-    }
-  }
-
-  &__cell-content {
-    display: flex;
-    align-items: center;
-    gap: to-rem(4);
-    min-height: to-rem(24);
-    width: 100%;
-
-    @include mobile {
-      gap: to-rem(2);
-      min-height: to-rem(20);
-    }
-
-    &--left {
-      justify-content: flex-start;
-    }
-
-    &--center {
-      justify-content: center;
-    }
-
-    &--right {
-      justify-content: flex-end;
-    }
-  }
-
-  &__checkbox {
-    width: to-rem(16);
-    height: to-rem(16);
-    cursor: pointer;
-    accent-color: $primary-color;
-
-    @include mobile {
-      width: to-rem(16);
-      height: to-rem(16);
-    }
-  }
-
-  &__sort-btn {
-    @include flex(row, center, center);
-    background: none;
-    border: none;
-    padding: to-rem(2);
-    cursor: pointer;
-    color: $gray-400;
-    transition: color 0.2s ease;
-    border-radius: to-rem(2);
-
-    &:hover {
-      color: $primary-color;
-      background: $gray-50;
-    }
-  }
-
-  &__sort-icon {
-    display: none;
-    width: to-rem(10);
-    height: to-rem(10);
-
-    @include mobile {
-      width: to-rem(10);
-      height: to-rem(10);
-    }
-  }
-
-  &__badge {
-    @include flex(row, center, center);
-    padding: to-rem(10) to-rem(14);
-    height: to-rem(32);
-    line-height: to-rem(32);
-    border-radius: to-rem(3);
-    font-size: to-rem(17);
-    font-weight: 500;
-    text-align: center;
-    white-space: nowrap;
-
-    @include mobile {
-      font-size: to-rem(12);
-      padding: to-rem(2) to-rem(4);
-    }
-
-    // 신청/예약 상태별 배지 스타일
-    &--취소완료 {
-      @include font(to-rem(15), 400, #d7424e);
-      background: #fbeced;
-      border: 1px solid #d7424e;
-    }
-
-    &--대출완료 {
-      @include font(to-rem(15), 400, #244874);
-      background: #ecf2f9;
-      border: 1px solid #244874;
-    }
-
-    &--접수대기 {
-      @include font(to-rem(15), 400, #4b4d4d);
-      background: #f1f2f2;
-      border: 1px solid #4b4d4d;
-    }
-
-    // 도서관별 색상
-    &--\[동춘\]일반자료실 {
-      background: $blue-50;
-      color: $blue-600;
-      border: 1px solid $blue-200;
-    }
-
-    &--상호대차 {
-      background: $orange-50;
-      color: $orange-600;
-      border: 1px solid $orange-200;
-    }
-
-    &--전체 {
-      background: $gray-50;
-      color: $gray-700;
-      border: 1px solid $gray-200;
-    }
-
-    // 대출 상태별 색상
-    &--비치중 {
-      background: $gray-50;
-      color: $success-color;
-      border: 1px solid $gray-200;
-    }
-
-    &--대출중 {
-      background: $red-50;
-      color: $red-700;
-      border: 1px solid $red-200;
-    }
-
-    &--예약가능 {
-      background: $blue-50;
-      color: $blue-700;
-      border: 1px solid $blue-200;
-    }
-
-    // 기관별 색상 배지 수정
-    &--전체 {
-      background: transparent;
-      border: none;
-      color: $institution-전체;
-      font-weight: 500;
-    }
-
-    &--연수꿈담 {
-      background: transparent;
-      border: none;
-      color: $institution-연수꿈담;
-      font-weight: 500;
-    }
-
-    &--송도국제 {
-      background: transparent;
-      color: $institution-송도국제;
-      font-weight: 500;
-    }
-
-    &--청학 {
-      background: transparent;
-      color: $institution-청학;
-      font-weight: 500;
-    }
-
-    &--누리공원 {
-      background: transparent;
-      color: $institution-누리공원;
-      font-weight: 500;
-    }
-
-    &--해돋이 {
-      background: transparent;
-      color: $institution-해돋이;
-      font-weight: 500;
-    }
-
-    &--해찬솔공원 {
-      background: transparent;
-      color: $institution-해찬솔공원;
-      font-weight: 500;
-    }
-
-    &--선학별빛 {
-      background: transparent;
-      color: $institution-선학별빛;
-      font-weight: 500;
-    }
-
-    // 서비스 버튼
-    &--예약하기 {
-      background: $primary-color;
-      color: $white;
-      border: 1px solid $primary-color;
-      padding: to-rem(4) to-rem(8);
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      @include mobile {
-        padding: to-rem(4) to-rem(8);
-        font-size: to-rem(12);
-      }
-
-      &:hover {
-        background: $secondary-color;
-        border-color: $secondary-color;
-      }
-    }
-
-    &--new {
-      background: #8ccb67;
-      color: $white;
-      margin-left: to-rem(4);
-      font-size: to-rem(17);
-      font-weight: 700;
-      padding: to-rem(3) to-rem(11);
-      border-radius: to-rem(4);
-      line-height: 1;
-      text-align: center;
-      width: to-rem(20);
-      height: to-rem(20);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      @include mobile {
-        font-size: to-rem(12);
-        padding: to-rem(2) to-rem(4);
-        margin-left: to-rem(3);
-        width: to-rem(18);
-        height: to-rem(18);
-      }
-    }
-  }
-
-  &__title-wrapper {
-    display: flex;
-    justify-content: inherit;
-    width: 100%;
-    align-items: center;
-    gap: to-rem(8);
-  }
-
-  &__lock-icon {
-    width: to-rem(24);
-    height: to-rem(24);
-    background: #d3ebfd;
-    border-radius: to-rem(16);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-
-    svg {
-      width: to-rem(16);
-      height: to-rem(16);
-      fill: #18304d;
-    }
-  }
-
-  &__title-link {
-    @include flex(row, center, center);
-    gap: to-rem(4);
-    color: $gray-700;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    width: 100%;
-    justify-content: inherit;
-
-    @include mobile {
-      gap: to-rem(2);
-    }
-
-    &:hover {
-      color: $primary-color;
-      text-decoration: underline;
-    }
-  }
-
-  &__title-content {
-    @include flex(row, center, center);
-    gap: to-rem(4);
-    width: 100%;
-    justify-content: inherit;
-
-    @include mobile {
-      gap: to-rem(2);
-    }
-  }
-
-  &__title-text {
-    font-weight: 400;
-    font-size: to-rem(17);
-    color: #464c53;
-    line-height: 1.5;
-    font-family: $font-family-primary;
-    text-align: left;
-
-    @include mobile {
-      font-size: to-rem(14);
-      line-height: 1.3;
-    }
-  }
-
-  &__text {
-    font-size: to-rem(16);
-    font-weight: 400;
-    color: #464c53;
-    line-height: 1.5;
-    font-family: $font-family-primary;
-    // text-overflow: ellipsis;
-    // overflow: hidden;
-    // white-space: nowrap;
-    // max-width: 100%;
-
-    .bold {
-      @include font(to-rem(16), 700, 1.5);
-      color: #4b4d4d;
-    }
-
-    &--link {
-      text-decoration: none;
-      color: #464c53;
-      &:hover {
-        color: $primary-color;
-        text-decoration: underline;
-        text-underline-offset: to-rem(5);
-      }
-    }
-
-    // 여러 줄일 때는 ... 표시
-    &--multiline {
-      white-space: normal;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.4;
-      max-height: calc(1.4em * 2);
-    }
-
-    @include mobile {
-      font-size: to-rem(14);
-      line-height: 1.3;
-    }
-
-    // 청구기호, 등록번호 등 코드형 텍스트
-    &--code {
-      font-family: 'Courier New', monospace;
-      font-size: to-rem(11);
-      color: $gray-500;
-      letter-spacing: -0.02em;
-
-      @include mobile {
-        font-size: to-rem(12);
-      }
-    }
-  }
-
-  &__empty {
-    padding: to-rem(40) to-rem(20);
-    text-align: center;
-    border-top: 1px solid $gray-300;
-
-    @include mobile {
-      padding: to-rem(24) to-rem(16);
-    }
-
-    &-text {
-      font-size: to-rem(14);
-      color: $gray-400;
-      margin: 0;
-
-      @include mobile {
-        font-size: to-rem(14);
-      }
-    }
-  }
-
-  &__button {
-    padding: to-rem(8) to-rem(14);
-    border-radius: to-rem(4);
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    font-size: to-rem(15);
-    font-weight: 400;
-    color: $gray-900;
-
-    @include mobile {
-      padding: to-rem(4) to-rem(10);
-      font-size: to-rem(14);
-    }
-
-    &--default {
-      border: 1px solid $gray-600;
-      background: transparent;
-
-      &:hover {
-        background: $gray-600;
-        color: $white;
-      }
-    }
-
-    &:disabled {
-      background: $gray-200;
-      color: $gray-500;
-      cursor: not-allowed;
-    }
-  }
-
-  &__button-group {
-    display: flex;
-    gap: to-rem(8);
-    align-items: center;
-    justify-content: inherit;
-
-    @include mobile {
-      gap: to-rem(6);
-    }
-  }
-
-  &__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: to-rem(16);
-    color: $gray-600;
-    cursor: pointer;
-    transition: color 0.2s ease;
-
-    @include mobile {
-      font-size: to-rem(16);
-    }
-
-    &:hover {
-      color: $primary-color;
-    }
-
-    // 아이콘 크기별 스타일
-    &.icon-sm {
-      font-size: to-rem(14);
-
-      @include mobile {
-        font-size: to-rem(14);
-      }
-    }
-
-    &.icon-md {
-      font-size: to-rem(16);
-
-      @include mobile {
-        font-size: to-rem(16);
-      }
-    }
-
-    &.icon-lg {
-      font-size: to-rem(18);
-
-      @include mobile {
-        font-size: to-rem(18);
-      }
-    }
-  }
-
-  // Colgroup 스타일링
-  &__col {
-    &--checkbox {
-      width: to-rem(48);
-
-      @include mobile {
-        width: to-rem(40);
-      }
-    }
-
-    &--index {
-      width: to-rem(80);
-
-      @include mobile {
-        width: to-rem(60);
-      }
-    }
-
-    &--status {
-      width: to-rem(112);
-
-      @include mobile {
-        width: to-rem(100);
-      }
-    }
-  }
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed; // colgroup이 작동하도록 table-layout: fixed 사용
+
+	@include mobile {
+		table-layout: fixed;
+		min-width: 600px;
+	}
+
+	&__caption {
+		@include sr-only;
+	}
+
+	&__head {
+		background: #edf1f1;
+		border-top: 2px solid #004d80;
+		border-bottom: 1px solid #cdd1d5;
+	}
+
+	&__body {
+		// 기본 tbody 스타일 유지
+	}
+
+	&__row--body {
+		min-height: to-rem(50);
+		border-bottom: 1px solid #cdd1d5;
+		transition: background-color 0.2s ease;
+		background: #ffffff;
+
+		@include mobile {
+			min-height: to-rem(48);
+		}
+
+		&:hover {
+			background: $gray-50;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&__cell {
+		padding: to-rem(12) to-rem(0) !important;
+		vertical-align: middle;
+
+		@include mobile {
+			padding: to-rem(8) to-rem(0);
+		}
+
+		&:last-child {
+			border-right: none;
+		}
+
+		&--head {
+			font-size: to-rem(15);
+			font-weight: 700;
+			color: #000000;
+			text-align: center;
+			height: to-rem(44);
+			line-height: 1.5;
+			background: #edf1f1;
+
+			@include mobile {
+				font-size: to-rem(14);
+				height: to-rem(40);
+				padding: to-rem(6) to-rem(4);
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+
+		&--body {
+			font-size: to-rem(15);
+			font-weight: 400;
+			color: #464c53;
+			padding: to-rem(12) to-rem(16);
+			line-height: 1.5;
+			font-family: $font-family-primary;
+
+			@include mobile {
+				font-size: to-rem(14);
+				padding: to-rem(8) to-rem(6);
+			}
+		}
+
+		&--checkbox {
+			text-align: center;
+			padding: to-rem(8) to-rem(12);
+
+			@include mobile {
+				padding: to-rem(4);
+			}
+		}
+
+		&--index {
+			text-align: center;
+		}
+
+		&--action {
+			text-align: center;
+		}
+
+		&--sortable {
+			cursor: pointer;
+			user-select: none;
+
+			&:hover {
+				background: $gray-100;
+			}
+		}
+	}
+
+	&__cell-content {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+		min-height: to-rem(24);
+		width: 100%;
+
+		@include mobile {
+			gap: to-rem(2);
+			min-height: to-rem(20);
+		}
+
+		&--left {
+			justify-content: flex-start;
+		}
+
+		&--center {
+			justify-content: center;
+		}
+
+		&--right {
+			justify-content: flex-end;
+		}
+	}
+
+	&__checkbox {
+		width: to-rem(16);
+		height: to-rem(16);
+		cursor: pointer;
+		accent-color: $primary-color;
+
+		@include mobile {
+			width: to-rem(16);
+			height: to-rem(16);
+		}
+	}
+
+	&__sort-btn {
+		@include flex(row, center, center);
+		background: none;
+		border: none;
+		padding: to-rem(2);
+		cursor: pointer;
+		color: $gray-400;
+		transition: color 0.2s ease;
+		border-radius: to-rem(2);
+
+		&:hover {
+			color: $primary-color;
+			background: $gray-50;
+		}
+	}
+
+	&__sort-icon {
+		display: none;
+		width: to-rem(10);
+		height: to-rem(10);
+
+		@include mobile {
+			width: to-rem(10);
+			height: to-rem(10);
+		}
+	}
+
+	&__badge {
+		@include flex(row, center, center);
+		padding: to-rem(10) to-rem(14);
+		height: to-rem(32);
+		line-height: to-rem(32);
+		border-radius: to-rem(3);
+		font-size: to-rem(17);
+		font-weight: 500;
+		text-align: center;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: to-rem(12);
+			padding: to-rem(2) to-rem(4);
+		}
+
+		// 신청/예약 상태별 배지 스타일
+		&--취소완료 {
+			@include font(to-rem(15), 400, #d7424e);
+			background: #fbeced;
+			border: 1px solid #d7424e;
+		}
+
+		&--대출완료 {
+			@include font(to-rem(15), 400, #244874);
+			background: #ecf2f9;
+			border: 1px solid #244874;
+		}
+
+		&--접수대기 {
+			@include font(to-rem(15), 400, #4b4d4d);
+			background: #f1f2f2;
+			border: 1px solid #4b4d4d;
+		}
+
+		// 도서관별 색상
+		&--\[동춘\]일반자료실 {
+			background: $blue-50;
+			color: $blue-600;
+			border: 1px solid $blue-200;
+		}
+
+		&--상호대차 {
+			background: $orange-50;
+			color: $orange-600;
+			border: 1px solid $orange-200;
+		}
+
+		&--전체 {
+			background: $gray-50;
+			color: $gray-700;
+			border: 1px solid $gray-200;
+		}
+
+		// 대출 상태별 색상
+		&--비치중 {
+			background: $gray-50;
+			color: $success-color;
+			border: 1px solid $gray-200;
+		}
+
+		&--대출중 {
+			background: $red-50;
+			color: $red-700;
+			border: 1px solid $red-200;
+		}
+
+		&--예약가능 {
+			background: $blue-50;
+			color: $blue-700;
+			border: 1px solid $blue-200;
+		}
+
+		// 기관별 색상 배지 수정
+		&--전체 {
+			background: transparent;
+			border: none;
+			color: $institution-전체;
+			font-weight: 500;
+		}
+
+		&--연수꿈담 {
+			background: transparent;
+			border: none;
+			color: $institution-연수꿈담;
+			font-weight: 500;
+		}
+
+		&--송도국제 {
+			background: transparent;
+			color: $institution-송도국제;
+			font-weight: 500;
+		}
+
+		&--청학 {
+			background: transparent;
+			color: $institution-청학;
+			font-weight: 500;
+		}
+
+		&--누리공원 {
+			background: transparent;
+			color: $institution-누리공원;
+			font-weight: 500;
+		}
+
+		&--해돋이 {
+			background: transparent;
+			color: $institution-해돋이;
+			font-weight: 500;
+		}
+
+		&--해찬솔공원 {
+			background: transparent;
+			color: $institution-해찬솔공원;
+			font-weight: 500;
+		}
+
+		&--선학별빛 {
+			background: transparent;
+			color: $institution-선학별빛;
+			font-weight: 500;
+		}
+
+		// 기관별 색상 배지 수정
+		&--전체 {
+			background: transparent;
+			border: none;
+			color: $institution-전체;
+			font-weight: 500;
+		}
+
+		&--연수꿈담 {
+			background: transparent;
+			border: none;
+			color: $institution-연수꿈담;
+			font-weight: 500;
+		}
+
+		&--송도국제 {
+			background: transparent;
+			color: $institution-송도국제;
+			font-weight: 500;
+		}
+
+		&--청학 {
+			background: transparent;
+			color: $institution-청학;
+			font-weight: 500;
+		}
+
+		&--누리공원 {
+			background: transparent;
+			color: $institution-누리공원;
+			font-weight: 500;
+		}
+
+		&--해돋이 {
+			background: transparent;
+			color: $institution-해돋이;
+			font-weight: 500;
+		}
+
+		&--해찬솔공원 {
+			background: transparent;
+			color: $institution-해찬솔공원;
+			font-weight: 500;
+		}
+
+		&--선학별빛 {
+			background: transparent;
+			color: $institution-선학별빛;
+			font-weight: 500;
+		}
+
+		// 기관별 색상 배지 수정
+		&--전체 {
+			background: transparent;
+			border: none;
+			color: $institution-전체;
+			font-weight: 500;
+		}
+
+		&--연수꿈담 {
+			background: transparent;
+			border: none;
+			color: $institution-연수꿈담;
+			font-weight: 500;
+		}
+
+		&--송도국제 {
+			background: transparent;
+			color: $institution-송도국제;
+			font-weight: 500;
+		}
+
+		&--청학 {
+			background: transparent;
+			color: $institution-청학;
+			font-weight: 500;
+		}
+
+		&--누리공원 {
+			background: transparent;
+			color: $institution-누리공원;
+			font-weight: 500;
+		}
+
+		&--해돋이 {
+			background: transparent;
+			color: $institution-해돋이;
+			font-weight: 500;
+		}
+
+		&--해찬솔공원 {
+			background: transparent;
+			color: $institution-해찬솔공원;
+			font-weight: 500;
+		}
+
+		&--선학별빛 {
+			background: transparent;
+			color: $institution-선학별빛;
+			font-weight: 500;
+		}
+
+		// 기관별 색상 배지 - 기존 도서관들
+		&--전체 {
+			background: transparent;
+			border: none;
+			color: $institution-전체;
+			font-weight: 500;
+		}
+
+		&--연수꿈담 {
+			background: transparent;
+			border: none;
+			color: $institution-연수꿈담;
+			font-weight: 500;
+		}
+
+		&--송도국제 {
+			background: transparent;
+			color: $institution-송도국제;
+			font-weight: 500;
+		}
+
+		&--청학 {
+			background: transparent;
+			color: $institution-청학;
+			font-weight: 500;
+		}
+
+		&--누리공원 {
+			background: transparent;
+			color: $institution-누리공원;
+			font-weight: 500;
+		}
+
+		&--해돋이 {
+			background: transparent;
+			color: $institution-해돋이;
+			font-weight: 500;
+		}
+
+		&--해찬솔공원 {
+			background: transparent;
+			color: $institution-해찬솔공원;
+			font-weight: 500;
+		}
+
+		&--선학별빛 {
+			background: transparent;
+			color: $institution-선학별빛;
+			font-weight: 500;
+		}
+
+		// 추가 도서관들 - 누락된 도서관들
+		&--연수어린이 {
+			background: transparent;
+			color: $institution-연수어린이;
+			font-weight: 500;
+		}
+
+		&--송도국제어린이 {
+			background: transparent;
+			color: $institution-송도국제어린이;
+			font-weight: 500;
+		}
+
+		&--동춘나래 {
+			background: transparent;
+			color: $institution-동춘나래;
+			font-weight: 500;
+		}
+
+		&--함박비류 {
+			background: transparent;
+			color: $institution-함박비류;
+			font-weight: 500;
+		}
+
+		&--옥련1동작은 {
+			background: transparent;
+			color: $institution-옥련1동작은;
+			font-weight: 500;
+		}
+
+		&--옥련2동어린이작은 {
+			background: transparent;
+			color: $institution-옥련2동어린이작은;
+			font-weight: 500;
+		}
+
+		&--연수1동작은 {
+			background: transparent;
+			color: $institution-연수1동작은;
+			font-weight: 500;
+		}
+
+		&--송도2동작은 {
+			background: transparent;
+			color: $institution-송도2동작은;
+			font-weight: 500;
+		}
+
+		&--송도3동작은 {
+			background: transparent;
+			color: $institution-송도3동작은;
+			font-weight: 500;
+		}
+
+		&--송도5동작은 {
+			background: transparent;
+			color: $institution-송도5동작은;
+			font-weight: 500;
+		}
+
+		&--문화공원작은 {
+			background: transparent;
+			color: $institution-문화공원작은;
+			font-weight: 500;
+		}
+
+		&--솔안공원작은 {
+			background: transparent;
+			color: $institution-솔안공원작은;
+			font-weight: 500;
+		}
+
+		&--송도4동스마트 {
+			background: transparent;
+			color: $institution-송도4동스마트;
+			font-weight: 500;
+		}
+
+		&--스퀘어원스마트 {
+			background: transparent;
+			color: $institution-스퀘어원스마트;
+			font-weight: 500;
+		}
+
+		&--연수구청스마트 {
+			background: transparent;
+			color: $institution-연수구청스마트;
+			font-weight: 500;
+		}
+
+		&--선학역스마트 {
+			background: transparent;
+			color: $institution-선학역스마트;
+			font-weight: 500;
+		}
+
+		// 서비스 버튼
+		&--예약하기 {
+			background: $primary-color;
+			color: $white;
+			border: 1px solid $primary-color;
+			padding: to-rem(4) to-rem(8);
+			cursor: pointer;
+			transition: all 0.2s ease;
+
+			@include mobile {
+				padding: to-rem(4) to-rem(8);
+				font-size: to-rem(12);
+			}
+
+			&:hover {
+				background: $secondary-color;
+				border-color: $secondary-color;
+			}
+		}
+
+		&--new {
+			background: #8ccb67;
+			color: $white;
+			margin-left: to-rem(4);
+			font-size: to-rem(17);
+			font-weight: 700;
+			padding: to-rem(3) to-rem(11);
+			border-radius: to-rem(4);
+			line-height: 1;
+			text-align: center;
+			width: to-rem(20);
+			height: to-rem(20);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+
+			@include mobile {
+				font-size: to-rem(12);
+				padding: to-rem(2) to-rem(4);
+				margin-left: to-rem(3);
+				width: to-rem(18);
+				height: to-rem(18);
+			}
+		}
+	}
+
+	&__title-wrapper {
+		display: flex;
+		justify-content: inherit;
+		width: 100%;
+		align-items: center;
+		gap: to-rem(8);
+	}
+
+	&__lock-icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		background: #d3ebfd;
+		border-radius: to-rem(16);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+
+		svg {
+			width: to-rem(16);
+			height: to-rem(16);
+			fill: #18304d;
+		}
+	}
+
+	&__title-link {
+		@include flex(row, center, center);
+		gap: to-rem(4);
+		color: $gray-700;
+		text-decoration: none;
+		transition: color 0.2s ease;
+		width: 100%;
+		justify-content: inherit;
+
+		@include mobile {
+			gap: to-rem(2);
+		}
+
+		&:hover {
+			color: $primary-color;
+			text-decoration: underline;
+		}
+	}
+
+	&__title-content {
+		@include flex(row, center, center);
+		gap: to-rem(4);
+		width: 100%;
+		justify-content: inherit;
+
+		@include mobile {
+			gap: to-rem(2);
+		}
+	}
+
+	&__title-text {
+		font-weight: 400;
+		font-size: to-rem(17);
+		color: #464c53;
+		line-height: 1.5;
+		font-family: $font-family-primary;
+		text-align: left;
+
+		@include mobile {
+			font-size: to-rem(14);
+			line-height: 1.3;
+		}
+	}
+
+	&__text {
+		font-size: to-rem(16);
+		font-weight: 400;
+		color: #464c53;
+		line-height: 1.5;
+		font-family: $font-family-primary;
+		// text-overflow: ellipsis;
+		// overflow: hidden;
+		// white-space: nowrap;
+		// max-width: 100%;
+
+		.bold {
+			@include font(to-rem(16), 700, 1.5);
+			color: #4b4d4d;
+		}
+
+		&--link {
+			text-decoration: none;
+			color: #464c53;
+			&:hover {
+				color: $primary-color;
+				text-decoration: underline;
+				text-underline-offset: to-rem(5);
+			}
+		}
+
+		// 여러 줄일 때는 ... 표시
+		&--multiline {
+			white-space: normal;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			line-height: 1.4;
+			max-height: calc(1.4em * 2);
+		}
+
+		@include mobile {
+			font-size: to-rem(14);
+			line-height: 1.3;
+		}
+
+		// 청구기호, 등록번호 등 코드형 텍스트
+		&--code {
+			font-family: 'Courier New', monospace;
+			font-size: to-rem(11);
+			color: $gray-500;
+			letter-spacing: -0.02em;
+
+			@include mobile {
+				font-size: to-rem(12);
+			}
+		}
+	}
+
+	&__empty {
+		padding: to-rem(40) to-rem(20);
+		text-align: center;
+		border-top: 1px solid $gray-300;
+
+		@include mobile {
+			padding: to-rem(24) to-rem(16);
+		}
+
+		&-text {
+			font-size: to-rem(14);
+			color: $gray-400;
+			margin: 0;
+
+			@include mobile {
+				font-size: to-rem(14);
+			}
+		}
+	}
+
+	&__button {
+		padding: to-rem(8) to-rem(14);
+		border-radius: to-rem(4);
+		border: 1px solid transparent;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+		font-size: to-rem(15);
+		font-weight: 400;
+		color: $gray-900;
+
+		@include mobile {
+			padding: to-rem(4) to-rem(10);
+			font-size: to-rem(14);
+		}
+
+		&--default {
+			border: 1px solid $gray-600;
+			background: transparent;
+
+			&:hover {
+				background: $gray-600;
+				color: $white;
+			}
+		}
+
+		&:disabled {
+			background: $gray-200;
+			color: $gray-500;
+			cursor: not-allowed;
+		}
+	}
+
+	&__button-group {
+		display: flex;
+		gap: to-rem(8);
+		align-items: center;
+		justify-content: inherit;
+
+		@include mobile {
+			gap: to-rem(6);
+		}
+	}
+
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: to-rem(16);
+		color: $gray-600;
+		cursor: pointer;
+		transition: color 0.2s ease;
+
+		@include mobile {
+			font-size: to-rem(16);
+		}
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		// 아이콘 크기별 스타일
+		&.icon-sm {
+			font-size: to-rem(14);
+
+			@include mobile {
+				font-size: to-rem(14);
+			}
+		}
+
+		&.icon-md {
+			font-size: to-rem(16);
+
+			@include mobile {
+				font-size: to-rem(16);
+			}
+		}
+
+		&.icon-lg {
+			font-size: to-rem(18);
+
+			@include mobile {
+				font-size: to-rem(18);
+			}
+		}
+	}
+
+	// Colgroup 스타일링
+	&__col {
+		&--checkbox {
+			width: to-rem(48);
+
+			@include mobile {
+				width: to-rem(40);
+			}
+		}
+
+		&--index {
+			width: to-rem(80);
+
+			@include mobile {
+				width: to-rem(60);
+			}
+		}
+
+		&--status {
+			width: to-rem(112);
+
+			@include mobile {
+				width: to-rem(100);
+			}
+		}
+	}
 }

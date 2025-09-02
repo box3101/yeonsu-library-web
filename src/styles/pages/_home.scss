@@ -598,6 +598,7 @@
 		color: $white;
 		flex-shrink: 0;
 
+		// 기존 도서관들
 		&--전체 {
 			background: $institution-전체;
 		}
@@ -628,6 +629,71 @@
 
 		&--선학별빛 {
 			background: $institution-선학별빛;
+		}
+
+		// 추가 도서관들 (코드 기반 매핑)
+		&--연수어린이 {
+			background: $institution-연수어린이;
+		}
+
+		&--송도국제어린이 {
+			background: $institution-송도국제어린이;
+		}
+
+		&--동춘나래 {
+			background: $institution-동춘나래;
+		}
+
+		&--함박비류 {
+			background: $institution-함박비류;
+		}
+
+		&--옥련1동작은 {
+			background: $institution-옥련1동작은;
+		}
+
+		&--옥련2동어린이작은 {
+			background: $institution-옥련2동어린이작은;
+		}
+
+		&--연수1동작은 {
+			background: $institution-연수1동작은;
+		}
+
+		&--송도2동작은 {
+			background: $institution-송도2동작은;
+		}
+
+		&--송도3동작은 {
+			background: $institution-송도3동작은;
+		}
+
+		&--송도5동작은 {
+			background: $institution-송도5동작은;
+		}
+
+		&--문화공원작은 {
+			background: $institution-문화공원작은;
+		}
+
+		&--솔안공원작은 {
+			background: $institution-솔안공원작은;
+		}
+
+		&--송도4동스마트 {
+			background: $institution-송도4동스마트;
+		}
+
+		&--스퀘어원스마트 {
+			background: $institution-스퀘어원스마트;
+		}
+
+		&--연수구청스마트 {
+			background: $institution-연수구청스마트;
+		}
+
+		&--선학역스마트 {
+			background: $institution-선학역스마트;
 		}
 	}
 
