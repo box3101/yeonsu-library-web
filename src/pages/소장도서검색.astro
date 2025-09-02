@@ -1,47 +1,58 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiLibraryFilter, UiTab, UiBookCard, UiPagination, UiAccordion, UiCheckbox, UiButton, UiDatePicker, UiSearchSummary, UiSearchFilter } from '@components';
+import {
+	UiLibraryFilter,
+	UiTab,
+	UiBookCard,
+	UiPagination,
+	UiAccordion,
+	UiCheckbox,
+	UiButton,
+	UiDatePicker,
+	UiSearchSummary,
+	UiSearchFilter,
+} from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
 
 // 도서관 데이터 정의
 const libraries = [
-  { name: '연수청학도서관', id: '1' },
-  { name: '연수꿈담도서관', id: '2' },
-  { name: '송도국제어린이도서관', id: '3' },
-  { name: '해돋이도서관', id: '4' },
-  { name: '선학별빛도서관', id: '5' },
-  { name: '동춘나래도서관', id: '6' },
-  { name: '함박비류도서관', id: '7' },
-  { name: '옥련1동작은도서관', id: '8' },
-  { name: '옥련2동어린이작은도서관', id: '9' },
-  { name: '연수1동작은도서관', id: '10' },
-  { name: '송도2동작은도서관', id: '11' },
-  { name: '송도3동작은도서관', id: '12' },
-  { name: '송도5동작은도서관', id: '13' },
-  { name: '솔안공원작은도서관', id: '14' },
-  { name: '해찬솔공원작은도서관', id: '15' },
-  { name: '누리공원작은도서관', id: '16' },
-  { name: '송도4동스마트도서관', id: '17' },
-  { name: '스퀘어원스마트도서관', id: '18' },
-  { name: '연수구청스마트도서관', id: '19' },
-  { name: '선학역스마트도서관', id: '20' },
+	{ name: '연수청학도서관', id: '1' },
+	{ name: '연수꿈담도서관', id: '2' },
+	{ name: '송도국제어린이도서관', id: '3' },
+	{ name: '해돋이도서관', id: '4' },
+	{ name: '선학별빛도서관', id: '5' },
+	{ name: '동춘나래도서관', id: '6' },
+	{ name: '함박비류도서관', id: '7' },
+	{ name: '옥련1동작은도서관', id: '8' },
+	{ name: '옥련2동어린이작은도서관', id: '9' },
+	{ name: '연수1동작은도서관', id: '10' },
+	{ name: '송도2동작은도서관', id: '11' },
+	{ name: '송도3동작은도서관', id: '12' },
+	{ name: '송도5동작은도서관', id: '13' },
+	{ name: '솔안공원작은도서관', id: '14' },
+	{ name: '해찬솔공원작은도서관', id: '15' },
+	{ name: '누리공원작은도서관', id: '16' },
+	{ name: '송도4동스마트도서관', id: '17' },
+	{ name: '스퀘어원스마트도서관', id: '18' },
+	{ name: '연수구청스마트도서관', id: '19' },
+	{ name: '선학역스마트도서관', id: '20' },
 ];
 
 // 셀렉트 옵션 데이터 정의
 const majorClassificationOptions = [
-  { value: '', label: '대분류' },
-  { value: '000', label: '000 총류' },
-  { value: '100', label: '100 철학' },
-  { value: '200', label: '200 종교' },
-  { value: '300', label: '300 사회과학' },
-  { value: '400', label: '400 언어' },
-  { value: '500', label: '500 순수과학' },
-  { value: '600', label: '600 기술과학' },
-  { value: '700', label: '700 예술' },
-  { value: '800', label: '800 문학' },
-  { value: '900', label: '900 역사' },
+	{ value: '', label: '대분류' },
+	{ value: '000', label: '000 총류' },
+	{ value: '100', label: '100 철학' },
+	{ value: '200', label: '200 종교' },
+	{ value: '300', label: '300 사회과학' },
+	{ value: '400', label: '400 언어' },
+	{ value: '500', label: '500 순수과학' },
+	{ value: '600', label: '600 기술과학' },
+	{ value: '700', label: '700 예술' },
+	{ value: '800', label: '800 문학' },
+	{ value: '900', label: '900 역사' },
 ];
 
 const middleClassificationOptions = [{ value: '', label: '중분류' }];
@@ -49,338 +60,318 @@ const middleClassificationOptions = [{ value: '', label: '중분류' }];
 const minorClassificationOptions = [{ value: '', label: '소분류' }];
 
 const sortCriteriaOptions = [
-  { value: '', label: '정렬기준' },
-  { value: 'title', label: '제목순' },
-  { value: 'author', label: '저자순' },
-  { value: 'publisher', label: '출판사순' },
-  { value: 'publication-date', label: '발행년도순' },
-  { value: 'registration-date', label: '등록일순' },
+	{ value: '', label: '정렬기준' },
+	{ value: 'title', label: '제목순' },
+	{ value: 'author', label: '저자순' },
+	{ value: 'publisher', label: '출판사순' },
+	{ value: 'publication-date', label: '발행년도순' },
+	{ value: 'registration-date', label: '등록일순' },
 ];
 
 const sortOrderOptions = [
-  { value: '', label: '정렬순서' },
-  { value: 'asc', label: '오름차순' },
-  { value: 'desc', label: '내림차순' },
+	{ value: '', label: '정렬순서' },
+	{ value: 'asc', label: '오름차순' },
+	{ value: 'desc', label: '내림차순' },
 ];
 
 const outputCountOptions = [
-  { value: '', label: '출력건수' },
-  { value: '10', label: '10건' },
-  { value: '20', label: '20건' },
-  { value: '50', label: '50건' },
-  { value: '100', label: '100건' },
+	{ value: '', label: '출력건수' },
+	{ value: '10', label: '10건' },
+	{ value: '20', label: '20건' },
+	{ value: '50', label: '50건' },
+	{ value: '100', label: '100건' },
 ];
 
 const searchFilterGroups = [
-  {
-    id: 'classification',
-    label: '한국십진분류',
-    type: 'classification',
-    filters: [
-      {
-        name: 'major-classification',
-        options: majorClassificationOptions,
-      },
-      {
-        name: 'middle-classification',
-        options: middleClassificationOptions,
-      },
-      {
-        name: 'minor-classification',
-        options: minorClassificationOptions,
-      },
-    ],
-  },
-  {
-    id: 'sort',
-    type: 'sort',
-    filters: [
-      {
-        name: 'sort-criteria',
-        options: sortCriteriaOptions,
-      },
-      {
-        name: 'sort-order',
-        options: sortOrderOptions,
-      },
-      {
-        name: 'output-count',
-        options: outputCountOptions,
-      },
-    ],
-  },
+	{
+		id: 'classification',
+		label: '한국십진분류',
+		type: 'classification',
+		filters: [
+			{
+				name: 'major-classification',
+				options: majorClassificationOptions,
+			},
+			{
+				name: 'middle-classification',
+				options: middleClassificationOptions,
+			},
+			{
+				name: 'minor-classification',
+				options: minorClassificationOptions,
+			},
+		],
+	},
+	{
+		id: 'sort',
+		type: 'sort',
+		filters: [
+			{
+				name: 'sort-criteria',
+				options: sortCriteriaOptions,
+			},
+			{
+				name: 'sort-order',
+				options: sortOrderOptions,
+			},
+			{
+				name: 'output-count',
+				options: outputCountOptions,
+			},
+		],
+	},
 ];
 ---
 
 <Layout title="소장도서검색 - 연수구립도서관">
-  <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems} menuType="도서검색">
-    <!-- 도서관 필터 섹션 -->
-    <UiLibraryFilter title="전체도서관" subtitle="도서관 분류" libraries={libraries} gridColumns={4} expanded={true} />
+	<SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 도서관 필터 섹션 -->
+		<UiLibraryFilter title="전체도서관" subtitle="도서관 분류" libraries={libraries} gridColumns={4} expanded={true} />
 
-    <section class="search-detail-section">
-      <!-- 상세검색 아코디 언 -->
-      <UiAccordion title="상세검색" isExpanded={true}>
-        <!-- 저자 필터 -->
-        <div class="filter-section">
-          <input type="checkbox" id="author-filter-toggle" class="filter-toggle" />
-          <label for="author-filter-toggle" class="filter-label">
-            저자
-            <span class="filter-label-btn">
-              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-            </span>
-          </label>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="author" value="하군" label="하군" checked />
-                <UiCheckbox name="author" value="신동우" label="신동우" />
-                <UiCheckbox name="author" value="osborne-mary-po" label="Osborne, Mary Po" />
-                <UiCheckbox name="author" value="출수자" label="출수자" />
-                <UiCheckbox name="author" value="murdoca-sal" label="Murdoca, Sal" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="author" value="조대현" label="조대현" />
-                <UiCheckbox name="author" value="마크-홀" label="마크, 홀" />
-                <UiCheckbox name="author" value="아모도-베라-몰" label="아모도, 베라 몰" />
-                <UiCheckbox name="author" value="아소영" label="아소영" />
-                <UiCheckbox name="author" value="이현욱" label="이현욱" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="author" value="아루손" label="아루손" />
-                <UiCheckbox name="author" value="이참희" label="이참희" />
-                <UiCheckbox name="author" value="이어열" label="이어열" />
-              </div>
-            </div>
-          </div>
-        </div>
+		<section class="search-detail-section">
+			<!-- 상세검색 아코디 언 -->
+			<UiAccordion title="상세검색" isExpanded={true}>
+				<!-- 저자 필터 -->
+				<!-- 저자 필터 -->
+				<div class="filter-section">
+					<input type="checkbox" id="author-filter-toggle" class="filter-toggle" />
+					<label for="author-filter-toggle" class="filter-label">
+						저자
+						<span class="filter-label-btn">
+							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+						</span>
+					</label>
+					<div class="filter-group-wrapper">
+						<!-- 하나의 부모(filter-group)와 하나의 자식 컨테이너(filter-options)만 사용 -->
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="author" value="하군" label="하군" checked />
+								<UiCheckbox name="author" value="신동우" label="신동우" />
+								<UiCheckbox name="author" value="osborne-mary-po" label="Osborne, Mary Po" />
+								<UiCheckbox name="author" value="출수자" label="출수자" />
+								<UiCheckbox name="author" value="murdoca-sal" label="Murdoca, Sal" />
+								<UiCheckbox name="author" value="조대현" label="조대현" />
+								<UiCheckbox name="author" value="마크-홀" label="마크, 홀" />
+								<UiCheckbox name="author" value="아모도-베라-몰" label="아모도, 베라 몰" />
+								<UiCheckbox name="author" value="아소영" label="아소영" />
+								<UiCheckbox name="author" value="이현욱" label="이현욱" />
+								<UiCheckbox name="author" value="아루손" label="아루손" />
+								<UiCheckbox name="author" value="이참희" label="이참희" />
+								<UiCheckbox name="author" value="이어열" label="이어열" />
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <!-- 발행처 필터 -->
-        <div class="filter-section">
-          <input type="checkbox" id="publisher-filter-toggle" class="filter-toggle" />
-          <label for="publisher-filter-toggle" class="filter-label">
-            발행처
-            <span class="filter-label-btn">
-              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-            </span>
-          </label>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="publisher" value="문학동네" label="문학동네" />
-                <UiCheckbox name="publisher" value="민음사" label="민음사" />
-                <UiCheckbox name="publisher" value="창비" label="창비" />
-                <UiCheckbox name="publisher" value="열린책들" label="열린책들" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="publisher" value="김영사" label="김영사" />
-                <UiCheckbox name="publisher" value="랜덤하우스코리아" label="랜덤하우스코리아" />
-                <UiCheckbox name="publisher" value="을유문화사" label="을유문화사" />
-              </div>
-            </div>
-          </div>
-        </div>
+				<!-- 발행처 필터 -->
+				<div class="filter-section">
+					<input type="checkbox" id="publisher-filter-toggle" class="filter-toggle" />
+					<label for="publisher-filter-toggle" class="filter-label">
+						발행처
+						<span class="filter-label-btn">
+							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+						</span>
+					</label>
+					<div class="filter-group-wrapper">
+						<div class="filter-group filter-group--always-visible">
+							<div class="filter-options">
+								<UiCheckbox name="publisher" value="문학동네" label="문학동네" />
+								<UiCheckbox name="publisher" value="민음사" label="민음사" />
+								<UiCheckbox name="publisher" value="창비" label="창비" />
+								<UiCheckbox name="publisher" value="열린책들" label="열린책들" />
+								<UiCheckbox name="publisher" value="김영사" label="김영사" />
+								<UiCheckbox name="publisher" value="랜덤하우스코리아" label="랜덤하우스코리아" />
+								<UiCheckbox name="publisher" value="을유문화사" label="을유문화사" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</UiAccordion>
 
-        <!-- 발행연도 필터 -->
-        <div class="filter-section filter-section--single-line">
-          <span class="filter-label">발행연도</span>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options flex align-center gap-10">
-                <UiDatePicker id="date-range" />
-                <UiButton variant="primary" text="확인" />
-              </div>
-            </div>
-          </div>
-        </div>
+			<!-- 발행연도 필터 -->
+			<div class="filter-section filter-section--single-line filter-section--no-clamp">
+				<span class="filter-label">발행연도</span>
+				<div class="filter-group-wrapper">
+					<div class="filter-group filter-group--always-visible">
+						<div class="filter-options flex align-center gap-10">
+							<UiDatePicker id="date-range" />
+							<UiButton variant="primary" text="확인" />
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 언어 필터 -->
-        <div class="filter-section filter-section--single-line">
-          <span class="filter-label">언어</span>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="language" value="korean" label="한국어" />
-                <UiCheckbox name="language" value="english" label="영어" />
-                <UiCheckbox name="language" value="japanese" label="일본어" />
-                <UiCheckbox name="language" value="chinese" label="중국어" />
-              </div>
-            </div>
-          </div>
-        </div>
+			<!-- 언어 필터 -->
+			<div class="filter-section filter-section--single-line">
+				<span class="filter-label">언어</span>
+				<div class="filter-group-wrapper">
+					<div class="filter-group filter-group--always-visible">
+						<div class="filter-options">
+							<UiCheckbox name="language" value="korean" label="한국어" />
+							<UiCheckbox name="language" value="english" label="영어" />
+							<UiCheckbox name="language" value="japanese" label="일본어" />
+							<UiCheckbox name="language" value="chinese" label="중국어" />
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 주제분류 필터 -->
-        <div class="filter-section">
-          <input type="checkbox" id="category-filter-toggle" class="filter-toggle" />
-          <label for="category-filter-toggle" class="filter-label">
-            주제분류
-            <span class="filter-label-btn">
-              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-            </span>
-          </label>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="category" value="000" label="000 총류" />
-                <UiCheckbox name="category" value="100" label="100 철학" />
-                <UiCheckbox name="category" value="200" label="200 종교" />
-                <UiCheckbox name="category" value="300" label="300 사회과학" />
-                <UiCheckbox name="category" value="400" label="400 언어" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="category" value="500" label="500 순수과학" />
-                <UiCheckbox name="category" value="600" label="600 기술과학" />
-                <UiCheckbox name="category" value="700" label="700 예술" />
-                <UiCheckbox name="category" value="800" label="800 문학" />
-                <UiCheckbox name="category" value="900" label="900 역사" />
-              </div>
-            </div>
-          </div>
-        </div>
+			<!-- 주제분류 필터 -->
+			<div class="filter-section">
+				<input type="checkbox" id="category-filter-toggle" class="filter-toggle" />
+				<label for="category-filter-toggle" class="filter-label">
+					주제분류
+					<span class="filter-label-btn">
+						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+					</span>
+				</label>
+				<div class="filter-group-wrapper">
+					<div class="filter-group filter-group--always-visible">
+						<div class="filter-options">
+							<UiCheckbox name="category" value="000" label="000 총류" />
+							<UiCheckbox name="category" value="100" label="100 철학" />
+							<UiCheckbox name="category" value="200" label="200 종교" />
+							<UiCheckbox name="category" value="300" label="300 사회과학" />
+							<UiCheckbox name="category" value="400" label="400 언어" />
+							<UiCheckbox name="category" value="500" label="500 순수과학" />
+							<UiCheckbox name="category" value="600" label="600 기술과학" />
+							<UiCheckbox name="category" value="700" label="700 예술" />
+							<UiCheckbox name="category" value="800" label="800 문학" />
+							<UiCheckbox name="category" value="900" label="900 역사" />
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 주제어 필터 -->
-        <div class="filter-section">
-          <input type="checkbox" id="subject-filter-toggle" class="filter-toggle" />
-          <label for="subject-filter-toggle" class="filter-label">
-            주제어
-            <span class="filter-label-btn">
-              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-            </span>
-          </label>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="subject" value="소설" label="소설" />
-                <UiCheckbox name="subject" value="시" label="시" />
-                <UiCheckbox name="subject" value="에세이" label="에세이" />
-                <UiCheckbox name="subject" value="역사" label="역사" />
-                <UiCheckbox name="subject" value="과학" label="과학" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="subject" value="철학" label="철학" />
-                <UiCheckbox name="subject" value="예술" label="예술" />
-                <UiCheckbox name="subject" value="정치" label="정치" />
-                <UiCheckbox name="subject" value="경제" label="경제" />
-              </div>
-            </div>
-          </div>
-        </div>
+			<!-- 주제어 필터 -->
+			<div class="filter-section">
+				<input type="checkbox" id="subject-filter-toggle" class="filter-toggle" />
+				<label for="subject-filter-toggle" class="filter-label">
+					주제어
+					<span class="filter-label-btn">
+						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+					</span>
+				</label>
+				<div class="filter-group-wrapper">
+					<div class="filter-group filter-group--always-visible">
+						<div class="filter-options">
+							<UiCheckbox name="subject" value="소설" label="소설" />
+							<UiCheckbox name="subject" value="시" label="시" />
+							<UiCheckbox name="subject" value="에세이" label="에세이" />
+							<UiCheckbox name="subject" value="역사" label="역사" />
+							<UiCheckbox name="subject" value="과학" label="과학" />
+							<UiCheckbox name="subject" value="철학" label="철학" />
+							<UiCheckbox name="subject" value="예술" label="예술" />
+							<UiCheckbox name="subject" value="정치" label="정치" />
+							<UiCheckbox name="subject" value="경제" label="경제" />
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 총서명 필터 -->
-        <div class="filter-section">
-          <input type="checkbox" id="series-filter-toggle" class="filter-toggle" />
-          <label for="series-filter-toggle" class="filter-label">
-            총서명
-            <span class="filter-label-btn">
-              <UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
-            </span>
-          </label>
-          <div class="filter-group-wrapper">
-            <div class="filter-group filter-group--always-visible">
-              <div class="filter-options">
-                <UiCheckbox name="subject" value="소설" label="소설" />
-                <UiCheckbox name="subject" value="시" label="시" />
-                <UiCheckbox name="subject" value="에세이" label="에세이" />
-                <UiCheckbox name="subject" value="역사" label="역사" />
-                <UiCheckbox name="subject" value="과학" label="과학" />
-              </div>
-            </div>
-            <div class="filter-group filter-group--collapsible">
-              <div class="filter-options">
-                <UiCheckbox name="subject" value="철학" label="철학" />
-                <UiCheckbox name="subject" value="예술" label="예술" />
-                <UiCheckbox name="subject" value="정치" label="정치" />
-                <UiCheckbox name="subject" value="경제" label="경제" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </UiAccordion>
+			<!-- 총서명 필터 -->
+			<div class="filter-section">
+				<input type="checkbox" id="series-filter-toggle" class="filter-toggle" />
+				<label for="series-filter-toggle" class="filter-label">
+					총서명
+					<span class="filter-label-btn">
+						<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+					</span>
+				</label>
+				<div class="filter-group-wrapper">
+					<div class="filter-group filter-group--always-visible">
+						<div class="filter-options">
+							<UiCheckbox name="subject" value="소설" label="소설" />
+							<UiCheckbox name="subject" value="시" label="시" />
+							<UiCheckbox name="subject" value="에세이" label="에세이" />
+							<UiCheckbox name="subject" value="역사" label="역사" />
+							<UiCheckbox name="subject" value="과학" label="과학" />
+							<UiCheckbox name="subject" value="철학" label="철학" />
+							<UiCheckbox name="subject" value="예술" label="예술" />
+							<UiCheckbox name="subject" value="정치" label="정치" />
+							<UiCheckbox name="subject" value="경제" label="경제" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      <div class="search-detail-section__content">
-        <!-- 자료유형 탭 -->
-        <UiTab
-          tabs={[
-            { id: 'all', label: '전체', count: 0, active: true },
-            { id: 'book', label: '단행본', count: 0 },
-            { id: 'serial', label: '연속간행물', count: 0 },
-            { id: 'dvd', label: 'DVD', count: 0 },
-            { id: 'ebook', label: '전자책', count: 1223 },
-          ]}
-          className="mb-4 search-type-tabs ui-tab--grid-5"
-        />
+		<div class="search-detail-section__content">
+			<!-- 자료유형 탭 -->
+			<UiTab
+				tabs={[
+					{ id: 'all', label: '전체', count: 0, active: true },
+					{ id: 'book', label: '단행본', count: 0 },
+					{ id: 'serial', label: '연속간행물', count: 0 },
+					{ id: 'dvd', label: 'DVD', count: 0 },
+					{ id: 'ebook', label: '전자책', count: 1223 },
+				]}
+				className="mb-4 search-type-tabs ui-tab--grid-5"
+			/>
 
-        <div class="search-detail-section__content">
-          <div id="panel-all" class="ui-tab-panel ui-tab-panel--active">
-            <!-- 검색 정보 요약 -->
-            <UiSearchSummary />
+			<div class="search-detail-section__content">
+				<div id="panel-all" class="ui-tab-panel ui-tab-panel--active">
+					<!-- 검색 정보 요약 -->
+					<UiSearchSummary />
 
-            <!-- 상세 필터 섹션 -->
-            <UiSearchFilter filterGroups={searchFilterGroups} />
+					<!-- 상세 필터 섹션 -->
+					<UiSearchFilter filterGroups={searchFilterGroups} />
 
-            <!-- 검색 결과 목록 -->
-            <div class="search-result-list mt24">
-              <!-- 예시 도서 아이템 -->
-              <UiBookCard
-                index={1}
-                imageUrl="./assets/images/default-book.png"
-                badges={[
-                  { label: 'DVD', type: 'success', size: 'large' },
-                  { label: '대출불가', type: 'warning' },
-                ]}
-                title="서점탐정 유동인. 2, 리턴즈"
-                titleHighlights={['탐정', '리턴즈']}
-                author="조성희 감독"
-                details={{
-                  callNumber: 'DV 688.2-조54ㅌ',
-                  publishYear: '2017',
-                  library: '연수청학',
-                  readingRoom: 'OOO자료실',
-                  registrationNumber: 'HV0000000881',
-                }}
-              />
-              <UiBookCard
-                index={2}
-                imageUrl="./assets/images/default-book.png"
-                badges={[
-                  { label: 'DVD', type: 'success', size: 'large' },
-                  { label: '대출불가', type: 'warning' },
-                ]}
-                title="서점탐정 유동인. 2, 리턴즈"
-                titleHighlights={['탐정', '리턴즈']}
-                author="조성희 감독"
-                details={{
-                  callNumber: 'DV 688.2-조54ㅌ',
-                  publishYear: '2017',
-                  library: '연수청학',
-                  readingRoom: 'OOO자료실',
-                  registrationNumber: 'HV0000000881',
-                }}
-              />
-            </div>
+					<!-- 검색 결과 목록 -->
+					<div class="search-result-list mt24">
+						<!-- 예시 도서 아이템 -->
+						<UiBookCard
+							index={1}
+							imageUrl="./assets/images/default-book.png"
+							badges={[
+								{ label: 'DVD', type: 'success', size: 'large' },
+								{ label: '대출불가', type: 'warning' },
+							]}
+							title="서점탐정 유동인,"
+							subTitle="리턴즈22222222222222222222222222222222"
+							titleHighlights={['탐정', '리턴즈']}
+							author="조성희 감독"
+							details={{
+								callNumber: 'DV 688.2-조54ㅌ',
+								publishYear: '2017',
+								library: '연수청학',
+								readingRoom: 'OOO자료실',
+								registrationNumber: 'HV0000000881',
+							}}
+						/>
+						<UiBookCard
+							index={2}
+							imageUrl="./assets/images/default-book.png"
+							badges={[
+								{ label: 'DVD', type: 'success', size: 'large' },
+								{ label: '대출불가', type: 'warning' },
+							]}
+							title="서점탐정 유동인,"
+							subTitle="리턴즈22222222222222222222222222222222"
+							titleHighlights={['탐정', '리턴즈']}
+							author="조성희 감독"
+							details={{
+								callNumber: 'DV 688.2-조54ㅌ',
+								publishYear: '2017',
+								library: '연수청학',
+								readingRoom: 'OOO자료실',
+								registrationNumber: 'HV0000000881',
+							}}
+						/>
+					</div>
 
-            <!-- 페이징네이션 -->
-            <div class="pagination-section">
-              <UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
-            </div>
-          </div>
+					<!-- 페이징네이션 -->
+					<div class="pagination-section">
+						<UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
+					</div>
+				</div>
 
-          <div id="panel-book" class="ui-tab-panel">book</div>
+				<div id="panel-book" class="ui-tab-panel">book</div>
 
-          <div id="panel-serial" class="ui-tab-panel">serial</div>
+				<div id="panel-serial" class="ui-tab-panel">serial</div>
 
-          <div id="panel-dvd" class="ui-tab-panel">dvd</div>
-        </div>
-      </div>
-    </section>
-  </SubLayout>
+				<div id="panel-dvd" class="ui-tab-panel">dvd</div>
+			</div>
+		</div>
+	</SubLayout>
 </Layout>

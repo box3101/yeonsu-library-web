@@ -16,10 +16,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: to-rem(16);
-	
+
 	&__text {
 		color: #333;
-		font-family: "Noto Sans KR";
+		font-family: 'Noto Sans KR';
 		font-size: to-rem(14);
 		font-style: normal;
 		font-weight: 400;
@@ -3049,6 +3049,8 @@
 		&-dropdown {
 			padding: 24px;
 			position: absolute;
+			width: 100%;
+			max-width: to-rem(577);
 			top: 100%;
 			left: 0;
 			z-index: 1000;
@@ -3067,7 +3069,7 @@
 				left: 50%;
 				transform: translateX(-50%) translateY(-4px);
 				width: 90vw;
-				max-width: to-rem(340);
+				max-width: 100%;
 
 				&.is-open {
 					transform: translateX(-50%) translateY(0);
@@ -3087,7 +3089,7 @@
 			border: 1px solid $gray-200;
 			border-radius: to-rem(8) to-rem(8) 0 0;
 			overflow: hidden;
-			width: to-rem(340);
+			width: 100%;
 
 			@include tablet {
 				width: 100%;
@@ -3132,7 +3134,7 @@
 		&-list {
 			background: $white;
 			padding: to-rem(16);
-			width: to-rem(340);
+			width: 100%;
 
 			@include tablet {
 				width: 100%;
@@ -3141,6 +3143,7 @@
 
 			.search-content {
 				display: none;
+				width: 100%;
 
 				&.active {
 					display: block;
@@ -3154,6 +3157,7 @@
 				padding: to-rem(8) 0;
 				cursor: pointer;
 				transition: background-color 0.2s ease;
+				width: 100%;
 
 				@include tablet {
 					padding: to-rem(6) 0;
@@ -3208,7 +3212,7 @@
 			padding: to-rem(10) to-rem(16);
 			border-top: 1px solid $gray-100;
 			border-radius: 0 0 to-rem(8) to-rem(8);
-			width: to-rem(340);
+			width: 100%;
 
 			@include tablet {
 				width: 100%;
@@ -3308,10 +3312,10 @@
 ======================================== */
 .search-type-tabs {
 	position: relative;
-	margin-bottom: to-rem(42);
+	margin-bottom: to-rem(15);
 
 	@include mobile {
-		margin-bottom: 15px;
+		margin-bottom: 12px;
 	}
 
 	&.ui-tab--grid-6 {
@@ -4362,17 +4366,13 @@ div.bookshelf-item {
 
 	&__content-inner-header-title {
 		// 페이지 메인 제목 스타일
-		@include page-title('h2');
+		// @include page-title('h2');
 		margin-top: to-rem(35);
-
-		& {
-			color: $text-color;
-			font-weight: 700;
-
-			@include mobile {
-				// 모바일에서는 폰트 크기 축소 (85%)
-				font-size: 24px; // 28px의 85%
-			}
+		color: $text-color;
+		font-weight: 700;
+		@include mobile {
+			// 모바일에서는 폰트 크기 축소 (85%)
+			font-size: 24px; // 28px의 85%
 		}
 	}
 
@@ -5866,7 +5866,7 @@ div.bookshelf-item {
 		&__content {
 			flex-direction: column;
 			align-items: stretch;
-			gap: to-rem(12);
+			gap: to-rem(6);
 		}
 
 		&__select,

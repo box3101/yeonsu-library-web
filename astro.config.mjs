@@ -12,12 +12,12 @@ export default defineConfig({
 	compilerOptions: {
 		// 개발/프로덕션 모두에서 astro 디버그 속성 제거
 		jsx: 'preserve',
-		sourcemap: false,
+		sourcemap: true,
 	},
 
 	vite: {
 		css: {
-			devSourcemap: false, // 소스맵 비활성화로 속도 향상
+			devSourcemap: true, // 소스맵 비활성화로 속도 향상
 		},
 		resolve: {
 			alias: {

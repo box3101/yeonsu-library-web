@@ -2,202 +2,202 @@
 import UiButton from './UiButton.astro';
 
 export interface Props {
-  imageUrl?: string;
-  badges?: Array<{
-    label: string;
-    type: 'success' | 'warning' | 'tertiary';
-    size?: 'large' | 'medium';
-  }>;
-  title: string;
-  titleHighlights?: string[]; // 검색어 하이라이팅을 위한 키워드들
-  author: string;
-  publisher?: string;
-  publishYear?: string;
-  details: {
-    callNumber?: string;
-    registrationNumber?: string;
-    isbn?: string;
-    koreanDecimalClassification?: string;
-    categoryClassification?: string;
-    supplement?: string; // 부록여부
-    [key: string]: any; // 추가 메타데이터
-  };
-  onAddToMyLibrary?: () => void;
-  showCollectionInfo?: boolean;
-  showBookInfo?: boolean;
-  showMARC?: boolean;
+	imageUrl?: string;
+	badges?: Array<{
+		label: string;
+		type: 'success' | 'warning' | 'tertiary';
+		size?: 'large' | 'medium';
+	}>;
+	title: string;
+	titleHighlights?: string[]; // 검색어 하이라이팅을 위한 키워드들
+	author: string;
+	publisher?: string;
+	publishYear?: string;
+	details: {
+		callNumber?: string;
+		registrationNumber?: string;
+		isbn?: string;
+		koreanDecimalClassification?: string;
+		categoryClassification?: string;
+		supplement?: string; // 부록여부
+		[key: string]: any; // 추가 메타데이터
+	};
+	onAddToMyLibrary?: () => void;
+	showCollectionInfo?: boolean;
+	showBookInfo?: boolean;
+	showMARC?: boolean;
 }
 
 const {
-  imageUrl = 'assets/images/default-book.png',
-  badges = [],
-  title,
-  titleHighlights = [],
-  author,
-  publisher,
-  publishYear,
-  details,
-  showCollectionInfo = true,
-  showBookInfo = true,
-  showMARC = true,
+	imageUrl = 'assets/images/default-book.png',
+	badges = [],
+	title,
+	titleHighlights = [],
+	author,
+	publisher,
+	publishYear,
+	details,
+	showCollectionInfo = true,
+	showBookInfo = true,
+	showMARC = true,
 } = Astro.props;
 
 // 제목에서 검색어 하이라이팅 처리
 function highlightTitle(title: string, highlights: string[]): string {
-  if (!highlights.length) return title;
+	if (!highlights.length) return title;
 
-  let highlightedTitle = title;
-  highlights.forEach(keyword => {
-    const regex = new RegExp(`(${keyword})`, 'gi');
-    highlightedTitle = highlightedTitle.replace(regex, '<span class="highlight">$1</span>');
-  });
+	let highlightedTitle = title;
+	highlights.forEach(keyword => {
+		const regex = new RegExp(`(${keyword})`, 'gi');
+		highlightedTitle = highlightedTitle.replace(regex, '<span class="highlight">$1</span>');
+	});
 
-  return highlightedTitle;
+	return highlightedTitle;
 }
 
 const highlightedTitle = highlightTitle(title, titleHighlights);
 ---
 
 <div class="ui-book-card">
-  <div class="ui-book-card__container">
-    <!-- 왼쪽: 이미지 영역 -->
-    <div class="ui-book-card__left">
-      <div class="ui-book-card__image-wrapper">
-        <div class="ui-book-card__image-container">
-          <div class="ui-book-card__image-mask">
-            <img src={imageUrl} alt={title} class="ui-book-card__image" />
-          </div>
-          <div class="ui-book-card__image-overlay">
-            <button class="ui-book-card__add-button" type="button">
-              <span>내책장담기</span>
-              <img src="./assets/images/icon/icon-plus.svg" alt="내책장에 추가" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="ui-book-card__container">
+		<!-- 왼쪽: 이미지 영역 -->
+		<div class="ui-book-card__left">
+			<div class="ui-book-card__image-wrapper">
+				<div class="ui-book-card__image-container">
+					<div class="ui-book-card__image-mask">
+						<img src={imageUrl} alt={title} class="ui-book-card__image" />
+					</div>
+					<div class="ui-book-card__image-overlay">
+						<button class="ui-book-card__add-button" type="button">
+							<span>내책장담기</span>
+							<img src="./assets/images/icon/icon-plus.svg" alt="내책장에 추가" class="icon icon-sm icon-white" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <!-- 오른쪽: 콘텐츠 영역 -->
-    <div class="ui-book-card__content">
-      <!-- 상단: 배지들 -->
-      {
-        badges.length > 0 && (
-          <div class="ui-book-card__badges">
-            {badges.map(badge => (
-              <span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
-                {badge.label}
-              </span>
-            ))}
-          </div>
-        )
-      }
+		<!-- 오른쪽: 콘텐츠 영역 -->
+		<div class="ui-book-card__content">
+			<!-- 상단: 배지들 -->
+			{
+				badges.length > 0 && (
+					<div class="ui-book-card__badges">
+						{badges.map(badge => (
+							<span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
+								{badge.label}
+							</span>
+						))}
+					</div>
+				)
+			}
 
-      <!-- 메인 콘텐츠 -->
-      <div class="ui-book-card__main">
-        <!-- 제목 및 메타 정보 -->
-        <div class="ui-book-card__title-section">
-          <h1 class="ui-book-card__title" set:html={highlightedTitle} />
-          <p class="ui-book-card__author">{author}</p>
+			<!-- 메인 콘텐츠 -->
+			<div class="ui-book-card__main">
+				<!-- 제목 및 메타 정보 -->
+				<div class="ui-book-card__title-section">
+					<h1 class="ui-book-card__title" set:html={highlightedTitle} />
+					<p class="ui-book-card__author">{author}</p>
 
-          <!-- 상세 정보 그리드 -->
-          <div class="ui-book-card__details">
-            <div class="ui-book-card__details-row">
-              <div class="ui-book-card__details-column">
-                {
-                  publisher && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">출판사</span>
-                      <span class="ui-book-card__detail-value">{publisher}</span>
-                    </div>
-                  )
-                }
+					<!-- 상세 정보 그리드 -->
+					<div class="ui-book-card__details">
+						<div class="ui-book-card__details-row">
+							<div class="ui-book-card__details-column">
+								{
+									publisher && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">출판사</span>
+											<span class="ui-book-card__detail-value">{publisher}</span>
+										</div>
+									)
+								}
 
-                {
-                  publishYear && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">발행연도</span>
-                      <span class="ui-book-card__detail-value">{publishYear}</span>
-                    </div>
-                  )
-                }
+								{
+									publishYear && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">발행연도</span>
+											<span class="ui-book-card__detail-value">{publishYear}</span>
+										</div>
+									)
+								}
 
-                {
-                  details.supplement && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">부록여부</span>
-                      <span class="ui-book-card__detail-value">{details.supplement}</span>
-                    </div>
-                  )
-                }
-              </div>
+								{
+									details.supplement && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">부록여부</span>
+											<span class="ui-book-card__detail-value">{details.supplement}</span>
+										</div>
+									)
+								}
+							</div>
 
-              <div class="ui-book-card__details-column">
-                {
-                  details.callNumber && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">청구기호</span>
-                      <span class="ui-book-card__detail-value">{details.callNumber}</span>
-                    </div>
-                  )
-                }
+							<div class="ui-book-card__details-column">
+								{
+									details.callNumber && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">청구기호</span>
+											<span class="ui-book-card__detail-value">{details.callNumber}</span>
+										</div>
+									)
+								}
 
-                {
-                  details.registrationNumber && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">등록번호</span>
-                      <span class="ui-book-card__detail-value">{details.registrationNumber}</span>
-                    </div>
-                  )
-                }
+								{
+									details.registrationNumber && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">등록번호</span>
+											<span class="ui-book-card__detail-value">{details.registrationNumber}</span>
+										</div>
+									)
+								}
 
-                {
-                  details.isbn && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">ISBN</span>
-                      <span class="ui-book-card__detail-value">{details.isbn}</span>
-                    </div>
-                  )
-                }
-              </div>
+								{
+									details.isbn && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">ISBN</span>
+											<span class="ui-book-card__detail-value">{details.isbn}</span>
+										</div>
+									)
+								}
+							</div>
 
-              <div class="ui-book-card__details-column">
-                {
-                  details.koreanDecimalClassification && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">한국십진분류</span>
-                      <span class="ui-book-card__detail-value">{details.koreanDecimalClassification}</span>
-                    </div>
-                  )
-                }
+							<div class="ui-book-card__details-column">
+								{
+									details.koreanDecimalClassification && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">한국십진분류</span>
+											<span class="ui-book-card__detail-value">{details.koreanDecimalClassification}</span>
+										</div>
+									)
+								}
 
-                {
-                  details.categoryClassification && (
-                    <div class="ui-book-card__detail-item">
-                      <span class="ui-book-card__detail-label">카테고리분류</span>
-                      <span class="ui-book-card__detail-value">{details.categoryClassification}</span>
-                    </div>
-                  )
-                }
-              </div>
-            </div>
-          </div>
+								{
+									details.categoryClassification && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">카테고리분류</span>
+											<span class="ui-book-card__detail-value">{details.categoryClassification}</span>
+										</div>
+									)
+								}
+							</div>
+						</div>
+					</div>
 
-          <!-- 하단 버튼들 -->
-          <div class="ui-book-card__actions">
-            {
-              showBookInfo && (
-                <UiButton variant="tertiary" size="medium" text="도서정보" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
-              )
-            }
+					<!-- 하단 버튼들 -->
+					<div class="ui-book-card__actions">
+						{
+							showBookInfo && (
+								<UiButton variant="tertiary" size="medium" text="도서정보" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+							)
+						}
 
-            {
-              showMARC && (
-                <UiButton variant="secondary" size="medium" text="MARC" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
-              )
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+						{
+							showMARC && (
+								<UiButton variant="secondary" size="medium" text="MARC" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+							)
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

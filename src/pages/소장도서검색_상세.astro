@@ -9,401 +9,402 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
 
 // 소장정보 테이블 컬럼 정의
 const columns = [
-  {
-    key: 'title',
-    label: '도서관',
-    width: '160px',
-    headerAlign: 'center',
-    align: 'center',
-  },
-  { key: 'status', label: '대출상태', width: '100px', align: 'center' },
-  { key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
-  {
-    key: 'service',
-    label: '서비스',
-    width: '200px',
-    align: 'center',
-    type: 'buttons',
-  },
-  { key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
-  { key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
-  {
-    key: 'readingRoom',
-    label: '정보 출력',
-    width: '100px',
-    align: 'center',
-    type: 'icon',
-  },
+	{
+		key: 'title',
+		label: '도서관',
+		width: '160px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{ key: 'status', label: '대출상태', width: '100px', align: 'center' },
+	{ key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
+	{
+		key: 'service',
+		label: '서비스',
+		width: '100px',
+		align: 'center',
+		type: 'buttons',
+	},
+	{ key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
+	{ key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
+	{
+		key: 'readingRoom',
+		label: '정보 출력',
+		width: '100px',
+		align: 'center',
+		type: 'icon',
+	},
 ];
 
 // 도서관별 소장 데이터 원본
 const collectionData = [
-  {
-    library: '청학',
-    readingRoom: '어린이자료실',
-    loanStatus: '비치중',
-    service: 'reservation',
-    callNumber: 'DV 688.2-조54ㅌ',
-    registrationNumber: 'CJ0000036641',
-  },
-  {
-    library: '선학',
-    readingRoom: '어린이자료실',
-    loanStatus: '비치중',
-    service: 'interlibrary',
-    callNumber: 'DV 688.2-조54ㅌ',
-    registrationNumber: 'GJ0000027414',
-  },
-  {
-    library: '꿈담',
-    readingRoom: '어린이자료실',
-    loanStatus: '대출중',
-    returnDate: '2025.07.31',
-    service: 'reservation',
-    callNumber: 'DV 688.2-조54ㅌ',
-    registrationNumber: 'QJ0000028625',
-    reservationCount: 0,
-  },
+	{
+		library: '청학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'CJ0000036641',
+	},
+	{
+		library: '선학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'interlibrary',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'GJ0000027414',
+	},
+	{
+		library: '꿈담',
+		readingRoom: '어린이자료실',
+		loanStatus: '대출중',
+		returnDate: '2025.07.31',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'QJ0000028625',
+		reservationCount: 0,
+	},
 ];
 
 // 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
 const rows = collectionData.map((item, index) => ({
-  id: index + 1,
-  title: `<span class="bold">[${item.library}]</span> ${item.readingRoom}`, // 도서관명 + 자료실명
-  status: item.loanStatus, // 대출상태
-  dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
-  service: [
-    { text: '예약하기', variant: 'default' },
-    { text: '상호대차', variant: 'default' },
-  ],
-  callNumber: item.callNumber, // 청구기호
-  regNumber: item.registrationNumber, // 등록번호
-  readingRoom: 'icon-printer', // 출력 아이콘
+	id: index + 1,
+	title: `<span class="bold">[${item.library}]</span> ${item.readingRoom}`, // 도서관명 + 자료실명
+	status: item.loanStatus, // 대출상태
+	dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
+	service: [
+		{ text: '예약하기', variant: 'default' },
+		{ text: '상호대차', variant: 'default' },
+		{ text: '리브박스', variant: 'default' },
+	],
+	callNumber: item.callNumber, // 청구기호
+	regNumber: item.registrationNumber, // 등록번호
+	readingRoom: 'icon-printer', // 출력 아이콘
 }));
 
 // 도서관별 탭 메뉴 설정 (전체 및 개별 도서관)
 const myTabs = [
-  { id: 'all', label: '전체(3)', active: true }, // 기본 활성 탭
-  { id: 'yeonsu1', label: '연수구청스마트(1)' },
-  { id: 'yeonsu2', label: '연수구청스마트(1)' },
-  { id: 'yeonsu3', label: '연수구청스마트(1)' },
-  { id: 'yeonsu4', label: '연수구청스마트(1)' },
-  { id: 'yeonsu5', label: '연수구청스마트(1)' },
-  { id: 'yeonsu6', label: '연수구청스마트(1)' },
-  { id: 'yeonsu7', label: '연수구청스마트(1)' },
-  { id: 'yeonsu8', label: '연수구청스마트(1)' },
-  { id: 'yeonsu9', label: '연수구청스마트(1)' },
-  { id: 'yeonsu10', label: '연수구청스마트(1)' },
-  { id: 'yeonsu11', label: '연수구청스마트(1)' },
-  { id: 'yeonsu12', label: '연수구청스마트(1)' },
-  { id: 'yeonsu13', label: '연수구청스마트(1)' },
-  { id: 'yeonsu14', label: '연수구청스마트(1)' },
-  { id: 'yeonsu15', label: '연수구청스마트(1)' },
-  { id: 'yeonsu16', label: '연수구청스마트(1)' },
-  { id: 'yeonsu17', label: '연수구청스마트(1)' },
-  { id: 'yeonsu18', label: '연수구청스마트(1)' },
-  { id: 'yeonsu19', label: '연수구청스마트(1)' },
-  { id: 'future1', label: '추가예정' },
-  { id: 'future2', label: '추가예정' },
-  { id: 'future3', label: '추가예정' },
-  { id: 'future4', label: '추가예정' },
+	{ id: 'all', label: '전체(3)', active: true }, // 기본 활성 탭
+	{ id: 'yeonsu1', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu2', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu3', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu4', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu5', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu6', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu7', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu8', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu9', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu10', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu11', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu12', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu13', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu14', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu15', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu16', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu17', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu18', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu19', label: '연수구청스마트(1)' },
+	{ id: 'future1', label: '추가예정' },
+	{ id: 'future2', label: '추가예정' },
+	{ id: 'future3', label: '추가예정' },
+	{ id: 'future4', label: '추가예정' },
 ];
 
 // 스와이퍼 관련 도서 데이터
 const books = [
-  {
-    title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
-    author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
-  },
-  {
-    title: '모험이 가득한 동화책',
-    author: '이동화 저',
-  },
-  {
-    title: '창의력을 키우는 미술 활동',
-    author: '박미술 저',
-  },
-  {
-    title: '음악과 함께하는 즐거운 시간',
-    author: '최음악 저',
-  },
-  {
-    title: '자연과 친구가 되는 방법',
-    author: '정자연 저',
-  },
-  {
-    title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
-    author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
-  },
-  {
-    title: '모험이 가득한 동화책',
-    author: '이동화 저',
-  },
-  {
-    title: '창의력을 키우는 미술 활동',
-    author: '박미술 저',
-  },
-  {
-    title: '음악과 함께하는 즐거운 시간',
-    author: '최음악 저',
-  },
-  {
-    title: '자연과 친구가 되는 방법',
-    author: '정자연 저',
-  },
+	{
+		title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
+	{
+		title: '어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
 ];
 ---
 
 <Layout title="소장도서검색_상세검색 - 연수구립도서관">
-  <SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems} menuType="도서검색">
-    <!-- 페이지 우측 상단 돌아가기 버튼 -->
-    <div slot="right">
-      <UiButton
-        variant="secondary"
-        size="small"
-        text="돌아가기"
-        icon="icon-xxsm icon-arrow-left icon-primary"
-        iconPosition="left"
-        type="link"
-        href="./소장도서검색"
-      />
-    </div>
+	<SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 페이지 우측 상단 돌아가기 버튼 -->
+		<div slot="right">
+			<UiButton
+				variant="secondary"
+				size="small"
+				text="돌아가기"
+				icon="icon-xxsm icon-arrow-left icon-primary"
+				iconPosition="left"
+				type="link"
+				href="./소장도서검색"
+			/>
+		</div>
 
-    <!-- 도서 상세 정보 섹션 -->
-    <div class="search-detail-section__content">
-      <!-- 검색 결과 목록 -->
-      <div class="search-result-list mt24">
-        <!-- 도서 정보 카드 -->
-        <UiBookCardDetail
-          imageUrl="./assets/images/default-book.png"
-          badges={[
-            { label: 'DVD', type: 'success', size: 'large' },
-            { label: '대출불가', type: 'warning' },
-            { label: '예약 0명', type: 'default' },
-          ]}
-          title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
-          titleHighlights={['탐정']}
-          author="김기정 글; 이해정 그림"
-          publisher="천개의바람"
-          publishYear="2023"
-          description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
-          details={{
-            callNumber: '아동 813.5-김18ㅎ',
-            registrationNumber: 'GJ0000027414',
-            isbn: '9791155815755',
-            koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
-            categoryClassification: '문학 > 한국문학 > 소설',
-            supplement: '포함',
-          }}
-        />
+		<!-- 도서 상세 정보 섹션 -->
+		<div class="search-detail-section__content">
+			<!-- 검색 결과 목록 -->
+			<div class="search-result-list mt24">
+				<!-- 도서 정보 카드 -->
+				<UiBookCardDetail
+					imageUrl="./assets/images/default-book.png"
+					badges={[
+						{ label: 'DVD', type: 'success', size: 'large' },
+						{ label: '대출불가', type: 'warning' },
+						{ label: '예약 0명', type: 'default' },
+					]}
+					title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+					titleHighlights={['탐정']}
+					author="김기정 글; 이해정 그림"
+					publisher="천개의바람"
+					publishYear="2023"
+					description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
+					details={{
+						callNumber: '아동 813.5-김18ㅎ',
+						registrationNumber: 'GJ0000027414',
+						isbn: '9791155815755',
+						koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
+						categoryClassification: '문학 > 한국문학 > 소설',
+						supplement: '포함',
+					}}
+				/>
 
-        <!-- 소장정보 아코디언 테이블 -->
-        <UiAccordion title="소장 정보" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <UiTab tabs={myTabs} variant="default" size="medium" showCount={false} className={`mb-4 search-type-tabs ui-tab--grid-6`} />
+				<!-- 소장정보 아코디언 테이블 -->
+				<UiAccordion title="소장 정보" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<UiTab tabs={myTabs} variant="default" size="medium" showCount={false} className={`mb-4 search-type-tabs ui-tab--grid-6`} />
 
-          <!-- 소장정보 테이블 -->
-          <UiTable
-            columns={columns}
-            rows={rows}
-            caption="소장정보 목록"
-            showIndex={false}
-            showCheckbox={false}
-            stickyHeader={true}
-            maxHeight="270px"
-          />
-        </UiAccordion>
+					<!-- 소장정보 테이블 -->
+					<UiTable
+						columns={columns}
+						rows={rows}
+						caption="소장정보 목록"
+						showIndex={false}
+						showCheckbox={false}
+						stickyHeader={true}
+						maxHeight="270px"
+					/>
+				</UiAccordion>
 
-        <!-- 책소개 아코디언 -->
-        <UiAccordion title="책소개" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-description">
-            <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
-              흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
-            </p>
-          </div>
-        </UiAccordion>
+				<!-- 책소개 아코디언 -->
+				<UiAccordion title="책소개" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-description">
+						<p>
+							정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
+							흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
+						</p>
+					</div>
+				</UiAccordion>
 
-        <!-- 목차 아코디언 -->
-        <UiAccordion title="목차" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-description">
-            <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
-              흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
-            </p>
-          </div>
-        </UiAccordion>
+				<!-- 목차 아코디언 -->
+				<UiAccordion title="목차" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-description">
+						<p>
+							정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
+							흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
+						</p>
+					</div>
+				</UiAccordion>
 
-        <!-- 사서추천도서 아코디언 -->
-        <UiAccordion title="사서추천도서" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-description">
-            <p>
-              정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
-              흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
-            </p>
-          </div>
-        </UiAccordion>
+				<!-- 사서추천도서 아코디언 -->
+				<UiAccordion title="사서추천도서" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-description">
+						<p>
+							정경해 시집. 시인의 시는 평범하고 사소한 일상의 연속을 부유하는 동시대인들의 표상이다. 정경해의 의식의 흐름은 정경해 한 개인만의 의식의
+							흐름이 아니라 일종의 집단무의식으로서의 동시대인들 일반의 집단무의식의 흐름을 이룬다.
+						</p>
+					</div>
+				</UiAccordion>
 
-        <!-- 서가브라우징 아코디언 -->
-        <UiAccordion title="서가브라우징" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-swiper-wrapper">
-            <div class="book-swiper swiper" id="book-swiper-1">
-              <ul class="swiper-wrapper">
-                {
-                  books.map(book => (
-                    <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
-                      <p class="tit">{book.title}</p>
-                      <div class="txt">{book.author}</div>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-            <div class="btn-wrp">
-              <UiNavButton class="bg-white book-swiper-1-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
-              <UiNavButton class="bg-white book-swiper-1-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
-            </div>
-          </div>
-        </UiAccordion>
+				<!-- 서가브라우징 아코디언 -->
+				<UiAccordion title="서가브라우징" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-swiper-wrapper">
+						<div class="book-swiper swiper" id="book-swiper-1">
+							<ul class="swiper-wrapper">
+								{
+									books.map(book => (
+										<li class="swiper-slide">
+											<img src="./assets/images/content-infant-books.png" alt="도서 표지" />
+											<p class="tit">{book.title}</p>
+											<div class="txt">{book.author}</div>
+										</li>
+									))
+								}
+							</ul>
+						</div>
+						<div class="btn-wrp">
+							<UiNavButton class="bg-white book-swiper-1-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+							<UiNavButton class="bg-white book-swiper-1-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
+						</div>
+					</div>
+				</UiAccordion>
 
-        <!-- 같이 빌린 책 아코디언 -->
-        <UiAccordion title="같이 빌린 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-swiper-wrapper">
-            <div class="book-swiper swiper" id="book-swiper-2">
-              <ul class="swiper-wrapper">
-                {
-                  books.map(book => (
-                    <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
-                      <p class="tit">{book.title}</p>
-                      <div class="txt">{book.author}</div>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-            <div class="btn-wrp">
-              <UiNavButton class="bg-white book-swiper-2-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
-              <UiNavButton class="bg-white book-swiper-2-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
-            </div>
-          </div>
-        </UiAccordion>
+				<!-- 같이 빌린 책 아코디언 -->
+				<UiAccordion title="같이 빌린 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-swiper-wrapper">
+						<div class="book-swiper swiper" id="book-swiper-2">
+							<ul class="swiper-wrapper">
+								{
+									books.map(book => (
+										<li class="swiper-slide">
+											<img src="./assets/images/content-infant-books.png" alt="도서 표지" />
+											<p class="tit">{book.title}</p>
+											<div class="txt">{book.author}</div>
+										</li>
+									))
+								}
+							</ul>
+						</div>
+						<div class="btn-wrp">
+							<UiNavButton class="bg-white book-swiper-2-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+							<UiNavButton class="bg-white book-swiper-2-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
+						</div>
+					</div>
+				</UiAccordion>
 
-        <!-- 같은 주제의 책 -->
-        <UiAccordion title="같은 주제의 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="book-swiper-wrapper">
-            <div class="book-swiper swiper" id="book-swiper-3">
-              <ul class="swiper-wrapper">
-                {
-                  books.map(book => (
-                    <li class="swiper-slide">
-                      <img src="./assets/images/content-infant-books.png" alt="도서 표지" />
-                      <p class="tit">{book.title}</p>
-                      <div class="txt">{book.author}</div>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
-            <div class="btn-wrp">
-              <UiNavButton class="bg-white book-swiper-3-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
-              <UiNavButton class="bg-white book-swiper-3-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
-            </div>
-          </div>
-        </UiAccordion>
+				<!-- 같은 주제의 책 -->
+				<UiAccordion title="같은 주제의 책" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="book-swiper-wrapper">
+						<div class="book-swiper swiper" id="book-swiper-3">
+							<ul class="swiper-wrapper">
+								{
+									books.map(book => (
+										<li class="swiper-slide">
+											<img src="./assets/images/content-infant-books.png" alt="도서 표지" />
+											<p class="tit">{book.title}</p>
+											<div class="txt">{book.author}</div>
+										</li>
+									))
+								}
+							</ul>
+						</div>
+						<div class="btn-wrp">
+							<UiNavButton class="bg-white book-swiper-3-btn-prev" direction="prev" size={40} ariaLabel="이전 도서" />
+							<UiNavButton class="bg-white book-swiper-3-btn-next" direction="next" size={40} ariaLabel="다음 도서" />
+						</div>
+					</div>
+				</UiAccordion>
 
-        <!-- 주요키워드 -->
-        <UiAccordion title="주요키워드" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="keywords-content">
-            <div id="wordCloudCanvas" class="wordcloud-canvas"></div>
-          </div>
-        </UiAccordion>
+				<!-- 주요키워드 -->
+				<UiAccordion title="주요키워드" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="keywords-content">
+						<div id="wordCloudCanvas" class="wordcloud-canvas"></div>
+					</div>
+				</UiAccordion>
 
-        <!-- 통계 -->
-        <UiAccordion title="통계" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
-          <div class="statistics-content flex gap-16">
-            <div class="statistics-content__item statistics-chart-item">
-              <canvas id="myChart1"></canvas>
-            </div>
-            <div class="statistics-content__item statistics-chart-item">
-              <canvas id="myChart2"></canvas>
-            </div>
-          </div>
-        </UiAccordion>
-      </div>
-    </div></SubLayout
-  ></Layout
->
+				<!-- 통계 -->
+				<UiAccordion title="통계" variant="bordered" size="medium" iconType="chevron" isExpanded={true} className="custom-accordion">
+					<div class="statistics-content flex gap-16">
+						<div class="statistics-content__item statistics-chart-item">
+							<canvas id="myChart1"></canvas>
+						</div>
+						<div class="statistics-content__item statistics-chart-item">
+							<canvas id="myChart2"></canvas>
+						</div>
+					</div>
+				</UiAccordion>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
 
 <!-- 태그 클라우드 및 차트 스크립트 -->
 <script is:inline type="text/javascript" src="./assets/js/tagsCloud.js"></script>
 
 <script is:inline>
-  // jQuery, Chart.js, WordCloud가 로드될 때까지 대기
-  function waitForLibraries() {
-    if (typeof $ !== 'undefined' && typeof Chart !== 'undefined' && typeof WordCloud !== 'undefined') {
-      initializeCharts();
-    } else {
-      setTimeout(waitForLibraries, 100);
-    }
-  }
+	// jQuery, Chart.js, WordCloud가 로드될 때까지 대기
+	function waitForLibraries() {
+		if (typeof $ !== 'undefined' && typeof Chart !== 'undefined' && typeof WordCloud !== 'undefined') {
+			initializeCharts();
+		} else {
+			setTimeout(waitForLibraries, 100);
+		}
+	}
 
-  function initializeCharts() {
-    // 태그 클라우드 샘플 데이터
-    const tagCloudData = [
-      { tag: '프로그래밍', weight: 15 },
-      { tag: 'JavaScript', weight: 12 },
-      { tag: '웹개발', weight: 10 },
-      { tag: '도서관', weight: 8 },
-      { tag: '독서', weight: 7 },
-      { tag: '소설', weight: 6 },
-      { tag: '역사', weight: 5 },
-      { tag: '과학', weight: 4 },
-      { tag: '문학', weight: 3 },
-      { tag: '예술', weight: 2 },
-    ];
+	function initializeCharts() {
+		// 태그 클라우드 샘플 데이터
+		const tagCloudData = [
+			{ tag: '프로그래밍', weight: 15 },
+			{ tag: 'JavaScript', weight: 12 },
+			{ tag: '웹개발', weight: 10 },
+			{ tag: '도서관', weight: 8 },
+			{ tag: '독서', weight: 7 },
+			{ tag: '소설', weight: 6 },
+			{ tag: '역사', weight: 5 },
+			{ tag: '과학', weight: 4 },
+			{ tag: '문학', weight: 3 },
+			{ tag: '예술', weight: 2 },
+		];
 
-    // 연령별 차트 샘플 데이터
-    const ageData = [
-      { age: '10대', loanCnt: 15 },
-      { age: '20대', loanCnt: 25 },
-      { age: '30대', loanCnt: 35 },
-      { age: '40대', loanCnt: 20 },
-      { age: '50대', loanCnt: 10 },
-    ];
+		// 연령별 차트 샘플 데이터
+		const ageData = [
+			{ age: '10대', loanCnt: 15 },
+			{ age: '20대', loanCnt: 25 },
+			{ age: '30대', loanCnt: 35 },
+			{ age: '40대', loanCnt: 20 },
+			{ age: '50대', loanCnt: 10 },
+		];
 
-    // 연도별 차트 샘플 데이터
-    const yearData = [
-      { year: '2019', loanCnt: 120 },
-      { year: '2020', loanCnt: 85 },
-      { year: '2021', loanCnt: 95 },
-      { year: '2022', loanCnt: 150 },
-      { year: '2023', loanCnt: 180 },
-      { year: '2024', loanCnt: 200 },
-    ];
+		// 연도별 차트 샘플 데이터
+		const yearData = [
+			{ year: '2019', loanCnt: 120 },
+			{ year: '2020', loanCnt: 85 },
+			{ year: '2021', loanCnt: 95 },
+			{ year: '2022', loanCnt: 150 },
+			{ year: '2023', loanCnt: 180 },
+			{ year: '2024', loanCnt: 200 },
+		];
 
-    console.log('라이브러리 로드 완료, 차트 초기화 시작');
+		console.log('라이브러리 로드 완료, 차트 초기화 시작');
 
-    // 태그 클라우드 그리기
-    drawTagCloud(tagCloudData);
+		// 태그 클라우드 그리기
+		drawTagCloud(tagCloudData);
 
-    // 차트 그리기
-    drawChartsAge(ageData);
-    drawChartsYear(yearData); // 월별이 아닌 연도별 함수 호출
-  }
+		// 차트 그리기
+		drawChartsAge(ageData);
+		drawChartsYear(yearData); // 월별이 아닌 연도별 함수 호출
+	}
 
-  // 연수도서관용 태그 클라우드 검색 함수
-  function fn_tagCloudSearch(word) {
-    const searchUrl = `소장도서검색?keyword=${encodeURIComponent(word)}`;
-    window.location.href = searchUrl;
-  }
+	// 연수도서관용 태그 클라우드 검색 함수
+	function fn_tagCloudSearch(word) {
+		const searchUrl = `소장도서검색?keyword=${encodeURIComponent(word)}`;
+		window.location.href = searchUrl;
+	}
 
-  // 전역 함수로 등록
-  window.fn_tagCloudSearch = fn_tagCloudSearch;
+	// 전역 함수로 등록
+	window.fn_tagCloudSearch = fn_tagCloudSearch;
 
-  // DOM 로드 후 라이브러리 대기 시작
-  document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM 로드 완료, 라이브러리 대기 중...');
-    waitForLibraries();
-  });
+	// DOM 로드 후 라이브러리 대기 시작
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('DOM 로드 완료, 라이브러리 대기 중...');
+		waitForLibraries();
+	});
 </script>

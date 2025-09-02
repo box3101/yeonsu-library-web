@@ -60,7 +60,7 @@ const collectionColumns = [
 	{
 		key: 'service',
 		label: '서비스',
-		width: '200px',
+		width: '100px',
 		align: 'center',
 		type: 'buttons',
 	},
@@ -83,6 +83,7 @@ const collectionRows = collectionData.map((item, index) => ({
 	service: [
 		{ text: '예약하기', variant: 'default' },
 		{ text: '상호대차', variant: 'default' },
+		{ text: '리브박스', variant: 'default' },
 	],
 	callNumber: item.callNumber,
 	regNumber: item.registrationNumber,
@@ -102,6 +103,7 @@ export interface Props {
 	author: string;
 	details: {
 		callNumber?: string;
+		subTitle?: string;
 		publishYear?: string;
 		library?: string;
 		readingRoom?: string;
@@ -117,6 +119,7 @@ const {
 	imageUrl = './assets/images/default-book.png',
 	badges = [],
 	title,
+	subTitle = '리턴즈22222222222222222222222222222222',
 	titleHighlights = [],
 	author,
 	details,
@@ -176,11 +179,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 				badges.length > 0 && (
 					<div class="ui-book-card__badges">
 						{badges.map(badge => (
-							<span
-								class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${
-									badge.size ? `ui-book-card__badge--${badge.size}` : ''
-								}`}
-							>
+							<span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
 								{badge.label}
 							</span>
 						))}
@@ -194,6 +193,9 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 				<div class="ui-book-card__title-section">
 					<a href="./소장도서검색_상세">
 						<h3 class="ui-book-card__title" set:html={highlightedTitle} />
+						<p class="ui-book-card__sub-title highlight">
+							{subTitle}
+						</p>
 					</a>
 					<p class="ui-book-card__author">{author}</p>
 

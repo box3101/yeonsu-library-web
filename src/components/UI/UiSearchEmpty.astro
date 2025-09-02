@@ -1,0 +1,26 @@
+---
+/**
+ * 검색 결과가 없을 때 사용하는 공통 UI 컴포넌트.
+ * - 내부적으로 기존 UiEmpty를 재사용합니다. (디자인/간격/아이콘 일관 유지)
+ * - message, desc만 바꿔서 다양한 페이지에서 그대로 재사용하세요.
+ * - 추가 스타일이 필요한 경우 class에 커스텀 클래스를 전달하세요.
+ *
+ * 사용 예시)
+ * <UiSearchEmpty />
+ * <UiSearchEmpty message="검색 결과가 없습니다." desc="조건을 변경하거나 필터를 해제해 보세요." />
+ */
+import UiEmpty from './UiEmpty.astro';
+
+const {
+	message = '검색 결과가 없습니다.',
+	desc = '검색어를 변경하거나 필터를 해제해 보세요.',
+	class: className = '',
+	id = 'search-empty',
+	...rest
+} = Astro.props;
+
+// UiEmpty의 기본 클래스(ui-empty)에 검색 전용 modifier를 추가해 쉽게 스타일 확장할 수 있게 합니다.
+const classes = ['ui-empty--search', className].filter(Boolean).join(' ');
+---
+
+<UiEmpty id={id} class={classes} message={message} desc={desc} {...rest} />

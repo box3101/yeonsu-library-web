@@ -7,29 +7,29 @@ import UiSwitch from './UiSwitch.astro';
 import UiKeyboard from './UiKeyboard.astro';
 
 export interface LibraryItem {
-  id: string;
-  name: string;
-  checked?: boolean;
+	id: string;
+	name: string;
+	checked?: boolean;
 }
 
 export interface Props {
-  title?: string;
-  subtitle?: string;
-  libraries: LibraryItem[];
-  allChecked?: boolean;
-  expanded?: boolean;
-  gridColumns?: number;
-  class?: string;
+	title?: string;
+	subtitle?: string;
+	libraries: LibraryItem[];
+	allChecked?: boolean;
+	expanded?: boolean;
+	gridColumns?: number;
+	class?: string;
 }
 
 const {
-  title = '전체도서관',
-  subtitle = '도서관 분류',
-  libraries = [],
-  allChecked = false,
-  expanded = true,
-  gridColumns = 4,
-  class: className = '',
+	title = '전체도서관',
+	subtitle = '도서관 분류',
+	libraries = [],
+	allChecked = false,
+	expanded = true,
+	gridColumns = 4,
+	class: className = '',
 } = Astro.props;
 
 const filterId = `filter-${Math.random().toString(36).substr(2, 9)}`;
@@ -38,166 +38,159 @@ const searchDropdownId = `search-dropdown-${filterId}`;
 
 // 검색 탭 데이터
 const searchTabs = [
-  { id: 'recent', label: '최근검색어', active: true },
-  { id: 'popular', label: '인기검색어', active: false },
+	{ id: 'recent', label: '최근검색어', active: true },
+	{ id: 'popular', label: '인기검색어', active: false },
 ];
 
 // 최근 검색어 데이터 (예시)
 const recentSearches = [
-  { term: '홍길동', date: '25.07.07', isRecent: true },
-  { term: '바나나', date: '25.07.07', isRecent: false },
-  { term: '홍시', date: '25.07.07', isRecent: false },
-  { term: '사과', date: '25.07.07', isRecent: false },
-  { term: '명탐서점', date: '25.07.07', isRecent: false },
+	{ term: '홍길동', date: '25.07.07', isRecent: true },
+	{ term: '바나나', date: '25.07.07', isRecent: false },
+	{ term: '홍시', date: '25.07.07', isRecent: false },
+	{ term: '사과', date: '25.07.07', isRecent: false },
+	{ term: '명탐서점', date: '25.07.07', isRecent: false },
 ];
 
 // 인기 검색어 데이터 (예시)
 const popularSearches = [
-  { term: '파이썬', rank: 1 },
-  { term: '자바스크립트', rank: 2 },
-  { term: '리액트', rank: 3 },
-  { term: '노드js', rank: 4 },
-  { term: '타입스크립트', rank: 5 },
+	{ term: '파이썬', rank: 1 },
+	{ term: '자바스크립트', rank: 2 },
+	{ term: '리액트', rank: 3 },
+	{ term: '노드js', rank: 4 },
+	{ term: '타입스크립트', rank: 5 },
 ];
 ---
 
 <section class={`ui-library-filter ${className}`} data-library-filter>
-  <div class="ui-library-filter__box">
-    <div class="ui-library-filter__header">
-      <div class="ui-library-filter__main-control">
-        <UiCheckbox
-          id={`all-${filterId}`}
-          name={`all-${filterId}`}
-          label={title}
-          checked={allChecked}
-          size="large"
-          class="ui-library-filter__main-checkbox"
-        />
-        <button
-          type="button"
-          class="ui-library-filter__toggle"
-          data-toggle="menu-1"
-          id={toggleId}
-          aria-expanded={expanded}
-          aria-controls={`content-${filterId}`}
-        >
-          <img class="ui-library-filter__toggle-icon" src="./assets/images/icon/icon-arrow-down.svg" alt="펼치기" />
-        </button>
-      </div>
-    </div>
-    <!-- 체크박스들 -->
-    <div class="ui-library-filter__content" id={`content-${filterId}`} data-toggle-target="menu-1" data-expanded={expanded}>
-      <div class="ui-library-filter__subtitle">
-        {subtitle}
-      </div>
-      <div class={`ui-library-filter__grid grid-cols-${gridColumns}`}>
-        {
-          libraries.map(library => (
-            <div class="ui-library-filter__item">
-              <UiCheckbox
-                id={`library-${library.id}`}
-                name={`library-${library.id}`}
-                value={library.id}
-                label={library.name}
-                checked={library.checked || false}
-                size="medium"
-                class="ui-library-filter__item-checkbox"
-              />
-            </div>
-          ))
-        }
-      </div>
-    </div>
+	<div class="ui-library-filter__box">
+		<div class="ui-library-filter__header">
+			<div class="ui-library-filter__main-control">
+				<UiCheckbox
+					id={`all-${filterId}`}
+					name={`all-${filterId}`}
+					label={title}
+					checked={allChecked}
+					size="large"
+					class="ui-library-filter__main-checkbox"
+				/>
+				<button
+					type="button"
+					class="ui-library-filter__toggle"
+					data-toggle="menu-1"
+					id={toggleId}
+					aria-expanded={expanded}
+					aria-controls={`content-${filterId}`}
+				>
+					<img class="ui-library-filter__toggle-icon" src="./assets/images/icon/icon-arrow-down.svg" alt="펼치기" />
+				</button>
+			</div>
+		</div>
+		<!-- 체크박스들 -->
+		<div class="ui-library-filter__content" id={`content-${filterId}`} data-toggle-target="menu-1" data-expanded={expanded}>
+			<div class="ui-library-filter__subtitle">
+				{subtitle}
+			</div>
+			<div class={`ui-library-filter__grid grid-cols-${gridColumns}`}>
+				{
+					libraries.map(library => (
+						<div class="ui-library-filter__item">
+							<UiCheckbox
+								id={`library-${library.id}`}
+								name={`library-${library.id}`}
+								value={library.id}
+								label={library.name}
+								checked={library.checked || false}
+								size="medium"
+								class="ui-library-filter__item-checkbox"
+							/>
+						</div>
+					))
+				}
+			</div>
+		</div>
 
-    <!-- 검색어, 다국어입력기, 검색, 고급검색 -->
-    <div class="ui-library-filter__search flex gap-8 mt10">
-      <div class="flex-1">
-        <UiInput
-          id="search"
-          name="search"
-          placeholder="검색어를 입력해주세요."
-          size="medium"
-          clearable={true}
-          class="ui-library-filter__search-input"
-        />
-      </div>
-      <!-- 검색어 드롭다운 -->
-      <div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
-        <!-- 탭 버튼 -->
-        <div class="ui-library-filter__search-tabs">
-          {
-            searchTabs.map(tab => (
-              <button type="button" class={`search-tab-button ${tab.active ? 'active' : ''}`} data-tab={tab.id} data-active={tab.active}>
-                {tab.label}
-              </button>
-            ))
-          }
-        </div>
+		<!-- 검색어, 다국어입력기, 검색, 고급검색 -->
+		<div class="ui-library-filter__search flex gap-8 mt10">
+			<div class="flex-1">
+				<UiInput id="search" name="search" placeholder="검색어를 입력해주세요." size="medium" clearable={true} class="w-577" />
+			</div>
+			<!-- 검색어 드롭다운 -->
+			<div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
+				<!-- 탭 버튼 -->
+				<div class="ui-library-filter__search-tabs">
+					{
+						searchTabs.map(tab => (
+							<button type="button" class={`search-tab-button ${tab.active ? 'active' : ''}`} data-tab={tab.id} data-active={tab.active}>
+								{tab.label}
+							</button>
+						))
+					}
+				</div>
 
-        <!-- 검색어 목록 -->
-        <div class="ui-library-filter__search-list">
-          <!-- 최근 검색어 -->
-          <div id="recent-searches" class={`search-content ${searchTabs[0].active ? 'active' : ''}`}>
-            {
-              recentSearches.map(search => (
-                <div class="search-item" data-term={search.term}>
-                  <span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
-                  <span class="search-date">{search.date}</span>
-                </div>
-              ))
-            }
-          </div>
+				<!-- 검색어 목록 -->
+				<div class="ui-library-filter__search-list">
+					<!-- 최근 검색어 -->
+					<div id="recent-searches" class={`search-content ${searchTabs[0].active ? 'active' : ''}`}>
+						{
+							recentSearches.map(search => (
+								<div class="search-item" data-term={search.term}>
+									<span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
+									<span class="search-date">{search.date}</span>
+								</div>
+							))
+						}
+					</div>
 
-          <!-- 인기 검색어 -->
-          <div id="popular-searches" class={`search-content ${searchTabs[1].active ? 'active' : ''}`}>
-            {
-              popularSearches.map(search => (
-                <div class="search-item" data-term={search.term}>
-                  <span class="search-term">{search.term}</span>
-                  <span class="search-rank">{search.rank}</span>
-                </div>
-              ))
-            }
-          </div>
-        </div>
+					<!-- 인기 검색어 -->
+					<div id="popular-searches" class={`search-content ${searchTabs[1].active ? 'active' : ''}`}>
+						{
+							popularSearches.map(search => (
+								<div class="search-item" data-term={search.term}>
+									<span class="search-term">{search.term}</span>
+									<span class="search-rank">{search.rank}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
 
-        <!-- 하단 옵션 -->
-        <div class="ui-library-filter__search-options">
-          <div class="option-item">
-            <UiSwitch id={`search-save-toggle-${filterId}`} size="small" checked={false} label="검색어 저장" labelPosition="right" />
-          </div>
-          <UiSwitch id={`search-autocomplete-toggle-${filterId}`} size="small" checked={false} label="자동완성 켜기" labelPosition="right" />
-        </div>
-      </div>
+				<!-- 하단 옵션 -->
+				<div class="ui-library-filter__search-options">
+					<div class="option-item">
+						<UiSwitch id={`search-save-toggle-${filterId}`} size="small" checked={false} label="검색어 저장" labelPosition="right" />
+					</div>
+					<UiSwitch id={`search-autocomplete-toggle-${filterId}`} size="small" checked={false} label="자동완성 켜기" labelPosition="right" />
+				</div>
+			</div>
 
-      <div class="flex gap-5">
-        <div class="ui-keyboard-container">
-          <UiButton
-            text="다국어입력기"
-            size="medium"
-            icon="icon-language"
-            iconAddClass="icon-white"
-            iconPosition="left"
-            class="ui-library-filter__search-button ui-keyboard-trigger"
-          />
-          <UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
-        </div>
-        <UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
-        <UiButton
-          text="고급검색"
-          variant="darkBlue"
-          icon="icon-search-advanced"
-          iconPosition="left"
-          size="medium"
-          class="ui-library-filter__search-button"
-          href="./소장도서검색_고급검색"
-        />
-      </div>
-    </div>
+			<div class="flex gap-5">
+				<div class="ui-keyboard-container">
+					<UiButton
+						text="다국어입력기"
+						size="medium"
+						icon="icon-language"
+						iconAddClass="icon-white"
+						iconPosition="left"
+						class="ui-library-filter__search-button ui-keyboard-trigger"
+					/>
+					<UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
+				</div>
+				<UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
+				<UiButton
+					text="고급검색"
+					variant="darkBlue"
+					icon="icon-search-advanced"
+					iconPosition="left"
+					size="medium"
+					class="ui-library-filter__search-button"
+					href="./소장도서검색_고급검색"
+				/>
+			</div>
+		</div>
 
-    <!-- 결과내 재검색 -->
-    <div class="ui-library-filter__search-result">
-      <UiCheckbox name="checkbox-name" label="결과내재검색" checked={false} id="search-result-checkbox" />
-    </div>
-  </div>
+		<!-- 결과내 재검색 -->
+		<div class="ui-library-filter__search-result">
+			<UiCheckbox name="checkbox-name" label="결과내재검색" checked={false} id="search-result-checkbox" />
+		</div>
+	</div>
 </section>

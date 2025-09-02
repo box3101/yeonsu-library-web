@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiSelect, UiSearchbar, UiRadio, UiCheckbox, UiPagination, UiSmartLibraryBookCard } from '@components';
+import { UiSelect, UiSearchbar, UiRadio, UiCheckbox, UiPagination, UiSmartLibraryBookCard, UiSearchEmpty } from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '스마트 도서관 비치도서' }];
 ---
@@ -85,11 +85,7 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
 					</div>
 
 					<!-- 검색결과가 없을 때 -->
-					<!-- <div class="search-result__empty">
-            <div class="empty-icon">📚</div>
-            <div class="empty-title">검색 결과가 없습니다</div>
-            <div class="empty-description">다른 검색어로 다시 시도해보세요.</div>
-          </div> -->
+					<UiSearchEmpty message="검색 결과가 없습니다." desc="다른 조건으로 다시 검색해 보세요!" />
 
 					<!-- 로딩 중일 때 -->
 					<!-- <div class="search-result__loading">

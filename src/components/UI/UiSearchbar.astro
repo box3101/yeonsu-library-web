@@ -5,33 +5,33 @@ import UiButton from './UiButton.astro';
 
 // 간단한 Props 정의 (타입스크립트 제거)
 const {
-  id,
-  selectOptions = [{ value: '', label: '전체' }],
-  selectValue = '',
-  placeholder = '검색어를 입력해주세요.',
-  inputValue = '',
-  buttonText = '검색',
-  onSearch = 'handleSearch',
-  class: className = '',
-  fullWidth = false,
-  size = 'medium',
-  libraryOptions, // 사용하지 않는 props들을 명시적으로 추출하여 ...rest에서 제외
-  titleOptions,
-  ...rest
+	id,
+	selectOptions = [{ value: '', label: '전체' }],
+	selectValue = '',
+	placeholder = '검색어를 입력해주세요.',
+	inputValue = '',
+	buttonText = '검색',
+	onSearch = 'handleSearch',
+	class: className = '',
+	fullWidth = false,
+	size = 'medium',
+	libraryOptions, // 사용하지 않는 props들을 명시적으로 추출하여 ...rest에서 제외
+	titleOptions,
+	...rest
 } = Astro.props;
 
 const searchbarId = id || `searchbar-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <div class={`ui-searchbar ui-searchbar--${size} ${fullWidth ? 'ui-searchbar--full-width' : ''} ${className}`} id={searchbarId} {...rest}>
-  <div class="ui-searchbar__content">
-    <!-- 셀렉트박스 (검색 타입) -->
-    <UiSelect name="searchType" options={selectOptions} value={selectValue} size={size} width="auto" class="ui-searchbar__select" />
+	<div class="ui-searchbar__content">
+		<!-- 셀렉트박스 (검색 타입) -->
+		<UiSelect name="searchType" options={selectOptions} value={selectValue} size={size} width="auto" class="ui-searchbar__select" />
 
-    <!-- 텍스트 입력 -->
-    <UiInput type="text" name="searchQuery" placeholder={placeholder} value={inputValue} size={size} class="w-350-mobile-full" />
+		<!-- 텍스트 입력 -->
+		<UiInput type="text" name="searchQuery" placeholder={placeholder} value={inputValue} size={size} class="w-full-mobile-full" />
 
-    <!-- 검색 버튼 -->
-    <UiButton text={buttonText} variant="darkBlue" size={size} onclick={onSearch ? `${onSearch}()` : undefined} class="ui-searchbar__button" />
-  </div>
+		<!-- 검색 버튼 -->
+		<UiButton text={buttonText} variant="darkBlue" size={size} onclick={onSearch ? `${onSearch}()` : undefined} class="ui-searchbar__button" />
+	</div>
 </div>

@@ -85,7 +85,7 @@ const tableId = id || `table-${Math.random().toString(36).substr(2, 9)}`;
 const getMaxHeightClass = () => {
 	if (!maxHeight) return '';
 	const heightValue = parseInt(maxHeight);
-	if (heightValue >= 200 && heightValue <= 800 && heightValue % 50 === 0) {
+	if (heightValue >= 200 && heightValue <= 1000 && heightValue % 10 === 0) {
 		return `table-max-height-${heightValue}`;
 	}
 	return '';
@@ -167,7 +167,7 @@ const getColumnWidthClass = width => {
 									<div class={`ui-table__cell-content ui-table__cell-content--${column.align || 'left'}`}>
 										{/* 텍스트 타입 */}
 										{columnType === 'text' &&
-										// 제목 컬럼인지 확인 (column.key가 'title'인 경우)
+											// 제목 컬럼인지 확인 (column.key가 'title'인 경우)
 											(column.key === 'title' ? (
 												<div class="ui-table__title-wrapper">
 													{/* 자물쇠 아이콘 */}
@@ -189,8 +189,8 @@ const getColumnWidthClass = width => {
 													{/* NEW 배지 */}
 													{row.isNew && <span class="ui-table__badge ui-table__badge--new">N</span>}
 												</div>
-												// 일반 텍스트 컬럼
 											) : (
+												// 일반 텍스트 컬럼
 												<span class="ui-table__text">{cellValue}</span>
 											))}
 
