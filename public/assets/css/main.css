@@ -63264,11 +63264,11 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 .sub-layout__content-inner-header-title {
-  margin-top: 2.1875rem !important;
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.25;
   margin: 0;
+  margin-top: 2.1875rem;
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-header-title {
@@ -63319,7 +63319,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-body-item {
-    gap: 12px;
+    gap: 4px;
   }
 }
 .sub-layout__content-inner-body-item-list {
@@ -63512,7 +63512,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   .step-content {
     font-size: 0.9375rem;
     flex: 1;
-    text-align: left;
+    text-align: center;
   }
 }
 .step-content .step-sub {
@@ -63706,7 +63706,9 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-body-item-list-sub li {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.5;
+    word-break: keep-all;
   }
 }
 .sub-layout__content-inner-body-item-list-sub li::before {

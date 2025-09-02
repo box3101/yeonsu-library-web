@@ -3998,8 +3998,8 @@ div.bookshelf-item {
 
 	&__content-inner-header-title {
 		// 페이지 메인 제목 스타일
-		margin-top: to-rem(35) !important;
 		@include page-title('h2');
+		margin-top: to-rem(35);
 
 		& {
 			color: $text-color;
@@ -4046,7 +4046,7 @@ div.bookshelf-item {
 		gap: to-rem(5);
 
 		@include mobile {
-			gap: 12px;
+			gap: 4px;
 		}
 	}
 
@@ -4242,7 +4242,7 @@ div.bookshelf-item {
 	@include mobile {
 		font-size: to-rem(15);
 		flex: 1; // 남은 공간 모두 사용
-		text-align: left;
+		text-align: center;
 	}
 	.step-sub {
 		display: block;
@@ -4441,7 +4441,9 @@ div.bookshelf-item {
 
 		// 모바일에서는 폰트 크기 조정 (px 단위 사용)
 		@include mobile {
-			font-size: 14px;
+			font-size: 16px;
+			line-height: 1.5;
+			word-break: keep-all;
 		}
 
 		@include makeBefore {
