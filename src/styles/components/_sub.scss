@@ -2,6 +2,358 @@
 @use '../variables/colors' as *;
 @use 'sass:color';
 @use 'sass:math';
+
+/* ========================================
+   공연장 신청 - 개인정보 수집·이용 동의 섹션
+   - 회원가입 스타일 재사용으로 변경
+======================================== */
+
+.privacy-section {
+	margin-bottom: to-rem(32);
+}
+
+.consent-agreement {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16);
+	
+	&__text {
+		color: #333;
+		font-family: "Noto Sans KR";
+		font-size: to-rem(14);
+		font-style: normal;
+		font-weight: 400;
+		line-height: to-rem(20);
+		margin: 0;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		align-self: stretch;
+		gap: to-rem(8);
+		margin-bottom: to-rem(8);
+
+		@include mobile {
+			gap: to-rem(6);
+			margin-bottom: to-rem(6);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		justify-content: center;
+		gap: to-rem(8);
+		width: to-rem(20);
+		height: to-rem(20);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: to-rem(16);
+			height: to-rem(16);
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__section-title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #000000;
+		margin: 0;
+		flex: 1;
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-self: stretch;
+		gap: to-rem(12);
+		padding-left: to-rem(28);
+
+		@include mobile {
+			gap: to-rem(8);
+			padding-left: to-rem(22);
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-self: stretch;
+		gap: to-rem(8);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: privacy-counter;
+
+		@include mobile {
+			gap: to-rem(6);
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+			align-self: stretch;
+			gap: to-rem(4);
+			position: relative;
+			counter-increment: privacy-counter;
+
+			&::before {
+				content: counter(privacy-counter) '.';
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(15);
+				font-weight: 400;
+				color: #4b4d4d;
+				width: to-rem(16);
+				height: to-rem(23);
+				display: flex;
+				align-items: center;
+				flex-shrink: 0;
+				position: absolute;
+
+				@include mobile {
+					font-size: to-rem(14);
+				}
+			}
+
+			strong {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(15);
+				font-weight: 400;
+				line-height: 1.5;
+				color: #000000;
+				padding-left: 22px;
+
+				@include mobile {
+					font-size: to-rem(14);
+					padding-left: to-rem(20);
+				}
+			}
+
+			p {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: to-rem(15);
+				font-weight: 400;
+				line-height: 1.5;
+				color: #3c79c2;
+				margin: 0;
+				padding-left: to-rem(20);
+
+				@include mobile {
+					font-size: to-rem(14);
+					padding-left: to-rem(16);
+				}
+			}
+
+			ul {
+				margin: 0;
+				padding-left: to-rem(20);
+				list-style: none;
+
+				@include mobile {
+					padding-left: to-rem(16);
+				}
+
+				li {
+					font-family: 'Pretendard GOV', sans-serif;
+					font-size: to-rem(15);
+					font-weight: 400;
+					line-height: 1.5;
+					color: #000000;
+					counter-increment: none;
+
+					@include mobile {
+						font-size: to-rem(14);
+					}
+
+					&::before {
+						content: '';
+					}
+				}
+			}
+
+			&:nth-child(3) strong,
+			&:nth-child(4) strong {
+				color: #4b4d4d;
+			}
+		}
+	}
+
+	&__agreement {
+		background: #f1f2f2;
+		border-radius: to-rem(10);
+		padding: to-rem(24);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+		align-self: stretch;
+		gap: to-rem(16);
+
+		@include mobile {
+			padding: to-rem(16);
+			gap: to-rem(12);
+		}
+	}
+
+	&__agreement-text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #4b4d4d;
+		margin: 0;
+		align-self: stretch;
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	&__radio-group {
+		display: flex;
+		align-items: center;
+		gap: to-rem(24);
+
+		@include mobile {
+			gap: to-rem(16);
+		}
+	}
+}
+
+.applicant-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: stretch;
+	gap: to-rem(16);
+	margin-bottom: to-rem(32);
+
+	@include mobile {
+		gap: to-rem(12);
+		margin-bottom: to-rem(24);
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(28);
+		font-weight: 700;
+		line-height: 1.193;
+		color: #191a1a;
+		margin: 0;
+		align-self: stretch;
+
+		@include mobile {
+			font-size: to-rem(24);
+		}
+	}
+
+	.form-grid {
+		width: to-rem(976);
+		max-width: 100%;
+
+		@include mobile {
+			width: 100%;
+		}
+	}
+}
+
+.time-selection-group {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16);
+
+	@include mobile {
+		gap: to-rem(12);
+	}
+
+	&__primary {
+		display: flex;
+		align-items: flex-end;
+		gap: to-rem(12);
+
+		@include mobile {
+			flex-direction: column;
+			align-items: stretch;
+			gap: to-rem(8);
+		}
+	}
+
+	&__separator {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(16);
+		font-weight: 400;
+		color: #000000;
+		display: flex;
+		align-items: center;
+		height: to-rem(56);
+		padding: 0 to-rem(10);
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__secondary {
+		display: flex;
+		align-items: flex-end;
+		gap: to-rem(8);
+		width: to-rem(216);
+
+		@include mobile {
+			width: 100%;
+		}
+	}
+}
+
+.radio-group {
+	&--horizontal {
+		display: flex;
+		align-items: center;
+		gap: to-rem(12);
+		width: to-rem(472);
+		height: to-rem(30);
+
+		@include mobile {
+			width: 100%;
+			flex-wrap: wrap;
+			height: auto;
+		}
+	}
+}
+
+.form-actions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: stretch;
+	gap: to-rem(8);
+	padding-top: to-rem(16);
+
+	@include mobile {
+		flex-direction: column;
+		gap: to-rem(12);
+	}
+
+	&__button {
+		width: to-rem(135);
+		height: to-rem(56);
+
+		@include mobile {
+			width: 100%;
+		}
+	}
+}
 .mb-col {
 	@include mobile {
 		flex-direction: column;
@@ -5007,8 +5359,6 @@ div.bookshelf-item {
 ======================================== */
 
 .privacy-consent {
-	margin-bottom: to-rem(32);
-
 	@include mobile {
 		margin-bottom: to-rem(24);
 	}

@@ -22,12 +22,13 @@
     "test:coverage": "vitest --coverage",
     "format:src": "prettier --write \"src/**/*.{astro,ts,js,scss}\"",
     "format:dist": "prettier --write \"dist/**/*.{css,js,html}\"",
+    "watch:scss": "sass --watch src/styles/main.scss:public/assets/css/main.css --no-source-map",
     "watch:files": "echo 'File watching not implemented'",
     "remove-astro-attrs": "node scripts/remove-astro-attrs.cjs",
     "update-guide": "echo 'Update guide script not implemented'",
     "setup-hooks": "echo 'Setup hooks script not implemented'",
     "pre-commit": "npm run update-guide",
-    "sass": "concurrently \"sass --watch src/styles/main.scss:public/assets/css/main.css\""
+    "sass": "sass --watch src/styles/main.scss:public/assets/css/main.css --no-source-map"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",

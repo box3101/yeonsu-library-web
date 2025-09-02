@@ -9,7 +9,8 @@
       "Bash(clear)",
       "Bash(echo $MCP_TIMEOUT)",
       "Bash(claude config list)",
-      "Bash(claude config --help)"
+      "Bash(claude config --help)",
+      "mcp__*"
     ],
     "deny": []
   }

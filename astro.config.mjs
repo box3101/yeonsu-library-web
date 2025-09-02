@@ -17,7 +17,7 @@ export default defineConfig({
 
 	vite: {
 		css: {
-			devSourcemap: true, // 개발 환경 CSS 소스맵 활성화
+			devSourcemap: false, // 소스맵 비활성화로 속도 향상
 		},
 		resolve: {
 			alias: {
@@ -28,44 +28,24 @@ export default defineConfig({
 				'@layouts': '/src/layouts',
 			},
 		},
-
-		// 빌드 시 HTML 후처리로 속성 제거
 		build: {
-			sourcemap: false, // 소스맵 활성화
+			sourcemap: false,
 			rollupOptions: {
 				output: {
-					// HTML 파일에서 astro 속성 제거하는 플러그인
 					assetFileNames: assetInfo => {
 						return assetInfo.name;
 					},
 				},
 			},
 		},
-
-		// 개발 환경에서도 제거하려면
-		define: {
-			__DEV__: process.env.NODE_ENV !== 'production',
-		},
-
-		// 개발 서버 설정 추가
-		server: {
-			// Chrome DevTools 요청 무시
-			middlewareMode: false,
-			// 404 로깅 비활성화
-			logLevel: 'error',
-		},
 	},
 
-	// 개발 도구 비활성화 (선택사항)
 	devToolbar: {
 		enabled: false,
 	},
 
-	// 서버 설정 통합 - 한 번만 정의
 	server: {
 		host: true,
 		port: 3000,
-		// 404 로그 필터링 추가
-		middlewareMode: false,
 	},
 });
