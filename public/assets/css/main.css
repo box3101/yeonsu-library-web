@@ -59363,6 +59363,12 @@ a:hover .icon-external-link {
     max-width: 7.5rem;
   }
 }
+@media (max-width: 900px) {
+  .mb-col {
+    flex-direction: column;
+  }
+}
+
 .notice-empty p {
   font-size: 1.0625rem;
   font-weight: 700;
@@ -60626,10 +60632,12 @@ a:hover .icon-external-link {
 }
 .signup-form .ui-select--large .ui-select__element {
   padding: 1rem 1.5rem;
+  padding-right: 50px;
 }
 @media (max-width: 900px) {
   .signup-form .ui-select--large .ui-select__element {
     padding: 0.75rem 1rem;
+    padding-right: 30px;
   }
 }
 
@@ -60715,10 +60723,13 @@ a:hover .icon-external-link {
   grid-column: 1/-1;
 }
 .form-field .form-label {
+  position: relative;
   font-size: 1.1875rem;
   font-weight: bold;
   margin-bottom: 0.4375rem;
   color: #4b4d4d;
+  position: relative;
+  margin-top: 5px;
 }
 .form-field .form-label.required::after {
   content: "*";
@@ -60726,6 +60737,8 @@ a:hover .icon-external-link {
   margin-left: 0.125rem;
   font-size: 1rem;
   vertical-align: super;
+  position: absolute;
+  top: -3px;
 }
 .form-field .radio-group {
   display: flex;
@@ -60741,6 +60754,7 @@ a:hover .icon-external-link {
 @media (max-width: 900px) {
   .form-field .birth-group {
     gap: 0.75rem;
+    align-items: center;
   }
 }
 .form-field .birth-group > :first-child {
@@ -62683,9 +62697,6 @@ a:hover .icon-external-link {
     gap: 0.5rem;
   }
 }
-.search-result__controls .search-result__select {
-  width: 9.375rem;
-}
 .search-result__content {
   display: flex;
   flex-direction: column;
@@ -63601,14 +63612,17 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 
 .sub-layout__content-inner-body-item-content-item-label {
-  font-weight: 700;
-  font-size: 1.0625rem;
-  line-height: 1.5;
-  color: #000000;
+  font-size: 1.1875rem;
+  font-weight: bold;
+  margin-bottom: 0.4375rem;
+  color: #4b4d4d;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 7px;
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-body-item-content-item-label {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -64056,25 +64070,117 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
    공연장 대관정보 스타일 (com-title-type2)
 ======================================== */
 .com-title-type2 {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   margin-bottom: 2rem;
 }
 @media (max-width: 900px) {
   .com-title-type2 {
-    padding: 1rem;
     margin-bottom: 1.25rem;
-    border-radius: 0.5rem;
   }
+}
+.com-title-type2__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.75rem 0;
+  margin-bottom: 0.0625rem;
+}
+@media (max-width: 900px) {
+  .com-title-type2__header {
+    padding: 0.5rem 0;
+  }
+}
+.com-title-type2__header h2 {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #4b4d4d;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2__header h2 {
+    font-size: 1.125rem;
+  }
+}
+.com-title-type2__detail {
+  border-top: 1px solid #b1b4b4;
+  border-bottom: 1px solid #b1b4b4;
+  padding: 1.5rem 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2__detail {
+    padding: 1rem 0;
+  }
+}
+.com-title-type2__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.625rem;
+}
+@media (max-width: 900px) {
+  .com-title-type2__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    min-height: auto;
+  }
+}
+.com-title-type2__column {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .com-title-type2__column {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    width: 100%;
+  }
+}
+.com-title-type2__term {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a1a;
+  width: 11.25rem;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .com-title-type2__term {
+    width: auto;
+    font-size: 0.875rem;
+  }
+}
+.com-title-type2__description {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b4d4d;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .com-title-type2__description {
+    font-size: 0.875rem;
+  }
+}
+.com-title-type2__description--primary {
+  color: #053456;
 }
 .com-title-type2 > p {
   font-family: "Pretendard GOV", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1.4;
-  color: #191a1a;
+  line-height: 1.2;
+  color: #4b4d4d;
   margin: 0 0 1rem 0;
 }
 @media (max-width: 900px) {
@@ -64085,10 +64191,12 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .com-title-type2 .info-list {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
+  border-top: 1px solid var(--color-gray-gy-30, #b1b3b3);
+  border-bottom: 1px solid var(--color-gray-gy-30, #b1b3b3);
+  padding: 24px 0;
 }
 @media (max-width: 900px) {
   .com-title-type2 .info-list {
@@ -64097,9 +64205,10 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .com-title-type2 .info-list__item {
   display: flex;
+  flex: 1;
   align-items: center;
-  gap: 1rem;
-  min-height: 2.5rem;
+  gap: 1.5rem;
+  min-height: 1.625rem;
 }
 @media (max-width: 900px) {
   .com-title-type2 .info-list__item {
@@ -64111,11 +64220,11 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .com-title-type2 .info-list__term {
   font-family: "Pretendard GOV", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.0625rem;
+  font-weight: 700;
   line-height: 1.5;
-  color: #495057;
-  width: 7.5rem;
+  color: #1a1a1a;
+  width: 11.25rem;
   flex-shrink: 0;
 }
 @media (max-width: 900px) {
@@ -64126,16 +64235,159 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .com-title-type2 .info-list__description {
   font-family: "Pretendard GOV", sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.0625rem;
+  font-weight: 400;
   line-height: 1.5;
-  color: #191a1a;
+  color: #4b4d4d;
   flex: 1;
 }
 @media (max-width: 900px) {
   .com-title-type2 .info-list__description {
     font-size: 0.875rem;
   }
+}
+.com-title-type2 .info-list__description--primary {
+  color: #053456;
+}
+
+/* ========================================
+   개인정보 동의 섹션 스타일 (privacy-consent)
+======================================== */
+.privacy-consent {
+  margin-bottom: 2rem;
+}
+@media (max-width: 900px) {
+  .privacy-consent {
+    margin-bottom: 1.5rem;
+  }
+}
+.privacy-consent__title {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+}
+@media (max-width: 900px) {
+  .privacy-consent__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+.privacy-consent__infobox {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 900px) {
+  .privacy-consent__infobox {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+.privacy-consent__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  .privacy-consent__header {
+    gap: 0.375rem;
+    margin-bottom: 0.375rem;
+  }
+}
+.privacy-consent__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.privacy-consent__icon svg {
+  width: 100%;
+  height: 100%;
+  color: #323333;
+}
+@media (max-width: 900px) {
+  .privacy-consent__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+.privacy-consent__subtitle {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .privacy-consent__subtitle {
+    font-size: 0.9375rem;
+  }
+}
+.privacy-consent__content {
+  padding-left: 1.75rem;
+}
+@media (max-width: 900px) {
+  .privacy-consent__content {
+    padding-left: 1.375rem;
+  }
+}
+.privacy-consent__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 900px) {
+  .privacy-consent__list {
+    gap: 0.375rem;
+  }
+}
+.privacy-consent__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #323333;
+}
+@media (max-width: 900px) {
+  .privacy-consent__list-item {
+    font-size: 0.875rem;
+  }
+}
+.privacy-consent__list-item::before {
+  content: "1.";
+  color: #4b4d4d;
+  font-weight: 400;
+  flex-shrink: 0;
+  width: 0.8125rem;
+  display: block;
+}
+.privacy-consent__list-item:nth-child(2)::before {
+  content: "2.";
+}
+.privacy-consent__list-item:nth-child(3)::before {
+  content: "3.";
+}
+.privacy-consent__list-item:nth-child(4)::before {
+  content: "4.";
+}
+.privacy-consent__list-item:nth-child(5)::before {
+  content: "5.";
 }
 
 /* ========================================
@@ -72117,6 +72369,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   width: 1.5rem;
   height: 1.5rem;
   padding: 0 0.4375rem;
+  width: auto;
 }
 .ui-book-card__index-number {
   font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
@@ -74704,6 +74957,7 @@ body.modal-open {
   flex-direction: column;
   gap: 0.5rem;
   position: relative;
+  width: 100%;
 }
 
 .ui-input__label {
@@ -75000,11 +75254,13 @@ body.modal-open {
   width: auto;
   min-width: 7.5rem;
   max-width: 17.5rem;
+  max-width: max-content;
 }
 @media (max-width: 900px) {
   .ui-select--width-auto {
     min-width: 6.25rem;
     max-width: 15rem;
+    max-width: max-content;
   }
 }
 .ui-select--width-full {
@@ -78293,10 +78549,10 @@ body.modal-open {
   display: block;
 }
 .ui-category-item__content[aria-hidden=false] {
-  display: block;
+  display: none;
 }
 .ui-category-item__content[aria-hidden=true] {
-  display: none;
+  display: block;
 }
 .ui-category-item__tags {
   display: flex;

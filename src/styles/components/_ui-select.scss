@@ -12,10 +12,12 @@
 		width: auto;
 		min-width: to-rem(120);
 		max-width: to-rem(280);
+		max-width: max-content;
 
 		@include mobile {
 			min-width: to-rem(100);
 			max-width: to-rem(240);
+			max-width: max-content;
 		}
 	}
 

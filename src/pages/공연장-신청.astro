@@ -22,18 +22,39 @@ const hallApplicationTabs = [
 		<UiTab tabs={hallApplicationTabs} variant="default" size="medium" showCount={false} className="mb-4 search-type-tabs ui-tab--grid-5" />
 
 		<div class="ui-tab-panel ui-tab-panel--active" id="cheonghak">
+			<!-- 대관정보 섹션 - 새로운 Figma 디자인 적용 -->
 			<div class="com-title-type2">
-				<p>대관정보</p>
-				<dl class="info-list">
-					<div class="info-list__item">
-						<dt class="info-list__term">도서관</dt>
-						<dd class="info-list__description">연수청학도서관</dd>
+				<div class="com-title-type2__header">
+					<h2>대관정보</h2>
+				</div>
+				<div class="com-title-type2__detail">
+					<div class="com-title-type2__row">
+						<div class="com-title-type2__column">
+							<span class="com-title-type2__term">도서관</span>
+							<span class="com-title-type2__description com-title-type2__description--primary">연수청학도서관</span>
+						</div>
+						<div class="com-title-type2__column">
+							<span class="com-title-type2__term">희망날짜</span>
+							<span class="com-title-type2__description">2025-08-18</span>
+						</div>
 					</div>
-					<div class="info-list__item">
-						<dt class="info-list__term">희망날짜</dt>
-						<dd class="info-list__description">2025-08-18</dd>
+				</div>
+			</div>
+
+			<!-- 개인정보 동의 섹션 - 새로운 Figma 디자인 적용 -->
+			<div class="privacy-consent">
+				<h2 class="privacy-consent__title">개인정보의 수집·이용 동의</h2>
+
+				<div class="privacy-consent__infobox">
+					<div class="privacy-consent__header">
+						<div class="privacy-consent__icon">
+							<svg viewBox="0 0 20 20" fill="currentColor">
+								<path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM9 5h2v2H9V5zm0 4h2v6H9V9z"></path>
+							</svg>
+						</div>
+						<h3 class="privacy-consent__subtitle">개인정보의 수집 및 이용</h3>
 					</div>
-				</dl>
+				</div>
 			</div>
 		</div>
 	</SubLayout>
