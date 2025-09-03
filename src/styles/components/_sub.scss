@@ -4,6 +4,401 @@
 @use 'sass:math';
 
 /* ========================================
+   프로그램신청 페이지 스타일
+======================================== */
+
+.program-application {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16);
+	max-width: to-rem(976);
+	width: 100%;
+}
+
+// 신청접수 시 주의사항 알림박스
+.program-notice {
+	background: #f4f5f6;
+	border: 1px solid #cdd1d5;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+
+	&__content {
+		padding-left: to-rem(28);
+		padding-top: to-rem(12);
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			position: relative;
+			padding-left: to-rem(16);
+			margin-bottom: to-rem(8);
+			font-size: to-rem(15);
+			line-height: 1.5;
+			color: #4b4d4d;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: to-rem(9);
+				width: to-rem(6);
+				height: to-rem(6);
+				background: #4b4d4d;
+				border-radius: to-rem(4);
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// 검색 섹션
+.program-search-section {
+	background: #eef2f7;
+	border-radius: to-rem(8);
+	padding: to-rem(22) to-rem(32);
+}
+
+.program-search-form {
+	display: flex;
+	align-items: center;
+	gap: to-rem(10);
+	justify-content: flex-end;
+
+	.ui-select-container{
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	.program-search__library {
+		flex-shrink: 0;
+		min-width: to-rem(140);
+	}
+
+	.program-search__type {
+		flex-shrink: 0;
+		width: to-rem(120);
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	.program-search__input {
+		flex: 1;
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	.program-search__button {
+		flex-shrink: 0;
+		min-width: to-rem(78);
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	@include mobile {
+		flex-direction: column;
+		gap: to-rem(6);
+
+		.program-search__library,
+		.program-search__type,
+		.program-search__input {
+			width: 100%;
+			max-width: none;
+		}
+	}
+}
+
+// 검색 결과
+.program-results {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16);
+
+	&__summary {
+		font-size: to-rem(17);
+		line-height: 1.5;
+		color: #4b4d4d;
+
+		strong {
+			color: $primary-color;
+			font-weight: 700;
+		}
+	}
+
+	@include mobile {
+		gap: to-rem(10);
+	}
+}
+
+// 프로그램 카드 목록
+.program-card-list {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(24);
+
+	@include mobile {
+		gap: to-rem(12);
+	}
+}
+
+.program-card {
+	background: white;
+	border: 1px solid #b1b8be;
+	border-radius: to-rem(12);
+	padding: to-rem(32);
+	display: flex;
+	gap: to-rem(24);
+	min-width: to-rem(600);
+
+	&__index {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(15);
+		font-weight: 700;
+		color: #191a1a;
+		text-align: center;
+		padding: to-rem(2) to-rem(7);
+		flex-shrink: 0;
+		width: to-rem(24);
+		height: to-rem(24);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		width: 95%;
+
+		@include mobile {
+			width: 100%;
+			gap: to-rem(10);
+		}
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(24);
+
+		@include mobile {
+			gap: to-rem(12);
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__badges {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+
+		@include mobile {
+			gap: to-rem(2);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(12);
+
+		@include mobile {
+			gap: to-rem(8);
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: #191a1a;
+		line-height: 1.5;
+		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		@include mobile {
+			font-size: to-rem(18);
+			white-space: normal;
+		}
+	}
+
+	&__details {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: to-rem(4);
+		}
+	}
+
+	&__detail-row {
+		display: flex;
+		gap: to-rem(16);
+		align-items: flex-start;
+
+		@include mobile {
+			flex-direction: column;
+			gap: to-rem(8);
+		}
+	}
+
+	@include mobile {
+		padding: to-rem(20);
+		gap: to-rem(16);
+		min-width: auto;
+		flex-direction: column;
+
+		&__index {
+			align-self: flex-start;
+		}
+	}
+}
+
+// 프로그램 배지
+.program-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 to-rem(12);
+	height: to-rem(32);
+	border-radius: to-rem(16);
+	font-family: 'Pretendard GOV';
+	font-size: to-rem(17);
+	font-weight: 400;
+	color: white;
+	text-align: center;
+	white-space: nowrap;
+
+	// 도서관별 색상
+	&--library-sunhak {
+		background: $institution-선학별빛;
+	}
+
+	&--library-cheonghak {
+		background: $institution-청학;
+	}
+
+	&--library-yeonsu {
+		background: $institution-연수꿈담;
+	}
+
+	&--library-songdo {
+		background: $institution-송도국제;
+	}
+
+	&--library-haedoji {
+		background: $institution-해돋이;
+	}
+
+	&--library-haechansol {
+		background: $institution-해찬솔공원;
+	}
+
+	&--library-nuri {
+		background: $institution-누리공원;
+	}
+
+	// 상태별 색상
+	&--status-accepting {
+		background: #00993e;
+	}
+
+	&--status-waiting {
+		background: #ffd999;
+		border: 1px solid #ffac21;
+		color: #8c5f12;
+	}
+
+	&--status-ended {
+		background: #7d8181;
+	}
+
+	&--status-ongoing {
+		background: #6355ab;
+	}
+
+	@include mobile {
+		font-size: to-rem(14);
+		height: to-rem(26);
+		padding: 0 to-rem(8);
+	}
+}
+
+// 프로그램 상세 정보
+.program-detail {
+	display: flex;
+	gap: to-rem(8);
+	align-items: flex-start;
+	flex: 1;
+	min-width: 0;
+
+	&--full {
+		flex: 2;
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 700;
+		color: #191a1a;
+		line-height: 1.5;
+		flex-shrink: 0;
+		min-width: to-rem(60);
+
+		&[data-long] {
+			min-width: to-rem(133);
+		}
+
+		@include mobile {
+			min-width: auto;
+			font-size: to-rem(15);
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #4b4d4d;
+		line-height: 1.5;
+		flex: 1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		@include mobile {
+			white-space: normal;
+			font-size: to-rem(15);
+		}
+	}
+
+	@include mobile {
+		flex-direction: column;
+		gap: to-rem(4);
+
+		&__label {
+			min-width: auto;
+		}
+	}
+}
+
+/* ========================================
    공연장 신청 - 개인정보 수집·이용 동의 섹션
    - 회원가입 스타일 재사용으로 변경
 ======================================== */

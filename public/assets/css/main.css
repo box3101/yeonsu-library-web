@@ -61731,6 +61731,375 @@ a:hover .icon-external-link {
   }
 }
 /* ========================================
+   프로그램신청 페이지 스타일
+======================================== */
+.program-application {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 61rem;
+  width: 100%;
+}
+
+.program-notice {
+  background: #f4f5f6;
+  border: 1px solid #cdd1d5;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.program-notice__content {
+  padding-left: 1.75rem;
+  padding-top: 0.75rem;
+}
+.program-notice__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.program-notice__list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #4b4d4d;
+}
+.program-notice__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5625rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: #4b4d4d;
+  border-radius: 0.25rem;
+}
+.program-notice__list li:last-child {
+  margin-bottom: 0;
+}
+
+.program-search-section {
+  background: #eef2f7;
+  border-radius: 0.5rem;
+  padding: 1.375rem 2rem;
+}
+
+.program-search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  justify-content: flex-end;
+}
+@media (max-width: 900px) {
+  .program-search-form .ui-select-container {
+    width: 100%;
+  }
+}
+.program-search-form .program-search__library {
+  flex-shrink: 0;
+  min-width: 8.75rem;
+}
+.program-search-form .program-search__type {
+  flex-shrink: 0;
+  width: 7.5rem;
+}
+@media (max-width: 900px) {
+  .program-search-form .program-search__type {
+    width: 100%;
+  }
+}
+.program-search-form .program-search__input {
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .program-search-form .program-search__input {
+    width: 100%;
+  }
+}
+.program-search-form .program-search__button {
+  flex-shrink: 0;
+  min-width: 4.875rem;
+}
+@media (max-width: 900px) {
+  .program-search-form .program-search__button {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .program-search-form {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .program-search-form .program-search__library,
+  .program-search-form .program-search__type,
+  .program-search-form .program-search__input {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.program-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.program-results__summary {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #4b4d4d;
+}
+.program-results__summary strong {
+  color: #3c79c2;
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .program-results {
+    gap: 0.625rem;
+  }
+}
+
+.program-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .program-card-list {
+    gap: 0.75rem;
+  }
+}
+
+.program-card {
+  background: white;
+  border: 1px solid #b1b8be;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  min-width: 37.5rem;
+}
+.program-card__index {
+  font-family: "Pretendard GOV";
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #191a1a;
+  text-align: center;
+  padding: 0.125rem 0.4375rem;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.program-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 95%;
+}
+@media (max-width: 900px) {
+  .program-card__content {
+    width: 100%;
+    gap: 0.625rem;
+  }
+}
+.program-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .program-card__header {
+    gap: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.program-card__badges {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+@media (max-width: 900px) {
+  .program-card__badges {
+    gap: 0.125rem;
+  }
+}
+.program-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (max-width: 900px) {
+  .program-card__body {
+    gap: 0.5rem;
+  }
+}
+.program-card__title {
+  font-family: "Pretendard GOV";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .program-card__title {
+    font-size: 1.125rem;
+    white-space: normal;
+  }
+}
+.program-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .program-card__details {
+    gap: 0.25rem;
+  }
+}
+.program-card__detail-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+@media (max-width: 900px) {
+  .program-card__detail-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .program-card {
+    padding: 1.25rem;
+    gap: 1rem;
+    min-width: auto;
+    flex-direction: column;
+  }
+  .program-card__index {
+    align-self: flex-start;
+  }
+}
+
+.program-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  height: 2rem;
+  border-radius: 1rem;
+  font-family: "Pretendard GOV";
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+}
+.program-badge--library-sunhak {
+  background: #ffacc1;
+}
+.program-badge--library-cheonghak {
+  background: #7fa7d7;
+}
+.program-badge--library-yeonsu {
+  background: #a3cf62;
+}
+.program-badge--library-songdo {
+  background: #8e63aa;
+}
+.program-badge--library-haedoji {
+  background: #ef6601;
+}
+.program-badge--library-haechansol {
+  background: #189ba7;
+}
+.program-badge--library-nuri {
+  background: #7b19d7;
+}
+.program-badge--status-accepting {
+  background: #00993e;
+}
+.program-badge--status-waiting {
+  background: #ffd999;
+  border: 1px solid #ffac21;
+  color: #8c5f12;
+}
+.program-badge--status-ended {
+  background: #7d8181;
+}
+.program-badge--status-ongoing {
+  background: #6355ab;
+}
+@media (max-width: 900px) {
+  .program-badge {
+    font-size: 0.875rem;
+    height: 1.625rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.program-detail {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+.program-detail--full {
+  flex: 2;
+}
+.program-detail__label {
+  font-family: "Pretendard GOV";
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+  flex-shrink: 0;
+  min-width: 3.75rem;
+}
+.program-detail__label[data-long] {
+  min-width: 8.3125rem;
+}
+@media (max-width: 900px) {
+  .program-detail__label {
+    min-width: auto;
+    font-size: 0.9375rem;
+  }
+}
+.program-detail__value {
+  font-family: "Pretendard GOV";
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #4b4d4d;
+  line-height: 1.5;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .program-detail__value {
+    white-space: normal;
+    font-size: 0.9375rem;
+  }
+}
+@media (max-width: 900px) {
+  .program-detail {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .program-detail__label {
+    min-width: auto;
+  }
+}
+
+/* ========================================
    공연장 신청 - 개인정보 수집·이용 동의 섹션
    - 회원가입 스타일 재사용으로 변경
 ======================================== */
