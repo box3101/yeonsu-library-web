@@ -42,62 +42,83 @@ const hallApplicationTabs = [
 
 			<!-- 개인정보의 수집 이용 동의 -->
 			<section class="privacy-section">
-				<h3 class="section-title">개인정보의 수집·이용 동의</h3>
-				
+				<h3 class="section-title-type2">개인정보의 수집·이용 동의</h3>
+
 				<!-- 개인정보 수집 이용 내용 박스 -->
 				<div class="info-box">
 					<div class="info-box__header">
 						<div class="info-box__icon">
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<rect x="3.33" y="3.33" width="13.33" height="13.33" fill="#323333"/>
+								<rect x="3.33" y="3.33" width="13.33" height="13.33" fill="#323333"></rect>
 							</svg>
 						</div>
 						<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
 					</div>
 					<div class="info-box__content">
 						<ol class="info-list">
-							<li>
-								<strong>개인정보의 수집ㆍ이용의 목적</strong>
-								<p>(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관 업무, 독서토론실 대관 업무, 하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)를 목적으로 개인정보를 수집ㆍ이용합니다.</p>
+							<li class="list-none">
+								<strong>1. 개인정보의 수집ㆍ이용의 목적</strong>
+								<p>
+									<span class="text-primary">
+										(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관 업무, 독서토론실 대관 업무,
+										하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
+									</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
+								</p>
 							</li>
-							<li>
-								<strong>수집하려는 개인정보의 항목</strong>
+							<li class="list-none">
+								<strong>2. 수집하려는 개인정보의 항목</strong>
 								<ul>
-									<li>가. 필수항목 : 성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일</li>
-									<li>나. 선택항목 : 전화번호, 학교, 학년, 성별, 나이</li>
+									<li>가. 필수항목 : <span class="text-primary">성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일</span></li>
+									<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
 								</ul>
 							</li>
-							<li>
-								<strong>개인정보의 보유 및 이용기간 : 1년</strong>
-							</li>
-							<li>
-								<strong>동의 거부 권리 및 불이익 : 개인정보 수집ㆍ이용과 관련하여 동의를 거부할 수 있으며, 거부시 (동아리실 대관 신청, 공연장 대관 신청, 세미나실 대관 신청, 커뮤니티룸 대관 신청, 프로그램실 대관 신청, 독서토론실 대관 신청, 하늘빛정원 대관 신청, 도서관 견학 신청, 문화행사 신청)을 하실 수 없습니다.</strong>
+							<li class="list-none">
+								<strong>3. 개인정보의 보유 및 이용기간 : 1년</strong>
 							</li>
 						</ol>
 					</div>
 				</div>
-				
+
 				<!-- 동의 라디오 버튼 -->
-				<div class="consent-agreement">
-					<p class="consent-agreement__text">
+				<div class="terms-item__radio flex-col items-end gap-15 mt15">
+					<p class="radio-question">
 						본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌 수집ㆍ이용에 동의합니다.
 					</p>
 					<div class="radio-group">
-						<UiRadio 
-							name="privacy_consent" 
-							value="agree" 
-							id="privacy-agree"
-							label="동의함"
-							size="medium"
-						/>
-						<UiRadio 
-							name="privacy_consent" 
-							value="disagree" 
-							id="privacy-disagree"
-							label="동의안함"
-							size="medium"
-							checked={true}
-						/>
+						<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+						<div class="ui-radio ui-radio--medium">
+							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+							<div class="ui-radio__item">
+								<!-- 숨겨진 실제 라디오 input 요소 -->
+								<input type="radio" id="privacy-disagree" name="privacy-collection" value="disagree" class="ui-radio__input" />
+								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+								<div class="ui-radio__control">
+									<!-- 선택 시 표시될 내부 원형 도트 -->
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+
+							<label for="privacy-disagree" class="ui-radio__label">
+								<span class="ui-radio__title">동의안함</span>
+							</label>
+						</div>
+						<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+						<div class="ui-radio ui-radio--medium">
+							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+							<div class="ui-radio__item">
+								<!-- 숨겨진 실제 라디오 input 요소 -->
+								<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
+								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+								<div class="ui-radio__control">
+									<!-- 선택 시 표시될 내부 원형 도트 -->
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+
+							<label for="privacy-agree" class="ui-radio__label">
+								<span class="ui-radio__title">동의함</span>
+							</label>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -105,183 +126,127 @@ const hallApplicationTabs = [
 			<!-- 신청자정보 폼 -->
 			<section class="member-section">
 				<h3 class="section-title">신청자정보</h3>
-				
-				<div class="form-grid">
-					<!-- 도서관 선택 -->
-					<div class="form-field">
-						<label class="form-label required">도서관</label>
-						<UiSelect 
-							placeholder="도서관을 선택해주세요."
-							size="large"
-							required
-							options={[
-								{ value: 'yeonsu', label: '연수도서관' },
-								{ value: 'songdo', label: '송도국제기구도서관' },
-								{ value: 'cheonghak', label: '청학도서관' },
-								{ value: 'haedoji', label: '해돋이도서관' },
-								{ value: 'sunhak', label: '선학별빛도서관' },
-								{ value: 'yeonsukkumdam', label: '연수꿈담도서관' }
-							]}
-						/>
-					</div>
 
-					<!-- 이름 -->
-					<div class="form-field">
-						<label class="form-label required">이름</label>
-						<UiInput 
-							placeholder="홍길동"
-							value="홍길동"
-							disabled
-							size="large"
-						/>
-					</div>
-					
-					<!-- 유선전화번호 -->
-					<div class="form-field">
-						<label class="form-label">유선전화번호</label>
-						<UiInput 
-							placeholder="010-1234-4567"
-							type="tel"
-							size="large"
-						/>
-					</div>
-					
-					<!-- 무선전화번호 -->
-					<div class="form-field">
-						<label class="form-label required">무선전화번호</label>
-						<UiInput 
-							placeholder="010-1234-4567"
-							type="tel"
-							size="large"
-						/>
-					</div>
-					
-					<!-- 단체/대표명 -->
-					<div class="form-field">
-						<label class="form-label required">단체/대표명</label>
-						<UiInput 
-							placeholder="단체(대표)명을 입력해 주세요."
-							size="large"
-						/>
-					</div>
-					
-					<!-- 소재지 -->
-					<div class="form-field form-field--span-2">
-						<label class="form-label required">소재지</label>
-						<UiInput 
-							placeholder="소재지를 입력해 주세요."
-							size="large"
-						/>
-					</div>
-					
-					<!-- 인원 선택 -->
-					<div class="form-field">
-						<label class="form-label required">인원</label>
-						<UiSelect 
-							placeholder="선택"
-							size="large"
-							required
-							options={[
-								{ value: '10-20', label: '10~20명' },
-								{ value: '20-30', label: '20~30명' },
-								{ value: '30-40', label: '30~40명' },
-								{ value: '40-50', label: '40~50명' }
-							]}
-						/>
-					</div>
-					
-					<!-- 이메일 -->
-					<div class="form-field">
-						<label class="form-label required">이메일</label>
-						<UiInput 
-							placeholder="이메일을 입력해 주세요."
-							type="email"
-							size="large"
-						/>
-					</div>
-					
-					<!-- 공연,행사내용 -->
-					<div class="form-field form-field--span-2">
-						<label class="form-label required">공연,행사내용</label>
-						<UiInput 
-							placeholder="제목을 입력해주세요."
-							size="large"
-						/>
-					</div>
-					
-					<!-- 인원 라디오 버튼 -->
-					<div class="form-field form-field--full">
-						<label class="form-label required">인원</label>
-						<div class="radio-group">
-							<UiRadio 
-								name="participant_count" 
-								value="10-20"
-								id="count-10-20"
-								label="10~20명"
-								size="medium"
-								checked
-							/>
-							<UiRadio 
-								name="participant_count" 
-								value="20-30"
-								id="count-20-30" 
-								label="20~30명"
-								size="medium"
-							/>
-							<UiRadio 
-								name="participant_count" 
-								value="30-40"
-								id="count-30-40"
-								label="30~40명"
-								size="medium"
+				<form action="">
+					<div class="form-grid">
+						<!-- 이름 -->
+						<div class="form-field form-field--full">
+							<label class="form-label required">이름</label>
+							<UiInput placeholder="홍길동" value="홍길동" disabled size="large" class="w-140-mobile-full" />
+						</div>
+
+						<!-- 유선전화번호 -->
+						<div class="form-field">
+							<label class="form-label">유선전화번호</label>
+							<UiInput placeholder="010-1234-4567" type="tel" size="large" />
+						</div>
+
+						<!-- 무선전화번호 -->
+						<div class="form-field">
+							<label class="form-label required">무선전화번호</label>
+							<UiInput placeholder="010-1234-4567" type="tel" size="large" />
+						</div>
+
+						<!-- 단체/대표명 -->
+						<div class="form-field">
+							<label class="form-label required">단체/대표명</label>
+							<UiInput placeholder="단체(대표)명을 입력해 주세요." size="large" />
+						</div>
+
+						<!-- 소재지 -->
+						<div class="form-field form-field--span-2">
+							<label class="form-label required">소재지</label>
+							<UiInput placeholder="소재지를 입력해 주세요." size="large" />
+						</div>
+
+						<!-- 인원 선택 -->
+						<div class="form-field">
+							<label class="form-label required">인원</label>
+							<UiSelect
+								placeholder="선택"
+								size="large"
+								required
+								options={[
+									{ value: '10-20', label: '10~20명' },
+									{ value: '20-30', label: '20~30명' },
+									{ value: '30-40', label: '30~40명' },
+									{ value: '40-50', label: '40~50명' },
+								]}
 							/>
 						</div>
-					</div>
-					
-					<!-- 희망시간 -->
-					<div class="form-field form-field--full">
-						<label class="form-label required">희망시간</label>
-						<div class="time-selection-group">
-							<div class="time-selection-group__primary">
-								<UiSelect 
-									placeholder="시작시간선택"
-									size="large"
-									options={[
-										{ value: '09:00', label: '09:00' },
-										{ value: '10:00', label: '10:00' },
-										{ value: '11:00', label: '11:00' },
-										{ value: '12:00', label: '12:00' },
-										{ value: '13:00', label: '13:00' },
-										{ value: '14:00', label: '14:00' },
-										{ value: '15:00', label: '15:00' },
-										{ value: '16:00', label: '16:00' },
-										{ value: '17:00', label: '17:00' },
-										{ value: '18:00', label: '18:00' }
-									]}
-								/>
-								<span class="time-selection-group__separator">~</span>
-								<UiSelect 
-									placeholder="종료시간선택"
-									size="large"
-									options={[
-										{ value: '10:00', label: '10:00' },
-										{ value: '11:00', label: '11:00' },
-										{ value: '12:00', label: '12:00' },
-										{ value: '13:00', label: '13:00' },
-										{ value: '14:00', label: '14:00' },
-										{ value: '15:00', label: '15:00' },
-										{ value: '16:00', label: '16:00' },
-										{ value: '17:00', label: '17:00' },
-										{ value: '18:00', label: '18:00' },
-										{ value: '19:00', label: '19:00' }
-									]}
-								/>
+
+						<!-- 이메일 -->
+						<div class="form-field">
+							<label class="form-label required">이메일</label>
+							<UiInput placeholder="이메일을 입력해 주세요." type="email" size="large" />
+						</div>
+
+						<!-- 공연,행사내용 -->
+						<div class="form-field form-field--full">
+							<label class="form-label required">공연,행사내용</label>
+							<UiInput placeholder="제목을 입력해주세요." size="large" />
+						</div>
+
+						<!-- 인원 라디오 버튼 -->
+						<div class="form-field form-field--full">
+							<label class="form-label required">인원2</label>
+							<div class="radio-group">
+								<UiRadio name="participant_count" value="10-20" id="count-10-20" label="10~20명" size="medium" checked />
+								<UiRadio name="participant_count" value="20-30" id="count-20-30" label="20~30명" size="medium" />
+								<UiRadio name="participant_count" value="30-40" id="count-30-40" label="30~40명" size="medium" />
 							</div>
-							
+						</div>
+
+						<!-- 희망시간 -->
+						<div class="form-field">
+							<div class="time-selection-group">
+								<div class="time-selection-group__primary">
+									<div class="form-field">
+										<label class="form-label required">희망시간</label>
+										<UiSelect
+											placeholder="시작시간선택"
+											size="large"
+											options={[
+												{ value: '09:00', label: '09:00' },
+												{ value: '10:00', label: '10:00' },
+												{ value: '11:00', label: '11:00' },
+												{ value: '12:00', label: '12:00' },
+												{ value: '13:00', label: '13:00' },
+												{ value: '14:00', label: '14:00' },
+												{ value: '15:00', label: '15:00' },
+												{ value: '16:00', label: '16:00' },
+												{ value: '17:00', label: '17:00' },
+												{ value: '18:00', label: '18:00' },
+											]}
+										/>
+									</div>
+									<span class="time-selection-group__separator">~</span>
+									<UiSelect
+										placeholder="종료시간선택"
+										size="large"
+										options={[
+											{ value: '10:00', label: '10:00' },
+											{ value: '11:00', label: '11:00' },
+											{ value: '12:00', label: '12:00' },
+											{ value: '13:00', label: '13:00' },
+											{ value: '14:00', label: '14:00' },
+											{ value: '15:00', label: '15:00' },
+											{ value: '16:00', label: '16:00' },
+											{ value: '17:00', label: '17:00' },
+											{ value: '18:00', label: '18:00' },
+											{ value: '19:00', label: '19:00' },
+										]}
+									/>
+								</div>
+							</div>
+						</div>
+
+						<!-- 행사 내용 -->
+						<div class="form-field">
 							<div class="time-selection-group__secondary">
 								<div class="form-field">
 									<label class="form-label">희망시간2</label>
-									<UiSelect 
+									<UiSelect
 										placeholder="시작시간선택"
 										size="large"
 										options={[
@@ -294,19 +259,19 @@ const hallApplicationTabs = [
 											{ value: '15:00', label: '15:00' },
 											{ value: '16:00', label: '16:00' },
 											{ value: '17:00', label: '17:00' },
-											{ value: '18:00', label: '18:00' }
+											{ value: '18:00', label: '18:00' },
 										]}
 									/>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</section>
-			
+
 			<!-- 버튼 영역 -->
 			<div class="signup-form__actions">
-				<UiButton variant="secondary" size="large" text="취소" class="w-180-mobile-full" />
+				<UiButton variant="darkGray" size="large" text="취소" class="w-180-mobile-full" />
 				<UiButton variant="primary" size="large" text="신청" class="w-180-mobile-full" />
 			</div>
 		</div>

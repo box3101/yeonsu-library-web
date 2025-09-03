@@ -270,7 +270,6 @@
 
 .time-selection-group {
 	display: flex;
-	flex-direction: column;
 	gap: to-rem(16);
 
 	@include mobile {
@@ -630,6 +629,9 @@
 	}
 
 	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		background: #00993e;
 		color: white;
 		border: none;
@@ -1778,11 +1780,11 @@
 .form-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: to-rem(48) to-rem(32);
+	gap: to-rem(32) to-rem(32);
 
 	@include mobile {
 		grid-template-columns: 1fr;
-		gap: to-rem(24);
+		gap: to-rem(12);
 	}
 }
 
@@ -1790,6 +1792,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: to-rem(8);
+
+	@include mobile {
+		gap: to-rem(4);
+	}
 
 	&--full {
 		grid-column: 1 / -1;
@@ -7802,6 +7808,34 @@ div.bookshelf-item {
 				padding: 8px 10px !important;
 				height: 32px;
 				min-width: 48px;
+			}
+		}
+	}
+}
+
+/* ========================================
+   공연장 대관정보 스타일 (com-title-type2)
+======================================== */
+.section-title-type2 {
+	@include font(to-rem(32), 700, #4b4d4d);
+	margin-bottom: to-rem(24);
+	@include mobile {
+		font-size: 20px;
+		margin-bottom: 16px;
+	}
+}
+
+.info-box {
+	.info-list {
+		li {
+			p {
+				margin-top: 10px 0px;
+			}
+			&.list-none {
+				padding-left: 0;
+				&::before {
+					display: none;
+				}
 			}
 		}
 	}

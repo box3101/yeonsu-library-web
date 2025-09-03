@@ -4,134 +4,134 @@
 
 // Flex Container
 .flex {
-  display: flex;
+	display: flex;
 }
 
 .inline-flex {
-  display: inline-flex;
+	display: inline-flex;
 }
 
 // Flex Direction
 .flex-row {
-  flex-direction: row;
+	flex-direction: row;
 }
 
 .flex-row-reverse {
-  flex-direction: row-reverse;
+	flex-direction: row-reverse;
 }
 
 .flex-col {
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .flex-col-reverse {
-  flex-direction: column-reverse;
+	flex-direction: column-reverse;
 }
 
 // Justify Content (가로 정렬)
 .justify-start {
-  justify-content: flex-start;
+	justify-content: flex-start !important;
 }
 
 .justify-end {
-  justify-content: flex-end;
+	justify-content: flex-end !important;
 }
 
 .justify-center {
-  justify-content: center;
+	justify-content: center;
 }
 
 .justify-between {
-  justify-content: space-between;
+	justify-content: space-between;
 }
 
 .justify-around {
-  justify-content: space-around;
+	justify-content: space-around;
 }
 
 .justify-evenly {
-  justify-content: space-evenly;
+	justify-content: space-evenly;
 }
 
 // Align Items (세로 정렬)
 .items-start {
-  align-items: flex-start;
+	align-items: flex-start !important;
 }
 
 .items-end {
-  align-items: flex-end;
+	align-items: flex-end !important;
 }
 
 .items-center {
-  align-items: center;
+	align-items: center;
 }
 
 .items-baseline {
-  align-items: baseline;
+	align-items: baseline;
 }
 
 .items-stretch {
-  align-items: stretch;
+	align-items: stretch;
 }
 
 // Flex Wrap
 .flex-wrap {
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .flex-nowrap {
-  flex-wrap: nowrap;
+	flex-wrap: nowrap;
 }
 
 .flex-wrap-reverse {
-  flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
 }
 
 // Flex Grow & Shrink
 .flex-1 {
-  flex: 1 1 0%;
+	flex: 1 1 0%;
 }
 
 .flex-auto {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 .flex-initial {
-  flex: 0 1 auto;
+	flex: 0 1 auto;
 }
 
 .flex-none {
-  flex: none;
+	flex: none;
 }
 
 // Gap (간격)
 @for $i from 0 through 100 {
-  .gap-#{$i} {
-    gap: #{$i}px;
-  }
+	.gap-#{$i} {
+		gap: #{$i}px;
+	}
 }
 
 // 자주 사용하는 조합
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .flex-start {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .flex-end {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
