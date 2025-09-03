@@ -3061,7 +3061,7 @@
 			margin-top: to-rem(4);
 			opacity: 0;
 			visibility: hidden;
-			transform: translateY(-4px);
+			transform: translateY(4px);
 			transition: all 0.2s ease;
 
 			@include tablet {
@@ -3101,14 +3101,14 @@
 				border: none;
 				color: $gray-500;
 				font-weight: $font-semibold;
-				font-size: to-rem(14);
+				font-size: to-rem(16);
 				cursor: pointer;
 				transition: all 0.2s ease;
 				position: relative;
 
 				@include tablet {
 					padding: to-rem(12) to-rem(8);
-					font-size: to-rem(13);
+					font-size: to-rem(14);
 				}
 
 				&:not(:last-child) {
@@ -3164,10 +3164,10 @@
 
 				.search-term {
 					color: $gray-900;
-					font-size: to-rem(14);
+					font-size: to-rem(16);
 
 					@include tablet {
-						font-size: to-rem(13);
+						font-size: to-rem(14);
 					}
 
 					&.is-recent {
@@ -3177,17 +3177,17 @@
 
 				.search-date {
 					color: $gray-400;
-					font-size: to-rem(12);
+					font-size: to-rem(14);
 					font-weight: $font-normal;
 
 					@include tablet {
-						font-size: to-rem(11);
+						font-size: to-rem(12);
 					}
 				}
 
 				.search-rank {
 					color: $blue-500;
-					font-size: to-rem(11);
+					font-size: to-rem(12);
 					font-weight: $font-bold;
 					padding: to-rem(2) to-rem(6);
 					border-radius: to-rem(10);
@@ -3195,7 +3195,7 @@
 					text-align: center;
 
 					@include tablet {
-						font-size: to-rem(10);
+						font-size: to-rem(11);
 						padding: to-rem(1) to-rem(4);
 					}
 				}
@@ -3233,12 +3233,12 @@
 					align-items: center;
 					justify-content: center;
 					color: $white;
-					font-size: to-rem(10);
+					font-size: to-rem(11);
 
 					@include tablet {
 						width: to-rem(16);
 						height: to-rem(16);
-						font-size: to-rem(8);
+						font-size: to-rem(9);
 					}
 
 					&::before {
@@ -3248,10 +3248,10 @@
 
 				.option-text {
 					color: $gray-500;
-					font-size: to-rem(13);
+					font-size: to-rem(14);
 
 					@include tablet {
-						font-size: to-rem(12);
+						font-size: to-rem(13);
 					}
 				}
 			}
@@ -3260,13 +3260,13 @@
 				background: none;
 				border: none;
 				color: $blue-600;
-				font-size: to-rem(13);
+				font-size: to-rem(14);
 				font-weight: $font-semibold;
 				cursor: pointer;
 				text-decoration: underline;
 
 				@include tablet {
-					font-size: to-rem(12);
+					font-size: to-rem(13);
 				}
 
 				&:hover {

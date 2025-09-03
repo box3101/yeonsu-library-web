@@ -64635,7 +64635,7 @@ a:hover .icon-external-link {
   margin-top: 0.25rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-4px);
+  transform: translateY(4px);
   transition: all 0.2s ease;
 }
 @media (max-width: 900px) {
@@ -64673,7 +64673,7 @@ a:hover .icon-external-link {
   border: none;
   color: #6b7280;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
@@ -64681,7 +64681,7 @@ a:hover .icon-external-link {
 @media (max-width: 900px) {
   .ui-library-filter__search-tabs button {
     padding: 0.75rem 0.5rem;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 }
 .ui-library-filter__search-tabs button:not(:last-child) {
@@ -64730,11 +64730,11 @@ a:hover .icon-external-link {
 }
 .ui-library-filter__search-list .search-item .search-term {
   color: #111827;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-list .search-item .search-term {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 }
 .ui-library-filter__search-list .search-item .search-term.is-recent {
@@ -64742,17 +64742,17 @@ a:hover .icon-external-link {
 }
 .ui-library-filter__search-list .search-item .search-date {
   color: #9ca3af;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 400;
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-list .search-item .search-date {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
 }
 .ui-library-filter__search-list .search-item .search-rank {
   color: #3c79c2;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.125rem 0.375rem;
   border-radius: 0.625rem;
@@ -64761,7 +64761,7 @@ a:hover .icon-external-link {
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-list .search-item .search-rank {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     padding: 0.0625rem 0.25rem;
   }
 }
@@ -64796,13 +64796,13 @@ a:hover .icon-external-link {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-options .option-item .option-icon {
     width: 1rem;
     height: 1rem;
-    font-size: 0.5rem;
+    font-size: 0.5625rem;
   }
 }
 .ui-library-filter__search-options .option-item .option-icon::before {
@@ -64810,25 +64810,25 @@ a:hover .icon-external-link {
 }
 .ui-library-filter__search-options .option-item .option-text {
   color: #6b7280;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-options .option-item .option-text {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 .ui-library-filter__search-options .option-button {
   background: none;
   border: none;
   color: #0071ba;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: underline;
 }
 @media (max-width: 900px) {
   .ui-library-filter__search-options .option-button {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 .ui-library-filter__search-options .option-button:hover {
@@ -75263,13 +75263,13 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 .ui-book-card__title {
-  display: flex;
+  display: block;
   align-items: center;
   gap: 0.125rem;
   flex-wrap: wrap;
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 1.5;
+  line-height: 2;
   color: #111827;
   margin: 0;
   word-break: keep-all;
@@ -86142,8 +86142,11 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .filter-section {
-    margin-bottom: 0rem !important;
+    margin-bottom: 0.375rem !important;
     gap: 0px !important;
+  }
+  .filter-section:last-of-type {
+    margin-bottom: 0px !important;
   }
 }
 .filter-section .filter-toggle {
@@ -88383,7 +88386,8 @@ body.modal-open {
 }
 @media (max-width: 900px) {
   .keyboard-wrapper--inline .worldword-wrap {
-    max-width: calc(100vw - 3.9rem);
+    top: calc(100% + 1.5625rem);
+    max-width: calc(100vw - 2rem);
   }
 }
 
