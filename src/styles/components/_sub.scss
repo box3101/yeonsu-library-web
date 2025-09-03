@@ -7833,6 +7833,10 @@ div.bookshelf-item {
 			}
 			&.list-none {
 				padding-left: 0;
+				strong {
+					display: inline-block;
+					margin-bottom: 5px;
+				}
 				&::before {
 					display: none;
 				}

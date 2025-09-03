@@ -75055,6 +75055,10 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 .info-box .info-list li.list-none {
   padding-left: 0;
 }
+.info-box .info-list li.list-none strong {
+  display: inline-block;
+  margin-bottom: 5px;
+}
 .info-box .info-list li.list-none::before {
   display: none;
 }
