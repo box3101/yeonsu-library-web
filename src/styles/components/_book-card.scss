@@ -251,13 +251,13 @@
 	}
 
 	&__title {
-		display: flex;
+		display: block;
 		align-items: center;
 		gap: to-rem(2);
 		flex-wrap: wrap;
 		font-weight: 700;
 		font-size: to-rem(24);
-		line-height: 1.5;
+		line-height: 2;
 		color: $gray-900;
 		margin: 0;
 		word-break: keep-all;

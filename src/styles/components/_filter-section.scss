@@ -5,8 +5,12 @@
 	margin-bottom: to-rem(12);
 
 	@include mobile {
-		margin-bottom: to-rem(0) !important;
+		margin-bottom: to-rem(6) !important;
 		gap: 0px !important;
+
+		&:last-of-type {
+			margin-bottom: 0px !important;
+		}
 	}
 
 	// 숨겨진 토글 체크박스

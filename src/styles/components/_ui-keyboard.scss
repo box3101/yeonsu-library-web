@@ -221,7 +221,8 @@
 		max-width: 685px;
 		display: none; // 기본 숨김
 		@include mobile {
-			max-width: calc(100vw - 3.9rem);
+			top: calc(100% + to-rem(25)); // 인풋 바로 아래
+			max-width: calc(100vw - 2rem);
 		}
 	}
 }
