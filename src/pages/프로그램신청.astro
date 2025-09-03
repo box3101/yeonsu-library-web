@@ -29,7 +29,7 @@ const searchOptions = [
 ---
 
 <Layout title="프로그램신청">
-	<SubLayout title="프로그램신청" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+	<SubLayout title="프로그램신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
 		<div class="program-application">
 			<!-- 신청접수 시 주의사항 -->
 			<div class="info-notice program-notice">
@@ -67,92 +67,96 @@ const searchOptions = [
 				<!-- 프로그램 카드 목록 -->
 				<div class="program-card-list">
 					<!-- 선학별빛 프로그램 카드 -->
-					<div class="program-card">
-						<div class="program-card__index">31.</div>
-						<div class="program-card__content">
-							<div class="program-card__header">
-								<div class="program-card__badges">
-									<span class="program-badge program-badge--library-sunhak">선학별빛</span>
-									<span class="program-badge program-badge--status-accepting">접수중</span>
-									<span class="program-badge program-badge--status-waiting">행사대기</span>
-								</div>
-							</div>
-							<div class="program-card__body">
-								<h3 class="program-card__title">
-									[선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)
-								</h3>
-								<div class="program-card__details">
-									<div class="program-card__detail-row">
-										<div class="program-detail">
-											<span class="program-detail__label">접수기간</span>
-											<span class="program-detail__value">2025-07-23 10:00 ~ 2025-07-30 09:00</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">행사기간</span>
-											<span class="program-detail__value">2025-07-30 15:00 ~ 2025-07-30 16:00</span>
-										</div>
-									</div>
-									<div class="program-card__detail-row">
-										<div class="program-detail">
-											<span class="program-detail__label">대상</span>
-											<span class="program-detail__value">초등1 ~ 성인</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">모집인원(접수/정원)</span>
-											<span class="program-detail__value">0명 / 40명</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">대기인원(접수/정원)</span>
-											<span class="program-detail__value">0명/ 0명</span>
-										</div>
+					<li>
+						<a class="program-card" href="/프로그램신청-상세">
+							<div class="program-card__index">31.</div>
+							<div class="program-card__content">
+								<div class="program-card__header">
+									<div class="program-card__badges">
+										<span class="program-badge program-badge--library-sunhak">선학별빛</span>
+										<span class="program-badge program-badge--status-accepting">접수중</span>
+										<span class="program-badge program-badge--status-waiting">행사대기</span>
 									</div>
 								</div>
+								<div class="program-card__body">
+									<h3 class="program-card__title">
+										[선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)
+									</h3>
+									<div class="program-card__details">
+										<div class="program-card__detail-row">
+											<div class="program-detail">
+												<span class="program-detail__label">접수기간</span>
+												<span class="program-detail__value">2025-07-23 10:00 ~ 2025-07-30 09:00</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">행사기간</span>
+												<span class="program-detail__value">2025-07-30 15:00 ~ 2025-07-30 16:00</span>
+											</div>
+										</div>
+										<div class="program-card__detail-row">
+											<div class="program-detail">
+												<span class="program-detail__label">대상</span>
+												<span class="program-detail__value">초등1 ~ 성인</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">모집인원(접수/정원)</span>
+												<span class="program-detail__value">0명 / 40명</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">대기인원(접수/정원)</span>
+												<span class="program-detail__value">0명/ 0명</span>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						</a>
+					</li>
 
 					<!-- 청학 프로그램 카드 -->
-					<div class="program-card">
-						<div class="program-card__index">30.</div>
-						<div class="program-card__content">
-							<div class="program-card__header">
-								<div class="program-card__badges">
-									<span class="program-badge program-badge--library-cheonghak">청학</span>
-									<span class="program-badge program-badge--status-ended">행사종료</span>
-									<span class="program-badge program-badge--status-ongoing">행사중</span>
-								</div>
-							</div>
-							<div class="program-card__body">
-								<h3 class="program-card__title">독서근력 키우기, 독서마라톤</h3>
-								<div class="program-card__details">
-									<div class="program-card__detail-row">
-										<div class="program-detail">
-											<span class="program-detail__label">접수기간</span>
-											<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-10 23:30</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">행사기간</span>
-											<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-13 00:00</span>
-										</div>
-									</div>
-									<div class="program-card__detail-row">
-										<div class="program-detail">
-											<span class="program-detail__label">대상</span>
-											<span class="program-detail__value">행사대상 도서관누리집 회원 누구나</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">모집인원(접수/정원)</span>
-											<span class="program-detail__value">91명 / 999명</span>
-										</div>
-										<div class="program-detail">
-											<span class="program-detail__label">대기인원(접수/정원)</span>
-											<span class="program-detail__value">0명/ 0명</span>
-										</div>
+					<li>
+						<a class="program-card" href="/프로그램신청-상세">
+							<div class="program-card__index">3022.</div>
+							<div class="program-card__content">
+								<div class="program-card__header">
+									<div class="program-card__badges">
+										<span class="program-badge program-badge--library-cheonghak">청학</span>
+										<span class="program-badge program-badge--status-ended">행사종료</span>
+										<span class="program-badge program-badge--status-ongoing">행사중</span>
 									</div>
 								</div>
+								<div class="program-card__body">
+									<h3 class="program-card__title">독서근력 키우기, 독서마라톤</h3>
+									<div class="program-card__details">
+										<div class="program-card__detail-row">
+											<div class="program-detail">
+												<span class="program-detail__label">접수기간</span>
+												<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-10 23:30</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">행사기간</span>
+												<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-13 00:00</span>
+											</div>
+										</div>
+										<div class="program-card__detail-row">
+											<div class="program-detail">
+												<span class="program-detail__label">대상</span>
+												<span class="program-detail__value">행사대상 도서관누리집 회원 누구나</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">모집인원(접수/정원)</span>
+												<span class="program-detail__value">91명 / 999명</span>
+											</div>
+											<div class="program-detail">
+												<span class="program-detail__label">대기인원(접수/정원)</span>
+												<span class="program-detail__value">0명/ 0명</span>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						</a>
+					</li>
 				</div>
 
 				<!-- 페이지네이션 (기존 UiPagination 활용) -->

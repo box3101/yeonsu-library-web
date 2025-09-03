@@ -1,0 +1,204 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiInput } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '내정보', link: '#' },
+	{ text: '대관신청 조회', link: '#' },
+];
+
+// 테이블 컬럼 정의 (Figma 디자인 기반)
+const columns = [
+	{ label: '번호', key: 'number', align: 'center', headerAlign: 'center', width: '60' },
+	{ label: '도서관', key: 'library', align: 'center', headerAlign: 'center', width: '160' },
+	{ label: '제목', key: 'title', align: 'left', headerAlign: 'center', width: '486' },
+	{ label: '신청일', key: 'applicationDate', align: 'center', headerAlign: 'center', width: '100' },
+	{ label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '80' },
+	{ label: '신청취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '90', type: 'button' },
+];
+
+// 샘플 데이터
+const rows = [
+	{
+		number: 459,
+		library: '연수꿈담',
+		title: '[연수꿈담] 공연장 대관 신청 - 클래식 공연',
+		applicationDate: '2024.12.15',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 458,
+		library: '송도국제',
+		title: '[송도국제] 세미나실 대관 - 독서토론회',
+		applicationDate: '2024.12.14',
+		status: '접수대기',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 457,
+		library: '청학',
+		title: '[청학] 다목적실 대관 - 어린이 도서 읽기 행사',
+		applicationDate: '2024.12.13',
+		status: '접수반려',
+		cancel: {
+			text: '취소불가',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 456,
+		library: '해돋이',
+		title: '[해돋이] 강의실 대관 - 디지털 리터러시 교육',
+		applicationDate: '2024.12.12',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 455,
+		library: '선학별빛',
+		title: '[선학별빛] 공연장 대관 - 시민 발표회',
+		applicationDate: '2024.12.11',
+		status: '취소완료',
+		cancel: {
+			text: '취소완료',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 454,
+		library: '함박비류',
+		title: '[함박비류] 회의실 대관 - 독서동아리 모임',
+		applicationDate: '2024.12.10',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 453,
+		library: '연수꿈담',
+		title: '[연수꿈담] 세미나실 대관 - 작가와의 만남',
+		applicationDate: '2024.12.09',
+		status: '접수대기',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 452,
+		library: '송도국제',
+		title: '[송도국제] 공연장 대관 - 음악회',
+		applicationDate: '2024.12.08',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 451,
+		library: '청학',
+		title: '[청학] 강의실 대관 - 시민강좌',
+		applicationDate: '2024.12.07',
+		status: '접수반려',
+		cancel: {
+			text: '취소불가',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 450,
+		library: '해돋이',
+		title: '[해돋이] 다목적실 대관 - 문화체험 프로그램',
+		applicationDate: '2024.12.06',
+		status: '승인완료',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+];
+
+// 검색 옵션
+const libraryOptions = [
+	{ value: '', label: '전체도서관' },
+	{ value: 'yeonsukkumdam', label: '연수꿈담' },
+	{ value: 'songdo', label: '송도국제' },
+	{ value: 'cheonghak', label: '청학' },
+	{ value: 'haedogi', label: '해돋이' },
+	{ value: 'sunhak', label: '선학별빛' },
+	{ value: 'hambakriyu', label: '함박비류' },
+];
+
+const statusOptions = [
+	{ value: '', label: '전체상태' },
+	{ value: 'waiting', label: '접수대기' },
+	{ value: 'approved', label: '승인완료' },
+	{ value: 'rejected', label: '접수반려' },
+	{ value: 'cancelled', label: '취소완료' },
+];
+
+const searchTypeOptions = [
+	{ value: 'title', label: '행사명' },
+	{ value: 'content', label: '도서관명' },
+];
+---
+
+<Layout title="대관신청 조회">
+	<SubLayout title="대관신청 조회" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 검색 섹션 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect options={libraryOptions} name="library" size="medium" class="w-294-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect options={searchTypeOptions} name="searchType" size="medium" class="w-200-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력하세요." class="w-360-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-78-mobile-full" variant="darkBlue" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 검색 결과 총 건수 -->
+		<div class="search-info-summary type2 flex justify-between items-center">
+			<div class="mb0">총 <strong>459</strong>건 ( <strong>1</strong> / 46 )</div>
+		</div>
+
+		<!-- 테이블 -->
+		<UiTable columns={columns} rows={rows} showIndex={false} caption="대관 신청 조회 목록" />
+
+		<!-- 페이지네이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

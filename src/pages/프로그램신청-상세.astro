@@ -1,0 +1,192 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '문화마당', link: '#' },
+	{ text: '프로그램 신청', link: '/프로그램신청' },
+];
+
+// 첨부파일 데이터 (실제 구현에서는 데이터베이스나 API에서 가져옴)
+const attachments = [
+	{
+		filename: 'test_1.pdf',
+		downloadUrl: '#',
+		size: '1.2MB',
+	},
+	// 첨부파일이 없을 경우 빈 배열로 설정
+];
+
+// 프로그램 상세 정보
+const programDetail = {
+	title: '[★대기자 접수 _ 정규★] 그림책, 내 마음을 만지다(성인)',
+	library: '선학별빛',
+	status: ['접수대기', '행사대기'],
+	instructor: '유미애',
+	category: '기타',
+	period: '2025-03-21 ~ 2025-05-23',
+	schedule: '금/10:00 ~ 12:00',
+	location: '4층 프로그램실',
+	target: '성인',
+	registrationPeriod: '2025-02-27 10:00 ~ 2025-03-07 18:00',
+	registrationMethod: '인터넷',
+	capacity: '접수 100명 / 정원 100명',
+	waitingList: '접수 50명 / 정원 100명',
+	fee: '무료',
+	materials: '연필',
+	contact: '000-0000-0000',
+	content: {
+		title:
+			'게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다.',
+		description: '감상평 내용이 들어가는 영역이다.',
+	},
+};
+---
+
+<Layout title="프로그램 신청">
+	<SubLayout title="프로그램 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<div class="program-detail-page">
+			<!-- 프로그램 제목 및 상태 -->
+			<div class="program-detail-page__header">
+				<div class="program-detail-page__status">
+					<div class="program-detail-page__badges">
+						<span class="program-badge program-badge--library-sunhak">{programDetail.library}</span>
+						<span class="program-badge program-badge--status-pending">접수대기</span>
+						<span class="program-badge program-badge--status-waiting">행사대기</span>
+					</div>
+				</div>
+				<div class="program-detail-page__title-section">
+					<h2 class="program-detail-page__title">{programDetail.title}</h2>
+				</div>
+			</div>
+
+			<!-- 프로그램 상세 정보 테이블 -->
+			<div class="program-detail-page__info">
+				<div class="program-detail-page__info-grid">
+					<!-- 첫 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">강사명</span>
+							<span class="program-detail-page__info-value">{programDetail.instructor}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">분야</span>
+							<span class="program-detail-page__info-value">{programDetail.category}</span>
+						</div>
+					</div>
+
+					<!-- 두 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">행사기간</span>
+							<span class="program-detail-page__info-value">{programDetail.period}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">요일/시간</span>
+							<span class="program-detail-page__info-value">{programDetail.schedule}</span>
+						</div>
+					</div>
+
+					<!-- 세 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">장소</span>
+							<span class="program-detail-page__info-value">{programDetail.location}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">대상</span>
+							<span class="program-detail-page__info-value">{programDetail.target}</span>
+						</div>
+					</div>
+
+					<!-- 네 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">접수기간</span>
+							<span class="program-detail-page__info-value">{programDetail.registrationPeriod}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">접수방법</span>
+							<span class="program-detail-page__info-value">{programDetail.registrationMethod}</span>
+						</div>
+					</div>
+
+					<!-- 다섯 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">모집인원</span>
+							<span class="program-detail-page__info-value">{programDetail.capacity}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">대기인원</span>
+							<span class="program-detail-page__info-value">{programDetail.waitingList}</span>
+						</div>
+					</div>
+
+					<!-- 여섯 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">수강료</span>
+							<span class="program-detail-page__info-value">{programDetail.fee}</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">준비물</span>
+							<span class="program-detail-page__info-value">{programDetail.materials}</span>
+						</div>
+					</div>
+
+					<!-- 일곱 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item program-detail-page__info-item--single">
+							<span class="program-detail-page__info-label">문의처</span>
+							<span class="program-detail-page__info-value">{programDetail.contact}</span>
+						</div>
+					</div>
+
+					<!-- 첨부파일 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item program-detail-page__info-item--single">
+							<span class="program-detail-page__info-label">첨부파일</span>
+							<div class="program-detail-page__attachments">
+								{
+									attachments.length > 0 ? (
+										<div class="program-detail-page__attachment-list">
+											{attachments.map(file => (
+												<div class="program-detail-page__attachment">
+													<div class="program-detail-page__attachment-icon">
+														<img src="./assets/images/icon/icon-download.svg" alt="다운로드" class="icon icon-sm" />
+													</div>
+													<a href={file.downloadUrl} download={file.filename} class="program-detail-page__attachment-link">
+														{file.filename}
+													</a>
+												</div>
+											))}
+										</div>
+									) : (
+										<span class="program-detail-page__no-attachment">첨부파일이 없습니다</span>
+									)
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 프로그램 내용 -->
+			<div class="program-detail-page__content">
+				<div class="program-detail-page__content-inner">
+					<h3 class="program-detail-page__content-title">{programDetail.content.title}</h3>
+					<p class="program-detail-page__content-description">{programDetail.content.description}</p>
+				</div>
+			</div>
+
+			<!-- 하단 버튼 -->
+			<div class="program-detail-page__actions">
+				<UiButton text="목록" variant="tertiary" size="medium" class="program-detail-page__action-button" href="/프로그램신청" />
+				<UiButton text="접수" variant="primary" size="medium" class="program-detail-page__action-button" />
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

@@ -71,7 +71,7 @@
 	gap: to-rem(10);
 	justify-content: flex-end;
 
-	.ui-select-container{
+	.ui-select-container {
 		@include mobile {
 			width: 100%;
 		}
@@ -159,6 +159,10 @@
 	display: flex;
 	gap: to-rem(24);
 	min-width: to-rem(600);
+
+	&:hover {
+		background: #f4f5f6;
+	}
 
 	&__index {
 		font-family: 'Pretendard GOV';
@@ -1115,7 +1119,7 @@
 
 		@include mobile {
 			flex-direction: column;
-			gap: 12px;
+			gap: 6px;
 			align-items: stretch;
 		}
 	}
@@ -2175,7 +2179,7 @@
 .form-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: to-rem(32) to-rem(32);
+	gap: to-rem(24) to-rem(24);
 
 	@include mobile {
 		grid-template-columns: 1fr;
@@ -5622,12 +5626,14 @@ div.bookshelf-item {
 		align-items: center;
 		gap: to-rem(8);
 		min-height: to-rem(26);
+		margin-bottom: 8px;
 
 		@include mobile {
 			flex-direction: column;
 			align-items: flex-start;
 			gap: to-rem(8);
 			min-height: auto;
+			margin-bottom: 6px;
 		}
 	}
 
@@ -8238,4 +8244,320 @@ div.bookshelf-item {
 			}
 		}
 	}
+}
+
+/* ========================================
+   프로그램신청-상세 페이지 스타일
+======================================== */
+
+.program-detail-page {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(40);
+	max-width: to-rem(976);
+	width: 100%;
+
+	@include mobile {
+		gap: 4px !important;
+	}
+
+	// 헤더 섹션
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	&__status {
+		border-top: to-rem(2) solid $secondary-color;
+		background: white;
+		border-bottom: 1px solid #cbcccc;
+		padding: to-rem(16);
+		display: flex;
+		align-items: center;
+
+		@include mobile {
+			padding: to-rem(12);
+		}
+	}
+
+	&__badges {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+
+		@include mobile {
+			gap: to-rem(4);
+		}
+	}
+
+	&__title-section {
+		background: white;
+		border-bottom: 1px solid #cbcccc;
+		padding: to-rem(16);
+
+		@include mobile {
+			padding: to-rem(12);
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(24);
+		font-weight: 400;
+		color: #4b4d4d;
+		line-height: 1.5;
+		margin: 0;
+
+		@include mobile {
+			font-size: to-rem(20);
+		}
+	}
+
+	// 정보 섹션
+	&__info {
+		background: white;
+		border-bottom: 1px solid #cbcccc;
+		padding: to-rem(16);
+
+		@include mobile {
+			padding: to-rem(12);
+		}
+	}
+
+	&__info-grid {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: to-rem(8);
+		}
+	}
+
+	&__info-row {
+		display: flex;
+		gap: to-rem(8);
+		min-height: to-rem(26);
+		align-items: flex-start;
+
+		@include mobile {
+			gap: to-rem(6);
+			min-height: auto;
+		}
+	}
+
+	&__info-item {
+		display: flex;
+		gap: to-rem(8);
+		align-items: flex-start;
+		flex: 1;
+		min-width: 0;
+
+		&--single {
+			flex: 2;
+		}
+
+		@include mobile {
+			flex-direction: column;
+			gap: to-rem(4);
+		}
+	}
+
+	&__info-label {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 700;
+		color: #191a1a;
+		line-height: 1.5;
+		flex-shrink: 0;
+		min-width: to-rem(80);
+
+		@include mobile {
+			min-width: auto;
+			font-size: to-rem(15);
+		}
+	}
+
+	&__info-value {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 500;
+		color: #4b4d4d;
+		line-height: 1.5;
+		flex: 1;
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	// 첨부파일 관련
+	&__attachments {
+		flex: 1;
+	}
+
+	&__attachment-list {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+
+		@include mobile {
+			gap: to-rem(4);
+		}
+	}
+
+	&__attachment {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+
+		@include mobile {
+			gap: to-rem(4);
+		}
+	}
+
+	&__attachment-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: to-rem(20);
+			height: to-rem(20);
+		}
+	}
+
+	&__attachment-link {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #191a1a;
+		line-height: 1.5;
+		text-decoration: none;
+		flex: 1;
+
+		&:hover {
+			text-decoration: underline;
+			color: $primary-color;
+		}
+
+		&:focus {
+			outline: 2px solid $primary-color;
+			outline-offset: to-rem(2);
+		}
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	&__no-attachment {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #4b4d4d;
+		line-height: 1.5;
+		font-style: italic;
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	// 컨텐츠 섹션
+	&__content {
+		background: white;
+		border-bottom: 1px solid #cbcccc;
+		padding: to-rem(32);
+		min-height: to-rem(200);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include mobile {
+			padding: to-rem(0);
+			min-height: to-rem(150);
+		}
+	}
+
+	&__content-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: to-rem(10);
+		text-align: center;
+	}
+
+	&__content-title {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(28);
+		font-weight: 700;
+		color: #191a1a;
+		line-height: 1.5;
+		margin: 0;
+
+		@include mobile {
+			font-size: to-rem(20);
+		}
+	}
+
+	&__content-description {
+		font-family: 'Pretendard GOV';
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #191a1a;
+		line-height: 1.5;
+		margin: 0;
+
+		@include mobile {
+			font-size: to-rem(15);
+		}
+	}
+
+	// 액션 버튼
+	&__actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(12);
+		padding: to-rem(24) 0 to-rem(64);
+
+		@include mobile {
+			flex-direction: column;
+			gap: to-rem(12);
+			padding: to-rem(16) 0 to-rem(32);
+		}
+	}
+
+	&__action-button {
+		min-width: to-rem(120);
+
+		@include mobile {
+			width: 100%;
+			min-width: 0;
+		}
+	}
+
+	@include mobile {
+		gap: to-rem(24);
+	}
+}
+
+// 추가 배지 상태 (program-detail-page에서 사용)
+.program-badge--status-pending {
+	background: #d8e4f3;
+	border: 1px solid #6494ce;
+	color: #30619b;
+}
+.form-field__unit {
+	flex: none;
+	font-size: to-rem(17);
+}
+.form-field__notice {
+	@include font(to-rem(15), 500, #d7424e);
+	line-height: 1.5;
 }
