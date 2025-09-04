@@ -61778,15 +61778,15 @@ a:hover .icon-external-link {
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
   background: var(--color-primary-pr00, #ecf2f9);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   color: #191a1a;
   line-height: 1;
 }
 .usage-guide__table tr td {
   text-align: center;
-  padding: 1.25rem 0;
-  font-size: 0.9375rem;
+  padding: 1.25rem 0.625rem;
+  font-size: 1.0625rem;
   font-weight: 400;
   color: #191a1a;
   line-height: 1;
@@ -61799,15 +61799,23 @@ a:hover .icon-external-link {
 }
 @media (max-width: 900px) {
   .usage-guide__title {
-    margin: 32px 0;
-    font-size: 32px;
+    margin: 20px 0;
+    font-size: 26px;
   }
   .usage-guide__content li {
     padding-left: 16px;
     font-size: 17px;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .usage-guide__content li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 11px;
   }
   .usage-guide__table-wrapper .usage-guide__table tr th, .usage-guide__table-wrapper .usage-guide__table tr td {
-    padding: 20px 0;
+    padding: 20px 10px;
     font-size: 15px;
   }
 }

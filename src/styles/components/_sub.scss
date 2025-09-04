@@ -49,15 +49,15 @@
 				padding: to-rem(14) 0;
 				border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
 				background: var(--color-primary-pr00, #ecf2f9);
-				@include font(to-rem(15), 700, #191a1a);
+				@include font(to-rem(17), 700, #191a1a);
 			}
 		}
 
 		tr {
 			td {
 				text-align: center;
-				padding: to-rem(20) 0;
-				@include font(to-rem(15), 400, #191a1a);
+				padding: to-rem(20) to-rem(10);
+				@include font(to-rem(17), 400, #191a1a);
 				line-height: 1.5;
 				border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
@@ -70,18 +70,23 @@
 
 	@include mobile {
 		&__title {
-			margin: 32px 0;
-			font-size: 32px;
+			margin: 20px 0;
+			font-size: 26px;
 		}
 
 		&__content li {
 			padding-left: 16px;
 			font-size: 17px;
+			line-height: 1.5;
+			word-break: keep-all;
+			@include makeBefore {
+				top: 11px;
+			}
 		}
 
 		&__table-wrapper &__table tr th,
 		&__table-wrapper &__table tr td {
-			padding: 20px 0;
+			padding: 20px 10px;
 			font-size: 15px;
 		}
 	}
