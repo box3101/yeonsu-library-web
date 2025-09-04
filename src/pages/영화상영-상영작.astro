@@ -1,19 +1,35 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton, UiTab, UiSelect } from '@components';
+import { UiButton, UiTab, UiSelect, UiInput } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '영화상영' }];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '영화상영-상영작' }];
+
+const hallApplicationTabs = [
+	{ label: '이용안내', href: './영화상영-이용안내' },
+	{ label: '상영작', active: true, href: './영화상영-상영작' },
+];
 ---
 
-<Layout title="영화상영">
-	<SubLayout title="영화상영" breadcrumbItems={breadcrumbItems} menuType="문화마당">
-		<div class="info-notice program-notice">
-			<div class="program-notice__content">
-				<ul class="program-notice__list">
-					<li>연수구립도서관에서는 다양한 장르의 영화를 상영하고 있습니다.</li>
-					<li>가족 또는 친구들과 함께 방문하시어 재밌는 영화들을 즐기시기 바랍니다.</li>
-				</ul>
+<Layout title="영화상영-상영작">
+	<SubLayout title="영화상영-상영작" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<UiTab tabs={hallApplicationTabs} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 검색바 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect options={[{ value: '', label: '전체도서관' }]} name="library" size="medium" class="w-200-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect options={[{ value: '', label: '제목' }]} name="library" size="medium" class="w-200-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
 			</div>
 		</div>
 

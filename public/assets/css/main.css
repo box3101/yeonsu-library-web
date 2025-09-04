@@ -65342,7 +65342,7 @@ a:hover .icon-external-link {
 ======================================== */
 .search-type-tabs {
   position: relative;
-  margin-bottom: 0.9375rem;
+  margin-bottom: 2.5rem;
 }
 @media (max-width: 900px) {
   .search-type-tabs {
@@ -67300,6 +67300,9 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   min-height: 1.625rem;
   margin-bottom: 8px;
 }
+.com-title-type2__row:last-child {
+  margin-bottom: 0;
+}
 @media (max-width: 900px) {
   .com-title-type2__row {
     flex-direction: column;
@@ -67307,6 +67310,9 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     gap: 0.5rem;
     min-height: auto;
     margin-bottom: 6px;
+  }
+  .com-title-type2__row:last-child {
+    margin-bottom: 0;
   }
 }
 .com-title-type2__column {

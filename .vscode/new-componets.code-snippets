@@ -76,5 +76,38 @@
 			"$0"
 		],
 		"description": "이용안내 테이블 컴포넌트 - 제목과 반응형 테이블을 포함한 안내 정보 표시"
+	},
+
+	// Start Generation Here
+	"UiTab Component": {
+		"scope": "astro",
+		"prefix": "ui-tab",
+		"body": ["<UiTab tabs={${1:hallApplicationTabs}} className=\"${2:mb-4 search-type-tabs ui-tab--grid-2}\" />", "$0"],
+		"description": "UiTab 컴포넌트 - 탭 배열과 클래스 이름을 포함하여 UiTab 컴포넌트를 생성"
+	},
+
+	"UiSearchComponent": {
+		"scope": "astro",
+		"prefix": "ui-search",
+		"body": [
+			"<div class=\"com-search\">",
+			"\t<div class=\"com-search__filters\">",
+			"\t\t<div class=\"com-search__select\">",
+			"\t\t\t<UiSelect options={[{ value: '', label: '전체도서관' }]} name=\"library\" size=\"medium\" class=\"w-200-mobile-full\" variant=\"default\" />",
+			"\t\t</div>",
+			"\t\t<div class=\"com-search__select\">",
+			"\t\t\t<UiSelect options={[{ value: '', label: '제목' }]} name=\"library\" size=\"medium\" class=\"w-200-mobile-full\" variant=\"default\" />",
+			"\t\t</div>",
+			"\t\t<div class=\"com-search__input\">",
+			"\t\t\t<UiInput placeholder=\"검색어를 입력해주세요.\" class=\"w-370-mobile-full\" />",
+			"\t\t</div>",
+			"\t\t<div class=\"com-search__button\">",
+			"\t\t\t<UiButton text=\"검색\" class=\"w-100-mobile-full\" />",
+			"\t\t</div>",
+			"\t</div>",
+			"</div>",
+			"$0"
+		],
+		"description": "UiSearch 컴포넌트 - 검색 필터와 입력 필드를 포함한 검색 UI 컴포넌트를 생성"
 	}
 }

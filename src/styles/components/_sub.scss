@@ -3804,7 +3804,7 @@
 ======================================== */
 .search-type-tabs {
 	position: relative;
-	margin-bottom: to-rem(15);
+	margin-bottom: to-rem(40);
 
 	@include mobile {
 		margin-bottom: 12px;
@@ -5716,12 +5716,19 @@ div.bookshelf-item {
 		min-height: to-rem(26);
 		margin-bottom: 8px;
 
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		@include mobile {
 			flex-direction: column;
 			align-items: flex-start;
 			gap: to-rem(8);
 			min-height: auto;
 			margin-bottom: 6px;
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 
