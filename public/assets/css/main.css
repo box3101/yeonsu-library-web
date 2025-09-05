@@ -62057,19 +62057,19 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   line-height: 1;
 }
 .usage-guide__content li {
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   position: relative;
   padding-left: 1rem;
   font-size: 1.0625rem;
   font-weight: 400;
   color: #191a1a;
   line-height: 1;
+  line-height: 150%;
 }
 .usage-guide__content li::before {
   content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 12px;
   left: 0;
   width: 0.25rem;
   height: 0.25rem;

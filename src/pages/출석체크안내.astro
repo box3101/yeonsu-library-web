@@ -1,0 +1,92 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiTable,
+	UiPagination,
+} from '@components';
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '서약서작성' }];
+
+const tabMenus = [
+	{ id: 'info', label: '출석체크 안내', active: true, href: './출석체크안내' },
+	{ id: 'info', label: '출석하기', href: './출석하기' },
+];
+---
+
+<Layout title="서약서작성">
+	<SubLayout title="서약서작성" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<img
+			src="./assets/images/img-even-banner.png"
+			alt="책 한 줄의 기적!
+따라쓰기 출첵(출석체크) 이벤트
+책으로
+연(緣)결되는
+수(秀)많은 이야기
+(독서진흥 캠페인 표어 공모전 선정작)
+2025년 연수구립도서관 독서진흥 캠페인의 일환으로 진행되는 이벤트로매일 도서관 누리집을 방문하여 그날의 ‘책 속 한 문장’을 따라 쓰면 출석 인정"
+			class="w-full"
+		/>
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이벤트 개요</h3>
+			<ul class="usage-guide__content">
+				<li><strong>운영기간:</strong> 2025.3.1.~10.31. ( ※ 8.11.(월) ~ 8.15.(금) 미운영 )</li>
+				<li><strong>대 상:</strong> 연수구립도서관 누리집 회원</li>
+				<li><strong>내 용:</strong> 매일 도서관 누리집을 방문, 정해진 책 속 한 문장 따라 쓰기</li>
+			</ul>
+		</div>
+
+		<div class="contact-info">
+			<h3>참여방법</h3>
+		</div>
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title"></h3>
+			<ul class="usage-guide__content">
+				<li>
+					열린참여마당 > 출석체크 이벤트 > 출석체크 하기 > 달력에서 해당 일 ‘출석체크’버튼 클릭(로그인) > 게시된 ‘책 속
+					한 문장’을 댓글 입력란에 그대로 따라 쓰기 > 등록
+				</li>
+			</ul>
+		</div>
+
+		<div class="contact-info">
+			<h3>참여방법</h3>
+		</div>
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title"></h3>
+			<ul class="usage-guide__content">
+				<li>
+					해당 일 00:00~24:00 사이 도서관 누리집을 접속하여 그날의 ‘책 속 한 문장’을 따라 쓰고, 등록하면 출석 인정/li>
+				</li>
+			</ul>
+
+			<div class="contact-info">
+				<h3>참여방법</h3>
+			</div>
+
+			<div class="usage-guide">
+				<h3 class="usage-guide__title"></h3>
+				<ul class="usage-guide__content">
+					<li>대 상: 월 단위 100% 출석 달성자</li>
+					<li>
+						혜택기간: 다음 월 5일 ~ 다다음 월 말일 <br /> (예) 3월 100% 출석 달성 시, 3.5.~ 4.30. 대출권수 2배 적용 <br
+						/> 3~5월 100% 출석 연속 달성 시, 3.5. ~ 6.30.
+					</li>
+					<li>혜 택: 대출권수 2배 확대(1회 5권→10권) ※ 통합 30권 범위 내</li>
+				</ul>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
