@@ -61730,6 +61730,33 @@ a:hover .icon-external-link {
     max-width: 7.5rem;
   }
 }
+.card-table {
+  padding: 16px 0;
+  border-top: 2px solid #3c79c2;
+  border-bottom: 1px solid #CBCCCC;
+}
+.card-table .card-table__row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.card-table .card-table__row .card-table__label {
+  flex: 0 0 180px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+  line-height: 150%;
+}
+.card-table .card-table__row .card-table__content {
+  flex: 1;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: #4b4d4b;
+  line-height: 1;
+  line-height: 150%;
+}
+
 ul.movie-card-wrp {
   display: flex;
   flex-direction: column;
@@ -77428,6 +77455,11 @@ body.modal-open {
 }
 .ui-button--darkBlue:active {
   background: #142940;
+}
+.ui-button--gray {
+  background: #7D8181;
+  color: #ffffff;
+  border-color: #7D8181;
 }
 .ui-button--darkGray {
   background: #4b4d4d;

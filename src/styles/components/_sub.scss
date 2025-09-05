@@ -3,6 +3,24 @@
 @use 'sass:color';
 @use 'sass:math';
 
+// 카드테이블
+.card-table {
+	padding: 16px 0; border-top:2px solid $primary-color;  border-bottom: 1px solid #CBCCCC;
+  .card-table__row {
+		display: flex; align-items: center; margin-bottom: 12px;
+    .card-table__label {
+			flex: 0 0 180px;
+			@include font(to-rem(17),700 ,#191a1a );
+			line-height: 150%;
+    }
+    .card-table__content {
+			flex:1;
+			@include font(to-rem(17), 500, #4b4d4b);
+			line-height: 150%;
+		}
+  }
+}
+
 // 무비 카드
 // 영화 카드 리스트 컴포넌트
 ul.movie-card-wrp {

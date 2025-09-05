@@ -1,0 +1,60 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiTable,
+	UiPagination,
+} from '@components';
+
+const tabMenus = [
+	{ id: 'info', label: '기증안내', href: './기증안내' },
+	{ id: 'pledge', label: '서약서작성', href: './기증안내-서약서작성' },
+	{ id: 'apply', label: '기증신청조회', active: true, href: './기증안내-기증신청조회' },
+];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '서약서작성' }];
+---
+
+<Layout title="서약서작성">
+	<SubLayout title="서약서작성" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">안내</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>신청자 본인확인을 위해 비밀번호를 입력하세요.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="form-grid">
+			<div class="form-field form-field--full">
+				<label for="applicant-name" class="form-label required">기증자명</label>
+				<UiInput size="large" id="applicant-name" placeholder="기증자명을 입력하세요" readonly />
+			</div>
+
+			<div class="form-field">
+				<label for="password" class="form-label required">비밀번호</label>
+				<UiInput size="large" id="password" type="password" placeholder="비밀번호를 입력하세요" />
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<UiButton size="large" class="w-140-mobile-full" variant="gray" text="취소" type="button" />
+			<UiButton size="large" class="w-140-mobile-full" variant="primary" text="신청" type="submit" />
+		</div>
+	</SubLayout>
+</Layout>

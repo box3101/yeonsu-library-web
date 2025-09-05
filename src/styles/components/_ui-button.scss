@@ -133,6 +133,12 @@
     }
   }
 
+  &--gray{
+    background: #7D8181;
+    color: $ui-text-white;
+    border-color: #7D8181;
+  }
+
   &--darkGray {
     background: #4b4d4d;
     color: $ui-text-white;

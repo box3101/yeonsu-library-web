@@ -1,0 +1,100 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiTable,
+	UiPagination,
+} from '@components';
+
+const tabMenus = [
+	{ id: 'info', label: '기증안내', href: './기증안내' },
+	{ id: 'pledge', label: '서약서작성', href: './기증안내-서약서작성' },
+	{ id: 'apply', label: '기증신청조회', active: true, href: './기증안내-기증신청조회' },
+];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '서약서작성' }];
+---
+
+<Layout title="서약서작성">
+	<SubLayout title="서약서작성" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 기증정보 -->
+		<div class="usage-guide flex justify-between items-center">
+			<h3 class="usage-guide__title">기증정보</h3>
+			<UiButton variant="secondary" size="medium" text="서약서 출력" icon="icon-print" iconPosition="right" />
+		</div>
+
+		<!-- 기증정보 테이블 -->
+		<div class="card-table">
+			<div class="card-table__row">
+				<div class="card-table__label">기증도서관</div>
+				<div class="card-table__content">
+					<span class="text-primary">연수청학도서관</span>
+				</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">개인 및 기관명</div>
+				<div class="card-table__content">홍길동</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">연락처</div>
+				<div class="card-table__content">010-0000-0000</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">주소</div>
+				<div class="card-table__content">서울특별시 성동구 광나루로6길 35 우림35 e-Biz센터 3층</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">이메일</div>
+				<div class="card-table__content">test@test.com</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">주요기증분야</div>
+				<div class="card-table__content">000-0000-0000</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">첨부파일</div>
+				<div class="card-table__content">주요기증분야</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">첨부파일</div>
+				<div class="card-table__content">주요기증분야</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">등록제외자료반환여부</div>
+				<div class="card-table__content">미반환</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">인수증</div>
+				<div class="card-table__content">인수증</div>
+			</div>
+			<div class="card-table__row">
+				<div class="card-table__label">처리상태</div>
+				<div class="card-table__content">신청중</div>
+			</div>
+		</div>
+
+		<div class="info-notice program-notice">
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>수정/신청취소는 신청중 상태에서만 하실 수 있습니다.</li>
+					<li>승인 후 신청취소를 하실 경우에는 도서관 담당자에게 문의하시기 바랍니다.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<UiButton size="large" class="w-140-mobile-full" variant="gray" text="취소" type="button" />
+			<UiButton size="large" class="w-140-mobile-full" variant="primary" text="확인" type="submit" />
+			<UiButton size="large" class="w-140-mobile-full" variant="darkGray" text="삭제" type="submit" />
+		</div>
+	</SubLayout>
+</Layout>
