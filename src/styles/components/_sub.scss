@@ -436,6 +436,11 @@ ul.movie-card-wrp {
 	border: 1px solid #cdd1d5;
 	border-radius: to-rem(12);
 	padding: to-rem(16);
+	margin-bottom: 24px;
+
+	@include mobile {
+		margin-bottom: 16px;
+	}
 
 	&__content {
 		padding-left: to-rem(28);
@@ -463,6 +468,11 @@ ul.movie-card-wrp {
 				height: to-rem(6);
 				background: #4b4d4d;
 				border-radius: to-rem(4);
+
+				@include mobile {
+					width: 4px;
+					height: 4px;
+				}
 			}
 
 			&:last-child {
@@ -1145,6 +1155,7 @@ ul.movie-card-wrp {
 }
 
 .form-actions {
+	margin-top: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8664,7 +8675,7 @@ div.bookshelf-item {
 	.info-list {
 		li {
 			p {
-				margin-top: 10px 0px;
+				margin-top: 10px 0px; margin-left: 17px;
 			}
 			&.list-none {
 				padding-left: 0;

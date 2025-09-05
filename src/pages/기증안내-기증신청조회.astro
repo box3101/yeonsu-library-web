@@ -1,0 +1,110 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiTable,
+	UiPagination,
+} from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '서약서작성' }];
+
+const tabMenus = [
+	{ id: 'info', label: '기증안내', href: './기증안내' },
+	{ id: 'pledge', label: '서약서작성', href: './기증안내-서약서작성' },
+	{ id: 'apply', label: '기증신청조회', active: true, href: './기증안내-기증신청조회' },
+];
+
+const columns = [
+	{ key: 'number', label: '번호', width: '60', headerAlign: 'center', align: 'center' },
+	{ key: 'institution', label: '기관', width: '160', headerAlign: 'center', align: 'center' },
+	{ key: 'donor', label: '기증자/처', width: 'auto', headerAlign: 'center', align: 'left' },
+	{ key: 'applicationDate', label: '신청일', width: '100', headerAlign: 'center', align: 'center' },
+	{ key: 'status', label: '신청상태', width: '100', headerAlign: 'center', align: 'center' },
+];
+const rows = [
+	{ number: '1146', institution: '선학별빛', donor: '이지수', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '145', institution: '해찬솔공원', donor: '김화진', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '144', institution: '송도4동스마트', donor: '이상엽', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '143', institution: '선학별빛', donor: '김경중', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '142', institution: '선학별빛', donor: '김준희', applicationDate: '2025.07.23', status: '신청취소' },
+	{ number: '141', institution: '선학별빛', donor: '개인', applicationDate: '2025.07.23', status: '신청취소' },
+	{ number: '140', institution: '선학별빛', donor: '정현화', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '139', institution: '선학별빛', donor: '허선경', applicationDate: '2025.07.23', status: '신청승인' },
+	{ number: '138', institution: '선학별빛', donor: '이혜지', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '137', institution: '선학별빛', donor: '임한서', applicationDate: '2025.07.23', status: '신청승인' },
+];
+---
+
+<Layout title="서약서작성">
+	<SubLayout title="서약서작성" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 유의사항 -->
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">유의사항</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>기증서약서 출력 후 직접 방문하여 기증 담당자에게 접수</li>
+					<li>용인시 도서관 자료기증 처리기준에 따라 선정된 자료는 도서관 장서로 등록</li>
+					<li>선정에서 제외된 자료는 도서를 필요로 하는 관련기관에 재기증</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 검색 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '전체도서관' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '제목' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 건수 -->
+		<div class="search-info-summary">
+			<span><strong>[홍길동]</strong>에 대한 검색 결과 총 <strong>190</strong>건</span>
+		</div>
+
+		<!-- 테이블 -->
+		<UiTable columns={columns} rows={rows} showIndex={false} caption="공연장 대관 신청 조회 목록" />
+
+		<!-- 페이징 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

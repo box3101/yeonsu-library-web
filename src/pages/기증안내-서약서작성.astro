@@ -1,0 +1,364 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiTable,
+	UiPagination,
+} from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '서약서작성' }];
+
+const tabMenus = [
+	{ id: 'info', label: '기증안내', href: './기증안내' },
+	{ id: 'pledge', label: '서약서작성', active: true, href: './기증안내-서약서작성' },
+	{ id: 'apply', label: '기증신청조회', href: './기증안내-기증신청조회' },
+];
+
+const columns = [
+	{ key: 'number', label: '번호', width: '60', headerAlign: 'center', align: 'center' },
+	{ key: 'institution', label: '기관', width: '160', headerAlign: 'center', align: 'center' },
+	{ key: 'donor', label: '기증자/처', width: 'auto', headerAlign: 'center', align: 'left' },
+	{ key: 'applicationDate', label: '신청일', width: '100', headerAlign: 'center', align: 'center' },
+	{ key: 'status', label: '신청상태', width: '100', headerAlign: 'center', align: 'center' },
+];
+const rows = [
+	{ number: '1146', institution: '선학별빛', donor: '이지수', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '145', institution: '해찬솔공원', donor: '김화진', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '144', institution: '송도4동스마트', donor: '이상엽', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '143', institution: '선학별빛', donor: '김경중', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '142', institution: '선학별빛', donor: '김준희', applicationDate: '2025.07.23', status: '신청취소' },
+	{ number: '141', institution: '선학별빛', donor: '개인', applicationDate: '2025.07.23', status: '신청취소' },
+	{ number: '140', institution: '선학별빛', donor: '정현화', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '139', institution: '선학별빛', donor: '허선경', applicationDate: '2025.07.23', status: '신청승인' },
+	{ number: '138', institution: '선학별빛', donor: '이혜지', applicationDate: '2025.07.23', status: '신청중' },
+	{ number: '137', institution: '선학별빛', donor: '임한서', applicationDate: '2025.07.23', status: '신청승인' },
+];
+---
+
+<Layout title="서약서작성">
+	<SubLayout title="서약서작성" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 개인정보의 수집 이용 동의 -->
+		<section class="privacy-section">
+			<h3 class="section-title-type2">개인정보의 수집·이용 동의</h3>
+
+			<!-- 개인정보 수집 이용 내용 박스 -->
+			<div class="info-box">
+				<div class="info-box__header">
+					<div class="info-box__icon">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="3.33" y="3.33" width="13.33" height="13.33" fill="#323333"></rect>
+						</svg>
+					</div>
+					<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
+				</div>
+				<div class="info-box__content">
+					<ol class="info-list">
+						<li class="list-none">
+							<strong>1. 개인정보의 수집ㆍ이용의 목적</strong>
+							<p>
+								<span class="text-primary">
+									(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관 업무,
+									독서토론실 대관 업무, 하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
+								</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
+							</p>
+						</li>
+						<li class="list-none">
+							<strong>2. 수집하려는 개인정보의 항목</strong>
+							<ul>
+								<li>
+									가. 필수항목 : <span class="text-primary">성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일</span>
+								</li>
+								<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
+							</ul>
+						</li>
+						<li class="list-none">
+							<strong>3. 개인정보의 보유 및 이용기간 : 1년</strong>
+						</li>
+					</ol>
+				</div>
+			</div>
+
+			<!-- 동의 라디오 버튼 -->
+			<div class="terms-item__radio flex-col items-end gap-15 mt15">
+				<p class="radio-question">
+					본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌
+					수집ㆍ이용에 동의합니다.
+				</p>
+				<div class="radio-group">
+					<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+					<div class="ui-radio ui-radio--medium">
+						<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+						<div class="ui-radio__item">
+							<!-- 숨겨진 실제 라디오 input 요소 -->
+							<input
+								type="radio"
+								id="privacy-disagree"
+								name="privacy-collection"
+								value="disagree"
+								class="ui-radio__input"
+							/>
+							<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+							<div class="ui-radio__control">
+								<!-- 선택 시 표시될 내부 원형 도트 -->
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+
+						<label for="privacy-disagree" class="ui-radio__label">
+							<span class="ui-radio__title">동의안함</span>
+						</label>
+					</div>
+					<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+					<div class="ui-radio ui-radio--medium">
+						<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+						<div class="ui-radio__item">
+							<!-- 숨겨진 실제 라디오 input 요소 -->
+							<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
+							<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+							<div class="ui-radio__control">
+								<!-- 선택 시 표시될 내부 원형 도트 -->
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+
+						<label for="privacy-agree" class="ui-radio__label">
+							<span class="ui-radio__title">동의함</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 기증서약서 다운로드 -->
+		<div class="flex justify-end">
+			<UiButton
+				variant="primary"
+				size="medium"
+				text="기증서약서 다운로드"
+				icon="icon-download"
+				iconPosition="right"
+				iconAddClass="icon icon-white"
+			/>
+		</div>
+
+		<!-- 기증정보 -->
+		<section class="member-section">
+			<h3 class="section-title">기증정보</h3>
+		</section>
+
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">입력안내</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>
+						비밀번호는 영문자, 숫자, 특수문자를 1개 이상 포함하여 9~15자리로 입력해주세요. (※ 특수기호 '#','^' 제외)
+					</li>
+					<li>비밀번호는 신청 조회 시 꼭 필요하며, 등록 완료 후 비밀번호 수정/찾기가 어려우니 꼭 확인해주세요.</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 폼리스트 -->
+		<form action="">
+			<div class="form-grid">
+				<!-- 기증도서관 -->
+				<div class="form-field">
+					<label class="form-label required">기증도서관</label>
+					<UiSelect
+						size="large"
+						id="library"
+						name="library"
+						options={[
+							{ value: '', label: '선택' },
+							{ value: '연수꿈담', label: '연수꿈담도서관' },
+							{ value: '송도국제', label: '송도국제도서관' },
+							{ value: '청학', label: '청학도서관' },
+							{ value: '해돋이', label: '해돋이도서관' },
+							{ value: '해찬솔공원', label: '해찬솔공원도서관' },
+							{ value: '선학별빛', label: '선학별빛도서관' },
+							{ value: '누리공원', label: '누리공원도서관' },
+						]}
+						required={true}
+					/>
+				</div>
+
+				<!-- 개인 및 기관명 -->
+				<div class="form-field">
+					<label class="form-label required">개인 및 기관명</label>
+					<UiInput id="donorType" name="donorType" placeholder="개인 및 기관명" required={true} size="large" />
+				</div>
+
+				<!-- 연락처 -->
+				<div class="form-field">
+					<label class="form-label required">연락처</label>
+					<div class="phone-group flex items-center gap-10">
+						<UiInput id="contact1" name="contact1" placeholder="010" maxlength="3" size="large" />
+						<span class="form-separator">-</span>
+						<UiInput id="contact2" name="contact2" placeholder="1234" maxlength="4" size="large" />
+						<span class="form-separator">-</span>
+						<UiInput id="contact3" name="contact3" placeholder="5678" maxlength="4" size="large" />
+					</div>
+				</div>
+
+				<!-- 주소 -->
+				<div class="form-field form-field--full">
+					<label class="form-label required">주소</label>
+					<div class="address-group">
+						<div class="input-with-button">
+							<UiInput id="zipcode" name="zipcode" placeholder="우편번호" readonly={true} size="large" />
+							<UiButton variant="tertiary" size="large" text="우편번호" type="button" />
+						</div>
+						<UiInput id="address1" name="address1" placeholder="주소" readonly={true} size="large" />
+						<UiInput id="address2" name="address2" placeholder="상세주소" />
+					</div>
+				</div>
+
+				<!-- 주요 기증 분야 -->
+				<div class="form-field">
+					<label class="form-label required">주요 기증 분야</label>
+					<UiInput
+						id="donationField"
+						name="donationField"
+						placeholder="예) 일반도서, 아동청소년도서"
+						required={true}
+						size="large"
+					/>
+				</div>
+
+				<!-- 도서수량 -->
+				<div class="form-field">
+					<label class="form-label required">도서수량</label>
+					<UiInput id="bookQuantity" name="bookQuantity" placeholder="도서수량" required={true} size="large" />
+				</div>
+
+				<!-- 등록제한자료 반입여부 -->
+				<div class="form-field">
+					<label class="form-label required">등록제한자료 반입여부</label>
+					<div class="radio-group">
+						<div class="ui-radio ui-radio--medium">
+							<div class="ui-radio__item">
+								<input
+									type="radio"
+									id="material-allowed"
+									name="restrictedMaterial"
+									value="allowed"
+									class="ui-radio__input"
+									checked
+								/>
+								<div class="ui-radio__control">
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+							<label for="material-allowed" class="ui-radio__label">
+								<span class="ui-radio__title">등록제한자료 반입여부</span>
+							</label>
+						</div>
+						<div class="ui-radio ui-radio--medium">
+							<div class="ui-radio__item">
+								<input
+									type="radio"
+									id="material-restricted"
+									name="restrictedMaterial"
+									value="restricted"
+									class="ui-radio__input"
+								/>
+								<div class="ui-radio__control">
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+							<label for="material-restricted" class="ui-radio__label">
+								<span class="ui-radio__title">반입(기증 불가)</span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- 연령 -->
+				<div class="form-field">
+					<label class="form-label required">연령</label>
+					<div class="radio-group">
+						<div class="ui-radio ui-radio--medium">
+							<div class="ui-radio__item">
+								<input type="radio" id="age-10-20" name="age" value="10-20" class="ui-radio__input" checked />
+								<div class="ui-radio__control">
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+							<label for="age-10-20" class="ui-radio__label">
+								<span class="ui-radio__title">10~20명</span>
+							</label>
+						</div>
+						<div class="ui-radio ui-radio--medium">
+							<div class="ui-radio__item">
+								<input type="radio" id="age-20-30" name="age" value="20-30" class="ui-radio__input" />
+								<div class="ui-radio__control">
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+							<label for="age-20-30" class="ui-radio__label">
+								<span class="ui-radio__title">20~30명</span>
+							</label>
+						</div>
+						<div class="ui-radio ui-radio--medium">
+							<div class="ui-radio__item">
+								<input type="radio" id="age-30-40" name="age" value="30-40" class="ui-radio__input" />
+								<div class="ui-radio__control">
+									<div class="ui-radio__dot"></div>
+								</div>
+							</div>
+							<label for="age-30-40" class="ui-radio__label">
+								<span class="ui-radio__title">30~40명</span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- 이메일 -->
+				<div class="form-field">
+					<label class="form-label required">이메일</label>
+					<UiInput
+						id="email"
+						name="email"
+						type="email"
+						placeholder="이메일을 입력해주세요"
+						required={true}
+						size="large"
+					/>
+				</div>
+
+				<!-- 비밀번호 -->
+				<div class="form-field">
+					<label class="form-label required">비밀번호</label>
+					<UiInput id="password" name="password" type="password" required={true} size="large" />
+				</div>
+
+				<!-- 비밀번호 확인 -->
+				<div class="form-field">
+					<label class="form-label required">비밀번호 확인</label>
+					<UiInput id="passwordConfirm" name="passwordConfirm" type="password" required={true} size="large" />
+				</div>
+			</div>
+
+			<!-- 제출 버튼 -->
+			<div class="form-actions">
+				<UiButton size="large" class="w-140-mobile-full" variant="darkGray" text="취소" type="button" />
+				<UiButton size="large" class="w-140-mobile-full" variant="primary" text="신청" type="submit" />
+			</div>
+		</form>
+	</SubLayout>
+</Layout>
