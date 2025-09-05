@@ -271,7 +271,7 @@ ul.movie-card-wrp {
 
 	&__content {
 		li {
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 			position: relative;
 			padding-left: to-rem(16);
 			@include font(to-rem(17), 400, #191a1a);
@@ -288,6 +288,12 @@ ul.movie-card-wrp {
 			}
 			&:last-child {
 				margin-bottom: 0;
+			}
+			&.list-none {
+				padding-left: 0;
+				&::before {
+					display: none;
+				}
 			}
 		}
 	}
@@ -336,9 +342,10 @@ ul.movie-card-wrp {
 
 		&__content li {
 			padding-left: 16px;
-			font-size: 17px;
+			font-size: to-rem(15);
 			line-height: 1.5;
 			word-break: keep-all;
+			margin-bottom: 5px;
 			@include makeBefore {
 				top: 11px;
 			}
@@ -348,6 +355,65 @@ ul.movie-card-wrp {
 		&__table-wrapper &__table tr td {
 			padding: 20px 10px;
 			font-size: 15px;
+		}
+	}
+}
+
+/* ========================================
+   - 가로 방향으로 카드들이 배치
+   - 각 카드는 하나의 데이터 항목을 표현
+======================================== */
+.contact-info {
+	h3 {
+		margin-top: 40px;
+		@include font(to-rem(24), 400, #191919);
+		@include makeBefore {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 20px;
+			height: 20px;
+			@include bg-image('./assets/images/icon/icon-check_circle.svg');
+		}
+		position: relative;
+		padding-left: 25px;
+	}
+}
+.contact-table-wrp.scroll-x {
+	@include mobile {
+		overflow-x: auto;
+	}
+	table.contact-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 25px;
+		border-top: 2px solid #30619b;
+		@include mobile {
+			min-width: 600px;
+		}
+		tbody {
+			tr {
+				th + td {
+					padding: 18px 0;
+					text-align: center;
+					line-height: 150%;
+					@include font(to-rem(15), 700, #191919);
+
+					@include mobile {
+						font-size: 13px;
+						padding: 18px 10px;
+					}
+				}
+				th {
+					background-color: #ecf2f9;
+					border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
+				}
+				td {
+					border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
+					@include font(to-rem(17), 400, #4b4d4d);
+				}
+			}
 		}
 	}
 }
@@ -1162,14 +1228,16 @@ ul.movie-card-wrp {
 			background: #f8f9fa;
 
 			img {
-				filter: brightness(0) saturate(100%) invert(40%) sepia(73%) saturate(1295%) hue-rotate(202deg) brightness(97%) contrast(89%);
+				filter: brightness(0) saturate(100%) invert(40%) sepia(73%) saturate(1295%) hue-rotate(202deg) brightness(97%)
+					contrast(89%);
 			}
 		}
 
 		img {
 			width: to-rem(19.2);
 			height: to-rem(19.2);
-			filter: brightness(0) saturate(100%) invert(46%) sepia(0%) saturate(2%) hue-rotate(349deg) brightness(108%) contrast(88%);
+			filter: brightness(0) saturate(100%) invert(46%) sepia(0%) saturate(2%) hue-rotate(349deg) brightness(108%)
+				contrast(88%);
 			transition: filter 0.2s ease;
 		}
 	}
@@ -1357,7 +1425,8 @@ ul.movie-card-wrp {
 				width: to-rem(24);
 				height: to-rem(24);
 				flex-shrink: 0;
-				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(17deg) brightness(100%) contrast(100%);
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(17deg) brightness(100%)
+					contrast(100%);
 			}
 		}
 
@@ -4108,6 +4177,10 @@ ul.movie-card-wrp {
 		width: 100%;
 		margin-top: to-rem(24) !important;
 
+		@include mobile {
+			margin-bottom: 35px;
+		}
+
 		// 스크롤바 스타일링
 		scrollbar-width: thin;
 		scrollbar-color: #ccc transparent;
@@ -5361,6 +5434,8 @@ div.bookshelf-item {
 		text-align: center;
 	}
 	.step-sub {
+		margin-top: 10px;
+		word-break: keep-all;
 		display: block;
 		font-size: to-rem(14);
 		color: $gray-500;
@@ -6894,7 +6969,6 @@ div.bookshelf-item {
 
 .info-notice__header {
 	display: flex;
-	align-items: center;
 	gap: 0.5rem;
 	margin-bottom: 0.5rem;
 }
@@ -6905,6 +6979,11 @@ div.bookshelf-item {
 	justify-content: center;
 	width: 20px;
 	height: 20px;
+	margin-top: 4px;
+
+	@include mobile {
+		margin-top: 1px;
+	}
 }
 
 .info-notice__title {

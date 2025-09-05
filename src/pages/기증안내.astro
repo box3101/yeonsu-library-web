@@ -1,0 +1,244 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiTextarea, UiSelect, UiDatePicker, UiRadio, UiTab, CardTable } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '기증안내' }];
+
+const tabMenus = [
+	{ id: 'info', label: '기증안내', active: true, href: './기증안내' },
+	{ id: 'pledge', label: '서약서작성', href: './기증안내-서약서작성' },
+	{ id: 'apply', label: '기증신청조회', href: './기증안내-기증신청조회' },
+];
+---
+
+<Layout title="기증안내">
+	<SubLayout title="기증안내" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 도서기증 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">도서기증</h3>
+		</div>
+
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">
+					집에서 잠자고 있는 질좋은 장서를 보다 많은 시민에게 제공하기 위해 도서를 기증 받고 있습니다. <br /> 기증 참여는
+					개인, 단체 누구나 가능합니다.
+				</h3>
+			</div>
+		</div>
+
+		<div class="usage-guide mt40">
+			<ul class="usage-guide__content">
+				<li class="list-none">
+					※ <span class="text-primary">용인중앙, 구성도서관은 리모 델링 공사로 인하여 아래 기간 동안 휴관입니다.</span>
+				</li>
+				<li>용인중앙도서관 : 2025. 1. 1. ~ 2026. 1월</li>
+				<li>구성도서관 : 2025. 1. 1. ~ 2025. 11월</li>
+			</ul>
+		</div>
+
+		<!-- 기증절차 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">기증절차</h3>
+			<div class="step-process">
+				{
+					[...Array(4)].map((_, index) => {
+						const stepNumber = index + 1;
+						const stepContent = [
+							{
+								content: "서약서 작성<br /><span class='step-sub'>홈페이지에서 서약서 작성 후 기증 신청</span>",
+								arrow: true,
+							},
+							{
+								content:
+									"도서관 방문<br /><span class='step-sub'>기증신청조회에서 서약서를 출력, 기증 자료와 함께 제출</span>",
+								arrow: true,
+							},
+							{
+								content: "기증 자료 선정<br /><span class='step-sub'>기준에 따라 자료 선정 및 장서 등록</span>",
+								arrow: true,
+							},
+							{
+								content:
+									"기증 자료 목록 게시<br /><span class='step-sub'>승인 완료 후 장서로 등록된 기증자료 목록을 게시</span>",
+								arrow: false,
+							},
+						][index];
+
+						return (
+							<div class="step-item" key={stepNumber}>
+								<div class="step-number">{stepNumber}</div>
+								<div class="step-content" set:html={stepContent.content} />
+								{stepContent.arrow && (
+									<div class="step-arrow">
+										<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+									</div>
+								)}
+							</div>
+						);
+					})
+				}
+			</div>
+		</div>
+
+		<!-- 기증대상 자료 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">기증대상 자료</h3>
+			<ul class="usage-guide__content">
+				<li>신간도서로 도서관에 미소장중인 자료</li>
+				<li>소장되어 있으나 대출빈도가 높은 자료</li>
+				<li>향토자료 및 희귀자료 등 소장가치가 있다고 판단되는 자료</li>
+				<li>점자도서, 큰글자 도서 등 장애인을 위한 자료</li>
+				<li>기타 도서관 장서로 활용 가능한 자료</li>
+			</ul>
+		</div>
+
+		<!-- 기증제외 자료 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">기증제외 자료</h3>
+			<ul class="usage-guide__content">
+				<li>용인시 도서관에서 이미 소장하고 있는 자료</li>
+				<li>파손·오손된 자료 및 개인 복사본 자료</li>
+				<li>수험서, 문제집, 만화 등의 자료</li>
+				<li>당해년 기준 발행 10년 이상된 출판자료</li>
+				<li>기타 도서관 소장에 부적합하다고 판단되는 자료</li>
+			</ul>
+		</div>
+
+		<!-- 용인시립도서고나 기증접수 및 문의 -->
+
+		<!-- 처인구 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">용인시립도서관 기증접수 및 문의</h3>
+		</div>
+
+		<div class="contact-info">
+			<h3>처인구</h3>
+			<div class="contact-table-wrp scroll-x">
+				<table class="contact-table">
+					<colgroup>
+						<col width="20%" />
+						<col width="30%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<tr>
+						<th>용인중앙도서관</th>
+						<td>031-6193-1260</td>
+						<th>포곡도서관</th>
+						<td>031-6193-1290</td>
+					</tr>
+					<tr>
+						<th>동백도서관</th>
+						<td>031-6193-1330</td>
+						<th>남사도서관</th>
+						<td>031-6193-1370</td>
+					</tr>
+					<tr>
+						<th>양지백현도서관</th>
+						<td>031-6193-1285</td>
+						<th>어울림도서관</th>
+						<td>031-6193-1390</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- 기흥구 -->
+		<div class="contact-info">
+			<h3>기흥구</h3>
+			<div class="contact-table-wrp scroll-x">
+				<table class="contact-table">
+					<colgroup>
+						<col width="20%" />
+						<col width="30%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<tr>
+						<th>용인중앙도서관</th>
+						<td>031-6193-1260</td>
+						<th>포곡도서관</th>
+						<td>031-6193-1290</td>
+					</tr>
+					<tr>
+						<th>모현도서관</th>
+						<td>031-6193-1330</td>
+						<th>남사도서관</th>
+						<td>031-6193-1370</td>
+					</tr>
+					<tr>
+						<th>양지해밀도서관</th>
+						<td>031-6193-1285</td>
+						<th>이동꿈틀도서관</th>
+						<td>031-6193-1390</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- 수지구 -->
+		<div class="contact-info">
+			<h3>수지구</h3>
+			<div class="contact-table-wrp scroll-x">
+				<table class="contact-table">
+					<colgroup>
+						<col width="20%" />
+						<col width="30%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<tr>
+						<th>용인중앙도서관</th>
+						<td>031-6193-1260</td>
+						<th>포곡도서관</th>
+						<td>031-6193-1290</td>
+					</tr>
+					<tr>
+						<th>모현도서관</th>
+						<td>031-6193-1330</td>
+						<th>남사도서관</th>
+						<td>031-6193-1370</td>
+					</tr>
+					<tr>
+						<th>양지해밀도서관</th>
+						<td>031-6193-1285</td>
+						<th>이동꿈틀도서관</th>
+						<td>031-6193-1390</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- 타기관 기증 문의 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">타기관 기증 문의</h3>
+			<ul class="usage-guide__content">
+				<li>
+					국립중앙도서관 책다모아(<a
+						href="https://www.nl.go.kr/NL/contents/N30401010000.do"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						https://www.nl.go.kr/NL/contents/N30401010000.do
+					</a>)
+				</li>
+				<li>
+					사랑의 책 나누기 운동본부(<a
+						href="https://www.facebook.com/nanumbk/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						https://www.facebook.com/nanumbk/
+					</a>)
+				</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>

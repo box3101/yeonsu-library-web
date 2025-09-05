@@ -1,6 +1,6 @@
 {
 	// 파일 저장 시 자동 포맷팅
-	"editor.formatOnSave": true,
+	// "editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": "explicit"
 	},
@@ -23,8 +23,8 @@
 	},
 
 	// CSS 자동완성 향상
-	"css.validate": true,
-	"scss.validate": true,
+	// "css.validate": true,
+	// "scss.validate": true,
 
 	// 컴포넌트 자동완성 향상
 	"typescript.suggest.autoImports": true,
@@ -44,10 +44,10 @@
 	},
 
 	// 코드 줄 길이 설정
-	"editor.rulers": [200],
+	"editor.rulers": [120],
 	"editor.wordWrap": "wordWrapColumn",
-	"editor.wordWrapColumn": 200,
-	"prettier.printWidth": 200,
+	"editor.wordWrapColumn": 120,
+	"prettier.printWidth": 120,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": false,
 
@@ -55,7 +55,7 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true,
-		"editor.wordWrapColumn": 200
+		"editor.wordWrapColumn": 120
 	},
 
 	// HTML 파일 포맷팅 설정
@@ -76,16 +76,16 @@
 	},
 
 	// CSS/SCSS 파일 포맷팅 설정 (기존 설정 대신)
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.wordWrapColumn": 150,
-		"editor.formatOnSave": true
-	},
+	// "[scss]": {
+	// 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// 	"editor.wordWrapColumn": 150,
+	// 	"editor.formatOnSave": true
+	// },
 
-	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.wordWrapColumn": 150,
-		"editor.formatOnSave": true
-	},
+	// "[css]": {
+	// 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// 	"editor.wordWrapColumn": 150,
+	// 	"editor.formatOnSave": true
+	// },
 	"workbench.editor.enablePreview": true
 }

@@ -310,8 +310,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 			{
 				title: '영화상영',
 				items: [
-					{ label: '이용안내', href: './이용안내' },
-					{ label: '상영작', href: './상영작' },
+					{ label: '이용안내', href: './영화상영-이용안내' },
+					{ label: '상영작', href: './영화상영-상영작' },
 				],
 			},
 			{

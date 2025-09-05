@@ -1,0 +1,39 @@
+---
+// UserGuideTable.astro 컴포넌트는 도서관 이용 안내 테이블을 렌더링합니다.
+// 이 컴포넌트는 props를 통해 데이터를 받아서 동적으로 테이블을 생성합니다.
+// h3, th, td의 내용을 외부에서 설정할 수 있도록 props를 제공합니다.
+
+export interface Props {
+	title: string;
+	headers: string[];
+	guideData: {
+		[key: string]: string | number;
+	}[];
+}
+
+const { title, headers, guideData } = Astro.props;
+---
+
+<div class="usage-guide">
+	<h3 class="usage-guide__title">{title}</h3>
+	<div class="usage-guide__table-wrapper">
+		<table class="usage-guide__table">
+			<thead>
+				<tr>
+					{headers.map(header => <th>{header}</th>)}
+				</tr>
+			</thead>
+			<tbody>
+				{
+					guideData.map(item => (
+						<tr>
+							{headers.map(header => (
+								<td>{item[header]}</td>
+							))}
+						</tr>
+					))
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
