@@ -9025,3 +9025,69 @@ div.bookshelf-item {
 	@include font(to-rem(15), 500, #d7424e);
 	line-height: 1.5;
 }
+
+// 어린이 전집 서비스 버튼 그리드
+.children-service-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: to-rem(16);
+	width: 100%;
+
+	@include mobile {
+		gap: 12px;
+	}
+
+	.children-service-grid__button {
+		background: #ecf2fe;
+		border: 1px solid #256ef4;
+		border-radius: to-rem(6);
+		height: to-rem(48);
+		padding: 0 to-rem(16);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		min-width: to-rem(78);
+
+		@include mobile {
+			height: 48px;
+			padding: 0 12px;
+			border-radius: 6px;
+		}
+
+		&__text {
+			@include font(to-rem(17), 400, #0b50d0);
+			line-height: 1.5;
+			text-align: center;
+			font-family: 'Pretendard GOV', sans-serif;
+
+			@include mobile {
+				font-size: 16px;
+			}
+		}
+
+		&--active {
+			background: #244874;
+			border-color: #244874;
+
+			.children-service-grid__button__text {
+				color: #ffffff;
+			}
+		}
+
+		&:hover {
+			background: alpha(#ecf2fe, 0.8);
+			
+			&.children-service-grid__button--active {
+				background: alpha(#244874, 0.9);
+			}
+		}
+
+		&:focus {
+			outline: 2px solid #256ef4;
+			outline-offset: 2px;
+		}
+	}
+}

@@ -115,8 +115,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 			{
 				title: '영유아전집대여사업',
 				items: [
-					{ label: '서비스안내', href: './서비스안내' },
-					{ label: '서비스신청', href: './서비스신청' },
+					{ label: '서비스안내', href: './영유아전집대여사업-서비스안내' },
+					{ label: '서비스신청', href: './영유아전집대여사업-서비스신청' },
 				],
 			},
 		],

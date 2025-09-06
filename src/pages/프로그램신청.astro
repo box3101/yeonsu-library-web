@@ -52,7 +52,13 @@ const searchOptions = [
 			<div class="program-search-section">
 				<div class="program-search-form">
 					<UiSelect name="library" options={libraryOptions} value="" size="medium" class="program-search__library" />
-					<UiSelect name="searchType" options={searchOptions} value="title" size="medium" class="program-search__type" />
+					<UiSelect
+						name="searchType"
+						options={searchOptions}
+						value="title"
+						size="medium"
+						class="program-search__type"
+					/>
 					<UiInput type="text" name="searchQuery" placeholder="검색어를 입력해주세요." class="program-search__input" />
 					<UiButton text="검색" variant="darkBlue" size="medium" class="program-search__button" />
 				</div>
@@ -80,7 +86,8 @@ const searchOptions = [
 								</div>
 								<div class="program-card__body">
 									<h3 class="program-card__title">
-										[선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)
+										[선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리
+										여행(7/30 15시)
 									</h3>
 									<div class="program-card__details">
 										<div class="program-card__detail-row">
@@ -159,8 +166,8 @@ const searchOptions = [
 					</li>
 				</div>
 
-				<!-- 페이지네이션 (기존 UiPagination 활용) -->
-				<div class="program-pagination">
+				<!-- 페이지네이션  -->
+				<div class="pagination-section">
 					<UiPagination currentPage={1} totalPages={46} showFirstLast={true} showPrevNext={true} />
 				</div>
 			</div>
