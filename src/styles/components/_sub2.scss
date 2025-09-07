@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use 'sass:color';
+@use 'sass:math';
+.color-red{
+  color: #D7424E;
+}
+
+.integrated-member-notice {
+  margin-bottom: to-rem(20);
+  font-size: to-rem(14);
+  color: #333;
+  line-height: 1.5;
+}
+

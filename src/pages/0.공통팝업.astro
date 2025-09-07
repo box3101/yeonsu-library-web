@@ -22,6 +22,8 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 		<UiButton text="책장 도서 담기/이동" data-modal-open="my-modal6" />
 		<UiButton text="책장 도서 삭제" data-modal-open="my-modal7" />
 		<UiButton text="책장 편집" data-modal-open="my-modal8" />
+		<UiButton text="도서관별 현황" data-modal-open="library-status-modal" />
+		<UiButton text="통합회원 가입여부" data-modal-open="integrated-member-modal" />
 		<UiButton text="연수구립도서관 도서검색" onclick="openBookSearchWindow()" />
 	</div>
 
@@ -226,9 +228,58 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 			</ul>
 		</div>
 	</UiModal>
+
+	<UiModal id="library-status-modal" title="도서관별 현황" class="library-status-modal">
+		<div class="library-status-table">
+			<div class="library-status-table__header">
+				<div class="library-status-table__header-cell">도서관명</div>
+				<div class="library-status-table__header-cell">예약권수 (0 / 30)<br />(현재예약권수/예약가능권수)</div>
+			</div>
+			<div class="library-status-table__body">
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">연수정학</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">연수꿈담</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">송도국제</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">해돋이</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">선학별빛</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">동춘나래</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+				<div class="library-status-table__row">
+					<div class="library-status-table__cell">옥련1동</div>
+					<div class="library-status-table__cell">0/30</div>
+				</div>
+			</div>
+		</div>
+	</UiModal>
+	
+	<UiModal id="integrated-member-modal" title="통합회원 가입여부" confirmText="취소" cancelText="닫기">
+		<p class="integrated-member-notice">회원님은 통합회원입니다.</p>
+		<div class="pop-list">
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">통합대출번호</dt>
+				<dd class="pop-list-item-content">123456712345567</dd>
+			</dl>
+		</div>
+	</UiModal>
 </Layout>
 
-<script>
+<script is:inline>
 	// 도서검색 인쇄 새 창 열기 - 글로벌 스코프에 등록
 	window.openBookSearchWindow = function () {
 		const printWindow = window.open(

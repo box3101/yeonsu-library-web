@@ -76334,6 +76334,65 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   color: #D7424E;
 }
 
+.library-status-modal .library-status-table {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+.library-status-modal .library-status-table__header {
+  display: flex;
+  background-color: #ecf2fe;
+  border-bottom: 1px solid #ddd;
+}
+.library-status-modal .library-status-table__header-cell {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #333;
+  border-right: 1px solid #ddd;
+  line-height: 1.4;
+}
+.library-status-modal .library-status-table__header-cell:last-child {
+  border-right: none;
+}
+.library-status-modal .library-status-table__header-cell:first-child {
+  flex: 0 0 50%;
+}
+.library-status-modal .library-status-table__body .library-status-table__row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+.library-status-modal .library-status-table__body .library-status-table__row:last-child {
+  border-bottom: none;
+}
+.library-status-modal .library-status-table__body .library-status-table__row:nth-child(even) {
+  background-color: #fafafa;
+}
+.library-status-modal .library-status-table__cell {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  font-size: 0.875rem;
+  color: #333;
+}
+.library-status-modal .library-status-table__cell:last-child {
+  border-right: none;
+}
+.library-status-modal .library-status-table__cell:first-child {
+  flex: 0 0 50%;
+  text-align: left;
+  padding-left: 1.25rem;
+}
+
+.integrated-member-notice {
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: #333;
+  line-height: 1.5;
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
@@ -90387,6 +90446,7 @@ body.modal-open {
   line-height: 1.5;
   color: #1e2124;
   margin: 0;
+  padding-top: 5px;
 }
 @media (max-width: 900px) {
   .ui-modal__title {
