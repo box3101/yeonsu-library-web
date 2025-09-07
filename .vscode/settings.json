@@ -11,7 +11,7 @@
 	},
 
 	// 자동 저장 설정
-	"files.autoSave": "afterDelay",
+	"files.autoSave": "off",
 	"files.autoSaveDelay": 1000,
 
 	// 파일 감시 제외 (성능 향상)

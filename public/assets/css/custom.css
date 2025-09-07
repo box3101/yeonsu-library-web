@@ -1,0 +1,4 @@
+.filter-toggle-hidden-btn {
+  display: none;
+  pointer-events: none;
+}

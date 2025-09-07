@@ -14,7 +14,11 @@ import {
 	UiSearchFilter,
 } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '소장도서검색' }];
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/support' },
+	{ label: '소장도서검색' },
+];
 
 // 도서관 데이터 정의
 const libraries = [
@@ -138,7 +142,14 @@ const searchFilterGroups = [
 					<label for="author-filter-toggle" class="filter-label">
 						저자
 						<span class="filter-label-btn">
-							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+							<UiButton
+								variant="ghost"
+								size="small"
+								iconOnly
+								icon="icon-plus"
+								iconPosition="left"
+								class="filter-toggle-btn"
+							/>
 						</span>
 					</label>
 					<div class="filter-group-wrapper">
@@ -169,7 +180,14 @@ const searchFilterGroups = [
 					<label for="publisher-filter-toggle" class="filter-label">
 						발행처
 						<span class="filter-label-btn">
-							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+							<UiButton
+								variant="ghost"
+								size="small"
+								iconOnly
+								icon="icon-plus"
+								iconPosition="left"
+								class="filter-toggle-btn"
+							/>
 						</span>
 					</label>
 					<div class="filter-group-wrapper">
@@ -221,7 +239,14 @@ const searchFilterGroups = [
 					<label for="category-filter-toggle" class="filter-label">
 						주제분류
 						<span class="filter-label-btn">
-							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+							<UiButton
+								variant="ghost"
+								size="small"
+								iconOnly
+								icon="icon-plus"
+								iconPosition="left"
+								class="filter-toggle-btn"
+							/>
 						</span>
 					</label>
 					<div class="filter-group-wrapper">
@@ -248,7 +273,14 @@ const searchFilterGroups = [
 					<label for="subject-filter-toggle" class="filter-label">
 						주제어
 						<span class="filter-label-btn">
-							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+							<UiButton
+								variant="ghost"
+								size="small"
+								iconOnly
+								icon="icon-plus"
+								iconPosition="left"
+								class="filter-toggle-btn"
+							/>
 						</span>
 					</label>
 					<div class="filter-group-wrapper">
@@ -274,7 +306,14 @@ const searchFilterGroups = [
 					<label for="series-filter-toggle" class="filter-label">
 						총서명
 						<span class="filter-label-btn">
-							<UiButton variant="ghost" size="small" iconOnly icon="icon-plus" iconPosition="left" class="filter-toggle-btn" />
+							<UiButton
+								variant="ghost"
+								size="small"
+								iconOnly
+								icon="icon-plus"
+								iconPosition="left"
+								class="filter-toggle-btn"
+							/>
 						</span>
 					</label>
 					<div class="filter-group-wrapper">
@@ -289,6 +328,58 @@ const searchFilterGroups = [
 								<UiCheckbox name="subject" value="예술" label="예술" />
 								<UiCheckbox name="subject" value="정치" label="정치" />
 								<UiCheckbox name="subject" value="경제" label="경제" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 전체해제 섹션 -->
+				<div class="selected-filters-section">
+					<div class="selected-filters-container">
+						<div class="clear-all-action">
+							<span class="clear-all-text">전체해제</span>
+							<button type="button" class="clear-all-btn" aria-label="전체해제">
+								<img src="./assets/images/icon/icon-reset.svg" alt="전체해제" class="reset-icon" />
+							</button>
+						</div>
+						<div class="selected-filters-list">
+							<div class="filter-tags-container">
+								<div class="filter-tag">
+									<span class="tag-text">저자 - 허균</span>
+									<button type="button" class="tag-remove-btn" aria-label="저자 - 허균 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
+								<div class="filter-tag">
+									<span class="tag-text">발행처 - 파란자전거</span>
+									<button type="button" class="tag-remove-btn" aria-label="발행처 - 파란자전거 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
+								<div class="filter-tag">
+									<span class="tag-text">주제분류 - 주제1</span>
+									<button type="button" class="tag-remove-btn" aria-label="주제분류 - 주제1 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
+								<div class="filter-tag">
+									<span class="tag-text">주제분류 - 주제1</span>
+									<button type="button" class="tag-remove-btn" aria-label="주제분류 - 주제1 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
+								<div class="filter-tag">
+									<span class="tag-text">총서명 - 국어시간에 고전읽기</span>
+									<button type="button" class="tag-remove-btn" aria-label="총서명 - 국어시간에 고전읽기 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
+								<div class="filter-tag">
+									<span class="tag-text">총서명 - 가자 역사 속으로</span>
+									<button type="button" class="tag-remove-btn" aria-label="총서명 - 가자 역사 속으로 제거">
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="delete-icon" />
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -360,7 +451,12 @@ const searchFilterGroups = [
 
 					<!-- 페이징네이션 -->
 					<div class="pagination-section">
-						<UiPagination currentPage={1} totalPages={99} maxVisiblePages={8} onPageChange={page => console.log('Page changed to:', page)} />
+						<UiPagination
+							currentPage={1}
+							totalPages={99}
+							maxVisiblePages={8}
+							onPageChange={page => console.log('Page changed to:', page)}
+						/>
 					</div>
 				</div>
 

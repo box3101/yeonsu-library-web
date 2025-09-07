@@ -385,7 +385,8 @@ body.modal-open {
     // 모바일에서는 배경 제거하고 일반 텍스트처럼 보이게
     font-size: 13px;
     font-weight: 600;
-    width:70px;
+    min-width:70px;
+    padding: 0 10px;
   }
 }
 

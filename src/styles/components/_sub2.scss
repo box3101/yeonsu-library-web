@@ -13,3 +13,143 @@
   line-height: 1.5;
 }
 
+.library-status{
+  .pop-list-item{
+    .pop-list-item-title,
+    .pop-list-item-content {
+      flex:1; background: #ECF2F9;
+      border-bottom: 1px solid var(--color-primary-pr01, #D8E4F3);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; text-align: center; color:#000;
+    }
+    &.library-status-cnt{
+      .pop-list-item-title,
+      .pop-list-item-content {
+        flex:1; background: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 400; text-align: center; color:#000;
+      }
+    }
+  }
+}
+
+.attendance-check-modal {
+  .attendance-description {
+    margin-bottom: to-rem(20);
+
+    p {
+      font-size: to-rem(14);
+      color: #333;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .attendance-example {
+    margin-bottom: to-rem(20);
+    padding: to-rem(16);
+    background-color: #f5f5f5;
+    border-radius: to-rem(4);
+
+    p {
+      font-size: to-rem(14);
+      color: #333;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .attendance-input {
+    textarea {
+      width: 100%;
+      min-height: to-rem(120);
+      padding: to-rem(12);
+      border: 1px solid #ddd;
+      border-radius: to-rem(4);
+      font-size: to-rem(14);
+      line-height: 1.5;
+      resize: vertical;
+      font-family: inherit;
+
+      &::placeholder {
+        color: #999;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #3c79c2;
+        box-shadow: 0 0 0 2px rgba(60, 121, 194, 0.1);
+      }
+    }
+  }
+}
+
+.library-schedule-modal {
+  text-align: center;
+
+  .schedule-header {
+    margin-bottom: to-rem(20);
+
+    h2 {
+      font-size: to-rem(18);
+      font-weight: 600;
+      color: #333;
+      margin: 0 0 to-rem(8) 0;
+    }
+
+    h3 {
+      font-size: to-rem(16);
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+  }
+
+  .schedule-status {
+    margin-bottom: to-rem(24);
+
+    .status-badge {
+      display: inline-block;
+      background-color: #3c79c2;
+      color: white;
+      padding: to-rem(8) to-rem(20);
+      border-radius: to-rem(4);
+      font-size: to-rem(14);
+      font-weight: 500;
+    }
+  }
+
+  .schedule-content {
+    text-align: left;
+    background-color: #f5f5f5;
+    padding: to-rem(20);
+    border-radius: to-rem(4);
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        font-size: to-rem(14);
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: to-rem(8);
+        position: relative;
+        padding-left: to-rem(16);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+

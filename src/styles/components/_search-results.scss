@@ -278,3 +278,138 @@
     gap: 32px;
   }
 }
+
+// Selected Filters Section
+.selected-filters-section {
+  margin-bottom: to-rem(24);
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.selected-filters-container {
+  display: flex;
+  align-items: flex-start;
+  gap: to-rem(8);
+  padding: to-rem(12) 0;
+
+  @include mobile {
+    padding: 12px 0;
+    gap: 8px;
+  }
+}
+
+.clear-all-action {
+  display: flex;
+  align-items: center;
+  gap: to-rem(4);
+  min-width: to-rem(100);
+
+  @include mobile {
+    min-width: 100px;
+    gap: 4px;
+  }
+}
+
+.clear-all-text {
+  font-weight: 700;
+font-size: 1.125rem;
+  line-height: 1.5;
+  color: #000;
+  white-space: nowrap;
+
+  @include mobile {
+   font-size: 19px;
+  }
+}
+
+.clear-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: to-rem(24);
+  height: to-rem(24);
+  background: #fff;
+  border: 1px solid #cdd1d5;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  img{
+    width: 16px;
+    height: 16px;
+  }
+
+  @include mobile {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background: #f5f5f5;
+    border-color: #bbb;
+  }
+}
+
+.selected-filters-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem(8);
+
+  @include mobile {
+    gap: 8px;
+  }
+}
+
+.filter-tag {
+  display: flex;
+  align-items: center;
+  height: to-rem(32);
+  background: #fff;
+  border: 1px solid #cdd1d5;
+  border-radius: to-rem(1000);
+  padding: to-rem(8) to-rem(10);
+  gap: to-rem(4);
+
+  @include mobile {
+    height: 32px;
+    padding: 8px 10px;
+    gap: 4px;
+  }
+}
+
+.tag-text {
+  font-family: 'Pretendard GOV', sans-serif;
+  font-weight: 400;
+  font-size: to-rem(15);
+  line-height: 1.5;
+  color: #1e2124;
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: 15px;
+  }
+}
+
+.tag-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: to-rem(16);
+  height: to-rem(16);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  @include mobile {
+    width: 16px;
+    height: 16px;
+  }
+}

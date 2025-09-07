@@ -24,6 +24,9 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 		<UiButton text="책장 편집" data-modal-open="my-modal8" />
 		<UiButton text="도서관별 현황" data-modal-open="library-status-modal" />
 		<UiButton text="통합회원 가입여부" data-modal-open="integrated-member-modal" />
+		<UiButton text="통합회원 상세조회" data-modal-open="integrated-member-detail-modal" />
+		<UiButton text="출석 체크" data-modal-open="attendance-check-modal" />
+		<UiButton text="도서관상세일정" data-modal-open="library-schedule-modal" />
 		<UiButton text="연수구립도서관 도서검색" onclick="openBookSearchWindow()" />
 	</div>
 
@@ -229,52 +232,119 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 		</div>
 	</UiModal>
 
-	<UiModal id="library-status-modal" title="도서관별 현황" class="library-status-modal">
-		<div class="library-status-table">
-			<div class="library-status-table__header">
-				<div class="library-status-table__header-cell">도서관명</div>
-				<div class="library-status-table__header-cell">예약권수 (0 / 30)<br />(현재예약권수/예약가능권수)</div>
-			</div>
-			<div class="library-status-table__body">
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">연수정학</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">연수꿈담</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">송도국제</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">해돋이</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">선학별빛</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">동춘나래</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-				<div class="library-status-table__row">
-					<div class="library-status-table__cell">옥련1동</div>
-					<div class="library-status-table__cell">0/30</div>
-				</div>
-			</div>
+	<UiModal id="library-status-modal" title="도서관별 현황" showConfirmButton={false}>
+		<div class="pop-list library-status">
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">도서관명</dt>
+				<dd class="pop-list-item-content">예약권수 (0 / 30)<br />(현재예약권수/예약가능권수)</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">연수정학</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">연수꿈담</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">송도국제</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">해돋이</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">선학별빛</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">동춘나래</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
+			<dl class="pop-list-item library-status-cnt">
+				<dt class="pop-list-item-title">옥련1동</dt>
+				<dd class="pop-list-item-content">0/30</dd>
+			</dl>
 		</div>
 	</UiModal>
-	
-	<UiModal id="integrated-member-modal" title="통합회원 가입여부" confirmText="취소" cancelText="닫기">
+
+	<UiModal id="integrated-member-modal" title="통합회원 가입여부" showConfirmButton={false} cancelText="닫기">
 		<p class="integrated-member-notice">회원님은 통합회원입니다.</p>
 		<div class="pop-list">
 			<dl class="pop-list-item">
 				<dt class="pop-list-item-title">통합대출번호</dt>
 				<dd class="pop-list-item-content">123456712345567</dd>
 			</dl>
+		</div>
+	</UiModal>
+
+	<UiModal id="integrated-member-detail-modal" title="통합회원 상세조회" showConfirmButton={false} confirmText="닫기">
+		<p class="integrated-member-notice">회원님은 통합회원입니다.</p>
+		<div class="pop-list">
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">통합대출번호</dt>
+				<dd class="pop-list-item-content">123456712345567</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">대출자이름</dt>
+				<dd class="pop-list-item-content">홍길동</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">생일</dt>
+				<dd class="pop-list-item-content">19xx.07.02(양력)</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">집주소</dt>
+				<dd class="pop-list-item-content">서울특별시 성동구 왕십리로6길 35 우편35 e-Biz센터 3층</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">근무지주소</dt>
+				<dd class="pop-list-item-content">서울특별시 성동구 왕십리로6길 35 우편35 e-Biz센터 3층</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">핸드폰</dt>
+				<dd class="pop-list-item-content">010-0000-0000</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">이메일</dt>
+				<dd class="pop-list-item-content">test@test.com</dd>
+			</dl>
+		</div>
+	</UiModal>
+
+	<UiModal
+		id="attendance-check-modal"
+		title="출석 체크"
+		confirmText="등록"
+		cancelText="닫기"
+		class="attendance-check-modal"
+	>
+		<div class="attendance-description">
+			<p>작성된 책 속 문구를 따라 적고 '등록' 버튼을 클릭하면 출석체크 처리가 됩니다.</p>
+		</div>
+		<div class="attendance-example">
+			<p>행복에 이르는 길은 없다. 행복이 길이다.(p. 152) - 출처: 일리듀// 조정완/문학사상</p>
+		</div>
+		<div class="attendance-input">
+			<textarea name="attendance-text" placeholder="문구를 따라 적어주세요." rows="5"></textarea>
+		</div>
+	</UiModal>
+
+	<UiModal id="library-schedule-modal" title="" class="library-schedule-modal" showConfirmButton={false}>
+		<div class="schedule-header">
+			<h2>2025년 06월 26일</h2>
+			<h3>도서관 상세 일정</h3>
+		</div>
+		<div class="schedule-status">
+			<span class="status-badge">행사</span>
+		</div>
+		<div class="schedule-content">
+			<ul>
+				<li>북스타트 연계 '아기랑 책나들이',</li>
+				<li>★대기자 접수★ 북스타트 연계 '아기랑 책나들이',</li>
+				<li>독서금력 키우기, 독서마라톤</li>
+			</ul>
 		</div>
 	</UiModal>
 </Layout>
