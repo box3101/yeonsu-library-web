@@ -336,10 +336,10 @@ body.modal-open {
   flex-direction: column;
   border-top: to-rem(2) solid #30619b;
   height: 100%;
+  border-bottom: 1px solid $border-color;
 
   @include mobile {
     // 모바일에서는 마진 조정하여 더 깔끔하게 보이도록
-    margin-top: 12px;
     border-top: 1px solid #30619b; // 모바일에서는 더 얇은 보더
   }
 
@@ -378,12 +378,13 @@ body.modal-open {
   background: var(--color-primary-pr00, #ecf2f9);
   display: flex;
   align-items: center;
-  padding-left: to-rem(16);
+  justify-content: center;
 
   @include mobile {
     // 모바일에서는 배경 제거하고 일반 텍스트처럼 보이게
     font-size: 13px;
     font-weight: 600;
+    width:70px;
   }
 }
 
@@ -404,6 +405,30 @@ body.modal-open {
     // 모바일에서는 패딩 제거하고 폰트 크기 조정
     font-size: 14px;
     font-weight: 400;
+  }
+
+  .form-field {
+    margin-top: to-rem(20);
+    width: 100%;
+    &:first-child{
+      margin-top: 0;
+    }
+    .pop-list-item{
+        min-height: 40px;
+    }
+    .ui-checkbox-container{
+      margin-bottom: to-rem(12);
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    .pop-list-item-title{
+      padding-left: 0;
+      @include font(to-rem(15), 400, #191a1a);
+    }
+    .pop-list-item-content{
+      @include font(to-rem(15), 400, #191a1a);
+    }
   }
 }
 

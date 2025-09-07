@@ -7,97 +7,221 @@
 import UiModal from '../components/UI/UiModal.astro';
 import UiButton from '../components/UI/UiButton.astro';
 import UiInput from '../components/UI/UiInput.astro';
+import UiSelect from '../components/UI/UiSelect.astro';
 import Layout from '../layouts/Layout.astro';
+import UiCheckbox from '../components/UI/UiCheckbox.astro';
 ---
 
 <Layout title="공통 팝업 (모달) 예시">
-  <div class="inner max-w-1200 mt40 mb40 flex gap-10 flex-wrap">
-    <UiButton text="도서 예약 신청" data-modal-open="my-modal" />
-    <UiButton text="도서 예약 취소" data-modal-open="my-modal2" />
-    <UiButton text="반납 연기 신청" data-modal-open="my-modal3" />
-    <UiButton text="상호대차 취소" data-modal-open="my-modal4" />
-    <UiButton text="상호대차 신청" data-modal-open="my-modal5" />
-    <UiButton text="책장 도서 담기/이동" data-modal-open="my-modal6" />
-    <UiButton text="책장 도서 삭제" data-modal-open="my-modal7" />
-    <UiButton text="책장 편집" data-modal-open="my-modal8" />
-    <UiButton text="연수구립도서관 도서검색" data-modal-open="my-modal9" />
-  </div>
+	<div class="inner max-w-1200 mt40 mb40 flex gap-10 flex-wrap">
+		<UiButton text="도서 예약 신청" data-modal-open="my-modal" />
+		<UiButton text="도서 예약 취소" data-modal-open="my-modal2" />
+		<UiButton text="반납 연기 신청" data-modal-open="my-modal3" />
+		<UiButton text="상호대차 취소" data-modal-open="my-modal4" />
+		<UiButton text="상호대차 신청" data-modal-open="my-modal5" />
+		<UiButton text="책장 도서 담기/이동" data-modal-open="my-modal6" />
+		<UiButton text="책장 도서 삭제" data-modal-open="my-modal7" />
+		<UiButton text="책장 편집" data-modal-open="my-modal8" />
+		<UiButton text="연수구립도서관 도서검색" data-modal-open="my-modal9" />
+	</div>
 
-  <UiModal id="my-modal" title="도서 예약 신청" content="선택하신 도서를 예약하시겠습니까?" confirmText="확인" cancelText="취소" />
-  <UiModal id="my-modal2" title="도서 예약 취소" content="선택하신 도서의 예약을 취소하시겠습니까?" confirmText="확인" cancelText="취소" />
-  <UiModal id="my-modal3" title="반납 연기 신청" content="선택하신 도서의 반납을 연기하시겠습니까?" confirmText="확인" cancelText="취소" />
-  <UiModal id="my-modal4" title="상호대차 취소" content="선택하신 도서의 상호대차를 취소하시겠습니까?" confirmText="확인" cancelText="취소" />
-  <UiModal id="my-modal5" title="상호대차 신청" confirmText="신청" cancelText="취소">
-    <div class="pop-list">
-      {
-        ['도서명', '저자', '출판사', '발행년도', '소장위치'].map((title, index) => {
-          const contents = ['홍길동 : 홍영우 그림책책  글자테스트스트', '홍영우', '문학동네', '2023', '연수도서관 일반자료실'];
-          return (
-            <dl class="pop-list-item">
-              <dt class="pop-list-item-title">{title}</dt>
-              <dd class="pop-list-item-content">{contents[index]}</dd>
-            </dl>
-          );
-        })
-      }
-    </div>
-    <!-- * 상호대차 안내문구 입니다. -->
-    <p class="pop-notice system-red">* 신청하신 상호대차를 취소하시겠습니까?</p>
-    <p class="pop-notice system-blue">* 신청하신 상호대차를 취소하시겠습니까?</p>
-    <p class="pop-notice system-default">* 신청하신 상호대차를 취소하시겠습니까?</p>
-  </UiModal>
-  <UiModal id="my-modal6" title="책장 도서 담기/이동" confirmText="확인" cancelText="취소">
-    <div class="pop-list type2 max-h-300">
-      <ul>
-        {
-          Array.from({ length: 10 }, (_, index) => (
-            <li class="pop-list-item">
-              <UiButton variant="ghost" text={`내서재${index + 1}`} class="w-full" />
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </UiModal>
-  <UiModal id="my-modal7" title="책장 도서 삭제" content="선택하신 도서를 삭제하시겠습니까?" confirmText="확인" cancelText="취소" />
-  <UiModal id="my-modal8" title="책장 편집" confirmText="확인" cancelText="취소">
-    <div class="flex justify-between gap-10 mb20">
-      <div class="flex-1">
-        <UiInput name="input-name" placeholder="새로 추가할 카테고리 이름을 입력해주세요." />
-      </div>
-      <div class="flex-none">
-        <UiButton text="등록" />
-      </div>
-    </div>
-    <div class="pop-list type2 max-h-300">
-      <ul>
-        {
-          Array.from({ length: 10 }, (_, index) => (
-            <li class="pop-list-item flex justify-between items-center">
-              <UiButton variant="ghost" text={`내서재${index + 1}`} class="w-full" />
-              <div class="btn-wrp flex gap-10">
-                <UiButton size="small" variant="primary" text="수정" class="w-full" />
-                <UiButton size="small" variant="darkGray" text="삭제" class="w-full" />
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </UiModal>
-  <UiModal id="my-modal9" title="연수구립도서관 도서검색" confirmText="인쇄하기">
-    <div class="pop-list">
-      {
-        ['도서명', '저자', '출판사', '발행년도', '소장위치'].map((title, index) => {
-          const contents = ['홍길동 : 홍영우 그림책책  글자테스트스트', '홍영우', '문학동네', '2023', '연수도서관 일반자료실'];
-          return (
-            <dl class="pop-list-item">
-              <dt class="pop-list-item-title">{title}</dt>
-              <dd class="pop-list-item-content">{contents[index]}</dd>
-            </dl>
-          );
-        })
-      }
-    </div>
-  </UiModal>
+	<UiModal
+		id="my-modal"
+		title="도서 예약 신청"
+		content="선택하신 도서를 예약하시겠습니까?"
+		confirmText="확인"
+		cancelText="취소"
+	/>
+	<UiModal
+		id="my-modal2"
+		title="도서 예약 취소"
+		content="선택하신 도서의 예약을 취소하시겠습니까?"
+		confirmText="확인"
+		cancelText="취소"
+	/>
+	<UiModal
+		id="my-modal3"
+		title="반납 연기 신청"
+		content="선택하신 도서의 반납을 연기하시겠습니까?"
+		confirmText="확인"
+		cancelText="취소"
+	/>
+	<UiModal
+		id="my-modal4"
+		title="상호대차 취소"
+		content="선택하신 도서의 상호대차를 취소하시겠습니까?"
+		confirmText="확인"
+		cancelText="취소"
+	/>
+	<UiModal id="my-modal5" title="상호대차 신청" confirmText="신청" cancelText="취소">
+		<div class="pop-list">
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">도서명</dt>
+				<dd class="pop-list-item-content">홍길동 : 홍영우 그림책책 글자테스트스트</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">저자</dt>
+				<dd class="pop-list-item-content">홍영우</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">출판사</dt>
+				<dd class="pop-list-item-content">문학동네</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">발행년도</dt>
+				<dd class="pop-list-item-content">2023</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">소장위치</dt>
+				<dd class="pop-list-item-content">연수도서관 일반자료실</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">수령도서관</dt>
+				<dd class="pop-list-item-content">
+					<UiSelect
+						name="library"
+						options={[{ value: '', label: '수령 도서관을 선택하세요' }]}
+						placeholder="수령 도서관을 선택하세요"
+					/>
+				</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">연락처</dt>
+				<dd class="pop-list-item-content">
+					<UiInput name="contact" placeholder="010-0000-0000" />
+				</dd>
+			</dl>
+			<dl class="pop-list-item">
+				<dt class="pop-list-item-title">부록</dt>
+				<dd class="pop-list-item-content flex-col">
+					<div class="form-field">
+						<UiCheckbox id="has-appendix" name="hasAppendix" value="true" label="부록신청" size="medium" />
+						<div class="appendix-content">
+							<div class="pop-list">
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">청구기호</dt>
+									<dd class="pop-list-item-content">380.911-358</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">매체구분</dt>
+									<dd class="pop-list-item-content">DVD</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">대출가능</dt>
+									<dd class="pop-list-item-content">대출가능</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">자료실</dt>
+									<dd class="pop-list-item-content">(육헌기업)만선</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">등록번호</dt>
+									<dd class="pop-list-item-content">MA0000032491</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-field">
+						<UiCheckbox id="has-appendix" name="hasAppendix" value="true" label="부록신청" size="medium" />
+						<div class="appendix-content">
+							<div class="pop-list">
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">청구기호</dt>
+									<dd class="pop-list-item-content">380.911-358</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">매체구분</dt>
+									<dd class="pop-list-item-content">DVD</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">대출가능</dt>
+									<dd class="pop-list-item-content">대출가능</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">자료실</dt>
+									<dd class="pop-list-item-content">(육헌기업)만선</dd>
+								</dl>
+								<dl class="pop-list-item">
+									<dt class="pop-list-item-title">등록번호</dt>
+									<dd class="pop-list-item-content">MA0000032491</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+
+		<!-- * 상호대차 안내문구 입니다. -->
+		<p class="pop-notice system-red">* 신청하신 상호대차를 취소하시겠습니까?</p>
+		<p class="pop-notice system-blue">* 신청하신 상호대차를 취소하시겠습니까?</p>
+		<p class="pop-notice system-default">* 신청하신 상호대차를 취소하시겠습니까?</p>
+	</UiModal>
+	<UiModal id="my-modal6" title="책장 도서 담기/이동" confirmText="확인" cancelText="취소">
+		<div class="pop-list type2 max-h-300">
+			<ul>
+				{
+					Array.from({ length: 10 }, (_, index) => (
+						<li class="pop-list-item">
+							<UiButton variant="ghost" text={`내서재${index + 1}`} class="w-full" />
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</UiModal>
+	<UiModal
+		id="my-modal7"
+		title="책장 도서 삭제"
+		content="선택하신 도서를 삭제하시겠습니까?"
+		confirmText="확인"
+		cancelText="취소"
+	/>
+	<UiModal id="my-modal8" title="책장 편집" confirmText="확인" cancelText="취소">
+		<div class="flex justify-between gap-10 mb20">
+			<div class="flex-1">
+				<UiInput name="input-name" placeholder="새로 추가할 카테고리 이름을 입력해주세요." />
+			</div>
+			<div class="flex-none">
+				<UiButton text="등록" />
+			</div>
+		</div>
+		<div class="pop-list type2 max-h-300">
+			<ul>
+				{
+					Array.from({ length: 10 }, (_, index) => (
+						<li class="pop-list-item flex justify-between items-center">
+							<UiButton variant="ghost" text={`내서재${index + 1}`} class="w-full" />
+							<div class="btn-wrp flex gap-10">
+								<UiButton size="small" variant="primary" text="수정" class="w-full" />
+								<UiButton size="small" variant="darkGray" text="삭제" class="w-full" />
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</UiModal>
+	<UiModal id="my-modal9" title="연수구립도서관 도서검색" confirmText="인쇄하기">
+		<div class="pop-list">
+			{
+				['도서명', '저자', '출판사', '발행년도', '소장위치'].map((title, index) => {
+					const contents = [
+						'홍길동 : 홍영우 그림책책  글자테스트스트',
+						'홍영우',
+						'문학동네',
+						'2023',
+						'연수도서관 일반자료실',
+					];
+					return (
+						<dl class="pop-list-item">
+							<dt class="pop-list-item-title">{title}</dt>
+							<dd class="pop-list-item-content">{contents[index]}</dd>
+						</dl>
+					);
+				})
+			}
+		</div>
+	</UiModal>
 </Layout>

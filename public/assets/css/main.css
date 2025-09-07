@@ -90550,10 +90550,10 @@ body.modal-open {
   flex-direction: column;
   border-top: 0.125rem solid #30619b;
   height: 100%;
+  border-bottom: 1px solid #ecf2fe;
 }
 @media (max-width: 900px) {
   .pop-list {
-    margin-top: 12px;
     border-top: 1px solid #30619b;
   }
 }
@@ -90585,12 +90585,13 @@ body.modal-open {
   background: var(--color-primary-pr00, #ecf2f9);
   display: flex;
   align-items: center;
-  padding-left: 1rem;
+  justify-content: center;
 }
 @media (max-width: 900px) {
   .pop-list-item-title {
     font-size: 13px;
     font-weight: 600;
+    width: 70px;
   }
 }
 
@@ -90610,6 +90611,35 @@ body.modal-open {
     font-size: 14px;
     font-weight: 400;
   }
+}
+.pop-list-item-content .form-field {
+  margin-top: 1.25rem;
+  width: 100%;
+}
+.pop-list-item-content .form-field:first-child {
+  margin-top: 0;
+}
+.pop-list-item-content .form-field .pop-list-item {
+  min-height: 40px;
+}
+.pop-list-item-content .form-field .ui-checkbox-container {
+  margin-bottom: 0.75rem;
+}
+.pop-list-item-content .form-field .ui-checkbox-container:last-child {
+  margin-bottom: 0;
+}
+.pop-list-item-content .form-field .pop-list-item-title {
+  padding-left: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+}
+.pop-list-item-content .form-field .pop-list-item-content {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
 }
 
 .pop-list-item:last-child {
