@@ -50,34 +50,13 @@ const iconClasses = ['ui-accordion__icon', `ui-accordion__icon--${iconType}`, `u
         iconPosition === 'left' && (
           <div class={iconClasses}>
             {iconType === 'arrow' && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
-                  fill="#3C79C2"
-                />
-              </svg>
+              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
             )}
             {iconType === 'plus' && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
-                  fill="#3C79C2"
-                />
-              </svg>
+              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
             )}
             {iconType === 'chevron' && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16.9459 12.9954C16.6723 13.2417 16.2507 13.2195 16.0044 12.9458L10.5 6.82973L4.99548 12.9458C4.74918 13.2195 4.32765 13.2417 4.05398 12.9954C3.7803 12.7491 3.75812 12.3275 4.00443 12.0539L10.0044 5.38719C10.1309 5.24671 10.311 5.1665 10.5 5.1665C10.6889 5.1665 10.8691 5.24671 10.9955 5.38719L16.9955 12.0539C17.2418 12.3275 17.2196 12.7491 16.9459 12.9954Z"
-                  fill="#3C79C2"
-                />
-              </svg>
+              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
             )}
           </div>
         )
@@ -89,16 +68,12 @@ const iconClasses = ['ui-accordion__icon', `ui-accordion__icon--${iconType}`, `u
         iconPosition === 'right' && (
           <div class={iconClasses}>
             {iconType === 'arrow' && (
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              <img src="/assets/images/icon/icon-accordion-arrow-simple.svg" alt="화살표" />
             )}
             {iconType === 'plus' && (
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+              <img src="/assets/images/icon/icon-accordion-plus.svg" alt="플러스" />
             )}
-            {iconType === 'chevron' && <img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />}
+            {iconType === 'chevron' && <img src="/assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" alt="화살표" />}
           </div>
         )
       }
