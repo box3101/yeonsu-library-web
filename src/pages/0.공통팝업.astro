@@ -22,7 +22,7 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 		<UiButton text="책장 도서 담기/이동" data-modal-open="my-modal6" />
 		<UiButton text="책장 도서 삭제" data-modal-open="my-modal7" />
 		<UiButton text="책장 편집" data-modal-open="my-modal8" />
-		<UiButton text="연수구립도서관 도서검색" data-modal-open="my-modal9" />
+		<UiButton text="연수구립도서관 도서검색" onclick="openBookSearchWindow()" />
 	</div>
 
 	<UiModal
@@ -179,6 +179,7 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 		cancelText="취소"
 	/>
 	<UiModal id="my-modal8" title="책장 편집" confirmText="확인" cancelText="취소">
+		<!-- 새 카테고리 추가 영역 -->
 		<div class="flex justify-between gap-10 mb20">
 			<div class="flex-1">
 				<UiInput name="input-name" placeholder="새로 추가할 카테고리 이름을 입력해주세요." />
@@ -187,41 +188,53 @@ import UiCheckbox from '../components/UI/UiCheckbox.astro';
 				<UiButton text="등록" />
 			</div>
 		</div>
+
+		<!-- 기본 목록 상태 -->
 		<div class="pop-list type2 max-h-300">
 			<ul>
-				{
-					Array.from({ length: 10 }, (_, index) => (
-						<li class="pop-list-item flex justify-between items-center">
-							<UiButton variant="ghost" text={`내서재${index + 1}`} class="w-full" />
-							<div class="btn-wrp flex gap-10">
-								<UiButton size="small" variant="primary" text="수정" class="w-full" />
-								<UiButton size="small" variant="darkGray" text="삭제" class="w-full" />
-							</div>
-						</li>
-					))
-				}
+				<li class="pop-list-item flex justify-between items-center">
+					<UiButton variant="ghost" text="내서재1" class="w-full" />
+					<div class="btn-wrp flex gap-10">
+						<UiButton size="small" variant="primary" text="수정" class="btn-edit" />
+						<UiButton size="small" variant="darkGray" text="삭제" />
+					</div>
+				</li>
+				<li class="pop-list-item flex justify-between items-center">
+					<UiButton variant="ghost" text="내서재2" class="w-full" />
+					<div class="btn-wrp flex gap-10">
+						<UiButton size="small" variant="primary" text="수정" class="btn-edit" />
+						<UiButton size="small" variant="darkGray" text="삭제" />
+					</div>
+				</li>
+				<li class="pop-list-item flex justify-between items-center">
+					<UiButton variant="ghost" text="내서재3" class="w-full" />
+					<div class="btn-wrp flex gap-10">
+						<UiButton size="small" variant="primary" text="수정" class="btn-edit" />
+						<UiButton size="small" variant="darkGray" text="삭제" />
+					</div>
+				</li>
+				<!-- 수정 모드 예시 -->
+				<li class="pop-list-item edit-mode flex justify-between items-center">
+					<div class="flex-1 mr10">
+						<UiInput name="edit-name" value="내서재1" placeholder="카테고리 이름" />
+					</div>
+					<div class="btn-wrp flex gap-10">
+						<UiButton size="small" variant="primary" text="확인" />
+						<UiButton size="small" variant="darkGray" text="취소" />
+					</div>
+				</li>
 			</ul>
 		</div>
 	</UiModal>
-	<UiModal id="my-modal9" title="연수구립도서관 도서검색" confirmText="인쇄하기">
-		<div class="pop-list">
-			{
-				['도서명', '저자', '출판사', '발행년도', '소장위치'].map((title, index) => {
-					const contents = [
-						'홍길동 : 홍영우 그림책책  글자테스트스트',
-						'홍영우',
-						'문학동네',
-						'2023',
-						'연수도서관 일반자료실',
-					];
-					return (
-						<dl class="pop-list-item">
-							<dt class="pop-list-item-title">{title}</dt>
-							<dd class="pop-list-item-content">{contents[index]}</dd>
-						</dl>
-					);
-				})
-			}
-		</div>
-	</UiModal>
 </Layout>
+
+<script>
+	// 도서검색 인쇄 새 창 열기 - 글로벌 스코프에 등록
+	window.openBookSearchWindow = function () {
+		const printWindow = window.open(
+			'/도서정보출력',
+			'bookSearch',
+			'width=900,height=700,scrollbars=yes,resizable=yes,menubar=no,toolbar=no,status=no'
+		);
+	};
+</script>

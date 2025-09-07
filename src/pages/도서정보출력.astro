@@ -1,0 +1,200 @@
+---
+/**
+ * 도서 정보 출력 페이지
+ * - 도서 검색 결과 페이지
+ * - 인쇄 버튼 포함
+ */
+import Layout from '../layouts/Layout.astro';
+import UiButton from '../components/UI/UiButton.astro';
+---
+
+<Layout title="연수구립도서관 도서검색">
+	<div class="book-search-page">
+		<div class="page-header">
+			<h1 class="page-title">연수구립도서관 도서 정보</h1>
+		</div>
+
+		<div class="book-info-content">
+			<div class="pop-list">
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">도서명</dt>
+					<dd class="pop-list-item-content">홍길동 : 홍영우 그림책책 글자테스트스트</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">저자</dt>
+					<dd class="pop-list-item-content">홍영우</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">출판사</dt>
+					<dd class="pop-list-item-content">문학동네</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">발행년도</dt>
+					<dd class="pop-list-item-content">2023</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">소장위치</dt>
+					<dd class="pop-list-item-content">연수도서관 일반자료실</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">청구기호</dt>
+					<dd class="pop-list-item-content">380.911-358</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">등록번호</dt>
+					<dd class="pop-list-item-content">EM0000032491</dd>
+				</dl>
+				<dl class="pop-list-item">
+					<dt class="pop-list-item-title">대출상태</dt>
+					<dd class="pop-list-item-content">대출가능</dd>
+				</dl>
+			</div>
+		</div>
+
+		<!-- 인쇄하기 버튼 -->
+		<div class="print-button-area">
+			<UiButton
+				text="인쇄하기"
+				variant="primary"
+				size="large"
+				icon="icon-printer"
+				iconAddClass="icon icon-white"
+				onclick="printBookInfo()"
+			/>
+		</div>
+	</div>
+</Layout>
+
+<style is:inline>
+	.header,
+	.footer {
+		display: none;
+	}
+	/* 화면용 스타일 */
+	.book-search-page {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 40px 20px;
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+
+	.page-header {
+		text-align: center;
+		border-bottom: 2px solid #3c79c2;
+		padding-bottom: 20px;
+		margin-bottom: 40px;
+	}
+
+	.page-title {
+		font-size: 24px;
+		font-weight: bold;
+		color: #3c79c2;
+		margin: 0;
+	}
+
+	.book-info-content {
+		margin-bottom: 40px;
+	}
+
+	.pop-list {
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.pop-list-item {
+		display: flex;
+		border-bottom: 1px solid #eee;
+	}
+
+	.pop-list-item:last-child {
+		border-bottom: none;
+	}
+
+	.pop-list-item-title {
+		background: #f8f9fa;
+		padding: 15px 20px;
+		font-weight: bold;
+		color: #333;
+		min-width: 120px;
+		border-right: 1px solid #eee;
+	}
+
+	.pop-list-item-content {
+		padding: 15px 20px;
+		flex: 1;
+		color: #555;
+	}
+
+	.print-button-area {
+		text-align: center;
+		padding: 20px 0;
+	}
+
+	/* 인쇄 전용 CSS */
+	@media print {
+		@page {
+			size: A4;
+			margin: 2cm;
+		}
+
+		* {
+			-webkit-print-color-adjust: exact !important;
+			color-adjust: exact !important;
+		}
+
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			font-size: 12pt;
+			line-height: 1.6;
+		}
+
+		.book-search-page {
+			max-width: none;
+			margin: 0;
+			padding: 20pt;
+		}
+
+		.page-header {
+			page-break-inside: avoid;
+			margin-bottom: 20pt;
+			padding-bottom: 10pt;
+		}
+
+		.page-title {
+			font-size: 18pt;
+			font-weight: bold;
+		}
+
+		.book-info-content {
+			page-break-inside: avoid;
+			margin-bottom: 20pt;
+		}
+
+		.pop-list-item-title {
+			font-size: 11pt;
+			padding: 8pt 12pt;
+			background: #f0f0f0 !important;
+		}
+
+		.pop-list-item-content {
+			font-size: 11pt;
+			padding: 8pt 12pt;
+		}
+
+		/* 인쇄 시 버튼 숨김 */
+		.print-button-area {
+			display: none !important;
+		}
+	}
+</style>
+
+<script>
+	// 인쇄하기 버튼 클릭 시 인쇄 기능
+	window.printBookInfo = function () {
+		console.log('인쇄하기 버튼 클릭됨');
+
+		// 인쇄 대화상자 열기
+		window.print();
+	};
+</script>

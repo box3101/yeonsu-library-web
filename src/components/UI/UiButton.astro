@@ -18,6 +18,8 @@ export interface Props {
 	'data-modal-open'?: string;
 	'data-modal-close'?: boolean;
 	'data-modal-confirm'?: boolean;
+	// 👇 onclick 이벤트 추가
+	onclick?: string;
 }
 
 const {
@@ -39,6 +41,8 @@ const {
 	'data-modal-open': dataModalOpen,
 	'data-modal-close': dataModalClose,
 	'data-modal-confirm': dataModalConfirm,
+	// 👇 onclick 이벤트 처리
+	onclick,
 } = Astro.props;
 
 const Tag = href ? 'a' : 'button';
@@ -52,6 +56,8 @@ const buttonProps = href
 			...(dataModalOpen && { 'data-modal-open': dataModalOpen }),
 			...(dataModalClose && { 'data-modal-close': '' }),
 			...(dataModalConfirm && { 'data-modal-confirm': '' }),
+			// onclick 이벤트 추가
+			...(onclick && { onclick }),
 	  };
 
 const hasIcon = icon && icon.length > 0;
