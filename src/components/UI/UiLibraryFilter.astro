@@ -51,6 +51,10 @@ const recentSearches = [
 	{ term: '명탐서점', date: '25.07.07', isRecent: false },
 ];
 
+// 빈 최근 검색어 데이터 (예시)
+// const recentSearches = [];
+// const recentSearchesEmpty = [{ term: '최근 검색어가 없습니다.', isEmpty: true }];
+
 // 인기 검색어 데이터 (예시)
 const popularSearches = [
 	{ term: '파이썬', rank: 1 },
@@ -86,7 +90,12 @@ const popularSearches = [
 			</div>
 		</div>
 		<!-- 체크박스들 -->
-		<div class="ui-library-filter__content" id={`content-${filterId}`} data-toggle-target="menu-1" data-expanded={expanded}>
+		<div
+			class="ui-library-filter__content"
+			id={`content-${filterId}`}
+			data-toggle-target="menu-1"
+			data-expanded={expanded}
+		>
 			<div class="ui-library-filter__subtitle">
 				{subtitle}
 			</div>
@@ -112,7 +121,14 @@ const popularSearches = [
 		<!-- 검색어, 다국어입력기, 검색, 고급검색 -->
 		<div class="ui-library-filter__search flex gap-8 mt10">
 			<div class="flex-1">
-				<UiInput id="search" name="search" placeholder="검색어를 입력해주세요." size="medium" clearable={true} class="w-577" />
+				<UiInput
+					id="search"
+					name="search"
+					placeholder="검색어를 입력해주세요."
+					size="medium"
+					clearable={true}
+					class="w-577"
+				/>
 			</div>
 			<!-- 검색어 드롭다운 -->
 			<div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
@@ -120,7 +136,12 @@ const popularSearches = [
 				<div class="ui-library-filter__search-tabs">
 					{
 						searchTabs.map(tab => (
-							<button type="button" class={`search-tab-button ${tab.active ? 'active' : ''}`} data-tab={tab.id} data-active={tab.active}>
+							<button
+								type="button"
+								class={`search-tab-button ${tab.active ? 'active' : ''}`}
+								data-tab={tab.id}
+								data-active={tab.active}
+							>
 								{tab.label}
 							</button>
 						))
@@ -133,20 +154,33 @@ const popularSearches = [
 					<div id="recent-searches" class={`search-content ${searchTabs[0].active ? 'active' : ''}`}>
 						{
 							recentSearches.map(search => (
-								<div class="search-item" data-term={search.term}>
-									<span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
-									<span class="search-date">{search.date}</span>
+								<div class="search-item search-item--clickable" data-term={search.term}>
+									<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
+										<span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
+									</a>
+									<button
+										type="button"
+										class="search-item__delete-btn"
+										aria-label={`${search.term} 검색어 삭제`}
+										data-term={search.term}
+									>
+										<img src="/assets/images/icon/icon-delete.svg" alt="삭제" class="search-item__delete-icon" />
+									</button>
 								</div>
 							))
 						}
+						<div class="search-item search-item--non-clickable">
+							<span class="search-term">최근 검색어가 없습니다.</span>
+						</div>
 					</div>
-
 					<!-- 인기 검색어 -->
 					<div id="popular-searches" class={`search-content ${searchTabs[1].active ? 'active' : ''}`}>
 						{
 							popularSearches.map(search => (
-								<div class="search-item" data-term={search.term}>
-									<span class="search-term">{search.term}</span>
+								<div class="search-item search-item--clickable" data-term={search.term}>
+									<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
+										<span class="search-term">{search.term}</span>
+									</a>
 									<span class="search-rank">{search.rank}</span>
 								</div>
 							))
@@ -157,9 +191,21 @@ const popularSearches = [
 				<!-- 하단 옵션 -->
 				<div class="ui-library-filter__search-options">
 					<div class="option-item">
-						<UiSwitch id={`search-save-toggle-${filterId}`} size="small" checked={false} label="검색어 저장" labelPosition="right" />
+						<UiSwitch
+							id={`search-save-toggle-${filterId}`}
+							size="small"
+							checked={false}
+							label="검색어 저장"
+							labelPosition="right"
+						/>
 					</div>
-					<UiSwitch id={`search-autocomplete-toggle-${filterId}`} size="small" checked={false} label="자동완성 켜기" labelPosition="right" />
+					<UiSwitch
+						id={`search-autocomplete-toggle-${filterId}`}
+						size="small"
+						checked={false}
+						label="자동완성 켜기"
+						labelPosition="right"
+					/>
 				</div>
 			</div>
 

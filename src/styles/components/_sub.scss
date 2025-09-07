@@ -2672,12 +2672,14 @@ ul.movie-card-wrp {
 		flex-wrap: wrap;
 		gap: to-rem(16);
 		align-items: center;
+    height: 100%;
+    min-height: 56px;
 	}
 
 	.birth-group {
 		display: flex;
 		gap: to-rem(16);
-		align-items: flex-start;
+    align-items: center;
 
 		@include mobile {
 			gap: to-rem(12);
@@ -4010,12 +4012,43 @@ ul.movie-card-wrp {
 				transition: background-color 0.2s ease;
 				width: 100%;
 
+				&--clickable {
+					a {
+						display: inline-block;
+						width: 100%;
+					}
+				}
+
+				&--non-clickable {
+					cursor: default;
+					pointer-events: none;
+					a {
+						display: inline-block;
+						width: 100%;
+					}
+				}
+
+				a {
+					display: inline-block;
+					width: 100%;
+          &:hover{
+            .search-term{
+              text-decoration: underline; color: $primary-color;
+            }
+          }
+          &.no-hover{
+            .search-term{
+              text-decoration: none; color: $gray-700;
+            }
+          }
+        }
+
 				@include tablet {
 					padding: to-rem(6) 0;
 				}
 
 				.search-term {
-					color: $gray-900;
+					color: $gray-700;
 					font-size: to-rem(16);
 
 					@include tablet {
@@ -6587,18 +6620,24 @@ div.bookshelf-item {
 
 /* 우측 로그인 폼 */
 .login-form-section {
-	flex: 1;
-	padding: 2rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding-left: 0;
-	padding-bottom: 0;
-	padding-top: 0;
+    flex: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 100%;
+    max-width: 100%;
 
 	@include mobile {
 		padding-top: 16px;
 	}
+
+  .member-info-display-container{
+    width: 100%;
+  }
 }
 
 .login-form {
@@ -6684,6 +6723,10 @@ div.bookshelf-item {
 	.login-banner__content {
 		flex-direction: column;
 		gap: 1rem;
+
+    .info-notice{
+      margin-top: 0;
+    }
 	}
 
 	.login-banner__title {
@@ -9079,7 +9122,7 @@ div.bookshelf-item {
 
 		&:hover {
 			background: alpha(#ecf2fe, 0.8);
-			
+
 			&.children-service-grid__button--active {
 				background: alpha(#244874, 0.9);
 			}
