@@ -1,90 +1,96 @@
 ---
 export interface Props {
-  title: string;
-  isExpanded?: boolean;
-  variant?: 'default' | 'bordered' | 'filled';
-  size?: 'small' | 'medium' | 'large';
-  iconType?: 'arrow' | 'plus' | 'chevron';
-  iconPosition?: 'left' | 'right';
-  disabled?: boolean;
-  allowMultiple?: boolean;
-  className?: string;
-  id?: string;
+	title: string;
+	isExpanded?: boolean;
+	variant?: 'default' | 'bordered' | 'filled';
+	size?: 'small' | 'medium' | 'large';
+	iconType?: 'arrow' | 'plus' | 'chevron';
+	iconPosition?: 'left' | 'right';
+	disabled?: boolean;
+	allowMultiple?: boolean;
+	className?: string;
+	id?: string;
 }
 
 const {
-  title,
-  isExpanded = false,
-  variant = 'default',
-  size = 'medium',
-  iconType = 'chevron',
-  iconPosition = 'right',
-  disabled = false,
-  allowMultiple = true,
-  className = '',
-  id,
+	title,
+	isExpanded = false,
+	variant = 'default',
+	size = 'medium',
+	iconType = 'chevron',
+	iconPosition = 'right',
+	disabled = false,
+	allowMultiple = true,
+	className = '',
+	id,
 } = Astro.props;
 
 const accordionId = id || `accordion-${Math.random().toString(36).substr(2, 9)}`;
 const contentId = `${accordionId}-content`;
 const triggerId = `${accordionId}-trigger`;
 
-const accordionClasses = ['ui-accordion', `ui-accordion--${variant}`, `ui-accordion--${size}`, disabled ? 'ui-accordion--disabled' : '', className]
-  .filter(Boolean)
-  .join(' ');
+const accordionClasses = [
+	'ui-accordion',
+	`ui-accordion--${variant}`,
+	`ui-accordion--${size}`,
+	disabled ? 'ui-accordion--disabled' : '',
+	className,
+]
+	.filter(Boolean)
+	.join(' ');
 
-const iconClasses = ['ui-accordion__icon', `ui-accordion__icon--${iconType}`, `ui-accordion__icon--${iconPosition}`].filter(Boolean).join(' ');
+const iconClasses = ['ui-accordion__icon', `ui-accordion__icon--${iconType}`, `ui-accordion__icon--${iconPosition}`]
+	.filter(Boolean)
+	.join(' ');
 ---
 
 <div class={accordionClasses} data-accordion-id={accordionId}>
-  <button
-    type="button"
-    id={triggerId}
-    class="ui-accordion__trigger"
-    aria-expanded={isExpanded.toString()}
-    aria-controls={contentId}
-    disabled={disabled}
-  >
-    <div class="ui-accordion__header">
-      {
-        iconPosition === 'left' && (
-          <div class={iconClasses}>
-            {iconType === 'arrow' && (
-              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
-            )}
-            {iconType === 'plus' && (
-              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
-            )}
-            {iconType === 'chevron' && (
-              <img src="/assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />
-            )}
-          </div>
-        )
-      }
+	<button
+		type="button"
+		id={triggerId}
+		class="ui-accordion__trigger"
+		aria-expanded={isExpanded.toString()}
+		aria-controls={contentId}
+		disabled={disabled}
+	>
+		<div class="ui-accordion__header">
+			{
+				iconPosition === 'left' && (
+					<div class={iconClasses}>
+						{iconType === 'arrow' && <img src="./assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />}
+						{iconType === 'plus' && <img src="./assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />}
+						{iconType === 'chevron' && <img src="./assets/images/icon/icon-accordion-arrow.svg" alt="화살표" />}
+					</div>
+				)
+			}
 
-      <span class="ui-accordion__title">{title}</span>
+			<span class="ui-accordion__title">{title}</span>
 
-      {
-        iconPosition === 'right' && (
-          <div class={iconClasses}>
-            {iconType === 'arrow' && (
-              <img src="/assets/images/icon/icon-accordion-arrow-simple.svg" alt="화살표" />
-            )}
-            {iconType === 'plus' && (
-              <img src="/assets/images/icon/icon-accordion-plus.svg" alt="플러스" />
-            )}
-            {iconType === 'chevron' && <img src="/assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" alt="화살표" />}
-          </div>
-        )
-      }
-    </div>
-  </button>
+			{
+				iconPosition === 'right' && (
+					<div class={iconClasses}>
+						{iconType === 'arrow' && <img src="./assets/images/icon/icon-accordion-arrow-simple.svg" alt="화살표" />}
+						{iconType === 'plus' && <img src="./assets/images/icon/icon-accordion-plus.svg" alt="플러스" />}
+						{iconType === 'chevron' && (
+							<img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" alt="화살표" />
+						)}
+					</div>
+				)
+			}
+		</div>
+	</button>
 
-  <div id={contentId} class="ui-accordion__content" role="region" aria-labelledby={triggerId} data-expanded={isExpanded.toString()}>
-    <div class="ui-accordion__body">
-      <slot />
-    </div>
-  </div>
+	<div
+		id={contentId}
+		class="ui-accordion__content"
+		role="region"
+		aria-labelledby={triggerId}
+		data-expanded={isExpanded.toString()}
+	>
+		<div class="ui-accordion__body">
+			<slot />
+		</div>
+	</div>
 </div>
 
 <!-- 외부 JS 파일에서 처리: accordion.js -->

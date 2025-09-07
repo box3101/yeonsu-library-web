@@ -27,7 +27,7 @@ export default function Header() {
             <Link href="/" className="logo flex items-center">
               <div className="w-48 h-12 relative">
                 <Image
-                  src="/assets/images/logo.svg"
+                  src="./assets/images/logo.svg"
                   alt="연수구립도서관 로고"
                   fill
                   className="object-contain"
@@ -120,7 +120,7 @@ export default function Header() {
               >
                 ✕
               </button>
-              
+
               <div className="mt-8 space-y-4">
                 {navItems.map((item, index) => (
                   <Link

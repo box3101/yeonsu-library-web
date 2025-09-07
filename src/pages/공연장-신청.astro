@@ -19,7 +19,13 @@ const hallApplicationTabs = [
 <Layout title="공연장 신청">
 	<SubLayout title="공연장 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
 		<!-- 탭 네비게이션 -->
-		<UiTab tabs={hallApplicationTabs} variant="default" size="medium" showCount={false} className="mb-4 search-type-tabs ui-tab--grid-5" />
+		<UiTab
+			tabs={hallApplicationTabs}
+			variant="default"
+			size="medium"
+			showCount={false}
+			className="mb-4 search-type-tabs ui-tab--grid-5"
+		/>
 
 		<div class="ui-tab-panel ui-tab-panel--active" id="cheonghak">
 			<div class="com-title-type2">
@@ -48,7 +54,7 @@ const hallApplicationTabs = [
 				<div class="info-box">
 					<div class="info-box__header">
 						<div class="info-box__icon">
-							<img src="/assets/images/icon/icon-square-filled.svg" alt="정보" />
+							<img src="./assets/images/icon/icon-square-filled.svg" alt="정보" />
 						</div>
 						<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
 					</div>
@@ -58,15 +64,19 @@ const hallApplicationTabs = [
 								<strong>1. 개인정보의 수집ㆍ이용의 목적</strong>
 								<p>
 									<span class="text-primary">
-										(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관 업무, 독서토론실 대관 업무,
-										하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
+										(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관
+										업무, 독서토론실 대관 업무, 하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
 									</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
 								</p>
 							</li>
 							<li class="list-none">
 								<strong>2. 수집하려는 개인정보의 항목</strong>
 								<ul>
-									<li>가. 필수항목 : <span class="text-primary">성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일</span></li>
+									<li>
+										가. 필수항목 : <span class="text-primary">
+											성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일
+										</span>
+									</li>
 									<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
 								</ul>
 							</li>
@@ -80,7 +90,8 @@ const hallApplicationTabs = [
 				<!-- 동의 라디오 버튼 -->
 				<div class="terms-item__radio flex-col items-end gap-15 mt15">
 					<p class="radio-question">
-						본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌 수집ㆍ이용에 동의합니다.
+						본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌
+						수집ㆍ이용에 동의합니다.
 					</p>
 					<div class="radio-group">
 						<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
@@ -88,7 +99,13 @@ const hallApplicationTabs = [
 							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
 							<div class="ui-radio__item">
 								<!-- 숨겨진 실제 라디오 input 요소 -->
-								<input type="radio" id="privacy-disagree" name="privacy-collection" value="disagree" class="ui-radio__input" />
+								<input
+									type="radio"
+									id="privacy-disagree"
+									name="privacy-collection"
+									value="disagree"
+									class="ui-radio__input"
+								/>
 								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
 								<div class="ui-radio__control">
 									<!-- 선택 시 표시될 내부 원형 도트 -->
@@ -105,7 +122,13 @@ const hallApplicationTabs = [
 							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
 							<div class="ui-radio__item">
 								<!-- 숨겨진 실제 라디오 input 요소 -->
-								<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
+								<input
+									type="radio"
+									id="privacy-agree"
+									name="privacy-collection"
+									value="agree"
+									class="ui-radio__input"
+								/>
 								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
 								<div class="ui-radio__control">
 									<!-- 선택 시 표시될 내부 원형 도트 -->
@@ -189,7 +212,14 @@ const hallApplicationTabs = [
 						<div class="form-field form-field--full">
 							<label class="form-label required">인원2</label>
 							<div class="radio-group">
-								<UiRadio name="participant_count" value="10-20" id="count-10-20" label="10~20명" size="medium" checked />
+								<UiRadio
+									name="participant_count"
+									value="10-20"
+									id="count-10-20"
+									label="10~20명"
+									size="medium"
+									checked
+								/>
 								<UiRadio name="participant_count" value="20-30" id="count-20-30" label="20~30명" size="medium" />
 								<UiRadio name="participant_count" value="30-40" id="count-30-40" label="30~40명" size="medium" />
 							</div>

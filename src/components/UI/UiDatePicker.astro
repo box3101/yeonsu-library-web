@@ -1,82 +1,78 @@
 ---
 interface Props {
-  startYear?: string;
-  endYear?: string;
-  startPlaceholder?: string;
-  endPlaceholder?: string;
-  startLabel?: string;
-  endLabel?: string;
-  disabled?: boolean;
-  required?: boolean;
-  filled?: boolean;
-  id?: string;
-  className?: string;
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+	startYear?: string;
+	endYear?: string;
+	startPlaceholder?: string;
+	endPlaceholder?: string;
+	startLabel?: string;
+	endLabel?: string;
+	disabled?: boolean;
+	required?: boolean;
+	filled?: boolean;
+	id?: string;
+	className?: string;
+	size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 }
 
 const {
-  startYear = '',
-  endYear = '',
-  startPlaceholder = '시작연도',
-  endPlaceholder = '종료연도',
-  disabled = false,
-  required = false,
-  filled = false,
-  id = '',
-  className = '',
-  size = 'medium',
+	startYear = '',
+	endYear = '',
+	startPlaceholder = '시작연도',
+	endPlaceholder = '종료연도',
+	disabled = false,
+	required = false,
+	filled = false,
+	id = '',
+	className = '',
+	size = 'medium',
 } = Astro.props;
 
 const datePickerClasses = [
-  'ui-date-picker',
-  `ui-date-picker--${size}`,
-  filled ||
-  (startYear && startYear.length > 0) ||
-  (endYear && endYear.length > 0)
-    ? 'ui-date-picker--filled'
-    : '',
-  className,
+	'ui-date-picker',
+	`ui-date-picker--${size}`,
+	filled || (startYear && startYear.length > 0) || (endYear && endYear.length > 0) ? 'ui-date-picker--filled' : '',
+	className,
 ]
-  .filter(Boolean)
-  .join(' ');
+	.filter(Boolean)
+	.join(' ');
 ---
 
 <div class={datePickerClasses}>
-  <div class="ui-date-picker__field">
-    <div class="ui-date-picker__input-wrapper">
-      <input
-        type="number"
-        id={`${id}-start`}
-        name={`${id}-start`}
-        value={startYear}
-        placeholder={startPlaceholder}
-        disabled={disabled}
-        required={required}
-        min="1900"
-        max="2100"
-        class="ui-date-picker__input"
-      />
-      <img src="/assets/images/icon/icon-datepicker-calendar.svg" class="ui-date-picker__icon" alt="달력" />
-    </div>
-  </div>
+	<div class="ui-date-picker__field">
+		<div class="ui-date-picker__input-wrapper">
+			<input
+				type="number"
+				id={`${id}-start`}
+				name={`${id}-start`}
+				value={startYear}
+				placeholder={startPlaceholder}
+				disabled={disabled}
+				required={required}
+				min="1900"
+				max="2100"
+				class="ui-date-picker__input"
+			/>
+			<img src="./assets/images/icon/icon-datepicker-calendar.svg" class="ui-date-picker__icon" alt="달력" />
+		</div>
+	</div>
 
-  <span class="ui-date-picker__separator">~</span>
+	<span class="ui-date-picker__separator">~</span>
 
-  <div class="ui-date-picker__field">
-    <div class="ui-date-picker__input-wrapper">
-      <input
-        type="number"
-        id={`${id}-end`}
-        name={`${id}-end`}
-        value={endYear}
-        placeholder={endPlaceholder}
-        disabled={disabled}
-        required={required}
-        min="1900"
-        max="2100"
-        class="ui-date-picker__input"
-      />
-      <img src="/assets/images/icon/icon-datepicker-calendar.svg" class="ui-date-picker__icon" alt="달력" />
-    </div>
-  </div>
+	<div class="ui-date-picker__field">
+		<div class="ui-date-picker__input-wrapper">
+			<input
+				type="number"
+				id={`${id}-end`}
+				name={`${id}-end`}
+				value={endYear}
+				placeholder={endPlaceholder}
+				disabled={disabled}
+				required={required}
+				min="1900"
+				max="2100"
+				class="ui-date-picker__input"
+			/>
+			<img src="./assets/images/icon/icon-datepicker-calendar.svg" class="ui-date-picker__icon" alt="달력" />
+		</div>
+	</div>
 </div>

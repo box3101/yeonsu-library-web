@@ -91,7 +91,7 @@ export default function Footer() {
                   <Link href="/" className="inline-block">
                     <div className="w-48 h-12 relative">
                       <Image
-                        src="/assets/images/logo.svg"
+                        src="./assets/images/logo.svg"
                         alt="연수구립도서관 로고"
                         fill
                         className="object-contain"
@@ -138,8 +138,8 @@ export default function Footer() {
                         href={link.href}
                         className={cn(
                           'text-sm hover:text-primary transition-colors',
-                          link.bold 
-                            ? 'font-bold text-primary' 
+                          link.bold
+                            ? 'font-bold text-primary'
                             : 'text-gray-600'
                         )}
                       >
