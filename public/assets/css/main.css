@@ -65628,6 +65628,9 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   text-decoration: none;
   color: #374151;
 }
+.ui-library-filter__search-list .search-item a span {
+  display: inline-block;
+}
 @media (max-width: 900px) {
   .ui-library-filter__search-list .search-item {
     padding: 0.375rem 0;
@@ -65644,6 +65647,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .ui-library-filter__search-list .search-item .search-term.is-recent {
   font-weight: 600;
+  display: inline-block;
 }
 .ui-library-filter__search-list .search-item .search-date {
   color: #9ca3af;
