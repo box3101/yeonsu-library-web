@@ -153,3 +153,14 @@
   }
 }
 
+
+
+.cat-activities-section{
+  .ui-select-container{width: 100%;}
+  .com-grid{
+    margin-bottom: 45px;
+    @include mobile {
+      margin-bottom: 30px;
+    }
+  }
+}
