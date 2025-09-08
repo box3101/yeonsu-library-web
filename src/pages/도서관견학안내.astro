@@ -1,0 +1,487 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@components/UI/UiTab.astro';
+import UserGuideTable from '@components/UI/UserGuideTable.astro';
+
+// 페이지 메타데이터
+const title = '도서관 견학';
+const description = '연수구립도서관 도서관 견학 안내 페이지입니다.';
+
+// 탭 데이터
+const tabMenus = [
+	{ id: 'guide', label: '견학안내', active: true },
+	{ id: 'apply', label: '견학신청' },
+];
+
+// 브레드크럼 데이터
+const breadcrumbItems = [{ label: '열린참여마당' }, { label: '도서관 견학' }, { label: '도서관 견학 신청' }];
+
+// 이용대상 및 교육내용 테이블 컬럼
+const educationColumns = [
+	{ key: 'library', label: '도서관', align: 'center', width: '180' },
+	{ key: 'age', label: '연령', align: 'center', width: '120' },
+	{ key: 'duration', label: '교육시간', align: 'center', width: '150' },
+	{ key: 'capacity', label: '수용인원', align: 'center', width: '120' },
+	{ key: 'status', label: '운영여부', align: 'center', width: '120' },
+	{ key: 'content', label: '교육내용', align: 'left', width: '291' },
+];
+
+// 이용대상 및 교육내용 테이블 데이터
+const educationRows = [
+	{
+		library: '연수청학도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '운영',
+		content: '도서관 소개 및 견학(어린이자료실, 일반자료실, 디지털자료실 등), 독서문화프로그램 및 도서관 이용법 안내',
+	},
+	{
+		library: '연수꿈담도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '',
+		content: '',
+	},
+	{
+		library: '송도국제어린이도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '',
+		content: '',
+	},
+	{
+		library: '해돋이도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '',
+		content: '',
+	},
+	{
+		library: '선학별빛도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '',
+		content: '',
+	},
+	{
+		library: '함박비류도서관',
+		age: '5세 이상',
+		duration: '40분',
+		capacity: '25명 이하',
+		status: '',
+		content: '',
+	},
+];
+
+// 신청방법 테이블 컬럼
+const applicationColumns = [
+	{ key: 'library', label: '도서관', align: 'center', width: '165' },
+	{ key: 'day', label: '요일', align: 'center', width: '100' },
+	{ key: 'time', label: '시간', align: 'center', width: '175' },
+	{ key: 'contact', label: '연락처', align: 'center', width: '380' },
+	{ key: 'note', label: '비고', align: 'center', width: '160' },
+];
+
+// 신청방법 테이블 데이터
+const applicationRows = [
+	{
+		library: '연수청학도서관',
+		day: '화, 수, 목, 금',
+		time: '오전 10:00 ~ 11:30\n오후 2:00 ~ 3:30',
+		contact: '인천광역시 연수구 해송로 90\n☎ 032)749-7614(2층 어린이자료실)\n✉ yslib@korea.kr',
+		note: '사서와 함께하는 도서관 견학',
+	},
+];
+
+// 도서관별 견학 프로그램 테이블 컬럼
+const programColumns = [
+	{ key: 'library', label: '도서관', align: 'center', width: '220' },
+	{ key: 'image', label: '이미지', align: 'center', width: '276' },
+	{ key: 'program', label: '프로그램', align: 'left', width: '480' },
+];
+
+// 도서관별 견학 프로그램 테이블 데이터
+const programRows = [
+	{
+		library: '연수청학도서관',
+		image: './assets/images/library-tour/yeonsu-cheonghak.jpg',
+		program:
+			'사서와 함께하는 도서관 견학\n- 도서관 소개 및 견학(어린이자료실, 일반자료실, 디지털자료실 등)\n- 독서문화프로그램 및 도서관 이용법 안내\n- 체험활동: 도서 대출·반납 체험, 자료 검색 체험\n- 기념품 증정',
+	},
+	{
+		library: '연수꿈담도서관',
+		image: './assets/images/library-tour/yeonsu-kkumdam.jpg',
+		program:
+			'꿈담 도서관 견학\n- 도서관 소개 및 시설 견학\n- 어린이자료실, 문화프로그램실 견학\n- 독서프로그램 안내 및 체험\n- 도서관 이용법 교육',
+	},
+	{
+		library: '송도국제어린이도서관',
+		image: './assets/images/library-tour/songdo-children.jpg',
+		program:
+			'국제어린이도서관 특별 견학\n- 다국어 도서 소개 및 체험\n- 어린이전용 공간 견학\n- 국제문화 체험 프로그램\n- 독서 관련 체험활동',
+	},
+	{
+		library: '해돋이도서관',
+		image: './assets/images/library-tour/haedoji.jpg',
+		program:
+			'해돋이와 함께하는 도서관 탐험\n- 도서관 전체 시설 견학\n- 어린이자료실, 일반자료실 소개\n- 독서문화프로그램 체험\n- 도서관 이용 예절 교육\n- 체험활동 및 기념품 제공',
+	},
+	{
+		library: '선학별빛도서관',
+		image: './assets/images/library-tour/seonhak-star.jpg',
+		program:
+			'별빛 도서관 견학 체험\n- 도서관 소개 및 시설 안내\n- 어린이자료실 특별 프로그램\n- 독서 체험 활동\n- 도서관 이용법 실습',
+	},
+	{
+		library: '함박비류도서관',
+		image: './assets/images/library-tour/hambak-biryu.jpg',
+		program:
+			'함박비류 도서관 탐험\n- 지역 특색을 살린 도서관 견학\n- 어린이 맞춤 프로그램 체험\n- 독서문화 교육\n- 창의적 체험활동',
+	},
+];
+
+const infoBox = {
+	title: '도서관 견학 안내',
+	content:
+		'연수구립도서관에서는 유치원, 어린이집, 학교 등 단체를 대상으로 도서관 견학 프로그램을 운영하고 있습니다. 도서관의 다양한 시설과 서비스를 체험해보세요.',
+};
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 탭 네비게이션 -->
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 정보 박스 -->
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">도서관학교는 도서관 소개와 이용방법 교육 및 자료실 이용을 통한</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li class="list-none">
+						어린이들의 도서관에 대한 흥미를 유도하고 이해를 돕기 위한 도서관 현장학습 프로그램입니다. <br />
+						도서관을 처음 접하는 어린이들이 책에 대한 소중함을 느끼고, 도서관 이용방법을 체득할 수 있는 좋은 기회가 되길
+						바랍니다.
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 운영 도서관 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">운영 도서관</h3>
+			<ul class="usage-guide__content">
+				<li>연수청학, 연수꿈담, 송도국제어린이, 해돋이, 선학별빛, 함박비류도서관</li>
+			</ul>
+		</div>
+
+		<!-- 운영기간 및 개요 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">운영기간 및 개요</h3>
+			<ul class="usage-guide__content">
+				<li>
+					<span class="text-primary">인천시 소재 기관</span> 대상, <span class="text-primary">25인 이하</span> 교육 가능
+				</li>
+				<li>상반기: 3월~7월 1~2주(15일까지) / 하반기: 9월~12월 1~2주(15일까지)</li>
+				<li>방학기간(1월, 2월, 7월 16일 ~ 31일, 8월, 12월 16일 ~ 31일)에는 도서관 이용자 증가로 인해 미운영</li>
+			</ul>
+		</div>
+
+		<!-- 이용대상 및 교육내용 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이용대상 및 교육내용</h3>
+		</div>
+
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<colgroup>
+					<col width="12%" />
+					<col width="12%" />
+					<col width="20%" />
+					<col width="10%" />
+					<col width="15%" />
+					<col width="31%" />
+				</colgroup>
+				<caption>이용대상 및 교육내용</caption>
+				<thead>
+					<tr>
+						<th>도서관명</th><th>문의전화</th><th>교육대상</th><th>요일</th><th>교육시간</th><th>교육내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>연수청학</td>
+						<td>749-8265</td>
+						<td>어린이집, 유치원, 초등 1~6학년</td>
+						<td>화, 수, 금</td>
+						<td rowspan="6">10:30~11:30</td>
+						<td rowspan="3">
+							- 도서관 시설 견학(초등학교 이상) <br />
+							- 도서관 자료실 이용방법 및 예절 안내 <br />
+							- 스토리텔링 및 독후체험활동
+						</td>
+					</tr>
+					<tr>
+						<td>연수꿈담</td>
+						<td>749-8203</td>
+						<td>어린이집, 유치원, 초등 1~3학년</td>
+						<td>수, 목, 금</td>
+					</tr>
+					<tr>
+						<td>송도국제어린이</td>
+						<td>749-8223</td>
+						<td>어린이집, 유치원</td>
+						<td>수, 목, 금</td>
+					</tr>
+					<tr>
+						<td>해돋이</td>
+						<td>749-6958</td>
+						<td>어린이집, 유치원, 초등 1~3학년</td>
+						<td>화, 금</td>
+						<td>
+							- 도서관 자료실 이용방법 및 예절 안내 <br />
+							- 스토리텔링 및 독후체험활동
+						</td>
+					</tr>
+					<tr>
+						<td>선학별빛</td>
+						<td>749-6712</td>
+						<td rowspan="2">어린이집, 유치원</td>
+						<td>수, 목, 금</td>
+						<td>
+							- 도서관 자료실 이용방법 및 예절 안내 <br />
+							- 스토리텔링 및 독후체험활동
+						</td>
+					</tr>
+					<tr>
+						<td>함박비류</td>
+						<td>749-6978</td>
+						<td>화, 목, 금</td>
+						<td>
+							- 도서관 자료실 이용방법 및 예절 안내 <br />
+							- 스토리텔링 및 독후체험활동
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 신청방법 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">신청방법</h3>
+			<ul class="usage-guide__content">
+				<li>도서관 홈페이지를 통한 온라인 사전 신청 예약</li>
+				<li>견학일 기준 60일 범위 내 신청 가능, 4주 전까지 신청 요망(월 말에 익월 신청 분 일괄 승인처리)</li>
+			</ul>
+		</div>
+
+		<!-- 유의사항 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">유의사항</h3>
+			<ul class="usage-guide__content">
+				<li>소음, 통행 방해 등 다른 이용자에게 불편을 주는 행동을 삼가주시기 바랍니다.</li>
+				<li>참여 시 직원 안내 및 도서관 운영 방침에 협조해주시기 바랍니다.</li>
+				<li>미승인 또는 신청 없이 방문하실 경우 이용이 제한될 수 있습니다.</li>
+			</ul>
+		</div>
+
+		<!-- 이용대상 및 교육내용 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이용대상 및 교육내용</h3>
+		</div>
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<colgroup>
+					<col width="20%" />
+					<col width="10%" />
+					<col width="15%" />
+					<col width="40%" />
+					<col width="15%" />
+				</colgroup>
+				<caption>이용대상 및 교육내용</caption>
+				<thead>
+					<tr>
+						<th>교육대상</th><th>요일</th><th>교육시간</th><th>교육내용</th><th>문의전화</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>유, 초, 중, 고등학교 <br /> (20명 ~ 80명)</td>
+						<td>화, 수, 목, 금</td>
+						<td>10:00~12:00 13:00~17:00 <br /> (범위 내 협의)</td>
+						<td>
+							- 계절별자리 및 천체운동 학습, 천문돔영화 상영 등 <br />
+							※ 전화 신청시 하단의 영화 목록 중 관람하실 돔영화명을 말씀해주시기 바랍니다.
+						</td>
+						<td>749-6713 <br /> ※별도 전화접수</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 돔 영화명, 포스터, 상영내용-->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">돔영화 목록</h3>
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table dome-movie-table">
+					<colgroup>
+						<col width="22%" />
+						<col width="28%" />
+						<col width="50%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>돔영화명</th>
+							<th>포스터</th>
+							<th>상영내용</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>코코몽 우주탐험</td>
+							<td class="poster-cell">
+								<img src="./assets/images/cocomon.png" alt="코코몽 우주탐험 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 15분<br />
+								• 관람가 : 전체관람가<br />
+								• 주제 : 달, 우주 여행<br /><br />
+								코코몽은 우주에 대한 궁금증이 매우 많습니다. 핼리혜성이 떨어지던 어느날, 외계인 친구를 만나게 됩니다. 외계인,
+								핼리는 토성의 위성 타이탄에 살고 있지만, 세균킹을 피해 지구로 오게되었습니다. 코코몽은 핼리와 함께 타이탄으로의
+								여행을 시작하게 됩니다.
+							</td>
+						</tr>
+						<tr>
+							<td>래리캣 인 스페이스<br />(Larry Cat In Space)</td>
+							<td class="poster-cell">
+								<img src="./assets/images/larry-cat.png" alt="래리캣 인 스페이스 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 30분<br />
+								• 관람가 : 전체관람가<br />
+								• 주제 : 달, 우주 여행<br /><br />
+								달을 여행하는 호기심 많은 고양이에 관한 상상력이 풍부한 만화 영화입니다. 고양이의 눈을 통해 가족을 관찰합니다.
+								인간의 시간과 고양이의 시간이 어떻게 다른지 주목합니다.
+							</td>
+						</tr>
+						<tr>
+							<td>The ABC of the Stars</td>
+							<td class="poster-cell">
+								<img src="./assets/images/abc-stars.png" alt="The ABC of the Stars 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 27분<br />
+								• 관람가 : 전체관람가<br />
+								• 주제 : 태양계행성, 달 탐험<br /><br />
+								존의 친구인 메리와 함께 별과 유성을보고 달에 가고 싶다. 이때 갑자기 아이들 앞에 우주선"옵저버"가 나타나고,
+								아이들은 태양계행성을 여행하게고, 달까지 가기까지 모험을 그린다.
+							</td>
+						</tr>
+						<tr>
+							<td>생명의 빛 오로라</td>
+							<td class="poster-cell">
+								<img src="./assets/images/aurora.png" alt="생명의 빛 오로라 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 30분<br />
+								• 관람가 : 초등학교 이상<br />
+								• 주제 : 오로라의 모습과 원리<br /><br />
+								인간이 자연에서 경험할 수 있는 최고의 경이로움인 오로라, 그 실제 모습을 세계 최초로 4K*4K Real time VR 영상으로
+								느낄 수 있습니다. 천체사진가인 권오철 작가가 초고감도 카메라를 이용해 2015년 캐나다 옐로우나이프에서 촬영한
+								영상을 선보입니다. 오로라의 과학적 배경과 같은, 직접 촬영할 수 없는 우주의 모습은 CG로 구현하였습니다.
+							</td>
+						</tr>
+						<tr>
+							<td>Journey to a billion suns</td>
+							<td class="poster-cell">
+								<img src="./assets/images/billion-suns.png" alt="Journey to a billion suns 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 30분<br />
+								• 관람가 : 전체관람가<br />
+								• 주제 : 항성의 발견과 탄생<br /><br />
+								태양은 지구에서 가장 가까운 항성입니다. 드넓은 우주에는 태양과 같이 스스로 빛을 내는 별들이 매우 많이 있습니다.
+								고대의 사람들은 하늘을 보며 별에 대한 궁금증을 가졌고, 현대에는 과학기술의 발전으로 다양한 장비를 이용해
+								우주와 항성을 관찰하고 있습니다. 우주에 존재하는 항성의 비밀을 알기쉽게 설명합니다.
+							</td>
+						</tr>
+						<tr>
+							<td>별자리 신화<br />(Astronomyths)</td>
+							<td class="poster-cell">
+								<img src="./assets/images/astronomyths.png" alt="별자리 신화 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 25분<br />
+								• 관람가 : 전체관람가<br />
+								• 주제 : 우주, 별자리에 대한 신화이야기<br /><br />
+								아주 오랜 옛날부터 사람들은 우주에 대한 호기심을 가지고 있었습니다. 그렇기 때문에 우주와 별자리에 대한 다양한
+								신화들을 만들어내어 우주를 이해하고 설명하려고 했습니다. 우주에 대한 신화, 별자리에 대한 이야기들이 어떤
+								것이 있는지 알아봅니다.
+							</td>
+						</tr>
+						<tr>
+							<td>Earth, Moon & Sun</td>
+							<td class="poster-cell">
+								<img src="./assets/images/earth-moon-sun.png" alt="Earth, Moon & Sun 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 28분<br />
+								• 관람가 : 초등학교 고학년 이상<br />
+								• 주제 : 지구, 달, 태양 탐험<br /><br />
+								미국 아메리카 인디언의 구전으로 내려오는 민첩하고 재미있는 캐릭터의 코요테를 주인공하여 지구, 달 및 태양을
+								탐험하며 여러 가지 우주의 수수께끼를 풀어가는 작품
+							</td>
+						</tr>
+						<tr>
+							<td>우주시대의 여명<br />(Dawn of the Space Age)</td>
+							<td class="poster-cell">
+								<img src="./assets/images/dawn-space-age.png" alt="우주시대의 여명 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 41분<br />
+								• 관람가 : 초등학교 이상<br />
+								• 주제 : 인공위성, 달, 우주 탐험<br /><br />
+								인공 위성 인 스푸트니크(Sputnik) 인공위성 발사에서부터 달 착륙과 개인 비행 우주 비행에 이르기까지. 인간이
+								우주 공간으로의 첫 단계를 역사상 가장 정확하게 재구성 한 작품
+							</td>
+						</tr>
+						<tr>
+							<td>우주비행사</td>
+							<td class="poster-cell">
+								<img src="./assets/images/astronaut.png" alt="우주비행사 포스터" />
+							</td>
+							<td class="content-cell">
+								• 상영시간 : 약 23분<br />
+								• 관람가 : 초등학교 이상<br />
+								• 주제 : 인공위성, 달, 우주 탐험<br /><br />
+								우주 비행사가되기 위해서는 무엇이 필요합니까? 국제우주정거장을 떠 다니는 것에서부터 인체의 미세한 영역을
+								조종하는 것에 이르기까지 내외부의 놀라운 세계를 탐험하십시오. 우주에 숨어있는 위험을 발견하십시오
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- 신청방법 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">신청방법</h3>
+			<ul class="usage-guide__content">
+				<li>전화 신청: 032-749-6713 (천문대 직통)</li>
+				<li>신청 시기: 견학 희망일 2주 전까지</li>
+				<li>운영 시간: 화~금요일 10:00~17:00 (점심시간 12:00~13:00 제외)</li>
+				<li>휴관일: 월요일, 법정공휴일</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>

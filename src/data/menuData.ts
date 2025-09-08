@@ -268,8 +268,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 				title: '도서기증',
 				items: [
 					{ label: '기증안내', href: './기증안내' },
-					{ label: '서약서작성', href: './서약서작성' },
-					{ label: '기증신청조회', href: './기증신청조회' },
+					{ label: '서약서작성', href: './기증안내-서약서작성' },
+					{ label: '기증신청조회', href: './기증안내-기증신청조회' },
 				],
 			},
 			{
@@ -319,6 +319,7 @@ export const menuConfig: Record<string, MenuConfig> = {
 				items: [
 					{ label: '대관신청', href: './대관신청' },
 					{ label: '공연장', href: './공연장' },
+					{ label: '공연장신청', href: './공연장-신청' },
 					{ label: '세미나실대관', href: './세미나실대관' },
 					{ label: '커뮤니티룸대관', href: './커뮤니티룸대관' },
 					{ label: '프로그램실', href: './프로그램실' },
@@ -392,12 +393,27 @@ export const menuConfig: Record<string, MenuConfig> = {
 				href: './내정보',
 			},
 			{
+				title: '회원정보수정',
+				items: [
+					{ label: '본인인증', href: './회원정보수정-step1' },
+					{ label: '정보수정', href: './회원정보수정-step2' },
+				],
+			},
+			{
+				title: '회원탈퇴',
+				href: './회원탈퇴',
+			},
+			{
 				title: '모바일회원증',
 				href: './모바일회원증',
 			},
 			{
 				title: '정회원인증',
 				href: './정회원인증',
+			},
+			{
+				title: '통합회원조회',
+				href: './통합회원조회',
 			},
 			{
 				title: '대출현황',
@@ -442,13 +458,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 			{
 				title: '대관신청조회',
 				items: [
+					{ label: '대관신청조회', href: './대관신청조회' },
 					{ label: '공연장대관신청조회', href: './공연장대관신청조회' },
-					{ label: '세미나실대관신청조회', href: './세미나실대관신청조회' },
-					{ label: '커뮤니티룸대관신청조회', href: './커뮤니티룸대관신청조회' },
-					{ label: '프로그램실대관신청조회', href: './프로그램실대관신청조회' },
-					{ label: '독서토론실대관신청조회', href: './독서토론실대관신청조회' },
-					{ label: '하늘빛정원대관신청조회', href: './하늘빛정원대관신청조회' },
-					{ label: '동아리실대관신청조회', href: './동아리실대관신청조회' },
 				],
 			},
 			{
@@ -560,24 +571,24 @@ export const getExpandedSectionsForPath = (pathname: string, menuType: string): 
 
 	// 열린참여마당 메뉴의 확장 상태 결정
 	else if (menuType === '열린참여마당') {
-		if (pathname.includes('tour')) {
-			expandedSections['도서관 견학'] = true;
-		} else if (pathname.includes('donation')) {
+		if (pathname.includes('도서관견학')) {
+			expandedSections['도서관견학'] = true;
+		} else if (pathname.includes('기증안내')) {
 			expandedSections['도서기증'] = true;
 		} else if (pathname.includes('reading-marathon')) {
 			expandedSections['독서마라톤'] = true;
 		} else if (pathname.includes('reading-king')) {
 			expandedSections['독서왕'] = true;
-		} else if (pathname.includes('attendance')) {
-			expandedSections['출석체크 이벤트'] = true;
+		} else if (pathname.includes('출석체크') || pathname.includes('출석하기')) {
+			expandedSections['출석체크이벤트'] = true;
 		}
 	}
 
 	// 문화마당 메뉴의 확장 상태 결정
 	else if (menuType === '문화마당') {
-		if (pathname.includes('movie')) {
+		if (pathname.includes('영화상영')) {
 			expandedSections['영화상영'] = true;
-		} else if (pathname.includes('rental')) {
+		} else if (pathname.includes('대관신청') || pathname.includes('공연장')) {
 			expandedSections['대관안내'] = true;
 		}
 	}
@@ -593,8 +604,10 @@ export const getExpandedSectionsForPath = (pathname: string, menuType: string): 
 
 	// 나의도서관 메뉴의 확장 상태 결정
 	else if (menuType === '나의도서관') {
-		if (pathname.includes('rental-status')) {
-			expandedSections['대관신청 조회'] = true;
+		if (pathname.includes('회원정보수정')) {
+			expandedSections['회원정보수정'] = true;
+		} else if (pathname.includes('대관신청조회') || pathname.includes('공연장대관신청조회')) {
+			expandedSections['대관신청조회'] = true;
 		}
 	}
 
@@ -633,17 +646,36 @@ export const getMenuTypeFromPath = (pathname: string): string => {
 	}
 
 	// 도서서비스 관련 페이지
-	if (pathname.includes('services')) {
+	if (
+		pathname.includes('희망도서신청') ||
+		pathname.includes('희망전자책신청') ||
+		pathname.includes('무료택배도서대출') ||
+		pathname.includes('영유아전집대여사업') ||
+		pathname.includes('services')
+	) {
 		return '도서서비스';
 	}
 
 	// 열린참여마당 관련 페이지
-	if (pathname.includes('도서관에바란다') || pathname.includes('participation')) {
+	if (
+		pathname.includes('도서관에바란다') ||
+		pathname.includes('도서관견학') ||
+		pathname.includes('기증안내') ||
+		pathname.includes('출석체크') ||
+		pathname.includes('출석하기') ||
+		pathname.includes('participation')
+	) {
 		return '열린참여마당';
 	}
 
 	// 문화마당 관련 페이지
-	if (pathname.includes('culture')) {
+	if (
+		pathname.includes('프로그램신청') ||
+		pathname.includes('영화상영') ||
+		pathname.includes('대관신청') ||
+		pathname.includes('공연장') ||
+		pathname.includes('culture')
+	) {
 		return '문화마당';
 	}
 
@@ -654,9 +686,15 @@ export const getMenuTypeFromPath = (pathname: string): string => {
 
 	// 나의도서관 관련 페이지
 	if (
+		pathname.includes('내정보') ||
+		pathname.includes('회원정보수정') ||
+		pathname.includes('회원탈퇴') ||
+		pathname.includes('모바일회원증') ||
+		pathname.includes('정회원인증') ||
+		pathname.includes('통합회원조회') ||
 		pathname.includes('대출현황') ||
 		pathname.includes('대출이력') ||
-		pathname.includes('예약현황') ||
+		pathname.includes('일반예약현황') ||
 		pathname.includes('상호대차현황') ||
 		pathname.includes('희망도서신청현황') ||
 		pathname.includes('희망전자책신청현황') ||
@@ -666,6 +704,7 @@ export const getMenuTypeFromPath = (pathname: string): string => {
 		pathname.includes('프로그램신청조회') ||
 		pathname.includes('견학신청조회') ||
 		pathname.includes('대관신청조회') ||
+		pathname.includes('공연장대관신청조회') ||
 		pathname.includes('영유아전집신청조회') ||
 		pathname.includes('my-library')
 	) {
@@ -673,7 +712,13 @@ export const getMenuTypeFromPath = (pathname: string): string => {
 	}
 
 	// 회원서비스 관련 페이지
-	if (pathname.includes('member')) {
+	if (
+		pathname.includes('로그인') ||
+		pathname.includes('비밀번호찾기') ||
+		pathname.includes('회원가입') ||
+		pathname.includes('도서관고양이') ||
+		pathname.includes('member')
+	) {
 		return '회원서비스';
 	}
 

@@ -164,3 +164,30 @@
     }
   }
 }
+
+/* 돔 영화 테이블 스타일 */
+.dome-movie-table .poster-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dome-movie-table .poster-cell img {
+  display: inline-block;
+  width: 144px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.dome-movie-table .content-cell {
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+@media (max-width: 900px) {
+  .dome-movie-table .poster-cell img {
+    width: 100px;
+    height: 120px;
+  }
+}
+

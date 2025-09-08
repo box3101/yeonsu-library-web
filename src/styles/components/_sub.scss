@@ -285,6 +285,7 @@ ul.movie-card-wrp {
 .usage-guide {
 	&__title {
 		margin: to-rem(32) 0;
+    margin-bottom: to-rem(20);
 		@include font(to-rem(32), 700, #191a1a);
 	}
 
@@ -329,14 +330,19 @@ ul.movie-card-wrp {
 	&__table {
 		width: 100%;
 		border-collapse: collapse;
+    caption {
+      display: none;
+    }
 		@include mobile {
 			min-width: 600px;
 		}
 		tr {
 			th {
 				padding: to-rem(14) 0;
-				border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
-				background: var(--color-primary-pr00, #ecf2f9);
+				border-right: 1px solid var(--color-primary-pr01, #D8E4F3);
+				border-bottom: 1px solid var(--color-primary-pr01, #D8E4F3);
+				border-left: 1px solid var(--color-primary-pr01, #D8E4F3);
+				background: var(--color-primary-pr00, #ECF2F9);
 				@include font(to-rem(17), 700, #191a1a);
 			}
 		}
@@ -349,9 +355,6 @@ ul.movie-card-wrp {
 				line-height: 1.5;
 				border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
-				&:last-child {
-					border-right: none;
-				}
 			}
 		}
 	}
@@ -496,6 +499,13 @@ ul.movie-card-wrp {
 					height: 4px;
 				}
 			}
+
+      &.list-none{
+        padding-left: 0;
+        &::before{
+          display: none;
+        }
+      }
 
 			&:last-child {
 				margin-bottom: 0;
@@ -5436,7 +5446,7 @@ div.bookshelf-item {
 	border: 1px solid #cbcccc;
 	border-radius: to-rem(12);
 	padding: to-rem(24);
-	height: to-rem(175);
+	height: -webkit-fill-available;
 
 	@include mobile {
 		// 모바일에서는 가로 배치로 변경
@@ -7050,7 +7060,7 @@ div.bookshelf-item {
 	justify-content: center;
 	width: 20px;
 	height: 20px;
-	margin-top: 4px;
+	margin-top: 2px;
 
 	@include mobile {
 		margin-top: 1px;
