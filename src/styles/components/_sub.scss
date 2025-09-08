@@ -298,12 +298,15 @@ ul.movie-card-wrp {
 			&::before {
 				content: '';
 				position: absolute;
-				top:12px;
+				top:10px;
 				left: 0;
 				width: to-rem(4);
 				height: to-rem(4);
 				border-radius: 50%;
 				background: #000;
+        @include mobile {
+          top: 8px;
+        }
 			}
 			&:last-child {
 				margin-bottom: 0;
@@ -1122,12 +1125,6 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: flex-end;
 		gap: to-rem(12);
-
-		@include mobile {
-			flex-direction: column;
-			align-items: stretch;
-			gap: to-rem(8);
-		}
 	}
 
 	&__separator {
@@ -1139,10 +1136,6 @@ ul.movie-card-wrp {
 		align-items: center;
 		height: to-rem(56);
 		padding: 0 to-rem(10);
-
-		@include mobile {
-			display: none;
-		}
 	}
 
 	&__secondary {
@@ -2542,7 +2535,7 @@ ul.movie-card-wrp {
 
 		@include mobile {
 			flex-direction: column;
-			gap: to-rem(12);
+			gap: to-rem(8);
 		}
 	}
 

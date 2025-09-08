@@ -62069,12 +62069,17 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 .usage-guide__content li::before {
   content: "";
   position: absolute;
-  top: 12px;
+  top: 10px;
   left: 0;
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 50%;
   background: #000;
+}
+@media (max-width: 900px) {
+  .usage-guide__content li::before {
+    top: 8px;
+  }
 }
 .usage-guide__content li:last-child {
   margin-bottom: 0;
@@ -62874,13 +62879,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   align-items: flex-end;
   gap: 0.75rem;
 }
-@media (max-width: 900px) {
-  .time-selection-group__primary {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-}
 .time-selection-group__separator {
   font-family: "Pretendard GOV", sans-serif;
   font-size: 1rem;
@@ -62890,11 +62888,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   align-items: center;
   height: 3.5rem;
   padding: 0 0.625rem;
-}
-@media (max-width: 900px) {
-  .time-selection-group__separator {
-    display: none;
-  }
 }
 .time-selection-group__secondary {
   display: flex;
@@ -63285,9 +63278,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
     gap: 6px;
     align-items: stretch;
   }
-}
-.com-search__select {
-  min-width: 12.5rem;
 }
 .com-search__input {
   flex: 1;
@@ -64215,7 +64205,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 @media (max-width: 900px) {
   .signup-form__actions {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 }
 .signup-form .ui-select--large .ui-select__element {
@@ -76368,6 +76358,111 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   outline-offset: 2px;
 }
 
+.com-grid {
+  display: grid;
+  gap: 1rem;
+}
+.com-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.com-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.com-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.com-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.com-grid-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+@media (max-width: 900px) {
+  .com-grid-4, .com-grid-5, .com-grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .com-grid-3, .com-grid-4, .com-grid-5, .com-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.com-grid-item {
+  width: 100%;
+}
+.com-grid-item a {
+  display: block;
+}
+.com-grid-item .image {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.com-grid-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.com-grid-item .image:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.com-grid-item .image:hover img {
+  transform: scale(1.05);
+}
+.com-grid-item .image.h-sm {
+  height: 7.5rem;
+}
+@media (max-width: 900px) {
+  .com-grid-item .image.h-sm {
+    height: auto;
+  }
+}
+.com-grid-item .image.h-md {
+  height: 11.25rem;
+}
+@media (max-width: 900px) {
+  .com-grid-item .image.h-md {
+    height: auto;
+  }
+}
+.com-grid-item .image.h-lg {
+  height: 14.125rem;
+}
+@media (max-width: 900px) {
+  .com-grid-item .image.h-lg {
+    height: auto;
+  }
+}
+.com-grid-item .image.h-xlg {
+  height: 15.3125rem;
+}
+@media (max-width: 900px) {
+  .com-grid-item .image.h-xlg {
+    height: auto;
+  }
+}
+.com-grid-item .image.h-xl {
+  height: 17.5rem;
+}
+@media (max-width: 900px) {
+  .com-grid-item .image.h-xl {
+    height: auto;
+  }
+}
+.com-grid-item .title {
+  margin-top: 10px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .color-red {
   color: #D7424E;
 }
@@ -76501,6 +76596,18 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   position: absolute;
   left: 0;
   color: #333;
+}
+
+.cat-activities-section .ui-select-container {
+  width: 100%;
+}
+.cat-activities-section .com-grid {
+  margin-bottom: 45px;
+}
+@media (max-width: 900px) {
+  .cat-activities-section .com-grid {
+    margin-bottom: 30px;
+  }
 }
 
 .ui-book-card {
