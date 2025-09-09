@@ -89693,8 +89693,6 @@ body.modal-open {
 
 .gnb-main {
   background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
 }
 .gnb-main-list {
   display: flex;
@@ -89748,8 +89746,6 @@ body.modal-open {
 
 .gnb-sub {
   background: #ffffff;
-  border-top: 1px solid #cdd1d5;
-  border-bottom: 1px solid #cdd1d5;
   position: absolute;
   top: 100%;
   left: 0;
@@ -89757,8 +89753,9 @@ body.modal-open {
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   transition: all 0.3s ease;
+  border-top: 1px solid #cdd1d5;
 }
 .gnb-sub[hidden] {
   display: none !important;
