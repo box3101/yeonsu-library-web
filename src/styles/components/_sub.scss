@@ -318,10 +318,23 @@ ul.movie-card-wrp {
 					display: none;
 				}
 			}
+			&.noti{
+				padding-left: 20px;
+				position: relative;
+				&::before {
+					position: absolute; top: 0px;
+					content: '※'; display: inline-block;
+					width: 0; height: 0;
+				}
+			}
 		}
 	}
 
 	&__table-wrapper {
+		margin-top: 20px;
+		@include mobile {
+			margin-top: 15px;
+		}
 		@include mobile {
 			overflow-x: auto;
 		}
@@ -389,8 +402,15 @@ ul.movie-card-wrp {
    - 각 카드는 하나의 데이터 항목을 표현
 ======================================== */
 .contact-info {
+	margin-bottom: 25px;
+	@include mobile {
+		margin-bottom: 20px;
+	}
 	h3 {
 		margin-top: 40px;
+		@include mobile {
+			margin-top: 20px;
+		}
 		@include font(to-rem(24), 400, #191919);
 		@include makeBefore {
 			position: absolute;
@@ -403,19 +423,29 @@ ul.movie-card-wrp {
 		}
 		position: relative;
 		padding-left: 25px;
+
+		@include mobile {
+			line-height: 1.3; word-break: keep-all;
+		}
 	}
 }
-.contact-table-wrp.scroll-x {
-	@include mobile {
-		overflow-x: auto;
+.contact-table-wrp{
+	&.scroll-x {
+		@include mobile {
+			overflow-x: auto;
+		}
+
+		@include mobile {
+			min-width: 600px;
+		}
 	}
-	table.contact-table {
+	.contact-table {
 		width: 100%;
 		border-collapse: collapse;
 		margin-top: 25px;
 		border-top: 2px solid #30619b;
-		@include mobile {
-			min-width: 600px;
+		caption{
+			display:none;
 		}
 		tbody {
 			tr {
@@ -423,7 +453,7 @@ ul.movie-card-wrp {
 					padding: 18px 0;
 					text-align: center;
 					line-height: 150%;
-					@include font(to-rem(15), 700, #191919);
+					@include font(to-rem(15), 700, #191919); line-height: 1.5; word-break: keep-all;
 
 					@include mobile {
 						font-size: 13px;

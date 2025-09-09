@@ -62091,6 +62091,26 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 .usage-guide__content li.list-none::before {
   display: none;
 }
+.usage-guide__content li.noti {
+  padding-left: 20px;
+  position: relative;
+}
+.usage-guide__content li.noti::before {
+  position: absolute;
+  top: 0px;
+  content: "※";
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+.usage-guide__table-wrapper {
+  margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .usage-guide__table-wrapper {
+    margin-top: 15px;
+  }
+}
 @media (max-width: 900px) {
   .usage-guide__table-wrapper {
     overflow-x: auto;
@@ -62158,6 +62178,14 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
    - 가로 방향으로 카드들이 배치
    - 각 카드는 하나의 데이터 항목을 표현
 ======================================== */
+.contact-info {
+  margin-bottom: 25px;
+}
+@media (max-width: 900px) {
+  .contact-info {
+    margin-bottom: 20px;
+  }
+}
 .contact-info h3 {
   margin-top: 40px;
   font-size: 1.5rem;
@@ -62166,6 +62194,11 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   line-height: 1;
   position: relative;
   padding-left: 25px;
+}
+@media (max-width: 900px) {
+  .contact-info h3 {
+    margin-top: 20px;
+  }
 }
 .contact-info h3::before {
   content: "";
@@ -62182,24 +62215,33 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   background-position: center;
   background-repeat: no-repeat;
 }
+@media (max-width: 900px) {
+  .contact-info h3 {
+    line-height: 1.3;
+    word-break: keep-all;
+  }
+}
 
 @media (max-width: 900px) {
   .contact-table-wrp.scroll-x {
     overflow-x: auto;
   }
 }
-.contact-table-wrp.scroll-x table.contact-table {
+@media (max-width: 900px) {
+  .contact-table-wrp.scroll-x {
+    min-width: 600px;
+  }
+}
+.contact-table-wrp .contact-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 25px;
   border-top: 2px solid #30619b;
 }
-@media (max-width: 900px) {
-  .contact-table-wrp.scroll-x table.contact-table {
-    min-width: 600px;
-  }
+.contact-table-wrp .contact-table caption {
+  display: none;
 }
-.contact-table-wrp.scroll-x table.contact-table tbody tr th + td {
+.contact-table-wrp .contact-table tbody tr th + td {
   padding: 18px 0;
   text-align: center;
   line-height: 150%;
@@ -62207,18 +62249,20 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   font-weight: 700;
   color: #191919;
   line-height: 1;
+  line-height: 1.5;
+  word-break: keep-all;
 }
 @media (max-width: 900px) {
-  .contact-table-wrp.scroll-x table.contact-table tbody tr th + td {
+  .contact-table-wrp .contact-table tbody tr th + td {
     font-size: 13px;
     padding: 18px 10px;
   }
 }
-.contact-table-wrp.scroll-x table.contact-table tbody tr th {
+.contact-table-wrp .contact-table tbody tr th {
   background-color: #ecf2f9;
   border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
 }
-.contact-table-wrp.scroll-x table.contact-table tbody tr td {
+.contact-table-wrp .contact-table tbody tr td {
   border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
   font-size: 1.0625rem;
   font-weight: 400;
@@ -76644,6 +76688,13 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     height: 120px;
   }
 }
+.usage-guide__table-cell {
+  text-align: center;
+}
+.usage-guide__table-cell img {
+  display: inline-block;
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
