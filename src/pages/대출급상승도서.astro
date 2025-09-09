@@ -18,7 +18,7 @@ const popularBooks = [
 		currentCount: 456,
 		previousCount: 56,
 		totalCount: 512,
-		image: '/assets/images/book1.jpg',
+		image: './assets/images/book1.jpg',
 	},
 	{
 		rank: 2,
@@ -28,7 +28,7 @@ const popularBooks = [
 		currentCount: 109,
 		previousCount: 44,
 		totalCount: 153,
-		image: '/assets/images/book2.jpg',
+		image: './assets/images/book2.jpg',
 	},
 	{
 		rank: 3,
@@ -38,7 +38,7 @@ const popularBooks = [
 		currentCount: 86,
 		previousCount: 89,
 		totalCount: 175,
-		image: '/assets/images/book3.jpg',
+		image: './assets/images/book3.jpg',
 	},
 	{
 		rank: 4,
@@ -48,7 +48,7 @@ const popularBooks = [
 		currentCount: 72,
 		previousCount: 56,
 		totalCount: 154,
-		image: '/assets/images/book4.jpg',
+		image: './assets/images/book4.jpg',
 	},
 	{
 		rank: 5,
@@ -58,7 +58,7 @@ const popularBooks = [
 		currentCount: 72,
 		previousCount: 90,
 		totalCount: 162,
-		image: '/assets/images/book5.jpg',
+		image: './assets/images/book5.jpg',
 	},
 ];
 ---
@@ -77,16 +77,7 @@ const popularBooks = [
 			<div class="date-selector-header">
 				<div class="date-controls">
 					<button class="arrow-btn prev-btn" aria-label="이전 날짜">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-							<path
-								d="M12.5 15L7.5 10L12.5 5"
-								stroke="#666"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-							</path>
-						</svg>
+						<img src="./assets/images/icon/arrow-left.svg" alt="이전" />
 					</button>
 
 					<div class="date-display">
@@ -102,16 +93,7 @@ const popularBooks = [
 					</div>
 
 					<button class="arrow-btn next-btn" aria-label="다음 날짜">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-							<path
-								d="M7.5 5L12.5 10L7.5 15"
-								stroke="#666"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-							</path>
-						</svg>
+						<img src="./assets/images/icon/arrow-right.svg" alt="다음" />
 					</button>
 				</div>
 			</div>
@@ -140,9 +122,7 @@ const popularBooks = [
 
 								<div class="table-cell institution-col">
 									<div class="rank-change-badge">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-											<path d="M12 4L8 8H16L12 4Z" fill="white" />
-										</svg>
+										<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
 										<span class="change-number">{book.currentCount}</span>
 									</div>
 								</div>
@@ -182,278 +162,3 @@ const popularBooks = [
 		</div>
 	</SubLayout>
 </Layout>
-
-<style lang="scss">
-	.date-selectors {
-		.date-selector-header {
-			padding: 16px 24px;
-
-			.date-controls {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 8px;
-
-				.arrow-btn {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					width: 32px;
-					height: 32px;
-					border: 1px solid #cdd1d5;
-					border-radius: 50%;
-					background-color: transparent;
-					cursor: pointer;
-					transition: all 0.2s ease;
-
-					&:hover {
-						background-color: #f0f0f0;
-					}
-
-					svg {
-						width: 19.2px;
-						height: 19.2px;
-					}
-				}
-
-				.date-display {
-					display: flex;
-					align-items: center;
-					gap: 4px;
-
-					.date-item {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						height: 40px;
-						padding: 0 8px;
-						border-radius: 6px;
-						background-color: transparent;
-
-						.date-text {
-							font-family: 'Pretendard GOV', sans-serif;
-							font-weight: 700;
-							font-size: 24px;
-							line-height: 1.5;
-							color: #1e2124;
-						}
-					}
-				}
-			}
-		}
-
-		/* 대출급상승도서 테이블 스타일 */
-		.popular-books-table {
-			width: 100%;
-			margin-top: 16px;
-
-			.table-header {
-				display: flex;
-				background-color: #ecf2f9;
-				border-top: 2px solid #004d80;
-
-				.header-cell {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					height: 44px;
-					padding: 8px 0;
-					border-right: 1px solid #d8e4f3;
-					border-bottom: 1px solid #d8e4f3;
-					font-family: 'Pretendard GOV', sans-serif;
-					font-weight: 700;
-					font-size: 15px;
-					line-height: 1.5;
-					color: #191a1a;
-					text-align: center;
-
-					&:last-child {
-						border-right: none;
-					}
-
-					&.rank-col {
-						width: 50px;
-					}
-
-					&.institution-col {
-						width: 100px;
-					}
-
-					&.date1-col {
-						width: 100px;
-					}
-
-					&.date2-col {
-						width: 100px;
-					}
-
-					&.count-col {
-						width: 100px;
-					}
-
-					&.title-col {
-						flex: 1;
-					}
-
-					&.isbn-col {
-						width: 180px;
-					}
-				}
-			}
-
-			.table-body {
-				.table-row {
-					display: flex;
-					border-bottom: 1px solid #cbcccc;
-
-					&:hover {
-						background-color: #f8f9fa;
-					}
-
-					.table-cell {
-						display: flex;
-						align-items: center;
-						padding: 12px 16px;
-						border-right: 1px solid #cbcccc;
-						font-family: 'Pretendard GOV', sans-serif;
-						font-size: 17px;
-						line-height: 1.5;
-						color: #4b4d4d;
-
-						&:last-child {
-							border-right: none;
-						}
-
-						&.rank-col {
-							width: 50px;
-							min-width: 50px;
-							justify-content: center;
-
-							.rank-number {
-								font-weight: 400;
-								color: #464c53;
-							}
-						}
-
-						&.institution-col {
-							width: 100px;
-							min-width: 80px;
-							justify-content: center;
-
-							.rank-change-badge {
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								gap: 4px;
-								height: 36px;
-								width: 75px;
-								padding: 8px 12px;
-								background-color: #3c79c2;
-								border-radius: 20px;
-
-								svg {
-									width: 24px;
-									height: 24px;
-								}
-
-								.change-number {
-									font-family: 'Pretendard GOV', sans-serif;
-									font-weight: 500;
-									font-size: 17px;
-									color: white;
-								}
-							}
-						}
-
-						&.date1-col,
-						&.date2-col,
-						&.count-col {
-							width: 100px;
-							min-width: 80px;
-							justify-content: center;
-
-							.date-text,
-							.count-text {
-								font-weight: 400;
-								text-align: center;
-							}
-						}
-
-						&.title-col {
-							flex: 1;
-							min-width: 200px;
-							padding: 16px;
-
-							.book-info {
-								display: flex;
-								flex-direction: row;
-								align-items: center;
-								gap: 16px;
-								width: 100%;
-								margin-top: 0 !important;
-								overflow: hidden;
-
-								.book-image {
-									flex-shrink: 0;
-									width: 70px;
-									height: 105px;
-									background-color: #f0f0f0;
-									border-radius: 4px;
-									overflow: hidden;
-
-									img {
-										width: 100%;
-										height: 100%;
-										object-fit: cover;
-									}
-								}
-
-								.book-details {
-									flex: 1;
-									display: flex;
-									flex-direction: column;
-									gap: 16px;
-
-									.book-title {
-										font-weight: 700;
-										font-size: 19px;
-										line-height: 1.5;
-										color: #4b4d4d;
-										margin: 0;
-										overflow: hidden;
-										text-overflow: ellipsis;
-										display: -webkit-box;
-										-webkit-line-clamp: 2;
-										-webkit-box-orient: vertical;
-									}
-
-									.book-author {
-										font-family: 'Pretendard GOV', sans-serif;
-										font-weight: 400;
-										font-size: 17px;
-										line-height: 1.5;
-										color: #4b4d4d;
-										margin: 0;
-										overflow: hidden;
-										text-overflow: ellipsis;
-									}
-								}
-							}
-						}
-
-						&.isbn-col {
-							width: 180px;
-							min-width: 120px;
-							justify-content: center;
-
-							.isbn-text {
-								font-weight: 400;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-</style>
