@@ -62060,7 +62060,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 .usage-guide__content li {
   margin-bottom: 6px;
   position: relative;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
   font-size: 1.0625rem;
   font-weight: 400;
   color: #191a1a;
@@ -62259,7 +62259,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .program-notice__list li {
   position: relative;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
   margin-bottom: 0.5rem;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -62270,8 +62270,8 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   position: absolute;
   left: 0;
   top: 0.5625rem;
-  width: 0.375rem;
-  height: 0.375rem;
+  width: 0.25rem;
+  height: 0.25rem;
   background: #4b4d4d;
   border-radius: 0.25rem;
 }

@@ -158,7 +158,11 @@ const programDetail = {
 													<div class="program-detail-page__attachment-icon">
 														<img src="./assets/images/icon/icon-download.svg" alt="다운로드" class="icon icon-sm" />
 													</div>
-													<a href={file.downloadUrl} download={file.filename} class="program-detail-page__attachment-link">
+													<a
+														href={file.downloadUrl}
+														download={file.filename}
+														class="program-detail-page__attachment-link"
+													>
 														{file.filename}
 													</a>
 												</div>
@@ -184,8 +188,20 @@ const programDetail = {
 
 			<!-- 하단 버튼 -->
 			<div class="program-detail-page__actions">
-				<UiButton text="목록" variant="tertiary" size="medium" class="program-detail-page__action-button" href="/프로그램신청" />
-				<UiButton text="접수" variant="primary" size="medium" class="program-detail-page__action-button" />
+				<UiButton
+					text="목록"
+					variant="tertiary"
+					size="medium"
+					class="program-detail-page__action-button"
+					href="/프로그램신청"
+				/>
+				<UiButton
+					href="./대관신청"
+					text="접수"
+					variant="primary"
+					size="medium"
+					class="program-detail-page__action-button"
+				/>
 			</div>
 		</div>
 	</SubLayout>

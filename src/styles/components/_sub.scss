@@ -293,7 +293,7 @@ ul.movie-card-wrp {
 		li {
 			margin-bottom: 6px;
 			position: relative;
-			padding-left: to-rem(16);
+			padding-left: to-rem(12);
 			@include font(to-rem(17), 400, #191a1a);
 			line-height: 150%;
 			&::before {
@@ -478,7 +478,7 @@ ul.movie-card-wrp {
 
 		li {
 			position: relative;
-			padding-left: to-rem(16);
+			padding-left: to-rem(12);
 			margin-bottom: to-rem(8);
 			font-size: to-rem(15);
 			line-height: 1.5;
@@ -489,8 +489,8 @@ ul.movie-card-wrp {
 				position: absolute;
 				left: 0;
 				top: to-rem(9);
-				width: to-rem(6);
-				height: to-rem(6);
+				width: to-rem(4);
+				height: to-rem(4);
 				background: #4b4d4d;
 				border-radius: to-rem(4);
 
