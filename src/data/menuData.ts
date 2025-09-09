@@ -75,6 +75,14 @@ export const menuConfig: Record<string, MenuConfig> = {
 				title: '스마트도서관비치도서',
 				href: './스마트도서관비치도서',
 			},
+			{
+				title: '공공도서관 빅데이터',
+				items: [
+					{ label: '대출 급상승 도서', href: './대출급상승도서' },
+					{ label: '이달의 키워드', href: './이달의키워드' },
+					{ label: '도서별 이용분석', href: './도서별이용분석' },
+				]
+			}
 		],
 	},
 
