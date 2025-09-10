@@ -2,444 +2,532 @@
 @use '../variables/colors' as *;
 @use 'sass:color';
 @use 'sass:math';
-.color-red{
-  color: #D7424E;
+.color-red {
+	color: #d7424e;
 }
 
 .integrated-member-notice {
-  margin-bottom: to-rem(20);
-  font-size: to-rem(14);
-  color: #333;
-  line-height: 1.5;
+	margin-bottom: to-rem(20);
+	font-size: to-rem(14);
+	color: #333;
+	line-height: 1.5;
 }
 
-.library-status{
-  .pop-list-item{
-    .pop-list-item-title,
-    .pop-list-item-content {
-      flex:1; background: #ECF2F9;
-      border-bottom: 1px solid var(--color-primary-pr01, #D8E4F3);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 600; text-align: center; color:#000;
-    }
-    &.library-status-cnt{
-      .pop-list-item-title,
-      .pop-list-item-content {
-        flex:1; background: #fff;
-        display: flex; align-items: center; justify-content: center;
-        font-weight: 400; text-align: center; color:#000;
-      }
-    }
-  }
+.library-status {
+	.pop-list-item {
+		.pop-list-item-title,
+		.pop-list-item-content {
+			flex: 1;
+			background: #ecf2f9;
+			border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 600;
+			text-align: center;
+			color: #000;
+		}
+		&.library-status-cnt {
+			.pop-list-item-title,
+			.pop-list-item-content {
+				flex: 1;
+				background: #fff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 400;
+				text-align: center;
+				color: #000;
+			}
+		}
+	}
 }
 
 .attendance-check-modal {
-  .attendance-description {
-    margin-bottom: to-rem(20);
+	.attendance-description {
+		margin-bottom: to-rem(20);
 
-    p {
-      font-size: to-rem(14);
-      color: #333;
-      line-height: 1.5;
-      margin: 0;
-    }
-  }
+		p {
+			font-size: to-rem(14);
+			color: #333;
+			line-height: 1.5;
+			margin: 0;
+		}
+	}
 
-  .attendance-example {
-    margin-bottom: to-rem(20);
-    padding: to-rem(16);
-    background-color: #f5f5f5;
-    border-radius: to-rem(4);
+	.attendance-example {
+		margin-bottom: to-rem(20);
+		padding: to-rem(16);
+		background-color: #f5f5f5;
+		border-radius: to-rem(4);
 
-    p {
-      font-size: to-rem(14);
-      color: #333;
-      line-height: 1.5;
-      margin: 0;
-    }
-  }
+		p {
+			font-size: to-rem(14);
+			color: #333;
+			line-height: 1.5;
+			margin: 0;
+		}
+	}
 
-  .attendance-input {
-    textarea {
-      width: 100%;
-      min-height: to-rem(120);
-      padding: to-rem(12);
-      border: 1px solid #ddd;
-      border-radius: to-rem(4);
-      font-size: to-rem(14);
-      line-height: 1.5;
-      resize: vertical;
-      font-family: inherit;
+	.attendance-input {
+		textarea {
+			width: 100%;
+			min-height: to-rem(120);
+			padding: to-rem(12);
+			border: 1px solid #ddd;
+			border-radius: to-rem(4);
+			font-size: to-rem(14);
+			line-height: 1.5;
+			resize: vertical;
+			font-family: inherit;
 
-      &::placeholder {
-        color: #999;
-      }
+			&::placeholder {
+				color: #999;
+			}
 
-      &:focus {
-        outline: none;
-        border-color: #3c79c2;
-        box-shadow: 0 0 0 2px rgba(60, 121, 194, 0.1);
-      }
-    }
-  }
+			&:focus {
+				outline: none;
+				border-color: #3c79c2;
+				box-shadow: 0 0 0 2px rgba(60, 121, 194, 0.1);
+			}
+		}
+	}
 }
 
 .library-schedule-modal {
-  text-align: center;
+	text-align: center;
 
-  .schedule-header {
-    margin-bottom: to-rem(20);
+	.schedule-header {
+		margin-bottom: to-rem(20);
 
-    h2 {
-      font-size: to-rem(18);
-      font-weight: 600;
-      color: #333;
-      margin: 0 0 to-rem(8) 0;
-    }
+		h2 {
+			font-size: to-rem(18);
+			font-weight: 600;
+			color: #333;
+			margin: 0 0 to-rem(8) 0;
+		}
 
-    h3 {
-      font-size: to-rem(16);
-      font-weight: 600;
-      color: #333;
-      margin: 0;
-    }
-  }
+		h3 {
+			font-size: to-rem(16);
+			font-weight: 600;
+			color: #333;
+			margin: 0;
+		}
+	}
 
-  .schedule-status {
-    margin-bottom: to-rem(24);
+	.schedule-status {
+		margin-bottom: to-rem(24);
 
-    .status-badge {
-      display: inline-block;
-      background-color: #3c79c2;
-      color: white;
-      padding: to-rem(8) to-rem(20);
-      border-radius: to-rem(4);
-      font-size: to-rem(14);
-      font-weight: 500;
-    }
-  }
+		.status-badge {
+			display: inline-block;
+			background-color: #3c79c2;
+			color: white;
+			padding: to-rem(8) to-rem(20);
+			border-radius: to-rem(4);
+			font-size: to-rem(14);
+			font-weight: 500;
+		}
+	}
 
-  .schedule-content {
-    text-align: left;
-    background-color: #f5f5f5;
-    padding: to-rem(20);
-    border-radius: to-rem(4);
+	.schedule-content {
+		text-align: left;
+		background-color: #f5f5f5;
+		padding: to-rem(20);
+		border-radius: to-rem(4);
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
 
-      li {
-        font-size: to-rem(14);
-        color: #333;
-        line-height: 1.6;
-        margin-bottom: to-rem(8);
-        position: relative;
-        padding-left: to-rem(16);
+			li {
+				font-size: to-rem(14);
+				color: #333;
+				line-height: 1.6;
+				margin-bottom: to-rem(8);
+				position: relative;
+				padding-left: to-rem(16);
 
-        &:last-child {
-          margin-bottom: 0;
-        }
+				&:last-child {
+					margin-bottom: 0;
+				}
 
-        &:before {
-          content: "•";
-          position: absolute;
-          left: 0;
-          color: #333;
-        }
-      }
-    }
-  }
+				&:before {
+					content: '•';
+					position: absolute;
+					left: 0;
+					color: #333;
+				}
+			}
+		}
+	}
 }
 
-
-
-.cat-activities-section{
-  .ui-select-container{width: 100%;}
-  .com-grid{
-    margin-bottom: 45px;
-    @include mobile {
-      margin-bottom: 30px;
-    }
-  }
+.cat-activities-section {
+	.ui-select-container {
+		width: 100%;
+	}
+	.com-grid {
+		margin-bottom: 45px;
+		@include mobile {
+			margin-bottom: 30px;
+		}
+	}
 }
 
 /* 돔 영화 테이블 스타일 */
 .dome-movie-table .poster-cell {
-  text-align: center;
-  vertical-align: middle;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .dome-movie-table .poster-cell img {
-  display: inline-block;
-  width: 144px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
+	display: inline-block;
+	width: 144px;
+	height: auto;
+	object-fit: cover;
+	border-radius: 4px;
 }
 
 .dome-movie-table .content-cell {
-  line-height: 1.6;
-  vertical-align: top;
+	line-height: 1.6;
+	vertical-align: top;
 }
 
 @media (max-width: 900px) {
-  .dome-movie-table .poster-cell img {
-    width: 100px;
-    height: 120px;
-  }
+	.dome-movie-table .poster-cell img {
+		width: 100px;
+		height: 120px;
+	}
 }
 
 .usage-guide__table-cell {
-  text-align: center;
-  img{
-    display: inline-block;
-  }
+	text-align: center;
+	img {
+		display: inline-block;
+	}
 }
 
 .date-selectors {
-  @include mobile{
-    min-width: 600px;
-    overflow-x: scroll;
-  }
-		.date-selector-header {
-			padding: 16px 24px;
+	.date-selector-header {
+		padding: 16px 24px;
+
+		@include mobile {
+			padding: 12px 16px;
+		}
+
+		.date-controls {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
 
 			@include mobile {
-				padding: 12px 16px;
+				gap: 6px;
 			}
 
-			.date-controls {
+			.arrow-btn {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: 8px;
+				width: 32px;
+				height: 32px;
+				border: 1px solid #cdd1d5;
+				border-radius: 50%;
+				background-color: transparent;
+				cursor: pointer;
+				transition: all 0.2s ease;
 
 				@include mobile {
-					gap: 6px;
+					width: 28px;
+					height: 28px;
 				}
 
-				.arrow-btn {
+				&:hover {
+					background-color: #f0f0f0;
+				}
+
+				img {
+					width: 19.2px;
+					height: 19.2px;
+
+					@include mobile {
+						width: 16px;
+						height: 16px;
+					}
+				}
+			}
+
+			.date-display {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+
+				@include mobile {
+					gap: 2px;
+				}
+
+				.date-item {
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					width: 32px;
-					height: 32px;
-					border: 1px solid #cdd1d5;
-					border-radius: 50%;
+					height: 40px;
+					padding: 0 8px;
+					border-radius: 6px;
 					background-color: transparent;
-					cursor: pointer;
-					transition: all 0.2s ease;
 
 					@include mobile {
-						width: 28px;
-						height: 28px;
+						height: 36px;
+						padding: 0 6px;
 					}
 
-					&:hover {
-						background-color: #f0f0f0;
-					}
-
-					img {
-						width: 19.2px;
-						height: 19.2px;
+					.date-text {
+						font-family: 'Pretendard GOV', sans-serif;
+						font-weight: 700;
+						font-size: 24px;
+						line-height: 1.5;
+						color: #1e2124;
 
 						@include mobile {
-							width: 16px;
-							height: 16px;
+							font-size: 20px;
 						}
 					}
 				}
+			}
+		}
+	}
 
-				.date-display {
-					display: flex;
-					align-items: center;
-					gap: 4px;
+	/* 대출급상승도서 테이블 스타일 */
+	.popular-books-table-wrapper {
+		width: 100%;
+		margin-top: 16px;
+		@include mobile {
+			overflow-x: auto;
+		}
+	}
+
+	.popular-books-table {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+
+		thead {
+			tr {
+				background-color: #ecf2f9;
+				border-top: 2px solid #004d80;
+
+				th {
+					height: 44px;
+					padding: 8px 16px;
+					border-right: 1px solid #d8e4f3;
+					border-bottom: 1px solid #d8e4f3;
+					font-weight: 700;
+					font-size: 15px;
+					line-height: 1.5;
+					color: #191a1a;
+					text-align: center;
+					vertical-align: middle;
 
 					@include mobile {
-						gap: 2px;
+						font-size: 13px;
+						height: 40px;
+						padding: 8px 12px;
 					}
 
-					.date-item {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						height: 40px;
-						padding: 0 8px;
-						border-radius: 6px;
-						background-color: transparent;
+					&:last-child {
+						border-right: none;
+					}
 
-						@include mobile {
-							height: 36px;
-							padding: 0 6px;
+					&.rank-col {
+						min-width: 60px;
+					}
+
+					&.institution-col {
+						min-width: 100px;
+					}
+
+					&.date1-col {
+						min-width: 100px;
+					}
+
+					&.date2-col {
+						min-width: 100px;
+					}
+
+					&.count-col {
+						min-width: 100px;
+					}
+
+					&.title-col {
+						width: auto;
+						min-width: 300px;
+					}
+
+					&.isbn-col {
+						min-width: 180px;
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				border-bottom: 1px solid #cbcccc;
+
+				&:hover {
+					background-color: #f8f9fa;
+				}
+
+				td {
+					padding: 12px 16px;
+					border-right: 1px solid #cbcccc;
+					font-size: 17px;
+					line-height: 1.5;
+					color: #4b4d4d;
+					vertical-align: middle;
+
+					@include mobile {
+						padding: 8px 12px;
+						font-size: 15px;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+
+					&.rank-col {
+						text-align: center;
+						width: 70px;
+
+						.rank-number {
+							font-weight: 400;
+							color: #464c53;
 						}
+					}
 
-						.date-text {
-							font-family: 'Pretendard GOV', sans-serif;
-							font-weight: 700;
-							font-size: 24px;
-							line-height: 1.5;
-							color: #1e2124;
+					&.institution-col {
+						text-align: center;
+						width: 100px;
+
+						.rank-change-badge {
+							display: inline-flex;
+							align-items: center;
+							justify-content: center;
+							gap: 0px;
+							height: 36px;
+							width: auto;
+							padding: 8px 12px;
+							background-color: #3c79c2;
+							border-radius: 20px;
 
 							@include mobile {
-								font-size: 20px;
+								height: 30px;
+								padding: 6px 10px;
 							}
-						}
-					}
-				}
-			}
-		}
 
-		/* 대출급상승도서 테이블 스타일 */
-		.popular-books-table-wrapper {
-			width: 100%;
-			margin-top: 16px;
-			overflow-x: auto;
-
-			@include mobile {
-				overflow-x: auto;
-			}
-		}
-
-		.popular-books-table {
-			width: 100%;
-			border-collapse: collapse;
-			border-spacing: 0;
-			min-width: 800px;
-
-			@include mobile {
-				min-width: 600px;
-			}
-
-			thead {
-				tr {
-					background-color: #ecf2f9;
-					border-top: 2px solid #004d80;
-
-					th {
-						height: 44px;
-						padding: 8px 16px;
-						border-right: 1px solid #d8e4f3;
-						border-bottom: 1px solid #d8e4f3;
-						font-weight: 700;
-						font-size: 15px;
-						line-height: 1.5;
-						color: #191a1a;
-						text-align: center;
-						vertical-align: middle;
-
-						@include mobile {
-							font-size: 13px;
-							height: 40px;
-							padding: 8px 12px;
-						}
-
-						&:last-child {
-							border-right: none;
-						}
-
-						&.rank-col {
-							width: 50px;
-						}
-
-						&.institution-col {
-							width: 100px;
-						}
-
-						&.date1-col {
-							width: 100px;
-						}
-
-						&.date2-col {
-							width: 100px;
-						}
-
-						&.count-col {
-							width: 100px;
-						}
-
-						&.title-col {
-							width: auto;
-							min-width: 300px;
-						}
-
-						&.isbn-col {
-							width: 180px;
-						}
-					}
-				}
-			}
-
-			tbody {
-				tr {
-					border-bottom: 1px solid #cbcccc;
-
-					&:hover {
-						background-color: #f8f9fa;
-					}
-
-					td {
-						padding: 12px 16px;
-						border-right: 1px solid #cbcccc;
-						font-size: 17px;
-						line-height: 1.5;
-						color: #4b4d4d;
-						vertical-align: middle;
-
-						@include mobile {
-							padding: 8px 12px;
-							font-size: 15px;
-						}
-
-						&:last-child {
-							border-right: none;
-						}
-
-						&.rank-col {
-							text-align: center;
-							width: 70px;
-
-							.rank-number {
-								font-weight: 400;
-								color: #464c53;
-							}
-						}
-
-						&.institution-col {
-							text-align: center;
-							width: 100px;
-
-							.rank-change-badge {
-								display: inline-flex;
-								align-items: center;
-								justify-content: center;
-								gap: 0px;
-								height: 36px;
-								width: auto;
-								padding: 8px 12px;
-								background-color: #3c79c2;
-								border-radius: 20px;
+							img {
+								width: 24px;
+								height: 24px;
 
 								@include mobile {
-									height: 30px;
-									padding: 6px 10px;
+									width: 20px;
+									height: 20px;
+								}
+							}
+
+							.change-number {
+								font-weight: 500;
+								font-size: 17px;
+								color: white;
+
+								@include mobile {
+									font-size: 14px;
+								}
+							}
+						}
+					}
+
+					&.date1-col,
+					&.date2-col,
+					&.count-col {
+						text-align: center;
+						width: 60px;
+
+						.date-text,
+						.count-text {
+							font-weight: 400;
+						}
+					}
+
+					&.title-col {
+						width: auto;
+						min-width: 360px;
+
+						.book-info {
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							gap: 16px;
+							width: 100%;
+
+							@include mobile {
+								gap: 12px;
+							}
+
+							.book-image {
+								flex-shrink: 0;
+								width: 70px;
+								height: 105px;
+								background-color: #f0f0f0;
+								border-radius: 4px;
+								overflow: hidden;
+
+								@include mobile {
+									width: 50px;
+									height: 75px;
 								}
 
 								img {
-									width: 24px;
-									height: 24px;
+									width: 100%;
+									height: 100%;
+									object-fit: cover;
+								}
+							}
+
+							.book-details {
+								flex: 1;
+								display: flex;
+								flex-direction: column;
+								gap: 16px;
+
+								@include mobile {
+									gap: 8px;
+								}
+
+								.book-title {
+									font-weight: 700;
+									font-size: 19px;
+									line-height: 1.5;
+									color: #4b4d4d;
+									margin: 0;
+									overflow: hidden;
+									text-overflow: ellipsis;
+									display: -webkit-box;
+									-webkit-line-clamp: 2;
+									line-clamp: 2;
+									-webkit-box-orient: vertical;
 
 									@include mobile {
-										width: 20px;
-										height: 20px;
+										font-size: 16px;
 									}
 								}
 
-								.change-number {
-									font-weight: 500;
+								.book-author {
+									font-weight: 400;
 									font-size: 17px;
-									color: white;
+									line-height: 1.5;
+									color: #4b4d4d;
+									margin: 0;
 
 									@include mobile {
 										font-size: 14px;
@@ -447,109 +535,17 @@
 								}
 							}
 						}
+					}
 
-						&.date1-col,
-						&.date2-col,
-						&.count-col {
-							text-align: center;
-							width: 100px;
+					&.isbn-col {
+						text-align: center;
+						width: 180px;
 
-							.date-text,
-							.count-text {
-								font-weight: 400;
-							}
-						}
+						.isbn-text {
+							font-weight: 400;
 
-						&.title-col {
-							width: auto;
-							min-width: 300px;
-
-							.book-info {
-								display: flex;
-								flex-direction: row;
-								align-items: center;
-								gap: 16px;
-								width: 100%;
-
-								@include mobile {
-									gap: 12px;
-								}
-
-								.book-image {
-									flex-shrink: 0;
-									width: 70px;
-									height: 105px;
-									background-color: #f0f0f0;
-									border-radius: 4px;
-									overflow: hidden;
-
-									@include mobile {
-										width: 50px;
-										height: 75px;
-									}
-
-									img {
-										width: 100%;
-										height: 100%;
-										object-fit: cover;
-									}
-								}
-
-								.book-details {
-									flex: 1;
-									display: flex;
-									flex-direction: column;
-									gap: 16px;
-
-									@include mobile {
-										gap: 8px;
-									}
-
-									.book-title {
-										font-weight: 700;
-										font-size: 19px;
-										line-height: 1.5;
-										color: #4b4d4d;
-										margin: 0;
-										overflow: hidden;
-										text-overflow: ellipsis;
-										display: -webkit-box;
-										-webkit-line-clamp: 2;
-										line-clamp: 2;
-										-webkit-box-orient: vertical;
-
-										@include mobile {
-											font-size: 16px;
-										}
-									}
-
-									.book-author {
-										font-weight: 400;
-										font-size: 17px;
-										line-height: 1.5;
-										color: #4b4d4d;
-										margin: 0;
-										overflow: hidden;
-										text-overflow: ellipsis;
-
-										@include mobile {
-											font-size: 14px;
-										}
-									}
-								}
-							}
-						}
-
-						&.isbn-col {
-							text-align: center;
-							width: 180px;
-
-							.isbn-text {
-								font-weight: 400;
-
-								@include mobile {
-									font-size: 13px;
-								}
+							@include mobile {
+								font-size: 13px;
 							}
 						}
 					}
@@ -557,3 +553,4 @@
 			}
 		}
 	}
+}
