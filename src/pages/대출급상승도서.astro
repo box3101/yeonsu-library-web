@@ -99,65 +99,66 @@ const popularBooks = [
 			</div>
 
 			<!-- 대출급상승도서 테이블 -->
-			<div class="popular-books-table">
-				<!-- 테이블 헤더 -->
-				<div class="table-header">
-					<div class="header-cell rank-col">번호</div>
-					<div class="header-cell institution-col">기관</div>
-					<div class="header-cell date1-col">작성일</div>
-					<div class="header-cell date2-col">작성일</div>
-					<div class="header-cell count-col">조회수</div>
-					<div class="header-cell title-col">제목</div>
-					<div class="header-cell isbn-col">ISBN</div>
-				</div>
+			<div class="popular-books-table-wrapper">
+				<table class="popular-books-table">
+					<thead>
+						<tr>
+							<th class="rank-col">번호</th>
+							<th class="institution-col">기관</th>
+							<th class="date1-col">작성일</th>
+							<th class="date2-col">작성일</th>
+							<th class="count-col">조회수</th>
+							<th class="title-col">제목</th>
+							<th class="isbn-col">ISBN</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							popularBooks.map(book => (
+								<tr class="table-row">
+									<td class="rank-col">
+										<span class="rank-number">{book.rank}</span>
+									</td>
 
-				<!-- 테이블 바디 -->
-				<div class="table-body">
-					{
-						popularBooks.map(book => (
-							<div class="table-row">
-								<div class="table-cell rank-col">
-									<span class="rank-number">{book.rank}</span>
-								</div>
-
-								<div class="table-cell institution-col">
-									<div class="rank-change-badge">
-										<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
-										<span class="change-number">{book.currentCount}</span>
-									</div>
-								</div>
-
-								<div class="table-cell date1-col">
-									<span class="date-text">{book.previousCount}</span>
-								</div>
-
-								<div class="table-cell date2-col">
-									<span class="date-text">{book.totalCount}</span>
-								</div>
-
-								<div class="table-cell count-col">
-									<span class="count-text">{book.totalCount}</span>
-								</div>
-
-								<div class="table-cell title-col">
-									<div class="book-info">
-										<div class="book-image">
-											<img src={book.image} alt={book.title} />
+									<td class="institution-col">
+										<div class="rank-change-badge">
+											<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
+											<span class="change-number">{book.currentCount}</span>
 										</div>
-										<div class="book-details">
-											<h3 class="book-title">{book.title}</h3>
-											<p class="book-author">{book.author}</p>
-										</div>
-									</div>
-								</div>
+									</td>
 
-								<div class="table-cell isbn-col">
-									<span class="isbn-text">{book.isbn}</span>
-								</div>
-							</div>
-						))
-					}
-				</div>
+									<td class="date1-col">
+										<span class="date-text">{book.previousCount}</span>
+									</td>
+
+									<td class="date2-col">
+										<span class="date-text">{book.totalCount}</span>
+									</td>
+
+									<td class="count-col">
+										<span class="count-text">{book.totalCount}</span>
+									</td>
+
+									<td class="title-col">
+										<div class="book-info">
+											<div class="book-image">
+												<img src={book.image} alt={book.title} />
+											</div>
+											<div class="book-details">
+												<h3 class="book-title">{book.title}</h3>
+												<p class="book-author">{book.author}</p>
+											</div>
+										</div>
+									</td>
+
+									<td class="isbn-col">
+										<span class="isbn-text">{book.isbn}</span>
+									</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</SubLayout>

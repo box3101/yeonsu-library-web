@@ -76695,6 +76695,344 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   display: inline-block;
 }
 
+.date-selectors {
+  /* 대출급상승도서 테이블 스타일 */
+}
+@media (max-width: 900px) {
+  .date-selectors {
+    min-width: 600px;
+    overflow-x: scroll;
+  }
+}
+.date-selectors .date-selector-header {
+  padding: 16px 24px;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header {
+    padding: 12px 16px;
+  }
+}
+.date-selectors .date-selector-header .date-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls {
+    gap: 6px;
+  }
+}
+.date-selectors .date-selector-header .date-controls .arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #cdd1d5;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls .arrow-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+.date-selectors .date-selector-header .date-controls .arrow-btn:hover {
+  background-color: #f0f0f0;
+}
+.date-selectors .date-selector-header .date-controls .arrow-btn img {
+  width: 19.2px;
+  height: 19.2px;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls .arrow-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
+.date-selectors .date-selector-header .date-controls .date-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls .date-display {
+    gap: 2px;
+  }
+}
+.date-selectors .date-selector-header .date-controls .date-display .date-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background-color: transparent;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls .date-display .date-item {
+    height: 36px;
+    padding: 0 6px;
+  }
+}
+.date-selectors .date-selector-header .date-controls .date-display .date-item .date-text {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #1e2124;
+}
+@media (max-width: 900px) {
+  .date-selectors .date-selector-header .date-controls .date-display .date-item .date-text {
+    font-size: 20px;
+  }
+}
+.date-selectors .popular-books-table-wrapper {
+  width: 100%;
+  margin-top: 16px;
+  overflow-x: auto;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table-wrapper {
+    overflow-x: auto;
+  }
+}
+.date-selectors .popular-books-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 800px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table {
+    min-width: 600px;
+  }
+}
+.date-selectors .popular-books-table thead tr {
+  background-color: #ecf2f9;
+  border-top: 2px solid #004d80;
+}
+.date-selectors .popular-books-table thead tr th {
+  height: 44px;
+  padding: 8px 16px;
+  border-right: 1px solid #d8e4f3;
+  border-bottom: 1px solid #d8e4f3;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #191a1a;
+  text-align: center;
+  vertical-align: middle;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th {
+    font-size: 13px;
+    height: 40px;
+    padding: 8px 12px;
+  }
+}
+.date-selectors .popular-books-table thead tr th:last-child {
+  border-right: none;
+}
+.date-selectors .popular-books-table thead tr th.rank-col {
+  width: 50px;
+}
+.date-selectors .popular-books-table thead tr th.institution-col {
+  width: 100px;
+}
+.date-selectors .popular-books-table thead tr th.date1-col {
+  width: 100px;
+}
+.date-selectors .popular-books-table thead tr th.date2-col {
+  width: 100px;
+}
+.date-selectors .popular-books-table thead tr th.count-col {
+  width: 100px;
+}
+.date-selectors .popular-books-table thead tr th.title-col {
+  width: auto;
+  min-width: 300px;
+}
+.date-selectors .popular-books-table thead tr th.isbn-col {
+  width: 180px;
+}
+.date-selectors .popular-books-table tbody tr {
+  border-bottom: 1px solid #cbcccc;
+}
+.date-selectors .popular-books-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+.date-selectors .popular-books-table tbody tr td {
+  padding: 12px 16px;
+  border-right: 1px solid #cbcccc;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #4b4d4d;
+  vertical-align: middle;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td {
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td:last-child {
+  border-right: none;
+}
+.date-selectors .popular-books-table tbody tr td.rank-col {
+  text-align: center;
+  width: 70px;
+}
+.date-selectors .popular-books-table tbody tr td.rank-col .rank-number {
+  font-weight: 400;
+  color: #464c53;
+}
+.date-selectors .popular-books-table tbody tr td.institution-col {
+  text-align: center;
+  width: 100px;
+}
+.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  height: 36px;
+  width: auto;
+  padding: 8px 12px;
+  background-color: #3c79c2;
+  border-radius: 20px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge {
+    height: 30px;
+    padding: 6px 10px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge img {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge .change-number {
+  font-weight: 500;
+  font-size: 17px;
+  color: white;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge .change-number {
+    font-size: 14px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.date1-col, .date-selectors .popular-books-table tbody tr td.date2-col, .date-selectors .popular-books-table tbody tr td.count-col {
+  text-align: center;
+  width: 100px;
+}
+.date-selectors .popular-books-table tbody tr td.date1-col .date-text,
+.date-selectors .popular-books-table tbody tr td.date1-col .count-text, .date-selectors .popular-books-table tbody tr td.date2-col .date-text,
+.date-selectors .popular-books-table tbody tr td.date2-col .count-text, .date-selectors .popular-books-table tbody tr td.count-col .date-text,
+.date-selectors .popular-books-table tbody tr td.count-col .count-text {
+  font-weight: 400;
+}
+.date-selectors .popular-books-table tbody tr td.title-col {
+  width: auto;
+  min-width: 300px;
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.title-col .book-info {
+    gap: 12px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image {
+  flex-shrink: 0;
+  width: 70px;
+  height: 105px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image {
+    width: 50px;
+    height: 75px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details {
+    gap: 8px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-title {
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #4b4d4d;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-title {
+    font-size: 16px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-author {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #4b4d4d;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-author {
+    font-size: 14px;
+  }
+}
+.date-selectors .popular-books-table tbody tr td.isbn-col {
+  text-align: center;
+  width: 180px;
+}
+.date-selectors .popular-books-table tbody tr td.isbn-col .isbn-text {
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr td.isbn-col .isbn-text {
+    font-size: 13px;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
