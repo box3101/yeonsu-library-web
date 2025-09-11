@@ -77017,6 +77017,67 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     font-size: 13px;
   }
 }
+.date-selectors .popular-books-table tbody .score-col {
+  text-align: center;
+}
+
+.source-text {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e2124;
+  line-height: 1;
+  margin-top: 40px;
+  display: inline-block;
+  text-align: right;
+}
+@media (max-width: 900px) {
+  .source-text {
+    display: inline-block;
+    margin-top: 24px;
+  }
+}
+
+.search-form {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-gray-gy-30, #b1b3b3);
+  border-top: 1px solid var(--color-gray-gy-30, #b1b3b3);
+}
+@media (max-width: 900px) {
+  .search-form {
+    padding: 16px 0;
+  }
+}
+.search-form dl {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+@media (max-width: 900px) {
+  .search-form dl {
+    margin-bottom: 10px;
+  }
+}
+.search-form dl:last-child {
+  margin-bottom: 0;
+}
+.search-form dl dt {
+  min-width: 160px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e2124;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .search-form dl dt {
+    font-size: 0.9375rem;
+    min-width: 60px;
+    text-align: center;
+  }
+}
+.search-form dl dd {
+  flex: 1;
+}
 
 .ui-book-card {
   margin-bottom: 1.5rem;

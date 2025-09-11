@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiEmpty from '../components/UI/UiEmpty.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '이달의키워드', href: '/이달의키워드' },
+];
+
+// 이달의키워드 데이터
+const popularBooks = [
+	{
+		rank: 1,
+		title: '저주토끼 (리커버)',
+		author: '2022 / 아작 / 정보라(지은이)',
+		isbn: '9791166866665',
+		currentCount: 456,
+		previousCount: 56,
+		totalCount: 512,
+		image: './assets/images/book1.jpg',
+	},
+	{
+		rank: 2,
+		title: '순례 주택 :유은실 소설',
+		author: '2021 / 비용소 / 지은이: 유은실',
+		isbn: '9788949123493',
+		currentCount: 109,
+		previousCount: 44,
+		totalCount: 153,
+		image: './assets/images/book2.jpg',
+	},
+	{
+		rank: 3,
+		title: '빛과 실',
+		author: '2025 / 문학과지성사 / 지은이: 한강',
+		isbn: '9788932043562',
+		currentCount: 86,
+		previousCount: 89,
+		totalCount: 175,
+		image: './assets/images/book3.jpg',
+	},
+	{
+		rank: 4,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2021 / 해결책 / 글: 차인표',
+		isbn: '9791191061048',
+		currentCount: 72,
+		previousCount: 56,
+		totalCount: 154,
+		image: './assets/images/book4.jpg',
+	},
+	{
+		rank: 5,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2023 / 미래엔 / 원작: 흔한남매 ;그림: 도니패밀리',
+		isbn: '9791168418516',
+		currentCount: 72,
+		previousCount: 90,
+		totalCount: 162,
+		image: './assets/images/book5.jpg',
+	},
+];
+---
+
+<Layout title="이달의키워드">
+	<SubLayout title="이달의키워드" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>
+						키워드 TOP 100<br />
+						※ 월별 대출급상승 도서에서 추출한 데이터를 분석하여 도출된 100개의 키워드입니다.
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 키워드 영역 -->
+		<div class="keyword-area">키워드 영역</div>
+
+		<div class="date-selectors">
+			<div class="date-selector-header">
+				<div class="date-controls">
+					<button class="arrow-btn prev-btn" aria-label="이전 날짜">
+						<img src="./assets/images/icon/arrow-left.svg" alt="이전" />
+					</button>
+
+					<div class="date-display">
+						<div class="date-item">
+							<span class="date-text">2025년</span>
+						</div>
+						<div class="date-item">
+							<span class="date-text">08월</span>
+						</div>
+						<div class="date-item">
+							<span class="date-text">23일</span>
+						</div>
+					</div>
+
+					<button class="arrow-btn next-btn" aria-label="다음 날짜">
+						<img src="./assets/images/icon/arrow-right.svg" alt="다음" />
+					</button>
+				</div>
+			</div>
+
+			<!-- 이달의키워드 테이블 -->
+			<div class="popular-books-table-wrapper">
+				<table class="popular-books-table">
+					<thead>
+						<tr>
+							<th class="rank-col">번호</th>
+							<th class="keyword-col">키워드</th>
+							<th class="score-col">점수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">1</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">저속노화</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">55.262</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">2</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">건강</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">48.354</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">3</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">저속노화 마인드셋</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">34.539</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">4</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">오해</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">32.236</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">5</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">단계</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">29.934</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">6</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">히가시노</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">29.934</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">7</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">이처럼 사소한 것들</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">27.631</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">8</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">너무 늦은 시간</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">27.631</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">9</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">통념</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">23.026</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">10</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">통념</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">23.026</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">90</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">워싱턴 포스트</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">91</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">자산</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">92</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">뉴 아틀란티스</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">93</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">심심해 심심해</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">94</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">것들</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">95</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">기도의 막이 내릴 때</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">96</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">동기부여</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">97</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">코멘터리</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">98</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">불안 세대</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">99</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">우리가 볼 수 없는 모든 빛</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+						<tr class="table-row">
+							<td class="rank-col">
+								<span class="rank-number">100</span>
+							</td>
+							<td class="keyword-col">
+								<span class="keyword-text">혼나지 않게 해 주세요</span>
+							</td>
+							<td class="score-col">
+								<span class="score-text">6.908</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<UiEmpty message="조회결과가 없습니다." desc="" />
+
+			<!-- 출처: 도서관 정보나루 -->
+			<p class="source-text">출처: 도서관 정보나루</p>
+		</div>
+	</SubLayout>
+</Layout>
