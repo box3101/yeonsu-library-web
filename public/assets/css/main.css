@@ -77566,6 +77566,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     margin: 32px 0;
     flex-direction: column;
     gap: 16px;
+    width: 60%;
   }
 }
 .ai-loading-section .ai-chatbot-icon {
