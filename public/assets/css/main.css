@@ -65487,12 +65487,12 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
     font-size: 0.875rem;
   }
 }
-.ui-library-filter__grid {
+.ui-library-filter__grid.ui-library-filter__grid {
   display: grid;
   gap: 1rem 1.5rem;
 }
 @media (max-width: 900px) {
-  .ui-library-filter__grid {
+  .ui-library-filter__grid.ui-library-filter__grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.625rem 1rem;
   }
@@ -65526,7 +65526,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem !important;
   /* 검색어 드롭다운 */
   /* 탭 버튼 */
   /* 검색어 목록 */
@@ -65534,7 +65534,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 @media (max-width: 900px) {
   .ui-library-filter__search {
-    margin-top: 1.25rem;
+    margin-top: 1.25rem !important;
     margin-bottom: 1.25rem !important;
     flex-direction: column;
     align-items: stretch;
@@ -77016,6 +77016,439 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   .date-selectors .popular-books-table tbody tr td.isbn-col .isbn-text {
     font-size: 13px;
   }
+}
+
+.ai-book-queue {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background-color: #f1f2f2;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.ai-book-queue .ai-intro-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.ai-book-queue .ai-intro-section .intro-header {
+  text-align: center;
+}
+.ai-book-queue .ai-intro-section .intro-header .intro-subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #191a1a;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-intro-section .intro-header .intro-subtitle {
+    font-size: 20px;
+  }
+}
+.ai-book-queue .ai-intro-section .intro-title-area {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-intro-section .intro-title-area {
+    gap: 12px;
+  }
+}
+.ai-book-queue .ai-intro-section .intro-title-area .title-text {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #191a1a;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-intro-section .intro-title-area .title-text {
+    font-size: 28px;
+  }
+}
+.ai-book-queue .ai-intro-section .intro-title-area .ai-chatbot-icon {
+  height: 85px;
+  width: 62px;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-intro-section .intro-title-area .ai-chatbot-icon {
+    height: 65px;
+    width: 48px;
+  }
+}
+.ai-book-queue .ai-intro-section .intro-title-area .ai-chatbot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-book-queue .ai-description-card {
+  background-color: #ffffff;
+  border: 1px solid #cbcccc;
+  border-radius: 6px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-description-card {
+    padding: 20px;
+  }
+}
+.ai-book-queue .ai-description-card .quote-icon {
+  width: 16px;
+  height: 16px;
+}
+.ai-book-queue .ai-description-card .quote-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-book-queue .ai-description-card .description-content .highlight-text {
+  position: relative;
+}
+.ai-book-queue .ai-description-card .description-content .highlight-text::before {
+  content: "";
+  position: absolute;
+  background-color: #fde0b0;
+  height: 8px;
+  left: 0.5px;
+  top: 40px;
+  width: 318px;
+  z-index: 0;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-description-card .description-content .highlight-text::before {
+    display: none;
+  }
+}
+.ai-book-queue .ai-description-card .description-content .highlight-text p {
+  position: relative;
+  z-index: 2;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b4d4d;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-description-card .description-content .highlight-text p {
+    font-size: 15px;
+  }
+}
+.ai-book-queue .ai-description-card .description-content .highlight-text p strong {
+  font-weight: 700;
+}
+.ai-book-queue .ai-description-card .info-notice {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+}
+.ai-book-queue .ai-description-card .info-notice .info-icon {
+  flex-shrink: 0;
+}
+.ai-book-queue .ai-description-card .info-notice .info-icon img {
+  width: 16.667px;
+  height: 16.667px;
+  object-fit: contain;
+}
+.ai-book-queue .ai-description-card .info-notice .info-text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7d8181;
+  margin: 0;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .ai-book-queue .ai-description-card .info-notice .info-text {
+    font-size: 11px;
+  }
+}
+
+.ai-carousel-section {
+  margin-top: 24px;
+  width: 100%;
+}
+.ai-carousel-section .carousel-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+.ai-carousel-section .carousel-container .carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 1000px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.ai-carousel-section .carousel-container .carousel-btn--prev {
+  background-color: #ffffff;
+  border: 1px solid #3c79c2;
+}
+.ai-carousel-section .carousel-container .carousel-btn--prev:hover {
+  background-color: #f8f9fa;
+}
+.ai-carousel-section .carousel-container .carousel-btn--next {
+  background-color: #3c79c2;
+}
+.ai-carousel-section .carousel-container .carousel-btn--next:hover {
+  background-color: #2d5a94;
+}
+.ai-carousel-section .carousel-container .carousel-btn--next img {
+  filter: brightness(0) invert(1);
+}
+.ai-carousel-section .carousel-container .carousel-btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.ai-carousel-section .carousel-container .carousel-content {
+  flex: 1;
+  overflow: hidden;
+}
+.ai-carousel-section .carousel-container .carousel-content .carousel-slide {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .ai-carousel-section .carousel-container .carousel-content .carousel-slide {
+    gap: 8px;
+  }
+}
+.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #b1b3b3;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card--active {
+  border: 2px solid #3c79c2;
+}
+.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card:hover {
+  border-color: #3c79c2;
+  background-color: #f8f9fa;
+}
+@media (max-width: 900px) {
+  .ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card {
+    padding: 12px;
+    min-height: 70px;
+  }
+}
+.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1d1d1d;
+  text-align: center;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card p {
+    font-size: 13px;
+    -webkit-line-clamp: 4;
+  }
+}
+
+.ai-bookqueue-detail-page .ai-bookqueue-section {
+  margin-bottom: 24px;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section {
+    margin-bottom: 20px;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble {
+  background-color: #f1f2f2;
+  border: 1px solid #cbcccc;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble {
+    padding: 16px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .right {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-left {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text {
+  flex: 1;
+  margin: 0 10px;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text {
+    margin: 0 8px;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text p {
+    font-size: 15px;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-right {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  align-self: flex-end;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section {
+  margin-bottom: 24px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble {
+  background-color: #f1f2f2;
+  border: 1px solid #cbcccc;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .right {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-left {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text {
+  flex: 1;
+  margin: 0 10px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+@media (max-width: 900px) {
+  .ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .chat-text p {
+    font-size: 15px;
+  }
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-right {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  align-self: flex-end;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .chat-content .quote-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .ai-chatbot-icon {
+  flex-shrink: 0;
+  width: 62px;
+  height: 85px;
+}
+.ai-bookqueue-detail-page .ai-bookqueue-section .ai-chat-bubble .ai-chatbot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .ui-book-card {

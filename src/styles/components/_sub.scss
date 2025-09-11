@@ -3870,7 +3870,7 @@ ul.movie-card-wrp {
 		}
 	}
 
-	&__grid {
+	&__grid.ui-library-filter__grid {
 		display: grid;
 		gap: to-rem(16) to-rem(24);
 

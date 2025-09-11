@@ -42,6 +42,49 @@ const libraries = [
 
 <Layout title="AI책큐">
 	<SubLayout title="AI책큐" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- AI 책큐 영역 -->
+		<div class="ai-book-queue">
+			<div class="ai-intro-section">
+				<div class="intro-header">
+					<p class="intro-subtitle">당신의 글을 이해하는 AI</p>
+				</div>
+
+				<div class="intro-title-area">
+					<div class="title-text">AI책큐</div>
+					<div class="ai-chatbot-icon">
+						<img src="./assets/images/icon/ai-chatbot.svg" alt="AI 챗봇" />
+					</div>
+				</div>
+			</div>
+
+			<div class="ai-description-card">
+				<div class="quote-icon quote-left">
+					<img src="./assets/images/icon/quote-left.svg" alt="인용 시작" />
+				</div>
+
+				<div class="description-content">
+					<div class="highlight-text">
+						<p>
+							AI책큐는 글을 이해하고 도서를 추천해주는 AI입니다.<br />
+							<strong>지금 궁금한 생각, 고민, 감정까지 자유롭게 입력</strong>해 보세요.<br />
+							당신의 마음을 읽고 딱 맞는 책을 찾아드립니다.
+						</p>
+					</div>
+				</div>
+
+				<div class="quote-icon quote-right">
+					<img src="./assets/images/icon/quote-right.svg" alt="인용 끝" />
+				</div>
+
+				<div class="info-notice">
+					<div class="info-icon">
+						<img src="./assets/images/icon/info.svg" alt="정보" />
+					</div>
+					<p class="info-text">AI책큐는 지금도 계속 배우고 있어요. 여러분의 피드백은 큰 도움이 됩니다.</p>
+				</div>
+			</div>
+		</div>
+
 		<!-- 도서관 필터 섹션 -->
 		<UiLibraryFilter
 			title="전체도서관"
@@ -51,5 +94,38 @@ const libraries = [
 			expanded={true}
 			btnHide={true}
 		/>
+
+		<!-- 슬라이드 -->
+		<div class="ai-carousel-section">
+			<div class="carousel-container">
+				<button class="carousel-btn carousel-btn--prev" type="button">
+					<img src="./assets/images/icon/arrow-left.svg" alt="이전" />
+				</button>
+
+				<div class="carousel-content">
+					<div class="carousel-slide active">
+						<div class="slide-card slide-card--active">
+							<p>👨‍🚀 우주과학에 관한 인기 있는 도서는 무엇인가요?</p>
+						</div>
+						<div class="slide-card">
+							<p>🧘‍♂️ 마음챙김과 명상에 관한 책 추천 부탁해요.</p>
+						</div>
+						<div class="slide-card">
+							<p>🔮 미래 예측과 관련된 책 추천해 주세요.</p>
+						</div>
+						<div class="slide-card">
+							<p>🏖️ 여행과 탐험에 관한 최신 베스트셀러는?</p>
+						</div>
+						<div class="slide-card">
+							<p>🧑‍🏫 교육과 학습 방법에 관한 책 추천 부탁해요.</p>
+						</div>
+					</div>
+				</div>
+
+				<button class="carousel-btn carousel-btn--next" type="button">
+					<img src="./assets/images/icon/arrow-right.svg" alt="다음" />
+				</button>
+			</div>
+		</div>
 	</SubLayout>
 </Layout>
