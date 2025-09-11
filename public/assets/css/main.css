@@ -77558,6 +77558,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   position: absolute;
   left: 50%;
   top: 50%;
+  min-width: 280px;
   transform: translate(-50%, -50%);
   background: white;
   border: 3px solid #b1cae7;
@@ -77571,6 +77572,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 @media (max-width: 900px) {
   .ai-loading-section {
+    min-width: auto;
     padding: 24px;
     margin: 32px 0;
     flex-direction: column;
