@@ -3918,10 +3918,10 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: flex-start;
 		gap: to-rem(8);
-		margin-top: to-rem(24);
+		margin-top: to-rem(24)!important;
 
 		@include tablet {
-			margin-top: to-rem(20);
+			margin-top: to-rem(20)!important;
 			margin-bottom: to-rem(20) !important;
 			flex-direction: column;
 			align-items: stretch;

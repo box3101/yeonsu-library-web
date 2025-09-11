@@ -82,6 +82,10 @@ export const menuConfig: Record<string, MenuConfig> = {
 					{ label: '이달의 키워드', href: './이달의키워드' },
 					{ label: '도서별 이용분석', href: './도서별이용분석' },
 				]
+			},
+			{
+				title: 'AI책큐',
+				href: './AI책큐',
 			}
 		],
 	},
