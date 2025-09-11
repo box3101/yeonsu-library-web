@@ -2170,7 +2170,7 @@ ul.movie-card-wrp {
 /* 바코드 섹션 */
 .barcode-section {
 	width: 100%;
-	height: to-rem(200);
+	height: auto;
 	background: white;
 	border: 1px solid #cbcccc;
 	border-radius: to-rem(12);
@@ -2217,6 +2217,15 @@ ul.movie-card-wrp {
 				max-width: 100%;
 			}
 		}
+
+		svg {
+			width:80%;
+			height: auto;
+
+			@include mobile {
+				max-width: 100%;
+			}
+		}
 	}
 
 	&__number {
@@ -2245,7 +2254,7 @@ ul.movie-card-wrp {
 	}
 
 	&__item {
-		flex: 1;
+		flex: auto;
 		min-width: to-rem(95);
 		border: 1px solid #cbcccc;
 		border-radius: to-rem(12);

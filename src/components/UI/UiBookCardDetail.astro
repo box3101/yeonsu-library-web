@@ -40,6 +40,7 @@ const {
 	showCollectionInfo = true,
 	showBookInfo = true,
 	showMARC = true,
+	showShelfInfo = true,
 } = Astro.props;
 
 // 제목에서 검색어 하이라이팅 처리
@@ -84,7 +85,11 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 				badges.length > 0 && (
 					<div class="ui-book-card__badges">
 						{badges.map(badge => (
-							<span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
+							<span
+								class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${
+									badge.size ? `ui-book-card__badge--${badge.size}` : ''
+								}`}
+							>
 								{badge.label}
 							</span>
 						))}
@@ -186,15 +191,30 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 					<div class="ui-book-card__actions">
 						{
 							showBookInfo && (
-								<UiButton variant="tertiary" size="medium" text="도서정보" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+								<UiButton
+									variant="tertiary"
+									size="medium"
+									text="도서정보"
+									icon="icon-book-type2"
+									iconAddClass="icon icon-sm "
+									iconPosition="left"
+								/>
 							)
 						}
 
 						{
 							showMARC && (
-								<UiButton variant="secondary" size="medium" text="MARC" icon="icon-download" iconAddClass="icon icon-sm " iconPosition="left" />
+								<UiButton
+									variant="secondary"
+									size="medium"
+									text="MARC"
+									icon="icon-marc"
+									iconAddClass="icon icon-sm "
+									iconPosition="left"
+								/>
 							)
 						}
+						{showShelfInfo && <UiButton variant="tertiary" size="medium" text="서가정보" iconPosition="right" />}
 					</div>
 				</div>
 			</div>

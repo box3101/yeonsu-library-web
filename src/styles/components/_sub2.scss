@@ -1215,3 +1215,9 @@
 		}
 	}
 }
+
+.bookshelf-add__message{
+	@include font(to-rem(19), 700, #191a1a);
+	line-height: 1.5;
+	word-break: keep-all;
+}

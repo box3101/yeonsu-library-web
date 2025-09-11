@@ -61316,6 +61316,17 @@ h6 {
   filter: invert(37%) sepia(99%) saturate(676%) hue-rotate(192deg) brightness(95%) contrast(95%);
 }
 
+.icon-md {
+  width: 32px;
+  height: 32px;
+}
+@media (max-width: 900px) {
+  .icon-md {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
 .icon-xxxsm {
   width: 14px !important;
   height: 14px !important;
@@ -61366,17 +61377,6 @@ h6 {
 }
 @media (max-width: 900px) {
   .icon-xmd {
-    width: 24px !important;
-    height: 24px !important;
-  }
-}
-
-.icon-md {
-  width: 32px;
-  height: 32px;
-}
-@media (max-width: 900px) {
-  .icon-md {
     width: 24px !important;
     height: 24px !important;
   }
@@ -63879,7 +63879,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 /* 바코드 섹션 */
 .barcode-section {
   width: 100%;
-  height: 12.5rem;
+  height: auto;
   background: white;
   border: 1px solid #cbcccc;
   border-radius: 0.75rem;
@@ -63928,6 +63928,15 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
     max-width: 100%;
   }
 }
+.barcode-section__barcode svg {
+  width: 80%;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .barcode-section__barcode svg {
+    max-width: 100%;
+  }
+}
 .barcode-section__number {
   font-family: "Pretendard GOV", sans-serif;
   font-size: 1.0625rem;
@@ -63955,7 +63964,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   }
 }
 .member-stats__item {
-  flex: 1;
+  flex: auto;
   min-width: 5.9375rem;
   border: 1px solid #cbcccc;
   border-radius: 0.75rem;
@@ -77668,6 +77677,15 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   transform: translateY(0);
 }
 
+.bookshelf-add__message {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
@@ -89004,6 +89022,23 @@ body.modal-open {
   flex-wrap: nowrap;
   gap: 0.75rem;
 }
+.ui-date-picker__input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.ui-date-picker__icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
 @media (max-width: 900px) {
   .ui-date-picker {
     display: flex;
@@ -91539,11 +91574,13 @@ body.modal-open {
   flex-wrap: nowrap;
   gap: 1rem;
   width: 100%;
+  min-width: 600px;
+  overflow-x: auto;
 }
 @media (max-width: 900px) {
   .my-bookshelf__cards {
-    flex-direction: column;
-    gap: 16px;
+    gap: 8px;
+    min-width: auto;
   }
 }
 
@@ -91553,11 +91590,11 @@ body.modal-open {
   justify-content: stretch;
   align-items: stretch;
   flex-wrap: nowrap;
-  flex: 1;
+  flex: none;
   background-color: #ffffff;
   border: 1px solid #b1b3b3;
   border-radius: 0.375rem;
-  padding: 2rem;
+  padding: 2rem 32px;
   transition: all 0.2s ease;
   /* 카드 내용 */
   /* 카드 헤더 */
@@ -91624,7 +91661,7 @@ body.modal-open {
   color: #000;
   line-height: 1;
   margin: 0;
-  flex: 1;
+  flex: none;
 }
 @media (max-width: 900px) {
   .bookshelf-card__title {
@@ -91632,6 +91669,7 @@ body.modal-open {
     font-weight: 700;
     color: #000;
     line-height: 1;
+    line-height: 1.5;
   }
 }
 .bookshelf-card__badge {
@@ -91681,19 +91719,9 @@ body.modal-open {
   justify-content: center;
 }
 
-@media (max-width: 900px) {
-  .my-bookshelf__cards {
-    flex-wrap: wrap;
-  }
-  .my-bookshelf__cards .bookshelf-card {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
 @media (min-width: 992px) {
   .my-bookshelf__cards .bookshelf-card {
-    flex-basis: calc(33.333% - 0.6875rem);
-    max-width: calc(33.333% - 0.6875rem);
+    width: auto;
   }
 }
 /**

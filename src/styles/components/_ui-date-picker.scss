@@ -7,6 +7,29 @@
   @include flex(row, flex-start, center, nowrap);
   gap: to-rem(12);
 
+  &__input {
+    // 기본 달력 아이콘 숨기기
+    &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+
+&__icon {
+  position: absolute;
+  right: 12px; // 원하는 위치로 조정
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; // 클릭 이벤트가 input으로 전달되도록
+  width: 20px; // 아이콘 크기 조정
+  height: 20px;
+}
+
   @include mobile {
     @include flex(column, flex-start, flex-start, nowrap);
     width: 100%;
