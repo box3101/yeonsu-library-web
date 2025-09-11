@@ -382,8 +382,7 @@
 
 		@include mobile {
 			margin-top: to-rem(16);
-			gap: to-rem(12);
-			flex-wrap: wrap;
+			gap: to-rem(6);
 		}
 	}
 

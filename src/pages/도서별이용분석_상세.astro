@@ -1,0 +1,423 @@
+---
+// 레이아웃 및 컴포넌트 import
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiBookCardDetail,
+	UiCollectionAccordion,
+	UiAccordion,
+	UiButton,
+	UiNavButton,
+	UiTab,
+	UiTable,
+} from '@components';
+
+// 브레드크럼 네비게이션 경로 설정
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/support' },
+	{ label: './소장도서검색' },
+];
+
+// 소장정보 테이블 컬럼 정의
+const columns = [
+	{
+		key: 'title',
+		label: '도서관',
+		width: '160px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{ key: 'status', label: '대출상태', width: '100px', align: 'center' },
+	{ key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
+	{
+		key: 'service',
+		label: '서비스',
+		width: '100px',
+		align: 'center',
+		type: 'buttons',
+	},
+	{ key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
+	{ key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
+	{
+		key: 'readingRoom',
+		label: '정보 출력',
+		width: '100px',
+		align: 'center',
+		type: 'icon',
+	},
+];
+
+// 도서관별 소장 데이터 원본
+const collectionData = [
+	{
+		library: '청학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'CJ0000036641',
+	},
+	{
+		library: '선학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'interlibrary',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'GJ0000027414',
+	},
+	{
+		library: '꿈담',
+		readingRoom: '어린이자료실',
+		loanStatus: '대출중',
+		returnDate: '2025.07.31',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'QJ0000028625',
+		reservationCount: 0,
+	},
+];
+
+// 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
+const rows = collectionData.map((item, index) => ({
+	id: index + 1,
+	title: `<span class="bold">[${item.library}]</span> ${item.readingRoom}`, // 도서관명 + 자료실명
+	status: item.loanStatus, // 대출상태
+	dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
+	service: [
+		{ text: '예약하기', variant: 'default' },
+		{ text: '상호대차', variant: 'default' },
+		{ text: '리브박스', variant: 'default' },
+	],
+	callNumber: item.callNumber, // 청구기호
+	regNumber: item.registrationNumber, // 등록번호
+	readingRoom: 'icon-printer', // 출력 아이콘
+}));
+
+// 도서관별 탭 메뉴 설정 (전체 및 개별 도서관)
+const myTabs = [
+	{ id: 'all', label: '전체(3)', active: true }, // 기본 활성 탭
+	{ id: 'yeonsu1', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu2', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu3', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu4', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu5', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu6', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu7', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu8', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu9', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu10', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu11', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu12', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu13', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu14', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu15', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu16', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu17', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu18', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu19', label: '연수구청스마트(1)' },
+	{ id: 'future1', label: '추가예정' },
+	{ id: 'future2', label: '추가예정' },
+	{ id: 'future3', label: '추가예정' },
+	{ id: 'future4', label: '추가예정' },
+];
+
+// 스와이퍼 관련 도서 데이터
+const books = [
+	{
+		title:
+			'어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
+	{
+		title:
+			'어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
+];
+---
+
+<Layout title="소장도서검색_상세검색 - 연수구립도서관">
+	<SubLayout title="소장도서검색" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 도서 상세 정보 섹션 -->
+		<div class="search-detail-section__content">
+			<div class="flex justify-end">
+				<UiButton
+					variant="secondary"
+					size="small"
+					text="돌아가기"
+					icon="icon-arrow-left"
+					iconAddClass="icon-sm icon-primary"
+					iconPosition="left"
+					type="link"
+					href="./소장도서검색"
+				/>
+			</div>
+			<!-- 검색 결과 목록 -->
+			<div class="search-result-list mt24">
+				<!-- 도서 정보 카드 -->
+				<UiBookCardDetail
+					imageUrl="./assets/images/default-book.png"
+					title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+					titleHighlights={['탐정']}
+					author="김기정 글; 이해정 그림"
+					publisher="천개의바람"
+					publishYear="2023"
+					description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
+					details={{
+						isbn: '9791155815755',
+						themeClassification: '문학 > 한국문학 > 소설',
+						vol: '1',
+						loanCount: '287916건 (최근 90일 기준)',
+					}}
+				/>
+
+				<!-- 책소개 아코디언 -->
+				<UiAccordion
+					title="책소개"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="book-description">
+						<p>
+							2012년 12월 19일 국내 번역 출간된 이래 6년 연속 베스트셀러 순위 상위권을 차지하며 서점가에서 "21세기 가장
+							경이로운 베스트셀러"라고 불리는 소설. '2008~2017년, 지난 10년간 한국에서 가장 많이 팔린 소설', 히가시노
+							게이고의 대표작 &lt;나미야 잡화점의 기적&gt;이 국내 누적 판매 100만 부를 돌파했다.
+						</p>
+					</div>
+				</UiAccordion>
+
+				<!-- 대출추이 -->
+				<UiAccordion
+					title="대출추이"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="statistics-content">
+						<div class="statistics-content__item statistics-chart-item w-full">
+							<canvas id="myChart1"></canvas>
+						</div>
+					</div>
+				</UiAccordion>
+
+				<!-- 주요키워드 -->
+				<UiAccordion
+					title="주요키워드"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="keywords-content">
+						<div id="wordCloudCanvas" class="wordcloud-canvas"></div>
+					</div>
+				</UiAccordion>
+
+				<!-- 함께 대출된 도서 -->
+				<UiAccordion
+					title="함께 대출된 도서"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="book-description">
+						<p>※ 최근 36개월동안 함께 대출된 도서입니다.</p>
+					</div>
+
+					<div class="usage-guide type-2">
+						<ul class="usage-guide__content">
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>아몬드 :손원평 장편소설</strong> / 지은이: 손원평</li>
+							<li><strong>어서오세요, 휴남동 서점입니다 :황보름 장편소설</strong> / 지은이: 황보름</li>
+							<li><strong>가면산장 살인사건</strong> / 지은이: 히가시노 게이고 ;옮긴이: 김난주</li>
+							<li>
+								<strong>녹나무의 파수꾼 =The camphorwood custodian</strong> / 저자: 히가시노 게이고 ;옮긴이: 양윤옥
+							</li>
+							<li><strong>미드나잇 라이브러리</strong> / 매트 헤이그 지음 ;노진선 옮김</li>
+							<li><strong>아버지의 해방일지 :정지아 장편소설</strong> / 지은이: 정지아</li>
+						</ul>
+					</div>
+				</UiAccordion>
+
+				<!-- 마니아를 위한 추천도서 -->
+				<UiAccordion
+					title="마니아를 위한 추천도서"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="book-description">
+						<p>※ 최근 36개월동안 함께 대출된 도서입니다.</p>
+					</div>
+
+					<div class="usage-guide type-2">
+						<ul class="usage-guide__content">
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>아몬드 :손원평 장편소설</strong> / 지은이: 손원평</li>
+							<li><strong>어서오세요, 휴남동 서점입니다 :황보름 장편소설</strong> / 지은이: 황보름</li>
+							<li><strong>가면산장 살인사건</strong> / 지은이: 히가시노 게이고 ;옮긴이: 김난주</li>
+							<li>
+								<strong>녹나무의 파수꾼 =The camphorwood custodian</strong> / 저자: 히가시노 게이고 ;옮긴이: 양윤옥
+							</li>
+							<li><strong>미드나잇 라이브러리</strong> / 매트 헤이그 지음 ;노진선 옮김</li>
+							<li><strong>아버지의 해방일지 :정지아 장편소설</strong> / 지은이: 정지아</li>
+						</ul>
+					</div>
+				</UiAccordion>
+
+				<!-- 다독자를 위한 추천도서 -->
+				<UiAccordion
+					title="다독자를 위한 추천도서"
+					variant="bordered"
+					size="medium"
+					iconType="chevron"
+					isExpanded={true}
+					className="custom-accordion"
+				>
+					<div class="book-description">
+						<p>※ 최근 36개월동안 함께 대출된 도서입니다.</p>
+					</div>
+
+					<div class="usage-guide type-2">
+						<ul class="usage-guide__content">
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>불편한 편의점 :김호연 장편소설</strong> / 지은이: 김호연</li>
+							<li><strong>달러구트 꿈 백화점 :주문하신 꿈은 매진입니다</strong> / 지은이: 이미예</li>
+							<li><strong>아몬드 :손원평 장편소설</strong> / 지은이: 손원평</li>
+							<li><strong>어서오세요, 휴남동 서점입니다 :황보름 장편소설</strong> / 지은이: 황보름</li>
+							<li><strong>가면산장 살인사건</strong> / 지은이: 히가시노 게이고 ;옮긴이: 김난주</li>
+							<li>
+								<strong>녹나무의 파수꾼 =The camphorwood custodian</strong> / 저자: 히가시노 게이고 ;옮긴이: 양윤옥
+							</li>
+							<li><strong>미드나잇 라이브러리</strong> / 매트 헤이그 지음 ;노진선 옮김</li>
+							<li><strong>아버지의 해방일지 :정지아 장편소설</strong> / 지은이: 정지아</li>
+						</ul>
+					</div>
+				</UiAccordion>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
+
+<!-- 태그 클라우드 및 차트 스크립트 -->
+<script is:inline type="text/javascript" src="./assets/js/tagsCloud.js"></script>
+
+<script is:inline>
+	// jQuery, Chart.js, WordCloud가 로드될 때까지 대기
+	function waitForLibraries() {
+		if (typeof $ !== 'undefined' && typeof Chart !== 'undefined' && typeof WordCloud !== 'undefined') {
+			initializeCharts();
+		} else {
+			setTimeout(waitForLibraries, 100);
+		}
+	}
+
+	function initializeCharts() {
+		// 태그 클라우드 샘플 데이터
+		const tagCloudData = [
+			{ tag: '프로그래밍', weight: 15 },
+			{ tag: 'JavaScript', weight: 12 },
+			{ tag: '웹개발', weight: 10 },
+			{ tag: '도서관', weight: 8 },
+			{ tag: '독서', weight: 7 },
+			{ tag: '소설', weight: 6 },
+			{ tag: '역사', weight: 5 },
+			{ tag: '과학', weight: 4 },
+			{ tag: '문학', weight: 3 },
+			{ tag: '예술', weight: 2 },
+		];
+
+		// 연령별 차트 샘플 데이터
+		const ageData = [
+			{ age: '10대', loanCnt: 15 },
+			{ age: '20대', loanCnt: 25 },
+			{ age: '30대', loanCnt: 35 },
+			{ age: '40대', loanCnt: 20 },
+			{ age: '50대', loanCnt: 10 },
+		];
+
+		// 연도별 차트 샘플 데이터
+		const yearData = [
+			{ year: '2019', loanCnt: 120 },
+			{ year: '2020', loanCnt: 85 },
+			{ year: '2021', loanCnt: 95 },
+			{ year: '2022', loanCnt: 150 },
+			{ year: '2023', loanCnt: 180 },
+			{ year: '2024', loanCnt: 200 },
+		];
+
+		console.log('라이브러리 로드 완료, 차트 초기화 시작');
+
+		// 태그 클라우드 그리기
+		drawTagCloud(tagCloudData);
+
+		// 차트 그리기
+		drawChartsAge(ageData);
+		drawChartsYear(yearData); // 월별이 아닌 연도별 함수 호출
+	}
+
+	// 연수도서관용 태그 클라우드 검색 함수
+	function fn_tagCloudSearch(word) {
+		const searchUrl = `소장도서검색?keyword=${encodeURIComponent(word)}`;
+		window.location.href = searchUrl;
+	}
+
+	// 전역 함수로 등록
+	window.fn_tagCloudSearch = fn_tagCloudSearch;
+
+	// DOM 로드 후 라이브러리 대기 시작
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('DOM 로드 완료, 라이브러리 대기 중...');
+		waitForLibraries();
+	});
+</script>

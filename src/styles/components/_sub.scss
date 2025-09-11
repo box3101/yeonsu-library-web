@@ -3,23 +3,26 @@
 @use 'sass:color';
 @use 'sass:math';
 
-
 // 카드테이블
 .card-table {
-	padding: 16px 0; border-top:2px solid $primary-color;  border-bottom: 1px solid #CBCCCC;
-  .card-table__row {
-		display: flex; align-items: center; margin-bottom: 12px;
-    .card-table__label {
+	padding: 16px 0;
+	border-top: 2px solid $primary-color;
+	border-bottom: 1px solid #cbcccc;
+	.card-table__row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 12px;
+		.card-table__label {
 			flex: 0 0 180px;
-			@include font(to-rem(17),700 ,#191a1a );
+			@include font(to-rem(17), 700, #191a1a);
 			line-height: 150%;
-    }
-    .card-table__content {
-			flex:1;
+		}
+		.card-table__content {
+			flex: 1;
 			@include font(to-rem(17), 500, #4b4d4b);
 			line-height: 150%;
 		}
-  }
+	}
 }
 
 // 무비 카드
@@ -283,9 +286,20 @@ ul.movie-card-wrp {
 
 // 이용안내 스타일
 .usage-guide {
+	&.type-2 {
+		.usage-guide__content {
+			padding: to-rem(16);
+			border-radius: 8px;
+			background: var(--color-gray-gy-05, #f1f2f2);
+
+			li {
+				margin-bottom: 10px !important;
+			}
+		}
+	}
 	&__title {
 		margin: to-rem(32) 0;
-    margin-bottom: to-rem(20);
+		margin-bottom: to-rem(20);
 		@include font(to-rem(32), 700, #191a1a);
 	}
 
@@ -299,15 +313,15 @@ ul.movie-card-wrp {
 			&::before {
 				content: '';
 				position: absolute;
-				top:10px;
+				top: 10px;
 				left: 0;
 				width: to-rem(4);
 				height: to-rem(4);
 				border-radius: 50%;
 				background: #000;
-        @include mobile {
-          top: 8px;
-        }
+				@include mobile {
+					top: 8px;
+				}
 			}
 			&:last-child {
 				margin-bottom: 0;
@@ -318,13 +332,16 @@ ul.movie-card-wrp {
 					display: none;
 				}
 			}
-			&.noti{
+			&.noti {
 				padding-left: 20px;
 				position: relative;
 				&::before {
-					position: absolute; top: 0px;
-					content: '※'; display: inline-block;
-					width: 0; height: 0;
+					position: absolute;
+					top: 0px;
+					content: '※';
+					display: inline-block;
+					width: 0;
+					height: 0;
 				}
 			}
 		}
@@ -343,19 +360,19 @@ ul.movie-card-wrp {
 	&__table {
 		width: 100%;
 		border-collapse: collapse;
-    caption {
-      display: none;
-    }
+		caption {
+			display: none;
+		}
 		@include mobile {
 			min-width: 600px;
 		}
 		tr {
 			th {
 				padding: to-rem(14) 0;
-				border-right: 1px solid var(--color-primary-pr01, #D8E4F3);
-				border-bottom: 1px solid var(--color-primary-pr01, #D8E4F3);
-				border-left: 1px solid var(--color-primary-pr01, #D8E4F3);
-				background: var(--color-primary-pr00, #ECF2F9);
+				border-right: 1px solid var(--color-primary-pr01, #d8e4f3);
+				border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
+				border-left: 1px solid var(--color-primary-pr01, #d8e4f3);
+				background: var(--color-primary-pr00, #ecf2f9);
 				@include font(to-rem(17), 700, #191a1a);
 			}
 		}
@@ -425,11 +442,12 @@ ul.movie-card-wrp {
 		padding-left: 25px;
 
 		@include mobile {
-			line-height: 1.3; word-break: keep-all;
+			line-height: 1.3;
+			word-break: keep-all;
 		}
 	}
 }
-.contact-table-wrp{
+.contact-table-wrp {
 	&.scroll-x {
 		@include mobile {
 			overflow-x: auto;
@@ -444,8 +462,8 @@ ul.movie-card-wrp {
 		border-collapse: collapse;
 		margin-top: 25px;
 		border-top: 2px solid #30619b;
-		caption{
-			display:none;
+		caption {
+			display: none;
 		}
 		tbody {
 			tr {
@@ -453,7 +471,9 @@ ul.movie-card-wrp {
 					padding: 18px 0;
 					text-align: center;
 					line-height: 150%;
-					@include font(to-rem(15), 700, #191919); line-height: 1.5; word-break: keep-all;
+					@include font(to-rem(15), 700, #191919);
+					line-height: 1.5;
+					word-break: keep-all;
 
 					@include mobile {
 						font-size: 13px;
@@ -530,12 +550,12 @@ ul.movie-card-wrp {
 				}
 			}
 
-      &.list-none{
-        padding-left: 0;
-        &::before{
-          display: none;
-        }
-      }
+			&.list-none {
+				padding-left: 0;
+				&::before {
+					display: none;
+				}
+			}
 
 			&:last-child {
 				margin-bottom: 0;
@@ -2219,7 +2239,7 @@ ul.movie-card-wrp {
 		}
 
 		svg {
-			width:80%;
+			width: 80%;
 			height: auto;
 
 			@include mobile {
@@ -2714,14 +2734,14 @@ ul.movie-card-wrp {
 		flex-wrap: wrap;
 		gap: to-rem(16);
 		align-items: center;
-    height: 100%;
-    min-height: 56px;
+		height: 100%;
+		min-height: 56px;
 	}
 
 	.birth-group {
 		display: flex;
 		gap: to-rem(16);
-    align-items: center;
+		align-items: center;
 
 		@include mobile {
 			gap: to-rem(12);
@@ -3927,10 +3947,10 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: flex-start;
 		gap: to-rem(8);
-		margin-top: to-rem(24)!important;
+		margin-top: to-rem(24) !important;
 
 		@include tablet {
-			margin-top: to-rem(20)!important;
+			margin-top: to-rem(20) !important;
 			margin-bottom: to-rem(20) !important;
 			flex-direction: column;
 			align-items: stretch;
@@ -4073,21 +4093,23 @@ ul.movie-card-wrp {
 				a {
 					display: inline-block;
 					width: 100%;
-          &:hover{
-            .search-term{
-              text-decoration: underline; color: $primary-color;
-            }
-          }
-          &.no-hover{
-            .search-term{
-              text-decoration: none; color: $gray-700;
-            }
-          }
+					&:hover {
+						.search-term {
+							text-decoration: underline;
+							color: $primary-color;
+						}
+					}
+					&.no-hover {
+						.search-term {
+							text-decoration: none;
+							color: $gray-700;
+						}
+					}
 
-          span{
-            display: inline-block;
-          }
-        }
+					span {
+						display: inline-block;
+					}
+				}
 
 				@include tablet {
 					padding: to-rem(6) 0;
@@ -4103,7 +4125,7 @@ ul.movie-card-wrp {
 
 					&.is-recent {
 						font-weight: $font-semibold;
-            display: inline-block;
+						display: inline-block;
 					}
 				}
 
@@ -6667,24 +6689,24 @@ div.bookshelf-item {
 
 /* 우측 로그인 폼 */
 .login-form-section {
-    flex: 1;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    width: 100%;
-    max-width: 100%;
+	flex: 1;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+	width: 100%;
+	max-width: 100%;
 
 	@include mobile {
 		padding-top: 16px;
 	}
 
-  .member-info-display-container{
-    width: 100%;
-  }
+	.member-info-display-container {
+		width: 100%;
+	}
 }
 
 .login-form {
@@ -6771,9 +6793,9 @@ div.bookshelf-item {
 		flex-direction: column;
 		gap: 1rem;
 
-    .info-notice{
-      margin-top: 0;
-    }
+		.info-notice {
+			margin-top: 0;
+		}
 	}
 
 	.login-banner__title {
@@ -8784,7 +8806,8 @@ div.bookshelf-item {
 	.info-list {
 		li {
 			p {
-				margin-top: 10px 0px; margin-left: 17px;
+				margin-top: 10px 0px;
+				margin-left: 17px;
 			}
 			&.list-none {
 				padding-left: 0;
@@ -9184,117 +9207,116 @@ div.bookshelf-item {
 
 // 공통 그리드 시스템 (2-6 컬럼)
 .com-grid {
-  display: grid;
-  gap: to-rem(16);
+	display: grid;
+	gap: to-rem(16);
 
-  // 2-6 컬럼 클래스
-  &-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+	// 2-6 컬럼 클래스
+	&-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-  &-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+	&-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
 
-  &-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
+	&-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
 
-  &-5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
+	&-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
 
-  &-6 {
-    grid-template-columns: repeat(6, 1fr);
-  }
+	&-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
 
-  // 반응형 처리
-  @include tablet {
+	// 반응형 처리
+	@include tablet {
+		&-4,
+		&-5,
+		&-6 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
 
-    &-4,
-    &-5,
-    &-6 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @include mobile {
-
-    &-3,
-    &-4,
-    &-5,
-    &-6 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+	@include mobile {
+		&-3,
+		&-4,
+		&-5,
+		&-6 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
 }
 
 // 그리드 아이템
 .com-grid-item {
-  width: 100%;
+	width: 100%;
 
-  a {
-    display: block;
-  }
+	a {
+		display: block;
+	}
 
-  // 이미지 아이템
-  .image {
-    border-radius: to-rem(12);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative; // aspect-ratio 지원을 위해 추가
+	// 이미지 아이템
+	.image {
+		border-radius: to-rem(12);
+		overflow: hidden;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		position: relative; // aspect-ratio 지원을 위해 추가
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
 
-    // 호버 이벤트
-    &:hover {
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+		// 호버 이벤트
+		&:hover {
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 
-      img {
-        transform: scale(1.05);
-      }
-    }
-    // 높이 옵션들
-    &.h-sm {
-      height: to-rem(120);
-      @include mobile {
-        height: auto;
-      }
-    }
-    &.h-md {
-      height: to-rem(180);
-      @include mobile {
-            height: auto;
-      }
-    }
-    &.h-lg {
-      height: to-rem(226);
-      @include mobile {
-        height: auto;
-      }
-    }
-    &.h-xlg {
-      height: to-rem(245);
-      @include mobile {
-        height: auto;
-      }
-    }
-    &.h-xl {
-      height: to-rem(280);
-      @include mobile {
-        height: auto;
-      }
-    }
-  }
-  .title{
-    margin-top: 10px;
-    @include font(to-rem(17), 400, #191a1a); line-height: 1.5; text-align: center;
-  }
-
+			img {
+				transform: scale(1.05);
+			}
+		}
+		// 높이 옵션들
+		&.h-sm {
+			height: to-rem(120);
+			@include mobile {
+				height: auto;
+			}
+		}
+		&.h-md {
+			height: to-rem(180);
+			@include mobile {
+				height: auto;
+			}
+		}
+		&.h-lg {
+			height: to-rem(226);
+			@include mobile {
+				height: auto;
+			}
+		}
+		&.h-xlg {
+			height: to-rem(245);
+			@include mobile {
+				height: auto;
+			}
+		}
+		&.h-xl {
+			height: to-rem(280);
+			@include mobile {
+				height: auto;
+			}
+		}
+	}
+	.title {
+		margin-top: 10px;
+		@include font(to-rem(17), 400, #191a1a);
+		line-height: 1.5;
+		text-align: center;
+	}
 }
