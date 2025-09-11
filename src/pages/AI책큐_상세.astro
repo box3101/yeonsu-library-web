@@ -1,0 +1,341 @@
+---
+// 레이아웃 및 컴포넌트 import
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiBookCardDetail,
+	UiCollectionAccordion,
+	UiAccordion,
+	UiButton,
+	UiNavButton,
+	UiTab,
+	UiTable,
+	UiLibraryFilter,
+} from '@components';
+
+// 브레드크럼 네비게이션 경로 설정
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: './AI책큐' }];
+
+// 소장정보 테이블 컬럼 정의
+const columns = [
+	{
+		key: 'title',
+		label: '도서관',
+		width: '160px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{ key: 'status', label: '대출상태', width: '100px', align: 'center' },
+	{ key: 'dueDate', label: '반납예정일', width: '120px', align: 'center' },
+	{
+		key: 'service',
+		label: '서비스',
+		width: '100px',
+		align: 'center',
+		type: 'buttons',
+	},
+	{ key: 'callNumber', label: '청구기호', width: '120px', align: 'center' },
+	{ key: 'regNumber', label: '등록번호', width: '120px', align: 'center' },
+	{
+		key: 'readingRoom',
+		label: '정보 출력',
+		width: '100px',
+		align: 'center',
+		type: 'icon',
+	},
+];
+
+// 도서관별 소장 데이터 원본
+const collectionData = [
+	{
+		library: '청학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'CJ0000036641',
+	},
+	{
+		library: '선학',
+		readingRoom: '어린이자료실',
+		loanStatus: '비치중',
+		service: 'interlibrary',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'GJ0000027414',
+	},
+	{
+		library: '꿈담',
+		readingRoom: '어린이자료실',
+		loanStatus: '대출중',
+		returnDate: '2025.07.31',
+		service: 'reservation',
+		callNumber: 'DV 688.2-조54ㅌ',
+		registrationNumber: 'QJ0000028625',
+		reservationCount: 0,
+	},
+];
+
+const libraries = [
+	{ name: '연수청학도서관', id: '1' },
+	{ name: '연수꿈담도서관', id: '2' },
+	{ name: '송도국제어린이도서관', id: '3' },
+	{ name: '해돋이도서관', id: '4' },
+	{ name: '선학별빛도서관', id: '5' },
+	{ name: '동춘나래도서관', id: '6' },
+	{ name: '함박비류도서관', id: '7' },
+	{ name: '옥련1동작은도서관', id: '8' },
+	{ name: '옥련2동어린이작은도서관', id: '9' },
+	{ name: '연수1동작은도서관', id: '10' },
+	{ name: '송도2동작은도서관', id: '11' },
+	{ name: '송도3동작은도서관', id: '12' },
+	{ name: '송도5동작은도서관', id: '13' },
+	{ name: '솔안공원작은도서관', id: '14' },
+	{ name: '해찬솔공원작은도서관', id: '15' },
+	{ name: '누리공원작은도서관', id: '16' },
+	{ name: '송도4동스마트도서관', id: '17' },
+	{ name: '스퀘어원스마트도서관', id: '18' },
+	{ name: '연수구청스마트도서관', id: '19' },
+	{ name: '선학역스마트도서관', id: '20' },
+];
+
+// 테이블 행 데이터 생성 (원본 데이터를 테이블 형식으로 변환)
+const rows = collectionData.map((item, index) => ({
+	id: index + 1,
+	title: `<span class="bold">[${item.library}]</span> ${item.readingRoom}`, // 도서관명 + 자료실명
+	status: item.loanStatus, // 대출상태
+	dueDate: item.returnDate || '2025.07.31', // 반납예정일 (기본값 설정)
+	service: [
+		{ text: '예약하기', variant: 'default' },
+		{ text: '상호대차', variant: 'default' },
+		{ text: '리브박스', variant: 'default' },
+	],
+	callNumber: item.callNumber, // 청구기호
+	regNumber: item.registrationNumber, // 등록번호
+	readingRoom: 'icon-printer', // 출력 아이콘
+}));
+
+// 도서관별 탭 메뉴 설정 (전체 및 개별 도서관)
+const myTabs = [
+	{ id: 'all', label: '전체(3)', active: true }, // 기본 활성 탭
+	{ id: 'yeonsu1', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu2', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu3', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu4', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu5', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu6', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu7', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu8', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu9', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu10', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu11', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu12', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu13', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu14', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu15', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu16', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu17', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu18', label: '연수구청스마트(1)' },
+	{ id: 'yeonsu19', label: '연수구청스마트(1)' },
+	{ id: 'future1', label: '추가예정' },
+	{ id: 'future2', label: '추가예정' },
+	{ id: 'future3', label: '추가예정' },
+	{ id: 'future4', label: '추가예정' },
+];
+
+// 스와이퍼 관련 도서 데이터
+const books = [
+	{
+		title:
+			'어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
+	{
+		title:
+			'어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기어린이를 위한 재미있는 과학 이야기',
+		author: '글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
+	},
+	{
+		title: '모험이 가득한 동화책',
+		author: '이동화 저',
+	},
+	{
+		title: '창의력을 키우는 미술 활동',
+		author: '박미술 저',
+	},
+	{
+		title: '음악과 함께하는 즐거운 시간',
+		author: '최음악 저',
+	},
+	{
+		title: '자연과 친구가 되는 방법',
+		author: '정자연 저',
+	},
+];
+---
+
+<Layout title="AI책큐_상세검색 - 연수구립도서관">
+	<SubLayout title="AI책큐" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 페이지 우측 상단 돌아가기 버튼 -->
+		<div slot="right">
+			<UiButton
+				variant="secondary"
+				size="small"
+				text="돌아가기"
+				icon="icon-xxsm icon-arrow-left icon-primary"
+				iconPosition="left"
+				type="link"
+				href="./AI책큐"
+			/>
+		</div>
+
+		<!-- 카드 1 -->
+		<div class="ai-bookqueue-detail-page">
+			<!-- 도서관 필터 섹션 -->
+			<UiLibraryFilter
+				title="전체도서관"
+				subtitle="도서관 분류"
+				libraries={libraries}
+				gridColumns={4}
+				expanded={true}
+				btnHide={true}
+			/>
+
+			<!-- AI 책큐 -->
+			<div class="ai-bookqueue-section">
+				<div class="ai-chat-bubble">
+					<div class="chat-content">
+						<div class="left">
+							<div class="ai-chatbot-icon">
+								<img src="./assets/images/icon/ai-chatbot.svg" alt="AI 챗봇" />
+							</div>
+						</div>
+						<div class="right">
+							<div class="quote-left">
+								<img src="./assets/images/icon/quotes-left.svg" alt="인용부호 시작" />
+							</div>
+							<div class="chat-text">
+								<p>
+									직장 내의 인간관계에서 어려움을 겪고 계신 것 같네요. <br /> 이런 상황에서는 서로의 감정을 이해하고 소통하는
+									법을 배울 수 있는 책들이 큰 도움이 될 수 있습니다. <br /> 그래서 몇 권의 베스트셀러를 추천드릴게요.
+								</p>
+							</div>
+							<div class="quote-right">
+								<img src="./assets/images/icon/quotes-right.svg" alt="인용부호 끝" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{Array.from({ length: 3 }).map((_, index) => (
+				<div class="ai-bookqueue-card">
+					<!-- 추천도서 99 -->
+					<div class="recommend-book-section">
+						<div class="recommend-header">
+							<div class="recommend-badge">
+								<div class="badge-background">
+									<img src="./assets/images/icon/recommend-badge.svg" alt="추천 배지 배경" />
+								</div>
+								<div class="badge-content">
+									<div class="star-icon">
+										<img src="./assets/images/icon/star-filled.svg" alt="별점" />
+									</div>
+									<span class="badge-text">추천도서 {99 - index}</span>
+								</div>
+							</div>
+							<div class="book-title">
+								<h3>한나의 역사스캔들 - 저와 함께 역사 속으로 드시지요 – 최한나 (지은이)</h3>
+							</div>
+						</div>
+						<div class="book-description">
+							<p>
+								한나의 역사스캔들은 저자의 매력적인 스토리텔링과 다양한 역사적 사건들을 흥미진진하게 풀어내어 독자들을
+								사로잡습니다. 이 책은 우리가 잘 알지 못했던 역사 속 인물들과 그들의 이야기를 통해 우리 역사를 더 깊이
+								이해할 수 있게 해줍니다. 또한, 성 소수자와 사회적 약자들의 삶을 다루며 다양한 관점을 제시합니다.
+							</p>
+						</div>
+					</div>
+
+					<!-- 도서 상세 정보 섹션 -->
+					<div class="search-detail-section__content">
+						<!-- 검색 결과 목록 -->
+						<div class="search-result-list mt24">
+							<!-- 도서 정보 카드 -->
+							<UiBookCardDetail
+								imageUrl="./assets/images/default-book.png"
+								badges={[
+									{ label: 'DVD', type: 'success', size: 'large' },
+									{ label: '대출불가', type: 'warning' },
+									{ label: '예약 0명', type: 'default' },
+								]}
+								title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+								titleHighlights={['탐정']}
+								author="김기정 글; 이해정 그림"
+								publisher="천개의바람"
+								publishYear="2023"
+								description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
+								details={{
+									callNumber: '아동 813.5-김18ㅎ',
+									registrationNumber: 'GJ0000027414',
+									isbn: '9791155815755',
+									koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
+									categoryClassification: '문학 > 한국문학 > 소설',
+									supplement: '포함',
+								}}
+							/>
+						</div>
+					</div>
+				</div>
+			))}
+
+			<!-- 추가 질문 제안 -->
+			<div class="additional-questions-section">
+				<div class="section-header">
+					<div class="ai-icon">
+						<img src="./assets/images/icon/ai-tech-dark.svg" alt="AI 아이콘" />
+					</div>
+					<h2>추가 질문 제안</h2>
+				</div>
+				<div class="questions-list">
+					<button class="question-item" type="button">
+						💼 직장에서의 인간관계에 대해 배우는 좋은 책은?
+					</button>
+					<button class="question-item" type="button">
+						🤝 직장 내 인간관계를 개선하는 책은?
+					</button>
+					<button class="question-item" type="button">
+						📚 직장인 관계에 관한 인기 도서 추천해줘
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+			<!-- AI 로딩 상태 -->
+			<div class="ai-loading-section">
+				<div class="ai-chatbot-icon">
+					<img src="./assets/images/icon/ai-chatbot2.svg" alt="AI 챗봇" />
+				</div>
+				<div class="loading-text">
+					<span class="ai-brand">AI 책큐</span>가 질문에 맞는<br />책을 찾고있어요!
+				</div>
+			</div>
+	</SubLayout>
+</Layout>
+

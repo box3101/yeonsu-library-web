@@ -20,6 +20,7 @@ export interface Props {
 	expanded?: boolean;
 	gridColumns?: number;
 	class?: string;
+	btnHide?: boolean;
 }
 
 const {
@@ -30,6 +31,7 @@ const {
 	expanded = true,
 	gridColumns = 4,
 	class: className = '',
+	btnHide = false,
 } = Astro.props;
 
 const filterId = `filter-${Math.random().toString(36).substr(2, 9)}`;
@@ -127,116 +129,121 @@ const popularSearches = [
 					placeholder="검색어를 입력해주세요."
 					size="medium"
 					clearable={true}
-					class="w-577"
+					class="w-full"
 				/>
 			</div>
 			<!-- 검색어 드롭다운 -->
-			<div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
-				<!-- 탭 버튼 -->
-				<div class="ui-library-filter__search-tabs">
-					{
-						searchTabs.map(tab => (
-							<button
-								type="button"
-								class={`search-tab-button ${tab.active ? 'active' : ''}`}
-								data-tab={tab.id}
-								data-active={tab.active}
-							>
-								{tab.label}
-							</button>
-						))
-					}
-				</div>
+			{
+				btnHide ? null : (
+					<div class="ui-library-filter__search-dropdown" id={searchDropdownId}>
+						<div class="ui-library-filter__search-tabs">
+							{searchTabs.map(tab => (
+								<button
+									type="button"
+									class={`search-tab-button ${tab.active ? 'active' : ''}`}
+									data-tab={tab.id}
+									data-active={tab.active}
+								>
+									{tab.label}
+								</button>
+							))}
+						</div>
 
-				<!-- 검색어 목록 -->
-				<div class="ui-library-filter__search-list">
-					<!-- 최근 검색어 -->
-					<div id="recent-searches" class={`search-content ${searchTabs[0].active ? 'active' : ''}`}>
-						{
-							recentSearches.map(search => (
-								<div class="search-item search-item--clickable" data-term={search.term}>
-									<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
-										<span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
-									</a>
-									<button
-										type="button"
-										class="search-item__delete-btn"
-										aria-label={`${search.term} 검색어 삭제`}
-										data-term={search.term}
-									>
-										<img src="./assets/images/icon/icon-delete.svg" alt="삭제" class="search-item__delete-icon" />
-									</button>
+						<div class="ui-library-filter__search-list">
+							<div id="recent-searches" class={`search-content ${searchTabs[0].active ? 'active' : ''}`}>
+								{recentSearches.map(search => (
+									<div class="search-item search-item--clickable" data-term={search.term}>
+										<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
+											<span class={`search-term ${search.isRecent ? 'is-recent' : ''}`}>{search.term}</span>
+										</a>
+										<button
+											type="button"
+											class="search-item__delete-btn"
+											aria-label={`${search.term} 검색어 삭제`}
+											data-term={search.term}
+										>
+											<img src="./assets/images/icon/icon-delete.svg" alt="삭제" class="search-item__delete-icon" />
+										</button>
+									</div>
+								))}
+								<div class="search-item search-item--non-clickable">
+									<span class="search-term">최근 검색어가 없습니다.</span>
 								</div>
-							))
-						}
-						<div class="search-item search-item--non-clickable">
-							<span class="search-term">최근 검색어가 없습니다.</span>
+							</div>
+							<div id="popular-searches" class={`search-content ${searchTabs[1].active ? 'active' : ''}`}>
+								{popularSearches.map(search => (
+									<div class="search-item search-item--clickable" data-term={search.term}>
+										<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
+											<span class="search-term">{search.term}</span>
+										</a>
+										<span class="search-rank">{search.rank}</span>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<div class="ui-library-filter__search-options">
+							<div class="option-item">
+								<UiSwitch
+									id={`search-save-toggle-${filterId}`}
+									size="small"
+									checked={false}
+									label="검색어 저장"
+									labelPosition="right"
+								/>
+							</div>
+							<UiSwitch
+								id={`search-autocomplete-toggle-${filterId}`}
+								size="small"
+								checked={false}
+								label="자동완성 켜기"
+								labelPosition="right"
+							/>
 						</div>
 					</div>
-					<!-- 인기 검색어 -->
-					<div id="popular-searches" class={`search-content ${searchTabs[1].active ? 'active' : ''}`}>
-						{
-							popularSearches.map(search => (
-								<div class="search-item search-item--clickable" data-term={search.term}>
-									<a href={`/소장도서검색?q=${encodeURIComponent(search.term)}`} class="search-item__link">
-										<span class="search-term">{search.term}</span>
-									</a>
-									<span class="search-rank">{search.rank}</span>
-								</div>
-							))
-						}
-					</div>
-				</div>
-
-				<!-- 하단 옵션 -->
-				<div class="ui-library-filter__search-options">
-					<div class="option-item">
-						<UiSwitch
-							id={`search-save-toggle-${filterId}`}
-							size="small"
-							checked={false}
-							label="검색어 저장"
-							labelPosition="right"
-						/>
-					</div>
-					<UiSwitch
-						id={`search-autocomplete-toggle-${filterId}`}
-						size="small"
-						checked={false}
-						label="자동완성 켜기"
-						labelPosition="right"
-					/>
-				</div>
-			</div>
+				)
+			}
 
 			<div class="flex gap-5">
 				<div class="ui-keyboard-container">
-					<UiButton
-						text="다국어입력기"
-						size="medium"
-						icon="icon-language"
-						iconAddClass="icon-white"
-						iconPosition="left"
-						class="ui-library-filter__search-button ui-keyboard-trigger"
-					/>
+					{
+						btnHide ? null : (
+							<UiButton
+								text="다국어입력기"
+								size="medium"
+								icon="icon-language"
+								iconAddClass="icon-white"
+								iconPosition="left"
+								class="ui-library-filter__search-button ui-keyboard-trigger"
+							/>
+						)
+					}
 					<UiKeyboard id="search-keyboard" targetInputId="search" class="ui-search-keyboard" />
 				</div>
 				<UiButton text="검색" variant="darkBlue" size="medium" class="ui-library-filter__search-button" />
-				<UiButton
-					text="고급검색"
-					variant="darkBlue"
-					icon="icon-search-advanced"
-					iconPosition="left"
-					size="medium"
-					class="ui-library-filter__search-button"
-					href="./소장도서검색_고급검색"
-				/>
+				{
+					btnHide ? null : (
+						<UiButton
+							text="고급검색"
+							variant="darkBlue"
+							icon="icon-search-advanced"
+							iconPosition="left"
+							size="medium"
+							class="ui-library-filter__search-button"
+							href="./소장도서검색_고급검색"
+						/>
+					)
+				}
 			</div>
 		</div>
 
 		<!-- 결과내 재검색 -->
-		<div class="ui-library-filter__search-result">
-			<UiCheckbox name="checkbox-name" label="결과내재검색" checked={false} id="search-result-checkbox" />
-		</div>
+		{
+			btnHide ? null : (
+				<div class="ui-library-filter__search-result">
+					<UiCheckbox name="checkbox-name" label="결과내재검색" checked={false} id="search-result-checkbox" />
+				</div>
+			)
+		}
 	</div>
 </section>

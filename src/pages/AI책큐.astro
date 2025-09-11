@@ -1,0 +1,131 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import {
+	UiLibraryFilter,
+	UiTab,
+	UiBookCard,
+	UiPagination,
+	UiAccordion,
+	UiCheckbox,
+	UiButton,
+	UiDatePicker,
+	UiSearchSummary,
+	UiSearchFilter,
+} from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: 'AI책큐' }];
+
+const libraries = [
+	{ name: '연수청학도서관', id: '1' },
+	{ name: '연수꿈담도서관', id: '2' },
+	{ name: '송도국제어린이도서관', id: '3' },
+	{ name: '해돋이도서관', id: '4' },
+	{ name: '선학별빛도서관', id: '5' },
+	{ name: '동춘나래도서관', id: '6' },
+	{ name: '함박비류도서관', id: '7' },
+	{ name: '옥련1동작은도서관', id: '8' },
+	{ name: '옥련2동어린이작은도서관', id: '9' },
+	{ name: '연수1동작은도서관', id: '10' },
+	{ name: '송도2동작은도서관', id: '11' },
+	{ name: '송도3동작은도서관', id: '12' },
+	{ name: '송도5동작은도서관', id: '13' },
+	{ name: '솔안공원작은도서관', id: '14' },
+	{ name: '해찬솔공원작은도서관', id: '15' },
+	{ name: '누리공원작은도서관', id: '16' },
+	{ name: '송도4동스마트도서관', id: '17' },
+	{ name: '스퀘어원스마트도서관', id: '18' },
+	{ name: '연수구청스마트도서관', id: '19' },
+	{ name: '선학역스마트도서관', id: '20' },
+];
+---
+
+<Layout title="AI책큐">
+	<SubLayout title="AI책큐" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- AI 책큐 영역 -->
+		<div class="ai-book-queue">
+			<div class="ai-intro-section">
+				<div class="intro-header">
+					<p class="intro-subtitle">당신의 글을 이해하는 AI</p>
+				</div>
+
+				<div class="intro-title-area">
+					<div class="title-text">AI책큐</div>
+					<div class="ai-chatbot-icon">
+						<img src="./assets/images/icon/ai-chatbot.svg" alt="AI 챗봇" />
+					</div>
+				</div>
+			</div>
+
+			<div class="ai-description-card">
+				<div class="quote-icon quote-left">
+					<img src="./assets/images/icon/quote-left.svg" alt="인용 시작" />
+				</div>
+
+				<div class="description-content">
+					<div class="highlight-text">
+						<p>
+							AI책큐는 글을 이해하고 도서를 추천해주는 AI입니다.<br />
+							<strong>지금 궁금한 생각, 고민, 감정까지 자유롭게 입력</strong>해 보세요.<br />
+							당신의 마음을 읽고 딱 맞는 책을 찾아드립니다.
+						</p>
+					</div>
+				</div>
+
+				<div class="quote-icon quote-right">
+					<img src="./assets/images/icon/quote-right.svg" alt="인용 끝" />
+				</div>
+
+				<div class="info-notice">
+					<div class="info-icon">
+						<img src="./assets/images/icon/info.svg" alt="정보" />
+					</div>
+					<p class="info-text">AI책큐는 지금도 계속 배우고 있어요. 여러분의 피드백은 큰 도움이 됩니다.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 도서관 필터 섹션 -->
+		<UiLibraryFilter
+			title="전체도서관"
+			subtitle="도서관 분류"
+			libraries={libraries}
+			gridColumns={4}
+			expanded={true}
+			btnHide={true}
+		/>
+
+		<!-- 슬라이드 -->
+		<div class="ai-carousel-section">
+			<div class="carousel-container">
+				<button class="carousel-btn carousel-btn--prev" type="button">
+					<img src="./assets/images/icon/arrow-left.svg" alt="이전" />
+				</button>
+
+				<div class="carousel-content">
+					<div class="carousel-slide active">
+						<div class="slide-card slide-card--active">
+							<p>👨‍🚀 우주과학에 관한 인기 있는 도서는 무엇인가요?</p>
+						</div>
+						<div class="slide-card">
+							<p>🧘‍♂️ 마음챙김과 명상에 관한 책 추천 부탁해요.</p>
+						</div>
+						<div class="slide-card">
+							<p>🔮 미래 예측과 관련된 책 추천해 주세요.</p>
+						</div>
+						<div class="slide-card">
+							<p>🏖️ 여행과 탐험에 관한 최신 베스트셀러는?</p>
+						</div>
+						<div class="slide-card">
+							<p>🧑‍🏫 교육과 학습 방법에 관한 책 추천 부탁해요.</p>
+						</div>
+					</div>
+				</div>
+
+				<button class="carousel-btn carousel-btn--next" type="button">
+					<img src="./assets/images/icon/arrow-right.svg" alt="다음" />
+				</button>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

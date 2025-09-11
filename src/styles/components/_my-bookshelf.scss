@@ -89,10 +89,12 @@
     @include flex(row, stretch, stretch, nowrap);
     gap: to-rem(16);
     width: 100%;
+    min-width: 600px;
+    overflow-x: auto;
 
     @include mobile {
-      flex-direction: column;
-      gap: 16px;
+      gap: 8px;
+      min-width: auto;
     }
   }
 }
@@ -103,11 +105,11 @@
 
 .bookshelf-card {
   @include flex(row, stretch, stretch, nowrap);
-  flex: 1;
+  flex: none;
   background-color: $white;
   border: 1px solid #b1b3b3;
   border-radius: to-rem(6);
-  padding: to-rem(32);
+  padding: to-rem(32) 32px;
   transition: all 0.2s ease;
 
   &:hover {
@@ -157,10 +159,11 @@
   &__title {
     @include font(to-rem(17), 700, #000);
     margin: 0;
-    flex: 1;
+    flex: none;
 
     @include mobile {
       @include font(to-rem(15), 700, #000);
+      line-height: 1.5;
     }
   }
 
@@ -210,26 +213,13 @@
 // ================================
 
 // 태블릿에서는 2열 배치
-@include tablet {
-  .my-bookshelf {
-    &__cards {
-      flex-wrap: wrap;
-
-      .bookshelf-card {
-        flex-basis: 100%;
-        max-width: 100%;
-      }
-    }
-  }
-}
 
 // 데스크톱에서는 3열 배치 (기본)
 @include desktop {
   .my-bookshelf {
     &__cards {
       .bookshelf-card {
-        flex-basis: calc(33.333% - #{to-rem(11)});
-        max-width: calc(33.333% - #{to-rem(11)});
+        width:auto;
       }
     }
   }

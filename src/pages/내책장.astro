@@ -3,162 +3,318 @@ import Layout from '../layouts/Layout.astro';
 import SubLayout from '../components/layout/SubLayout.astro';
 import UiAccordion from '../components/UI/UiAccordion.astro';
 import UiButton from '../components/UI/UiButton.astro';
+import UiEmpty from '../components/UI/UiEmpty.astro';
 
 const breadcrumbItems = [
-  { label: '홈', href: '/' },
-  { label: '나의도서관', href: '/my-library' },
-  { label: '내책장', href: '/my-library/my-shelf' },
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내책장', href: '/my-library/my-shelf' },
 ];
 
 // 책장 데이터
 const bookshelves = [
-  {
-    id: 'my-library',
-    title: '내서재',
-    count: 10,
-    href: '/my-library',
-  },
-  {
-    id: 'favorite-books',
-    title: '좋아하는책',
-    count: 5,
-    href: '/favorite-books',
-  },
-  {
-    id: 'bookshelf-3',
-    title: '책장명 3',
-    count: 8,
-    href: '/bookshelf-3',
-  },
+	{
+		id: 'my-library',
+		title: '내서재',
+		count: 10,
+		href: '/my-library',
+	},
+	{
+		id: 'favorite-books',
+		title: '좋아하는책',
+		count: 10,
+		href: '/favorite-books',
+	},
+	{
+		id: 'bookshelf-3',
+		title: '읽고 싶은 책',
+		count: 15,
+		href: '/bookshelf-3',
+	},
+	{
+		id: 'bookshelf-4',
+		title: '읽은 책',
+		count: 25,
+		href: '/bookshelf-4',
+	},
+	{
+		id: 'bookshelf-5',
+		title: '소설',
+		count: 12,
+		href: '/bookshelf-5',
+	},
+	{
+		id: 'bookshelf-6',
+		title: '에세이',
+		count: 8,
+		href: '/bookshelf-6',
+	},
+	{
+		id: 'bookshelf-7',
+		title: '자기계발',
+		count: 18,
+		href: '/bookshelf-7',
+	},
+	{
+		id: 'bookshelf-8',
+		title: '역사',
+		count: 6,
+		href: '/bookshelf-8',
+	},
+	{
+		id: 'bookshelf-9',
+		title: '과학',
+		count: 9,
+		href: '/bookshelf-9',
+	},
+	{
+		id: 'bookshelf-10',
+		title: '철학',
+		count: 4,
+		href: '/bookshelf-10',
+	},
+	{
+		id: 'bookshelf-11',
+		title: '예술',
+		count: 7,
+		href: '/bookshelf-11',
+	},
+	{
+		id: 'bookshelf-12',
+		title: '여행',
+		count: 11,
+		href: '/bookshelf-12',
+	},
+	{
+		id: 'bookshelf-13',
+		title: '요리',
+		count: 5,
+		href: '/bookshelf-13',
+	},
+	{
+		id: 'bookshelf-14',
+		title: '건강',
+		count: 13,
+		href: '/bookshelf-14',
+	},
+	{
+		id: 'bookshelf-15',
+		title: '경제',
+		count: 16,
+		href: '/bookshelf-15',
+	},
+	{
+		id: 'bookshelf-16',
+		title: '정치',
+		count: 3,
+		href: '/bookshelf-16',
+	},
+	{
+		id: 'bookshelf-17',
+		title: '사회',
+		count: 14,
+		href: '/bookshelf-17',
+	},
+	{
+		id: 'bookshelf-18',
+		title: '문화',
+		count: 9,
+		href: '/bookshelf-18',
+	},
+	{
+		id: 'bookshelf-19',
+		title: '언어',
+		count: 7,
+		href: '/bookshelf-19',
+	},
+	{
+		id: 'bookshelf-20',
+		title: '컴퓨터',
+		count: 12,
+		href: '/bookshelf-20',
+	},
 ];
 ---
 
 <Layout title="내책장">
-  <SubLayout title="내책장" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
-    <UiAccordion title="도서관 내 책장 이용안내" variant="bordered" size="medium" iconType="chevron" isExpanded={false} className="custom-accordion">
-      <div class="book-description">
-        <ul class="book-shelf-guide">
-          <li>내책장을 통해 관심자료를 손쉽게 등록, 관리할 수 있습니다.</li>
-          <li>
-            자료등록 자료 표지 또는 검색 결과 화면에 있는<strong> [내책장 담기] </strong>를 클릭합니다. 팝업 노출된 "내서재 담기" 창에 있는 "나만의
-            책장" 기본 카테고리 또는 책장 카테고리 관리에서 직접 등록한 책장 카테고리를 선택하여 자료를 담습니다.
-          </li>
-          <li class="book-edit">
-            책장 카테고리 관리 내책장 메뉴에 있는 <img src="./assets/images/icon/icon-book-edit.svg" class="icon icon-book-edit" />
-            <strong>책장편집하기</strong>를 클릭합니다. 팝업 노출된 "내책장 카테고리 관리" 창을 통해 새로운 카테고리를 추가, 삭제할 수 있습니다.
-          </li>
-          <li>책장 카테고리는 최대 20개 까지 등록할 수 있습니다</li>
-        </ul>
-      </div>
-    </UiAccordion>
+	<SubLayout title="내책장" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<UiAccordion
+			title="도서관 내 책장 이용안내"
+			variant="bordered"
+			size="medium"
+			iconType="chevron"
+			isExpanded={false}
+			className="custom-accordion"
+		>
+			<div class="book-description">
+				<ul class="book-shelf-guide">
+					<li>내책장을 통해 관심자료를 손쉽게 등록, 관리할 수 있습니다.</li>
+					<li>
+						자료등록 자료 표지 또는 검색 결과 화면에 있는<strong>[내책장 담기]</strong>를 클릭합니다. 팝업 노출된
+						"내서재 담기" 창에 있는 "나만의 책장" 기본 카테고리 또는 책장 카테고리 관리에서 직접 등록한 책장 카테고리를
+						선택하여 자료를 담습니다.
+					</li>
+					<li class="book-edit">
+						책장 카테고리 관리 내책장 메뉴에 있는 <img
+							src="./assets/images/icon/icon-book-edit.svg"
+							class="icon icon-book-edit"
+						/>
+						<strong>책장편집하기</strong>를 클릭합니다. 팝업 노출된 "내책장 카테고리 관리" 창을 통해 새로운 카테고리를
+						추가, 삭제할 수 있습니다.
+					</li>
+					<li>책장 카테고리는 최대 20개 까지 등록할 수 있습니다</li>
+				</ul>
+			</div>
+		</UiAccordion>
 
-    <!-- 내 책장 메인 컨테이너 -->
-    <div class="my-bookshelf">
-      <!-- 책장 카드 목록 -->
-      <div class="my-bookshelf__cards">
-        {
-          bookshelves.map(bookshelf => (
-            <div class="bookshelf-card">
-              <div class="bookshelf-card__content">
-                <div class="bookshelf-card__header">
-                  <div class="bookshelf-card__title-group">
-                    <h3 class="bookshelf-card__title">{bookshelf.title}</h3>
-                    <div class="bookshelf-card__badge">
-                      <span class="bookshelf-card__count">{bookshelf.count}건</span>
-                    </div>
-                  </div>
-                </div>
-                <UiButton
-                  variant="secondary"
-                  text="전체보기"
-                  icon="icon-arrow-right"
-                  iconAddClass="icon icon-xxsm icon-primary"
-                  iconPosition="right"
-                  href={bookshelf.href}
-                  class="w-full"
-                />
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+		<UiAccordion
+			title="도서관 내 책장 이용안내"
+			variant="bordered"
+			size="medium"
+			iconType="chevron"
+			isExpanded={false}
+			className="custom-accordion"
+		>
+			<div class="book-description">
+				<UiEmpty message="내책장이 비어있습니다." desc="내책장에 책을 추가해보세요." />
+			</div>
+		</UiAccordion>
 
-    <div class="bookshelf-container">
-      <!-- 헤더 섹션 -->
-      <div class="bookshelf-header flex items-center justify-between">
-        <div class="bookshelf-header__title">
-          내서재 (<span>10</span>건)
-        </div>
-        <div class="bookshelf-header__actions">
-          <UiButton
-            variant="darkBlue"
-            text="전체보기"
-            icon="icon-arrow-right"
-            iconAddClass="icon icon-xxsm icon-white"
-            iconPosition="right"
-            class=""
-          />
-        </div>
-      </div>
+		<!-- 내 책장 메인 컨테이너 -->
+		<div class="my-bookshelf">
+			<!-- 내 책장 추가 섹션 -->
+			<div class="bookshelf-add-section flex items-center justify-between w-full">
+				<div class="bookshelf-add__message">내 책장을 만들고 추가해 보세요!</div>
+				<div class="bookshelf-add__actions">
+					<UiButton
+						variant="darkBlue"
+						text="책장편집하기"
+						icon="icon-book-edit"
+						iconAddClass="icon icon-xxsm icon-white"
+						iconPosition="left"
+						class=""
+					/>
+				</div>
+			</div>
+			<!-- 책장 카드 목록 -->
+			<div class="my-bookshelf__cards">
+				{
+					bookshelves.map(bookshelf => (
+						<div class="bookshelf-card">
+							<div class="bookshelf-card__content">
+								<div class="bookshelf-card__header">
+									<div class="bookshelf-card__title-group">
+										<h3 class="bookshelf-card__title">{bookshelf.title}</h3>
+										<div class="bookshelf-card__badge">
+											<span class="bookshelf-card__count">{bookshelf.count}건</span>
+										</div>
+									</div>
+								</div>
+								<UiButton
+									variant="secondary"
+									text="전체보기"
+									icon="icon-arrow-right"
+									iconAddClass="icon icon-xxsm icon-primary"
+									iconPosition="right"
+									href={bookshelf.href}
+									class="w-full"
+								/>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
 
-      <!-- 도서 그리드 섹션 -->
-      <div class="grid grid-5">
-        {
-          Array.from({ length: 5 }).map((_, index) => (
-            <div class="bookshelf-item">
-              <div class="bookshelf-item__content">
-                <div class="bookshelf-item__thumbnail">
-                  <img src="./assets/images/default-book-cover.png" alt="도서 표지" class="w-full h-full object-cover" />
-                </div>
-                <div class="bookshelf-item__actions flex gap-5">
-                  <UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
-                  <UiButton variant="primary" size="small" text="이동" href="./내책장-상세" class="w-full" />
-                </div>
-                <div class="bookshelf-item__title">
-                  꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
-                  2글자
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+		<div class="bookshelf-container">
+			<!-- 헤더 섹션 -->
+			<div class="bookshelf-header flex items-center justify-between">
+				<div class="bookshelf-header__title">
+					내서재 (<span>10</span>건)
+				</div>
+				<div class="bookshelf-header__actions">
+					<UiButton
+						variant="darkBlue"
+						text="전체보기"
+						icon="icon-arrow-right"
+						iconAddClass="icon icon-xxsm icon-white"
+						iconPosition="right"
+						class=""
+					/>
+				</div>
+			</div>
 
-    <div class="bookshelf-container">
-      <!-- 헤더 섹션 -->
-      <div class="bookshelf-header flex items-center justify-between">
-        <div class="bookshelf-header__title">
-          좋아하는책 (<span>10</span>건)
-        </div>
-        <div class="bookshelf-header__actions">
-          <UiButton variant="darkBlue" text="전체보기" icon="icon icon-xxsm icon-arrow-right icon-white" iconPosition="right" class="" />
-        </div>
-      </div>
+			<!-- 도서 그리드 섹션 -->
+			<div class="grid grid-5">
+				{
+					Array.from({ length: 5 }).map((_, index) => (
+						<div class="bookshelf-item">
+							<div class="bookshelf-item__content">
+								<div class="bookshelf-item__thumbnail">
+									<img
+										src="./assets/images/default-book-cover.png"
+										alt="도서 표지"
+										class="w-full h-full object-cover"
+									/>
+								</div>
+								<div class="bookshelf-item__actions flex gap-5">
+									<UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
+									<UiButton variant="primary" size="small" text="이동" href="./내책장-상세" class="w-full" />
+								</div>
+								<div class="bookshelf-item__title">
+									꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
+									2글편소설 최대 2글편소설 최대 2글자
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
 
-      <!-- 도서 그리드 섹션 -->
-      <div class="grid grid-5">
-        {
-          Array.from({ length: 5 }).map((_, index) => (
-            <div class="bookshelf-item">
-              <div class="bookshelf-item__content">
-                <div class="bookshelf-item__thumbnail">
-                  <img src="./assets/images/default-book-cover.png" alt="도서 표지" class="w-full h-full object-cover" />
-                </div>
-                <div class="bookshelf-item__actions flex gap-5">
-                  <UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
-                  <UiButton variant="primary" size="small" text="이동" href="./17.내책장-상세" class="w-full" />
-                </div>
-                <div class="bookshelf-item__title">
-                  꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
-                  2글자
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </SubLayout>
+		<div class="bookshelf-container">
+			<!-- 헤더 섹션 -->
+			<div class="bookshelf-header flex items-center justify-between">
+				<div class="bookshelf-header__title">
+					좋아하는책 (<span>10</span>건)
+				</div>
+				<div class="bookshelf-header__actions">
+					<UiButton
+						variant="darkBlue"
+						text="전체보기"
+						icon="icon icon-xxsm icon-arrow-right icon-white"
+						iconPosition="right"
+						class=""
+					/>
+				</div>
+			</div>
+
+			<!-- 도서 그리드 섹션 -->
+			<div class="grid grid-5">
+				{
+					Array.from({ length: 5 }).map((_, index) => (
+						<div class="bookshelf-item">
+							<div class="bookshelf-item__content">
+								<div class="bookshelf-item__thumbnail">
+									<img
+										src="./assets/images/default-book-cover.png"
+										alt="도서 표지"
+										class="w-full h-full object-cover"
+									/>
+								</div>
+								<div class="bookshelf-item__actions flex gap-5">
+									<UiButton variant="tertiary" size="small" text="삭제" class="w-full" />
+									<UiButton variant="primary" size="small" text="이동" href="./17.내책장-상세" class="w-full" />
+								</div>
+								<div class="bookshelf-item__title">
+									꽃을 삼킨 여자 : 김재희 장편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대 2글편소설 최대
+									2글편소설 최대 2글편소설 최대 2글자
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</SubLayout>
 </Layout>
