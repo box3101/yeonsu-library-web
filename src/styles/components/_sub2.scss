@@ -852,7 +852,6 @@
 			padding: 24px;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
 			gap: 24px;
 
 			@include mobile {
@@ -873,22 +872,10 @@
 					width: 100%;
 				}
 
-				.right {
-					flex: 1;
-					display: flex;
-					gap: 10px;
-
-					@include mobile {
-						flex-direction: column;
-						align-items: flex-start;
-					}
-				}
-
 				.quote-left {
 					flex-shrink: 0;
 					width: 16px;
 					height: 16px;
-					margin-top: 2px;
 
 					img {
 						width: 100%;
@@ -897,19 +884,21 @@
 					}
 				}
 
+				.right{
+					display: flex;
+				}
+
 				.chat-text {
 					flex: 1;
 					margin: 0 10px;
 
 					@include mobile {
-						margin: 0 8px;
+						margin: 0;
 					}
 
 					p {
 						@include font(17px, 400, #191a1a, 1.5);
 						margin: 0;
-						word-break: keep-all;
-						word-wrap: break-word;
 
 						@include mobile {
 							font-size: 15px;
@@ -921,80 +910,7 @@
 					flex-shrink: 0;
 					width: 16px;
 					height: 16px;
-					margin-top: 2px;
-					align-self: flex-end;
-
-					img {
-						width: 100%;
-						height: 100%;
-						object-fit: contain;
-					}
-				}
-			}
-		}
-	}
-
-	.ai-bookqueue-section {
-		margin-bottom: 24px;
-
-		.ai-chat-bubble {
-			background-color: #f1f2f2;
-			border: 1px solid #cbcccc;
-			border-radius: 8px;
-			padding: 24px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 24px;
-			position: relative;
-
-			.chat-content {
-				flex: 1;
-				display: flex;
-				align-items: center;
-				gap: 10px;
-
-				.right {
-					flex: 1;
-					display: flex;
-					gap: 10px;
-				}
-
-				.quote-left {
-					flex-shrink: 0;
-					width: 16px;
-					height: 16px;
-					margin-top: 2px;
-
-					img {
-						width: 100%;
-						height: 100%;
-						object-fit: contain;
-					}
-				}
-
-				.chat-text {
-					flex: 1;
-					margin: 0 10px;
-
-					p {
-						@include font(17px, 400, #191a1a, 1.5);
-						margin: 0;
-						word-break: keep-all;
-						word-wrap: break-word;
-
-						@include mobile {
-							font-size: 15px;
-						}
-					}
-				}
-
-				.quote-right {
-					flex-shrink: 0;
-					width: 16px;
-					height: 16px;
-					margin-top: 2px;
-					align-self: flex-end;
+					align-self: end;
 
 					img {
 						width: 100%;
@@ -1009,11 +925,291 @@
 				width: 62px;
 				height: 85px;
 
+				@include mobile {
+					width: 48px;
+					height: 66px;
+				}
+
 				img {
 					width: 100%;
 					height: 100%;
 					object-fit: contain;
 				}
+			}
+		}
+	}
+}
+
+.recommend-header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 24px;
+	margin-bottom: 16px;
+
+	@include mobile {
+		gap: 12px;
+		margin-top: 20px;
+		margin-bottom: 12px;
+	}
+
+	.book-title {
+		display: flex;
+		align-items: center;
+
+		h3 {
+			@include font(to-rem(19), 700, #191a1a);
+
+			@include mobile {
+				font-size: to-rem(16);
+				line-height: 1.5;
+				word-break: break-all;
+			}
+		}
+	}
+
+	.recommend-badge {
+		position: relative;
+
+		@include mobile {
+			flex: none;
+			background:  #FBBC53;
+			border-radius: 6px;
+			padding: 5px;
+		}
+
+		.badge-background{
+			@include mobile {
+				display: none;
+			}
+		}
+
+		.badge-content {
+			position: absolute;
+			left: 12px;
+			top: 6px;
+			display: flex;
+			align-items: center;
+			z-index: 10;
+			@include font(to-rem(17), 700, #191a1a);
+			@include mobile {
+				left: 0px;
+				top: 0px;
+				font-size: to-rem(14);
+				position: relative;
+				flex:none;
+			}
+
+			.badge-text{
+				@include font(to-rem(17), 700, #191a1a);
+				flex:none;
+			}
+		}
+	}
+}
+
+.ai-bookqueue-detail-page {
+	.additional-questions-section {
+		margin-top: 40px;
+		padding-top: 40px;
+		border-top: 1px solid #cbcccc;
+
+		@include mobile {
+			margin-top: 32px;
+			padding-top: 32px;
+		}
+
+		.section-header {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 24px;
+
+			@include mobile {
+				gap: 6px;
+				margin-bottom: 20px;
+			}
+
+			.ai-icon {
+				width: 52px;
+				height: 52px;
+				flex-shrink: 0;
+
+				@include mobile {
+					width: 40px;
+					height: 40px;
+				}
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+
+			h2 {
+				@include font(19px, 700, #191a1a, 1.5);
+				margin: 0;
+				flex: 1;
+
+				@include mobile {
+					font-size: 16px;
+				}
+			}
+		}
+
+		.questions-list {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			@include mobile {
+				gap: 12px;
+			}
+
+			.question-item {
+				background-color: #e5e5e5;
+				border-radius: 16px 16px 16px 0;
+				padding: 16px;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				@include font(17px, 400, #191a1a, 1.5);
+
+				@include mobile {
+					padding: 12px;
+					font-size: 15px;
+				}
+
+				&:hover {
+					background-color: #cbcccc;
+					transform: translateY(-1px);
+				}
+
+				&:active {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+}
+
+.ai-loading-section {
+	display: flex; gap:8px; align-items: center;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	border: 3px solid #b1cae7;
+	border-radius: 25px;
+	padding: 32px;
+	margin: 40px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 40px 0px rgba(102, 102, 102, 0.4);
+
+	@include mobile {
+		padding: 24px;
+		margin: 32px 0;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.ai-chatbot-icon {
+		width: 100px;
+		height: 100px;
+		flex-shrink: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.loading-text {
+		@include font(19px, 400, #191a1a, 1.5, center);
+		text-align: center;
+
+		@include mobile {
+			font-size: 17px;
+		}
+
+		.ai-brand {
+			font-weight: 700;
+			color: #3c79c2;
+		}
+	}
+}
+
+.additional-questions-section {
+	margin-top: 40px;
+	padding-top: 40px;
+	border-top: 1px solid #cbcccc;
+
+	@include mobile {
+		margin-top: 32px;
+		padding-top: 32px;
+	}
+
+	.section-header {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 24px;
+
+		.ai-icon {
+			width: 52px;
+			height: 52px;
+			flex-shrink: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+
+		h2 {
+			@include font(19px, 700, #191a1a, 1.5);
+			margin: 0;
+			flex: 1;
+		}
+	}
+
+	.questions-list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		.question-item {
+			background-color: #e5e5e5;
+			border: none;
+			border-radius: 16px 16px 16px 0;
+			padding: 16px;
+			text-align: left;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			@include font(17px, 400, #191a1a, 1.5);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			@include mobile {
+				white-space: normal;
+				word-break: keep-all;
+				word-wrap: break-word;
+			}
+
+			&:hover {
+				background-color: #cbcccc;
+				transform: translateY(-1px);
+			}
+
+			&:active {
+				transform: translateY(0);
 			}
 		}
 	}
