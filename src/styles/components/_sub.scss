@@ -1463,6 +1463,97 @@ ul.movie-card-wrp {
 		}
 	}
 
+	&__status {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: to-rem(80);
+		height: to-rem(80);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+
+		&--present {
+			background-image: url('/assets/images/icon/lib_check_present.svg');
+			color: $white;
+			text-indent: -9999px;
+			margin-left: 15px;
+		}
+
+		&--absent {
+			background-image: url('/assets/images/icon/lib_check_absent.svg');
+			color: #f1f2f2;
+			text-indent: -9999px;
+			margin-left: 15px;
+		}
+
+		&--app-closed {
+			position: static;
+			transform: none;
+			width: auto;
+			height: auto;
+			background-image: none;
+			border-radius: to-rem(18);
+			padding: to-rem(2) to-rem(10);
+			font-size: to-rem(15);
+			font-weight: 500;
+			text-align: center;
+			line-height: 1.5;
+			margin-top: to-rem(4);
+			background-color: #e5e5e5;
+			color: #7d8181;
+		}
+
+		&--closed {
+			position: static;
+			transform: none;
+			width: auto;
+			height: auto;
+			background-image: none;
+			border-radius: to-rem(18);
+			padding: to-rem(2) to-rem(10);
+			font-size: to-rem(15);
+			font-weight: 500;
+			text-align: center;
+			line-height: 1.5;
+			margin-top: to-rem(4);
+			background-color: $gray-300;
+			color: $gray-700;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+		margin-top: to-rem(4);
+	}
+
+	&__button {
+		border-radius: to-rem(4);
+		padding: to-rem(4) to-rem(8);
+		font-size: to-rem(14);
+		font-weight: 500;
+		text-align: center;
+		color: $white;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		background-color: $primary-color;
+
+		&--check-in {
+			background-color: #fbbc53;
+			color: #191a1a;
+		}
+	}
+
 	&__day {
 		font-size: to-rem(17);
 		font-weight: 400;
@@ -1493,7 +1584,21 @@ ul.movie-card-wrp {
 		font-weight: 400;
 		color: white;
 		text-align: center;
-		min-height: to-rem(28);
+		min-height: to-rem(35);
+		@include font(to-rem(15), 500, white);
+
+		&--app-able {
+			border-radius: 18px;
+			border: 1px solid var(--color-primary-pr05, #3c79c2);
+			background: var(--color-primary-pr00, #ecf2f9);
+			color: #30619b;
+		}
+
+		&--app-closed {
+			border: 1px solid var(--color-orange-OR-500, #fbbc53);
+			background: var(--color-orange-OR-100, #feeaca);
+			@include font(to-rem(15), 500, #8a672e);
+		}
 
 		&--closed {
 			background: #3c79c2;
@@ -1501,16 +1606,11 @@ ul.movie-card-wrp {
 		}
 
 		&--period {
-			background: #c57eba;
-			color: white;
-
-			img {
-				width: to-rem(24);
-				height: to-rem(24);
-				flex-shrink: 0;
-				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(17deg) brightness(100%)
-					contrast(100%);
-			}
+			border-radius: 18px;
+			border: 1px solid var(--color-point-p-red-300, #e48088);
+			background: var(--color-point-p-red-50, #fbeced);
+			@include font(to-rem(15), 500, #d7424e);
+      line-height: 1.5;
 		}
 
 		@include mobile {
@@ -1529,9 +1629,12 @@ ul.movie-card-wrp {
 
 	&__button {
 		display: flex;
+		gap: 5px;
 		align-items: center;
 		justify-content: center;
-		background: #00993e;
+		border-radius: 18px;
+		border: 1px solid var(--color-blue-BU800, #004470);
+		background: var(--color-blue-BU500, #007ccc);
 		color: white;
 		border: none;
 		padding: to-rem(4) to-rem(11);
