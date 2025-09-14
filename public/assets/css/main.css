@@ -78037,6 +78037,137 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 
+.school-books-page .school-books-intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+  background-color: #f1f2f2;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.school-books-page .school-books-intro__image {
+  flex-shrink: 0;
+  width: 186px;
+}
+.school-books-page .school-books-intro__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.school-books-page .school-books-intro__text {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+}
+.school-books-page .school-books-intro__text .highlight {
+  color: #191a1a;
+}
+.school-books-page .school-books-intro__text strong {
+  font-size: 19px;
+  font-weight: 700;
+  color: #3c79c2;
+  line-height: 1.5;
+}
+.school-books-page .school-books-intro__text p {
+  margin: 0 0 4px 0;
+}
+.school-books-page .school-books-intro__text p:last-child {
+  margin-bottom: 0;
+}
+.school-books-page .service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.school-books-page .service-card {
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  min-height: 356px;
+}
+.school-books-page .service-card--blue {
+  background-color: #e6f2fa;
+}
+.school-books-page .service-card--orange {
+  background-color: #fff8ee;
+}
+.school-books-page .service-card--green {
+  background-color: #dbefd0;
+}
+.school-books-page .service-card--pink {
+  background-color: #fbeced;
+}
+.school-books-page .service-card__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+.school-books-page .service-card__content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 64px);
+}
+.school-books-page .service-card__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+.school-books-page .service-card__content ul li {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 12px;
+}
+.school-books-page .service-card__content ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4b4d4d;
+}
+.school-books-page .service-card__content ul li:last-child {
+  margin-bottom: 0;
+}
+.school-books-page .service-card__description {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+.school-books-page .service-card__image {
+  margin-top: auto;
+  text-align: center;
+}
+.school-books-page .service-card__image img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .school-books-page .school-books-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .school-books-page .school-books-intro__text {
+    text-align: left;
+  }
+  .school-books-page .service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .school-books-page .service-card {
+    padding: 24px;
+    min-height: auto;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
