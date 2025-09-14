@@ -931,7 +931,7 @@
 					}
 				}
 
-				.right{
+				.right {
 					display: flex;
 				}
 
@@ -1020,12 +1020,12 @@
 
 		@include mobile {
 			flex: none;
-			background:  #FBBC53;
+			background: #fbbc53;
 			border-radius: 6px;
 			padding: 5px;
 		}
 
-		.badge-background{
+		.badge-background {
 			@include mobile {
 				display: none;
 			}
@@ -1044,12 +1044,12 @@
 				top: 0px;
 				font-size: to-rem(14);
 				position: relative;
-				flex:none;
+				flex: none;
 			}
 
-			.badge-text{
+			.badge-text {
 				@include font(to-rem(17), 700, #191a1a);
-				flex:none;
+				flex: none;
 			}
 		}
 	}
@@ -1141,10 +1141,12 @@
 }
 
 .ai-loading-section {
-	display: flex; gap:8px; align-items: center;
+	display: flex;
+	gap: 8px;
+	align-items: center;
 	flex-direction: column;
 	position: absolute;
-	left: 50%;
+	left: 57%;
 	top: 50%;
 	min-width: 280px;
 	transform: translate(-50%, -50%);
@@ -1157,8 +1159,10 @@
 	align-items: center;
 	justify-content: center;
 	box-shadow: 0px 0px 40px 0px rgba(102, 102, 102, 0.4);
+	animation: fadeInUp 0.6s ease-out;
 
 	@include mobile {
+		left: 50%;
 		min-width: auto;
 		padding: 24px;
 		margin: 32px 0;
@@ -1171,6 +1175,7 @@
 		width: 100px;
 		height: 100px;
 		flex-shrink: 0;
+		animation: bounce 2s ease-in-out infinite;
 
 		img {
 			width: 100%;
@@ -1182,6 +1187,7 @@
 	.loading-text {
 		@include font(19px, 400, #191a1a, 1.5, center);
 		text-align: center;
+		animation: pulse 1.5s ease-in-out infinite;
 
 		@include mobile {
 			font-size: 17px;
@@ -1190,7 +1196,56 @@
 		.ai-brand {
 			font-weight: 700;
 			color: #3c79c2;
+			animation: colorPulse 2s ease-in-out infinite;
 		}
+	}
+}
+
+// 애니메이션 키프레임
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -30%) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+@keyframes colorPulse {
+	0%,
+	100% {
+		color: #3c79c2;
+	}
+	50% {
+		color: #5a9de6;
 	}
 }
 
@@ -1265,7 +1320,7 @@
 	}
 }
 
-.bookshelf-add__message{
+.bookshelf-add__message {
 	@include font(to-rem(19), 700, #191a1a);
 	line-height: 1.5;
 	word-break: keep-all;
