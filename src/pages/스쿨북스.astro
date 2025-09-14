@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '스쿨북스' },
+];
+---
+
+<Layout title="내정보 - 스쿨북스">
+	<SubLayout title="스쿨북스" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 스쿨북스란? -->
+
+		<!-- 서비스 구성 -->
+
+		<!-- 이용방법 -->
+	</SubLayout>
+</Layout>

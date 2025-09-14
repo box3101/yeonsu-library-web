@@ -1,0 +1,60 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '인생서가' },
+];
+---
+
+<Layout title="내정보 - 인생서가">
+	<SubLayout title="인생서가" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="life-bookshelf-page">
+			<!-- 인생서가란? -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">인생서가란?</h3>
+				<div class="life-bookshelf-intro">
+					<div class="life-bookshelf-intro__image">
+						<img src="./assets/images/illust-life-bookshelf.png" alt="인생서가 일러스트" />
+					</div>
+					<p class="life-bookshelf-intro__text">
+						인생서가는 분야별 전문가가 선정한 책을 각 연령층 라이프 스타일에 맞춰 의미 있는 큐레이션을 통해 제공하는 <strong
+						>
+							통합형 독서 큐레이션 플랫폼
+						</strong>입니다.
+					</p>
+				</div>
+			</div>
+
+			<!-- 서비스 구성 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">서비스 구성</h3>
+				<div class="service-composition-image">
+					<img
+						src="./assets/images/service-composition.png"
+						alt="서비스 구성 - 한 사람의 일생을 아우르는 맞춤형 독서 솔루션(키즈북스, 청소년북스, 청춘북스, 부모북스, 실버북스)과 인생에 경험과 가치를 더하는 컬렉션(문학북스, 인문학북스, 아트북스)"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<!-- 이용방법 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이용방법</h3>
+			<ul class="usage-guide__content">
+				<li>로그인 후 인생서가 도서 추천 및 큐레이션 이용 가능</li>
+				<li><strong>이용자격</strong> : 연수구립도서관 회원</li>
+				<li>
+					<strong>홈페이지 이용방법</strong> : 도서관 홈페이지 로그인 → 인생서가 연동 링크를 통해 접속 → 도서 추천 및 큐레이션
+				</li>
+				<li>
+					<strong>모바일 이용방법</strong>: 전용 스토어에서 '인생서가' 앱 설치 → 연수구립도서관 선택 후 로그인 → 도서
+					추천 및 큐레이션
+				</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>

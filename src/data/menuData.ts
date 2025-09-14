@@ -60,8 +60,8 @@ export const menuConfig: Record<string, MenuConfig> = {
 					{ label: '인기도서', href: './인기도서' },
 					{ label: '신착도서', href: './신착도서' },
 					{ label: '추천도서', href: './추천도서' },
-					{ label: '인생서가', href: 'https://www.inseong.com', isExternal: true },
-					{ label: '스쿨북스', href: 'https://www.schoolbook.com', isExternal: true },
+					{ label: '인생서가', href: './인생서가' },
+					{ label: '스쿨북스', href: './스쿨북스' },
 				],
 			},
 			{
@@ -81,12 +81,12 @@ export const menuConfig: Record<string, MenuConfig> = {
 					{ label: '대출 급상승 도서', href: './대출급상승도서' },
 					{ label: '이달의 키워드', href: './이달의키워드' },
 					{ label: '도서별 이용분석', href: './도서별이용분석' },
-				]
+				],
 			},
 			{
 				title: 'AI책큐',
 				href: './AI책큐',
-			}
+			},
 		],
 	},
 

@@ -1325,3 +1325,163 @@
 	line-height: 1.5;
 	word-break: keep-all;
 }
+
+// 인생서가 페이지 스타일
+.life-bookshelf-page {
+	@mixin font($size, $weight, $color, $line-height: 1, $text-align: null) {
+		font-size: $size;
+		font-weight: $weight;
+		color: $color;
+		line-height: $line-height;
+		@if $text-align {
+			text-align: $text-align;
+		}
+	}
+
+	.life-bookshelf-intro {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		padding: 24px 40px;
+		background-color: #f1f2f2;
+		border-radius: 12px;
+		margin-bottom: 24px;
+
+		&__image {
+			flex-shrink: 0;
+			width: 168px;
+
+			img {
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
+		}
+
+		&__text {
+			@include font(17px, 400, #191a1a, 1.5);
+			text-align: center;
+
+			strong {
+				@include font(19px, 700, #3c79c2, 1.5);
+			}
+		}
+	}
+
+	.service-composition {
+		border: 1px solid #cbcccc;
+		border-radius: 12px;
+		overflow: hidden;
+
+		&__part {
+			&--solution {
+				.service-composition__header {
+					background-color: #30619b;
+
+					h4 {
+						color: #ffffff;
+					}
+				}
+
+				.service-composition__name {
+					color: #30619b;
+				}
+			}
+
+			&--collection {
+				.service-composition__header {
+					background-color: #df6871;
+
+					h4 {
+						color: #ffffff;
+					}
+				}
+
+				.service-composition__name {
+					color: #df6871;
+				}
+			}
+		}
+
+		&__header {
+			padding: 18px 24px;
+			position: relative;
+
+			h4 {
+				@include font(19px, 700, #ffffff, 1.5, center);
+				margin: 0;
+			}
+		}
+
+		&__body {
+			padding: 32px;
+			background-color: #ffffff;
+		}
+
+		&__list {
+			display: flex;
+			justify-content: space-around;
+			align-items: flex-start;
+			gap: 16px;
+
+			@include mobile {
+				flex-direction: column;
+				gap: 12px;
+			}
+		}
+
+		&__item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+		}
+
+		&__icon {
+			width: 84px;
+			height: 84px;
+			border-radius: 50%;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__name {
+			@include font(17px, 700, inherit, 1.5, center);
+		}
+	}
+
+	.service-composition-image {
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 12px;
+		}
+	}
+
+	@include mobile {
+		.life-bookshelf-intro {
+			flex-direction: column;
+			align-items: center;
+
+			&__text {
+				text-align: left;
+			}
+		}
+
+		.service-composition {
+			&__list {
+				flex-direction: column;
+				align-items: center;
+				gap: 12px;
+			}
+		}
+	}
+}

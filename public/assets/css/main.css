@@ -62058,12 +62058,17 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   margin-bottom: 10px !important;
 }
 .usage-guide__title {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   margin-bottom: 1.25rem;
   font-size: 2rem;
   font-weight: 700;
   color: #191a1a;
   line-height: 1;
+}
+@media (max-width: 900px) {
+  .usage-guide__title {
+    margin: 1.25rem 0;
+  }
 }
 .usage-guide__content li {
   margin-bottom: 6px;
@@ -77903,6 +77908,135 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   word-break: keep-all;
 }
 
+.life-bookshelf-page .life-bookshelf-intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+  background-color: #f1f2f2;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.life-bookshelf-page .life-bookshelf-intro__image {
+  flex-shrink: 0;
+  width: 168px;
+}
+.life-bookshelf-page .life-bookshelf-intro__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.life-bookshelf-page .life-bookshelf-intro__text {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  text-align: center;
+}
+.life-bookshelf-page .life-bookshelf-intro__text strong {
+  font-size: 19px;
+  font-weight: 700;
+  color: #3c79c2;
+  line-height: 1.5;
+}
+.life-bookshelf-page .service-composition {
+  border: 1px solid #cbcccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__header {
+  background-color: #30619b;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__header h4 {
+  color: #ffffff;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__name {
+  color: #30619b;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__header {
+  background-color: #df6871;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__header h4 {
+  color: #ffffff;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__name {
+  color: #df6871;
+}
+.life-bookshelf-page .service-composition__header {
+  padding: 18px 24px;
+  position: relative;
+}
+.life-bookshelf-page .service-composition__header h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+.life-bookshelf-page .service-composition__body {
+  padding: 32px;
+  background-color: #ffffff;
+}
+.life-bookshelf-page .service-composition__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .life-bookshelf-page .service-composition__list {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.life-bookshelf-page .service-composition__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.life-bookshelf-page .service-composition__icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.life-bookshelf-page .service-composition__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.life-bookshelf-page .service-composition__name {
+  font-size: 17px;
+  font-weight: 700;
+  color: inherit;
+  line-height: 1.5;
+  text-align: center;
+}
+.life-bookshelf-page .service-composition-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+@media (max-width: 900px) {
+  .life-bookshelf-page .life-bookshelf-intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  .life-bookshelf-page .life-bookshelf-intro__text {
+    text-align: left;
+  }
+  .life-bookshelf-page .service-composition__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;
@@ -92808,6 +92942,7 @@ body.modal-open {
   .notice-section__left {
     min-width: auto;
     max-width: 100%;
+    width: 100%;
   }
 }
 .notice-section__right {

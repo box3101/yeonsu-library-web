@@ -298,9 +298,12 @@ ul.movie-card-wrp {
 		}
 	}
 	&__title {
-		margin: to-rem(32) 0;
+		margin: to-rem(40) 0;
 		margin-bottom: to-rem(20);
 		@include font(to-rem(32), 700, #191a1a);
+    @include mobile {
+      margin: to-rem(20) 0;
+    }
 	}
 
 	&__content {
