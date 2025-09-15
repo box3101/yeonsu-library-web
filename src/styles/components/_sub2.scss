@@ -1658,3 +1658,81 @@
 		margin-top: 24px;
 	}
 }
+
+.notice-detail-page {
+	.post-navigation {
+		border-bottom: 1px solid #e5e7eb;
+		margin: 40px 0;
+		margin-top: -20px;
+
+		.post-navigation__item {
+			display: flex;
+			align-items: center;
+			gap: 37px;
+			padding: 20px 0;
+			border-bottom: 1px solid #85878b;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			.post-navigation__label {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				@include font(to-rem(17), 700, #191a1a);
+
+				img {
+					width: 16px;
+					height: 16px;
+				}
+			}
+
+			.post-navigation__title {
+				font-size: 16px;
+				font-weight: 400;
+				color: #374151;
+				text-decoration: none;
+				line-height: 1.5;
+				transition: color 0.2s ease;
+
+				&:hover {
+					color: $primary-color;
+				}
+			}
+
+			&.post-navigation__prev {
+				.post-navigation__label {
+					img {
+						order: -1;
+					}
+				}
+			}
+		}
+
+		// 모바일 대응
+		@media (max-width: 768px) {
+			margin: 20px 0;
+
+			.post-navigation__item {
+				padding: 16px 0;
+
+				.post-navigation__label {
+					font-size: 13px;
+					margin-bottom: 6px;
+					flex:none;
+				}
+
+				.post-navigation__title {
+					font-size: 14px;
+				}
+
+				&.post-navigation__next {
+					.post-navigation__title {
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
+}

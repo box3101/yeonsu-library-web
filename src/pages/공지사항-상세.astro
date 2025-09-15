@@ -1,0 +1,82 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열린참여마당', href: '/support' },
+	{ label: '공지사항' },
+];
+---
+
+<Layout title="공지사항">
+	<SubLayout title="공지사항" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<!-- 게시글 상세 정보 영역 -->
+		<div class="sub-layout__content--detail notice-detail-page">
+			<!-- 게시글 헤더 영역 -->
+			<div class="post-detail__header">
+				<div class="post-detail__meta">
+					<h1 class="post-detail__title">무료택배 도서대출 신청</h1>
+					<div class="post-detail__info">
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">작성자</span>
+							<span class="post-detail__info-value">박성훈</span>
+						</div>
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">작성일</span>
+							<span class="post-detail__info-value">2025.08.01</span>
+						</div>
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">조회수</span>
+							<span class="post-detail__info-value">98</span>
+						</div>
+					</div>
+					<div class="post-detail__info">
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">첨부파일</span>
+							<span class="post-detail__info-value">
+								<a href="#">test_1.pdf</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 게시글 본문 영역 -->
+			<div class="post-detail__body">23</div>
+
+			<!-- 게시글 푸터 영역 -->
+			<div class="post-detail__footer">
+				<!-- 이전글/다음글 네비게이션 -->
+				<div class="post-navigation">
+					<div class="post-navigation__item post-navigation__prev">
+						<span class="post-navigation__label">
+							<img src="./assets/images/icon/arrow-left.svg" alt="이전글" />
+							이전글
+						</span>
+						<a href="#" class="post-navigation__title">
+							[인터넷예약 불가안내] 영주시 출장소나다 작업 (예상 처리시간 약 5분 기간)
+						</a>
+					</div>
+					<div class="post-navigation__item post-navigation__next">
+						<span class="post-navigation__label">
+							<img src="./assets/images/icon/arrow-right.svg" alt="다음글" />
+							다음글
+						</span>
+						<a href="#" class="post-navigation__title">송도공항아이파크 도서 자료실개방(서비스 안내) 주말근무 안내</a>
+					</div>
+				</div>
+				<div class="post-detail__actions">
+					<UiButton
+						variant="primary"
+						class="w-120-mobile-full"
+						size="medium"
+						href="./무료택배도서대출-서비스안내"
+						text="목록"
+					/>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

@@ -3197,6 +3197,11 @@ ul.movie-card-wrp {
 		&--yes {
 			border: 2px solid #f1f2f2;
 			background-color: #f1f2f2;
+			min-height: 218px;
+
+			@include mobile {
+				min-height: 200px;
+			}
 
 			&:hover {
 				background-color: rgba(60, 121, 194, 0.05);
@@ -6015,7 +6020,8 @@ div.bookshelf-item {
 }
 
 .sub-layout__content--detail {
-	border-top: 2px solid $primary-color;
+	border-top: 2px solid var(--color-primary-pr07, #244874);
+
 	.post-detail {
 		// 게시글 헤더 영역 - 제목과 메타 정보를 포함하는 상단 영역
 		&__header {
@@ -6051,13 +6057,13 @@ div.bookshelf-item {
 		// 게시글 정보 영역 - 작성자, 작성일, 조회수 등의 메타 정보 컨테이너
 		&__info {
 			display: flex;
-			flex-direction: column;
-			gap: to-rem(16);
+			gap: to-rem(25);
 			padding: to-rem(16) 0;
 
 			// 모바일에서는 간격 조정 (px 단위 사용)
 			@include mobile {
-				gap: 16px;
+				gap: 20px;
+				flex-direction: column;
 			}
 		}
 
@@ -6066,6 +6072,23 @@ div.bookshelf-item {
 			display: flex;
 			align-items: center;
 			gap: to-rem(8);
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: -13px;
+				transform: translateY(-50%);
+				width: to-rem(2);
+				height: 100%;
+				background-color: #e5e7eb;
+			}
+
+			&:last-child {
+				&::after {
+					display: none;
+				}
+			}
 
 			// 모바일에서는 간격 조정 (px 단위 사용)
 			@include mobile {
@@ -6077,7 +6100,8 @@ div.bookshelf-item {
 		&__info-label {
 			@include font(to-rem(17), 700, #191919);
 			white-space: nowrap;
-			min-width: 80px;
+			min-width: 60px;
+
 
 			// 모바일에서는 폰트 크기 조정 (px 단위 사용)
 			@include mobile {
@@ -6133,7 +6157,7 @@ div.bookshelf-item {
 
 		// 게시글 푸터 영역 - 하단 액션 버튼들이 들어가는 영역
 		&__footer {
-			border-top: 1px solid #e5e7eb;
+			border-top: 2px solid var(--color-primary-pr07, #244874);
 			padding-top: to-rem(24);
 
 			// 모바일에서는 패딩 조정 (px 단위 사용)
@@ -8950,7 +8974,7 @@ div.bookshelf-item {
 .program-detail-page {
 	display: flex;
 	flex-direction: column;
-	gap: to-rem(40);
+	// gap: to-rem(40);
 	max-width: to-rem(976);
 	width: 100%;
 
