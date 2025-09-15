@@ -78190,6 +78190,19 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 
+.text-red {
+  color: #D7424E;
+}
+
+.form-field--buttons {
+  margin-top: 40px;
+}
+@media (max-width: 900px) {
+  .form-field--buttons {
+    margin-top: 24px;
+  }
+}
+
 .ui-book-card {
   margin-bottom: 1.5rem;
   display: flex;

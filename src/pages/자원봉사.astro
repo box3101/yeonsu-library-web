@@ -1,0 +1,180 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '자원봉사' },
+];
+---
+
+<Layout title="내정보 - 자원봉사">
+	<SubLayout title="자원봉사" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<!-- 참겨가능도서관 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">참여가능도서관</h3>
+		</div>
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<colgroup>
+					<col width="20%" />
+					<col width="50%" />
+					<col width="30%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>도서관명</th>
+						<th>활동일시</th>
+						<th>학생자원봉사 신청 대상</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>연수꿈담도서관</td>
+						<td>화~일요일(09~18시)</td>
+						<td>대학생</td>
+					</tr>
+					<tr>
+						<td>연수꿈담도서관</td>
+						<td>
+							주말 (10~18시)<br /><span class="text-red">* 방학기간에는 화, 수, 목, 금 (10~18시)도 참여 가능</span>
+						</td>
+						<td>대학생</td>
+					</tr>
+					<tr>
+						<td rowspan="2">해돋이도서관</td>
+						<td>화, 수요일 (14~18시)</td>
+						<td>대학생<br />(※ 단, 평일봉사는 일반 성인도 가능)</td>
+					</tr>
+					<tr>
+						<td>주말(10~18시)</td>
+						<td>중, 고, 대학생</td>
+					</tr>
+					<tr>
+						<td>동춘나래도서관</td>
+						<td>주말 (12~18시)</td>
+						<td>대학생</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 학생봉사 자격 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">학생봉사 자격</h3>
+			<ul class="usage-guide__content">
+				<li>1365 자원봉사포털(www.1365.go.kr)에 회원가입한 중학생, 고등학생, 대학생</li>
+			</ul>
+		</div>
+
+		<!-- 학생봉사 가능시간 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">학생봉사 가능시간</h3>
+			<ul class="usage-guide__content">
+				<li>일 최소 2시간, 최대 4시간 신청가능</li>
+				<li>매일 10시~12시, 12시~14시, 14시~16시, 16시~18시 활동가능.</li>
+			</ul>
+		</div>
+
+		<!-- 봉사활동 내용 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">봉사활동 내용</h3>
+			<ul class="usage-guide__content">
+				<li>도서배가 및 질서유지</li>
+			</ul>
+		</div>
+
+		<!-- 봉사활동 신청방법 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">봉사활동 신청방법</h3>
+			<ul class="usage-guide__content">
+				<li>1365자원봉사포털(www.1365.go.kr)에서 해당 시간대별 일감검색 후 신청</li>
+				<li>매월 20일 0시부터 신청가능 (1365자원봉사 포털의 사정상 약간 지체될 수 있습니다.)</li>
+			</ul>
+		</div>
+
+		<!-- 봉사활동 신청승인 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">봉사활동 신청승인</h3>
+			<ul class="usage-guide__content">
+				<li>봉사활동 신청내역 승인은 해당 주 화요일 승인</li>
+			</ul>
+		</div>
+
+		<!-- 봉사활동 실적승인 및 실적확인서 발급 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">봉사활동 실적승인 및 실적확인서 발급</h3>
+			<ul class="usage-guide__content">
+				<li>봉사실적 승인은 매주 수요일 일괄승인(전주 화~일요일 활동내역은 다음주 수요일 승인)</li>
+				<li>실적발급은 1365자원봉사 포털에서 개별적으로 출력</li>
+				<li>
+					출력방법 : 1365포털 로그인-우측상단 My나눔-나의봉사활동관리-봉사활동참여정보-봉사참여실적 기간 입력 후 검색
+					실적 체크 후 <br /> "확인서 출력"버튼 클릭
+				</li>
+			</ul>
+		</div>
+
+		<!-- 학생봉사 업무 처리절차 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">학생봉사 업무 처리절차</h3>
+			<!-- 처리절차 -->
+			<img src="./assets/images/illust-student-volunteer.png" alt="학생봉사 업무 처리절차" />
+		</div>
+
+		<!-- 참여가능도서관 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">참여가능도서관</h3>
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="50%" />
+						<col width="30%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>도서관명</th>
+							<th>활동일시</th>
+							<th>학생자원봉사 신청 대상</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>송도국제도서관(본관)</td>
+							<td>주말(10~18시)</td>
+							<td>대학생</td>
+						</tr>
+						<tr>
+							<td>연수꿈담도서관</td>
+							<td>화~일요일(09~18시)</td>
+							<td>주말 (10~18시)* 방학기간에는 <br /> 화, 수, 목, 금 (10~18시)도 참여 가능</td>
+						</tr>
+						<tr>
+							<td>송도국제어린이도서관</td>
+							<td>
+								주말 (10~18시)<br /><span class="text-red">* 방학기간에는 화, 수, 목, 금 (10~18시)도 참여 가능</span>
+							</td>
+							<td>대학생</td>
+						</tr>
+						<tr>
+							<td rowspan="2">해돋이도서관</td>
+							<td>화, 수요일 (14~18시)</td>
+							<td>대학생<br />(※ 단, 평일봉사는 일반 성인도 가능)</td>
+						</tr>
+						<tr>
+							<td>주말(10~18시)</td>
+							<td>중, 고, 대학생</td>
+						</tr>
+						<tr>
+							<td>동춘나래도서관</td>
+							<td>주말 (12~18시)</td>
+							<td>대학생</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

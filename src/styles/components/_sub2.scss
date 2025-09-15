@@ -1647,3 +1647,14 @@
 		}
 	}
 }
+
+.text-red{
+	color: #D7424E;
+}
+
+.form-field--buttons{
+	margin-top: 40px;
+	@include mobile {
+		margin-top: 24px;
+	}
+}

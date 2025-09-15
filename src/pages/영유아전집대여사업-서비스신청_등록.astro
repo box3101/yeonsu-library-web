@@ -1,0 +1,212 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiTextarea } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '문화마당', link: '#' },
+	{ text: '서비스 신청', link: '/프로그램신청' },
+];
+
+// 프로그램 정보
+const programInfo = {
+	title: '[★대기자 접수 _ 정규★] 그림책, 내 마음을 만지다(성인)',
+	library: '선학별빛도서관',
+	location: '4층 프로그램실',
+	period: '2025-03-21 ~ 2025-05-23',
+	time: '10:00 ~ 12:00',
+	dayOfWeek: '금',
+	target: '성인',
+};
+
+// 셀렉트박스 옵션들
+const ageGroupOptions = [
+	{ value: '', label: '선택' },
+	{ value: 'child', label: '아동' },
+	{ value: 'youth', label: '청소년' },
+	{ value: 'adult', label: '성인' },
+	{ value: 'senior', label: '어르신' },
+];
+
+const participantOptions = [
+	{ value: '1', label: '1명' },
+	{ value: '2', label: '2명' },
+	{ value: '3', label: '3명' },
+	{ value: '4', label: '4명' },
+	{ value: '5', label: '5명' },
+];
+---
+
+<Layout title="서비스 신청">
+	<SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 행사정보 섹션 -->
+		<div class="com-title-type2">
+			<div class="com-title-type2__header">
+				<h2>전집정보</h2>
+			</div>
+			<div class="com-title-type2__detail">
+				<div class="com-title-type2__row">
+					<div class="com-title-type2__column com-title-type2__column--full">
+						<span class="com-title-type2__term">제목</span>
+						<span class="com-title-type2__description">{programInfo.title}</span>
+					</div>
+				</div>
+				<div class="com-title-type2__row">
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">도서관</span>
+						<span class="com-title-type2__description">{programInfo.library}</span>
+					</div>
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">대여장소</span>
+						<span class="com-title-type2__description">{programInfo.location}</span>
+					</div>
+				</div>
+				<div class="com-title-type2__row">
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">대여기간</span>
+						<span class="com-title-type2__description">{programInfo.period}</span>
+					</div>
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">대상</span>
+						<span class="com-title-type2__description">{programInfo.target}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 개인정보의 수집·이용 동의  -->
+		<section class="privacy-section">
+			<h3 class="section-title-type2">개인정보의 수집·이용 동의</h3>
+
+			<!-- 개인정보 수집 이용 내용 박스 -->
+			<div class="info-box">
+				<div class="info-box__header">
+					<div class="info-box__icon">
+						<img src="./assets/images/icon/icon-square-filled.svg" alt="정보" />
+					</div>
+					<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
+				</div>
+				<div class="info-box__content">
+					<ol class="info-list">
+						<li class="list-none">
+							<strong>1. 개인정보의 수집ㆍ이용의 목적</strong>
+							<p>
+								<span class="text-primary">
+									(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실 대관 업무,
+									독서토론실 대관 업무, 하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
+								</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
+							</p>
+						</li>
+						<li class="list-none">
+							<strong>2. 수집하려는 개인정보의 항목</strong>
+							<ul>
+								<li>
+									가. 필수항목 : <span class="text-primary">성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일</span>
+								</li>
+								<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
+							</ul>
+						</li>
+						<li class="list-none">3. 개인정보의 보유 및 이용기간 : 1년</li>
+					</ol>
+				</div>
+			</div>
+
+			<!-- 동의 라디오 버튼 -->
+			<div class="terms-item__radio flex-col items-end gap-15 mt15">
+				<p class="radio-question">
+					본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌
+					수집ㆍ이용에 동의합니다.
+				</p>
+				<div class="radio-group">
+					<div class="ui-radio ui-radio--medium">
+						<div class="ui-radio__item">
+							<input
+								type="radio"
+								id="privacy-disagree"
+								name="privacy-collection"
+								value="disagree"
+								class="ui-radio__input"
+							/>
+							<div class="ui-radio__control">
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+						<label for="privacy-disagree" class="ui-radio__label">
+							<span class="ui-radio__title">동의안함</span>
+						</label>
+					</div>
+					<div class="ui-radio ui-radio--medium">
+						<div class="ui-radio__item">
+							<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
+							<div class="ui-radio__control">
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+						<label for="privacy-agree" class="ui-radio__label">
+							<span class="ui-radio__title">동의함</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 신청자정보 폼 -->
+		<section class="member-section">
+			<h3 class="section-title">신청자정보</h3>
+
+			<form action="">
+				<div class="form-grid">
+					<!-- 이름 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">이름</label>
+						<UiInput placeholder="홍길동" value="홍길동" disabled size="large" class="w-140-mobile-full" />
+					</div>
+
+					<!-- 연락처 -->
+					<div class="form-field">
+						<label class="form-label">연락처</label>
+						<UiInput placeholder="010-1234-4567" type="tel" size="large" />
+					</div>
+
+					<!-- 성별 -->
+					<div class="form-field">
+						<label class="form-label required">성별</label>
+						<div class="radio-group">
+							<div class="ui-radio ui-radio--medium">
+								<div class="ui-radio__item">
+									<input type="radio" id="gender-male" name="gender" value="male" class="ui-radio__input" />
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
+								</div>
+								<label for="gender-male" class="ui-radio__label">
+									<span class="ui-radio__title">남성</span>
+								</label>
+							</div>
+							<div class="ui-radio ui-radio--medium">
+								<div class="ui-radio__item">
+									<input type="radio" id="gender-female" name="gender" value="female" class="ui-radio__input" />
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
+								</div>
+								<label for="gender-female" class="ui-radio__label">
+									<span class="ui-radio__title">여성</span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- 제출 버튼 -->
+					<div class="form-field form-field--full form-field--buttons">
+						<div class="form-buttons flex items-center gap-10 justify-center w-full">
+							<UiButton text="취소" class="w-135-mobile-full" variant="darkGray" size="large" />
+							<UiButton text="신청" class="w-135-mobile-full" variant="primary" size="large" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
+	</SubLayout>
+</Layout>
