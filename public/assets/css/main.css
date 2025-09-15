@@ -78042,7 +78042,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     align-items: center;
   }
   .life-bookshelf-page .life-bookshelf-intro__text {
-    text-align: left;
+    text-align: center;
   }
   .life-bookshelf-page .service-composition__list {
     flex-direction: column;
@@ -78074,9 +78074,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   font-weight: 400;
   color: #191a1a;
   line-height: 1.5;
-}
-.school-books-page .school-books-intro__text .highlight {
-  color: #191a1a;
+  text-align: center;
 }
 .school-books-page .school-books-intro__text strong {
   font-size: 19px;
@@ -78086,6 +78084,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .school-books-page .school-books-intro__text p {
   margin: 0 0 4px 0;
+  text-align: center;
 }
 .school-books-page .school-books-intro__text p:last-child {
   margin-bottom: 0;
@@ -78103,6 +78102,11 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .school-books-page .service-card--blue {
   background-color: #e6f2fa;
+}
+.school-books-page .service-card--blue .service-card__image {
+  position: absolute;
+  bottom: 0;
+  right: 21px;
 }
 .school-books-page .service-card--orange {
   background-color: #fff8ee;
@@ -78123,7 +78127,6 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 .school-books-page .service-card__content {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
 }
 .school-books-page .service-card__content ul {
   list-style: none;
@@ -78156,8 +78159,14 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   margin: 0 0 16px 0;
 }
 .school-books-page .service-card__image {
+  margin-left: auto;
   margin-top: auto;
   text-align: center;
+}
+@media (max-width: 900px) {
+  .school-books-page .service-card__image {
+    display: none;
+  }
 }
 .school-books-page .service-card__image img {
   max-width: 100%;
@@ -78167,10 +78176,9 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   .school-books-page .school-books-intro {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   .school-books-page .school-books-intro__text {
-    text-align: left;
+    text-align: center;
   }
   .school-books-page .service-grid {
     grid-template-columns: 1fr;
