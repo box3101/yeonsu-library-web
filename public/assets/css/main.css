@@ -67659,8 +67659,8 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 @media (max-width: 900px) {
   .sub-layout__content--detail .post-detail__header {
-    padding-bottom: 16px;
-    margin-bottom: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
   }
 }
 .sub-layout__content--detail .post-detail__title {
@@ -67675,7 +67675,8 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 @media (max-width: 900px) {
   .sub-layout__content--detail .post-detail__title {
     font-size: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 0px;
+    border-bottom: none;
     word-break: keep-all;
   }
 }
@@ -67683,11 +67684,21 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   display: flex;
   gap: 1.5625rem;
   padding: 1rem 0;
+  padding-left: 28px;
+  border-top: 1px solid #e5e7eb;
+}
+.sub-layout__content--detail .post-detail__info.file-info {
+  background: var(--color-primary-pr00, #ECF2F9);
+}
+.sub-layout__content--detail .post-detail__info.file-info a:hover {
+  color: #3c79c2;
+  text-decoration: underline;
 }
 @media (max-width: 900px) {
   .sub-layout__content--detail .post-detail__info {
     gap: 20px;
     flex-direction: column;
+    padding-left: 5px;
   }
 }
 .sub-layout__content--detail .post-detail__info-item {
@@ -78232,7 +78243,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   align-items: center;
   gap: 37px;
   padding: 20px 0;
-  border-bottom: 1px solid #85878b;
+  border-bottom: 1px solid #e5e7eb;
 }
 .notice-detail-page .post-navigation .post-navigation__item:last-child {
   border-bottom: none;
