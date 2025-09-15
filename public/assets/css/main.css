@@ -68696,6 +68696,20 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   margin: 0;
 }
 
+.info-notice__content {
+  width: 100%;
+}
+
+.info-notice__desc {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #464c53;
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #b1b3b3;
+}
+
 .info-notice__description {
   font-family: "Pretendard GOV", sans-serif;
   font-size: 1.0625rem; /* 17px */

@@ -52,19 +52,6 @@ const programRows = [
 	<SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="책 읽는 연수구">
 		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
 
-		<!-- 어린이 서비스 버튼 그리드 -->
-		<div class="children-service-grid mb-2">
-			<a
-				href="/영유아전집대여사업-서비스신청"
-				class="children-service-grid__button children-service-grid__button--active"
-			>
-				<span class="children-service-grid__button__text">어린이전문(전집대여)</span>
-			</a>
-			<a href="#" class="children-service-grid__button">
-				<span class="children-service-grid__button__text">남부어린이(전집대여)</span>
-			</a>
-		</div>
-
 		<!-- 신청접수 시 주의사항 -->
 		<div class="info-notice program-notice mb-4">
 			<div class="info-notice__header">
@@ -75,7 +62,11 @@ const programRows = [
 			</div>
 			<div class="program-notice__content">
 				<ul class="program-notice__list">
-					<li>접수시간은 서버 시간을 기준합니다. <span class="text-primary">2025.08.31 02:31:34</span> 입니다.</li>
+					<li>
+						<span class="text-primary">접수시간은 서버 시간을 기준</span>으로 합니다. <span class="text-primary">
+							2025.08.31 02:31:34
+						</span> 입니다.
+					</li>
 					<li>회원님의 PC 시간과 서버 시간은 오차가 있을 수 있습니다.</li>
 					<li>새로 고침을 반복적으로 하시면 접속이 느려질 수 있습니다.</li>
 				</ul>

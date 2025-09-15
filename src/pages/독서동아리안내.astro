@@ -1,0 +1,200 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiTab, UiSelect } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '문화프로그램', href: '/' },
+	{ label: '독서동아리 안내' },
+];
+
+const hallApplicationTabs = [
+	{ label: '독서동아리 안내', active: true, href: './독서동아리안내' },
+	{ label: '독서동아리 자료', href: './독서동아리자료' },
+];
+---
+
+<Layout title="독서동아리 안내">
+	<SubLayout title="독서동아리 안내" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<UiTab tabs={hallApplicationTabs} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<div class="info-notice__content">
+					<h3 class="info-notice__title">독서동아리 지원사업이란?</h3>
+					<p class="info-notice__desc">
+						함께 읽기 문화 확산을 위해 연수구에서 활동하는 독서동아리(연수구민 50% 포함)에게 활동공간과 토론 도서 지원
+					</p>
+				</div>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>모집대상: 6인 이상 독서동아리(연수구민 또는 연수구 재직자 50%이상 참여)</li>
+					<li>모집기간: 12월~1월 공개모집</li>
+					<li>운영기간: 2~12월</li>
+					<li>지원내용: 활동 공간 및 토론 도서 지원</li>
+					<li>지원규모: 심의 후 동아리별 50만원 내 토론 도서 지원 (최대21개 동아리)</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 이용안내 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이용안내</h3>
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>연번</th>
+							<th>소속도서관</th>
+							<th>동아리명</th>
+							<th>회원수</th>
+							<th>신규회원 모집여부</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td rowspan="3">연수청학</td>
+							<td>그림책 마음 쉼</td>
+							<td>7</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>그림책 마음 쉼</td>
+							<td>7</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>초록별 친구 3.0</td>
+							<td>8</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td rowspan="3">연수꿈담</td>
+							<td>Some Book</td>
+							<td>6</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>낭인</td>
+							<td>7</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>소소즐</td>
+							<td>7</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td rowspan="3">송도국제</td>
+							<td>명랑한 책읽기</td>
+							<td>8</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>스마트러브</td>
+							<td>9</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>읽어야 사는 여자</td>
+							<td>8</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td rowspan="3">해돋이</td>
+							<td>Knock Knock English</td>
+							<td>8</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>마인토리</td>
+							<td>9</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>해돋이글방</td>
+							<td>10</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td rowspan="3">선학별빛</td>
+							<td>별빛사랑방</td>
+							<td>9</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>별빛하베르</td>
+							<td>10</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>북코딩랩</td>
+							<td>6</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td rowspan="3">동춘나래</td>
+							<td>멍키몽키</td>
+							<td>8</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>독서포레스트</td>
+							<td>10</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>행복한 동행</td>
+							<td>9</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td>연수청학</td>
+							<td>세모</td>
+							<td>6</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td>함박비류</td>
+							<td>책꿈터</td>
+							<td>6</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td>21</td>
+							<td>연수청학</td>
+							<td>풀꽃독서</td>
+							<td>6</td>
+							<td>O</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
