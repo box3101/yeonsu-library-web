@@ -56,7 +56,13 @@ const monthOptions = [
 <Layout title="공연장">
 	<SubLayout title="공연장" breadcrumbItems={breadcrumbItems} menuType="문화마당">
 		<!-- 기관 구분 탭 -->
-		<UiTab tabs={institutionTabs} variant="default" size="medium" showCount={false} className={`mb-4 search-type-tabs ui-tab--grid-6`} />
+		<UiTab
+			tabs={institutionTabs}
+			variant="default"
+			size="medium"
+			showCount={false}
+			className={`mb-4 search-type-tabs ui-tab--grid-6`}
+		/>
 
 		<div id="panel-cheonghak" class="ui-tab-panel ui-tab-panel--active">
 			<!-- 달력 섹션 -->
@@ -140,17 +146,27 @@ const monthOptions = [
 					<div class="hall-calendar__cell">
 						<div class="hall-calendar__day">10</div>
 						<div class="hall-calendar__buttons">
-							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">오전</a>
-							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">오후</a>
+							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">
+								오전
+							</a>
+							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">
+								오후
+							</a>
 							<button class="hall-calendar__button hall-calendar__button--evening" data-time="야간">야간</button>
 						</div>
 					</div>
 					<div class="hall-calendar__cell">
 						<div class="hall-calendar__day">11</div>
 						<div class="hall-calendar__buttons">
-							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">오전</a>
-							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">오후</a>
-							<button class="hall-calendar__button hall-calendar__button--unavailable" data-time="야간" disabled>신청불가</button>
+							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">
+								오전
+							</a>
+							<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">
+								오후
+							</a>
+							<button class="hall-calendar__button hall-calendar__button--unavailable" data-time="야간" disabled>
+								신청불가
+							</button>
 						</div>
 					</div>
 					<div class="hall-calendar__cell">
@@ -179,10 +195,7 @@ const monthOptions = [
 					</div>
 					<div class="hall-calendar__cell">
 						<div class="hall-calendar__day">19</div>
-						<div class="hall-calendar__status hall-calendar__status--period">
-							<img src="./assets/images/icon/calendar.svg" alt="접수기간" width="24" height="24" />
-							6월 접수기간
-						</div>
+						<div class="hall-calendar__status hall-calendar__status--period">6월<br />접수기간</div>
 					</div>
 					<div class="hall-calendar__cell">
 						<div class="hall-calendar__day">20</div>

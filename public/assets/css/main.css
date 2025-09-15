@@ -61733,7 +61733,7 @@ a:hover .icon-external-link {
 .card-table {
   padding: 16px 0;
   border-top: 2px solid #3c79c2;
-  border-bottom: 1px solid #CBCCCC;
+  border-bottom: 1px solid #cbcccc;
 }
 .card-table .card-table__row {
   display: flex;
@@ -62049,13 +62049,26 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   }
 }
 
+.usage-guide.type-2 .usage-guide__content {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--color-gray-gy-05, #f1f2f2);
+}
+.usage-guide.type-2 .usage-guide__content li {
+  margin-bottom: 10px !important;
+}
 .usage-guide__title {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   margin-bottom: 1.25rem;
   font-size: 2rem;
   font-weight: 700;
   color: #191a1a;
   line-height: 1;
+}
+@media (max-width: 900px) {
+  .usage-guide__title {
+    margin: 1.25rem 0;
+  }
 }
 .usage-guide__content li {
   margin-bottom: 6px;
@@ -62130,10 +62143,10 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .usage-guide__table tr th {
   padding: 0.875rem 0;
-  border-right: 1px solid var(--color-primary-pr01, #D8E4F3);
-  border-bottom: 1px solid var(--color-primary-pr01, #D8E4F3);
-  border-left: 1px solid var(--color-primary-pr01, #D8E4F3);
-  background: var(--color-primary-pr00, #ECF2F9);
+  border-right: 1px solid var(--color-primary-pr01, #d8e4f3);
+  border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
+  border-left: 1px solid var(--color-primary-pr01, #d8e4f3);
+  background: var(--color-primary-pr00, #ecf2f9);
   font-size: 1.0625rem;
   font-weight: 700;
   color: #191a1a;
@@ -63178,6 +63191,89 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 .hall-calendar__cell--saturday .hall-calendar__day {
   color: #3c79c2;
 }
+.hall-calendar__status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.hall-calendar__status--present {
+  background-image: url("/assets/images/icon/lib_check_present.svg");
+  color: #ffffff;
+  text-indent: -9999px;
+  margin-left: 15px;
+}
+.hall-calendar__status--absent {
+  background-image: url("/assets/images/icon/lib_check_absent.svg");
+  color: #f1f2f2;
+  text-indent: -9999px;
+  margin-left: 15px;
+}
+.hall-calendar__status--app-closed {
+  position: static;
+  transform: none;
+  width: auto;
+  height: auto;
+  background-image: none;
+  border-radius: 1.125rem;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  background-color: #e5e5e5;
+  color: #7d8181;
+}
+.hall-calendar__status--closed {
+  position: static;
+  transform: none;
+  width: auto;
+  height: auto;
+  background-image: none;
+  border-radius: 1.125rem;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  background-color: #d1d5db;
+  color: #374151;
+}
+.hall-calendar__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+.hall-calendar__button {
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: #3c79c2;
+}
+.hall-calendar__button--check-in {
+  background-color: #fbbc53;
+  color: #191a1a;
+}
 .hall-calendar__day {
   font-size: 1.0625rem;
   font-weight: 400;
@@ -63208,21 +63304,39 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   font-weight: 400;
   color: white;
   text-align: center;
-  min-height: 1.75rem;
+  min-height: 2.1875rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1;
+}
+.hall-calendar__status--app-able {
+  border-radius: 18px;
+  border: 1px solid var(--color-primary-pr05, #3c79c2);
+  background: var(--color-primary-pr00, #ecf2f9);
+  color: #30619b;
+}
+.hall-calendar__status--app-closed {
+  border: 1px solid var(--color-orange-OR-500, #fbbc53);
+  background: var(--color-orange-OR-100, #feeaca);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #8a672e;
+  line-height: 1;
 }
 .hall-calendar__status--closed {
   background: #3c79c2;
   border: 1px solid #244874;
 }
 .hall-calendar__status--period {
-  background: #c57eba;
-  color: white;
-}
-.hall-calendar__status--period img {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(17deg) brightness(100%) contrast(100%);
+  border-radius: 18px;
+  border: 1px solid var(--color-point-p-red-300, #e48088);
+  background: var(--color-point-p-red-50, #fbeced);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #d7424e;
+  line-height: 1;
+  line-height: 1.5;
 }
 @media (max-width: 900px) {
   .hall-calendar__status {
@@ -63239,9 +63353,12 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .hall-calendar__button {
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: center;
-  background: #00993e;
+  border-radius: 18px;
+  border: 1px solid var(--color-blue-BU800, #004470);
+  background: var(--color-blue-BU500, #007ccc);
   color: white;
   border: none;
   padding: 0.25rem 0.6875rem;
@@ -77040,6 +77157,67 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     font-size: 13px;
   }
 }
+.date-selectors .popular-books-table tbody .score-col {
+  text-align: center;
+}
+
+.source-text {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e2124;
+  line-height: 1;
+  margin-top: 40px;
+  display: inline-block;
+  text-align: right;
+}
+@media (max-width: 900px) {
+  .source-text {
+    display: inline-block;
+    margin-top: 24px;
+  }
+}
+
+.search-form {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-gray-gy-30, #b1b3b3);
+  border-top: 1px solid var(--color-gray-gy-30, #b1b3b3);
+}
+@media (max-width: 900px) {
+  .search-form {
+    padding: 16px 0;
+  }
+}
+.search-form dl {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+@media (max-width: 900px) {
+  .search-form dl {
+    margin-bottom: 10px;
+  }
+}
+.search-form dl:last-child {
+  margin-bottom: 0;
+}
+.search-form dl dt {
+  min-width: 160px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e2124;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .search-form dl dt {
+    font-size: 0.9375rem;
+    min-width: 60px;
+    text-align: center;
+  }
+}
+.search-form dl dd {
+  flex: 1;
+}
 
 .ai-book-queue {
   display: flex;
@@ -77438,7 +77616,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 @media (max-width: 900px) {
   .recommend-header .recommend-badge {
     flex: none;
-    background: #FBBC53;
+    background: #fbbc53;
     border-radius: 6px;
     padding: 5px;
   }
@@ -77570,7 +77748,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  left: 50%;
+  left: 57%;
   top: 50%;
   min-width: 280px;
   transform: translate(-50%, -50%);
@@ -77583,9 +77761,11 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 40px 0px rgba(102, 102, 102, 0.4);
+  animation: fadeInUp 0.6s ease-out;
 }
 @media (max-width: 900px) {
   .ai-loading-section {
+    left: 50%;
     min-width: auto;
     padding: 24px;
     margin: 32px 0;
@@ -77598,6 +77778,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   width: 100px;
   height: 100px;
   flex-shrink: 0;
+  animation: bounce 2s ease-in-out infinite;
 }
 .ai-loading-section .ai-chatbot-icon img {
   width: 100%;
@@ -77611,6 +77792,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   line-height: 1.5;
   text-align: center;
   text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 @media (max-width: 900px) {
   .ai-loading-section .loading-text {
@@ -77620,8 +77802,46 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 .ai-loading-section .loading-text .ai-brand {
   font-weight: 700;
   color: #3c79c2;
+  animation: colorPulse 2s ease-in-out infinite;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+@keyframes colorPulse {
+  0%, 100% {
+    color: #3c79c2;
+  }
+  50% {
+    color: #5a9de6;
+  }
+}
 .additional-questions-section {
   margin-top: 40px;
   padding-top: 40px;
@@ -77700,6 +77920,266 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   line-height: 1;
   line-height: 1.5;
   word-break: keep-all;
+}
+
+.life-bookshelf-page .life-bookshelf-intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+  background-color: #f1f2f2;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.life-bookshelf-page .life-bookshelf-intro__image {
+  flex-shrink: 0;
+  width: 168px;
+}
+.life-bookshelf-page .life-bookshelf-intro__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.life-bookshelf-page .life-bookshelf-intro__text {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  text-align: center;
+}
+.life-bookshelf-page .life-bookshelf-intro__text strong {
+  font-size: 19px;
+  font-weight: 700;
+  color: #3c79c2;
+  line-height: 1.5;
+}
+.life-bookshelf-page .service-composition {
+  border: 1px solid #cbcccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__header {
+  background-color: #30619b;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__header h4 {
+  color: #ffffff;
+}
+.life-bookshelf-page .service-composition__part--solution .service-composition__name {
+  color: #30619b;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__header {
+  background-color: #df6871;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__header h4 {
+  color: #ffffff;
+}
+.life-bookshelf-page .service-composition__part--collection .service-composition__name {
+  color: #df6871;
+}
+.life-bookshelf-page .service-composition__header {
+  padding: 18px 24px;
+  position: relative;
+}
+.life-bookshelf-page .service-composition__header h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+.life-bookshelf-page .service-composition__body {
+  padding: 32px;
+  background-color: #ffffff;
+}
+.life-bookshelf-page .service-composition__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .life-bookshelf-page .service-composition__list {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.life-bookshelf-page .service-composition__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.life-bookshelf-page .service-composition__icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.life-bookshelf-page .service-composition__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.life-bookshelf-page .service-composition__name {
+  font-size: 17px;
+  font-weight: 700;
+  color: inherit;
+  line-height: 1.5;
+  text-align: center;
+}
+.life-bookshelf-page .service-composition-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+@media (max-width: 900px) {
+  .life-bookshelf-page .life-bookshelf-intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  .life-bookshelf-page .life-bookshelf-intro__text {
+    text-align: left;
+  }
+  .life-bookshelf-page .service-composition__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.school-books-page .school-books-intro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 40px;
+  background-color: #f1f2f2;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.school-books-page .school-books-intro__image {
+  flex-shrink: 0;
+  width: 186px;
+}
+.school-books-page .school-books-intro__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.school-books-page .school-books-intro__text {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+}
+.school-books-page .school-books-intro__text .highlight {
+  color: #191a1a;
+}
+.school-books-page .school-books-intro__text strong {
+  font-size: 19px;
+  font-weight: 700;
+  color: #3c79c2;
+  line-height: 1.5;
+}
+.school-books-page .school-books-intro__text p {
+  margin: 0 0 4px 0;
+}
+.school-books-page .school-books-intro__text p:last-child {
+  margin-bottom: 0;
+}
+.school-books-page .service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.school-books-page .service-card {
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  min-height: 356px;
+}
+.school-books-page .service-card--blue {
+  background-color: #e6f2fa;
+}
+.school-books-page .service-card--orange {
+  background-color: #fff8ee;
+}
+.school-books-page .service-card--green {
+  background-color: #dbefd0;
+}
+.school-books-page .service-card--pink {
+  background-color: #fbeced;
+}
+.school-books-page .service-card__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+.school-books-page .service-card__content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 64px);
+}
+.school-books-page .service-card__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+.school-books-page .service-card__content ul li {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 12px;
+}
+.school-books-page .service-card__content ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4b4d4d;
+}
+.school-books-page .service-card__content ul li:last-child {
+  margin-bottom: 0;
+}
+.school-books-page .service-card__description {
+  font-size: 17px;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+.school-books-page .service-card__image {
+  margin-top: auto;
+  text-align: center;
+}
+.school-books-page .service-card__image img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .school-books-page .school-books-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .school-books-page .school-books-intro__text {
+    text-align: left;
+  }
+  .school-books-page .service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .school-books-page .service-card {
+    padding: 24px;
+    min-height: auto;
+  }
 }
 
 .ui-book-card {
@@ -78069,8 +78549,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 @media (max-width: 900px) {
   .ui-book-card__actions {
     margin-top: 1rem;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    gap: 0.375rem;
   }
 }
 .ui-book-card__action-button {
@@ -92608,6 +93087,7 @@ body.modal-open {
   .notice-section__left {
     min-width: auto;
     max-width: 100%;
+    width: 100%;
   }
 }
 .notice-section__right {

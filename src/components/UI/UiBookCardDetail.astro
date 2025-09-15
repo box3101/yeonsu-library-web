@@ -21,6 +21,9 @@ export interface Props {
 		categoryClassification?: string;
 		supplement?: string; // 부록여부
 		[key: string]: any; // 추가 메타데이터
+		themeClassification?: string;
+		vol?: string;
+		loanCount?: string;
 	};
 	onAddToMyLibrary?: () => void;
 	showCollectionInfo?: boolean;
@@ -163,9 +166,36 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 										</div>
 									)
 								}
+
+								{
+									details.themeClassification && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">주제분류</span>
+											<span class="ui-book-card__detail-value">{details.themeClassification}</span>
+										</div>
+									)
+								}
 							</div>
 
 							<div class="ui-book-card__details-column">
+								{
+									details.vol && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">vol</span>
+											<span class="ui-book-card__detail-value">{details.vol}</span>
+										</div>
+									)
+								}
+
+								{
+									details.loanCount && (
+										<div class="ui-book-card__detail-item">
+											<span class="ui-book-card__detail-label">대출건수</span>
+											<span class="ui-book-card__detail-value">{details.loanCount}</span>
+										</div>
+									)
+								}
+
 								{
 									details.koreanDecimalClassification && (
 										<div class="ui-book-card__detail-item">

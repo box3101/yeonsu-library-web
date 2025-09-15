@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import UiInput from '../components/ui/UiInput.astro';
+import UiButton from '../components/ui/UiButton.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '도서별이용분석', href: '/도서별이용분석' },
+];
+
+// 도서별이용분석 데이터
+const popularBooks = [
+	{
+		rank: 1,
+		title: '저주토끼 (리커버)',
+		author: '2022 / 아작 / 정보라(지은이)',
+		isbn: '9791166866665',
+		currentCount: 456,
+		previousCount: 56,
+		totalCount: 512,
+		image: './assets/images/book1.jpg',
+	},
+	{
+		rank: 2,
+		title: '순례 주택 :유은실 소설',
+		author: '2021 / 비용소 / 지은이: 유은실',
+		isbn: '9788949123493',
+		currentCount: 109,
+		previousCount: 44,
+		totalCount: 153,
+		image: './assets/images/book2.jpg',
+	},
+	{
+		rank: 3,
+		title: '빛과 실',
+		author: '2025 / 문학과지성사 / 지은이: 한강',
+		isbn: '9788932043562',
+		currentCount: 86,
+		previousCount: 89,
+		totalCount: 175,
+		image: './assets/images/book3.jpg',
+	},
+	{
+		rank: 4,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2021 / 해결책 / 글: 차인표',
+		isbn: '9791191061048',
+		currentCount: 72,
+		previousCount: 56,
+		totalCount: 154,
+		image: './assets/images/book4.jpg',
+	},
+	{
+		rank: 5,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2023 / 미래엔 / 원작: 흔한남매 ;그림: 도니패밀리',
+		isbn: '9791168418516',
+		currentCount: 72,
+		previousCount: 90,
+		totalCount: 162,
+		image: './assets/images/book5.jpg',
+	},
+];
+---
+
+<Layout title="도서별이용분석">
+	<SubLayout title="도서별이용분석" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>도서별 대출량과 대출 추이를 보실 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 도서명. 저자명, 키워드, ISBN, 키워드 -->
+		<div class="search-form">
+			<dl>
+				<dt>도서명</dt>
+				<dd>
+					<UiInput class="w-full" placeholder="도서명을 입력해주세요" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>저자명</dt>
+				<dd>
+					<UiInput class="w-full" placeholder="저자명을 입력해주세요" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>발행처</dt>
+				<dd>
+					<UiInput class="w-full" placeholder="발행처를 입력해주세요" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>ISBN</dt>
+				<dd>
+					<UiInput class="w-full" placeholder="ISBN을 입력해주세요" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>키워드</dt>
+				<dd>
+					<UiInput class="w-full" placeholder="키워드를 입력해주세요" />
+				</dd>
+			</dl>
+		</div>
+
+		<div class="form-actions mb40">
+			<UiButton
+				size="large"
+				class="w-180-mobile-full"
+				variant="tertiary"
+				text="입력 초기화"
+				icon="icon-refresh"
+				iconPosition="left"
+			/>
+			<UiButton size="large" class="w-180-mobile-full" variant="primary" text="검색" />
+		</div>
+
+		<div class="date-selectors">
+			<div class="bbs-total">
+				총 <strong class="text-primary">459</strong>건 ( <strong class="text-primary">1</strong> / 46 )
+			</div>
+			<!-- 도서별이용분석 테이블 -->
+			<div class="popular-books-table-wrapper">
+				<table class="popular-books-table">
+					<thead>
+						<tr>
+							<th class="rank-col">번호</th>
+							<th class="institution-col">기관</th>
+							<th class="date1-col">작성일</th>
+							<th class="date2-col">작성일</th>
+							<th class="count-col">조회수</th>
+							<th class="title-col">제목</th>
+							<th class="isbn-col">ISBN</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							popularBooks.map(book => (
+								<tr class="table-row">
+									<td class="rank-col">
+										<span class="rank-number">{book.rank}</span>
+									</td>
+
+									<td class="institution-col">
+										<div class="rank-change-badge">
+											<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
+											<span class="change-number">{book.currentCount}</span>
+										</div>
+									</td>
+
+									<td class="date1-col">
+										<span class="date-text">{book.previousCount}</span>
+									</td>
+
+									<td class="date2-col">
+										<span class="date-text">{book.totalCount}</span>
+									</td>
+
+									<td class="count-col">
+										<span class="count-text">{book.totalCount}</span>
+									</td>
+
+									<td class="title-col">
+										<a href="./도서별이용분석_상세" class="book-info">
+											<div class="book-image">
+												<img src={book.image} alt={book.title} />
+											</div>
+											<div class="book-details">
+												<h3 class="book-title">{book.title}</h3>
+												<p class="book-author">{book.author}</p>
+											</div>
+										</a>
+									</td>
+
+									<td class="isbn-col">
+										<span class="isbn-text">{book.isbn}</span>
+									</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
