@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiTextarea, UiRadio } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열린참여마당', href: '/support' },
+	{ label: '도서관에바란다-등록' },
+];
+---
+
+<Layout title="도서관에바란다-등록">
+	<SubLayout title="도서관에바란다-등록" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="form-grid">
+			<!-- 구분 -->
+			<div class="form-field">
+				<label class="form-label required">구분</label>
+				<UiSelect
+					placeholder="구분을 선택해주세요."
+					size="large"
+					required
+					options={[
+						{ label: '도서관', value: 'library' },
+						{ label: '연락처', value: 'contact' },
+						{ label: '모바일도서관', value: 'mobile' },
+					]}
+				/>
+			</div>
+
+			<!-- 도서관 -->
+			<div class="form-field">
+				<label class="form-label required">도서관</label>
+				<UiSelect
+					placeholder="도서관을 선택해주세요."
+					size="large"
+					required
+					options={[
+						{ label: '연수도서관', value: 'yeonsu' },
+						{ label: '송도국제기구도서관', value: 'songdo' },
+						{ label: '청학도서관', value: 'cheonghak' },
+					]}
+				/>
+			</div>
+
+			<!-- 이름 -->
+			<div class="form-field">
+				<label class="form-label required">이름</label>
+				<UiInput placeholder="홍길동" size="large" disabled />
+			</div>
+
+			<!-- 연락처 -->
+			<div class="form-field">
+				<label class="form-label required">연락처</label>
+				<UiInput
+					placeholder="010-1234-5678"
+					size="large"
+					state="error"
+					helperText="휴대폰번호를 올바르게 입력해주세요."
+				/>
+			</div>
+
+			<!-- 이메일 -->
+			<div class="form-field">
+				<label class="form-label">이메일</label>
+				<UiInput type="email" placeholder="이메일" size="large" />
+			</div>
+
+			<!-- 질문 -->
+			<div class="form-field form-field--full">
+				<label class="form-label required">질문</label>
+				<UiInput placeholder="질문을 입력해 주세요." size="large" />
+			</div>
+
+			<!-- 내용 -->
+			<div class="form-field form-field--full">
+				<label class="form-label required">내용</label>
+				<UiTextarea placeholder="내용을 입력하세요" rows="5" />
+				<div class="character-count flex justify-end">1/100</div>
+			</div>
+
+			<!-- 공개여부 -->
+			<div class="form-field">
+				<label class="form-label required">공개여부</label>
+				<div class="radio-group">
+					<UiRadio name="visibility" value="public" id="public" label="공개" size="medium" checked />
+					<UiRadio name="visibility" value="private" id="private" label="비공개" size="medium" />
+				</div>
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<UiButton size="large" class="w-140-mobile-full" variant="tertiary" text="취소" type="button" />
+			<UiButton size="large" class="w-140-mobile-full" variant="secondary" text="등록" type="submit" />
+			<UiButton size="large" class="w-140-mobile-full" variant="primary" text="삭제" type="submit" />
+		</div>
+	</SubLayout>
+</Layout>

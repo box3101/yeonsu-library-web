@@ -1,0 +1,143 @@
+@use '../globals' as *;
+
+.notice-detail-page {
+	.post-detail__badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: none;
+		padding: 4px 24px;
+		height: 32px;
+		border-radius: 32px;
+		margin-right: 5px;
+		@include font(to-rem(15), 700, #fff);
+		line-height: 1;
+
+		@include tablet {
+			margin-right: 8px;
+			padding: 4px 16px;
+			height: 28px;
+			border-radius: 28px;
+			margin-right: 5px;
+			font-size: to-rem(13);
+		}
+
+		// 기관별 배경색 적용 (기관 코드 기반)
+		&--0 {
+			background: $institution-전체;
+		}
+
+		&--128121 {
+			background: $institution-송도국제;
+		}
+
+		&--128005 {
+			background: $institution-연수어린이;
+		}
+
+		&--128058 {
+			background: $institution-청학;
+		}
+
+		&--128115 {
+			background: $institution-연수꿈담;
+		}
+
+		&--128047 {
+			background: $institution-송도국제어린이;
+		}
+
+		&--128099 {
+			background: $institution-해돋이;
+		}
+
+		&--128104 {
+			background: $institution-선학별빛;
+		}
+
+		&--128108 {
+			background: $institution-동춘나래;
+		}
+
+		&--128109 {
+			background: $institution-함박비류;
+		}
+
+		&--128038 {
+			background: $institution-옥련1동작은;
+		}
+
+		&--128011 {
+			background: $institution-옥련2동어린이작은;
+		}
+
+		&--128100 {
+			background: $institution-연수1동작은;
+		}
+
+		&--128086 {
+			background: $institution-송도2동작은;
+		}
+
+		&--728143 {
+			background: $institution-송도3동작은;
+		}
+
+		&--728211 {
+			background: $institution-송도5동작은;
+		}
+
+		&--128082 {
+			background: $institution-문화공원작은;
+		}
+
+		&--728210 {
+			background: $institution-솔안공원작은;
+		}
+
+		&--728220 {
+			background: $institution-해찬솔공원;
+		}
+
+		&--728222 {
+			background: $institution-누리공원;
+		}
+
+		&--912345 {
+			background: $institution-송도4동스마트;
+		}
+
+		&--912346 {
+			background: $institution-스퀘어원스마트;
+		}
+
+		&--912347 {
+			background: $institution-연수구청스마트;
+		}
+
+		&--912348 {
+			background: $institution-선학역스마트;
+		}
+		// 상태별 배경색 적용
+		&--status-pending {
+			background: #d8e4f3;
+			border: 1px solid #6494ce;
+			color: #30619b;
+		}
+
+		&--status-progress {
+			background: #00993e;
+		}
+
+		&--status-end {
+			background: #6b7280;
+		}
+
+    // 어린이 전문
+    &--status-child {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+    }
+	}
+}

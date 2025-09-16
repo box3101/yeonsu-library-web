@@ -62574,40 +62574,93 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   text-align: center;
   white-space: nowrap;
 }
-.program-badge--library-sunhak {
-  background: #ffacc1;
+.program-badge--0 {
+  background: #008f37;
 }
-.program-badge--library-cheonghak {
-  background: #7fa7d7;
-}
-.program-badge--library-yeonsu {
-  background: #a3cf62;
-}
-.program-badge--library-songdo {
+.program-badge--128121 {
   background: #8e63aa;
 }
-.program-badge--library-haedoji {
+.program-badge--128005 {
+  background: #4ade80;
+}
+.program-badge--128058 {
+  background: #7fa7d7;
+}
+.program-badge--128115 {
+  background: #a3cf62;
+}
+.program-badge--128047 {
+  background: #a855f7;
+}
+.program-badge--128099 {
   background: #ef6601;
 }
-.program-badge--library-haechansol {
+.program-badge--128104 {
+  background: #ffacc1;
+}
+.program-badge--128108 {
+  background: #06b6d4;
+}
+.program-badge--128109 {
+  background: #f59e0b;
+}
+.program-badge--128038 {
+  background: #10b981;
+}
+.program-badge--128011 {
+  background: #8b5cf6;
+}
+.program-badge--128100 {
+  background: #f97316;
+}
+.program-badge--128086 {
+  background: #ec4899;
+}
+.program-badge--728143 {
+  background: #14b8a6;
+}
+.program-badge--728211 {
+  background: #84cc16;
+}
+.program-badge--128082 {
+  background: #6366f1;
+}
+.program-badge--728210 {
+  background: #d946ef;
+}
+.program-badge--728220 {
   background: #189ba7;
 }
-.program-badge--library-nuri {
+.program-badge--728222 {
   background: #7b19d7;
 }
-.program-badge--status-accepting {
+.program-badge--912345 {
+  background: #22d3ee;
+}
+.program-badge--912346 {
+  background: #fb7185;
+}
+.program-badge--912347 {
+  background: #34d399;
+}
+.program-badge--912348 {
+  background: #fbbf24;
+}
+.program-badge--status-pending {
+  background: #d8e4f3;
+  border: 1px solid #6494ce;
+  color: #30619b;
+}
+.program-badge--status-progress {
   background: #00993e;
 }
-.program-badge--status-waiting {
-  background: #ffd999;
-  border: 1px solid #ffac21;
-  color: #8c5f12;
+.program-badge--status-end {
+  background: #6b7280;
 }
-.program-badge--status-ended {
-  background: #7d8181;
-}
-.program-badge--status-ongoing {
-  background: #6355ab;
+.program-badge--status-child {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
 }
 @media (max-width: 900px) {
   .program-badge {
@@ -62993,7 +63046,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 @media (max-width: 900px) {
   .form-actions {
-    flex-direction: column;
     gap: 0.75rem;
   }
 }
@@ -67664,6 +67716,8 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 .sub-layout__content--detail .post-detail__title {
+  display: flex;
+  align-items: center;
   font-size: 1.75rem;
   font-weight: 700;
   color: #333;
@@ -67680,6 +67734,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     border-bottom: none;
     word-break: keep-all;
     padding-left: 5px;
+    align-items: flex-start;
   }
 }
 .sub-layout__content--detail .post-detail__info {
@@ -67690,7 +67745,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   border-top: 1px solid #e5e7eb;
 }
 .sub-layout__content--detail .post-detail__info.file-info {
-  background: var(--color-primary-pr00, #ECF2F9);
+  background: var(--color-primary-pr00, #ecf2f9);
 }
 .sub-layout__content--detail .post-detail__info.file-info a:hover {
   color: #3c79c2;
@@ -67759,7 +67814,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   line-height: 1.6;
   margin-bottom: 3rem;
   min-height: 12.5rem;
-  padding: 1rem 0;
+  padding: 1rem;
   word-wrap: break-word;
 }
 @media (max-width: 900px) {
@@ -76687,6 +76742,136 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   line-height: 1;
   line-height: 1.5;
   text-align: center;
+}
+
+.post-reply {
+  background: #ecf2f9;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .post-reply {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+.post-reply__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .post-reply__header {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+.post-reply__badge {
+  background: #0b78cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  height: 2rem;
+  padding: 0 0.75rem;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+.post-reply__badge img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media (max-width: 900px) {
+  .post-reply__badge img {
+    width: 0.9375rem;
+    height: 0.9375rem;
+  }
+}
+.post-reply__badge span {
+  color: white;
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.post-reply__info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .post-reply__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+.post-reply__info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .post-reply__info-item {
+    width: 100%;
+  }
+}
+.post-reply__info-label {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #191a1a;
+  padding: 0 0.75rem;
+}
+.post-reply__info-value {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: #191a1a;
+  padding: 0 0.5rem;
+}
+.post-reply__divider {
+  width: 1px;
+  height: 0.75rem;
+  background: #646767;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .post-reply__divider {
+    display: none;
+  }
+}
+.post-reply__content {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  min-height: 9.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .post-reply__content {
+    padding: 1.25rem;
+    min-height: 7.5rem;
+  }
+}
+.post-reply__content p {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .color-red {
@@ -94625,4 +94810,118 @@ body.modal-open {
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid #c9cccc;
+}
+
+.notice-detail-page .post-detail__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 4px 24px;
+  height: 32px;
+  border-radius: 32px;
+  margin-right: 5px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .notice-detail-page .post-detail__badge {
+    margin-right: 8px;
+    padding: 4px 16px;
+    height: 28px;
+    border-radius: 28px;
+    margin-right: 5px;
+    font-size: 0.8125rem;
+  }
+}
+.notice-detail-page .post-detail__badge--0 {
+  background: #008f37;
+}
+.notice-detail-page .post-detail__badge--128121 {
+  background: #8e63aa;
+}
+.notice-detail-page .post-detail__badge--128005 {
+  background: #4ade80;
+}
+.notice-detail-page .post-detail__badge--128058 {
+  background: #7fa7d7;
+}
+.notice-detail-page .post-detail__badge--128115 {
+  background: #a3cf62;
+}
+.notice-detail-page .post-detail__badge--128047 {
+  background: #a855f7;
+}
+.notice-detail-page .post-detail__badge--128099 {
+  background: #ef6601;
+}
+.notice-detail-page .post-detail__badge--128104 {
+  background: #ffacc1;
+}
+.notice-detail-page .post-detail__badge--128108 {
+  background: #06b6d4;
+}
+.notice-detail-page .post-detail__badge--128109 {
+  background: #f59e0b;
+}
+.notice-detail-page .post-detail__badge--128038 {
+  background: #10b981;
+}
+.notice-detail-page .post-detail__badge--128011 {
+  background: #8b5cf6;
+}
+.notice-detail-page .post-detail__badge--128100 {
+  background: #f97316;
+}
+.notice-detail-page .post-detail__badge--128086 {
+  background: #ec4899;
+}
+.notice-detail-page .post-detail__badge--728143 {
+  background: #14b8a6;
+}
+.notice-detail-page .post-detail__badge--728211 {
+  background: #84cc16;
+}
+.notice-detail-page .post-detail__badge--128082 {
+  background: #6366f1;
+}
+.notice-detail-page .post-detail__badge--728210 {
+  background: #d946ef;
+}
+.notice-detail-page .post-detail__badge--728220 {
+  background: #189ba7;
+}
+.notice-detail-page .post-detail__badge--728222 {
+  background: #7b19d7;
+}
+.notice-detail-page .post-detail__badge--912345 {
+  background: #22d3ee;
+}
+.notice-detail-page .post-detail__badge--912346 {
+  background: #fb7185;
+}
+.notice-detail-page .post-detail__badge--912347 {
+  background: #34d399;
+}
+.notice-detail-page .post-detail__badge--912348 {
+  background: #fbbf24;
+}
+.notice-detail-page .post-detail__badge--status-pending {
+  background: #d8e4f3;
+  border: 1px solid #6494ce;
+  color: #30619b;
+}
+.notice-detail-page .post-detail__badge--status-progress {
+  background: #00993e;
+}
+.notice-detail-page .post-detail__badge--status-end {
+  background: #6b7280;
+}
+.notice-detail-page .post-detail__badge--status-child {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
 }

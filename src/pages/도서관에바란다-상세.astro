@@ -6,12 +6,12 @@ import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab } from '@components
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
 	{ label: '열린참여마당', href: '/support' },
-	{ label: '공지사항' },
+	{ label: '도서관에바란다' },
 ];
 ---
 
-<Layout title="공지사항">
-	<SubLayout title="공지사항" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+<Layout title="도서관에바란다">
+	<SubLayout title="도서관에바란다" breadcrumbItems={breadcrumbItems} menuType="안내마당">
 		<!-- 게시글 상세 정보 영역 -->
 		<div class="sub-layout__content--detail notice-detail-page">
 			<!-- 게시글 헤더 영역 -->
@@ -36,15 +36,6 @@ const breadcrumbItems = [
 							<span class="post-detail__info-value">98</span>
 						</div>
 					</div>
-					<div class="post-detail__info file-info">
-						<div class="post-detail__info-item">
-							<span class="post-detail__info-label">첨부파일</span>
-							<span class="post-detail__info-value flex gap-5 items-center">
-								<img src="./assets/images/icon/icon-download.svg" alt="첨부파일" />
-								<a href="#">test_1.pdf</a>
-							</span>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -53,41 +44,45 @@ const breadcrumbItems = [
 				x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트x테스트
 			</div>
 
-			<!-- 게시글 푸터 영역 -->
-			<div class="post-detail__footer">
-				<!-- 이전글/다음글 네비게이션 -->
-				<div class="post-navigation">
-					<div class="post-navigation__item post-navigation__prev">
-						<span class="post-navigation__label">
-							<img src="./assets/images/icon/arrow-left.svg" alt="이전글" />
-							이전글
-						</span>
-						<a href="#" class="post-navigation__title">
-							[인터넷예약 불가안내] 영주시 출장소나다 작업 (예상 처리시간 약 5분 기간)
-						</a>
+			<!-- 게시글 답변 영역 -->
+			<div class="post-reply">
+				<div class="post-reply__header">
+					<div class="post-reply__badge">
+						<img src="./assets/images/icon/icon-inquiry.svg" alt="답변" />
+						<span>답변</span>
 					</div>
-					<div class="post-navigation__item post-navigation__next">
-						<span class="post-navigation__label">
-							<img src="./assets/images/icon/arrow-right.svg" alt="다음글" />
-							다음글
-						</span>
-						<a href="#" class="post-navigation__title">송도공항아이파크 도서 자료실개방(서비스 안내) 주말근무 안내</a>
+					<div class="post-reply__info">
+						<div class="post-reply__info-item">
+							<span class="post-reply__info-label">담당자</span>
+							<span class="post-reply__info-value">관리자</span>
+						</div>
+						<div class="post-reply__divider"></div>
+						<div class="post-reply__info-item">
+							<span class="post-reply__info-label">작성일</span>
+							<span class="post-reply__info-value">2025.07.02</span>
+						</div>
 					</div>
 				</div>
-				<div class="post-detail__actions">
-					<UiButton
-						variant="primary"
-						class="w-120-mobile-full"
-						size="medium"
-						href="./무료택배도서대출-서비스안내"
-						text="목록"
-					/>
+				<div class="post-reply__content">
+					<p>
+						답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변
+						내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변
+						내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.
+					</p>
 				</div>
+			</div>
+
+			<!-- 목록,  수정-->
+			<div class="form-actions">
+				<UiButton size="large" class="w-140-mobile-full" variant="tertiary" text="목록" type="button" />
+				<UiButton size="large" class="w-140-mobile-full" variant="primary" text="수정" type="submit" />
 			</div>
 		</div>
 	</SubLayout>
 </Layout>
-
-<style is:inline lang="scss">
-	@import '../styles/pages/notice-detail';
-</style>

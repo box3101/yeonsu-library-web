@@ -47,18 +47,20 @@ const programDetail = {
 
 <Layout title="서비스 신청">
 	<SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
-		<div class="program-detail-page">
+		<div class="program-detail-page sub-layout__content--detail notice-detail-page">
 			<!-- 프로그램 제목 및 상태 -->
-			<div class="program-detail-page__header">
-				<div class="program-detail-page__status">
-					<div class="program-detail-page__badges">
-						<span class="program-badge program-badge--library-sunhak">{programDetail.library}</span>
-						<span class="program-badge program-badge--status-pending">접수대기</span>
-						<span class="program-badge program-badge--status-waiting">행사대기</span>
-					</div>
-				</div>
-				<div class="program-detail-page__title-section">
-					<h2 class="program-detail-page__title">{programDetail.title}</h2>
+			<div class="post-detail__header">
+				<div class="post-detail__meta">
+					<h1 class="post-detail__title">
+						<!-- 뱃지 관 기관별로 서로 다른 색상으로 적용 필요 도서관 색상 목록 별도 정의-->
+						<span class="post-detail__badge post-detail__badge--0">전체</span>
+						<!-- 접수 표시- 상태별로 서로 다른 색상 적용 필요- 상태 목록 : 접수대기, 접수중, 접수종료
+						무료택배 도서대출 신청 -->
+						<span class="post-detail__badge post-detail__badge--status-child">어린이전문</span>
+						<span class="post-detail__badge post-detail__badge--status-pending">접수대기</span>
+						<span class="post-detail__badge post-detail__badge--status-progress">접수중</span>
+						<span class="post-detail__badge post-detail__badge--status-end">접수종료</span>
+					</h1>
 				</div>
 			</div>
 

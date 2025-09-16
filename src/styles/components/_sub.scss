@@ -301,9 +301,9 @@ ul.movie-card-wrp {
 		margin: to-rem(40) 0;
 		margin-bottom: to-rem(20);
 		@include font(to-rem(32), 700, #191a1a);
-    @include mobile {
-      margin: to-rem(20) 0;
-    }
+		@include mobile {
+			margin: to-rem(20) 0;
+		}
 	}
 
 	&__content {
@@ -799,51 +799,122 @@ ul.movie-card-wrp {
 	white-space: nowrap;
 
 	// 도서관별 색상
-	&--library-sunhak {
-		background: $institution-선학별빛;
+	// 기관별 배경색 적용 (기관 코드 기반)
+	&--0 {
+		background: $institution-전체;
 	}
 
-	&--library-cheonghak {
-		background: $institution-청학;
-	}
-
-	&--library-yeonsu {
-		background: $institution-연수꿈담;
-	}
-
-	&--library-songdo {
+	&--128121 {
 		background: $institution-송도국제;
 	}
 
-	&--library-haedoji {
+	&--128005 {
+		background: $institution-연수어린이;
+	}
+
+	&--128058 {
+		background: $institution-청학;
+	}
+
+	&--128115 {
+		background: $institution-연수꿈담;
+	}
+
+	&--128047 {
+		background: $institution-송도국제어린이;
+	}
+
+	&--128099 {
 		background: $institution-해돋이;
 	}
 
-	&--library-haechansol {
+	&--128104 {
+		background: $institution-선학별빛;
+	}
+
+	&--128108 {
+		background: $institution-동춘나래;
+	}
+
+	&--128109 {
+		background: $institution-함박비류;
+	}
+
+	&--128038 {
+		background: $institution-옥련1동작은;
+	}
+
+	&--128011 {
+		background: $institution-옥련2동어린이작은;
+	}
+
+	&--128100 {
+		background: $institution-연수1동작은;
+	}
+
+	&--128086 {
+		background: $institution-송도2동작은;
+	}
+
+	&--728143 {
+		background: $institution-송도3동작은;
+	}
+
+	&--728211 {
+		background: $institution-송도5동작은;
+	}
+
+	&--128082 {
+		background: $institution-문화공원작은;
+	}
+
+	&--728210 {
+		background: $institution-솔안공원작은;
+	}
+
+	&--728220 {
 		background: $institution-해찬솔공원;
 	}
 
-	&--library-nuri {
+	&--728222 {
 		background: $institution-누리공원;
 	}
 
-	// 상태별 색상
-	&--status-accepting {
+	&--912345 {
+		background: $institution-송도4동스마트;
+	}
+
+	&--912346 {
+		background: $institution-스퀘어원스마트;
+	}
+
+	&--912347 {
+		background: $institution-연수구청스마트;
+	}
+
+	&--912348 {
+		background: $institution-선학역스마트;
+	}
+	// 상태별 배경색 적용
+	&--status-pending {
+		background: #d8e4f3;
+		border: 1px solid #6494ce;
+		color: #30619b;
+	}
+
+	&--status-progress {
 		background: #00993e;
 	}
 
-	&--status-waiting {
-		background: #ffd999;
-		border: 1px solid #ffac21;
-		color: #8c5f12;
+	&--status-end {
+		background: #6b7280;
 	}
 
-	&--status-ended {
-		background: #7d8181;
-	}
-
-	&--status-ongoing {
-		background: #6355ab;
+	// 어린이 전문
+	&--status-child {
+		background: #fff3cd;
+		border: 1px solid #ffc107;
+		color: #856404;
 	}
 
 	@include mobile {
@@ -1239,7 +1310,7 @@ ul.movie-card-wrp {
 	padding-top: to-rem(16);
 
 	@include mobile {
-		flex-direction: column;
+		// flex-direction: column;
 		gap: to-rem(12);
 	}
 
@@ -1613,7 +1684,7 @@ ul.movie-card-wrp {
 			border: 1px solid var(--color-point-p-red-300, #e48088);
 			background: var(--color-point-p-red-50, #fbeced);
 			@include font(to-rem(15), 500, #d7424e);
-      line-height: 1.5;
+			line-height: 1.5;
 		}
 
 		@include mobile {
@@ -6041,6 +6112,8 @@ div.bookshelf-item {
 
 		// 게시글 제목 - 페이지의 주요 제목 스타일
 		&__title {
+			display: flex;
+			align-items: center;
 			@include font(to-rem(28), 700, #333);
 			line-height: 1.5;
 			padding: to-rem(16) 0;
@@ -6054,7 +6127,7 @@ div.bookshelf-item {
 				border-bottom: none;
 				word-break: keep-all;
 				padding-left: 5px;
-
+				align-items: flex-start;
 			}
 		}
 
@@ -6067,11 +6140,11 @@ div.bookshelf-item {
 			border-top: 1px solid #e5e7eb;
 
 			&.file-info {
-background: var(--color-primary-pr00, #ECF2F9);
+				background: var(--color-primary-pr00, #ecf2f9);
 
-				a{
-					&:hover{
-						color:$primary-color;
+				a {
+					&:hover {
+						color: $primary-color;
 						text-decoration: underline;
 					}
 				}
@@ -6120,7 +6193,6 @@ background: var(--color-primary-pr00, #ECF2F9);
 			white-space: nowrap;
 			min-width: 60px;
 
-
 			// 모바일에서는 폰트 크기 조정 (px 단위 사용)
 			@include mobile {
 				font-size: 13px;
@@ -6143,7 +6215,7 @@ background: var(--color-primary-pr00, #ECF2F9);
 			line-height: 1.6;
 			margin-bottom: to-rem(48);
 			min-height: to-rem(200);
-			padding: to-rem(16) 0;
+			padding: to-rem(16);
 			word-wrap: break-word;
 
 			// 모바일에서는 폰트 크기와 마진 조정 (px 단위 사용)
@@ -7285,7 +7357,7 @@ background: var(--color-primary-pr00, #ECF2F9);
 	color: #191a1a;
 	margin: 0;
 }
-.info-notice__content{
+.info-notice__content {
 	width: 100%;
 }
 
@@ -7298,7 +7370,6 @@ background: var(--color-primary-pr00, #ECF2F9);
 	padding-bottom: 5px;
 	border-bottom: 1px dashed #b1b3b3;
 }
-
 
 .info-notice__description {
 	font-family: 'Pretendard GOV', sans-serif;
