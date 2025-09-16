@@ -66,6 +66,31 @@
 	}
 }
 
+// 딤 오버레이 (GNB 호버 시 헤더 아래 영역만 어둡게)
+.gnb-dim {
+	position: fixed;
+	top: to-rem(176); // 헤더 높이(120px) + GNB 높이(56px) = 176px
+	left: 0;
+	width: 100%;
+	height: calc(100% - to-rem(176));
+	background: rgba(0, 0, 0, 0.50);
+	z-index: 998;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	pointer-events: none;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	@include mobile {
+		top: to-rem(60); // 모바일에서는 헤더 높이만큼
+		height: calc(100% - to-rem(60));
+	}
+}
+
 // 서브 메뉴 영역
 .gnb-sub {
 	background: #ffffff;

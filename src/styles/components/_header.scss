@@ -1,6 +1,10 @@
 @use '../globals' as *;
 
 .header {
+  background: #fff;
+  position: relative;
+  z-index: 1001;
+
   .header-top {
     display: flex;
     justify-content: space-between;

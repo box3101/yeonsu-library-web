@@ -52,6 +52,9 @@ function convertToGnbFormat(menuKey) {
 const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter(Boolean);
 ---
 
+<!-- 딤 오버레이 -->
+<div class="gnb-dim" id="gnb-dim"></div>
+
 <nav class="gnb" id="gnb" role="navigation" aria-label="주 메뉴">
 	<div class="gnb-main">
 		<div class="gnb-container">

@@ -12,17 +12,34 @@ $(document).ready(function () {
 		if ($gnb.length === 0) return;
 
 		var $mainItems = $gnb.find('.gnb-main-item');
+		var $dim = $('#gnb-dim');
+
+		// 딤 오버레이 표시
+		function showDim() {
+			if ($dim.length > 0) {
+				$dim.addClass('show');
+			}
+		}
+
+		// 딤 오버레이 숨기기
+		function hideDim() {
+			if ($dim.length > 0) {
+				$dim.removeClass('show');
+			}
+		}
 
 		// 모든 서브메뉴 숨기기
 		function hideAllSubmenus() {
 			$gnb.find('.gnb-sub').attr('hidden', true);
 			$gnb.find('.gnb-third-list').hide();
+			hideDim();
 		}
 
 		// 서브메뉴 표시
 		function showSubmenu($submenu) {
 			hideAllSubmenus();
 			$submenu.attr('hidden', false);
+			showDim();
 		}
 
 		// 3depth 메뉴 표시/숨김 관리
@@ -91,6 +108,9 @@ $(document).ready(function () {
 
 		// GNB 전체 벗어날 때 숨기기
 		$gnb.on('mouseleave', hideAllSubmenus);
+
+		// 딤 오버레이 클릭 시 메뉴 닫기
+		$dim.on('click', hideAllSubmenus);
 
 		// 키보드 네비게이션
 		$gnb.on('keydown', function(e) {
