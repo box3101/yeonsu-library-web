@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiRadio, UiCheckbox, UiTextarea } from '../components';
+
+// 브레드크럼브 데이터
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/my-library' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '도서관견학신청', href: '도서관견학신청' },
+];
+---
+
+<Layout title="도서관견학신청">
+	<SubLayout title="도서관견학신청" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
+		<div class="sub-layout__content">
+			<div class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<!-- 도서관견학신청 섹션 -->
+						<div class="signup-form">
+							<!-- 제목 -->
+							<h2 class="section-title section-title--main">견학정보</h2>
+
+							<!-- 기본 정보 표시 -->
+							<div class="member-info-display">
+								<div class="info-row">
+									<span class="info-label">도서관</span>
+									<span class="info-value">연수청학도서관</span>
+								</div>
+								<div class="info-row">
+									<span class="info-label">견학일</span>
+									<span class="info-value">2025-08-18</span>
+								</div>
+							</div>
+
+							<!-- 개인정보의 수집 이용 동의 -->
+							<section class="privacy-section">
+								<h3 class="section-title-type2">개인정보의 수집·이용 동의</h3>
+
+								<!-- 개인정보 수집 이용 내용 박스 -->
+								<div class="info-box">
+									<div class="info-box__header">
+										<div class="info-box__icon">
+											<img src="./assets/images/icon/icon-square-filled.svg" alt="정보" />
+										</div>
+										<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
+									</div>
+									<div class="info-box__content">
+										<ol class="info-list">
+											<li class="list-none">
+												<strong>1. 개인정보의 수집ㆍ이용의 목적</strong>
+												<p>
+													<span class="text-primary">
+														(동아리실 대관 업무, 공연장 대관 업무, 세미나실 대관 업무, 커뮤니티룸 대관 업무, 프로그램실
+														대관 업무, 독서토론실 대관 업무, 하늘빛정원 대관 업무, 도서관 견학 업무, 문화행사 업무)
+													</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
+												</p>
+											</li>
+											<li class="list-none">
+												<strong>2. 수집하려는 개인정보의 항목</strong>
+												<ul>
+													<li>
+														가. 필수항목 : <span class="text-primary">
+															성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일
+														</span>
+													</li>
+													<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
+												</ul>
+											</li>
+											<li class="list-none">
+												<strong>3. 개인정보의 보유 및 이용기간 : 1년</strong>
+											</li>
+										</ol>
+									</div>
+								</div>
+
+								<!-- 동의 라디오 버튼 -->
+								<div class="terms-item__radio flex-col items-end gap-15 mt15">
+									<p class="radio-question">
+										본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보
+										제공이 아닌 수집ㆍ이용에 동의합니다.
+									</p>
+									<div class="radio-group">
+										<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+										<div class="ui-radio ui-radio--medium">
+											<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+											<div class="ui-radio__item">
+												<!-- 숨겨진 실제 라디오 input 요소 -->
+												<input
+													type="radio"
+													id="privacy-disagree"
+													name="privacy-collection"
+													value="disagree"
+													class="ui-radio__input"
+												/>
+												<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+												<div class="ui-radio__control">
+													<!-- 선택 시 표시될 내부 원형 도트 -->
+													<div class="ui-radio__dot"></div>
+												</div>
+											</div>
+
+											<label for="privacy-disagree" class="ui-radio__label">
+												<span class="ui-radio__title">동의안함</span>
+											</label>
+										</div>
+										<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
+										<div class="ui-radio ui-radio--medium">
+											<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+											<div class="ui-radio__item">
+												<!-- 숨겨진 실제 라디오 input 요소 -->
+												<input
+													type="radio"
+													id="privacy-agree"
+													name="privacy-collection"
+													value="agree"
+													class="ui-radio__input"
+												/>
+												<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+												<div class="ui-radio__control">
+													<!-- 선택 시 표시될 내부 원형 도트 -->
+													<div class="ui-radio__dot"></div>
+												</div>
+											</div>
+
+											<label for="privacy-agree" class="ui-radio__label">
+												<span class="ui-radio__title">동의함</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							<!-- 신청자정보 폼 -->
+							<section class="member-section">
+								<h3 class="section-title">신청자정보</h3>
+
+								<form action="">
+									<div class="form-grid">
+										<!-- 이름 -->
+										<div class="form-field form-field--full">
+											<label class="form-label required">이름</label>
+											<UiInput placeholder="홍길동" value="홍길동" disabled size="large" class="w-140-mobile-full" />
+										</div>
+
+										<!-- 유선전화번호 -->
+										<div class="form-field">
+											<label class="form-label required">유선전화번호</label>
+											<UiInput placeholder="연락처를 입력해 주세요." type="tel" size="large" />
+										</div>
+
+										<!-- 무선전화번호 -->
+										<div class="form-field">
+											<label class="form-label required">무선전화번호</label>
+											<UiInput placeholder="연락처를 입력해 주세요." type="tel" size="large" />
+										</div>
+
+										<!-- 학교/유치원명 -->
+										<div class="form-field">
+											<label class="form-label required">학교/유치원명</label>
+											<UiInput placeholder="학교(유치원)명을 입력해 주세요." size="large" />
+										</div>
+
+										<!-- 소재지 -->
+										<div class="form-field">
+											<label class="form-label required">소재지</label>
+											<UiInput placeholder="소재지를 입력해 주세요." size="large" />
+										</div>
+
+										<!-- 유아/아동 인원 -->
+										<div class="form-field">
+											<label class="form-label required">유아/아동 인원</label>
+											<UiSelect
+												placeholder="선택"
+												size="large"
+												options={[
+													{ value: '10', label: '10명' },
+													{ value: '15', label: '15명' },
+													{ value: '20', label: '20명' },
+													{ value: '25', label: '25명' },
+													{ value: '30', label: '30명' },
+												]}
+											/>
+										</div>
+
+										<!-- 인솔교사 인원 -->
+										<div class="form-field">
+											<label class="form-label required">인솔교사 인원</label>
+											<UiSelect
+												placeholder="선택"
+												size="large"
+												options={[
+													{ value: '1', label: '1명' },
+													{ value: '2', label: '2명' },
+													{ value: '3', label: '3명' },
+													{ value: '4', label: '4명' },
+													{ value: '5', label: '5명' },
+												]}
+											/>
+										</div>
+
+										<!-- 연령대 -->
+										<div class="form-field form-field--full">
+											<label class="form-label required">연령대</label>
+											<UiInput placeholder="연령대를 입력해 주세요." size="large" />
+										</div>
+									</div>
+								</form>
+							</section>
+							<!-- 버튼 영역 -->
+							<div class="form-actions">
+								<UiButton size="large" class="w-140-mobile-full" variant="gray" text="취소" />
+								<UiButton size="large" class="w-140-mobile-full" variant="primary" text="신청" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
