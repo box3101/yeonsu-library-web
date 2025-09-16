@@ -1,0 +1,209 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiSelect, UiInput } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '도서관에 바란다' },
+];
+const columns = [
+	{
+		key: 'institution',
+		label: '기관',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+		type: 'badge',
+	},
+	{
+		key: 'schoolName',
+		label: '학교/유치원명',
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'visitDate',
+		label: '견학일',
+		width: '120px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'applicationDate',
+		label: '신청일',
+		width: '120px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'status',
+		label: '신청상태',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'cancel',
+		label: '신청취소',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+		type: 'button',
+	},
+];
+
+const rows = [
+	{
+		number: 15,
+		institution: '선학별빛',
+		schoolName: '선학초등학교',
+		visitDate: '2025.09.15',
+		applicationDate: '2025.08.09',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 14,
+		institution: '청학',
+		schoolName: '청학유치원',
+		visitDate: '2025.09.12',
+		applicationDate: '2025.08.05',
+		status: '대기',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 13,
+		institution: '연수꿈담',
+		schoolName: '연수초등학교',
+		visitDate: '2025.09.10',
+		applicationDate: '2025.08.01',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 12,
+		institution: '해돋이',
+		schoolName: '해돋이어린이집',
+		visitDate: '2025.09.08',
+		applicationDate: '2025.07.30',
+		status: '거부',
+		cancel: '취소하기',
+		disabled: true,
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 11,
+		institution: '선학별빛',
+		schoolName: '별빛유치원',
+		visitDate: '2025.09.05',
+		applicationDate: '2025.07.28',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 10,
+		institution: '청학',
+		schoolName: '청학초등학교',
+		visitDate: '2025.09.03',
+		applicationDate: '2025.07.25',
+		status: '대기',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 9,
+		institution: '연수꿈담',
+		schoolName: '꿈담어린이집',
+		visitDate: '2025.09.01',
+		applicationDate: '2025.07.20',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 8,
+		institution: '해돋이',
+		schoolName: '해돋이초등학교',
+		visitDate: '2025.08.30',
+		applicationDate: '2025.07.18',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 7,
+		institution: '선학별빛',
+		schoolName: '선학중학교',
+		visitDate: '2025.08.28',
+		applicationDate: '2025.07.15',
+		status: '거부',
+		cancel: '취소하기',
+		disabled: true,
+		href: './도서관견학신청-상세',
+	},
+	{
+		number: 6,
+		institution: '청학',
+		schoolName: '청학유치원',
+		visitDate: '2025.08.25',
+		applicationDate: '2025.07.12',
+		status: '승인',
+		cancel: '취소하기',
+		href: './도서관견학신청-상세',
+	},
+];
+---
+
+<Layout title="도서관에 바란다">
+	<SubLayout title="도서관에 바란다" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 공통 검색바 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '전체도서관' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '제목' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 게시글 헤더 -->
+		<div class="bbs-header">
+			<div class="bbs-total">
+				총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
+			</div>
+		</div>
+
+		<!-- 게시글 목록 -->
+		<UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" />
+		<!-- 페이징 네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

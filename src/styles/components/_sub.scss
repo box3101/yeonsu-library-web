@@ -1351,8 +1351,17 @@ ul.movie-card-wrp {
 	}
 }
 
+.hall-calendar-wrp {
+	@include mobile {
+		overflow-x: auto;
+	}
+}
 .hall-calendar {
 	background: white;
+
+	@include mobile {
+		min-width: 600px;
+	}
 
 	&__header {
 		display: flex;
@@ -1553,6 +1562,12 @@ ul.movie-card-wrp {
 		font-size: to-rem(24);
 		font-weight: 700;
 		line-height: 1.5;
+
+		@include mobile {
+			width: to-rem(55);
+			height: to-rem(55);
+			background-size: cover;
+		}
 
 		&--present {
 			background-image: url('/assets/images/icon/lib_check_present.svg');
@@ -1763,6 +1778,7 @@ ul.movie-card-wrp {
 		padding-right: 0;
 
 		@include mobile {
+			justify-content: flex-start;
 			padding: to-rem(12);
 			padding-right: 0;
 		}
@@ -1771,6 +1787,7 @@ ul.movie-card-wrp {
 	&__actions {
 		display: flex;
 		gap: to-rem(8);
+
 	}
 }
 

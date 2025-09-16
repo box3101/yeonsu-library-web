@@ -1,0 +1,209 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiInput, UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '내정보', link: '#' },
+	{ text: '프로그램 신청', link: '#' },
+];
+
+const columns = [
+	{ label: '번호', key: 'number', align: 'center', headerAlign: 'center', width: '60' },
+	{ label: '기관', key: 'library', align: 'center', headerAlign: 'center', width: '100' },
+	{ label: '행사명', key: 'title', align: 'left', headerAlign: 'center', width: 'auto' },
+	{ label: '신청일', key: 'applicationDate', align: 'center', headerAlign: 'center', width: '100' },
+	{ label: '신청상태', key: 'status', align: 'center', headerAlign: 'center', width: '80' },
+	{ label: '신청취소', key: 'cancel', align: 'center', headerAlign: 'center', width: '90', type: 'button' },
+];
+
+// 샘플 데이터
+const rows = [
+	{
+		number: 1146,
+		library: '선학별빛',
+		title: '[어린이전문(전집대여)][전집27]그림으로 보는 삼국사기 (총 27권, 본책 25권 +부록2권)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 145,
+		library: '해찬솔공원',
+		title: '[해찬솔공원] 일요돔영상 상영 및 해설( 3월 3일 14시)',
+		applicationDate: '2025.07.23',
+		status: '대기(1위)',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: true,
+		},
+	},
+	{
+		number: 144,
+		library: '송도4동스마트',
+		title: '[송도4동스마트도서관] 일요돔영상 상영 및 해설( 3월 3일 14시)',
+		applicationDate: '2025.07.23',
+		status: '승인',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 143,
+		library: '선학별빛',
+		title: '[대기자접수][정규] 그림책으로 키우는 문해력 (초등1~2학년/화요일)',
+		applicationDate: '2025.07.23',
+		status: '취소',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 142,
+		library: '선학별빛',
+		title: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 141,
+		library: '선학별빛',
+		title: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 140,
+		library: '선학별빛',
+		title: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 139,
+		library: '선학별빛',
+		title: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 138,
+		library: '선학별빛',
+		title: '[선학] 토요별빛극장( 3월 9일 14시)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+	{
+		number: 137,
+		library: '선학별빛',
+		title: '[전집] 노부영 싱어롱(책24권+ CD20매+ DVD1매+QR카드)',
+		applicationDate: '2025.07.23',
+		status: '접수',
+		cancel: {
+			text: '취소하기',
+			variant: 'default',
+			disabled: false,
+		},
+	},
+];
+
+// 검색 옵션
+const libraryOptions = [
+	{ value: '', label: '전체도서관' },
+	{ value: 'yeonsukkumdam', label: '연수꿈담' },
+	{ value: 'songdo', label: '송도국제' },
+	{ value: 'cheonghak', label: '청학' },
+	{ value: 'haedogi', label: '해돋이' },
+	{ value: 'sunhak', label: '선학별빛' },
+	{ value: 'hambakriyu', label: '함박비류' },
+];
+
+const statusOptions = [
+	{ value: '', label: '전체상태' },
+	{ value: 'waiting', label: '접수대기' },
+	{ value: 'approved', label: '승인완료' },
+	{ value: 'rejected', label: '접수반려' },
+	{ value: 'cancelled', label: '취소완료' },
+];
+
+const searchTypeOptions = [
+	{ value: 'title', label: '행사명' },
+	{ value: 'content', label: '도서관명' },
+];
+---
+
+<Layout title="프로그램 신청">
+	<SubLayout title="프로그램 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 검색 섹션 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect options={libraryOptions} name="library" size="medium" class="w-230-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={searchTypeOptions}
+						name="searchType"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력하세요." class="w-360-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-78-mobile-full" variant="darkBlue" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 검색 결과 총 건수 -->
+		<div class="search-info-summary type2 flex justify-between items-center">
+			<div class="mb0">총 <strong>459</strong>건 ( <strong>1</strong> / 46 )</div>
+		</div>
+
+		<!-- 테이블 -->
+		<UiTable columns={columns} rows={rows} showIndex={false} caption="대관 신청 조회 목록" />
+
+		<!-- 페이지네이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

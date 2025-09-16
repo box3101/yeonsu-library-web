@@ -63088,8 +63088,19 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   }
 }
 
+@media (max-width: 900px) {
+  .hall-calendar-wrp {
+    overflow-x: auto;
+  }
+}
+
 .hall-calendar {
   background: white;
+}
+@media (max-width: 900px) {
+  .hall-calendar {
+    min-width: 600px;
+  }
 }
 .hall-calendar__header {
   display: flex;
@@ -63259,6 +63270,13 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .hall-calendar__status {
+    width: 3.4375rem;
+    height: 3.4375rem;
+    background-size: cover;
+  }
 }
 .hall-calendar__status--present {
   background-image: url("/assets/images/icon/lib_check_present.svg");
@@ -63460,6 +63478,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 @media (max-width: 900px) {
   .hall-calendar__footer {
+    justify-content: flex-start;
     padding: 0.75rem;
     padding-right: 0;
   }

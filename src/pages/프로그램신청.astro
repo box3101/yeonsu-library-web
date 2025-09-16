@@ -1,117 +1,151 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiPagination, UiSelect, UiButton, UiInput } from '@components';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab, UiSelect, UiInput } from '@components';
 
 const breadcrumbItems = [
-	{ text: '홈', link: '/' },
-	{ text: '내정보', link: '#' },
-	{ text: '프로그램신청', link: '#' },
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '영유아전집대여사업' },
 ];
 
-const libraryOptions = [
-	{ value: '', label: '전체도서관' },
-	{ value: 'all', label: '전체' },
-	{ value: 'yeonsu', label: '연수꿈담' },
-	{ value: 'songdo', label: '송도국제' },
-	{ value: 'cheonghak', label: '청학' },
-	{ value: 'haedoji', label: '해돋이' },
-	{ value: 'haechansol', label: '해찬솔공원' },
-	{ value: 'sunhak', label: '선학별빛' },
-	{ value: 'nuri', label: '누리공원' },
+const tabMenus = [
+	{ label: '서비스 안내', href: '/영유아전집대여사업-서비스안내' },
+	{ label: '프로그램 신청', active: true, href: '/프로그램신청' },
 ];
 
-const searchOptions = [
-	{ value: 'title', label: '제목' },
-	{ value: 'content', label: '내용' },
-	{ value: 'all', label: '전체' },
+const programRows = [
+	{
+		number: 31,
+		title: '[선학] 여름방학 별자리 여행(7/30 15시)',
+		period: '2025-07-23 10:00 ~ 2025-07-30 09:00',
+		eventPeriod: '2025-07-30 15:00 ~ 2025-07-30 16:00',
+		target: '초등1 ~ 성인',
+		capacity: '0명 / 40명',
+		waitingCapacity: '0명 / 0명',
+		href: './영유아전집대여사업-서비스신청_상세',
+		badges: [
+			{ text: '선학별빛', type: '128121' },
+			{ text: '어린이전문', type: 'status-child' },
+			{ text: '접수중', type: 'status-progress' },
+			{ text: '접수종료', type: 'status-end' },
+			{ text: '접수대기', type: 'status-pending' },
+		],
+	},
+	{
+		number: 30,
+		title: '독서근력 키우기, 독서마라톤',
+		period: '2025-05-06 00:00 ~ 2025-08-10 23:30',
+		eventPeriod: '2025-05-06 00:00 ~ 2025-08-13 00:00',
+		target: '행사대상 도서관누리집 회원 누구나',
+		capacity: '91명 / 999명',
+		waitingCapacity: '0명 / 0명',
+		href: './영유아전집대여사업-서비스신청_상세',
+		badges: [
+			{ text: '선학별빛', type: '128121' },
+			{ text: '어린이전문', type: 'status-child' },
+			{ text: '접수중', type: 'status-progress' },
+			{ text: '접수종료', type: 'status-end' },
+			{ text: '접수대기', type: 'status-pending' },
+		],
+	},
 ];
 ---
 
-<Layout title="프로그램신청">
-	<SubLayout title="프로그램신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
-		<div class="program-application">
-			<!-- 신청접수 시 주의사항 -->
-			<div class="info-notice program-notice">
-				<div class="info-notice__header">
-					<div class="info-notice__icon">
-						<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
-					</div>
-					<h3 class="info-notice__title">신청접수 시 주의사항</h3>
+<Layout title="영유아전집대여사업">
+	<SubLayout title="프로그램 신청" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 신청접수 시 주의사항 -->
+		<div class="info-notice program-notice mb-4">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
 				</div>
-				<div class="program-notice__content">
-					<ul class="program-notice__list">
-						<li>신청접수 시 주의사항</li>
-						<li>회원님의 PC 시간과 서버 시간은 오차가 있을 수 있습니다.</li>
-						<li>새로 고침을 반복적으로 하시면 접속이 느려질 수 있습니다.</li>
-					</ul>
-				</div>
+				<h3 class="info-notice__title">신청접수 시 주의사항</h3>
 			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>신청접수 시 주의사항</li>
+					<li>회원님의 PC 시간과 서버 시간은 오차가 있을 수 있습니다.</li>
+					<li>새로 고침을 반복적으로 하시면 접속이 느려질 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
 
-			<!-- 검색 섹션 -->
-			<div class="program-search-section">
-				<div class="program-search-form">
-					<UiSelect name="library" options={libraryOptions} value="" size="medium" class="program-search__library" />
+		<!-- 검색바 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
 					<UiSelect
-						name="searchType"
-						options={searchOptions}
-						value="title"
+						options={[{ value: '', label: '전집도서관' }]}
+						name="library"
 						size="medium"
-						class="program-search__type"
+						class="w-200-mobile-full"
+						variant="default"
 					/>
-					<UiInput type="text" name="searchQuery" placeholder="검색어를 입력해주세요." class="program-search__input" />
-					<UiButton text="검색" variant="darkBlue" size="medium" class="program-search__button" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '제목' }]}
+						name="searchType"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
 				</div>
 			</div>
+		</div>
 
-			<!-- 검색 결과 총 건수 -->
-			<div class="program-results">
-				<div class="program-results__summary">
-					총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
-				</div>
+		<!-- 검색 결과 총합 -->
+		<div class="bbs-total mb20">
+			총 <strong class="text-primary">459</strong>건 ( <strong class="text-primary">1</strong> / 46 )
+		</div>
 
-				<!-- 프로그램 카드 목록 -->
-				<div class="program-card-list">
-					<!-- 선학별빛 프로그램 카드 -->
-					<li>
-						<a class="program-card" href="/프로그램신청-상세">
-							<div class="program-card__index">31.</div>
+		<!-- 프로그램 카드 목록 -->
+		<div class="program-card-list">
+			{
+				programRows.map((program, index) => (
+					<li key={program.number}>
+						<a class="program-card" href={program.href}>
+							<div class="program-card__index">{program.number}.</div>
 							<div class="program-card__content">
 								<div class="program-card__header">
 									<div class="program-card__badges">
-										<span class="program-badge program-badge--library-sunhak">선학별빛</span>
-										<span class="program-badge program-badge--status-accepting">접수중</span>
-										<span class="program-badge program-badge--status-waiting">행사대기</span>
+										{program.badges.map(badge => (
+											<span class={`program-badge program-badge--${badge.type}`}>{badge.text}</span>
+										))}
 									</div>
 								</div>
 								<div class="program-card__body">
-									<h3 class="program-card__title">
-										[선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리 여행(7/30 15시)선학] 여름방학 별자리
-										여행(7/30 15시)
-									</h3>
+									<h3 class="program-card__title">{program.title}</h3>
 									<div class="program-card__details">
 										<div class="program-card__detail-row">
 											<div class="program-detail">
 												<span class="program-detail__label">접수기간</span>
-												<span class="program-detail__value">2025-07-23 10:00 ~ 2025-07-30 09:00</span>
+												<span class="program-detail__value">{program.period}</span>
 											</div>
 											<div class="program-detail">
 												<span class="program-detail__label">행사기간</span>
-												<span class="program-detail__value">2025-07-30 15:00 ~ 2025-07-30 16:00</span>
+												<span class="program-detail__value">{program.eventPeriod}</span>
 											</div>
 										</div>
 										<div class="program-card__detail-row">
 											<div class="program-detail">
 												<span class="program-detail__label">대상</span>
-												<span class="program-detail__value">초등1 ~ 성인</span>
+												<span class="program-detail__value">{program.target}</span>
 											</div>
 											<div class="program-detail">
 												<span class="program-detail__label">모집인원(접수/정원)</span>
-												<span class="program-detail__value">0명 / 40명</span>
+												<span class="program-detail__value">{program.capacity}</span>
 											</div>
 											<div class="program-detail">
 												<span class="program-detail__label">대기인원(접수/정원)</span>
-												<span class="program-detail__value">0명/ 0명</span>
+												<span class="program-detail__value">{program.waitingCapacity}</span>
 											</div>
 										</div>
 									</div>
@@ -119,58 +153,13 @@ const searchOptions = [
 							</div>
 						</a>
 					</li>
+				))
+			}
+		</div>
 
-					<!-- 청학 프로그램 카드 -->
-					<li>
-						<a class="program-card" href="/프로그램신청-상세">
-							<div class="program-card__index">3022.</div>
-							<div class="program-card__content">
-								<div class="program-card__header">
-									<div class="program-card__badges">
-										<span class="program-badge program-badge--library-cheonghak">청학</span>
-										<span class="program-badge program-badge--status-ended">행사종료</span>
-										<span class="program-badge program-badge--status-ongoing">행사중</span>
-									</div>
-								</div>
-								<div class="program-card__body">
-									<h3 class="program-card__title">독서근력 키우기, 독서마라톤</h3>
-									<div class="program-card__details">
-										<div class="program-card__detail-row">
-											<div class="program-detail">
-												<span class="program-detail__label">접수기간</span>
-												<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-10 23:30</span>
-											</div>
-											<div class="program-detail">
-												<span class="program-detail__label">행사기간</span>
-												<span class="program-detail__value">2025-05-06 00:00 ~ 2025-08-13 00:00</span>
-											</div>
-										</div>
-										<div class="program-card__detail-row">
-											<div class="program-detail">
-												<span class="program-detail__label">대상</span>
-												<span class="program-detail__value">행사대상 도서관누리집 회원 누구나</span>
-											</div>
-											<div class="program-detail">
-												<span class="program-detail__label">모집인원(접수/정원)</span>
-												<span class="program-detail__value">91명 / 999명</span>
-											</div>
-											<div class="program-detail">
-												<span class="program-detail__label">대기인원(접수/정원)</span>
-												<span class="program-detail__value">0명/ 0명</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
-				</div>
-
-				<!-- 페이지네이션  -->
-				<div class="pagination-section">
-					<UiPagination currentPage={1} totalPages={46} showFirstLast={true} showPrevNext={true} />
-				</div>
-			</div>
+		<!-- 페이지네이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} showFirstLast={true} showPrevNext={true} />
 		</div>
 	</SubLayout>
 </Layout>

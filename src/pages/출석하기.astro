@@ -38,177 +38,179 @@ const monthOptions = [
 		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
 
 		<!-- 달력 섹션 -->
-		<div class="hall-calendar" data-hall-calendar>
-			<!-- 달력 헤더 -->
-			<div class="hall-calendar__header">
-				<button class="hall-calendar__nav" data-nav="prev" type="button">
-					<img src="./assets/images/icon/arrow-left.svg" alt="이전 달" width="19.2" height="19.2" />
-				</button>
+		<div class="hall-calendar-wrp">
+			<div class="hall-calendar" data-hall-calendar>
+				<!-- 달력 헤더 -->
+				<div class="hall-calendar__header">
+					<button class="hall-calendar__nav" data-nav="prev" type="button">
+						<img src="./assets/images/icon/arrow-left.svg" alt="이전 달" width="19.2" height="19.2" />
+					</button>
 
-				<div class="hall-calendar__date">
-					<UiSelect
-						name="year"
-						size="medium"
-						options={yearOptions}
-						value="2025"
-						variant="ghost"
-						class="hall-calendar__year-select"
-					/>
-					<UiSelect
-						name="month"
-						size="medium"
-						options={monthOptions}
-						value="5"
-						variant="ghost"
-						class="hall-calendar__month-select"
-					/>
-				</div>
-
-				<button class="hall-calendar__nav" data-nav="next" type="button">
-					<img src="./assets/images/icon/arrow-right.svg" alt="다음 달" width="19.2" height="19.2" />
-				</button>
-			</div>
-
-			<!-- 요일 헤더 -->
-			<div class="hall-calendar__weekdays">
-				<div class="hall-calendar__weekday hall-calendar__weekday--sunday">일</div>
-				<div class="hall-calendar__weekday">월</div>
-				<div class="hall-calendar__weekday">화</div>
-				<div class="hall-calendar__weekday">수</div>
-				<div class="hall-calendar__weekday">목</div>
-				<div class="hall-calendar__weekday">금</div>
-				<div class="hall-calendar__weekday hall-calendar__weekday--saturday">토</div>
-			</div>
-
-			<!-- 달력 그리드 -->
-			<div class="hall-calendar__grid" data-calendar-grid>
-				<!-- 1주차 -->
-				<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
-				<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
-				<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">1</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">2</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">3</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--saturday">
-					<div class="hall-calendar__day">4</div>
-				</div>
-
-				<!-- 2주차 -->
-				<div class="hall-calendar__cell hall-calendar__cell--sunday">
-					<div class="hall-calendar__day">5</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">6</div>
-					<div class="hall-calendar__status hall-calendar__status--present">출석</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">7</div>
-					<div class="hall-calendar__status hall-calendar__status--absent">결석</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">8</div>
-					<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">9</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">10</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--saturday">
-					<div class="hall-calendar__day">11</div>
-				</div>
-
-				<!-- 3주차 -->
-				<div class="hall-calendar__cell hall-calendar__cell--sunday">
-					<div class="hall-calendar__day">12</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">13</div>
-					<div class="hall-calendar__status hall-calendar__status--present">출석</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">14</div>
-					<div class="hall-calendar__status hall-calendar__status--present">출석</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">15</div>
-					<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">16</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">17</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--saturday">
-					<div class="hall-calendar__day">18</div>
-				</div>
-
-				<!-- 4주차 -->
-				<div class="hall-calendar__cell hall-calendar__cell--sunday">
-					<div class="hall-calendar__day">19</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">20</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">21</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">22</div>
-					<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--today">
-					<div class="hall-calendar__day">23</div>
-					<div class="hall-calendar__buttons">
-						<button type="button" class="hall-calendar__button hall-calendar__button--check-in">
-							<img src="./assets/images/icon/icon-check2.svg" alt="출석하기 체크" />
-							<span>출석하기</span>
-						</button>
+					<div class="hall-calendar__date">
+						<UiSelect
+							name="year"
+							size="medium"
+							options={yearOptions}
+							value="2025"
+							variant="ghost"
+							class="hall-calendar__year-select"
+						/>
+						<UiSelect
+							name="month"
+							size="medium"
+							options={monthOptions}
+							value="5"
+							variant="ghost"
+							class="hall-calendar__month-select"
+						/>
 					</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">24</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--saturday">
-					<div class="hall-calendar__day">25</div>
+
+					<button class="hall-calendar__nav" data-nav="next" type="button">
+						<img src="./assets/images/icon/arrow-right.svg" alt="다음 달" width="19.2" height="19.2" />
+					</button>
 				</div>
 
-				<!-- 5주차 -->
-				<div class="hall-calendar__cell hall-calendar__cell--sunday">
-					<div class="hall-calendar__day">26</div>
+				<!-- 요일 헤더 -->
+				<div class="hall-calendar__weekdays">
+					<div class="hall-calendar__weekday hall-calendar__weekday--sunday">일</div>
+					<div class="hall-calendar__weekday">월</div>
+					<div class="hall-calendar__weekday">화</div>
+					<div class="hall-calendar__weekday">수</div>
+					<div class="hall-calendar__weekday">목</div>
+					<div class="hall-calendar__weekday">금</div>
+					<div class="hall-calendar__weekday hall-calendar__weekday--saturday">토</div>
 				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">27</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">28</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">29</div>
-					<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">30</div>
-				</div>
-				<div class="hall-calendar__cell">
-					<div class="hall-calendar__day">31</div>
-				</div>
-				<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
-			</div>
 
-			<!-- 하단 버튼 영역 -->
-			<div class="hall-calendar__footer">
-				<div class="hall-calendar__actions">
-					<UiButton text="지난 문구 다운로드" variant="tertiary" size="medium" data-current-month />
-					<UiButton text="현재 월로 이동" variant="primary" size="medium" data-current-month />
+				<!-- 달력 그리드 -->
+				<div class="hall-calendar__grid" data-calendar-grid>
+					<!-- 1주차 -->
+					<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
+					<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
+					<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">1</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">2</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">3</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--saturday">
+						<div class="hall-calendar__day">4</div>
+					</div>
+
+					<!-- 2주차 -->
+					<div class="hall-calendar__cell hall-calendar__cell--sunday">
+						<div class="hall-calendar__day">5</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">6</div>
+						<div class="hall-calendar__status hall-calendar__status--present">출석</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">7</div>
+						<div class="hall-calendar__status hall-calendar__status--absent">결석</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">8</div>
+						<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">9</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">10</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--saturday">
+						<div class="hall-calendar__day">11</div>
+					</div>
+
+					<!-- 3주차 -->
+					<div class="hall-calendar__cell hall-calendar__cell--sunday">
+						<div class="hall-calendar__day">12</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">13</div>
+						<div class="hall-calendar__status hall-calendar__status--present">출석</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">14</div>
+						<div class="hall-calendar__status hall-calendar__status--present">출석</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">15</div>
+						<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">16</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">17</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--saturday">
+						<div class="hall-calendar__day">18</div>
+					</div>
+
+					<!-- 4주차 -->
+					<div class="hall-calendar__cell hall-calendar__cell--sunday">
+						<div class="hall-calendar__day">19</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">20</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">21</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">22</div>
+						<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--today">
+						<div class="hall-calendar__day">23</div>
+						<div class="hall-calendar__buttons">
+							<button type="button" class="hall-calendar__button hall-calendar__button--check-in">
+								<img src="./assets/images/icon/icon-check2.svg" alt="출석하기 체크" />
+								<span>출석하기</span>
+							</button>
+						</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">24</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--saturday">
+						<div class="hall-calendar__day">25</div>
+					</div>
+
+					<!-- 5주차 -->
+					<div class="hall-calendar__cell hall-calendar__cell--sunday">
+						<div class="hall-calendar__day">26</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">27</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">28</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">29</div>
+						<div class="hall-calendar__status hall-calendar__status--closed">휴관일</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">30</div>
+					</div>
+					<div class="hall-calendar__cell">
+						<div class="hall-calendar__day">31</div>
+					</div>
+					<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
+				</div>
+
+				<!-- 하단 버튼 영역 -->
+				<div class="hall-calendar__footer">
+					<div class="hall-calendar__actions">
+						<UiButton text="지난 문구 다운로드" variant="tertiary" size="medium" data-current-month />
+						<UiButton text="현재 월로 이동" variant="primary" size="medium" data-current-month />
+					</div>
 				</div>
 			</div>
 		</div>
