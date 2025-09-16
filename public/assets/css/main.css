@@ -77252,24 +77252,63 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 .date-selectors .popular-books-table thead tr th.rank-col {
   min-width: 60px;
 }
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.rank-col {
+    min-width: 50px;
+  }
+}
 .date-selectors .popular-books-table thead tr th.institution-col {
-  min-width: 100px;
+  min-width: 115px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.institution-col {
+    min-width: 100px;
+  }
 }
 .date-selectors .popular-books-table thead tr th.date1-col {
   min-width: 100px;
 }
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.date1-col {
+    min-width: 90px;
+  }
+}
 .date-selectors .popular-books-table thead tr th.date2-col {
   min-width: 100px;
 }
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.date2-col {
+    min-width: 90px;
+  }
+}
 .date-selectors .popular-books-table thead tr th.count-col {
   min-width: 100px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.count-col {
+    min-width: 90px;
+  }
 }
 .date-selectors .popular-books-table thead tr th.title-col {
   width: auto;
   min-width: 300px;
 }
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.title-col {
+    min-width: 250px;
+  }
+}
 .date-selectors .popular-books-table thead tr th.isbn-col {
   min-width: 180px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table thead tr th.isbn-col {
+    min-width: 160px;
+  }
+}
+.date-selectors .popular-books-table thead tr td,
+.date-selectors .popular-books-table thead tr th {
+  border: none !important;
 }
 .date-selectors .popular-books-table tbody tr {
   border-bottom: 1px solid #cbcccc;
@@ -77277,13 +77316,81 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 .date-selectors .popular-books-table tbody tr:hover {
   background-color: #f8f9fa;
 }
+.date-selectors .popular-books-table tbody tr .book-info {
+  margin-top: 0;
+}
+.date-selectors .popular-books-table tbody tr .book-title {
+  min-height: auto;
+}
+.date-selectors .popular-books-table tbody tr .title-col {
+  text-align: left;
+}
+.date-selectors .popular-books-table tbody tr .title-col .book-info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.date-selectors .popular-books-table tbody tr .title-col .book-image {
+  flex: none;
+}
+.date-selectors .popular-books-table tbody tr .title-col .book-title {
+  min-height: 51px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr .title-col .book-title {
+    min-height: auto;
+  }
+}
+.date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge {
+  background-color: #3c79c2;
+  border-radius: 20px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge {
+    padding: 6px 8px;
+  }
+}
+.date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge img {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge .change-number {
+  color: #ffffff;
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .date-selectors .popular-books-table tbody tr .institution-col .rank-change-badge .change-number {
+    font-size: 15px;
+  }
+}
+.date-selectors .popular-books-table tbody tr th,
+.date-selectors .popular-books-table tbody tr td {
+  border: none !important;
+}
 .date-selectors .popular-books-table tbody tr td {
   padding: 12px 16px;
-  border-right: 1px solid #cbcccc;
   font-size: 17px;
   line-height: 1.5;
   color: #4b4d4d;
   vertical-align: middle;
+  text-align: center;
+}
+.date-selectors .popular-books-table tbody tr td.text-left {
+  text-align: left;
 }
 @media (max-width: 900px) {
   .date-selectors .popular-books-table tbody tr td {
@@ -77293,156 +77400,6 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .date-selectors .popular-books-table tbody tr td:last-child {
   border-right: none;
-}
-.date-selectors .popular-books-table tbody tr td.rank-col {
-  text-align: center;
-  width: 70px;
-}
-.date-selectors .popular-books-table tbody tr td.rank-col .rank-number {
-  font-weight: 400;
-  color: #464c53;
-}
-.date-selectors .popular-books-table tbody tr td.institution-col {
-  text-align: center;
-  width: 100px;
-}
-.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0px;
-  height: 36px;
-  width: auto;
-  padding: 8px 12px;
-  background-color: #3c79c2;
-  border-radius: 20px;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge {
-    height: 30px;
-    padding: 6px 10px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge img {
-  width: 24px;
-  height: 24px;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge img {
-    width: 20px;
-    height: 20px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge .change-number {
-  font-weight: 500;
-  font-size: 17px;
-  color: white;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.institution-col .rank-change-badge .change-number {
-    font-size: 14px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.date1-col, .date-selectors .popular-books-table tbody tr td.date2-col, .date-selectors .popular-books-table tbody tr td.count-col {
-  text-align: center;
-  width: 60px;
-}
-.date-selectors .popular-books-table tbody tr td.date1-col .date-text,
-.date-selectors .popular-books-table tbody tr td.date1-col .count-text, .date-selectors .popular-books-table tbody tr td.date2-col .date-text,
-.date-selectors .popular-books-table tbody tr td.date2-col .count-text, .date-selectors .popular-books-table tbody tr td.count-col .date-text,
-.date-selectors .popular-books-table tbody tr td.count-col .count-text {
-  font-weight: 400;
-}
-.date-selectors .popular-books-table tbody tr td.title-col {
-  width: auto;
-  min-width: 360px;
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.title-col .book-info {
-    gap: 12px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image {
-  flex-shrink: 0;
-  width: 70px;
-  height: 105px;
-  background-color: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image {
-    width: 50px;
-    height: 75px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details {
-    gap: 8px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-title {
-  font-weight: 700;
-  font-size: 19px;
-  line-height: 1.5;
-  color: #4b4d4d;
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-title {
-    font-size: 16px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-author {
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.5;
-  color: #4b4d4d;
-  margin: 0;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.title-col .book-info .book-details .book-author {
-    font-size: 14px;
-  }
-}
-.date-selectors .popular-books-table tbody tr td.isbn-col {
-  text-align: center;
-  width: 180px;
-}
-.date-selectors .popular-books-table tbody tr td.isbn-col .isbn-text {
-  font-weight: 400;
-}
-@media (max-width: 900px) {
-  .date-selectors .popular-books-table tbody tr td.isbn-col .isbn-text {
-    font-size: 13px;
-  }
-}
-.date-selectors .popular-books-table tbody .score-col {
-  text-align: center;
 }
 
 .source-text {
@@ -77708,6 +77665,22 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   flex: 1;
   overflow: hidden;
 }
+.ai-carousel-section .carousel-container .carousel-content .ai-carousel-swiper {
+  width: 100%;
+}
+.ai-carousel-section .carousel-container .carousel-content .ai-carousel-swiper .swiper-wrapper {
+  align-items: center;
+}
+.ai-carousel-section .carousel-container .carousel-content .ai-carousel-swiper .swiper-slide {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .ai-carousel-section .carousel-container .carousel-content .ai-carousel-swiper .swiper-slide {
+    gap: 8px;
+  }
+}
 .ai-carousel-section .carousel-container .carousel-content .carousel-slide {
   display: flex;
   gap: 12px;
@@ -77718,7 +77691,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     gap: 8px;
   }
 }
-.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card {
+.ai-carousel-section .carousel-container .carousel-content .slide-card {
   flex: 1;
   background-color: #ffffff;
   border: 1px solid #b1b3b3;
@@ -77727,24 +77700,26 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 78px;
   min-height: 78px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card--active {
+.ai-carousel-section .carousel-container .carousel-content .slide-card--active {
   border: 2px solid #3c79c2;
 }
-.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card:hover {
+.ai-carousel-section .carousel-container .carousel-content .slide-card:hover {
   border-color: #3c79c2;
   background-color: #f8f9fa;
 }
 @media (max-width: 900px) {
-  .ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card {
+  .ai-carousel-section .carousel-container .carousel-content .slide-card {
     padding: 12px;
+    height: auto;
     min-height: 70px;
   }
 }
-.ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card p {
+.ai-carousel-section .carousel-container .carousel-content .slide-card p {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
@@ -77758,7 +77733,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   text-overflow: ellipsis;
 }
 @media (max-width: 900px) {
-  .ai-carousel-section .carousel-container .carousel-content .carousel-slide .slide-card p {
+  .ai-carousel-section .carousel-container .carousel-content .slide-card p {
     font-size: 13px;
     -webkit-line-clamp: 4;
   }
@@ -78793,7 +78768,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   flex-wrap: wrap;
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 2;
+  line-height: 1.3;
   color: #111827;
   margin: 0;
   word-break: keep-all;
@@ -91469,7 +91444,7 @@ body.modal-open {
 
 .book-author {
   margin-top: 0.25rem;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.0625rem;
   line-height: 1.3;
   color: #323333;

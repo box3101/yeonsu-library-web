@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SubLayout from '../components/layout/SubLayout.astro';
 import UiInput from '../components/ui/UiInput.astro';
 import UiButton from '../components/ui/UiButton.astro';
+import UiPagination from '../components/ui/UiPagination.astro';
 
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
@@ -13,13 +14,21 @@ const breadcrumbItems = [
 // 도서별이용분석 데이터
 const popularBooks = [
 	{
+		rank: 72,
+		title: '삼형제 토끼 :현덕 대표 그림동화',
+		author: '2010 / 처음주니어 / 현덕 글 ;홍영우 그림',
+		isbn: '92323232323',
+		availableCount: 100,
+		loanCount: 7902,
+		image: './assets/images/book1.jpg',
+	},
+	{
 		rank: 1,
 		title: '저주토끼 (리커버)',
 		author: '2022 / 아작 / 정보라(지은이)',
 		isbn: '9791166866665',
-		currentCount: 456,
-		previousCount: 56,
-		totalCount: 512,
+		availableCount: 63,
+		loanCount: 4848,
 		image: './assets/images/book1.jpg',
 	},
 	{
@@ -27,9 +36,8 @@ const popularBooks = [
 		title: '순례 주택 :유은실 소설',
 		author: '2021 / 비용소 / 지은이: 유은실',
 		isbn: '9788949123493',
-		currentCount: 109,
-		previousCount: 44,
-		totalCount: 153,
+		availableCount: 100,
+		loanCount: 153,
 		image: './assets/images/book2.jpg',
 	},
 	{
@@ -37,30 +45,18 @@ const popularBooks = [
 		title: '빛과 실',
 		author: '2025 / 문학과지성사 / 지은이: 한강',
 		isbn: '9788932043562',
-		currentCount: 86,
-		previousCount: 89,
-		totalCount: 175,
+		availableCount: 89,
+		loanCount: 175,
 		image: './assets/images/book3.jpg',
 	},
 	{
 		rank: 4,
-		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
-		author: '2021 / 해결책 / 글: 차인표',
-		isbn: '9791191061048',
-		currentCount: 72,
-		previousCount: 56,
-		totalCount: 154,
+		title: '아들과 아버지',
+		author: '2021 / 가치창조 / 이정록 글 ;배민경 그림',
+		isbn: '9788963012483',
+		availableCount: 100,
+		loanCount: 4848,
 		image: './assets/images/book4.jpg',
-	},
-	{
-		rank: 5,
-		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
-		author: '2023 / 미래엔 / 원작: 흔한남매 ;그림: 도니패밀리',
-		isbn: '9791168418516',
-		currentCount: 72,
-		previousCount: 90,
-		totalCount: 162,
-		image: './assets/images/book5.jpg',
 	},
 ];
 ---
@@ -128,15 +124,20 @@ const popularBooks = [
 			<!-- 도서별이용분석 테이블 -->
 			<div class="popular-books-table-wrapper">
 				<table class="popular-books-table">
+					<colgroup>
+						<col width="10%" />
+						<col width="auto" />
+						<col width="10%" />
+						<col width="15%" />
+						<col width="10%" />
+					</colgroup>
 					<thead>
 						<tr>
 							<th class="rank-col">번호</th>
-							<th class="institution-col">기관</th>
-							<th class="date1-col">작성일</th>
-							<th class="date2-col">작성일</th>
-							<th class="count-col">조회수</th>
-							<th class="title-col">제목</th>
+							<th class="book-info-col">도서정보</th>
+							<th class="count-col">권</th>
 							<th class="isbn-col">ISBN</th>
+							<th class="loan-count-col">대출건수</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -147,30 +148,8 @@ const popularBooks = [
 										<span class="rank-number">{book.rank}</span>
 									</td>
 
-									<td class="institution-col">
-										<div class="rank-change-badge">
-											<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
-											<span class="change-number">{book.currentCount}</span>
-										</div>
-									</td>
-
-									<td class="date1-col">
-										<span class="date-text">{book.previousCount}</span>
-									</td>
-
-									<td class="date2-col">
-										<span class="date-text">{book.totalCount}</span>
-									</td>
-
-									<td class="count-col">
-										<span class="count-text">{book.totalCount}</span>
-									</td>
-
-									<td class="title-col">
+									<td class="book-info-col text-left">
 										<a href="./도서별이용분석_상세" class="book-info">
-											<div class="book-image">
-												<img src={book.image} alt={book.title} />
-											</div>
 											<div class="book-details">
 												<h3 class="book-title">{book.title}</h3>
 												<p class="book-author">{book.author}</p>
@@ -178,14 +157,27 @@ const popularBooks = [
 										</a>
 									</td>
 
+									<td class="count-col">
+										<span class="count-text">{book.availableCount}</span>
+									</td>
+
 									<td class="isbn-col">
 										<span class="isbn-text">{book.isbn}</span>
+									</td>
+
+									<td class="loan-count-col">
+										<span class="loan-count-text">{book.loanCount}</span>
 									</td>
 								</tr>
 							))
 						}
 					</tbody>
 				</table>
+			</div>
+
+			<!-- 페이징네비게이션 -->
+			<div class="pagination-section">
+				<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
 			</div>
 		</div>
 	</SubLayout>

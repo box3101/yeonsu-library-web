@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+##
+
+영어로 먼저 번역 후 영어로 작성
+
 ## Development Commands
 
 **Development**
@@ -15,7 +19,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **Build & Production**
 
 - `npm run build` - Standard build with post-formatting
-- `npm run build:clean` - Clean build with formatting and post-processing
+- `npm run build:clean` - Clean build (same as standard build)
 - `npm run build:jsp` - Build with JSP compatibility (removes Astro attributes)
 - `npm run preview` - Preview production build locally
 
@@ -49,9 +53,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Tech Stack
 
-- **Framework**: Astro 4.15.0 (static site generation)
+- **Framework**: Astro 2.10.15 (static site generation)
 - **Styling**: SCSS with 7-1 architecture + BEM methodology
-- **JavaScript**: **Vanilla JS only** (TypeScript prohibited per .cursorrules)
+- **JavaScript**: **Vanilla JS only** (TypeScript prohibited)
 - **State Management**: Nanostores for client-side state (configured but not actively used)
 - **UI Library**: Swiper.js for sliders, jQuery for legacy features
 - **Testing**: Vitest (configured but tests not implemented yet)
@@ -117,7 +121,7 @@ Each feature auto-registers with LibraryCommon and initializes based on selector
 ### Important Constraints
 
 1. **Publishing-Only Project**: No backend API integration, no server-side logic, no real form submissions
-2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited per .cursorrules
+2. **Vanilla JS Only**: TypeScript usage is explicitly prohibited
 3. **Component Reuse**: Always prefer existing UI components (UiSelect, UiInput, UiButton, etc.) - DO NOT create new components unless absolutely necessary
 4. **BEM Methodology**: CSS follows Block__Element--Modifier pattern
 5. **Responsive Design**: Mobile-first with specific breakpoints (900px, 1200px)
@@ -251,7 +255,7 @@ Menu configuration is centralized in `src/data/menuData.ts` with TypeScript inte
 
 ### Testing Strategy
 
-**Current State**: 
+**Current State**:
 - Vitest configured but no tests implemented yet
 - HTML beautification and Prettier formatting for consistent output
 - Manual testing through development server

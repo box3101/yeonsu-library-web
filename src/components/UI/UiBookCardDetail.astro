@@ -71,12 +71,16 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 					<div class="ui-book-card__image-mask">
 						<img src={imageUrl} alt={title} class="ui-book-card__image" />
 					</div>
-					<div class="ui-book-card__image-overlay">
-						<button class="ui-book-card__add-button" type="button">
-							<span>내책장담기</span>
-							<img src="./assets/images/icon/icon-plus.svg" alt="내책장에 추가" class="icon icon-sm icon-white" />
-						</button>
-					</div>
+					{
+						showCollectionInfo && (
+							<div class="ui-book-card__image-overlay">
+								<button class="ui-book-card__add-button" type="button">
+									<span>내책장담기</span>
+									<img src="./assets/images/icon/icon-plus.svg" alt="내책장에 추가" class="icon icon-sm icon-white" />
+								</button>
+							</div>
+						)
+					}
 				</div>
 			</div>
 		</div>

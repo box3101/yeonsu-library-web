@@ -202,6 +202,10 @@ const books = [
 						vol: '1',
 						loanCount: '287916건 (최근 90일 기준)',
 					}}
+					showBookInfo={false}
+					showCollectionInfo={false}
+					showMARC={false}
+					showShelfInfo={false}
 				/>
 
 				<!-- 책소개 아코디언 -->
@@ -231,6 +235,12 @@ const books = [
 					isExpanded={true}
 					className="custom-accordion"
 				>
+					<div class="book-description mb20">
+						<p>
+							※ 대출량과 대출순위 통계는 매월 초에 재집계되며, 참여 도서관의 증가와 같은 다양한 영향 요소에 따라
+							대출량과 순위가 달라질 수 있습니다.
+						</p>
+					</div>
 					<div class="statistics-content">
 						<div class="statistics-content__item statistics-chart-item w-full">
 							<canvas id="myChart1"></canvas>
