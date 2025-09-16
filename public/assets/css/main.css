@@ -60516,6 +60516,11 @@ h6 {
     transition: none;
   }
 }
+.header {
+  background: #fff;
+  position: relative;
+  z-index: 1001;
+}
 .header .header-top {
   display: flex;
   justify-content: space-between;
@@ -62568,7 +62573,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   height: 2rem;
   border-radius: 1rem;
   font-family: "Pretendard GOV";
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: white;
   text-align: center;
@@ -76763,6 +76768,48 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   text-align: center;
 }
 
+.btn-top {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #cbcccc;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05), 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  transition: all 0.3s ease;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+}
+.btn-top:hover {
+  background: #ecf2f9;
+}
+.btn-top:active {
+  background: #d8e4f3;
+}
+.btn-top svg {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 900px) {
+  .btn-top {
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
 .post-reply {
   background: #ecf2f9;
   padding: 1.5rem;
@@ -78428,7 +78475,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 
 .text-red {
-  color: #D7424E;
+  color: #d7424e;
 }
 
 .form-field--buttons {
@@ -91565,6 +91612,30 @@ body.modal-open {
   flex: 1;
   text-align: left;
   white-space: nowrap;
+}
+
+.gnb-dim {
+  position: fixed;
+  top: 11rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 11rem);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.gnb-dim.show {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 900px) {
+  .gnb-dim {
+    top: 3.75rem;
+    height: calc(100% - 3.75rem);
+  }
 }
 
 .gnb-sub {
