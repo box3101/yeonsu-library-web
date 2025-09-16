@@ -2,6 +2,47 @@
 @use '../variables/colors' as *;
 @use 'sass:color';
 @use 'sass:math';
+// Top 버튼
+.btn-top {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	width: 64px;
+	height: 64px;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 1px solid #cbcccc;
+	background: #fff;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05), 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+	z-index: 100;
+	transition: all 0.3s ease;
+	@include font(to-rem(15), 400, #191a1a);
+
+	&:hover {
+		background: #ecf2f9;
+	}
+
+	&:active {
+		background: #d8e4f3;
+	}
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	@include mobile {
+		width: 50px;
+		height: 50px;
+		right: 20px;
+		bottom: 20px;
+	}
+}
 
 .post-reply {
 	background: #ecf2f9;
@@ -1644,7 +1685,7 @@
 		&__image {
 			flex-shrink: 0;
 			width: 186px;
-			
+
 			img {
 				width: 100%;
 				height: auto;
@@ -1655,7 +1696,7 @@
 		&__text {
 			@include font(17px, 400, #191a1a, 1.5);
 			text-align: center;
-			
+
 			strong {
 				@include font(19px, 700, #3c79c2, 1.5);
 			}
@@ -1664,7 +1705,6 @@
 				margin: 0 0 4px 0;
 				text-align: center;
 
-				
 				&:last-child {
 					margin-bottom: 0;
 				}
@@ -1683,11 +1723,11 @@
 		padding: 32px;
 		position: relative;
 		min-height: 356px;
-		
+
 		&--blue {
 			background-color: #e6f2fa;
 
-			.service-card__image{
+			.service-card__image {
 				position: absolute;
 				bottom: 0;
 				right: 21px;
@@ -1714,25 +1754,25 @@
 		&__content {
 			display: flex;
 			flex-direction: column;
-			
+
 			ul {
 				list-style: none;
 				padding: 0;
 				margin: 0 0 16px 0;
-				
+
 				li {
 					@include font(17px, 400, #191a1a, 1.5);
 					margin-bottom: 8px;
 					position: relative;
 					padding-left: 12px;
-					
+
 					&:before {
 						content: '•';
 						position: absolute;
 						left: 0;
 						color: #4b4d4d;
 					}
-					
+
 					&:last-child {
 						margin-bottom: 0;
 					}
@@ -1747,13 +1787,13 @@
 
 		&__image {
 			margin-left: auto;
-			margin-top:auto;
+			margin-top: auto;
 			text-align: center;
 
 			@include mobile {
 				display: none;
 			}
-			
+
 			img {
 				max-width: 100%;
 				height: auto;
@@ -1783,11 +1823,11 @@
 	}
 }
 
-.text-red{
-	color: #D7424E;
+.text-red {
+	color: #d7424e;
 }
 
-.form-field--buttons{
+.form-field--buttons {
 	margin-top: 40px;
 	@include mobile {
 		margin-top: 24px;
@@ -1805,7 +1845,7 @@
 			align-items: center;
 			gap: 37px;
 			padding: 20px 0;
-		border-bottom: 1px solid #e5e7eb;
+			border-bottom: 1px solid #e5e7eb;
 
 			&:last-child {
 				border-bottom: none;
@@ -1855,7 +1895,7 @@
 				.post-navigation__label {
 					font-size: 13px;
 					margin-bottom: 6px;
-					flex:none;
+					flex: none;
 				}
 
 				.post-navigation__title {

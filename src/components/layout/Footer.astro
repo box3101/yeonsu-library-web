@@ -1,6 +1,7 @@
 ---
 import UiRelatedSiteButton from '@components/UI/UiRelatedSiteButton.astro';
 import UiNavButton from '@components/UI/UiNavButton.astro';
+import IconArrowTop from '@components/icon/IconArrowTop.astro';
 
 const libraries = [
 	{
@@ -55,6 +56,27 @@ const copyrightLinks = [
 ---
 
 <footer class="footer">
+	<!-- Top 버튼 -->
+	<a href="#" class="btn-top" aria-label="페이지 상단으로 이동" id="topButton">
+		<img src="./assets/images/icon/icon-arrow-top.svg" alt="위로" />
+		<span class="visually-hidden">위로</span>
+	</a>
+
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', function () {
+			const topButton = document.getElementById('topButton');
+
+			if (topButton) {
+				topButton.addEventListener('click', function (e) {
+					e.preventDefault();
+					window.scrollTo({
+						top: 0,
+						behavior: 'smooth',
+					});
+				});
+			}
+		});
+	</script>
 	<!-- 배너영역 -->
 	<div class="footer__content">
 		<div class="footer__related-site">
@@ -84,7 +106,9 @@ const copyrightLinks = [
 											<div class="footer__library-item-details-text">{library.address}</div>
 											<div class="footer__library-item-details-divider" />
 											<div
-												class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
+												class={`footer__library-item-details-text ${
+													library.extra ? 'footer__library-item-details-text--medium' : ''
+												}`}
 											>
 												전화: {library.phone}
 											</div>
@@ -92,7 +116,9 @@ const copyrightLinks = [
 												<>
 													<div class="footer__library-item-details-divider" />
 													<div
-														class={`footer__library-item-details-text ${library.extra ? 'footer__library-item-details-text--medium' : ''}`}
+														class={`footer__library-item-details-text ${
+															library.extra ? 'footer__library-item-details-text--medium' : ''
+														}`}
 													>
 														{library.fax ? `팩스: ${library.fax}` : library.extra}
 													</div>
@@ -114,7 +140,9 @@ const copyrightLinks = [
 							copyrightLinks.map(link => (
 								<a href={link.href} class="footer__copyright-links-button">
 									<div
-										class={`footer__copyright-links-button-text ${link.bold ? 'footer__copyright-links-button-text--bold' : ''}`}
+										class={`footer__copyright-links-button-text ${
+											link.bold ? 'footer__copyright-links-button-text--bold' : ''
+										}`}
 									>
 										{link.text}
 									</div>
