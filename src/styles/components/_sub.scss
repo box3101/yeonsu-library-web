@@ -313,6 +313,14 @@ ul.movie-card-wrp {
 			padding-left: to-rem(12);
 			@include font(to-rem(17), 400, #191a1a);
 			line-height: 150%;
+
+				ul{
+					margin-top: 10px;
+					li{
+						line-height: 150%;
+						&::before{display:none;}
+					}
+				}
 			&::before {
 				content: '';
 				position: absolute;
@@ -1312,6 +1320,11 @@ ul.movie-card-wrp {
 	@include mobile {
 		// flex-direction: column;
 		gap: to-rem(12);
+	}
+
+	&.bd-1{
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--color-gray-gy-20, #CBCCCC);
 	}
 
 	&__button {
@@ -4879,11 +4892,15 @@ ul.movie-card-wrp {
 		@include flex(row, flex-start, flex-start);
 		gap: to-rem(4);
 		font-weight: 400;
-		font-size: to-rem(15);
+		font-size: to-rem(17);
 		line-height: 1.5;
 		color: $text-color;
 		position: relative;
 		padding-left: to-rem(12);
+
+		&.mb-flex-col{
+			flex-direction: column;
+		}
 
 		@include tablet {
 			font-size: to-rem(14);
@@ -5150,6 +5167,33 @@ ul.movie-card-wrp {
 	border-radius: 12px;
 	border: 1px solid var(--color-gray-gy-20, #cbcccc);
 	background: var(--color-gray-wt, #fff);
+
+	p {
+		@include font(to-rem(19), 400, #1e2124);
+		line-height: 150%;
+
+		@include mobile {
+			font-size: to-rem(17);
+		}
+	}
+
+	.desc {
+		border-top: 1px dashed var(--color-border-gray, #B1B8BE);
+		padding-top: to-rem(24);
+		margin-top: to-rem(24);
+		display: flex;
+		align-items: center;
+		@include font(to-rem(19), 400, #0b5dd0);
+
+		@include mobile {
+			gap:5px;
+			align-items: flex-start;
+			font-size: to-rem(15);
+			line-height:  150%;
+			padding-top: to-rem(16);
+			margin-top: to-rem(16);
+		}
+	}
 
 	@include tablet {
 		padding: to-rem(20);
@@ -6267,7 +6311,7 @@ div.bookshelf-item {
 		left: 0;
 		width: 24px;
 		height: 24px;
-		@include bg-image('../images/icon/sub-title-noti.svg');
+		@include bg-image('./assets/images/icon/sub-title-noti.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;

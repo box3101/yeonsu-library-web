@@ -60519,7 +60519,7 @@ h6 {
 .header {
   background: #fff;
   position: relative;
-  z-index: 1001;
+  z-index: 999;
 }
 .header .header-top {
   display: flex;
@@ -62085,6 +62085,15 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   line-height: 1;
   line-height: 150%;
 }
+.usage-guide__content li ul {
+  margin-top: 10px;
+}
+.usage-guide__content li ul li {
+  line-height: 150%;
+}
+.usage-guide__content li ul li::before {
+  display: none;
+}
 .usage-guide__content li::before {
   content: "";
   position: absolute;
@@ -63053,6 +63062,10 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   .form-actions {
     gap: 0.75rem;
   }
+}
+.form-actions.bd-1 {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-gray-gy-20, #CBCCCC);
 }
 .form-actions__button {
   width: 8.4375rem;
@@ -66445,11 +66458,14 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   flex-wrap: nowrap;
   gap: 0.25rem;
   font-weight: 400;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.5;
   color: #333;
   position: relative;
   padding-left: 0.75rem;
+}
+.infobox__list-item.mb-flex-col {
+  flex-direction: column;
 }
 @media (max-width: 900px) {
   .infobox__list-item {
@@ -66732,6 +66748,39 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   border-radius: 12px;
   border: 1px solid var(--color-gray-gy-20, #cbcccc);
   background: var(--color-gray-wt, #fff);
+}
+.notice-box p {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: #1e2124;
+  line-height: 1;
+  line-height: 150%;
+}
+@media (max-width: 900px) {
+  .notice-box p {
+    font-size: 1.0625rem;
+  }
+}
+.notice-box .desc {
+  border-top: 1px dashed var(--color-border-gray, #B1B8BE);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: #0b5dd0;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .notice-box .desc {
+    gap: 5px;
+    align-items: flex-start;
+    font-size: 0.9375rem;
+    line-height: 150%;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
 }
 @media (max-width: 900px) {
   .notice-box {
@@ -67874,7 +67923,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   left: 0;
   width: 24px;
   height: 24px;
-  background-image: url("../images/icon/sub-title-noti.svg");
+  background-image: url("./assets/images/icon/sub-title-noti.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -80102,7 +80151,7 @@ body.modal-open {
   line-height: 2rem;
   border-radius: 0.1875rem;
   font-size: 1.0625rem;
-  font-weight: 500;
+  font-weight: bold !important;
   text-align: center;
   white-space: nowrap;
 }

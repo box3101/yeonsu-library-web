@@ -1,0 +1,161 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker, UiTab } from '@components';
+
+const breadcrumbItems = [
+  { text: '홈', link: '/' },
+  { text: '내정보', link: '#' },
+  { text: '무료택배도서 대출', link: '#' },
+];
+---
+
+<Layout title="무료택배도서 대출">
+  <SubLayout title="서비스 안내" breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+    <div class="sub-layout__content">
+      <!-- 독서 취약계층 무료택배 도서대출 서비스 -->
+      <section class="sub-layout__content-inner">
+        <div class="sub-layout__content-inner-header bd-none">
+          <h2 class="sub-layout__content-inner-header-title">독서 취약계층 무료택배 도서대출 서비스</h2>
+          <div class="sub-layout__content-inner-body-item-title-text-noti">
+            <img src="./assets/images/icon/icon-noti2.svg" alt="알림" />
+            <p>도서관 접근성이 취약한 연수구민을 대상으로 원하는 도서관 자료를 택배를 통해 무료로 집까지 배달해 주는 서비스입니다.</p>
+          </div>
+        </div>
+
+        <!-- 대상 및 증빙서류 제목 -->
+        <div class="sub-layout__content-inner-body">
+          <h3 class="com-sub-title">대상 및 증빙서류 : 도서관 회원 중 연수구민인 독서취약계층</h3>
+          <div class="com-noti">※ 독서 취약계층 : 임산부, 장애인, 만 5세 이하 어린이, 만 65세 이상 어르신, 다문화가정 구성원</div>
+        </div>
+
+        <!-- 대상 및 증빙서류 -->
+        <div class="policy-table mt24">
+          <table class="table table--bordered">
+            <thead>
+              <tr>
+                <th scope="col">대상</th>
+                <th scope="col">증빙서류</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>임산부</td>
+                <td>산모수첩(임신진단서)</td>
+              </tr>
+              <tr>
+                <td>장애인</td>
+                <td>장애인등록증(복지카드)</td>
+              </tr>
+              <tr>
+                <td>만 5세 이하 어린이</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>만 65세 이상 어르신</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>다문화가정 구성원</td>
+                <td>외국인 등록증(본인), 가족관계증명서(가족)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 도장애인 책나래 서비스 -->
+        <div class="sub-layout__content-inner-body-item-title-text-noti">
+          <img src="./assets/images/icon/icon-noti2.svg" alt="알림 아이콘" />
+          <p>
+            도장애인은 '책나래' 서비스(<a href="https://cn.nld.go.kr" target="_blank" rel="noopener noreferrer">https://cn.nld.go.kr</a>)를 통해 무료 택배 도서 대출이
+            가능합니다.
+          </p>
+        </div>
+
+        <!-- 가입방법 -->
+        <h3 class="com-sub-title">가입방법 : 연수청학도서관 방문 또는 온라인 신청(tajy415@korea.kr) 032-749-8265</h3>
+        <ul class="sub-layout__content-inner-body-item-list">
+          <li>무료택배회원 가입신청서(대리 방문 시 본인, 대리인 신분증 및 가족관계증명서 지참)</li>
+        </ul>
+
+        <!-- 신청서 다운로드 -->
+        <div class="flex justify-center">
+          <UiButton
+            variant="primary"
+            text="신청서 다운로드"
+            size="large"
+            icon="icon-arrow-right"
+            iconAddClass="icon icon-xxsm icon-white"
+            iconPosition="right"
+            class="mt40"
+            target="_blank" rel="noopener noreferrer"
+            href="#"
+          />
+        </div>
+
+        <!-- 대출 규정정 -->
+        <h3 class="com-sub-title">대출규정: 1인 5권 22일(반납연기 1회 가능)</h3>
+        <ul class="sub-layout__content-inner-body-item-list">
+          <li>대출일: 택배 발송일</li>
+          <li>반납일: 자료 도착일</li>
+        </ul>
+
+        <!-- 이용 방법 -->
+        <h3 class="com-sub-title">이용 방법</h3>
+        <ul class="sub-layout__content-inner-body-item-list">
+          <li>
+            대출신청 <br />
+            <p>연수구립도서관 홈페이지(로그인) > 책 읽는 연수구 > 무료택배 도서대출 > 신청하기</p>
+            <p class="text-primary">※ 연수청학도서관 자료 중 대출상태가 ‘비치중’인 자료에 한해 대출 가능</p>
+          </li>
+          <li>
+            반납신청 <br />
+            <p>연수구립도서관 홈페이지(로그인) > 책 읽는 연수구 > 무료택배 도서대출 > 신청하기</p>
+            <p class="text-primary">※ 대출할 때 받은 가방에 도서를 넣은 후 해당 게시글의 '반납신청' 버튼 클릭</p>
+          </li>
+        </ul>
+
+        <!-- 배송 일정 -->
+        <div class="policy-table mt24">
+          <table class="table table--bordered">
+            <thead>
+              <tr>
+                <th scope="col">신청일</th>
+                <th scope="col">배송 일자</th>
+                <th scope="col">택배 발송</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>금 ~ 월</td>
+                <td>화</td>
+                <td colspan="2" rowspan="2">배송 당일 또는 익일 수령 가능</td>
+              </tr>
+              <tr>
+                <td>화 ~목</td>
+                <td>금</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 배송 일정 주의사항 -->
+        <div class="sub-layout__content-inner-body-item-title-text-noti">
+          <p>
+            ※ 배송일자는 상황에 따라 변동 가능함. <br />
+            ※ 택배 발송일이 휴관일 인 경우, 운영일에 처리되며 택배 발송이 지연될 수 있음
+          </p>
+        </div>
+
+        <!-- 주의사항항 -->
+        <h3 class="com-sub-title">주의사항</h3>
+        <ul class="sub-layout__content-inner-body-item-list">
+          <li>만 5세 이하 어린이의 경우, 일반도서(성인) 신청 불가 : 어린이자료실 자료만 대출 가능</li>
+          <li>택배 발송은 화, 금요일 10:00에 발송(택배업체 사정에 따라 배달 지연될 수 있음)</li>
+          <li>도서만 신청 가능(잡지 및 DVD 불가)하며, 도서 크기가 운반가방보다 큰 경우 취소될 수 있음</li>
+          <li>설•추석 연휴, 국가지정 공휴일 및 도서관 휴관일, 택배업체 휴무일에는 택배서비스 중단</li>
+        </ul>
+      </section>
+    </div>
+  </SubLayout>
+</Layout>
