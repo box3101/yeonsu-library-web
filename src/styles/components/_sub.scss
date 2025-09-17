@@ -1337,8 +1337,7 @@ ul.movie-card-wrp {
 	}
 }
 /* ========================================
-   공연장 달력 컴포넌트 - Hall Calendar
-   - 피그마 디자인 기반 구현
+   공연장 달력 컴포넌트 
 ======================================== */
 .hall-institution-tabs {
 	background: #f1f2f2;
@@ -1458,11 +1457,6 @@ ul.movie-card-wrp {
 		font-weight: 700;
 		font-size: to-rem(17);
 		color: #191a1a;
-		border-right: 1px solid #cbcccc;
-
-		&:last-child {
-			border-right: none;
-		}
 
 		&--sunday {
 			color: #d7424e;
@@ -1491,8 +1485,10 @@ ul.movie-card-wrp {
 		padding: to-rem(8);
 		position: relative;
 		display: flex;
+		align-items: flex-start;
 		flex-direction: column;
 		gap: to-rem(4);
+		justify-content: space-between;
 
 		&:not(:nth-child(7n)) {
 			border-right: none;
@@ -1518,6 +1514,7 @@ ul.movie-card-wrp {
 				align-items: center;
 				justify-content: center;
 				position: relative;
+				@include font(to-rem(17), 700, #18304D);
 
 				&::after {
 					content: '';
@@ -1527,7 +1524,7 @@ ul.movie-card-wrp {
 					transform: translateX(-50%);
 					width: to-rem(4);
 					height: to-rem(4);
-					background: #18304d;
+					background: #D7424E;
 					border-radius: 50%;
 				}
 			}
@@ -1543,103 +1540,6 @@ ul.movie-card-wrp {
 			.hall-calendar__day {
 				color: #3c79c2;
 			}
-		}
-	}
-
-	&__status {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: to-rem(80);
-		height: to-rem(80);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-		font-size: to-rem(24);
-		font-weight: 700;
-		line-height: 1.5;
-
-		@include mobile {
-			width: to-rem(55);
-			height: to-rem(55);
-			background-size: cover;
-		}
-
-		&--present {
-			background-image: url('/assets/images/icon/lib_check_present.svg');
-			color: $white;
-			text-indent: -9999px;
-			margin-left: 15px;
-		}
-
-		&--absent {
-			background-image: url('/assets/images/icon/lib_check_absent.svg');
-			color: #f1f2f2;
-			text-indent: -9999px;
-			margin-left: 15px;
-		}
-
-		&--app-closed {
-			position: static;
-			transform: none;
-			width: auto;
-			height: auto;
-			background-image: none;
-			border-radius: to-rem(18);
-			padding: to-rem(2) to-rem(10);
-			font-size: to-rem(15);
-			font-weight: 500;
-			text-align: center;
-			line-height: 1.5;
-			margin-top: to-rem(4);
-			background-color: #e5e5e5;
-			color: #7d8181;
-		}
-
-		&--closed {
-			position: static;
-			transform: none;
-			width: auto;
-			height: auto;
-			background-image: none;
-			border-radius: to-rem(18);
-			padding: to-rem(2) to-rem(10);
-			font-size: to-rem(15);
-			font-weight: 500;
-			text-align: center;
-			line-height: 1.5;
-			margin-top: to-rem(4);
-			background-color: $gray-300;
-			color: $gray-700;
-		}
-	}
-
-	&__buttons {
-		display: flex;
-		flex-direction: column;
-		gap: to-rem(4);
-		margin-top: to-rem(4);
-	}
-
-	&__button {
-		border-radius: to-rem(4);
-		padding: to-rem(4) to-rem(8);
-		font-size: to-rem(14);
-		font-weight: 500;
-		text-align: center;
-		color: $white;
-		border: none;
-		cursor: pointer;
-		width: 100%;
-		background-color: $primary-color;
-
-		&--check-in {
-			background-color: #fbbc53;
-			color: #191a1a;
 		}
 	}
 
@@ -1662,19 +1562,47 @@ ul.movie-card-wrp {
 	}
 
 	&__status {
-		display: flex;
+		display: inline-flex;
+		gap: 5px;
 		align-items: center;
 		justify-content: center;
-		gap: to-rem(4);
-		padding: to-rem(6) to-rem(12);
-		border-radius: to-rem(18);
-		font-size: to-rem(14);
-		letter-spacing: -1px;
-		font-weight: 400;
+		border-radius: 18px;
+		border: 1px solid var(--color-blue-BU800, #004470);
+		background: var(--color-blue-BU500, #007ccc);
 		color: white;
-		text-align: center;
-		min-height: to-rem(35);
-		@include font(to-rem(15), 500, white);
+		border: none;
+		padding: to-rem(4) to-rem(11);
+		border-radius: to-rem(18);
+		font-size: to-rem(15);
+		font-weight: 400;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		min-height: to-rem(36);
+		min-width: to-rem(54);
+
+		&--present {
+			background: transparent;
+			background-image: url('./assets/images/icon/lib_check_present.svg') !important;
+			background-size: cover;
+			width: 81px;
+			height: 80px;
+			color: $white;
+			text-indent: -9999px;
+			margin-left: auto;
+			pointer-events: none;
+		}
+
+		&--absent {
+			background: transparent;
+			background-image: url('./assets/images/icon/lib_check_absent.svg') !important;
+			background-size: cover;
+			width: 81px;
+			height: 80px;
+			color: #f1f2f2;
+			text-indent: -9999px;
+			margin-left: auto;
+			pointer-events: none;
+		}
 
 		&--app-able {
 			border-radius: 18px;
@@ -1690,16 +1618,20 @@ ul.movie-card-wrp {
 		}
 
 		&--closed {
-			background: #3c79c2;
-			border: 1px solid #244874;
+			border: 1px solid var(--color-primary-pr07, #244874);
+			background: var(--color-primary-pr05, #3c79c2);
+			min-width: to-rem(76);
+			align-self: flex-end;
+			pointer-events: none;
 		}
 
 		&--period {
+			width: auto;
 			border-radius: 18px;
-			border: 1px solid var(--color-point-p-red-300, #e48088);
-			background: var(--color-point-p-red-50, #fbeced);
-			@include font(to-rem(15), 500, #d7424e);
+			background: var(--color-point-highlight-h-op, #c57eba);
+			@include font(to-rem(13), 400, #fff);
 			line-height: 1.5;
+			align-self: flex-end;
 		}
 
 		@include mobile {
@@ -1714,10 +1646,11 @@ ul.movie-card-wrp {
 		flex-direction: column;
 		gap: to-rem(2);
 		align-items: flex-end;
+		align-self: flex-end;
 	}
 
 	&__button {
-		display: flex;
+		display: inline-flex;
 		gap: 5px;
 		align-items: center;
 		justify-content: center;
@@ -1734,6 +1667,27 @@ ul.movie-card-wrp {
 		transition: background-color 0.2s ease;
 		min-height: to-rem(28);
 		min-width: to-rem(54);
+
+		&--check-in {
+			border-radius: 18px;
+			border: 1px solid var(--color-blue-BU800, #004470);
+			background: var(--color-blue-BU500, #007ccc);
+		}
+
+		&--culture {
+			border-radius: 18px;
+			background: var(--color-point-highlight-h-p, #6355ab);
+		}
+
+		&--event {
+			border-radius: 18px;
+			background: var(--color-point-highlight-h-og, #ff8c00);
+		}
+
+		&--movie {
+			border-radius: 18px;
+			background: var(--color-blue-BU300, #54a7dd);
+		}
 
 		&--morning {
 			background: #00993e;
@@ -1787,7 +1741,6 @@ ul.movie-card-wrp {
 	&__actions {
 		display: flex;
 		gap: to-rem(8);
-
 	}
 }
 

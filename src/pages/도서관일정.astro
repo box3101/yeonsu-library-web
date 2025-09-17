@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiButton, UiTab, UiSelect } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '공연장' }];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '도서관 일정' }];
 
 // 기관 탭 데이터
 const institutionTabs = [
@@ -53,8 +53,8 @@ const monthOptions = [
 ];
 ---
 
-<Layout title="공연장">
-	<SubLayout title="공연장" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+<Layout title="도서관 일정">
+	<SubLayout title="도서관 일정" breadcrumbItems={breadcrumbItems} menuType="문화마당">
 		<!-- 기관 구분 탭 -->
 		<UiTab
 			tabs={institutionTabs}
@@ -147,28 +147,25 @@ const monthOptions = [
 						<div class="hall-calendar__cell">
 							<div class="hall-calendar__day">10</div>
 							<div class="hall-calendar__buttons">
-								<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">
-									오전
+								<a
+									href="./도서관 일정-신청"
+									class="hall-calendar__button hall-calendar__button--culture"
+									data-time="문화행사"
+								>
+									문화
 								</a>
-								<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">
-									오후
+								<a
+									href="./도서관 일정-신청"
+									class="hall-calendar__button hall-calendar__button--event"
+									data-time="행사"
+								>
+									행사
 								</a>
-								<button class="hall-calendar__button hall-calendar__button--evening" data-time="야간">야간</button>
+								<button class="hall-calendar__button hall-calendar__button--movie" data-time="영화">영화</button>
 							</div>
 						</div>
 						<div class="hall-calendar__cell">
 							<div class="hall-calendar__day">11</div>
-							<div class="hall-calendar__buttons">
-								<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--morning" data-time="오전">
-									오전
-								</a>
-								<a href="./공연장-신청" class="hall-calendar__button hall-calendar__button--afternoon" data-time="오후">
-									오후
-								</a>
-								<button class="hall-calendar__button hall-calendar__button--unavailable" data-time="야간" disabled>
-									신청불가
-								</button>
-							</div>
 						</div>
 						<div class="hall-calendar__cell">
 							<div class="hall-calendar__day">12</div>
@@ -196,10 +193,6 @@ const monthOptions = [
 						</div>
 						<div class="hall-calendar__cell">
 							<div class="hall-calendar__day">19</div>
-							<div class="hall-calendar__status hall-calendar__status--period">
-								<img src="./assets/images/icon/calendar2.svg" alt="달력" />
-								6월 접수기간
-							</div>
 						</div>
 						<div class="hall-calendar__cell">
 							<div class="hall-calendar__day">20</div>

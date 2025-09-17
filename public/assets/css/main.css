@@ -63078,8 +63078,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 
 /* ========================================
-   공연장 달력 컴포넌트 - Hall Calendar
-   - 피그마 디자인 기반 구현
+   공연장 달력 컴포넌트 
 ======================================== */
 .hall-institution-tabs {
   background: #f1f2f2;
@@ -63187,10 +63186,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   font-weight: 700;
   font-size: 1.0625rem;
   color: #191a1a;
-  border-right: 1px solid #cbcccc;
-}
-.hall-calendar__weekday:last-child {
-  border-right: none;
 }
 .hall-calendar__weekday--sunday {
   color: #d7424e;
@@ -63216,8 +63211,10 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   padding: 0.5rem;
   position: relative;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 0.25rem;
+  justify-content: space-between;
 }
 .hall-calendar__cell:not(:nth-child(7n)) {
   border-right: none;
@@ -63241,6 +63238,10 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   align-items: center;
   justify-content: center;
   position: relative;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #18304D;
+  line-height: 1;
 }
 .hall-calendar__cell--today .hall-calendar__day::after {
   content: "";
@@ -63250,7 +63251,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   transform: translateX(-50%);
   width: 0.25rem;
   height: 0.25rem;
-  background: #18304d;
+  background: #D7424E;
   border-radius: 50%;
 }
 .hall-calendar__cell--sunday .hall-calendar__day {
@@ -63258,96 +63259,6 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .hall-calendar__cell--saturday .hall-calendar__day {
   color: #3c79c2;
-}
-.hall-calendar__status {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 5rem;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-@media (max-width: 900px) {
-  .hall-calendar__status {
-    width: 3.4375rem;
-    height: 3.4375rem;
-    background-size: cover;
-  }
-}
-.hall-calendar__status--present {
-  background-image: url("/assets/images/icon/lib_check_present.svg");
-  color: #ffffff;
-  text-indent: -9999px;
-  margin-left: 15px;
-}
-.hall-calendar__status--absent {
-  background-image: url("/assets/images/icon/lib_check_absent.svg");
-  color: #f1f2f2;
-  text-indent: -9999px;
-  margin-left: 15px;
-}
-.hall-calendar__status--app-closed {
-  position: static;
-  transform: none;
-  width: auto;
-  height: auto;
-  background-image: none;
-  border-radius: 1.125rem;
-  padding: 0.125rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  text-align: center;
-  line-height: 1.5;
-  margin-top: 0.25rem;
-  background-color: #e5e5e5;
-  color: #7d8181;
-}
-.hall-calendar__status--closed {
-  position: static;
-  transform: none;
-  width: auto;
-  height: auto;
-  background-image: none;
-  border-radius: 1.125rem;
-  padding: 0.125rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  text-align: center;
-  line-height: 1.5;
-  margin-top: 0.25rem;
-  background-color: #d1d5db;
-  color: #374151;
-}
-.hall-calendar__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-top: 0.25rem;
-}
-.hall-calendar__button {
-  border-radius: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-align: center;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  background-color: #3c79c2;
-}
-.hall-calendar__button--check-in {
-  background-color: #fbbc53;
-  color: #191a1a;
 }
 .hall-calendar__day {
   font-size: 1.0625rem;
@@ -63368,22 +63279,45 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   }
 }
 .hall-calendar__status {
-  display: flex;
+  display: inline-flex;
+  gap: 5px;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
-  padding: 0.375rem 0.75rem;
+  border-radius: 18px;
+  border: 1px solid var(--color-blue-BU800, #004470);
+  background: var(--color-blue-BU500, #007ccc);
+  color: white;
+  border: none;
+  padding: 0.25rem 0.6875rem;
   border-radius: 1.125rem;
-  font-size: 0.875rem;
-  letter-spacing: -1px;
-  font-weight: 400;
-  color: white;
-  text-align: center;
-  min-height: 2.1875rem;
   font-size: 0.9375rem;
-  font-weight: 500;
-  color: white;
-  line-height: 1;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-height: 2.25rem;
+  min-width: 3.375rem;
+}
+.hall-calendar__status--present {
+  background: transparent;
+  background-image: url("./assets/images/icon/lib_check_present.svg") !important;
+  background-size: cover;
+  width: 81px;
+  height: 80px;
+  color: #ffffff;
+  text-indent: -9999px;
+  margin-left: auto;
+  pointer-events: none;
+}
+.hall-calendar__status--absent {
+  background: transparent;
+  background-image: url("./assets/images/icon/lib_check_absent.svg") !important;
+  background-size: cover;
+  width: 81px;
+  height: 80px;
+  color: #f1f2f2;
+  text-indent: -9999px;
+  margin-left: auto;
+  pointer-events: none;
 }
 .hall-calendar__status--app-able {
   border-radius: 18px;
@@ -63400,18 +63334,22 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   line-height: 1;
 }
 .hall-calendar__status--closed {
-  background: #3c79c2;
-  border: 1px solid #244874;
+  border: 1px solid var(--color-primary-pr07, #244874);
+  background: var(--color-primary-pr05, #3c79c2);
+  min-width: 4.75rem;
+  align-self: flex-end;
+  pointer-events: none;
 }
 .hall-calendar__status--period {
+  width: auto;
   border-radius: 18px;
-  border: 1px solid var(--color-point-p-red-300, #e48088);
-  background: var(--color-point-p-red-50, #fbeced);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: #d7424e;
+  background: var(--color-point-highlight-h-op, #c57eba);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #fff;
   line-height: 1;
   line-height: 1.5;
+  align-self: flex-end;
 }
 @media (max-width: 900px) {
   .hall-calendar__status {
@@ -63425,9 +63363,10 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   flex-direction: column;
   gap: 0.125rem;
   align-items: flex-end;
+  align-self: flex-end;
 }
 .hall-calendar__button {
-  display: flex;
+  display: inline-flex;
   gap: 5px;
   align-items: center;
   justify-content: center;
@@ -63444,6 +63383,23 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   transition: background-color 0.2s ease;
   min-height: 1.75rem;
   min-width: 3.375rem;
+}
+.hall-calendar__button--check-in {
+  border-radius: 18px;
+  border: 1px solid var(--color-blue-BU800, #004470);
+  background: var(--color-blue-BU500, #007ccc);
+}
+.hall-calendar__button--culture {
+  border-radius: 18px;
+  background: var(--color-point-highlight-h-p, #6355ab);
+}
+.hall-calendar__button--event {
+  border-radius: 18px;
+  background: var(--color-point-highlight-h-og, #ff8c00);
+}
+.hall-calendar__button--movie {
+  border-radius: 18px;
+  background: var(--color-blue-BU300, #54a7dd);
 }
 .hall-calendar__button--morning {
   background: #00993e;
