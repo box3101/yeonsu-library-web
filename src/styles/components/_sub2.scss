@@ -530,18 +530,18 @@
 					}
 
 					&.date1-col {
-						min-width: 100px;
+						min-width: 80px;
 
 						@include mobile {
-							min-width: 90px; // Adjusted for mobile
+							min-width: 70px; // Adjusted for mobile
 						}
 					}
 
 					&.date2-col {
-						min-width: 100px;
+						min-width: 80px;
 
 						@include mobile {
-							min-width: 90px; // Adjusted for mobile
+							min-width: 70px; // Adjusted for mobile
 						}
 					}
 
@@ -555,10 +555,10 @@
 
 					&.title-col {
 						width: auto;
-						min-width: 300px;
+						min-width: 500px;
 
 						@include mobile {
-							min-width: 250px; // Adjusted for mobile
+							min-width: 450px; // Adjusted for mobile
 						}
 					}
 

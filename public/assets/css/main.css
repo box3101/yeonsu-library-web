@@ -77266,19 +77266,19 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   }
 }
 .date-selectors .popular-books-table thead tr th.date1-col {
-  min-width: 100px;
+  min-width: 80px;
 }
 @media (max-width: 900px) {
   .date-selectors .popular-books-table thead tr th.date1-col {
-    min-width: 90px;
+    min-width: 70px;
   }
 }
 .date-selectors .popular-books-table thead tr th.date2-col {
-  min-width: 100px;
+  min-width: 80px;
 }
 @media (max-width: 900px) {
   .date-selectors .popular-books-table thead tr th.date2-col {
-    min-width: 90px;
+    min-width: 70px;
   }
 }
 .date-selectors .popular-books-table thead tr th.count-col {
@@ -77291,11 +77291,11 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .date-selectors .popular-books-table thead tr th.title-col {
   width: auto;
-  min-width: 300px;
+  min-width: 500px;
 }
 @media (max-width: 900px) {
   .date-selectors .popular-books-table thead tr th.title-col {
-    min-width: 250px;
+    min-width: 450px;
   }
 }
 .date-selectors .popular-books-table thead tr th.isbn-col {
