@@ -61403,6 +61403,7 @@ a:hover .icon-external-link {
   position: sticky;
   top: 0;
   overflow: hidden;
+  padding-bottom: 4rem;
 }
 @media (max-width: 900px) {
   .left-menu {
