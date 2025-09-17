@@ -1,0 +1,126 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '문화마당', link: '#' },
+	{ text: '독서마라톤 참여', link: '/프로그램신청' },
+];
+
+// 첨부파일 데이터 (실제 구현에서는 데이터베이스나 API에서 가져옴)
+const attachments = [
+	{
+		filename: 'test_1.pdf',
+		downloadUrl: '#',
+		size: '1.2MB',
+	},
+	// 첨부파일이 없을 경우 빈 배열로 설정
+];
+
+// 프로그램 상세 정보
+const programDetail = {
+	title: '[★대기자 접수 _ 정규★] 그림책, 내 마음을 만지다(성인)',
+	library: '선학별빛',
+	status: ['접수대기', '행사대기'],
+	instructor: '유미애',
+	category: '기타',
+	period: '2025-03-21 ~ 2025-05-23',
+	schedule: '금/10:00 ~ 12:00',
+	location: '4층 프로그램실',
+	target: '성인',
+	registrationPeriod: '2025-02-27 10:00 ~ 2025-03-07 18:00',
+	registrationMethod: '인터넷',
+	capacity: '접수 100명 / 정원 100명',
+	waitingList: '접수 50명 / 정원 100명',
+	fee: '무료',
+	materials: '연필',
+	contact: '000-0000-0000',
+	content: {
+		title:
+			'게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다게시글 내용이 들어가는 영역이다.',
+		description: '감상평 내용이 들어가는 영역이다.',
+	},
+};
+---
+
+<Layout title="독서마라톤 참여">
+	<SubLayout title="독서마라톤 참여" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<div class="program-detail-page sub-layout__content--detail notice-detail-page">
+			<!-- 프로그램 제목 및 상태 -->
+			<div class="post-detail__header">
+				<div class="post-detail__meta">
+					<h1 class="post-detail__title">[아라비안나이트] : 한권으로 읽는 신비로운 이야기 21편</h1>
+				</div>
+			</div>
+
+			<!-- 프로그램 상세 정보 테이블 -->
+			<div class="program-detail-page__info">
+				<div class="program-detail-page__info-grid">
+					<!-- 첫 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">저자</span>
+							<span class="program-detail-page__info-value">책꿈터</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">출판사</span>
+							<span class="program-detail-page__info-value">DDD</span>
+						</div>
+					</div>
+
+					<!-- 두 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">읽은쪽수</span>
+							<span class="program-detail-page__info-value">70쪽</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">작성자</span>
+							<span class="program-detail-page__info-value">홍*동</span>
+						</div>
+					</div>
+
+					<!-- 세 번째 행 -->
+					<div class="program-detail-page__info-row">
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">작성일</span>
+							<span class="program-detail-page__info-value">2025.07.02</span>
+						</div>
+						<div class="program-detail-page__info-item">
+							<span class="program-detail-page__info-label">조회수</span>
+							<span class="program-detail-page__info-value">22</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 프로그램 내용 -->
+			<div class="program-detail-page__content">
+				<div class="program-detail-page__content-inner">
+					<h3 class="program-detail-page__content-title">{programDetail.content.title}</h3>
+					<p class="program-detail-page__content-description">{programDetail.content.description}</p>
+				</div>
+			</div>
+
+			<!-- 하단 버튼 -->
+			<div class="program-detail-page__actions">
+				<UiButton
+					text="목록"
+					variant="tertiary"
+					size="medium"
+					class="program-detail-page__action-button"
+					href="./독서마라톤참여"
+				/>
+				<UiButton
+					href="./독서마라톤참여-등록"
+					text="수정"
+					variant="primary"
+					size="medium"
+					class="program-detail-page__action-button"
+				/>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiTextarea } from '@components';
+import { UiRadio } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '문화마당', link: '#' },
+	{ text: '서비스 신청', link: '/프로그램신청' },
+];
+
+// 프로그램 정보
+const programInfo = {
+	title: '[★대기자 접수 _ 정규★] 그림책, 내 마음을 만지다(성인)',
+	library: '선학별빛도서관',
+	location: '4층 프로그램실',
+	period: '2025-03-21 ~ 2025-05-23',
+	time: '10:00 ~ 12:00',
+	dayOfWeek: '금',
+	target: '성인',
+};
+
+// 셀렉트박스 옵션들
+const ageGroupOptions = [
+	{ value: '', label: '선택' },
+	{ value: 'child', label: '아동' },
+	{ value: 'youth', label: '청소년' },
+	{ value: 'adult', label: '성인' },
+	{ value: 'senior', label: '어르신' },
+];
+
+const participantOptions = [
+	{ value: '1', label: '1명' },
+	{ value: '2', label: '2명' },
+	{ value: '3', label: '3명' },
+	{ value: '4', label: '4명' },
+	{ value: '5', label: '5명' },
+];
+---
+
+<Layout title="서비스 신청">
+	<SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 신청자정보 폼 -->
+		<section class="member-section">
+			<form action="">
+				<div class="form-grid">
+					<!-- 도서명 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">도서명</label>
+						<UiInput placeholder="도서명을 입력해주세요." size="large" />
+					</div>
+
+					<!-- 저자 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">저자</label>
+						<UiInput placeholder="저자를 입력해주세요." size="large" />
+					</div>
+
+					<!-- 출판사 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">출판사</label>
+						<UiInput placeholder="출판사를 입력해주세요." size="large" />
+					</div>
+
+					<!-- 읽은 쪽수 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">읽은 쪽수</label>
+						<UiInput placeholder="읽은 쪽수를 입력해주세요." size="large" />
+					</div>
+
+					<!-- 독서감상평 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">독서감상평</label>
+						<UiTextarea placeholder="내용을 입력하세요" rows="5" />
+					</div>
+
+					<!-- 공개여부 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">공개여부</label>
+						<div class="radio-group">
+							<UiRadio name="public_status" value="public" id="public" label="공개" size="medium" checked />
+							<UiRadio name="public_status" value="private" id="private" label="비공개" size="medium" />
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<div class="form-actions">
+				<UiButton size="large" class="w-140-mobile-full" variant="tertiary" text="취소" type="button" />
+				<UiButton size="large" class="w-140-mobile-full" variant="secondary" text="등록" type="submit" />
+				<UiButton size="large" class="w-140-mobile-full" variant="primary" text="삭제" type="button" />
+			</div>
+		</section>
+	</SubLayout>
+</Layout>

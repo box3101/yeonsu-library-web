@@ -1,0 +1,179 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable } from '@components';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '독서마라톤참여' },
+];
+const columns = [
+	{
+		key: 'title',
+		label: '도서명',
+		sortable: true,
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'author',
+		label: '작성자',
+		width: '150px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'count',
+		label: '조회수',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+];
+
+const rows = [
+	{
+		number: 438,
+		title: '어린왕자와 함께하는 독서 마라톤',
+		author: '김독서',
+		count: 53,
+		href: './독서마라톤참여-상세',
+		isNew: true,
+	},
+	{
+		number: 437,
+		title: '한국문학 완주 도전기',
+		author: '이마라톤',
+		count: 98,
+		href: './독서마라톤참여-상세',
+		isNew: true,
+	},
+	{
+		number: 436,
+		title: '과학도서 100권 읽기 프로젝트',
+		author: '박과학',
+		count: 305,
+		href: './독서마라톤참여-상세',
+		isNew: true,
+	},
+	{
+		number: 435,
+		title: '세계명작 독서 여행',
+		author: '최명작',
+		count: 310,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 434,
+		title: '시집 읽기 마라톤 참여후기',
+		author: '정시인',
+		count: 620,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 433,
+		title: '경제서적 완독 챌린지',
+		author: '강경제',
+		count: 346,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 432,
+		title: '추리소설 마라톤 도전기',
+		author: '윤추리',
+		count: 254,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 431,
+		title: '자기계발서 독서 마라톤',
+		author: '조계발',
+		count: 283,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 430,
+		title: '역사서적 완주 후기',
+		author: '한역사',
+		count: 307,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+	{
+		number: 429,
+		title: '철학서적 읽기 마라톤 참여기',
+		author: '신철학',
+		count: 1947,
+		href: './독서마라톤참여-상세',
+		isNew: false,
+	},
+];
+
+const tabMenus = [
+	{ label: '독서마라톤 안내', href: './독서마라톤안내' },
+	{ label: '독서마라톤 참여', active: true, href: './독서마라톤참여' },
+];
+---
+
+<Layout title="독서마라톤참여">
+	<SubLayout title="독서마라톤참여" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 공통 검색바 -->
+		<UiSearchbar
+			selectOptions={[
+				{ value: '', label: '전체' },
+				{ value: 'title', label: '제목' },
+				{ value: 'author', label: '저자' },
+				{ value: 'publisher', label: '출판사' },
+				{ value: 'isbn', label: 'ISBN' },
+			]}
+			libraryOptions={[
+				{ value: '', label: '전체도서관' },
+				{ value: 'central', label: '중앙도서관' },
+				{ value: 'branch1', label: '분관1' },
+				{ value: 'branch2', label: '분관2' },
+			]}
+			titleOptions={[
+				{ value: '', label: '제목' },
+				{ value: 'exact', label: '정확한 제목' },
+				{ value: 'contains', label: '포함된 제목' },
+			]}
+			placeholder="검색어를 입력해주세요."
+			buttonText="검색"
+			fullWidth={true}
+			class="smart-library-searchbar mt24"
+		/>
+
+		<!-- 게시글 헤더 -->
+		<div class="bbs-header">
+			<div class="bbs-total">
+				총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
+			</div>
+			<div class="bbs-actions">
+				<UiButton variant="primary" text="로그인" />
+				<UiButton variant="secondary" text="글쓰기" />
+			</div>
+		</div>
+
+		<!-- 게시글 목록 -->
+		<UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" />
+		<!-- 페이징 네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+
+		<!-- 로그인 , 글쓰기 버튼 -->
+		<div class="bbs-actions flex justify-end items-center gap-8">
+			<UiButton variant="primary" text="로그인" />
+			<UiButton variant="secondary" text="글쓰기" />
+		</div>
+	</SubLayout>
+</Layout>
