@@ -1,0 +1,160 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/support' },
+	{ label: '통합도서서비스' },
+];
+---
+
+<Layout title="통합도서서비스">
+	<SubLayout title="통합도서서비스" breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">신청접수 시 주의사항</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>신청접수 시 주의사항</li>
+					<li>회원님의 PC 시간과 서버 시간은 오차가 있을 수 있습니다.</li>
+					<li>새로 고침을 반복적으로 하시면 접속이 느려질 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">이용대상</h3>
+			<ul class="usage-guide__content">
+				<li>지역주민 누구나</li>
+			</ul>
+		</div>
+
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<thead>
+					<tr>
+						<th>상영 도서관</th>
+						<th>상영 시간</th>
+						<th>상영 요일</th>
+						<th>좌석수</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>연수중앙도서관</td>
+						<td>매주 토요일 오후 2시</td>
+						<td>지하 1층 강당실</td>
+						<td>67석</td>
+					</tr>
+					<tr>
+						<td>연수어린이도서관</td>
+						<td>매주 토요일 오후 2시</td>
+						<td>4층 강당실</td>
+						<td>50석</td>
+					</tr>
+					<tr>
+						<td>송도국제어린이도서관</td>
+						<td>매주 일요일 오후 2시</td>
+						<td>2층 강당실</td>
+						<td>80석</td>
+					</tr>
+					<tr>
+						<td>청학마을도서관</td>
+						<td>매주 토요일 오후 2시</td>
+						<td>2층 세미나실</td>
+						<td>72석</td>
+					</tr>
+					<tr>
+						<td>선학별빛도서관</td>
+						<td>
+							＊ 토요일특별상영 : 매월 셋째주 매주 토요일 오후 2시<br />
+							＊ 일요일특별상영 : 매월 셋째주 매주 일요일 오후 2시
+						</td>
+						<td>5층 전시복합실</td>
+						<td>103석</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="contact-info">
+			<h3>처인구</h3>
+			<div class="contact-table-wrp scroll-x">
+				<table class="contact-table">
+					<colgroup>
+						<col width="20%" />
+						<col width="30%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<tr>
+						<th>용인중앙도서관</th>
+						<td>031-6193-1260</td>
+						<th>포곡도서관</th>
+						<td>031-6193-1290</td>
+					</tr>
+					<tr>
+						<th>동백도서관</th>
+						<td>031-6193-1330</td>
+						<th>남사도서관</th>
+						<td>031-6193-1370</td>
+					</tr>
+					<tr>
+						<th>양지백현도서관</th>
+						<td>031-6193-1285</td>
+						<th>어울림도서관</th>
+						<td>031-6193-1390</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="step-process">
+			{
+				[...Array(5)].map((_, index) => {
+					const stepNumber = index + 1;
+					const stepContent = [
+						{
+							content: "희망전자책신청<br /><span class='step-sub'>(상시, 월 1일 1권)</span>",
+							arrow: true,
+						},
+						{
+							content:
+								"자료 소장여부<br />신청가능/불가 파악<br /><span class='step-sub'>(매월 1일, 전일 신청분까지 처리)</span>",
+							arrow: true,
+						},
+						{
+							content: "목록작성<br />및 발주<br /><span class='step-sub'>(매월 5일 이전)</span>",
+							arrow: true,
+						},
+						{
+							content:
+								"전자도서관 시스템에<br />전자책 서버 탑재<br /><span class='step-sub'>(도서 입수 3~4주 소요)</span>",
+							arrow: true,
+						},
+						{
+							content: '자료대출 실시',
+							arrow: false,
+						},
+					][index];
+
+					return (
+						<div class="step-item" key={stepNumber}>
+							<div class="step-number">{stepNumber}</div>
+							<div class="step-content" set:html={stepContent.content} />
+							{stepContent.arrow && (
+								<div class="step-arrow">
+									<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+								</div>
+							)}
+						</div>
+					);
+				})
+			}
+		</div>
+	</SubLayout>
+</Layout>
