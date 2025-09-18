@@ -17,7 +17,11 @@ export default defineConfig({
 
 	vite: {
 		css: {
-			devSourcemap: true, // 소스맵 비활성화로 속도 향상
+			devSourcemap: true, // 개발시에만 소스맵 활성화
+			// 프로덕션 빌드시 CSS 소스맵 비활성화
+			postcss: {
+				map: false,
+			},
 		},
 		resolve: {
 			alias: {
