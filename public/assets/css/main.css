@@ -61714,15 +61714,30 @@ ul.movie-card-wrp li.movie-card {
   border-radius: 0.75rem;
   padding: 2rem;
   margin-bottom: 24px;
+  display: flex;
+  gap: 0.3125rem;
 }
 ul.movie-card-wrp li.movie-card:last-child {
   margin-bottom: 0;
 }
 @media (max-width: 900px) {
   ul.movie-card-wrp li.movie-card {
+    flex-direction: column;
     padding: 24px;
     border-radius: 8px;
     margin-bottom: 16px;
+  }
+}
+ul.movie-card-wrp li.movie-card .movie-card__index {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+  margin-right: 10px;
+}
+@media (max-width: 900px) {
+  ul.movie-card-wrp li.movie-card .movie-card__index {
+    margin-right: 5px;
   }
 }
 ul.movie-card-wrp li.movie-card .movie-card__top {
@@ -61782,13 +61797,20 @@ ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info {
 ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0rem;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 }
 @media (max-width: 900px) {
   ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top {
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+@media (max-width: 900px) {
+  ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__age {
+    display: flex;
   }
 }
 ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index {
@@ -61803,6 +61825,18 @@ ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.
 }
 ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index.movie-card__index--all {
   background: #00b248;
+}
+ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index.movie-card__index--12 {
+  background: #ff8c00;
+}
+ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index.movie-card__index--15 {
+  background: #0b78cb;
+}
+ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index.movie-card__index--19 {
+  background: #c04657;
+}
+ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__index.movie-card__index--etc {
+  background: #4a4a4a;
 }
 ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top div.movie-card__header-row {
   display: flex;
@@ -63002,7 +63036,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
 }
 .form-actions.bd-1 {
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--color-gray-gy-20, #CBCCCC);
+  border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 }
 .form-actions__button {
   width: 8.4375rem;
@@ -63190,7 +63224,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   position: relative;
   font-size: 1.0625rem;
   font-weight: 700;
-  color: #18304D;
+  color: #18304d;
   line-height: 1;
 }
 .hall-calendar__cell--today .hall-calendar__day::after {
@@ -63201,7 +63235,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   transform: translateX(-50%);
   width: 0.25rem;
   height: 0.25rem;
-  background: #D7424E;
+  background: #d7424e;
   border-radius: 50%;
 }
 .hall-calendar__cell--sunday .hall-calendar__day {
@@ -66719,7 +66753,7 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p {
   }
 }
 .notice-box .desc {
-  border-top: 1px dashed var(--color-border-gray, #B1B8BE);
+  border-top: 1px dashed var(--color-border-gray, #b1b8be);
   padding-top: 1.5rem;
   margin-top: 1.5rem;
   display: flex;
