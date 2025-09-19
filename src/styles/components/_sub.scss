@@ -4436,6 +4436,29 @@ ul.movie-card-wrp {
 		margin-bottom: 12px;
 	}
 
+	&.ui-tab--grid-5 {
+		.ui-tab__list {
+			flex-wrap: wrap;
+			overflow: hidden; // grid 모드에서는 스크롤 없음
+			border-right: none;
+			border-bottom: none;
+
+			@include tablet {
+				margin-top: to-rem(24);
+				flex-wrap: nowrap;
+				overflow: auto;
+			}
+		}
+		.ui-tab__button {
+			flex: 1 1 calc(100% / min(5, var(--total-tabs, 5)));
+			border-bottom: 1px solid #b1b8be;
+
+			&:last-child {
+				border-right: 1px solid #b1b8be;
+			}
+		}
+	}
+
 	&.ui-tab--grid-6 {
 		.ui-tab__list {
 			flex-wrap: wrap;

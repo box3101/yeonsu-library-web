@@ -1,16 +1,59 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
+import UiTab from '@/components/UI/UiTab.astro';
+import UiSubTab from '@/components/UI/UiSubTab.astro';
 
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
 	{ label: '도서검색', href: '/support' },
 	{ label: '통합도서서비스' },
 ];
+
+// 탭 메뉴
+const tabMenus = [
+	{ label: '123', active: true, href: './기증안내' },
+	{ label: '223', href: './기증안내-서약서작성' },
+	{ label: '334343', href: './기증안내-기증신청조회' },
+	{ label: '123', active: true, href: './기증안내' },
+	{ label: '223', href: './기증안내-서약서작성' },
+	{ label: '334343', href: './기증안내-기증신청조회' },
+	{ label: '123', active: true, href: './기증안내' },
+	{ label: '223', href: './기증안내-서약서작성' },
+	{ label: '334343', href: './기증안내-기증신청조회' },
+];
+
+const tabMenu2 = [
+	{ id: 'info', label: '1', active: true },
+	{ id: 'pledge', label: '2' },
+	{ id: 'apply', label: '3' },
+];
+const tabMenu3 = ['10대미만', '10대', '30대', '40대', '50대', '60대', '123', '123123', '12321321'];
 ---
 
 <Layout title="통합도서서비스">
 	<SubLayout title="통합도서서비스" breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		23
+
+		<UiTab tabs={tabMenus} className="mt40 search-type-tabs ui-tab--grid-4" />
+		<UiTab tabs={tabMenu2} className="mb-4 search-type-tabs ui-tab--grid-2" />
+		<UiSubTab tabs={tabMenu3} activeTab={0} class="mt24" />
+
+		<div id="panel-info" class="ui-tab-panel ui-tab-panel--active">
+			1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
+			내용 1 내용 1 내용 1 내용
+		</div>
+
+		<div id="panel-pledge" class="ui-tab-panel">
+			1 2222내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
+			내용 1 내용 1 내용 1 내용 1 내용
+		</div>
+
+		<div id="panel-apply" class="ui-tab-panel">
+			1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
+			내용 1 내용 1 내용 1 내용333
+		</div>
+
 		<div class="info-notice program-notice">
 			<div class="info-notice__header">
 				<div class="info-notice__icon">
@@ -113,6 +156,7 @@ const breadcrumbItems = [
 				</table>
 			</div>
 		</div>
+
 		<div class="step-process">
 			{
 				[...Array(5)].map((_, index) => {

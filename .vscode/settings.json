@@ -87,5 +87,9 @@
 	// 	"editor.wordWrapColumn": 150,
 	// 	"editor.formatOnSave": true
 	// },
-	"workbench.editor.enablePreview": true
+	"workbench.editor.enablePreview": true,
+	"emmet.includeLanguages": {
+		"astro": "html"
+	},
+	"emmet.triggerExpansionOnTab": true
 }

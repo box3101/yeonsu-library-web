@@ -177,7 +177,11 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 				badges.length > 0 && (
 					<div class="ui-book-card__badges">
 						{badges.map(badge => (
-							<span class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${badge.size ? `ui-book-card__badge--${badge.size}` : ''}`}>
+							<span
+								class={`ui-book-card__badge ui-book-card__badge--${badge.type} ${
+									badge.size ? `ui-book-card__badge--${badge.size}` : ''
+								}`}
+							>
 								{badge.label}
 							</span>
 						))}
@@ -261,6 +265,7 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 						variant="secondary"
 						size="medium"
 						text="소장정보"
+						href="./소장도서검색_상세"
 						class="ui-book-card__action-button ui-book-card__action-button--primary collection-toggle-button"
 					/>
 				</div>
@@ -269,7 +274,13 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 	</div>
 	<!-- 소장정보 내용 -->
 	<div class="ui-book-card__collection-wrapper collection-wrapper--hidden">
-		<UiCollectionAccordion columns={collectionColumns} rows={collectionRows} isExpanded={true} iconType="close" className="book-card-accordion" />
+		<UiCollectionAccordion
+			columns={collectionColumns}
+			rows={collectionRows}
+			isExpanded={true}
+			iconType="close"
+			className="book-card-accordion"
+		/>
 	</div>
 </div>
 

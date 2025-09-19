@@ -248,7 +248,18 @@ const highlightedTitle = highlightTitle(title, titleHighlights);
 								/>
 							)
 						}
-						{showShelfInfo && <UiButton variant="tertiary" size="medium" text="서가정보" iconPosition="right" />}
+						{
+							showShelfInfo && (
+								<UiButton
+									variant="tertiary"
+									icon="icon-marc"
+									iconAddClass="icon icon-white"
+									iconPosition="left"
+									size="medium"
+									text="서가정보"
+								/>
+							)
+						}
 					</div>
 				</div>
 			</div>
