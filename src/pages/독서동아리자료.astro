@@ -1,0 +1,197 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiPagination, UiTable, UiSelect, UiButton, UiInput, UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '내정보', link: '#' },
+	{ text: '서비스 신청', link: '#' },
+];
+
+const columns = [
+	{
+		key: 'institution',
+		label: '기관',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+		type: 'badge', // 이 부분 추가!
+	},
+	{
+		key: 'title',
+		label: '제목',
+		sortable: true,
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'date',
+		label: '작성일',
+		width: '150px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'count',
+		label: '조회수',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+];
+const rows = [
+	{
+		number: 438,
+		institution: '선학별빛',
+		title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
+		date: '2025.08.09',
+		count: 53,
+		href: './독서동아리자료-상세',
+		isNew: true,
+	},
+	{
+		number: 437,
+		institution: '선학별빛',
+		title: '장기 주차 자전거 폐기 안내(9월 1일)',
+		date: '2025.08.01',
+		count: 98,
+		href: './독서동아리자료-상세',
+		isNew: true,
+	},
+	{
+		number: 436,
+		institution: '전체',
+		title: '7월의 특별 혜택 당첨자 안내',
+		date: '2025.08.01',
+		count: 305,
+		href: './독서동아리자료-상세',
+		isNew: true,
+	},
+	{
+		number: 435,
+		institution: '청학',
+		title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
+		date: '2025.07.30',
+		count: 310,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 434,
+		institution: '전체',
+		title: '2025년 하반기 정규프로그램 운영 안내',
+		date: '2025.07.29',
+		count: 620,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 433,
+		institution: '연수꿈담',
+		title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
+		date: '2025.07.25',
+		count: 346,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 432,
+		institution: '전체',
+		title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
+		date: '2025.07.20',
+		count: 254,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 431,
+		institution: '해돋이',
+		title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
+		date: '2025.07.17',
+		count: 283,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 430,
+		institution: '전체',
+		title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
+		date: '2025.07.16',
+		count: 307,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+	{
+		number: 429,
+		institution: '전체',
+		title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
+		date: '2025.07.16',
+		count: 1947,
+		href: './독서동아리자료-상세',
+		isNew: false,
+	},
+];
+// 검색 옵션
+const libraryOptions = [
+	{ value: '', label: '전체도서관' },
+	{ value: 'yeonsukkumdam', label: '연수꿈담' },
+	{ value: 'songdo', label: '송도국제' },
+	{ value: 'cheonghak', label: '청학' },
+	{ value: 'haedogi', label: '해돋이' },
+	{ value: 'sunhak', label: '선학별빛' },
+	{ value: 'hambakriyu', label: '함박비류' },
+];
+
+const searchTypeOptions = [
+	{ value: 'title', label: '행사명' },
+	{ value: 'content', label: '도서관명' },
+];
+
+const tabMenus = [
+	{ label: '독서동아리 안내', href: './독서동아리안내' },
+	{ label: '독서동아리 참여', active: true, href: './독서동아리참여' },
+];
+---
+
+<Layout title="독서동아지 지원 사업">
+	<SubLayout title="독서동아지 지원 사업" breadcrumbItems={breadcrumbItems} menuType="책 읽는 연수구">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 검색 섹션 -->
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect options={libraryOptions} name="library" size="medium" class="w-230-mobile-full" variant="default" />
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={searchTypeOptions}
+						name="searchType"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력하세요." class="w-360-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-78-mobile-full" variant="darkBlue" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 검색 결과 총 건수 -->
+		<div class="search-info-summary type2 flex justify-between items-center">
+			<div class="mb0">총 <strong>459</strong>건 ( <strong>1</strong> / 46 )</div>
+		</div>
+
+		<!-- 게시글 목록 -->
+		<UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" />
+		<!-- 페이지네이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

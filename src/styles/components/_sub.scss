@@ -435,6 +435,10 @@ ul.movie-card-wrp {
 				line-height: 1.5;
 				border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
+
+				&.text-left{
+					text-align: left;
+				}
 			}
 		}
 	}
@@ -4477,6 +4481,30 @@ ul.movie-card-wrp {
 
 	@include mobile {
 		margin-bottom: 12px;
+	}
+
+	&.ui-tab--grid-3 {
+		.ui-tab__list {
+			flex-wrap: wrap;
+			overflow: hidden; // grid 모드에서는 스크롤 없음
+			border-right: none;
+			border-bottom: none;
+
+			@include tablet {
+				margin-top: to-rem(24);
+				flex-wrap: nowrap;
+				overflow: auto;
+			}
+		}
+		.ui-tab__button {
+			flex: 1 1 calc(100% / min(3, var(--total-tabs, 5)));
+			max-width: calc(100% / min(3, var(--total-tabs, 5)));
+			border-bottom: 1px solid #b1b8be;
+
+			&:last-child {
+				border-right: 1px solid #b1b8be;
+			}
+		}
 	}
 
 	&.ui-tab--grid-5 {

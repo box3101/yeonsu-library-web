@@ -1,0 +1,71 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '연수북페스티벌' },
+];
+const tabs = [
+	{ label: '2025', id: '2025', active: true },
+	{ label: '2024', id: '2024', active: false },
+	{ label: '2023', id: '2023', active: false },
+	{ label: '2022', id: '2022', active: false },
+	{ label: '2021', id: '2021', active: false },
+	{ label: '2020', id: '2020', active: false },
+	{ label: '2019', id: '2019', active: false },
+	{ label: '2018', id: '2018', active: false },
+	{ label: '2017', id: '2017', active: false },
+];
+---
+
+<Layout title="연수북페스티벌">
+	<SubLayout title="연수북페스티벌" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">
+					함께 읽기 문화 확산을 위해 연수구에서 활동하는 독서동아리(연수구민 50% 포함)에게 활동공간과 토론 도서 지원
+				</h3>
+			</div>
+		</div>
+
+		<UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-3" />
+
+		<div id="panel-2025" class="ui-tab-panel ui-tab-panel--active">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제9회 <br /> 연수 30 <br /> 북페스티벌 <br />3공 : 공존 · 공유 · 공감</td>
+							<td class="text-left">
+								- 일 시: 2025.5.24.(토)<br />
+								- 장 소: 승기천 잔디광장 일원<br />
+								- 주요내용: 북콘서트, 독서감상화 대회, 독서골든벨, 마술공연, 체험부스, 전시, 사전이벤트 등<br />
+								- 참여인원: 20,389명
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div id="panel-2024" class="ui-tab-panel">24</div>
+	</SubLayout>
+</Layout>

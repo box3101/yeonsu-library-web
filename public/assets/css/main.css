@@ -62154,6 +62154,9 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p return {
   border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
   border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
 }
+.usage-guide__table tr td.text-left {
+  text-align: left;
+}
 @media (max-width: 900px) {
   .usage-guide__title {
     margin: 20px 0;
@@ -65988,6 +65991,27 @@ ul.movie-card-wrp li.movie-card div.movie-card__description p return {
   .search-type-tabs {
     margin-bottom: 12px;
   }
+}
+.search-type-tabs.ui-tab--grid-3 .ui-tab__list {
+  flex-wrap: wrap;
+  overflow: hidden;
+  border-right: none;
+  border-bottom: none;
+}
+@media (max-width: 900px) {
+  .search-type-tabs.ui-tab--grid-3 .ui-tab__list {
+    margin-top: 1.5rem;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+}
+.search-type-tabs.ui-tab--grid-3 .ui-tab__button {
+  flex: 1 1 calc(100% / min(3, var(--total-tabs, 5)));
+  max-width: calc(100% / min(3, var(--total-tabs, 5)));
+  border-bottom: 1px solid #b1b8be;
+}
+.search-type-tabs.ui-tab--grid-3 .ui-tab__button:last-child {
+  border-right: 1px solid #b1b8be;
 }
 .search-type-tabs.ui-tab--grid-5 .ui-tab__list {
   flex-wrap: wrap;
@@ -76770,6 +76794,43 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   line-height: 1;
   line-height: 1.5;
   text-align: center;
+}
+
+.book-info.clearfix {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .book-info.clearfix {
+    gap: 0px;
+  }
+}
+.book-info.clearfix .book-cover {
+  width: 130px;
+}
+.book-info.clearfix .book-cover img {
+  width: 100%;
+}
+.book-info.clearfix .book-details {
+  flex: 1;
+}
+.book-info.clearfix .book-details table {
+  border-collapse: collapse;
+}
+.book-info.clearfix .book-details table tr th {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+}
+.book-info.clearfix .book-details table tr td {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+  padding: 12px;
 }
 
 .delivery-application-detail {
