@@ -116,6 +116,7 @@ ul.movie-card-wrp {
 					}
 
 					.movie-card__age{
+						display: flex;
 						@include mobile {
 							display: flex;
 						}

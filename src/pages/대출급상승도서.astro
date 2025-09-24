@@ -61,6 +61,59 @@ const popularBooks = [
 		image: './assets/images/book5.jpg',
 	},
 ];
+
+const popularBooks2 = [
+	{
+		rank: 1,
+		title: '저주토끼 (리커버)',
+		author: '2022 / 아작 / 정보라(지은이)',
+		isbn: '9791166866665',
+		currentCount: 456,
+		previousCount: 56,
+		totalCount: 512,
+		image: './assets/images/book1.jpg',
+	},
+	{
+		rank: 2,
+		title: '순례 주택 :유은실 소설',
+		author: '2021 / 비용소 / 지은이: 유은실',
+		isbn: '9788949123493',
+		currentCount: 109,
+		previousCount: 44,
+		totalCount: 153,
+		image: './assets/images/book2.jpg',
+	},
+	{
+		rank: 3,
+		title: '빛과 실',
+		author: '2025 / 문학과지성사 / 지은이: 한강',
+		isbn: '9788932043562',
+		currentCount: 86,
+		previousCount: 89,
+		totalCount: 175,
+		image: './assets/images/book3.jpg',
+	},
+	{
+		rank: 4,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2021 / 해결책 / 글: 차인표',
+		isbn: '9791191061048',
+		currentCount: 72,
+		previousCount: 56,
+		totalCount: 154,
+		image: './assets/images/book4.jpg',
+	},
+	{
+		rank: 5,
+		title: '언젠가 우리가 같은 별을 바라본다면 : 차인표 장편소설',
+		author: '2023 / 미래엔 / 원작: 흔한남매 ;그림: 도니패밀리',
+		isbn: '9791168418516',
+		currentCount: 72,
+		previousCount: 90,
+		totalCount: 162,
+		image: './assets/images/book5.jpg',
+	},
+];
 ---
 
 <Layout title="대출급상승도서">
@@ -72,7 +125,7 @@ const popularBooks = [
 				</ul>
 			</div>
 		</div>
-
+		<!-- 대출 급상승도서 날짜 선택 -->
 		<div class="date-selectors">
 			<div class="date-selector-header">
 				<div class="date-controls">
@@ -98,7 +151,85 @@ const popularBooks = [
 				</div>
 			</div>
 
-			<!-- 대출급상승도서 테이블 -->
+			<div class="popular-books-table-wrapper">
+				<table class="popular-books-table">
+					<thead>
+						<tr>
+							<th class="rank-col">번호</th>
+							<th class="institution-col">기관</th>
+							<th class="date1-col">작성일</th>
+							<th class="date2-col">작성일</th>
+							<th class="count-col">조회수</th>
+							<th class="title-col">제목</th>
+							<th class="isbn-col">ISBN</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							popularBooks.map(book => (
+								<tr class="table-row">
+									<td class="rank-col">
+										<span class="rank-number">{book.rank}</span>
+									</td>
+
+									<td class="institution-col">
+										<div class="rank-change-badge">
+											<img src="./assets/images/icon/arrow-up.svg" alt="상승" />
+											<span class="change-number">{book.currentCount}</span>
+										</div>
+									</td>
+
+									<td class="date1-col">
+										<span class="date-text">{book.previousCount}</span>
+									</td>
+
+									<td class="date2-col">
+										<span class="date-text">{book.totalCount}</span>
+									</td>
+
+									<td class="count-col">
+										<span class="count-text">{book.totalCount}</span>
+									</td>
+
+									<td class="title-col text-left">
+										<div class="book-info">
+											<div class="book-image">
+												<img src={book.image} alt={book.title} />
+											</div>
+											<div class="book-details">
+												<h3 class="book-title">{book.title}</h3>
+												<p class="book-author">{book.author}</p>
+											</div>
+										</div>
+									</td>
+
+									<td class="isbn-col">
+										<span class="isbn-text">{book.isbn}</span>
+									</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 일반 도서 날짜 선택 -->
+			<div class="date-selector-header type-2">
+				<div class="date-controls">
+					<div class="date-display">
+						<div class="date-item">
+							<span class="date-text">2025년</span>
+						</div>
+						<div class="date-item">
+							<span class="date-text">08월</span>
+						</div>
+						<div class="date-item">
+							<span class="date-text">23일</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="popular-books-table-wrapper">
 				<table class="popular-books-table">
 					<thead>

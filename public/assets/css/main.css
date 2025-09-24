@@ -61808,6 +61808,9 @@ ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.
     gap: 10px;
   }
 }
+ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__age {
+  display: flex;
+}
 @media (max-width: 900px) {
   ul.movie-card-wrp li.movie-card div.movie-card__header div.movie-card__info div.movie-card__top .movie-card__age {
     display: flex;
@@ -77126,6 +77129,9 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     padding: 12px 16px;
   }
 }
+.date-selectors .date-selector-header-type-2 .date-text {
+  color: #3c79c2;
+}
 .date-selectors .date-selector-header .date-controls {
   display: flex;
   align-items: center;
@@ -77287,7 +77293,6 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .date-selectors .popular-books-table thead tr th.title-col {
   width: auto;
-  min-width: 500px;
 }
 @media (max-width: 900px) {
   .date-selectors .popular-books-table thead tr th.title-col {

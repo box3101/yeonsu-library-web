@@ -392,6 +392,12 @@
 			padding: 12px 16px;
 		}
 
+		&-type-2 {
+			.date-text {
+				color: $primary-color;
+			}
+		}
+
 		.date-controls {
 			display: flex;
 			align-items: center;
@@ -555,7 +561,7 @@
 
 					&.title-col {
 						width: auto;
-						min-width: 500px;
+						// min-width: 500px;
 
 						@include mobile {
 							min-width: 450px; // Adjusted for mobile
