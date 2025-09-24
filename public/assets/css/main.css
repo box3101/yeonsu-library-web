@@ -77185,7 +77185,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .post-reply__divider {
   width: 1px;
-  height: 0.75rem;
+  height: 1.0625rem;
   background: #646767;
   flex-shrink: 0;
 }
