@@ -76772,6 +76772,280 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   text-align: center;
 }
 
+.delivery-application-detail {
+  width: 100%;
+}
+.delivery-application-detail .application-info {
+  margin-bottom: 0;
+}
+.delivery-application-detail .application-info .info-row {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .application-info .info-row {
+    flex-direction: column;
+  }
+}
+.delivery-application-detail .application-info .info-row:last-child {
+  border-bottom: none;
+}
+.delivery-application-detail .application-info .info-row:first-child .info-label {
+  border-top: 1px solid #d8e4f3;
+}
+.delivery-application-detail .application-info .info-row:first-child .info-value {
+  border-top: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .application-info .info-row:first-child .info-value {
+    border-top: none;
+  }
+}
+.delivery-application-detail .application-info .info-row .info-label {
+  height: 100%;
+  background-color: #ecf2f9;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #191a1a;
+  border-left: 1px solid #d8e4f3;
+  border-right: 1px solid #d8e4f3;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .application-info .info-row .info-label {
+    width: 100%;
+    font-size: 0.8125rem;
+    padding: 12px 0;
+    border-right: 1px solid #cbcccc;
+    border-bottom: 1px solid #d8e4f3;
+  }
+}
+.delivery-application-detail .application-info .info-row .info-value {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 400;
+  color: #4b4d4d;
+  border-right: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .application-info .info-row .info-value {
+    width: 100%;
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+    border-left: 1px solid #cbcccc;
+  }
+}
+.delivery-application-detail .book-list-table {
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table {
+    overflow-x: auto;
+  }
+}
+.delivery-application-detail .book-list-table .table-header {
+  display: flex;
+  border-bottom: 1px solid #d8e4f3;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-header {
+    min-width: 600px;
+  }
+}
+.delivery-application-detail .book-list-table .table-header .header-cell {
+  background-color: #ecf2f9;
+  padding: 12px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #191a1a;
+  text-align: center;
+  border-left: 1px solid #d8e4f3;
+  border-top: 1px solid #d8e4f3;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-header .header-cell {
+    font-size: 0.8125rem;
+    padding: 10px 6px;
+  }
+}
+.delivery-application-detail .book-list-table .table-header .header-cell:last-child {
+  border-right: 1px solid #d8e4f3;
+}
+.delivery-application-detail .book-list-table .table-header .header-cell.col-number {
+  width: 80px;
+  min-width: 80px;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-header .header-cell.col-number {
+    width: 60px;
+    min-width: 60px;
+  }
+}
+.delivery-application-detail .book-list-table .table-header .header-cell.col-title {
+  flex: 1;
+}
+.delivery-application-detail .book-list-table .table-header .header-cell.col-call-number {
+  flex: 1;
+}
+.delivery-application-detail .book-list-table .table-header .header-cell.col-registration {
+  flex: 1;
+}
+.delivery-application-detail .book-list-table .table-row {
+  display: flex;
+  border-bottom: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-row {
+    min-width: 600px;
+  }
+}
+.delivery-application-detail .book-list-table .table-row .data-cell {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 400;
+  color: #4b4d4d;
+  border-left: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-row .data-cell {
+    font-size: 0.9375rem;
+    padding: 10px 8px;
+  }
+}
+.delivery-application-detail .book-list-table .table-row .data-cell:last-child {
+  border-right: 1px solid #cbcccc;
+}
+.delivery-application-detail .book-list-table .table-row .data-cell.col-number {
+  width: 80px;
+  min-width: 80px;
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-row .data-cell.col-number {
+    width: 60px;
+    min-width: 60px;
+  }
+}
+.delivery-application-detail .book-list-table .table-row .data-cell.col-title {
+  flex: 1;
+}
+.delivery-application-detail .book-list-table .table-row .data-cell.col-call-number {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+.delivery-application-detail .book-list-table .table-row .data-cell.col-registration {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+.delivery-application-detail .book-list-table .table-note {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border: 1px solid #cbcccc;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: #4b4d4d;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-note {
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+    min-width: 600px;
+  }
+}
+.delivery-application-detail .book-list-table .table-note .note-icon {
+  margin-right: 8px;
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .book-list-table .table-note .note-icon {
+    margin-right: 6px;
+  }
+}
+.delivery-application-detail .book-list-table .table-note .note-text {
+  font-weight: 400;
+}
+.delivery-application-detail .delivery-info {
+  margin-top: 0;
+}
+.delivery-application-detail .delivery-info .delivery-row {
+  display: flex;
+  border-bottom: 1px solid #cbcccc;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .delivery-info .delivery-row {
+    flex-direction: column;
+  }
+}
+.delivery-application-detail .delivery-info .delivery-row:first-child {
+  border-top: none;
+}
+.delivery-application-detail .delivery-info .delivery-row .delivery-label {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 400;
+  color: #4b4d4d;
+  border-left: 1px solid #cbcccc;
+  border-right: 1px solid #cbcccc;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .delivery-info .delivery-row .delivery-label {
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+    border-bottom: 1px solid #cbcccc;
+  }
+}
+.delivery-application-detail .delivery-info .delivery-row .delivery-value {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #4b4d4d;
+  border-right: 1px solid #cbcccc;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .delivery-application-detail .delivery-info .delivery-row .delivery-value {
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+    border-left: 1px solid #cbcccc;
+  }
+}
+.delivery-application-detail .delivery-info .delivery-row .delivery-value.delivery-date {
+  font-weight: 700;
+}
+
 .btn-top {
   position: fixed;
   right: 40px;
@@ -77134,8 +77408,8 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
     padding: 12px 16px;
   }
 }
-.date-selectors .date-selector-header-type-2 .date-text {
-  color: #3c79c2;
+.date-selectors .date-selector-header.type-2 .date-text {
+  color: #3c79c2 !important;
 }
 .date-selectors .date-selector-header .date-controls {
   display: flex;
@@ -77338,6 +77612,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
 }
 .date-selectors .popular-books-table tbody tr .title-col .book-image {
   flex: none;
+  max-width: 70px;
 }
 .date-selectors .popular-books-table tbody tr .title-col .book-title {
   min-height: 51px;
@@ -78599,6 +78874,7 @@ div.bookshelf-item div.bookshelf-item__content div.bookshelf-item__title {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  flex: 1;
 }
 .ui-book-card__image-container {
   position: relative;

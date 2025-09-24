@@ -3,195 +3,353 @@ import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '열린참여마당', href: '/support' }, { label: '무료택배도서대출' }];
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열린참여마당', href: '/support' },
+	{ label: '무료택배도서대출' },
+];
 const columns = [
-  {
-    key: 'title',
-    label: '제목',
-    sortable: true,
-    headerAlign: 'center',
-    align: 'left',
-  },
-  {
-    key: 'author',
-    label: '작성자',
-    width: '100px',
-    headerAlign: 'center',
-    align: 'center',
-  },
-  {
-    key: 'date',
-    label: '반납신청일',
-    width: '150px',
-    headerAlign: 'center',
-    align: 'center',
-  },
+	{
+		key: 'title',
+		label: '제목',
+		sortable: true,
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'author',
+		label: '작성자',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'date',
+		label: '반납신청일',
+		width: '150px',
+		headerAlign: 'center',
+		align: 'center',
+	},
 ];
 const rows = [
-  {
-    number: 438,
-    title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
-    author: '김현미',
-    date: '2025.08.09',
-    count: 53,
-    href: './',
-    isNew: true,
-    hasIcon: true,
-    status: '취소완료',
-  },
-  {
-    number: 437,
-    title: '장기 주차 자전거 폐기 안내(9월 1일)',
-    author: '박성훈',
-    date: '2025.08.01',
-    count: 98,
-    href: './',
-    isNew: true,
-    hasIcon: true,
-    status: '대출완료',
-  },
-  {
-    number: 436,
-    title: '7월의 특별 혜택 당첨자 안내',
-    author: '이소영',
-    date: '2025.08.01',
-    count: 305,
-    href: './',
-    isNew: true,
-    hasIcon: true,
-    status: '접수대기',
-  },
-  {
-    number: 435,
-    title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
-    author: '정민준',
-    date: '2025.07.30',
-    count: 310,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '대출완료',
-  },
-  {
-    number: 434,
-    title: '2025년 하반기 정규프로그램 운영 안내',
-    author: '홍지우',
-    date: '2025.07.29',
-    count: 620,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '접수대기',
-  },
-  {
-    number: 433,
-    title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
-    author: '윤채원',
-    date: '2025.07.25',
-    count: 346,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '대출완료',
-  },
-  {
-    number: 432,
-    title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
-    author: '강도현',
-    date: '2025.07.20',
-    count: 254,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '접수대기',
-  },
-  {
-    number: 431,
-    title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
-    author: '문서연',
-    date: '2025.07.17',
-    count: 283,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '대출완료',
-  },
-  {
-    number: 430,
-    title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
-    author: '최준혁',
-    date: '2025.07.16',
-    count: 307,
-    href: './',
-    isNew: false,
-    hasIcon: true,
-    status: '접수대기',
-  },
-  {
-    number: 429,
-    title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
-    author: '장예나',
-    date: '2025.07.16',
-    count: 1947,
-    href: './무료택배도서대출-서비스안내-상세',
-    isNew: false,
-    hasIcon: true,
-    status: '대출완료',
-  },
+	{
+		number: 438,
+		title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
+		author: '김현미',
+		date: '2025.08.09',
+		count: 53,
+		href: './',
+		isNew: true,
+		hasIcon: true,
+		status: '취소완료',
+	},
+	{
+		number: 437,
+		title: '장기 주차 자전거 폐기 안내(9월 1일)',
+		author: '박성훈',
+		date: '2025.08.01',
+		count: 98,
+		href: './',
+		isNew: true,
+		hasIcon: true,
+		status: '대출완료',
+	},
+	{
+		number: 436,
+		title: '7월의 특별 혜택 당첨자 안내',
+		author: '이소영',
+		date: '2025.08.01',
+		count: 305,
+		href: './',
+		isNew: true,
+		hasIcon: true,
+		status: '접수대기',
+	},
+	{
+		number: 435,
+		title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
+		author: '정민준',
+		date: '2025.07.30',
+		count: 310,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '대출완료',
+	},
+	{
+		number: 434,
+		title: '2025년 하반기 정규프로그램 운영 안내',
+		author: '홍지우',
+		date: '2025.07.29',
+		count: 620,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '접수대기',
+	},
+	{
+		number: 433,
+		title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
+		author: '윤채원',
+		date: '2025.07.25',
+		count: 346,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '대출완료',
+	},
+	{
+		number: 432,
+		title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
+		author: '강도현',
+		date: '2025.07.20',
+		count: 254,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '접수대기',
+	},
+	{
+		number: 431,
+		title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
+		author: '문서연',
+		date: '2025.07.17',
+		count: 283,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '대출완료',
+	},
+	{
+		number: 430,
+		title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
+		author: '최준혁',
+		date: '2025.07.16',
+		count: 307,
+		href: './',
+		isNew: false,
+		hasIcon: true,
+		status: '접수대기',
+	},
+	{
+		number: 429,
+		title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
+		author: '장예나',
+		date: '2025.07.16',
+		count: 1947,
+		href: './무료택배도서대출-서비스안내-상세',
+		isNew: false,
+		hasIcon: true,
+		status: '대출완료',
+	},
 ];
 ---
 
 <Layout title="도서관에 바란다">
-  <SubLayout title="서비스 신청" breadcrumbItems={breadcrumbItems} menuType="안내마당">
-    <UiTab
-      tabs={[
-        { id: 'info', label: '서비스 안내', active: false, href: './무료택배도서대출-서비스안내' },
-        { id: 'apply', label: '서비스 신청', active: true, href: './무료택배도서대출-서비스신청' },
-      ]}
-      className="mb-4 search-type-tabs ui-tab--grid-5"
-    />
-    <!-- 게시글 상세 정보 영역 -->
-    <div class="sub-layout__content--detail">
-      <!-- 게시글 헤더 영역 -->
-      <div class="post-detail__header">
-        <div class="post-detail__meta">
-          <h1 class="post-detail__title">무료택배 도서대출 신청</h1>
-          <div class="post-detail__info">
-            <div class="post-detail__info-item">
-              <span class="post-detail__info-label">작성자</span>
-              <span class="post-detail__info-value">박성훈</span>
-            </div>
-            <div class="post-detail__info-item">
-              <span class="post-detail__info-label">작성일</span>
-              <span class="post-detail__info-value">2025.08.01</span>
-            </div>
-            <div class="post-detail__info-item">
-              <span class="post-detail__info-label">조회수</span>
-              <span class="post-detail__info-value">98</span>
-            </div>
-          </div>
-        </div>
-      </div>
+	<SubLayout
+		title="서비스 신청"
+		breadcrumbItems={breadcrumbItems}
+		menuType="안내마당"
+		class="delivery-application-detail-page"
+	>
+		<UiTab
+			tabs={[
+				{ id: 'info', label: '서비스 안내', active: false, href: './무료택배도서대출-서비스안내' },
+				{ id: 'apply', label: '서비스 신청', active: true, href: './무료택배도서대출-서비스신청' },
+			]}
+			className="mb-4 search-type-tabs ui-tab--grid-5"
+		/>
+		<!-- 게시글 상세 정보 영역 -->
+		<div class="sub-layout__content--detail">
+			<!-- 게시글 헤더 영역 -->
+			<div class="post-detail__header">
+				<div class="post-detail__meta">
+					<h1 class="post-detail__title">무료택배 도서대출 신청</h1>
+					<div class="post-detail__info">
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">작성자</span>
+							<span class="post-detail__info-value">박성훈</span>
+						</div>
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">작성일</span>
+							<span class="post-detail__info-value">2025.08.01</span>
+						</div>
+						<div class="post-detail__info-item">
+							<span class="post-detail__info-label">조회수</span>
+							<span class="post-detail__info-value">98</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <!-- 게시글 본문 영역 -->
-      <div class="post-detail__body">23</div>
+			<!-- 게시글 본문 영역 -->
+			<div class="post-detail__body">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium odio minima necessitatibus hic voluptates
+				ab iure sint soluta ex, sequi architecto magni nesciunt sunt earum dolorum, possimus veniam. Beatae, aperiam
+				totam blanditiis voluptate provident omnis error voluptas officiis ipsa aspernatur veniam a laboriosam,
+				voluptatibus eos magnam vero! Blanditiis ex doloremque totam explicabo dolores delectus excepturi odit quam.
+				Obcaecati tempore illo consectetur, maxime dolores reiciendis. Officiis similique nihil molestiae harum
+				voluptates porro saepe amet corporis. Cum rem, porro velit dicta reiciendis aliquid magni eos repudiandae
+				accusantium, quod, unde ullam! Deleniti inventore sed iusto. Beatae alias iste sequi aperiam reprehenderit illum
+				molestias quo amet eius nostrum minima eaque debitis recusandae nisi, accusantium fugiat ad nemo. Consectetur
+				ullam soluta est unde, provident doloremque praesentium deserunt? Fugiat, suscipit hic iusto reprehenderit quod
+				sapiente ab explicabo unde facilis blanditiis laborum voluptas error itaque molestias praesentium similique
+				vero! Voluptate cum maiores soluta nesciunt ipsa blanditiis, quasi, rem culpa dolor ullam omnis iste sint, hic
+				aut. Recusandae suscipit tenetur dolorum maiores adipisci nihil expedita fugiat earum! Exercitationem, iste
+				excepturi error temporibus ut nihil commodi sit ipsum ea facilis possimus dolorem pariatur quidem blanditiis
+				nam, voluptate dicta quos? Nulla, aperiam officiis aspernatur optio repellat eius. Voluptatibus, illo. Aliquid.
+			</div>
 
-      <!-- 게시글 푸터 영역 -->
-      <div class="post-detail__footer">
-        <div class="post-detail__actions">
-          <UiButton variant="tertiary" class="w-120-mobile-full" size="medium" href="./무료택배도서대출-서비스안내" text="목록" />
-          <UiButton variant="primary" class="w-120-mobile-full" size="medium" href="./무료택배도서대출-서비스신청-수정" text="수정" />
-          <UiButton
-            variant="darkBlue"
-            class="w-140-mobile-full"
-            size="medium"
-            text="반납신청"
-            icon="icon-arrow-right"
-            iconAddClass="icon-xxxsm icon-white"
-            icon-position="right"
-          />
-        </div>
-      </div>
-    </div>
-  </SubLayout>
+			<!-- 신청자 정보 영역 -->
+			<div class="delivery-application-detail">
+				<!-- 신청자 정보 -->
+				<div class="application-info">
+					<div class="info-row">
+						<div class="info-label">신청자</div>
+						<div class="info-value">내용</div>
+					</div>
+					<div class="info-row">
+						<div class="info-label">연락처</div>
+						<div class="info-value">010-0000-0000</div>
+					</div>
+					<div class="info-row">
+						<div class="info-label">택배받을 주소</div>
+						<div class="info-value">주소</div>
+					</div>
+					<div class="info-row">
+						<div class="info-label">공동현관 비밀번호</div>
+						<div class="info-value">0000</div>
+					</div>
+				</div>
+
+				<!-- 도서 목록 테이블 -->
+				<div class="book-list-table">
+					<!-- 테이블 헤더 -->
+					<div class="table-header">
+						<div class="table-cell header-cell col-number">연번</div>
+						<div class="table-cell header-cell col-title">책 제목</div>
+						<div class="table-cell header-cell col-call-number">청구기호</div>
+						<div class="table-cell header-cell col-registration">등록번호</div>
+					</div>
+
+					<!-- 테이블 데이터 -->
+					<div class="table-row">
+						<div class="table-cell data-cell col-number">1</div>
+						<div class="table-cell data-cell col-title">바람</div>
+						<div class="table-cell data-cell col-call-number">S 813.8-이55ㅂ</div>
+						<div class="table-cell data-cell col-registration">CL0000072943</div>
+					</div>
+					<div class="table-row">
+						<div class="table-cell data-cell col-number">2</div>
+						<div class="table-cell data-cell col-title">개미가 고맙다고 했어</div>
+						<div class="table-cell data-cell col-call-number">S 813.8-이51ㄱ</div>
+						<div class="table-cell data-cell col-registration">CL0000000601</div>
+					</div>
+					<div class="table-row">
+						<div class="table-cell data-cell col-number">3</div>
+						<div class="table-cell data-cell col-title">-</div>
+						<div class="table-cell data-cell col-call-number">-</div>
+						<div class="table-cell data-cell col-registration">-</div>
+					</div>
+					<div class="table-row">
+						<div class="table-cell data-cell col-number">4</div>
+						<div class="table-cell data-cell col-title">-</div>
+						<div class="table-cell data-cell col-call-number">-</div>
+						<div class="table-cell data-cell col-registration">-</div>
+					</div>
+					<div class="table-row">
+						<div class="table-cell data-cell col-number">5</div>
+						<div class="table-cell data-cell col-title">-</div>
+						<div class="table-cell data-cell col-call-number">-</div>
+						<div class="table-cell data-cell col-registration">-</div>
+					</div>
+
+					<!-- 참고사항 -->
+					<div class="table-note">
+						<span class="note-icon">※</span>
+						<span class="note-text">참고사항 : 신청일 기준 가까운 화요일이나 금요일에 배송됩니다.</span>
+					</div>
+				</div>
+
+				<!-- 배송 및 반납 정보 -->
+				<div class="delivery-info">
+					<div class="delivery-row">
+						<div class="delivery-label">도서 대출일(배송일자)</div>
+						<div class="delivery-value delivery-date">2025-08-01</div>
+					</div>
+					<div class="delivery-row">
+						<div class="delivery-label">반납 신청 기한</div>
+						<div class="delivery-value delivery-date">2025-08-15</div>
+					</div>
+					<div class="delivery-row">
+						<div class="delivery-label">반납예정일</div>
+						<div class="delivery-value delivery-date">2025-08-23</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 답변 영역 -->
+			<div class="post-reply">
+				<div class="post-reply__header">
+					<div class="post-reply__badge">
+						<img src="./assets/images/icon/icon-inquiry.svg" alt="답변" />
+						<span>답변</span>
+					</div>
+					<div class="post-reply__info">
+						<div class="post-reply__info-item">
+							<span class="post-reply__info-label">담당자</span>
+							<span class="post-reply__info-value">관리자</span>
+						</div>
+						<div class="post-reply__divider"></div>
+						<div class="post-reply__info-item">
+							<span class="post-reply__info-label">작성일</span>
+							<span class="post-reply__info-value">2025.07.02</span>
+						</div>
+					</div>
+				</div>
+				<div class="post-reply__content">
+					<p>
+						답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변
+						내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변
+						내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는
+						영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용
+						들어가는 영역이다.답변 내용 들어가는 영역이다.답변 내용 들어가는 영역이다.
+					</p>
+				</div>
+			</div>
+
+			<!-- 게시글 푸터 영역 -->
+			<div class="post-detail__footer">
+				<div class="post-detail__actions">
+					<UiButton
+						variant="tertiary"
+						class="w-120-mobile-full"
+						size="medium"
+						href="./무료택배도서대출-서비스안내"
+						text="목록"
+					/>
+					<UiButton
+						variant="primary"
+						class="w-120-mobile-full"
+						size="medium"
+						href="./무료택배도서대출-서비스신청-수정"
+						text="수정"
+					/>
+					<UiButton
+						variant="darkBlue"
+						class="w-140-mobile-full"
+						size="medium"
+						text="반납신청"
+						icon="icon-arrow-right"
+						iconAddClass="icon-xxxsm icon-white"
+						icon-position="right"
+					/>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
 </Layout>

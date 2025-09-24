@@ -78,6 +78,10 @@ const popularBooks = [
 		</div>
 
 		<!-- 키워드 영역 -->
+		<div class="keywords-content">
+			<div id="wordCloudCanvas" class="wordcloud-canvas"></div>
+		</div>
+
 		<div class="date-selectors">
 			<div class="date-selector-header">
 				<div class="date-controls">
@@ -356,3 +360,76 @@ const popularBooks = [
 		</div>
 	</SubLayout>
 </Layout>
+
+<!-- 태그 클라우드 및 차트 스크립트 -->
+<script is:inline type="text/javascript" src="./assets/js/tagsCloud.js"></script>
+
+<script is:inline>
+	// jQuery, Chart.js, WordCloud가 로드될 때까지 대기
+	function waitForLibraries() {
+		if (typeof $ !== 'undefined' && typeof Chart !== 'undefined' && typeof WordCloud !== 'undefined') {
+			initializeCharts();
+		} else {
+			setTimeout(waitForLibraries, 100);
+		}
+	}
+
+	function initializeCharts() {
+		// 태그 클라우드 샘플 데이터
+		const tagCloudData = [
+			{ tag: '프로그래밍', weight: 15 },
+			{ tag: 'JavaScript', weight: 12 },
+			{ tag: '웹개발', weight: 10 },
+			{ tag: '도서관', weight: 8 },
+			{ tag: '독서', weight: 7 },
+			{ tag: '소설', weight: 6 },
+			{ tag: '역사', weight: 5 },
+			{ tag: '과학', weight: 4 },
+			{ tag: '문학', weight: 3 },
+			{ tag: '예술', weight: 2 },
+		];
+
+		// 연령별 차트 샘플 데이터
+		const ageData = [
+			{ age: '10대', loanCnt: 15 },
+			{ age: '20대', loanCnt: 25 },
+			{ age: '30대', loanCnt: 35 },
+			{ age: '40대', loanCnt: 20 },
+			{ age: '50대', loanCnt: 10 },
+		];
+
+		// 연도별 차트 샘플 데이터
+		const yearData = [
+			{ year: '2019', loanCnt: 120 },
+			{ year: '2020', loanCnt: 85 },
+			{ year: '2021', loanCnt: 95 },
+			{ year: '2022', loanCnt: 150 },
+			{ year: '2023', loanCnt: 180 },
+			{ year: '2024', loanCnt: 200 },
+		];
+
+		console.log('라이브러리 로드 완료, 차트 초기화 시작');
+
+		// 태그 클라우드 그리기
+		drawTagCloud(tagCloudData);
+
+		// 차트 그리기
+		drawChartsAge(ageData);
+		drawChartsYear(yearData); // 월별이 아닌 연도별 함수 호출
+	}
+
+	// 연수도서관용 태그 클라우드 검색 함수
+	function fn_tagCloudSearch(word) {
+		const searchUrl = `소장도서검색?keyword=${encodeURIComponent(word)}`;
+		window.location.href = searchUrl;
+	}
+
+	// 전역 함수로 등록
+	window.fn_tagCloudSearch = fn_tagCloudSearch;
+
+	// DOM 로드 후 라이브러리 대기 시작
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('DOM 로드 완료, 라이브러리 대기 중...');
+		waitForLibraries();
+	});
+</script>
