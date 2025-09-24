@@ -315,6 +315,7 @@ ul.movie-card-wrp {
 				@include mobile {
 					font-size: 14px;
 				}
+				return{word-break: break-word;}
 			}
 		}
 	}
@@ -2658,6 +2659,8 @@ ul.movie-card-wrp {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem; /* 8px */
+		align-items : center;
+		 
 	}
 
 	.info-item {
@@ -2683,6 +2686,8 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		color: #191a1a;
 		text-align: left;
+			width : 11.25rem;
+
 	}
 
 	.info-value-with-copy {
@@ -7211,6 +7216,7 @@ div.bookshelf-item {
 	color: #191a1a;
 	width: to-rem(180);
 	flex-shrink: 0;
+
 
 	@include mobile {
 		font-size: to-rem(15);
