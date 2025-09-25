@@ -1,13 +1,64 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton, UiInput, UiTextarea, UiSelect, UiDatePicker, UiRadio, UiTab, CardTable } from '@components';
+import {
+	UiButton,
+	UiInput,
+	UiTextarea,
+	UiSelect,
+	UiDatePicker,
+	UiRadio,
+	UiTab,
+	CardTable,
+	UiFaqAccordion,
+	UiPagination,
+} from '@components';
 
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '자주하는질문' }];
+
+const faqItems = [
+	{
+		question: '도서반납이 늦었습니다',
+		answer: `연수구립도서관에서는 상점 및 기관에 30권 이내, 30일간 도서를 대출해 드리는 서비스를 시행하고 있습니다. <br/> 연수구립도서관 홈페이지 -[열린참여마당]-[북메이트]-[신청서]를 제출하시면 회원 가입이 되시며 북메이트 서비스를 이용하실 수 있습니다. <br>
+		
+		<a href="#" target="_blank">북메이트 서비스 안내 바로가기 <img
+			src="./assets/images/icon/icon-open-new-window.svg"
+		/> </a>
+		`,
+		tags: ['북메이트'],
+		isExpanded: true,
+	},
+	{
+		question: '무서해태들은 서비스는 어떻게 이용하나요?',
+		answer: '무서해태들 서비스 이용 방법에 대한 답변입니다.',
+		tags: ['스마트도서관'],
+	},
+	{
+		question: '스마트도서관에서 책을 상호대차로 받고 싶어요',
+		answer: '스마트도서관 상호대차 서비스에 대한 답변입니다.',
+		tags: ['스마트도서관'],
+	},
+	{
+		question: '스마트도서관은 어디에 있고, 책을 어떻게 찾나요?',
+		answer: '스마트도서관 위치 및 도서 검색 방법에 대한 답변입니다.',
+		tags: ['스마트도서관'],
+	},
+	{
+		question: '도서관 행동이라고 있던데 무엇이며, 어떻게 사용하나요?',
+		answer: '도서관 행동 서비스에 대한 답변입니다.',
+		tags: ['도서관'],
+	},
+];
 ---
 
 <Layout title="자주하는질문">
 	<SubLayout title="자주하는질문" breadcrumbItems={breadcrumbItems} menuType="안내마당">
 		<!-- 자주하는 질문 -->
+		<UiFaqAccordion faqItems={faqItems} />
+
+		<!-- 페이징네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={46} maxVisiblePages={8} />
+		</div>
 	</SubLayout>
 </Layout>

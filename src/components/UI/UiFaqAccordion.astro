@@ -1,0 +1,44 @@
+---
+export interface Props {
+	faqItems: Array<{
+		question: string;
+		answer: string;
+		isExpanded?: boolean;
+	}>;
+	containerClass?: string;
+}
+
+const { faqItems, containerClass = '' } = Astro.props;
+---
+
+<div class={`faq-container ${containerClass}`}>
+	{
+		faqItems.map((item, index) => (
+			<div class="faq-item" data-faq-item>
+				<div
+					class="faq-question"
+					data-faq-toggle
+					role="button"
+					tabindex="0"
+					aria-expanded={item.isExpanded ? 'true' : 'false'}
+				>
+					<div class="faq-question-content">
+						<span class="faq-question-label">Q.</span>
+						<span class="faq-question-text">{item.question}</span>
+					</div>
+					<div class="faq-toggle-icon">
+						<img src="./assets/images/icon/icon-arrow-down.svg" alt="" />
+					</div>
+				</div>
+				<div class="faq-answer" data-faq-content aria-hidden={item.isExpanded ? 'false' : 'true'}>
+					<div class="faq-answer-content">
+						<span class="faq-answer-label">A.</span>
+						<div class="faq-answer-text">
+							<p set:html={item.answer} />
+						</div>
+					</div>
+				</div>
+			</div>
+		))
+	}
+</div>
