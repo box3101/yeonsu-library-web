@@ -1,0 +1,265 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+
+.faq-container {
+	max-width: to-rem(1200);
+	margin: 0 auto;
+	padding: to-rem(40) to-rem(20);
+
+	@include mobile {
+		padding: to-rem(20) to-rem(16);
+	}
+}
+
+// 검색 영역 스타일
+.faq-search-section {
+	text-align: center;
+	margin-bottom: to-rem(48);
+	padding: to-rem(32) to-rem(24);
+	background: var(--color-primary-pr00, #ecf2f9);
+	border-radius: var(--radius-large, 12px);
+
+	@include mobile {
+		padding: to-rem(24) to-rem(16);
+		margin-bottom: to-rem(32);
+	}
+
+	.search-box {
+		display: flex;
+		align-items: center;
+		gap: to-rem(12);
+		max-width: to-rem(600);
+		margin: 0 auto to-rem(16);
+
+		@include mobile {
+			flex-direction: column;
+			gap: to-rem(12);
+		}
+
+		.faq-search-input {
+			flex: 1;
+
+			@include mobile {
+				width: 100%;
+			}
+		}
+
+		.faq-search-btn {
+			flex-shrink: 0;
+
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+
+	.search-guide {
+		font-size: to-rem(14);
+		color: var(--color-text-secondary, #6b7280);
+		margin: 0;
+		line-height: 1.5;
+	}
+}
+
+// FAQ 콘텐츠 영역
+.faq-content {
+	.faq-category {
+		margin-bottom: to-rem(48);
+
+		@include mobile {
+			margin-bottom: to-rem(32);
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.faq-category-title {
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: var(--color-primary-pr05, #3c79c2);
+		margin: 0 0 to-rem(24) 0;
+		padding: to-rem(16) 0;
+		border-bottom: 2px solid var(--color-primary-pr05, #3c79c2);
+		position: relative;
+
+		@include mobile {
+			font-size: to-rem(20);
+			margin-bottom: to-rem(16);
+			padding: to-rem(12) 0;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: to-rem(60);
+			height: 2px;
+			background: var(--color-secondary-sc05, #063a74);
+		}
+	}
+
+	.faq-items {
+		.faq-item {
+			margin-bottom: to-rem(12);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			// FAQ 항목에 대한 커스텀 스타일
+			.ui-accordion__title {
+				text-align: left;
+				font-weight: 600;
+				color: var(--color-text-primary, #333333);
+				font-size: to-rem(16);
+
+				@include mobile {
+					font-size: to-rem(14);
+				}
+			}
+
+			.faq-answer {
+				p {
+					font-size: to-rem(15);
+					line-height: 1.7;
+					color: var(--color-text-secondary, #4b5563);
+					margin: 0;
+					word-break: keep-all;
+
+					@include mobile {
+						font-size: to-rem(14);
+						line-height: 1.6;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 추가 문의 안내 섹션
+.faq-contact-section {
+	margin-top: to-rem(64);
+	padding: to-rem(40) to-rem(32);
+	background: var(--color-bg-light, #f8fafc);
+	border-radius: var(--radius-large, 12px);
+	border: 1px solid var(--color-border-light, #e5e7eb);
+
+	@include mobile {
+		margin-top: to-rem(48);
+		padding: to-rem(24) to-rem(20);
+	}
+
+	.contact-info {
+		text-align: center;
+
+		h4 {
+			font-size: to-rem(20);
+			font-weight: 700;
+			color: var(--color-text-primary, #333333);
+			margin: 0 0 to-rem(12) 0;
+
+			@include mobile {
+				font-size: to-rem(18);
+			}
+		}
+
+		> p {
+			font-size: to-rem(14);
+			color: var(--color-text-secondary, #6b7280);
+			margin: 0 0 to-rem(24) 0;
+			line-height: 1.5;
+		}
+	}
+
+	.contact-details {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		max-width: to-rem(600);
+		margin: 0 auto;
+
+		@include mobile {
+			gap: to-rem(12);
+		}
+
+		.contact-item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: to-rem(8);
+			font-size: to-rem(14);
+			line-height: 1.5;
+
+			@include mobile {
+				flex-direction: column;
+				text-align: center;
+				gap: to-rem(4);
+			}
+
+			strong {
+				color: var(--color-primary-pr05, #3c79c2);
+				font-weight: 600;
+				min-width: to-rem(80);
+
+				@include mobile {
+					min-width: auto;
+				}
+			}
+
+			.ml-2 {
+				margin-left: to-rem(8);
+
+				@include mobile {
+					margin-left: 0;
+					margin-top: to-rem(8);
+				}
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// 반응형 조정
+@include tablet {
+	.faq-container {
+		padding: to-rem(32) to-rem(16);
+	}
+
+	.faq-search-section {
+		.search-box {
+			flex-direction: column;
+			gap: to-rem(12);
+
+			.faq-search-input,
+			.faq-search-btn {
+				width: 100%;
+			}
+		}
+	}
+
+	.faq-contact-section {
+		.contact-details {
+			.contact-item {
+				flex-direction: column;
+				text-align: center;
+				gap: to-rem(4);
+
+				strong {
+					min-width: auto;
+				}
+
+				.ml-2 {
+					margin-left: 0;
+					margin-top: to-rem(8);
+				}
+			}
+		}
+	}
+}

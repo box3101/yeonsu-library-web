@@ -32,6 +32,14 @@ ul.movie-card-wrp {
 	gap: to-rem(16);
 	margin-top: 16px;
 
+	.movie-card__description * {
+		white-space: normal;
+		word-break: break-word;
+		overflow-wrap: break-word;
+		line-height: 1.6;
+		font-family: inherit !important;
+}
+
 	li.movie-card {
 		background: $white;
 		border: 1px solid #cbcccc;
@@ -61,12 +69,16 @@ ul.movie-card-wrp {
 			}
 		}
 
+		.movie-card__cnt{
+			flex:1;
+		}
+
 		.movie-card__top {
 			@include flex(row);
 			gap: to-rem(16);
 		}
 
-		div.movie-card__header {
+		.movie-card__header {
 			@include flex(row);
 			gap: to-rem(24);
 			padding-bottom: to-rem(16);
@@ -92,9 +104,8 @@ ul.movie-card-wrp {
 				}
 			}
 
-			div.movie-card__info {
+			.movie-card__info {
 				@include flex(column);
-				justify-content: space-between;
 				flex: 1;
 				gap: to-rem(12);
 
@@ -102,7 +113,7 @@ ul.movie-card-wrp {
 					gap: 8px;
 				}
 
-				div.movie-card__top {
+				.movie-card__top {
 					display: flex;
 					align-items: center;
 					gap: to-rem(0);
@@ -152,7 +163,7 @@ ul.movie-card-wrp {
 						}
 					}
 
-					div.movie-card__header-row {
+					.movie-card__header-row {
 						@include flex(row);
 						align-items: center;
 						gap: to-rem(16);
@@ -195,15 +206,30 @@ ul.movie-card-wrp {
 					}
 				}
 
-				div.movie-card__details {
-					@include flex(column);
-					gap: to-rem(12);
+				.movie-card__details {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 16px;
 
 					@include mobile {
+						flex-direction: column;
+						flex-wrap: nowrap;
 						gap: 8px;
 					}
+					>span{
+						flex:1 1 calc(50% - 8px);
+						max-width: calc(50% - 8px);
 
-					div.movie-card__details-row {
+						@include mobile {
+							flex:1 1 100%;
+							max-width: 100%;
+							word-break: break-word;
+							font-size: 13px;
+							letter-spacing: -0.7px;
+						}
+					}
+
+					.movie-card__details-row {
 						@include flex(row);
 						gap: to-rem(24);
 
@@ -212,7 +238,7 @@ ul.movie-card-wrp {
 							gap: 8px;
 						}
 
-						div.movie-card__detail-item {
+						.movie-card__detail-item {
 							@include flex(row);
 							gap: to-rem(8);
 							flex: 1;
@@ -254,7 +280,7 @@ ul.movie-card-wrp {
 						}
 					}
 
-					div.movie-card__language-row {
+					.movie-card__language-row {
 						@include flex(row);
 						gap: to-rem(8);
 
@@ -294,7 +320,7 @@ ul.movie-card-wrp {
 			}
 		}
 
-		div.movie-card__description {
+		.movie-card__description {
 			background: #f1f2f2;
 			border-radius: to-rem(6);
 			padding: to-rem(32);
@@ -4094,6 +4120,14 @@ ul.movie-card-wrp {
 	&__content {
 		display: none;
 
+		&:not(:nth-of-type(1)) {
+			margin-top: 15px;
+
+			@include tablet {
+				margin-top: to-rem(12);
+			}
+		}
+
 		&.is-active {
 			display: block;
 		}
@@ -4108,6 +4142,7 @@ ul.movie-card-wrp {
 
 		@include tablet {
 			font-size: to-rem(14);
+			margin-bottom: to-rem(12);
 		}
 	}
 
@@ -5538,7 +5573,7 @@ ul.movie-card-wrp {
 		margin-bottom: 12px;
 	}
 }
-div.bookshelf-header__title {
+.bookshelf-header__title {
 	@include font(to-rem(24), 700, #212121);
 	@include mobile {
 		@include font(20px, 700, #212121);
@@ -5552,9 +5587,9 @@ div.bookshelf-header__title {
 }
 
 // 내책장 컴포넌트 스타일
-div.bookshelf-item {
-	div.bookshelf-item__content {
-		div.bookshelf-item__thumbnail {
+.bookshelf-item {
+	.bookshelf-item__content {
+		.bookshelf-item__thumbnail {
 			height: 215px;
 			width: 100%;
 			display: block;
@@ -5565,14 +5600,14 @@ div.bookshelf-item {
 			}
 		}
 
-		div.bookshelf-item__actions {
+		.bookshelf-item__actions {
 			margin-top: to-rem(20);
 			@include mobile {
 				margin-top: 16px;
 			}
 		}
 
-		div.bookshelf-item__title {
+		.bookshelf-item__title {
 			margin-top: 16px;
 			@include font(to-rem(17), 500, #212121);
 			line-height: 1.5;

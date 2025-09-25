@@ -189,7 +189,30 @@ const books = [
 			<div class="search-result-list mt24">
 				<!-- 도서 정보 카드 -->
 				<UiBookCardDetail
-					imageUrl="./assets/images/default-book.png"
+					imageUrl="https://shopping-phinf.pstatic.net/main_4655614/46556144623.20240323071012.jpg"
+					badges={[
+						{ label: 'DVD', type: 'success', size: 'large' },
+						{ label: '대출불가', type: 'warning' },
+						{ label: '예약 0명', type: 'default' },
+					]}
+					title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+					titleHighlights={['탐정']}
+					author="김기정 글; 이해정 그림"
+					publisher="천개의바람"
+					publishYear="2023"
+					description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
+					details={{
+						callNumber: '아동 813.5-김18ㅎ',
+						registrationNumber: 'GJ0000027414',
+						isbn: '9791155815755',
+						koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
+						categoryClassification: '문학 > 한국문학 > 소설',
+						supplement: '포함',
+					}}
+				/>
+
+				<UiBookCardDetail
+					imageUrl="https://image.aladin.co.kr/product/9564/8/cover200/k782535234_1.jpg"
 					badges={[
 						{ label: 'DVD', type: 'success', size: 'large' },
 						{ label: '대출불가', type: 'warning' },

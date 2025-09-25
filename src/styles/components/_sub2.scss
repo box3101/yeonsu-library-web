@@ -484,8 +484,6 @@
 		border-radius: to-rem(4);
 		min-height: to-rem(150);
 		display: flex;
-		align-items: center;
-		justify-content: center;
 
 		@include mobile {
 			padding: to-rem(20);
@@ -1231,7 +1229,7 @@
 }
 
 .ai-carousel-section {
-	margin-top: 24px;
+	margin-bottom: 24px;
 	width: 100%;
 
 	.carousel-container {

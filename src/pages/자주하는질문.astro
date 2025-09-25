@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiTextarea, UiSelect, UiDatePicker, UiRadio, UiTab, CardTable } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화프로그램', href: '/' }, { label: '자주하는질문' }];
+---
+
+<Layout title="자주하는질문">
+	<SubLayout title="자주하는질문" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<!-- 자주하는 질문 -->
+	</SubLayout>
+</Layout>
