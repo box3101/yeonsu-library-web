@@ -93808,6 +93808,111 @@ body.modal-open {
   text-decoration: none;
 }
 
+.access-restriction {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 47.125rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+.access-restriction__header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.access-restriction__title {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #191a1a;
+  margin: 0;
+}
+.access-restriction__title--highlight {
+  color: #0071ba;
+}
+.access-restriction__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+.access-restriction__detail {
+  background: #eef2f7;
+  border-radius: 0.75rem;
+  padding: 2.5rem;
+  width: 100%;
+}
+.access-restriction__message {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: #191a1a;
+  text-align: center;
+  margin: 0;
+}
+.access-restriction__action {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .access-restriction {
+    gap: 24px;
+    padding: 30px 16px;
+    max-width: 100%;
+  }
+  .access-restriction__header {
+    gap: 12px;
+  }
+  .access-restriction__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .access-restriction__title {
+    font-size: 24px;
+  }
+  .access-restriction__content {
+    gap: 40px;
+  }
+  .access-restriction__detail {
+    padding: 24px;
+    border-radius: 8px;
+  }
+  .access-restriction__message {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .access-restriction {
+    gap: 20px;
+    padding: 20px 12px;
+  }
+  .access-restriction__header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .access-restriction__title {
+    font-size: 20px;
+  }
+  .access-restriction__content {
+    gap: 32px;
+  }
+  .access-restriction__detail {
+    padding: 20px;
+  }
+  .access-restriction__message {
+    font-size: 15px;
+  }
+  .access-restriction__message br {
+    display: none;
+  }
+}
+
 .main-container {
   margin-top: 2.5625rem;
 }

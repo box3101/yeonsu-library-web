@@ -1,0 +1,134 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use 'sass:color';
+@use 'sass:math';
+
+// ============================================
+// Access Restriction Component
+// ============================================
+
+.access-restriction {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem(32);
+  align-items: center;
+  max-width: to-rem(754);
+  margin: 0 auto;
+  padding: to-rem(40) to-rem(20);
+
+  // Header with icon and title
+  &__header {
+    display: flex;
+    gap: to-rem(16);
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  &__title {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 700;
+    font-size: to-rem(32);
+    line-height: 1.5;
+    color: $gray-90;
+    margin: 0;
+
+    &--highlight {
+      color: $blue-600;
+    }
+  }
+
+  // Main content area
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(64);
+    width: 100%;
+  }
+
+  &__detail {
+    background: #eef2f7;
+    border-radius: to-rem(12);
+    padding: to-rem(40);
+    width: 100%;
+  }
+
+  &__message {
+    font-family: 'Pretendard GOV', sans-serif;
+    font-weight: 400;
+    font-size: to-rem(19);
+    line-height: 1.5;
+    color: $gray-90;
+    text-align: center;
+    margin: 0;
+  }
+
+  // Action section with login button
+  &__action {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Mobile responsive styles
+  @media (max-width: 900px) {
+    gap: 24px;
+    padding: 30px 16px;
+    max-width: 100%;
+
+    &__header {
+      gap: 12px;
+    }
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__content {
+      gap: 40px;
+    }
+
+    &__detail {
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    &__message {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    gap: 20px;
+    padding: 20px 12px;
+
+    &__header {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__content {
+      gap: 32px;
+    }
+
+    &__detail {
+      padding: 20px;
+    }
+
+    &__message {
+      font-size: 15px;
+      br {
+        display: none;
+      }
+    }
+  }
+}
