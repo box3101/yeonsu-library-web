@@ -1,0 +1,41 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiSelect, UiInput } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '도서관에 바란다' },
+];
+---
+
+<Layout title="로그아웃 필요">
+	<SubLayout title="로그아웃 필요" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<div class="access-restriction">
+			<div class="access-restriction__header">
+				<h2 class="access-restriction__title">
+					잘못된 <span class="access-restriction__title--highlight">접근</span>
+				</h2>
+			</div>
+
+			<div class="access-restriction__content">
+				<div class="access-restriction__detail">
+					<p class="access-restriction__message">잘못된 접근 시도입니다.</p>
+				</div>
+
+				<div class="access-restriction__action">
+					<UiButton
+						text="홈으로 이동"
+						variant="tertiary"
+						size="large"
+						icon="icon-arrow-right3"
+						iconPosition="right"
+						iconAddClass="icon icon-lg"
+						class="w-185-mobile-full"
+					/>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

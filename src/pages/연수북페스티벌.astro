@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
+import UiEventTable from '@ui/UiEventTable.astro';
 
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
@@ -17,7 +18,39 @@ const tabs = [
 	{ label: '2020', id: '2020', active: false },
 	{ label: '2019', id: '2019', active: false },
 	{ label: '2018', id: '2018', active: false },
-	{ label: '2017', id: '2017', active: false },
+];
+
+const eventRows = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 동아리, 지역서점, 유관기관 등 참여',
+		image: './assets/images/event1-1.jpg',
+		imageAlt: '도서관 체험부스',
+	},
+	{
+		category: '북콘서트',
+		description: '「메리골드 마음 세탁소」 윤정은 작가 X 싱어송라이터 미지니',
+		image: './assets/images/event1-2.jpg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '공연',
+		description: '마술 공연 「책&마술」',
+		image: './assets/images/event1-3.jpg',
+		imageAlt: '공연',
+	},
+	{
+		category: '어린이 독서감상화',
+		description: '부문별 지정도서를 읽은 후 책에 대한 감상과 느낌을 자유롭게 표현하는 그리기 대회',
+		image: './assets/images/event1-4.jpg',
+		imageAlt: '어린이 독서감상화',
+	},
+	{
+		category: '독서골든벨',
+		description: '초등학생 대상 독서퀴즈 대회',
+		image: './assets/images/event1-5.jpg',
+		imageAlt: '독서골든벨',
+	},
 ];
 ---
 
@@ -34,7 +67,7 @@ const tabs = [
 			</div>
 		</div>
 
-		<UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs ui-tab--grid-3" />
+		<UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs" />
 
 		<div id="panel-2025" class="ui-tab-panel ui-tab-panel--active">
 			<div class="usage-guide">
@@ -64,8 +97,29 @@ const tabs = [
 					</tbody>
 				</table>
 			</div>
-		</div>
 
-		<div id="panel-2024" class="ui-tab-panel">24</div>
+			<!--행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows} />
+			</div>
+
+			<!-- 새로운 공통 테이블 -->
+
+			<!-- 포스터 및 리플렛 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터 및 리플렛</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/program-notice-1-1.png" alt="연수북페스티벌벌" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/program-notice-1-2.png" alt="연수북페스티벌벌" />
+				</div>
+			</div>
+
+			<div id="panel-2024" class="ui-tab-panel">24</div>
+		</div>
 	</SubLayout>
 </Layout>

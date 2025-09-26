@@ -1469,3 +1469,16 @@ img {
 		margin-top: 24px;
 	}
 }
+
+.com-img-wrp {
+	display: flex; justify-content: center;
+	padding: 15px 0;
+	border-radius: 8px;
+	border: 1px solid var(--color-gray-gy-10, #e5e5e5);
+	background: var(--color-gray-wt, #fff);
+}
+
+
+.com-img-wrp2{
+	margin-top: 24px;
+}

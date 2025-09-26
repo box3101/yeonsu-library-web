@@ -1,0 +1,165 @@
+@use '../abstracts' as *;
+
+.ui-event-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__border-top {
+    background-color: $primary-color;
+    height: 2px;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    width: 100%;
+  }
+
+  &__cell {
+    background-color: white;
+    border: 1px solid #cbcccc;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: to-rem(60);
+    padding: to-rem(12) to-rem(16);
+    position: relative;
+
+    &--category {
+      border-left: none;
+      min-width: to-rem(80);
+      width: to-rem(200);
+    }
+
+    &--description {
+      min-width: to-rem(80);
+      width: to-rem(400);
+    }
+
+    &--image {
+      border-right: none;
+      flex-grow: 1;
+      min-width: to-rem(80);
+    }
+  }
+
+  &__cell-content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+
+    .ui-event-table__cell--category & {
+      text-align: center;
+    }
+
+    .ui-event-table__cell--description & {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ui-event-table__cell--image & {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__description {
+    align-items: flex-start;
+    display: flex;
+    gap: to-rem(4);
+    width: 100%;
+  }
+
+  &__icon {
+    color: #4b4d4d;
+    flex-shrink: 0;
+    height: to-rem(24);
+    width: to-rem(24);
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    color: #4b4d4d;
+    font-family: 'Pretendard GOV', sans-serif;
+    font-size: to-rem(17);
+    font-weight: 400;
+    line-height: 1.5;
+
+    p {
+      line-height: 1.5;
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    .ui-event-table__cell--category & {
+      text-align: center;
+      width: 100%;
+
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__image {
+    height: to-rem(194);
+    overflow: hidden;
+    position: relative;
+    width: to-rem(345);
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 900px) {
+    &__row {
+      flex-direction: column;
+    }
+
+    &__cell {
+      padding: 12px 16px;
+      width: 100%;
+
+      &--category,
+      &--description,
+      &--image {
+        border-left: 1px solid #cbcccc;
+        border-right: 1px solid #cbcccc;
+        width: 100%;
+      }
+
+      &--category {
+        border-bottom: none;
+      }
+
+      &--image {
+        border-bottom: 1px solid #cbcccc;
+      }
+    }
+
+    &__text {
+      font-size: 15px;
+    }
+
+    &__image {
+      height: 200px;
+      width: 100%;
+    }
+  }
+}
