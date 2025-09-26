@@ -1,46 +1,106 @@
----
-import Layout from '@/layouts/Layout.astro';
-import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton } from '@components';
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '404 오류' }];
----
+		<!-- 보안 관련 메타 태그 -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="X-Frame-Options" content="DENY" />
+		<meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
-<Layout title="404 - 페이지를 찾을 수 없습니다">
-	<SubLayout title="404 오류" breadcrumbItems={breadcrumbItems} menuType="">
-		<div class="error-404">
-			<div class="error-404__illustration">
-				<img src="./assets/images/404-illustration.png" alt="404 오류 일러스트레이션" />
-			</div>
+		<link rel="preload" href="./assets/fonts/PretendardGOV-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="./assets/fonts/PretendardGOV-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
-			<div class="error-404__header">
-				<div class="error-404__icon">
-					<img src="./assets/images/icon/icon-warning.svg" alt="경고 아이콘" />
+		<!-- swiper -->
+		<link rel="stylesheet" href="./assets/css/vendor/swiper.css" />
+		<!-- aos -->
+		<link rel="stylesheet" href="./assets/css/vendor/aos.css" />
+		<!-- main -->
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<!-- 개발자 스타일 -->
+		<link rel="stylesheet" href="./assets/css/custom.css" />
+		<title>연수구립도서관</title>
+		<link rel="stylesheet" href="/0.css" />
+		<link rel="stylesheet" href="/404.css" /><script type="module" src="/_custom/hoisted.e6a6e7d8.js"></script>
+	</head>
+	<body>
+		<main id="main-content">
+			<div class="error-404">
+				<div class="error-404__illustration">
+					<img src="./assets/images/404-illustration.png" alt="404 오류 일러스트레이션" />
 				</div>
-				<h2 class="error-404__title">요청하신 페이지를 찾을 수 없습니다.</h2>
-			</div>
 
-			<div class="error-404__content">
-				<div class="error-404__detail">
-					<p class="error-404__message">
-						방문하시려는 페이지의 주소가 잘못 입력되었거나,<br />
-						페이지의 주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다.<br />
-						입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.
-					</p>
+				<div class="error-404__header">
+					<div class="error-404__icon">
+						<img src="./assets/images/icon/icon-warning.svg" alt="경고 아이콘" />
+					</div>
+					<h2 class="error-404__title">요청하신 페이지를 찾을 수 없습니다.</h2>
 				</div>
 
-				<div class="error-404__actions">
-					<UiButton
-						text="이전화면"
-						variant="tertiary"
-						size="large"
-						icon="icon-arrow-left"
-						iconPosition="left"
-						onclick="history.back()"
-					/>
-					<UiButton text="메인화면" variant="secondary" size="large" href="/" />
+				<div class="error-404__content">
+					<div class="error-404__detail">
+						<p class="error-404__message">
+							방문하시려는 페이지의 주소가 잘못 입력되었거나,<br />
+							페이지의 주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다.<br />
+							입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.
+						</p>
+					</div>
+
+					<div class="error-404__actions">
+						<button class="ui-button ui-button--tertiary ui-button--large" type="button" onclick="history.back()">
+							<div class="ui-button__icon ui-button__icon--left">
+								<img src="./assets/images/icon/icon-arrow-left.svg" class="icon icon-md undefined" />
+							</div><span class="ui-button__text">이전화면</span>
+						</button>
+						<a class="ui-button ui-button--secondary ui-button--large" href="/">
+							<span class="ui-button__text">메인화면</span>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</SubLayout>
-</Layout>
+		</main>
+
+		<!-- VENDOR -->
+		<script type="text/javascript" src="./assets/js/vendor/jquery.js"></script>
+		<script type="text/javascript" src="./assets/js/vendor/swiper-bundle.min.js"></script>
+		<script type="text/javascript" src="./assets/js/vendor/aos.js"></script>
+		<script type="text/javascript" src="./assets/js/vendor/chat.js"></script>
+
+		<!-- 기능별 스크립트들 -->
+		<script type="text/javascript" src="./assets/js/wordcloud2.js"></script>
+		<script type="text/javascript" src="./assets/js/comAccordian.js"></script>
+		<script type="text/javascript" src="./assets/js/comTab.js"></script>
+		<script type="text/javascript" src="./assets/js/collectAccordion.js"></script>
+		<script type="text/javascript" src="./assets/js/swiper.js"></script>
+		<script type="text/javascript" src="./assets/js/noticePagination.js"></script>
+		<script type="text/javascript" src="./assets/js/collection.js"></script>
+		<script type="text/javascript" src="./assets/js/collectionModal.js"></script>
+		<script type="text/javascript" src="./assets/js/comGnb.js"></script>
+		<script type="text/javascript" src="./assets/js/leftMenu.js"></script>
+		<script type="text/javascript" src="./assets/js/modal.js"></script>
+		<!-- TODO 20250925: faq.js -->
+		<script type="text/javascript" src="./assets/js/faq.js"></script>
+
+		<!-- 메인 -->
+		<script type="text/javascript" src="./assets/js/main/searchTab.js"></script>
+
+		<!-- 서브 -->
+		<script type="text/javascript" src="./assets/js/sub/filter.js"></script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				AOS.init({
+					duration: 600, // 자연스러운 지속 시간 (600ms)
+					easing: 'ease-out-cubic', // 부드러운 이징
+					once: true, // 한 번만 애니메이션 실행
+					offset: 80, // 트리거 지점 (80px 전에 시작)
+					delay: 0, // 지연 시간 없음
+					disable: false, // 모든 기기에서 활성화
+					startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
+				});
+			});
+		</script>
+	</body>
+</html>
