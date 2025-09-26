@@ -1,0 +1,355 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiSelect, UiTab, UiSubTab, UiBookListCard, UiPagination } from '@components';
+import UiEventTable from '@ui/UiEventTable.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '희희낙락북콘서트' },
+];
+const tabs = [
+	{ label: '2025', id: '2025', active: true },
+	{ label: '2024', id: '2024', active: false },
+	{ label: '2023', id: '2023', active: false },
+	{ label: '2022', id: '2022', active: false },
+	{ label: '2021', id: '2021', active: false },
+	{ label: '2020', id: '2020', active: false },
+	{ label: '2019', id: '2019', active: false },
+	{ label: '2018', id: '2018', active: false },
+];
+
+const eventRows = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 동아리, 지역서점, 유관기관 등 참여',
+		image: './assets/images/event1-1.jpg',
+		imageAlt: '도서관 체험부스',
+	},
+	{
+		category: '북콘서트',
+		description: '「메리골드 마음 세탁소」 윤정은 작가 X 싱어송라이터 미지니',
+		image: './assets/images/event1-2.jpg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '공연',
+		description: '마술 공연 「책&마술」',
+		image: './assets/images/event1-3.jpg',
+		imageAlt: '공연',
+	},
+	{
+		category: '어린이 독서감상화',
+		description: '부문별 지정도서를 읽은 후 책에 대한 감상과 느낌을 자유롭게 표현하는 그리기 대회',
+		image: './assets/images/event1-4.jpg',
+		imageAlt: '어린이 독서감상화',
+	},
+	{
+		category: '독서골든벨',
+		description: '초등학생 대상 독서퀴즈 대회',
+		image: './assets/images/event1-5.jpg',
+		imageAlt: '독서골든벨',
+	},
+];
+---
+
+<Layout title="희희낙락북콘서트">
+	<SubLayout title="희희낙락북콘서트" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">
+					다양한 분야의 작가들을 만나 질문과 대화, 공연 등 다각도로 책을 해석하고 느낄 수 있는 독서문화행사
+				</h3>
+			</div>
+		</div>
+
+		<UiTab tabs={tabs} variant="default" className="mt40 search-type-tabs" />
+
+		<div id="panel-2025" class="ui-tab-panel ui-tab-panel--active">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2025.05.24.(토)</td>
+							<td>윤정은 작가 북콘서트</td>
+							<td>윤정은</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2025.06.19.(목)</td>
+							<td>우리 아이 마음 연결의 첫걸음</td>
+							<td>박소영, 조성우</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2024" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2024.04.27.(토)</td>
+							<td>전세 사기 피해에서 살아남기</td>
+							<td>홍인혜</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2024.08.29.(목)</td>
+							<td>일상 속 신기한 과학원리</td>
+							<td>김범준</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2024.12.05.(목)</td>
+							<td>지친 하루의 끝, 위로의 미술관</td>
+							<td>진병관</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2023" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2023.05.26.(금)</td>
+							<td>기괴하지만 사랑스럽고, 낯설지만 익숙한 이야기</td>
+							<td>조예은</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2023.07.25.(토)</td>
+							<td>당신의 문해력은 안녕하십니까?</td>
+							<td>김선영</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2023.09.23.(토)</td>
+							<td>어린이 고민 해결 상담소</td>
+							<td>강효미</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2022" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2022.03.31.(목)</td>
+							<td>고전 읽기의 매력, 인생 고전 만나기</td>
+							<td>홍진호</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2022.07.28.(목)</td>
+							<td>안녕하세요 북튜버 김겨울입니다</td>
+							<td>김겨울</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2022.12.02.(금)</td>
+							<td>에코리트릿 in 도서관</td>
+							<td>이기훈, 오세나</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2021" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2021.03.30.(화)</td>
+							<td>수면 아래로 잊혀진 아이들</td>
+							<td>임지선</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2021.06.29.(화)</td>
+							<td>김대수 교수의 소문난 뇌 과학</td>
+							<td>김대수</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2021.12.28.(화)</td>
+							<td>청소년의 존재감과 정체성</td>
+							<td>이희영</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2020" class="ui-tab-panel">
+			<tr>
+				<td>1</td>
+				<td>2020.08.29.(화)</td>
+				<td>법의 이유를 찾아 떠나는 여정</td>
+				<td>홍성수</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2020.10.17.(토)</td>
+				<td>그림책 작가와 함께하는 북콘서트</td>
+				<td>김상근 · 박정섭</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>2020.12.29.(화)</td>
+				<td>코로나19 공존시대를 준비하는 면역력 증강 비법</td>
+				<td>이시형</td>
+			</tr>
+		</div>
+		<div id="panel-2019" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2019.03.29.(금)</td>
+							<td>생활인의 기록 ‘검사내전’</td>
+							<td>김웅</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2019.06.25.(화)</td>
+							<td>삶의 가치를 위한 메멘토 모리의 기술</td>
+							<td>유성호</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2019.08.29.(목)</td>
+							<td>그대에게 뜨거운 안녕</td>
+							<td>원도</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>2019.10.23.(수)</td>
+							<td>시월의 시</td>
+							<td>박준</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="panel-2018" class="ui-tab-panel">
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<thead>
+						<tr>
+							<th>회차</th>
+							<th>일시</th>
+							<th>행사명</th>
+							<th>작가</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2018.3.28.(수)</td>
+							<td>뛰렁, 당신의 성장멘토 정여울입니다.</td>
+							<td>정여울</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2018.6.27.(수)</td>
+							<td>연수구 한 책 ‘아몬드’ 손원평 작가와의 만남</td>
+							<td>손원평</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2018.7.25.(수)</td>
+							<td>겪었거나, 겪고있거나, 겪을 수 있는 며느라기</td>
+							<td>수신지</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>2018.8.29.(수)</td>
+							<td>세계를 만드는 방법 #손아람</td>
+							<td>손아람</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>2018.10.30.(화)</td>
+							<td>보라, 이 좌절의 시스템 당선, 합격, 계급</td>
+							<td>장강명</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>2018.11.30.(금)</td>
+							<td>호모 라보란스, 글을 쓰다.</td>
+							<td>허혁・김미중</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>2018.12.27.(목)</td>
+							<td>소설가가 길어 올린 여행의 기억</td>
+							<td>김연수</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
