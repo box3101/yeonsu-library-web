@@ -65669,11 +65669,13 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   font-size: 0.9375rem;
   margin-bottom: 0.9375rem;
   padding-top: 0.25rem;
+  margin-top: 15px;
 }
 @media (max-width: 900px) {
   .ui-library-filter__subtitle {
     font-size: 0.875rem;
     margin-bottom: 0.75rem;
+    margin-top: 12px;
   }
 }
 .ui-library-filter__grid.ui-library-filter__grid {

@@ -4139,12 +4139,14 @@ ul.movie-card-wrp {
 		font-size: to-rem(15);
 		margin-bottom: to-rem(15);
 		padding-top: to-rem(4);
+		margin-top: 15px;
 
 		@include tablet {
 			font-size: to-rem(14);
 			margin-bottom: to-rem(12);
+			margin-top: 12px;
 		}
-	}
+	} 
 
 	&__grid.ui-library-filter__grid {
 		display: grid;
