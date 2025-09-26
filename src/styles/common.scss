@@ -5,7 +5,6 @@
 @use 'abstracts' as *;
 @use 'abstracts/mixins' as *;
 
-
 html {
 	@include mobile {
 		font-size: 14px;
@@ -72,7 +71,8 @@ p {
 // 기본 타이포그래피
 body {
 	font-family: 'PretendardGOV', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
-		'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+		'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+		sans-serif;
 	line-height: 1;
 	color: $gray-900;
 
@@ -1437,5 +1437,35 @@ img {
 	@include mobile {
 		flex-direction: column !important;
 		gap: to-rem(8);
+	}
+}
+
+.alert-modal {
+	.ui-modal__header {
+		display: none;
+	}
+	.ui-modal__body {
+		padding-top: 70px;
+		padding-bottom: 40px;
+		text-align: center;
+		justify-content: center;
+	}
+
+	.alert-modal__title {
+		margin-top: 16px;
+		@include font(to-rem(24), 700, #191a1a);
+	}
+	.alert-modal__icon {
+		display: inline-block;
+		text-align: center;
+	}
+
+	.alert-modal__message {
+		margin-top: 16px;
+		@include font(to-rem(17), 400, #191a1a);
+	}
+
+	.alert-modal__actions {
+		margin-top: 24px;
 	}
 }

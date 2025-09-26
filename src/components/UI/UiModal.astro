@@ -60,12 +60,17 @@ export interface Props {
    * 추가 CSS 클래스
    */
   class?: string;
+  /**
+   * 모달 헤더 표시 여부
+   */
+  Header?: boolean;
 }
 
 const {
   id,
   title,
   content,
+  Header = true,
   size = 'medium',
   variant = 'default',
   showCloseButton = true,
@@ -120,12 +125,16 @@ const modalClasses = [
       )}
 
       <!-- 모달 헤더 (고정) -->
-      <div class="ui-modal__header">
-        <!-- 모달 제목 -->
-        <h2 class="ui-modal__title" id={`modal-${id}-title`}>
-          {title}
-        </h2>
-      </div>
+       {
+        Header && (
+          <div class="ui-modal__header">
+            <!-- 모달 제목 -->
+            <h2 class="ui-modal__title" id={`modal-${id}-title`}>
+              {title}
+            </h2>
+          </div>
+        )
+       }
 
       <!-- 모달 바디 (스크롤 가능) -->
       <div class="ui-modal__body">

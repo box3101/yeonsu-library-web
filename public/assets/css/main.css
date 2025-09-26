@@ -1421,6 +1421,37 @@ img {
   }
 }
 
+.alert-modal .ui-modal__header {
+  display: none;
+}
+.alert-modal .ui-modal__body {
+  padding-top: 70px;
+  padding-bottom: 40px;
+  text-align: center;
+  justify-content: center;
+}
+.alert-modal .alert-modal__title {
+  margin-top: 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+}
+.alert-modal .alert-modal__icon {
+  display: inline-block;
+  text-align: center;
+}
+.alert-modal .alert-modal__message {
+  margin-top: 16px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+}
+.alert-modal .alert-modal__actions {
+  margin-top: 24px;
+}
+
 .flex {
   display: flex;
 }
