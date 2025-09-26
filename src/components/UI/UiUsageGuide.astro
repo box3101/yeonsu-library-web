@@ -1,0 +1,64 @@
+---
+export interface GuideItem {
+  type: 'numbered' | 'bullet' | 'note';
+  content: string;
+  isHighlighted?: boolean;
+  indent?: number;
+  subItems?: GuideItem[];
+}
+
+export interface Props {
+  title?: string;
+  items?: GuideItem[];
+  class?: string;
+}
+
+const { title, items = [], class: className = '' } = Astro.props;
+---
+
+<div class={`ui-usage-guide ${className}`}>
+  {title && <h3 class="ui-usage-guide__title">{title}</h3>}
+  <div class="ui-usage-guide__content">
+    {items.map((item) => (
+      <div class={`ui-usage-guide__item ${item.indent ? `ui-usage-guide__item--indent-${item.indent}` : ''}`}>
+        <div class="ui-usage-guide__item-content">
+          <div class="ui-usage-guide__bullet">
+            {item.type === 'numbered' && (
+              <span class="ui-usage-guide__number">{item.content.match(/^\d+/)?.[0] || ''}.</span>
+            )}
+            {item.type === 'bullet' && (
+              <span class="ui-usage-guide__dot"></span>
+            )}
+            {item.type === 'note' && (
+              <span class="ui-usage-guide__note">※</span>
+            )}
+          </div>
+          <div class={`ui-usage-guide__text ${item.isHighlighted ? 'ui-usage-guide__text--highlighted' : ''}`}>
+            <span set:html={item.content.replace(/^\d+\.\s*/, '')} />
+          </div>
+        </div>
+        {item.subItems && (
+          <div class="ui-usage-guide__sub-items">
+            {item.subItems.map((subItem) => (
+              <div class={`ui-usage-guide__item ${subItem.indent ? `ui-usage-guide__item--indent-${subItem.indent}` : ''}`}>
+                <div class="ui-usage-guide__item-content">
+                  <div class="ui-usage-guide__bullet">
+                    {subItem.type === 'bullet' && (
+                      <span class="ui-usage-guide__dot"></span>
+                    )}
+                    {subItem.type === 'note' && (
+                      <span class="ui-usage-guide__note">※</span>
+                    )}
+                  </div>
+                  <div class={`ui-usage-guide__text ${subItem.isHighlighted ? 'ui-usage-guide__text--highlighted' : ''}`}>
+                    <span set:html={subItem.content} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
