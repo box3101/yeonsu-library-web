@@ -93817,6 +93817,12 @@ body.modal-open {
   margin: 0 auto;
   padding: 2.5rem 1.25rem;
 }
+.access-restriction .access-restriction__action button {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1;
+}
 .access-restriction__header {
   display: flex;
   gap: 1rem;
@@ -93910,6 +93916,153 @@ body.modal-open {
   }
   .access-restriction__message br {
     display: none;
+  }
+}
+
+.error-404 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 47.125rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+.error-404__illustration {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 47.5rem;
+}
+.error-404__illustration img {
+  width: 100%;
+  height: auto;
+  max-width: 47.5rem;
+  max-height: 23.75rem;
+}
+.error-404__header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.error-404__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.error-404__icon img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.error-404__title {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #e48088;
+  margin: 0;
+  text-align: center;
+}
+.error-404__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+.error-404__detail {
+  background: #d8e4f3;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+}
+.error-404__message {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: #191a1a;
+  text-align: center;
+  margin: 0;
+}
+.error-404__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+  .error-404 {
+    gap: 30px;
+    padding: 30px 16px;
+    max-width: 100%;
+  }
+  .error-404__illustration {
+    max-width: 100%;
+  }
+  .error-404__illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+  .error-404__header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .error-404__title {
+    font-size: 24px;
+  }
+  .error-404__content {
+    gap: 40px;
+  }
+  .error-404__detail {
+    padding: 30px 24px;
+    border-radius: 12px;
+  }
+  .error-404__message {
+    font-size: 16px;
+  }
+  .error-404__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .error-404__actions .ui-button {
+    width: 100%;
+    max-width: 17.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .error-404 {
+    gap: 24px;
+    padding: 20px 12px;
+  }
+  .error-404__illustration img {
+    max-height: 12.5rem;
+  }
+  .error-404__title {
+    font-size: 20px;
+  }
+  .error-404__content {
+    gap: 32px;
+  }
+  .error-404__detail {
+    padding: 24px 20px;
+  }
+  .error-404__message {
+    font-size: 15px;
+  }
+  .error-404__message br {
+    display: none;
+  }
+  .error-404__actions {
+    gap: 10px;
+  }
+  .error-404__actions .ui-button {
+    max-width: 100%;
   }
 }
 

@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiSelect, UiInput } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '도서관에 바란다' },
+];
+---
+
+<Layout title="로그아웃 필요">
+	<SubLayout title="로그아웃 필요" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<div class="access-restriction">
+			<div class="access-restriction__header">
+				<div class="access-restriction__icon">
+					<img src="./assets/images/icon/icon-member.svg" alt="멤버 아이콘" />
+				</div>
+				<h2 class="access-restriction__title">
+					로그아웃 <span class="access-restriction__title--highlight">필요</span>
+				</h2>
+			</div>
+
+			<div class="access-restriction__content">
+				<div class="access-restriction__detail">
+					<p class="access-restriction__message">
+						로그아웃이 필요합니다. <br /> 이 서비스는 로그아웃 후 이용하실 수 있습니다.
+					</p>
+				</div>
+
+				<div class="access-restriction__action">
+					<UiButton
+						text="로그아웃"
+						variant="tertiary"
+						size="large"
+						icon="icon-arrow-right3"
+						iconPosition="right"
+						iconAddClass="icon icon-lg"
+						class="w-185-mobile-full"
+					/>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>

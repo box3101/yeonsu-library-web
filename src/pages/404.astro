@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '404 오류' }];
+---
+
+<Layout title="404 - 페이지를 찾을 수 없습니다">
+	<SubLayout title="404 오류" breadcrumbItems={breadcrumbItems} menuType="">
+		<div class="error-404">
+			<div class="error-404__illustration">
+				<img src="./assets/images/404-illustration.png" alt="404 오류 일러스트레이션" />
+			</div>
+
+			<div class="error-404__header">
+				<div class="error-404__icon">
+					<img src="./assets/images/icon/icon-warning.svg" alt="경고 아이콘" />
+				</div>
+				<h2 class="error-404__title">요청하신 페이지를 찾을 수 없습니다.</h2>
+			</div>
+
+			<div class="error-404__content">
+				<div class="error-404__detail">
+					<p class="error-404__message">
+						방문하시려는 페이지의 주소가 잘못 입력되었거나,<br />
+						페이지의 주소가 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다.<br />
+						입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.
+					</p>
+				</div>
+
+				<div class="error-404__actions">
+					<UiButton
+						text="이전화면"
+						variant="tertiary"
+						size="large"
+						icon="icon-arrow-left"
+						iconPosition="left"
+						onclick="history.back()"
+					/>
+					<UiButton text="메인화면" variant="secondary" size="large" href="/" />
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
