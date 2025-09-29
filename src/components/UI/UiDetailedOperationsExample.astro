@@ -1,0 +1,57 @@
+---
+import UiDetailedOperations from './UiDetailedOperations.astro';
+
+const detailedOperationsData = [
+  {
+    type: 'bullet' as const,
+    content: '공유, 개방형 북크로싱 공간 운영',
+    subItems: [
+      {
+        type: 'dash' as const,
+        content: '자유로운 북크로싱 참여 유도',
+        indent: 1,
+        subItems: [
+          {
+            type: 'bullet' as const,
+            content: '연수구 내 잠자는 도서 도서관 자유 기증 유도',
+            indent: 2
+          }
+        ]
+      },
+      {
+        type: 'dash' as const,
+        content: '구민 기증도서와 도서관 유휴자료 1:1 교환',
+        indent: 1
+      }
+    ]
+  },
+  {
+    type: 'note' as const,
+    content: '무분별한 교환 및 기증을 방지하기 위해 일 최대 5권 교환 및 기증 가능',
+    indent: 1
+  },
+  {
+    type: 'bullet' as const,
+    content: '학습활동 및 여가선용 공간 제공'
+  },
+  {
+    type: 'bullet' as const,
+    content: '공유, 개방형 북크로싱 공간 운영',
+    subItems: [
+      {
+        type: 'dash' as const,
+        content: '열람공간 제공으로 학습활동 및 여가활동 지원',
+        indent: 1
+      }
+    ]
+  }
+];
+---
+
+<UiDetailedOperations
+  title="세부운영내용"
+  items={detailedOperationsData}
+  imageUrl="/assets/images/bookcrossing-center.jpg"
+  imageAlt="북크로싱 센터 시설 이미지"
+  class="example-detailed-operations"
+/>

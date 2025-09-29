@@ -36,6 +36,7 @@ export { default as UiBookListCard } from './UI/UiBookListCard.astro';
 export { default as UiCategoryItem } from './UI/UiCategoryItem.astro';
 export { default as UiTextarea } from './UI/UiTextarea.astro';
 export { default as UiFaqAccordion } from './UI/UiFaqAccordion.astro';
+export { default as UiDetailedOperations } from './UI/UiDetailedOperations.astro';
 // Layout 컴포넌트
 export { default as Header } from './layout/Header.astro';
 export { default as Footer } from './layout/Footer.astro';

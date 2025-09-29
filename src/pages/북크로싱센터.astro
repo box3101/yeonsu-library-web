@@ -1,0 +1,120 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+import UiDetailedOperations from '@/components/UI/UiDetailedOperations.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '북크로싱 센터' },
+];
+
+const operationsData = [
+	{
+		type: 'bullet',
+		content: '공유, 개방형 북크로싱 공간 운영',
+		subItems: [
+			{
+				type: 'dash',
+				content: '자유로운 북크로싱 참여 유도',
+				indent: 1,
+			},
+			{
+				type: 'bullet',
+				content: '연수구 내 잠자는 도서 도서관 자유 기증 유도',
+				indent: 2,
+			},
+			{
+				type: 'dash',
+				content: '구민 기증도서와 도서관 유휴자료 1:1 교환',
+				indent: 1,
+			},
+		],
+	},
+	{
+		type: 'note',
+		content: ' 무분별한 교환 및 기증을 방지하기 위해 일 최대 5권 교환 및 기증 가능',
+		indent: 1,
+		color: 'red',
+	},
+	{
+		type: 'bullet',
+		content: '학습활동 및 여가선용 공간 제공',
+	},
+	{
+		type: 'bullet',
+		content: '공유, 개방형 북크로싱 공간 운영',
+		subItems: [
+			{
+				type: 'dash',
+				content: '열람공간 제공으로 학습활동 및 여가활동 지원',
+				indent: 1,
+			},
+		],
+	},
+];
+---
+
+<Layout title="북크로싱 센터">
+	<SubLayout title="북크로싱 센터" breadcrumbItems={breadcrumbItems} menuType="책 읽는 연수구">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">북크로싱이란?</h3>
+			</div>
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>
+						미국의 론 혼베이커가 창안한 책 돌려읽기 운동으로 자유롭게 원하는 책을 교환하여 읽으며 독서문화 활성화 유도
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 운영방향  -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">운영방향</h3>
+			<ul class="usage-guide__content">
+				<li>공유, 개방의 자유로운 독서문화 공간 운영</li>
+			</ul>
+		</div>
+
+		<!-- 세부운영내용 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">세부운영내용</h3>
+			<UiDetailedOperations
+				title="세부운영내용"
+				items={operationsData}
+				imageUrl="./assets/images/bookCrossing_1.png"
+				imageAlt="북크로싱 센터 이미지"
+			/>
+		</div>
+		<!-- 북크로싱센터 운영시간 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">북크로싱센터 운영시간</h3>
+			<ul class="usage-guide__content">
+				<li>화~토 : 10:00 ~ 18:00</li>
+			</ul>
+		</div>
+		<!-- 북크로싱센터 일반현황 바로가기 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">북크로싱 센터 일반현황 바로가기</h3>
+			<ul class="usage-guide__content">
+				<UiButton
+					text="북크로싱 센터"
+					href="#"
+					icon="arrow-right"
+					iconPosition="right"
+					iconAddClass="icon-sm icon-white"
+				/>
+			</ul>
+		</div>
+		<!-- 공유,개방공간 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">공유, 개방공간으로 도서 대출 및 반납은 타도서관을 이용해주세요.</h3>
+		</div>
+	</SubLayout>
+</Layout>

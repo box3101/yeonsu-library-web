@@ -62225,7 +62225,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 @media (max-width: 900px) {
   .usage-guide__title {
     margin: 20px 0;
-    font-size: 26px;
+    font-size: 24px;
+    line-height: 120%;
+    word-break: keep-all;
   }
   .usage-guide__content li {
     padding-left: 16px;
@@ -88423,6 +88425,134 @@ body.modal-open {
   }
   .ui-usage-guide__item--indent-2 {
     padding-left: 40px;
+  }
+}
+
+.ui-detailed-operations {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.ui-detailed-operations__title {
+  color: #131416;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+.ui-detailed-operations__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ui-detailed-operations__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.ui-detailed-operations__item--indent-1 {
+  padding-left: 2rem;
+}
+.ui-detailed-operations__item--indent-2 {
+  padding-left: 4rem;
+}
+.ui-detailed-operations__item-content {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+.ui-detailed-operations__bullet {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: 1.625rem;
+  justify-content: flex-start;
+  width: 0.5rem;
+}
+.ui-detailed-operations__dot {
+  background-color: #4b4d4d;
+  border-radius: 0.25rem;
+  height: 0.25rem;
+  width: 0.25rem;
+}
+.ui-detailed-operations__dash {
+  background-color: #4b4d4d;
+  height: 0.075rem;
+  width: 0.375rem;
+}
+.ui-detailed-operations__note {
+  color: #4b4d4d;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.ui-detailed-operations__text {
+  color: #131416;
+  flex: 1;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.ui-detailed-operations__text--highlighted {
+  color: #d7424e;
+}
+.ui-detailed-operations__text--red {
+  color: #d7424e;
+}
+.ui-detailed-operations__text--blue {
+  color: #3c79c2;
+}
+.ui-detailed-operations__text span {
+  white-space: pre-wrap;
+}
+.ui-detailed-operations__sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.ui-detailed-operations__image-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 2.125rem 0;
+  width: 100%;
+}
+.ui-detailed-operations__image {
+  border-radius: 0.5rem;
+  height: auto;
+  max-height: 18.75rem;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 900px) {
+  .ui-detailed-operations {
+    gap: 12px;
+  }
+  .ui-detailed-operations__title {
+    font-size: 18px;
+  }
+  .ui-detailed-operations__text {
+    font-size: 15px;
+  }
+  .ui-detailed-operations__note {
+    font-size: 15px;
+  }
+  .ui-detailed-operations__item--indent-1 {
+    padding-left: 20px;
+  }
+  .ui-detailed-operations__item--indent-2 {
+    padding-left: 40px;
+  }
+  .ui-detailed-operations__image-wrapper {
+    margin: 24px 0;
   }
 }
 

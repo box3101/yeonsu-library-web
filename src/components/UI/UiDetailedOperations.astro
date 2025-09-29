@@ -1,0 +1,89 @@
+---
+export interface DetailedOperationItem {
+  type: 'bullet' | 'dash' | 'note';
+  content: string;
+  indent?: number;
+  color?: 'red' | 'blue' | 'default';
+  isHighlighted?: boolean;
+  subItems?: DetailedOperationItem[];
+}
+
+export interface Props {
+  title?: string;
+  items?: DetailedOperationItem[];
+  imageUrl?: string;
+  imageAlt?: string;
+  class?: string;
+}
+
+const {
+  title = "세부운영내용",
+  items = [],
+  imageUrl,
+  imageAlt = "북크로싱 센터 이미지",
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`ui-detailed-operations ${className}`}>
+  {title && <h3 class="ui-detailed-operations__title">{title}</h3>}
+
+  <div class="ui-detailed-operations__content">
+    {items.map((item, index) => (
+      <div class={`ui-detailed-operations__item ${item.indent ? `ui-detailed-operations__item--indent-${item.indent}` : ''}`}>
+        <div class="ui-detailed-operations__item-content">
+          <div class="ui-detailed-operations__bullet">
+            {item.type === 'bullet' && (
+              <span class="ui-detailed-operations__dot"></span>
+            )}
+            {item.type === 'dash' && (
+              <span class="ui-detailed-operations__dash"></span>
+            )}
+            {item.type === 'note' && (
+              <span class="ui-detailed-operations__note">※</span>
+            )}
+          </div>
+          <div class={`ui-detailed-operations__text ${item.isHighlighted ? 'ui-detailed-operations__text--highlighted' : ''} ${item.color ? `ui-detailed-operations__text--${item.color}` : ''}`}>
+            <span set:html={item.content} />
+          </div>
+        </div>
+
+        {item.subItems && (
+          <div class="ui-detailed-operations__sub-items">
+            {item.subItems.map((subItem) => (
+              <div class={`ui-detailed-operations__item ${subItem.indent ? `ui-detailed-operations__item--indent-${subItem.indent}` : ''}`}>
+                <div class="ui-detailed-operations__item-content">
+                  <div class="ui-detailed-operations__bullet">
+                    {subItem.type === 'bullet' && (
+                      <span class="ui-detailed-operations__dot"></span>
+                    )}
+                    {subItem.type === 'dash' && (
+                      <span class="ui-detailed-operations__dash"></span>
+                    )}
+                    {subItem.type === 'note' && (
+                      <span class="ui-detailed-operations__note">※</span>
+                    )}
+                  </div>
+                  <div class={`ui-detailed-operations__text ${subItem.isHighlighted ? 'ui-detailed-operations__text--highlighted' : ''} ${subItem.color ? `ui-detailed-operations__text--${subItem.color}` : ''}`}>
+                    <span set:html={subItem.content} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <!-- Insert image after the first main item (before sub-items) -->
+        {index === 0 && imageUrl && (
+          <div class="ui-detailed-operations__image-wrapper">
+            <img
+              src={imageUrl}
+              alt={imageAlt}
+              class="ui-detailed-operations__image"
+            />
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>

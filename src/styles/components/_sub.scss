@@ -472,7 +472,9 @@ ul.movie-card-wrp {
 	@include mobile {
 		&__title {
 			margin: 20px 0;
-			font-size: 26px;
+			font-size: 24px;
+			line-height: 120%;
+			word-break: keep-all;
 		}
 
 		&__content li {
