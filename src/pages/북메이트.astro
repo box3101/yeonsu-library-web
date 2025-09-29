@@ -1,0 +1,149 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '북메이트' }];
+const guideItems = [
+	{
+		type: 'numbered',
+		content: '1. <b>부모 신분증, 6개월 이내 발급된 주민등록등본</b> 준비',
+
+		subItems: [
+			{
+				type: 'bullet',
+				content: '<b>사진X</b>, 실물 혹은 모바일 서류 가능',
+			},
+			{
+				type: 'bullet',
+				content: '<b>부모 외 대리수령 불가</b>',
+			},
+		],
+	},
+	{
+		type: 'numbered',
+		content: '2. 배부단계, 배부시간 확인 후 배부장소 방문(선착순 배부)',
+	},
+	{
+		type: 'numbered',
+		content: '3. 아기 개월 수에 맞는 책꾸러미 수령',
+	},
+	{
+		type: 'note',
+		content: '단계별 1회 수령 가능하며, 부모 외 대리 수령하실 수 없습니다.',
+		indent: 1,
+	},
+	{
+		type: 'note',
+		content: '쌍둥이 자녀 또는 연년생으로 동일 단계수령 대상인 경우, 책꾸러미가 1세트 지급됩니다.',
+		indent: 1,
+	},
+];
+---
+
+<Layout title="북메이트">
+	<SubLayout title="북메이트" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">
+					책 읽는 문화조성을 위하여 상점 및 기관을 대상으로 도서를 대출해 드리는 찾아가는 서비스입니다.
+				</h3>
+			</div>
+		</div>
+
+		<!-- 가입대상상 -->
+		<div class="contact-info">
+			<h3>가입대상</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>연수구 내 상점 및 기관(다중이용시설)</li>
+			</ul>
+		</div>
+
+		<!-- 가입방법 -->
+		<div class="contact-info">
+			<h3>가입방법</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>
+					가입신청서, 동의서, 사업자등록증 사본 제출
+					<div class="bbs-actions mt10">
+						<UiButton
+							href="#"
+							variant="primary"
+							icon="icon-arr-right"
+							iconAddClass="icon icon-xxxsm icon-white"
+							text="가입신청서"
+						/>
+						<UiButton
+							href="#"
+							variant="secondary"
+							icon="icon-arr-right"
+							iconAddClass="icon icon-xxxsm icon-primary"
+							text="개인정보수집이용동의서"
+						/>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 운영방법 -->
+		<div class="contact-info">
+			<h3>운영방법</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>연수청학도서관에서 직접 책을 상점 및 기관으로 배송 및 회수</li>
+			</ul>
+		</div>
+
+		<!-- 대출권수 -->
+		<div class="contact-info">
+			<h3>대출권수</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>1회 30권 이내</li>
+			</ul>
+		</div>
+
+		<!-- 대출기간 -->
+		<div class="contact-info">
+			<h3>대출기간</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>대출일 포함 30일 이내(반납연기 1회 가능(15일))</li>
+			</ul>
+		</div>
+
+		<!-- 대출 및 반납 -->
+		<div class="contact-info">
+			<h3>대출 및 반납</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>
+					연수구 내 상점 및 기관(다중이용시설)
+					<br />
+					※ 반납연기도 동일
+				</li>
+			</ul>
+		</div>
+
+		<!-- 문의 -->
+		<div class="contact-info">
+			<h3>문의</h3>
+		</div>
+		<div class="usage-guide">
+			<ul class="usage-guide__content">
+				<li>032-749-8265</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>
