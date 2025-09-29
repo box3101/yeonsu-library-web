@@ -7,14 +7,14 @@ import { UiTab } from '@components';
 const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '이용수칙' }];
 
 const tabMenus = [
-	{ label: '이용수칙', href: '/이용수칙' },
+	{ label: '이용안내', href: '/이용안내' },
 	{ label: '이용시간', href: '/이용시간' },
 	{ label: '이용안내지', href: '/이용안내지', active: true },
 ];
 ---
 
-<Layout title="이용시간">
-	<SubLayout title="이용시간" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+<Layout title="이용안내지">
+	<SubLayout title="이용안내지" breadcrumbItems={breadcrumbItems} menuType="안내마당">
 		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
 	</SubLayout>
 </Layout>

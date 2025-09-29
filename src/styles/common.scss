@@ -1471,132 +1471,310 @@ img {
 }
 
 .com-img-wrp {
-	display: flex; justify-content: center;
+	display: flex;
+	justify-content: center;
 	padding: 15px 0;
 	border-radius: 8px;
 	border: 1px solid var(--color-gray-gy-10, #e5e5e5);
 	background: var(--color-gray-wt, #fff);
 }
 
-
-.com-img-wrp2{
+.com-img-wrp2 {
 	margin-top: 24px;
 }
 
-
 .com-infobox {
 	margin-top: 24px;
-  background-color: #ecf2f9;
-  border: 1px solid #ecf2f9;
-  border-radius: to-rem(12);
-  padding: to-rem(16);
-  width: 100%;
+	background-color: #ecf2f9;
+	border: 1px solid #ecf2f9;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+	width: 100%;
 
-  // 내부 컨텐츠 영역
-  &__content {
-    padding-left: to-rem(28);
-    display: flex;
-    flex-direction: column;
-    gap: to-rem(12);
-  }
+	// 내부 컨텐츠 영역
+	&__content {
+		padding-left: to-rem(28);
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(12);
+	}
 
-  // 리스트 그룹
-  &__list-group {
-    display: flex;
-    flex-direction: column;
-    gap: to-rem(8);
-  }
+	// 리스트 그룹
+	&__list-group {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+	}
 
-  // 개별 리스트 아이템
-  &__list-item {
-    display: flex;
-    align-items: center;
-    gap: to-rem(4);
-    width: 100%;
+	// 개별 리스트 아이템
+	&__list-item {
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+		width: 100%;
 
-    // 불릿 포인트
-    &-bullet {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: to-rem(20);
-      height: to-rem(26);
-      flex-shrink: 0;
+		// 불릿 포인트
+		&-bullet {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: to-rem(20);
+			height: to-rem(26);
+			flex-shrink: 0;
 
-      &::before {
-        content: '';
-        width: to-rem(6);
-        height: to-rem(6);
-        background-color: #4b4d4d;
-        border-radius: to-rem(4);
-        display: block;
-      }
+			&::before {
+				content: '';
+				width: to-rem(6);
+				height: to-rem(6);
+				background-color: #4b4d4d;
+				border-radius: to-rem(4);
+				display: block;
+			}
 
-      // 참조표시(※) 타입
-      &--reference {
-        &::before {
-          content: '※';
-          background: none;
-          width: auto;
-          height: auto;
-          border-radius: 0;
-          font-family: 'Pretendard GOV', sans-serif;
-          font-size: to-rem(17);
-          color: #4b4d4d;
-          line-height: 1.5;
-        }
-      }
-    }
+			// 참조표시(※) 타입
+			&--reference {
+				&::before {
+					content: '※';
+					background: none;
+					width: auto;
+					height: auto;
+					border-radius: 0;
+					font-family: 'Pretendard GOV', sans-serif;
+					font-size: to-rem(17);
+					color: #4b4d4d;
+					line-height: 1.5;
+				}
+			}
+		}
 
-    // 텍스트 영역
-    &-text {
-      flex: 1;
-      font-family: 'Pretendard GOV', sans-serif;
-      font-size: to-rem(15);
-      font-weight: 400;
-      line-height: 1.5;
-      color: #4b4d4d;
-      margin: 0;
-    }
-  }
+		// 텍스트 영역
+		&-text {
+			flex: 1;
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(15);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #4b4d4d;
+			margin: 0;
+		}
+	}
 
-  // 모바일 대응
-  @media (max-width: 900px) {
-    padding: 16px;
-    border-radius: 12px;
+	// 모바일 대응
+	@media (max-width: 900px) {
+		padding: 16px;
+		border-radius: 12px;
 
-    &__content {
-      padding-left: 28px;
-      gap: 12px;
-    }
+		&__content {
+			padding-left: 28px;
+			gap: 12px;
+		}
 
-    &__list-group {
-      gap: 8px;
-    }
+		&__list-group {
+			gap: 8px;
+		}
 
-    &__list-item {
-      gap: 4px;
+		&__list-item {
+			gap: 4px;
 
-      &-bullet {
-        width: 20px;
-        height: 26px;
+			&-bullet {
+				width: 20px;
+				height: 26px;
 
-        &::before {
-          width: 6px;
-          height: 6px;
-          border-radius: 4px;
-        }
+				&::before {
+					width: 6px;
+					height: 6px;
+					border-radius: 4px;
+				}
 
-        &--reference {
-          &::before {
-            font-size: 17px;
-          }
-        }
-      }
+				&--reference {
+					&::before {
+						font-size: 17px;
+					}
+				}
+			}
 
-      &-text {
-        font-size: 15px;
-      }
-    }
-  }
+			&-text {
+				font-size: 15px;
+			}
+		}
+	}
+}
+
+/* ============================================
+   Registration Process Components
+   ============================================ */
+// Registration Step Container
+.registration-step {
+	margin-top: to-rem(24);
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(12);
+		margin-bottom: to-rem(16);
+	}
+
+	&__number {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: to-rem(32);
+		height: to-rem(32);
+		background-color: #244874;
+		color: #ffffff;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(16);
+		font-weight: 700;
+		border-radius: to-rem(16);
+		flex-shrink: 0;
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(20);
+		font-weight: 700;
+		color: #244874;
+		margin: 0;
+	}
+
+	&__button {
+		margin-top: to-rem(16);
+
+		.ui-button {
+			height: to-rem(48);
+			padding: 0 to-rem(24);
+			font-size: to-rem(16);
+			font-weight: 500;
+			border-radius: to-rem(8);
+
+			@include mobile {
+				width: 100%;
+				height: 44px;
+				font-size: 15px;
+				padding: 0 20px;
+			}
+		}
+	}
+
+	@include mobile {
+		margin-top: 20px;
+
+		&__header {
+			gap: 10px;
+			margin-bottom: 14px;
+		}
+
+		&__number {
+			width: 28px;
+			height: 28px;
+			font-size: 14px;
+			border-radius: 14px;
+		}
+
+		&__title {
+			font-size: 18px;
+		}
+
+		&__button {
+			margin-top: 14px;
+		}
+	}
+}
+
+// Registration Methods Container
+.registration-methods {
+	margin-top: to-rem(24);
+	display: flex;
+	gap: to-rem(24);
+	.com-infobox {
+		min-height: 80px;
+	}
+	@include mobile {
+		flex-direction: column;
+		gap: 16px;
+		margin-top: 20px;
+	}
+}
+
+// Individual Registration Method
+.registration-method {
+	flex: 1;
+	border: 1px solid #d1d5db;
+	border-radius: to-rem(12);
+	padding: to-rem(20);
+	background-color: #ffffff;
+
+	&__header {
+		margin-bottom: to-rem(16);
+	}
+
+	&__label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: to-rem(4) to-rem(12);
+		background-color: #3c79c2;
+		color: #ffffff;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(14);
+		font-weight: 700;
+		border-radius: to-rem(4);
+		margin-bottom: to-rem(8);
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(16);
+		font-weight: 600;
+		color: #1e2124;
+		line-height: 1.4;
+		margin: 0;
+	}
+
+	&__button {
+		margin-top: to-rem(16);
+
+		.ui-button {
+			width: 100%;
+			height: to-rem(44);
+			font-size: to-rem(15);
+			font-weight: 500;
+			border-radius: to-rem(6);
+		}
+	}
+
+	@include mobile {
+		padding: 16px;
+		border-radius: 10px;
+
+		&__header {
+			margin-bottom: 14px;
+		}
+
+		&__label {
+			padding: 3px 10px;
+			font-size: 13px;
+			border-radius: 3px;
+			margin-bottom: 6px;
+		}
+
+		&__title {
+			font-size: 15px;
+		}
+
+		&__button {
+			margin-top: 14px;
+
+			.ui-button {
+				height: 40px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+// Notice variant for com-infobox
+.com-infobox--notice {
+	background-color: #f8f9fa;
+	border-color: #e9ecef;
 }

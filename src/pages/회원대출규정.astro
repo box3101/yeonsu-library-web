@@ -1,0 +1,205 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '회원규정' }];
+const tabMenus = [
+	{ label: '회원규정', href: '/회원규정', active: true },
+	{ label: '대출규정', href: '/대출규정' },
+];
+---
+
+<Layout title="회원규정">
+	<SubLayout title="회원규정" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<!-- 회원가입안내 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">회원가입 안내</h3>
+		</div>
+
+		<div class="info-notice program-notice">
+			<div class="program-notice__content">
+				<ul class="program-notice__list">
+					<li>
+						연수구립도서관 홈페이지 회원가입(준회원) 후 ①정회원인증(비대면자격확인) 또는 ②구비서류 지참 후 도서관을 직접
+						방문하여 정회원 <br /> (책이음서비스 자동가입)이 되시면 도서대출, 도서관 프로그램 참여, 독서문화행사 등 다양한
+						서비스 이용이 가능합니다.
+						<br />
+						※ 책이음서비스에 이미 가입된 준회원은 "정회원인증"시 기존 책이음 회원정보로 가입됩니다.
+						<br />
+						※ 14세 미만 아동은 반드시 법정대리인 인증 후 아동의 본인인증 필요
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 회원가입절차 -->
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">회원가입절차</h3>
+		</div>
+
+		<!-- STEP 1 -->
+		<div class="registration-step">
+			<div class="registration-step__header">
+				<span class="registration-step__number">1</span>
+				<h4 class="registration-step__title">STEP1</h4>
+			</div>
+			<div class="com-infobox">
+				<div class="com-infobox__content">
+					<div class="com-infobox__list-group">
+						<div class="com-infobox__list-item">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">준회원(홈페이지 회원)에 가입합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="registration-step__button">
+				<button class="ui-button ui-button--primary">신규 회원가입 바로가기 ></button>
+			</div>
+		</div>
+
+		<!-- STEP 2 -->
+		<div class="registration-step">
+			<div class="registration-step__header">
+				<span class="registration-step__number">2</span>
+				<h4 class="registration-step__title">STEP2</h4>
+			</div>
+			<div class="com-infobox">
+				<div class="com-infobox__content">
+					<div class="com-infobox__list-group">
+						<div class="com-infobox__list-item">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">정회원(책이음 회원) 가입은 ①, ②방법 중 택1 합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 방법 선택 -->
+		<div class="registration-methods">
+			<div class="registration-method">
+				<div class="registration-method__header">
+					<span class="registration-method__label">방법 ①</span>
+					<span class="registration-method__title">정회원 인증[비대면 자격확인]</span>
+				</div>
+				<div class="com-infobox">
+					<div class="com-infobox__content">
+						<div class="com-infobox__list-group">
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">모바일 회원증 발급(모바일기기에서 도서관홈페이지 로그인)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="registration-method__button">
+					<button class="ui-button ui-button--secondary">정회원 인증 바로가기 ></button>
+				</div>
+			</div>
+
+			<div class="registration-method">
+				<div class="registration-method__header">
+					<span class="registration-method__label">방법 ②</span>
+					<span class="registration-method__title">구비서류 지참하여 연수구립도서관 직접 방문</span>
+				</div>
+				<div class="com-infobox">
+					<div class="com-infobox__content">
+						<div class="com-infobox__list-group">
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">실물 회원증 발급 가능</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="registration-method__button">
+					<button class="ui-button ui-button--secondary">구비서류 확인하기 ></button>
+				</div>
+			</div>
+		</div>
+
+		<!-- 참고사항 -->
+		<div class="com-infobox com-infobox--notice">
+			<div class="com-infobox__content">
+				<div class="com-infobox__list-group">
+					<div class="com-infobox__list-item">
+						<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--reference"></div>
+						<p class="com-infobox__list-item-text">모바일회원증으로 모든 도서관 서비스 이용 가능합니다</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 도서관 회원자격 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">도서관 회원자격</h3>
+			<ul class="usage-guide__content">
+				<li>주민등록상 인천광역시에 거주하는 시민</li>
+				<li>인천광역시 소재 직장에 재직 또는 학교에 재학하는 자</li>
+				<li>인천광역시에 거주하는 재외동포 국내거소 신고자 및 외국인등록자</li>
+				<li>
+					기존 책이음 서비스 가입자 <br /> 단, '비대면자격확인서비스'는 “인천광역시에 주민등록이 되어있는 자”에 한함.
+				</li>
+			</ul>
+		</div>
+
+		<!-- 책이음(통합도서서비스) 회원가입 시 구비서류 -->
+
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<colgroup>
+					<col width="15%" />
+					<col width="30%" />
+					<col width="30%" />
+					<col width="25%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th colspan="3">도서관</th>
+						<th rowspan="2">운영시간</th>
+					</tr>
+					<tr>
+						<th colspan="2">휴관일</th>
+						<th rowspan="2">도서관</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>본인</td>
+						<td>발전대리인 등록 도서관 방문</td>
+						<td colspan="2" rowspan="2">
+							• 현주소가 기재된 신분증(중·고등학생의 경우 학생증 또는 청소년증으로 갈음)<br />
+							• 현주소가 기재되어 있지 않을 경우, 현주소 확인 가능한 증빙서류 제출(주민등록증등본)<br />
+							• 인천광역시 소재 재학·재직 증명서(해당자)<br />
+							• 가족증명서(해당자)<br />
+							※ 대리인 신분증 불가, 대리인 원불증 수반시 현주소가 기재된 위임인 신분증, 위임장, 대리인 신분증
+						</td>
+					</tr>
+					<tr>
+						<td>발전대리인</td>
+						<td>
+							• 현주소가 기재된 신분증<br />
+							• 발전대리인 증명서류<br />
+							(6개월 이내 주민등록등본 또는 가족관계증명서 등록)
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4" class="text-left">
+							공동사용: 본인명의 현도드 또는 아이핀 인증<br />
+							※ 아이핀 발급방법 : 인간 아이핀 발급 사이트를 통해 발급<br />
+							※ 아이핀 발급 가능사이트 (발급비용 무료)<br />
+							- 나이스평가정보 (www.niceipin.co.kr)<br />
+							- 서울신용평가정보 (ipin.siren24.com)<br />
+							- 코리아크레딧뷰로 (ok-name.co.kr)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</SubLayout>
+</Layout>
