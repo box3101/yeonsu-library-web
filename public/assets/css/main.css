@@ -1465,6 +1465,99 @@ img {
   margin-top: 24px;
 }
 
+.com-infobox {
+  margin-top: 24px;
+  background-color: #ecf2f9;
+  border: 1px solid #ecf2f9;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 100%;
+}
+.com-infobox__content {
+  padding-left: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.com-infobox__list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.com-infobox__list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+.com-infobox__list-item-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.625rem;
+  flex-shrink: 0;
+}
+.com-infobox__list-item-bullet::before {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: #4b4d4d;
+  border-radius: 0.25rem;
+  display: block;
+}
+.com-infobox__list-item-bullet--reference::before {
+  content: "※";
+  background: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  color: #4b4d4d;
+  line-height: 1.5;
+}
+.com-infobox__list-item-text {
+  flex: 1;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b4d4d;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .com-infobox {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .com-infobox__content {
+    padding-left: 28px;
+    gap: 12px;
+  }
+  .com-infobox__list-group {
+    gap: 8px;
+  }
+  .com-infobox__list-item {
+    gap: 4px;
+  }
+  .com-infobox__list-item-bullet {
+    width: 20px;
+    height: 26px;
+  }
+  .com-infobox__list-item-bullet::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 4px;
+  }
+  .com-infobox__list-item-bullet--reference::before {
+    font-size: 17px;
+  }
+  .com-infobox__list-item-text {
+    font-size: 15px;
+  }
+}
+
 .flex {
   display: flex;
 }

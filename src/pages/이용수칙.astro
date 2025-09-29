@@ -1,0 +1,39 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '이용수칙' }];
+
+const tabMenus = [
+	{ label: '이용수칙', href: '/이용수칙', active: true },
+	{ label: '이용시간', href: '/이용시간' },
+	{ label: '이용안내지', href: '/이용안내지' },
+];
+---
+
+<Layout title="이용수칙">
+	<SubLayout title="이용수칙" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<img src="./assets/images/usage-rules.png" alt="Usage Rules" />
+
+		<div class="usage-guide mt20">
+			<ul class="usage-guide__content">
+				<li>
+					흡연, 음주, 짖설 등 다른사람에게 방해가 되는 행위는 하지 않습니다. (휴대폰은 진동으로 해주시기 바랍니다.)
+				</li>
+				<li>관내에 비치된 도서는 관내에서만 열람하며, 대출하지 않은 경우에는 절대 관외로 유출하지 않습니다.</li>
+				<li>열람한 책은 제자리에 꽂아 다음사람이 이용할 수 있도록 하여 주시기 바랍니다.</li>
+				<li>도서대출시 반납기한을 반드시 지켜주시기 바랍니다.</li>
+				<li>도서관의 자료, 물품 및 기타 시설물은 파손하거나 훼손하지 않습니다.</li>
+				<li>회원증 분실 및 개인정보 변동시에는 도서관으로 바로 통보합니다.</li>
+				<li>지정된 장소 이외에는 음식물 반입을 금지합니다.</li>
+				<li>타인에게 혜오감을 주는 행위는 하지 않습니다.</li>
+				<li>주차는 지정된 장소에만 하고 연락처를 꼭 남깁시다.</li>
+				<li>기타 도서관 제반 이용 규칙을 준수하여 주시기 바랍니다.</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>

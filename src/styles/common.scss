@@ -1482,3 +1482,121 @@ img {
 .com-img-wrp2{
 	margin-top: 24px;
 }
+
+
+.com-infobox {
+	margin-top: 24px;
+  background-color: #ecf2f9;
+  border: 1px solid #ecf2f9;
+  border-radius: to-rem(12);
+  padding: to-rem(16);
+  width: 100%;
+
+  // 내부 컨텐츠 영역
+  &__content {
+    padding-left: to-rem(28);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(12);
+  }
+
+  // 리스트 그룹
+  &__list-group {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+  }
+
+  // 개별 리스트 아이템
+  &__list-item {
+    display: flex;
+    align-items: center;
+    gap: to-rem(4);
+    width: 100%;
+
+    // 불릿 포인트
+    &-bullet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: to-rem(20);
+      height: to-rem(26);
+      flex-shrink: 0;
+
+      &::before {
+        content: '';
+        width: to-rem(6);
+        height: to-rem(6);
+        background-color: #4b4d4d;
+        border-radius: to-rem(4);
+        display: block;
+      }
+
+      // 참조표시(※) 타입
+      &--reference {
+        &::before {
+          content: '※';
+          background: none;
+          width: auto;
+          height: auto;
+          border-radius: 0;
+          font-family: 'Pretendard GOV', sans-serif;
+          font-size: to-rem(17);
+          color: #4b4d4d;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    // 텍스트 영역
+    &-text {
+      flex: 1;
+      font-family: 'Pretendard GOV', sans-serif;
+      font-size: to-rem(15);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #4b4d4d;
+      margin: 0;
+    }
+  }
+
+  // 모바일 대응
+  @media (max-width: 900px) {
+    padding: 16px;
+    border-radius: 12px;
+
+    &__content {
+      padding-left: 28px;
+      gap: 12px;
+    }
+
+    &__list-group {
+      gap: 8px;
+    }
+
+    &__list-item {
+      gap: 4px;
+
+      &-bullet {
+        width: 20px;
+        height: 26px;
+
+        &::before {
+          width: 6px;
+          height: 6px;
+          border-radius: 4px;
+        }
+
+        &--reference {
+          &::before {
+            font-size: 17px;
+          }
+        }
+      }
+
+      &-text {
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '이용수칙' }];
+
+const tabMenus = [
+	{ label: '이용수칙', href: '/이용수칙' },
+	{ label: '이용시간', href: '/이용시간', active: true },
+	{ label: '이용안내지', href: '/이용안내지' },
+];
+---
+
+<Layout title="이용시간">
+	<SubLayout title="이용시간" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">도서관별 운영시간을 반드시 확인하세요!</h3>
+		</div>
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table">
+				<colgroup>
+					<col width="20%" />
+					<col width="25%" />
+					<col width="20%" />
+					<col width="15%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>도서관</th>
+						<th colspan="2">열람실</th>
+						<th>휴관일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 연수청학도서관 -->
+					<tr>
+						<td rowspan="3">연수청학도서관</td>
+						<td>어린이자료실(1층), 디지털자료실(3층)</td>
+						<td>화 ~ 일 : 09:00 ~ 18:00</td>
+						<td rowspan="12">매주 월요일<br />국가 지정 공휴일</td>
+					</tr>
+					<tr>
+						<td>종합자료실(2층)</td>
+						<td>화 ~ 금 : 09:00 ~ 22:00<br />토 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+					<tr>
+						<td>학습열람실(3층)</td>
+						<td>화 ~ 금 : 09:00 ~ 22:00<br />토 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+
+					<!-- 연수꿈담도서관 -->
+					<tr>
+						<td rowspan="2">연수꿈담도서관</td>
+						<td>유아자료실(1층), 어린이자료실(2층)</td>
+						<td>화 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+					<tr>
+						<td>종합자료실(3층)</td>
+						<td>화 ~ 금 : 09:00 ~ 22:00<br />토 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+
+					<!-- 송도국제어린이도서관 -->
+					<tr>
+						<td>송도국제어린이도서관</td>
+						<td colspan="2">
+							화, 수, 금, 토, 일 : 10:00 ~ 18:00<br />목 : 10:00 ~ 20:00(※ 글로벌 빌리지: 10:00 ~ 18:00)
+						</td>
+					</tr>
+
+					<!-- 해돋이도서관 -->
+					<tr>
+						<td rowspan="2">해돋이도서관</td>
+						<td>어린이자료실(1층)</td>
+						<td>화 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+					<tr>
+						<td>종합자료실(2층), 디지털존(2층),<br />안내데스크(1층), 디지털북카페(1층)</td>
+						<td>화 ~ 금 : 09:00 ~ 22:00<br />토 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+
+					<!-- 선학별빛도서관 -->
+					<tr>
+						<td rowspan="2">선학별빛도서관</td>
+						<td>어린이자료실(2층), 디지털존(2층),<br />멀티미디어방(2층)</td>
+						<td>화 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+					<tr>
+						<td>열람실(1층), 종합자료실(3층),<br />디지털실(3층)</td>
+						<td>화 ~ 금 : 09:00 ~ 22:00<br />토 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+
+					<!-- 동춘나래도서관, 함박비류도서관 -->
+					<tr>
+						<td>동춘나래도서관</td>
+						<td rowspan="2" colspan="2">화 ~ 일 : 09:00 ~ 18:00</td>
+					</tr>
+					<tr>
+						<td>함박비류도서관</td>
+					</tr>
+
+					<!-- 작은도서관들 (월~금 10:00~18:00) -->
+					<tr>
+						<td>옥련1동 작은도서관</td>
+						<td rowspan="5" colspan="2">월 ~ 금 : 10:00 ~ 18:00</td>
+						<td rowspan="5">매주 토, 일요일<br />국가 지정 공휴일</td>
+					</tr>
+					<tr>
+						<td>옥련2동어린이 작은도서관</td>
+					</tr>
+					<tr>
+						<td>연수1동 작은도서관</td>
+					</tr>
+					<tr>
+						<td>송도2동 작은도서관</td>
+					</tr>
+					<tr>
+						<td>송도3동 작은도서관</td>
+					</tr>
+
+					<!-- 작은도서관들 (화~토 10:00~18:00) -->
+					<tr>
+						<td>송도5동 작은도서관</td>
+						<td rowspan="5" colspan="2">화 ~ 토 : 10:00 ~ 18:00</td>
+						<td rowspan="5">매주 일, 월요일<br />국가 지정 공휴일</td>
+					</tr>
+					<tr>
+						<td>문화공원작은도서관(북크로싱 센터)</td>
+					</tr>
+					<tr>
+						<td>솔안공원 작은도서관</td>
+					</tr>
+					<tr>
+						<td>해찬솔공원 작은도서관</td>
+					</tr>
+					<tr>
+						<td>누리공원 작은도서관</td>
+					</tr>
+
+					<!-- 스마트도서관들 -->
+					<tr>
+						<td>송도4동 스마트도서관</td>
+						<td rowspan="3" colspan="2">365일 24시간</td>
+						<td rowspan="4">연중무휴</td>
+					</tr>
+					<tr>
+						<td>스퀘어원 스마트도서관</td>
+					</tr>
+					<tr>
+						<td>연수구청 스마트도서관</td>
+					</tr>
+					<tr>
+						<td>선학역 스마트도서관</td>
+						<td colspan="2">05:30 ~ 24:00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 정보박스 컴포넌트 -->
+		<div class="com-infobox">
+			<div class="com-infobox__content">
+				<div class="com-infobox__list-group">
+					<div class="com-infobox__list-item">
+						<div class="com-infobox__list-item-bullet"></div>
+						<p class="com-infobox__list-item-text">국가지정공휴일은 『관공서의 공휴일에 관한 규정』에 따릅니다.</p>
+					</div>
+					<div class="com-infobox__list-item">
+						<div class="com-infobox__list-item-bullet"></div>
+						<p class="com-infobox__list-item-text">[휴관근거: 인천광역시연수구 공공도서관 설립 및 운영에 관한 조례 제14조]</p>
+					</div>
+					<div class="com-infobox__list-item">
+						<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--reference"></div>
+						<p class="com-infobox__list-item-text">감염병 위기대응 및 장서 점검 등 기타 도서관 사정에 따라 운영(개관)시간 변동 가능</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
+
+<script src="/assets/js/comInfobox.js"></script>
