@@ -62313,19 +62313,18 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .contact-table-wrp .contact-table caption {
   display: none;
 }
-.contact-table-wrp .contact-table tbody tr th + td {
+.contact-table-wrp .contact-table tbody tr th, .contact-table-wrp .contact-table tbody tr td {
   padding: 18px 0;
   text-align: center;
-  line-height: 150%;
+  line-height: 150% !important;
   font-size: 0.9375rem;
   font-weight: 700;
   color: #191919;
   line-height: 1;
-  line-height: 1.5;
   word-break: keep-all;
 }
 @media (max-width: 900px) {
-  .contact-table-wrp .contact-table tbody tr th + td {
+  .contact-table-wrp .contact-table tbody tr th, .contact-table-wrp .contact-table tbody tr td {
     font-size: 13px;
     padding: 18px 10px;
   }
@@ -62637,7 +62636,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   background: #008f37;
 }
 .program-badge--128121 {
-  background: #8e63aa;
+  background: #F2CC3D;
 }
 .program-badge--128005 {
   background: #4ade80;
@@ -80652,7 +80651,7 @@ body.modal-open {
 }
 .ui-table__badge--송도국제 {
   background: transparent;
-  color: #8e63aa;
+  color: #F2CC3D;
   font-weight: 500;
 }
 .ui-table__badge--청학 {
@@ -80694,7 +80693,7 @@ body.modal-open {
 }
 .ui-table__badge--송도국제 {
   background: transparent;
-  color: #8e63aa;
+  color: #F2CC3D;
   font-weight: 500;
 }
 .ui-table__badge--청학 {
@@ -80736,7 +80735,7 @@ body.modal-open {
 }
 .ui-table__badge--송도국제 {
   background: transparent;
-  color: #8e63aa;
+  color: #F2CC3D;
   font-weight: 500;
 }
 .ui-table__badge--청학 {
@@ -80772,7 +80771,7 @@ body.modal-open {
 }
 .ui-table__badge--128121 {
   background: transparent;
-  color: #8e63aa;
+  color: #F2CC3D;
   font-weight: 500;
 }
 .ui-table__badge--128005 {
@@ -94966,7 +94965,7 @@ body.modal-open {
   background: #008f37;
 }
 .notice-item__tag--128121 {
-  background: #8e63aa;
+  background: #F2CC3D;
 }
 .notice-item__tag--128005 {
   background: #4ade80;
@@ -96184,7 +96183,7 @@ body.modal-open {
   background: #008f37;
 }
 .notice-detail-page .post-detail__badge--128121 {
-  background: #8e63aa;
+  background: #F2CC3D;
 }
 .notice-detail-page .post-detail__badge--128005 {
   background: #4ade80;

@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/search' },
+	{ label: '범구민책읽어주기' },
+];
+---
+
+<Layout title="범구민책읽어주기">
+	<SubLayout title="범구민책읽어주기" breadcrumbItems={breadcrumbItems} menuType="도서검색">
+		<div class="info-notice program-notice">
+			<div class="info-notice__header">
+				<div class="info-notice__icon">
+					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+				</div>
+				<h3 class="info-notice__title">
+					유아·아동의 흥미 발달 수준 및 교육과정에 적합한 그림책 선정, 책놀이 활동으로 동화책의 즐거움을 경험하도록
+					운영합니다.
+				</h3>
+			</div>
+		</div>
+
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">운영내용</h3>
+		</div>
+
+		<div class="contact-info">
+			<div class="contact-table-wrp scroll-x">
+				<table class="contact-table">
+					<caption>운영대상</caption>
+					<colgroup>
+						<col width="20%" />
+						<col width="40%" />
+						<col width="40%" />
+					</colgroup>
+					<tr>
+						<th>신청인원수</th>
+						<td colspan="2">유아 및 초등 저학년 15명 이내</td>
+					</tr>
+					<tr>
+						<th>운영기간</th>
+						<td>2월. ~ 12월. <br /> 1 ~ 4주 토요일 <br /> 14:00 ~ 15:00</td>
+						<td>2월. ~ 12월. <br /> 1 ~ 4주 토요일 <br /> 11:00 ~ 12:00</td>
+					</tr>
+					<tr>
+						<th>운영장소</th>
+						<td>연수청학도서관 <br /> 어린이자료실 內 아가랑엄마랑</td>
+						<td>해돋이도서관 해돋이홀</td>
+					</tr>
+					<tr>
+						<th>운영내용</th>
+						<td colspan="2">그림책 읽어주기 및 책놀이 활동</td>
+					</tr>
+					<tr>
+						<th>신청방법</th>
+						<td colspan="2">홈페이지(문화마당-프로그램 신청) 사전 접수</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- 문의 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">문의</h3>
+			<ul class="usage-guide__content">
+				<li>032-749-8265</li>
+			</ul>
+		</div>
+	</SubLayout>
+</Layout>

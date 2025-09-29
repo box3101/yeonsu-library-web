@@ -547,12 +547,11 @@ ul.movie-card-wrp {
 		}
 		tbody {
 			tr {
-				th + td {
+				th, td {
 					padding: 18px 0;
 					text-align: center;
-					line-height: 150%;
+					line-height: 150%!important;
 					@include font(to-rem(15), 700, #191919);
-					line-height: 1.5;
 					word-break: keep-all;
 
 					@include mobile {
