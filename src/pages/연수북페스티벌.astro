@@ -18,6 +18,7 @@ const tabs = [
 	{ label: '2020', id: '2020', active: false },
 	{ label: '2019', id: '2019', active: false },
 	{ label: '2018', id: '2018', active: false },
+	{ label: '2013', id: '2013', active: false },
 ];
 
 const eventRows = [
@@ -52,6 +53,265 @@ const eventRows = [
 		imageAlt: '독서골든벨',
 	},
 ];
+
+const eventRows2024 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 동아리, 지역서점, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2024/1.jpg',
+		imageAlt: '도서관 체험부스 운영',
+	},
+	{
+		category: '강연',
+		description:
+			'① 「회색인간」 김동식 작가X글로벌어린이합창단 북콘서트<br>② 「빨간내복의 초능력자」 서지원 작가와의 만남',
+		image: './assets/images/bookfestival/2024/2.jpg',
+		imageAlt: '강연',
+	},
+	{
+		category: '공연',
+		description: '① 세계명작 광대 뮤지컬(돈키호테)<br>② 독서흥미유발 마술공연(베스트셀러)',
+		image: './assets/images/bookfestival/2024/3.jpg',
+		imageAlt: '공연',
+	},
+	{
+		category: '독서골든벨',
+		description: '초등학생 대상 독서퀴즈대회',
+		image: './assets/images/bookfestival/2024/4.jpg',
+		imageAlt: '독서골든벨',
+	},
+	{
+		category: '현장참여대회',
+		description: '① 연수북페스티벌을 잡아라!<br>② 책 속 ○○을 찾아라!',
+		image: './assets/images/bookfestival/2024/5.jpg',
+		imageAlt: '강제독서배틀',
+	},
+];
+
+const eventRows2023 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 동아리, 지역서점, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2023/1.jpg',
+		imageAlt: '도서관 체험부스 운영',
+	},
+	{
+		category: '북콘서트',
+		description: '"어린이 고민 상담소" 「똥볶이할멈」 작가와의 만남',
+		image: './assets/images/bookfestival/2023/2.jpg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '공연',
+		description: '마술 공연 및 어린이 그림책 뮤지컬 「도서관 생쥐」 공연',
+		image: './assets/images/bookfestival/2023/3.jpg',
+		imageAlt: '공연',
+	},
+	{
+		category: '독서골든벨',
+		description: '',
+		image: './assets/images/bookfestival/2023/4.jpg',
+		imageAlt: '독서골든벨',
+	},
+	{
+		category: '강제독서배틀',
+		description: '지정도서 집중독서 후 독서퀴즈대회',
+		image: './assets/images/bookfestival/2023/5.jpg',
+		imageAlt: '강제독서배틀',
+	},
+];
+
+const eventRows2022 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 동아리, 지역서점, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2022/1.jpg',
+		imageAlt: '체험부스2022',
+	},
+	{
+		category: '공모전',
+		description: '「이젠 나도 북튜버」 영상 콘텐츠 공모전',
+		image: './assets/images/bookfestival/2022/2.jpg',
+		imageAlt: '공모전',
+	},
+	{
+		category: '북콘서트',
+		description: '작가 천선란×에티카 앙상블 북콘서트',
+		image: './assets/images/bookfestival/2022/3.jpg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '작가와의 만남',
+		description: '도시식물탐험대와 공원 한 바퀴',
+		image: './assets/images/bookfestival/2022/4.jpg',
+		imageAlt: '도시식물탐험대',
+	},
+	{
+		category: '공연',
+		description: "디즈니 메들리 뮤지컬 콘서트 / 어린이 뮤지컬 '집 나가자, 꿀꿀꿀'",
+		image: './assets/images/bookfestival/2022/5.jpg',
+		imageAlt: '어린이뮤지컬2',
+	},
+];
+
+const eventRows2021 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 작은도서관, 동아리, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2021/1.jpg',
+		imageAlt: '체험부스',
+	},
+	{
+		category: '공모전',
+		description: '「혼자 보기 아까운 책」 북트레일러 공모전',
+		image: '',
+		imageAlt: '',
+	},
+	{
+		category: '북콘서트',
+		description: '작가 최은영×뮤지션 하림 북콘서트',
+		image: './assets/images/bookfestival/2021/2.jpg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '포럼',
+		description: '<책이 우리에게 주는 역할><br>전병근 작가×이슬아 작가×이혜영 교수',
+		image: './assets/images/bookfestival/2021/3.jpg',
+		imageAlt: '포럼',
+	},
+	{
+		category: '4인 4색 북토크 <작가의 방>',
+		description: '작가 유선경/박주혜/김장성/김윤정',
+		image: './assets/images/bookfestival/2021/4.jpg',
+		imageAlt: '작가의방',
+	},
+];
+
+const eventRows2020 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 작은도서관, 동아리, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2020/1.jpg',
+		imageAlt: '체험부스',
+	},
+	{
+		category: '북콘서트',
+		description: '작가 박정섭×김상근 / 「이파라파 냐무냐무」 이지은 작가 X 신포에니타',
+		image: './assets/images/bookfestival/2020/2.jpeg',
+		imageAlt: '북콘서트',
+	},
+	{
+		category: '야간음악회',
+		description: '서율밴드',
+		image: './assets/images/bookfestival/2020/3.jpg',
+		imageAlt: '야간음악회',
+	},
+	{
+		category: '독서골든벨',
+		description: '초등학생 대상 독서퀴즈대회',
+		image: './assets/images/bookfestival/2020/4.jpg',
+		imageAlt: '독서골든벨',
+	},
+	{
+		category: '공연',
+		description: '크로키키 브라더스, 연수구 청소년 동아리 「인천유스 타악기 앙상블」',
+		image: './assets/images/bookfestival/2020/5.jpg',
+		imageAlt: '공연',
+	},
+];
+
+const eventRows2019 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 작은도서관, 동아리, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2019/1.png',
+		imageAlt: '도서관 체험부스 운영',
+	},
+	{
+		category: '북토크',
+		description: '「오늘부터 매일매일 그린그린합니다」 매거진<ssssl> 편집장과 함께한 그린라이프 북토크',
+		image: './assets/images/bookfestival/2019/2.png',
+		imageAlt: '북토크',
+	},
+	{
+		category: '소신실천대회',
+		description: '친환경 경연대회',
+		image: './assets/images/bookfestival/2019/3.png',
+		imageAlt: '소신실천대회',
+	},
+	{
+		category: '독서골든벨',
+		description: '어린이 독서퀴즈대회',
+		image: './assets/images/bookfestival/2019/4.jpg',
+		imageAlt: '독서골든벨',
+	},
+];
+
+const eventRows2018 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '연수구립도서관, 작은도서관, 동아리, 유관기관 등 참여',
+		image: './assets/images/bookfestival/2018/1.png',
+		imageAlt: '도서관 체험부스 운영',
+	},
+	{
+		category: '지역서점마켓',
+		description: '인천 지역 내 지역서점 7곳 참여',
+		image: './assets/images/bookfestival/2018/2.png',
+		imageAlt: '지역서점마켓',
+	},
+	{
+		category: '전시관',
+		description: '특화자료 주제로 체험형 전시관 설치',
+		image: './assets/images/bookfestival/2018/3.png',
+		imageAlt: '전시관',
+	},
+	{
+		category: '가족OX퀴즈 독서골든벨',
+		description: '지정독서 읽기, 가족단위 참여 대회프로그램',
+		image: './assets/images/bookfestival/2018/4.png',
+		imageAlt: '가족OX퀴즈 독서골든벨',
+	},
+	{
+		category: '책쉼터',
+		description: '축제 기간 동안 야외에서 책 읽기',
+		image: './assets/images/bookfestival/2018/5.png',
+		imageAlt: '책쉼터',
+	},
+];
+
+const eventRows2013 = [
+	{
+		category: '도서관 체험부스 운영',
+		description: '',
+		image: './assets/images/bookfestival/2013/1.png',
+		imageAlt: '도서관 체험부스 운영',
+	},
+	{
+		category: '도서판매부스',
+		description: '',
+		image: './assets/images/bookfestival/2013/2.png',
+		imageAlt: '도서판매부스',
+	},
+	{
+		category: '공연',
+		description: '아프리카 쇼 / 신기한 마술쇼',
+		image: './assets/images/bookfestival/2013/3.png',
+		imageAlt: '공연',
+	},
+	{
+		category: '연극',
+		description: '100만번 산 고양이 연극',
+		image: '',
+		imageAlt: '',
+	},
+	{
+		category: '전시',
+		description: '권정생 특별전',
+		image: '',
+		imageAlt: '',
+	},
+];
 ---
 
 <Layout title="연수북페스티벌">
@@ -62,7 +322,7 @@ const eventRows = [
 					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
 				</div>
 				<h3 class="info-notice__title">
-					함께 읽기 문화 확산을 위해 연수구에서 활동하는 독서동아리(연수구민 50% 포함)에게 활동공간과 토론 도서 지원
+					지역 내 도서관 축제 분위기를 조성하고, 풍성한 독서문화프로그램과 즐길거리를 제공하는 연수구립도서관 대표 축제
 				</h3>
 			</div>
 		</div>
@@ -76,6 +336,11 @@ const eventRows = [
 
 			<div class="usage-guide__table-wrapper">
 				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
 					<thead>
 						<tr>
 							<th>축제명</th>
@@ -104,8 +369,6 @@ const eventRows = [
 				<UiEventTable rows={eventRows} />
 			</div>
 
-			<!-- 새로운 공통 테이블 -->
-
 			<!-- 포스터 및 리플렛 -->
 			<div class="usage-guide">
 				<h3 class="usage-guide__title">포스터 및 리플렛</h3>
@@ -118,8 +381,473 @@ const eventRows = [
 					<img src="./assets/images/program-notice-1-2.png" alt="연수북페스티벌벌" />
 				</div>
 			</div>
+		</div>
 
-			<div id="panel-2024" class="ui-tab-panel">24</div>
+		<div id="panel-2024" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제8회<br />연수<br />북페스티벌<br />도서관, 지식·문화·환경을 서(書)로 잇다</td>
+							<td class="text-left">
+								- 일 시: 2024.9.7.(토)<br />
+								- 장 소: 해돋이공원 잔디광장 및 고래분수<br />
+								- 주요내용: 독서골든벨, 전시, 사전이벤트, 스탬프투어, 북콘서트, 공연, 작가와의 만남, 체험부스 등<br />
+								- 참여인원: 13,085명
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2024} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2024/6.jpg" alt="포스터(제7회 연수 북페스티벌)" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2024/7.jpg" alt="북페스티벌" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2024/8.jpg" alt="프로그램소개" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2024/9.jpg" alt="북페스티벌행사일정" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2024/10.jpg" alt="행사장안내" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2023" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제7회<br />연수<br />북페스티벌<br />밖으로 나온 도서관</td>
+							<td class="text-left">
+								- 일 시: 2023.9.23.(토)<br />
+								- 장 소: 연수구청 한마음광장 및 송죽원<br />
+								- 주요내용: 독서골든벨, 전시, 사전이벤트, 스탬프투어, 북콘서트, 공연, 작가와의 만남, 체험부스 등<br />
+								- 참여인원: 15,850명
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2023} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2023/6.jpg" alt="포스터(제7회 연수 북페스티벌)" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2023/7.png" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2022" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제6회<br />연수 북페스티벌<br />과학×책 아지트</td>
+							<td class="text-left">
+								- 일 시: 2022.10.15.(토)<br />
+								- 장 소: 송도 해돋이공원 잔디광장<br />
+								- 주 제: 과학<br />
+								- 주요내용: 공모전, 개막식, 전시, 북콘서트, 공연, 작가와의 만남, 체험부스 등<br />
+								- 참여인원: 14,500명
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2022} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2022/6.png" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2022/7.jpg" alt="리플릿" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2022/8.jpg" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2021" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제5회<br />연수 북페스티벌<br />글로벌·책·축제</td>
+							<td class="text-left">
+								- 일 시: 2021.10.29.(금)~10.30.(토) [2일간]<br />
+								※ ICLC 세계시민 평생학습 박람회의 일환으로 북페스티벌 테마관 운영<br />
+								- 장 소: 송도컨벤시아 전시장<br />
+								- 주 제: 문해력<br />
+								- 주요내용: 공모전·상영회, 포럼, 스탬프투어, 전시, 강연, 체험부스, 북콘서트 등<br />
+								- 참여인원: 12,750여명
+							</td>
+							<td>온·오프라인병행</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2021} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2021/5.jpg" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2021/6.jpg" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2021/7.jpg" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2020" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제4회<br />연수 북페스티벌<br />그림·책·축제</td>
+							<td class="text-left">
+								- 일 시: 2020.10.6.(화)~10.31.(토)<br />
+								※ 온라인, 사전행사, 메인행사(2020.10.17.) 병행 운영<br />
+								- 장 소: 연수구립도서관 7개관, 해돋이공원, 별빛공원, 함박종합사회복지관 야외<br />
+								- 주 제: 그림책<br />
+								- 주요내용: 체험부스, 체험프로그램, 강연, 전시, 공연 등<br />
+								- 참여인원: 7,100명
+							</td>
+							<td>온·오프라인병행</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2020} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2020/6.jpg" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2020/7.jpg" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2019" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제3회<br />연수 북페스티벌<br />초록·책·축제</td>
+							<td class="text-left">
+								- 일 시: 2019.5.25.(토)~5.26.(일)[2일간]<br />
+								- 장 소: 해돋이공원, 해돋이도서관<br />
+								- 주 제: 쓰레기 없는 축제, 환경, 생태<br />
+								- 주요내용: 체험부스, 공연, 북콘서트, OX퀴즈 등<br />
+								- 참여인원: 17,000명 참여
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2019} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2019/5.jpg" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2019/6.jpg" alt="홍보지" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2019/7.png" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2018" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제2회<br />연수 북페스티벌<br />함께 여는 책축제</td>
+							<td class="text-left">
+								- 일 시: 2018.10.7.(일) ※ 제9회 능허대문화축제와 연계<br />
+								- 장 소: 문화공원<br />
+								- 주요내용: 체험부스, 체험프로그램, 강연, 전시, 공연 등<br />
+								- 참여인원: 8,700명 참여
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2018} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2018/6.jpg" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2018/7.png" alt="리플릿" />
+				</div>
+			</div>
+		</div>
+
+		<div id="panel-2013" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사개요</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="auto" />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>축제명</th>
+							<th>내 용</th>
+							<th>비 고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>제1회<br />연수<br />어린이·청소년 북페스티벌</td>
+							<td class="text-left">
+								- 일 시: 2013.4.13.(토)~4.14.(일) [2일간]<br />
+								- 장 소: 연수구청<br />
+								- 주 제: 두근두근 책으로 만나는 세상<br />
+								- 주요내용: 체험부스, 공연, 북콘서트, 강연, 전시 등<br />
+								- 참여인원: 15,000명 참여
+							</td>
+							<td>오프라인</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 행사내용 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">행사내용</h3>
+				<UiEventTable rows={eventRows2013} />
+			</div>
+
+			<!-- 포스터 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">포스터</h3>
+
+				<div class="com-img-wrp">
+					<img src="./assets/images/bookfestival/2013/4.png" alt="포스터" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2013/5.png" alt="행사소개" />
+				</div>
+
+				<div class="com-img-wrp2">
+					<img src="./assets/images/bookfestival/2013/6.png" alt="리플릿" />
+				</div>
+			</div>
 		</div>
 	</SubLayout>
 </Layout>

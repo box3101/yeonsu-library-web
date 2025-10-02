@@ -88467,7 +88467,7 @@ body.modal-open {
 }
 .ui-event-table__cell--description {
   min-width: 5rem;
-  width: 25rem;
+  width: 24.9rem;
 }
 .ui-event-table__cell--image {
   border-right: none;
@@ -88514,6 +88514,7 @@ body.modal-open {
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.5;
+  word-break: keep-all;
 }
 .ui-event-table__text p {
   line-height: 1.5;

@@ -279,3 +279,9 @@ This project uses Korean file names for pages to match the Korean library system
 - Menu keys use Korean: `도서검색`, `디지털자료`, `문화프로그램`
 - Institution colors mapped to Korean names: `$institution-연수꿈담`, `$institution-송도국제`
 - Supports 3-level menu hierarchy with Korean labels
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
