@@ -3,203 +3,529 @@ import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiTab } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '회원규정' }];
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '회원대출규정' }];
 const tabMenus = [
-	{ label: '회원규정', href: '/회원규정', active: true },
-	{ label: '대출규정', href: '/대출규정' },
+	{ label: '회원규정', id: 'member', active: true },
+	{ label: '대출규정', id: 'loan', active: false },
 ];
 ---
 
-<Layout title="회원규정">
-	<SubLayout title="회원규정" breadcrumbItems={breadcrumbItems} menuType="안내마당">
-		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+<Layout title="회원대출규정">
+	<SubLayout title="회원대출규정" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} variant="default" className="mb-4 search-type-tabs ui-tab--grid-2" />
 
-		<!-- 회원가입안내 -->
-		<div class="usage-guide">
-			<h3 class="usage-guide__title">회원가입 안내</h3>
-		</div>
+		<!-- 회원규정 탭 -->
+		<div id="panel-member" class="ui-tab-panel ui-tab-panel--active">
+			<!-- 회원가입안내 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">회원가입 안내</h3>
+			</div>
 
-		<div class="info-notice program-notice">
-			<div class="program-notice__content">
-				<ul class="program-notice__list">
+			<div class="info-notice program-notice">
+				<div class="program-notice__content">
+					<ul class="program-notice__list">
+						<li>
+							연수구립도서관 홈페이지 회원가입(준회원) 후 ①정회원인증(비대면자격확인) 또는 ②구비서류 지참 후 도서관을
+							직접 방문하여 정회원 <br /> (책이음서비스 자동가입)이 되시면 도서대출, 도서관 프로그램 참여, 독서문화행사 등
+							다양한 서비스 이용이 가능합니다.
+							<br />
+							※ 책이음서비스에 이미 가입된 준회원은 "정회원인증"시 기존 책이음 회원정보로 가입됩니다.
+							<br />
+							※ 14세 미만 아동은 반드시 법정대리인 인증 후 아동의 본인인증 필요
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 회원가입절차 -->
+
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">회원가입절차</h3>
+			</div>
+
+			<!-- STEP 1 -->
+			<div class="registration-step">
+				<div class="registration-step__header">
+					<span class="registration-step__number">1</span>
+					<h4 class="registration-step__title">STEP1</h4>
+				</div>
+				<div class="com-infobox">
+					<div class="com-infobox__content">
+						<div class="com-infobox__list-group">
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">준회원(홈페이지 회원)에 가입합니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="registration-step__button">
+					<button class="ui-button ui-button--primary">신규 회원가입 바로가기 ></button>
+				</div>
+			</div>
+
+			<!-- STEP 2 -->
+			<div class="registration-step">
+				<div class="registration-step__header">
+					<span class="registration-step__number">2</span>
+					<h4 class="registration-step__title">STEP2</h4>
+				</div>
+				<div class="com-infobox">
+					<div class="com-infobox__content">
+						<div class="com-infobox__list-group">
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">정회원(책이음 회원) 가입은 ①, ②방법 중 택1 합니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 방법 선택 -->
+			<div class="registration-methods">
+				<div class="registration-method">
+					<div class="registration-method__header">
+						<span class="registration-method__label">방법 ①</span>
+						<span class="registration-method__title">정회원 인증[비대면 자격확인]</span>
+					</div>
+					<div class="com-infobox">
+						<div class="com-infobox__content">
+							<div class="com-infobox__list-group">
+								<div class="com-infobox__list-item">
+									<div class="com-infobox__list-item-bullet"></div>
+									<p class="com-infobox__list-item-text">모바일 회원증 발급(모바일기기에서 도서관홈페이지 로그인)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="registration-method__button">
+						<button class="ui-button ui-button--secondary">정회원 인증 바로가기 ></button>
+					</div>
+				</div>
+
+				<div class="registration-method">
+					<div class="registration-method__header">
+						<span class="registration-method__label">방법 ②</span>
+						<span class="registration-method__title">구비서류 지참하여 연수구립도서관 직접 방문</span>
+					</div>
+					<div class="com-infobox">
+						<div class="com-infobox__content">
+							<div class="com-infobox__list-group">
+								<div class="com-infobox__list-item">
+									<div class="com-infobox__list-item-bullet"></div>
+									<p class="com-infobox__list-item-text">실물 회원증 발급 가능</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="registration-method__button">
+						<button class="ui-button ui-button--secondary">구비서류 확인하기 ></button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 참고사항 -->
+			<div class="com-infobox com-infobox--notice">
+				<div class="com-infobox__content">
+					<div class="com-infobox__list-group">
+						<div class="com-infobox__list-item">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--reference"></div>
+							<p class="com-infobox__list-item-text">모바일회원증으로 모든 도서관 서비스 이용 가능합니다</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 도서관 회원자격 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">도서관 회원자격</h3>
+				<ul class="usage-guide__content">
+					<li>주민등록상 인천광역시에 거주하는 시민</li>
+					<li>인천광역시 소재 직장에 재직 또는 학교에 재학하는 자</li>
+					<li>인천광역시에 거주하는 재외동포 국내거소 신고자 및 외국인등록자</li>
 					<li>
-						연수구립도서관 홈페이지 회원가입(준회원) 후 ①정회원인증(비대면자격확인) 또는 ②구비서류 지참 후 도서관을 직접
-						방문하여 정회원 <br /> (책이음서비스 자동가입)이 되시면 도서대출, 도서관 프로그램 참여, 독서문화행사 등 다양한
-						서비스 이용이 가능합니다.
-						<br />
-						※ 책이음서비스에 이미 가입된 준회원은 "정회원인증"시 기존 책이음 회원정보로 가입됩니다.
-						<br />
-						※ 14세 미만 아동은 반드시 법정대리인 인증 후 아동의 본인인증 필요
+						기존 책이음 서비스 가입자 <br /> 단, '비대면자격확인서비스'는 "인천광역시에 주민등록이 되어있는 자"에 한함.
 					</li>
 				</ul>
 			</div>
-		</div>
 
-		<!-- 회원가입절차 -->
-
-		<div class="usage-guide">
-			<h3 class="usage-guide__title">회원가입절차</h3>
-		</div>
-
-		<!-- STEP 1 -->
-		<div class="registration-step">
-			<div class="registration-step__header">
-				<span class="registration-step__number">1</span>
-				<h4 class="registration-step__title">STEP1</h4>
+			<!-- 책이음(통합도서서비스) 회원증 재발급 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">책이음(통합도서서비스) 회원증 재발급</h3>
 			</div>
-			<div class="com-infobox">
+
+			<!-- 책이음(통합도서서비스) 회원가입 시 구비서류 -->
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="15%" />
+						<col width="30%" />
+						<col width="30%" />
+						<col width="25%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="3">도서관</th>
+							<th rowspan="2">운영시간</th>
+						</tr>
+						<tr>
+							<th colspan="2">휴관일</th>
+							<th rowspan="2">도서관</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>본인</td>
+							<td>발전대리인 등록 도서관 방문</td>
+							<td colspan="2" rowspan="2">
+								• 현주소가 기재된 신분증(중·고등학생의 경우 학생증 또는 청소년증으로 갈음)<br />
+								• 현주소가 기재되어 있지 않을 경우, 현주소 확인 가능한 증빙서류 제출(주민등록증등본)<br />
+								• 인천광역시 소재 재학·재직 증명서(해당자)<br />
+								• 가족증명서(해당자)<br />
+								※ 대리인 신분증 불가, 대리인 원불증 수반시 현주소가 기재된 위임인 신분증, 위임장, 대리인 신분증
+							</td>
+						</tr>
+						<tr>
+							<td>발전대리인</td>
+							<td>
+								• 현주소가 기재된 신분증<br />
+								• 발전대리인 증명서류<br />
+								(6개월 이내 주민등록등본 또는 가족관계증명서 등록)
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4" class="text-left">
+								공동사용: 본인명의 현도드 또는 아이핀 인증<br />
+								※ 아이핀 발급방법 : 인간 아이핀 발급 사이트를 통해 발급<br />
+								※ 아이핀 발급 가능사이트 (발급비용 무료)<br />
+								- 나이스평가정보 (www.niceipin.co.kr)<br />
+								- 서울신용평가정보 (ipin.siren24.com)<br />
+								- 코리아크레딧뷰로 (ok-name.co.kr)
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 책이음(통합도서서비스) 회원증 재발급 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">책이음(통합도서서비스) 회원증 재발급</h3>
+			</div>
+			<div class="com-infobox bg-white">
 				<div class="com-infobox__content">
 					<div class="com-infobox__list-group">
+						<!-- 분실신고일 -->
 						<div class="com-infobox__list-item">
 							<div class="com-infobox__list-item-bullet"></div>
-							<p class="com-infobox__list-item-text">준회원(홈페이지 회원)에 가입합니다.</p>
+							<p class="com-infobox__list-item-text">분실신고일 + 2일 후 ⇒ 재발급 가능</p>
+						</div>
+
+						<!-- ① 데스크 방문 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">①</div>
+							<p class="com-infobox__list-item-text">데스크 방문</p>
+						</div>
+
+						<!-- ② 구비서류 확인 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">②</div>
+							<p class="com-infobox__list-item-text">구비서류 확인</p>
+						</div>
+
+						<!-- 하위 항목들 (흰색 배경 테두리만 있는 점) -->
+						<div class="com-infobox__list-item com-infobox__list-item--indent">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--outline"></div>
+							<p class="com-infobox__list-item-text">13세 이하 : 보호자 신분증, 주민등록등본</p>
+						</div>
+						<div class="com-infobox__list-item com-infobox__list-item--indent">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--outline"></div>
+							<p class="com-infobox__list-item-text">14세 이상 : 학생증 또는 청소년증</p>
+						</div>
+						<div class="com-infobox__list-item com-infobox__list-item--indent">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--outline"></div>
+							<p class="com-infobox__list-item-text">성인 : 신분증</p>
+						</div>
+
+						<!-- ③ 재발급 신청 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">③</div>
+							<p class="com-infobox__list-item-text">재발급 신청</p>
+						</div>
+
+						<!-- ④ 2일 이후부터 회원증 수령 가능 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">④</div>
+							<p class="com-infobox__list-item-text">2일 이후부터 회원증 수령 가능</p>
+						</div>
+
+						<!-- 하위 항목들 (흰색 배경 테두리만 있는 점) -->
+						<div class="com-infobox__list-item com-infobox__list-item--indent">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--outline"></div>
+							<p class="com-infobox__list-item-text">구비서류지참</p>
+						</div>
+						<div class="com-infobox__list-item com-infobox__list-item--indent">
+							<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--outline"></div>
+							<p class="com-infobox__list-item-text">기존 회원증은 사용 불가</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="registration-step__button">
-				<button class="ui-button ui-button--primary">신규 회원가입 바로가기 ></button>
-			</div>
-		</div>
 
-		<!-- STEP 2 -->
-		<div class="registration-step">
-			<div class="registration-step__header">
-				<span class="registration-step__number">2</span>
-				<h4 class="registration-step__title">STEP2</h4>
+			<!-- 타도서관 회원(책이음회원)의 연수구립도서관 정회원(책이음회원) 가입 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">타도서관 회원(책이음회원)의 연수구립도서관 정회원(책이음회원) 가입</h3>
 			</div>
-			<div class="com-infobox">
+			<div class="com-infobox bg-white">
 				<div class="com-infobox__content">
 					<div class="com-infobox__list-group">
-						<div class="com-infobox__list-item">
-							<div class="com-infobox__list-item-bullet"></div>
-							<p class="com-infobox__list-item-text">정회원(책이음 회원) 가입은 ①, ②방법 중 택1 합니다.</p>
+						<!-- ① 데스크 방문 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">①</div>
+							<p class="com-infobox__list-item-text">홈페이지 준회원 가입 및 정회원 인증</p>
+						</div>
+						<!-- ② 구비서류 확인 (불릿 없음) -->
+						<div class="com-infobox__list-item com-infobox__list-item--no-bullet">
+							<div class="com-infobox__list-item-number">②</div>
+							<p class="com-infobox__list-item-text">
+								오프라인 : 준회원 가입 후 도서관 안내데스크에 신분증 및 책이음회원증 제시
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- 방법 선택 -->
-		<div class="registration-methods">
-			<div class="registration-method">
-				<div class="registration-method__header">
-					<span class="registration-method__label">방법 ①</span>
-					<span class="registration-method__title">정회원 인증[비대면 자격확인]</span>
-				</div>
-				<div class="com-infobox">
-					<div class="com-infobox__content">
-						<div class="com-infobox__list-group">
-							<div class="com-infobox__list-item">
-								<div class="com-infobox__list-item-bullet"></div>
-								<p class="com-infobox__list-item-text">모바일 회원증 발급(모바일기기에서 도서관홈페이지 로그인)</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="registration-method__button">
-					<button class="ui-button ui-button--secondary">정회원 인증 바로가기 ></button>
-				</div>
+			<!-- 자격상실에 관한 사항 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">자격상실에 관한 사항</h3>
+				<ul class="usage-guide__content">
+					<li>본인이 회원탈퇴를 희망 또는 회원가입 시 고의로 가입내용을 다르게 작성한 경우</li>
+					<li>대출 절차에 의하지 않고 자료를 도서관 밖으로 가지고 가는 경우</li>
+					<li>대출 도서 반납예정일로부터 1년 이상 연체한 경우</li>
+					<li>도서를 분실 또는 훼손하고 원상회복 조치 요청 후 정당한 사유 없이 변상하지 아니한 경우</li>
+					<li>재가입은 회원자격 상실일로부터 1년 경과 후 가능</li>
+				</ul>
 			</div>
 
-			<div class="registration-method">
-				<div class="registration-method__header">
-					<span class="registration-method__label">방법 ②</span>
-					<span class="registration-method__title">구비서류 지참하여 연수구립도서관 직접 방문</span>
-				</div>
-				<div class="com-infobox">
-					<div class="com-infobox__content">
-						<div class="com-infobox__list-group">
-							<div class="com-infobox__list-item">
-								<div class="com-infobox__list-item-bullet"></div>
-								<p class="com-infobox__list-item-text">실물 회원증 발급 가능</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="registration-method__button">
-					<button class="ui-button ui-button--secondary">구비서류 확인하기 ></button>
-				</div>
+			<!-- 도서관 회원 탈퇴 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">도서관 회원 탈퇴</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="20%" />
+						<col width="15%" />
+						<col width="65%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="2">구 분</th>
+							<th>탈퇴 처리 방법</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2">홈페이지 회원 탈퇴</td>
+							<td class="text-left">
+								<strong>방법 1)</strong> 도서관 방문 또는 전화요청 시 본인 확인 후 탈퇴 처리<br />
+								<strong>방법 2)</strong> 홈페이지(로그인)▶내정보▶회원탈퇴
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="2">도서관 대출회원탈퇴</td>
+							<td>일반 회원</td>
+							<td class="text-left">방문 또는 전화 요청</td>
+						</tr>
+						<tr>
+							<td>책이음 회원</td>
+							<td class="text-left">
+								<strong>방법 1)</strong> 방문 또는 전화 요청 시 본인확인 후 탈퇴 처리<br />
+								<strong>방법 2)</strong> 공공도서관지원서비스(<a
+									href="https://books.nl.go.kr/"
+									target="_blank"
+									class="blue"
+								>
+									books.nl.go.kr
+								</a>)▶회원가입(혹은 로그인)▶책이음서비스▶내정보▶가입도서관조회▶탈퇴하고자 하는 도서관 선택▶탈퇴<br />
+								※ 단, 대출(또는 연체) 중인 자료가 있을 경우, 탈퇴 불가
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 
-		<!-- 참고사항 -->
-		<div class="com-infobox com-infobox--notice">
-			<div class="com-infobox__content">
-				<div class="com-infobox__list-group">
-					<div class="com-infobox__list-item">
-						<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--reference"></div>
-						<p class="com-infobox__list-item-text">모바일회원증으로 모든 도서관 서비스 이용 가능합니다</p>
-					</div>
-				</div>
+		<!-- 대출규정 탭 -->
+		<div id="panel-loan" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">대출자격</h3>
+				<ul class="usage-guide__content">
+					<li>통합회원제도 시행 도서관에서 발급받은 독서회원증을 소지한 자</li>
+				</ul>
+			</div>
+
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">대출규정</h3>
+			</div>
+
+			<div class="contact-info">
+				<h3>회원별 대출권수</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="30%" />
+						<col width="20%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>구 분</th>
+							<th colspan="2">대출권수</th>
+							<th>통합대출권수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>일반회원</td>
+							<td>1인 5권 (※ 스마트도서관 1인 3권)</td>
+							<td rowspan="3">DVD 1종</td>
+							<td rowspan="3">도서 최대 30권<br />(DVD 1관당 1인 1종)</td>
+						</tr>
+						<tr>
+							<td>특별회원(기증자, 둘째자녀 이상)</td>
+							<td>1인 6권</td>
+						</tr>
+						<tr>
+							<td>우수회원(다독자 등)</td>
+							<td>1인 8권</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 
-		<!-- 도서관 회원자격 -->
-		<div class="usage-guide">
-			<h3 class="usage-guide__title">도서관 회원자격</h3>
-			<ul class="usage-guide__content">
-				<li>주민등록상 인천광역시에 거주하는 시민</li>
-				<li>인천광역시 소재 직장에 재직 또는 학교에 재학하는 자</li>
-				<li>인천광역시에 거주하는 재외동포 국내거소 신고자 및 외국인등록자</li>
-				<li>
-					기존 책이음 서비스 가입자 <br /> 단, '비대면자격확인서비스'는 “인천광역시에 주민등록이 되어있는 자”에 한함.
-				</li>
-			</ul>
+		<div class="contact-info">
+			<h3>그 외 대출규정</h3>
 		</div>
-
-		<!-- 책이음(통합도서서비스) 회원가입 시 구비서류 -->
 
 		<div class="usage-guide__table-wrapper">
 			<table class="usage-guide__table">
 				<colgroup>
 					<col width="15%" />
-					<col width="30%" />
-					<col width="30%" />
-					<col width="25%" />
+					<col width="15%" />
+					<col width="55%" />
+					<col width="15%" />
 				</colgroup>
 				<thead>
 					<tr>
-						<th colspan="3">도서관</th>
-						<th rowspan="2">운영시간</th>
-					</tr>
-					<tr>
-						<th colspan="2">휴관일</th>
-						<th rowspan="2">도서관</th>
+						<th colspan="2">구 분</th>
+						<th>내용</th>
+						<th>비고</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>본인</td>
-						<td>발전대리인 등록 도서관 방문</td>
-						<td colspan="2" rowspan="2">
-							• 현주소가 기재된 신분증(중·고등학생의 경우 학생증 또는 청소년증으로 갈음)<br />
-							• 현주소가 기재되어 있지 않을 경우, 현주소 확인 가능한 증빙서류 제출(주민등록증등본)<br />
-							• 인천광역시 소재 재학·재직 증명서(해당자)<br />
-							• 가족증명서(해당자)<br />
-							※ 대리인 신분증 불가, 대리인 원불증 수반시 현주소가 기재된 위임인 신분증, 위임장, 대리인 신분증
+						<td colspan="2">대출 기간</td>
+						<td class="text-left"><span class="blue">1인 15일</span></td>
+						<td>대출일 포함</td>
+					</tr>
+					<tr>
+						<td rowspan="2">반납 연기</td>
+						<td>횟수</td>
+						<td class="text-left">
+							<span class="blue">1회 7일</span> 연장 가능 (DVD: 반납연기 불가)
+						</td>
+						<td rowspan="2">당일연장가능</td>
+					</tr>
+					<tr>
+						<td>방법</td>
+						<td class="text-left">
+							인터넷, 모바일(리브로피아앱, 카카오톡 채널), 전화, 방문<br />※ 단, 예약된 자료인 경우 <span class="blue">
+								예약자 우선처리
+							</span>로 반납연기 불가
 						</td>
 					</tr>
 					<tr>
-						<td>발전대리인</td>
-						<td>
-							• 현주소가 기재된 신분증<br />
-							• 발전대리인 증명서류<br />
-							(6개월 이내 주민등록등본 또는 가족관계증명서 등록)
+						<td colspan="2">재대출</td>
+						<td class="text-left">
+							<span class="blue">반납일로부터 즉시</span>재대출 가능(단, 예약 없는 도서에 한함.)
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">회원증 사용</td>
+						<td class="text-left">
+							<span class="blue">본인 사용 원칙</span>
+							<br />※ 가족회원제도 : 가족으로 묶은 회원의 경우, 본인카드로 다른 가족명의 대출 가능
+							<br />※ 부득이한 경우 대리(B) 대출 허용
+							<br /> - 본인(A) 회원증 지참 및 본인(A) 통화 확인
+							<br /> - 통화가 불가할 경우, 본인(A) 회원증과 본인(A) 신분증 지참
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td rowspan="2">상호대차 신청<br />(=연수구책두레)</td>
+						<td>신청권수</td>
+						<td class="text-left">
+							<span class="blue">1인 3권 (※ 스마트도서관 1인 2권)</span>
+						</td>
+						<td rowspan="2">
+							자료보관만기일 :<br />
+							<span class="blue">도착일 포함 3일</span>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4" class="text-left">
-							공동사용: 본인명의 현도드 또는 아이핀 인증<br />
-							※ 아이핀 발급방법 : 인간 아이핀 발급 사이트를 통해 발급<br />
-							※ 아이핀 발급 가능사이트 (발급비용 무료)<br />
-							- 나이스평가정보 (www.niceipin.co.kr)<br />
-							- 서울신용평가정보 (ipin.siren24.com)<br />
-							- 코리아크레딧뷰로 (ok-name.co.kr)
+						<td>방법 및 요건</td>
+						<td class="text-left">
+							- 원하는 자료가 자관(=주 이용도서관)에 없을 경우 타관의 자료 신청 가능 (홈페이지, 모바일)<br />
+							- 도착 알림 메시지 수신 후<span class="blue">'수령도서관'</span>에 방문하여 대출
 						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">예약신청</td>
+						<td>신청권수</td>
+						<td class="text-left">
+							<span class="blue">1인 3권</span>
+						</td>
+						<td rowspan="2">자료보관만기일 :<br /> <span class="blue">도착일 포함 3일</span></td>
+					</tr>
+					<tr>
+						<td>방법 및 요건</td>
+						<td class="text-left">
+							- 원하는 자료가 대출중인 경우 신청가능 (홈페이지, 모바일)<br />
+							- 도착알림메시지 수신 후 <span class="blue">'소장도서관'</span>에 방문하여 대출
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">성인도서 대출제한</td>
+						<td class="text-left"><span class="blue">14세 미만</span>(DVD: 영상물 등급에 따라 제한)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">연체 관리</td>
+						<td class="text-left">
+							<span class="blue">연체일수만큼 대출정지</span>
+							<br />※ 책이음 참여 도서관 중 한 곳에서 연체 시, 전체 도서관에서 대출이 정지됩니다.
+							<br />※ 1년 이상의 장기연체자: 회원자격 상실
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">자료 변상</td>
+						<td class="text-left">
+							열람 또는 대출자료를 <span class="blue">훼손하거나 분실한 경우 동일자료 또는 정가로 변상</span>
+						</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</SubLayout>
 </Layout>
+
+<script src="/assets/js/comTab.js"></script>

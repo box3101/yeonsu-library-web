@@ -1,0 +1,197 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/search' }, { label: '대출규정' }];
+const tabMenus = [
+	{ label: '회원규정', href: '/회원규정' },
+	{ label: '대출규정', href: '/대출규정', active: true },
+];
+
+const loanTabs = [
+	{ label: '대출자격', id: 'qualification', active: true },
+	{ label: '회원별 대출권수', id: 'loan-count', active: false },
+	{ label: '그 외 대출규정', id: 'other-rules', active: false },
+];
+---
+
+<Layout title="대출규정">
+	<SubLayout title="대출규정" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+
+		<UiTab tabs={loanTabs} variant="default" className="mb-4 search-type-tabs" />
+
+		<!-- 대출자격 탭 -->
+		<div id="panel-qualification" class="ui-tab-panel ui-tab-panel--active">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">대출자격</h3>
+				<ul class="usage-guide__content">
+					<li>통합회원제도 시행 도서관에서 발급받은 독서회원증을 소지한 자</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 회원별 대출권수 탭 -->
+		<div id="panel-loan-count" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">회원별 대출권수</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="30%" />
+						<col width="20%" />
+						<col width="20%" />
+						<col width="30%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>구 분</th>
+							<th colspan="2">대출권수</th>
+							<th>통합대출권수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>일반회원</td>
+							<td>1인 5권 (※ 스마트도서관 1인 3권)</td>
+							<td rowspan="3">DVD 1종</td>
+							<td rowspan="3">도서 최대 30권<br />(DVD 1관당 1인 1종)</td>
+						</tr>
+						<tr>
+							<td>특별회원(기증자, 둘째자녀 이상)</td>
+							<td>1인 6권</td>
+						</tr>
+						<tr>
+							<td>우수회원(다독자 등)</td>
+							<td>1인 8권</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- 그 외 대출규정 탭 -->
+		<div id="panel-other-rules" class="ui-tab-panel">
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">그 외 대출규정</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="15%" />
+						<col width="15%" />
+						<col width="55%" />
+						<col width="15%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="2">구 분</th>
+							<th>내용</th>
+							<th>비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2">대출 기간</td>
+							<td class="text-left"><span class="blue">1인 15일</span></td>
+							<td>대출일 포함</td>
+						</tr>
+						<tr>
+							<td rowspan="2">반납 연기</td>
+							<td>횟수</td>
+							<td class="text-left">
+								<span class="blue">1회 7일</span> 연장 가능 (DVD: 반납연기 불가)
+							</td>
+							<td rowspan="2">당일연장가능</td>
+						</tr>
+						<tr>
+							<td>방법</td>
+							<td class="text-left">
+								인터넷, 모바일(리브로피아앱, 카카오톡 채널), 전화, 방문<br />※ 단, 예약된 자료인 경우 <span
+									class="blue">예약자 우선처리</span
+								>로 반납연기 불가
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">재대출</td>
+							<td class="text-left">
+								<span class="blue">반납일로부터 즉시 </span>재대출 가능(단, 예약 없는 도서에 한함.)
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">회원증 사용</td>
+							<td class="text-left">
+								<span class="blue">본인 사용 원칙</span>
+								<br />※ 가족회원제도 : 가족으로 묶은 회원의 경우, 본인카드로 다른 가족명의 대출 가능
+								<br />※ 부득이한 경우 대리(B) 대출 허용
+								<br /> - 본인(A) 회원증 지참 및 본인(A) 통화 확인
+								<br /> - 통화가 불가할 경우, 본인(A) 회원증과 본인(A) 신분증 지참
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td rowspan="2">상호대차 신청<br />(=연수구책두레)</td>
+							<td>신청권수</td>
+							<td class="text-left">
+								<span class="blue">1인 3권 (※ 스마트도서관 1인 2권)</span>
+							</td>
+							<td rowspan="2">
+								자료보관만기일 :<br /> <span class="blue">도착일 포함 3일</span>
+							</td>
+						</tr>
+						<tr>
+							<td>방법 및 요건</td>
+							<td class="text-left">
+								- 원하는 자료가 자관(=주 이용도서관)에 없을 경우 타관의 자료 신청 가능 (홈페이지, 모바일)<br />
+								- 도착 알림 메시지 수신 후<span class="blue">'수령도서관'</span>에 방문하여 대출
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="2">예약신청</td>
+							<td>신청권수</td>
+							<td class="text-left">
+								<span class="blue">1인 3권</span>
+							</td>
+							<td rowspan="2">자료보관만기일 :<br /> <span class="blue">도착일 포함 3일</span></td>
+						</tr>
+						<tr>
+							<td>방법 및 요건</td>
+							<td class="text-left">
+								- 원하는 자료가 대출중인 경우 신청가능 (홈페이지, 모바일)<br />
+								- 도착알림메시지 수신 후 <span class="blue">'소장도서관'</span>에 방문하여 대출
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">성인도서 대출제한</td>
+							<td class="text-left"><span class="blue">14세 미만</span>(DVD: 영상물 등급에 따라 제한)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">연체 관리</td>
+							<td class="text-left">
+								<span class="blue">연체일수만큼 대출정지</span>
+								<br />※ 책이음 참여 도서관 중 한 곳에서 연체 시, 전체 도서관에서 대출이 정지됩니다.
+								<br />※ 1년 이상의 장기연체자: 회원자격 상실
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="2">자료 변상</td>
+							<td class="text-left">
+								열람 또는 대출자료를 <span class="blue">훼손하거나 분실한 경우 동일자료 또는 정가로 변상</span>
+							</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
+
+<script src="/assets/js/comTab.js"></script>

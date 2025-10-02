@@ -1491,6 +1491,15 @@ img {
 	padding: to-rem(16);
 	width: 100%;
 
+	&.bg-white {
+		background: #fff;
+		padding: 0;
+		border: none;
+		.com-infobox__content {
+			padding-left: 0;
+		}
+	}
+
 	// 내부 컨텐츠 영역
 	&__content {
 		padding-left: to-rem(28);
@@ -1777,4 +1786,34 @@ img {
 .com-infobox--notice {
 	background-color: #f8f9fa;
 	border-color: #e9ecef;
+}
+
+.com-infobox__list-item--no-bullet {
+	padding-left: 8px;
+}
+
+.com-infobox__list-item-number {
+	width: 24px;
+	padding-left: 8px;
+	color: #4b4d4d;
+	font-size: 13px;
+}
+
+.com-infobox__list-item--indent {
+	padding-left: 16px;
+}
+
+.com-infobox__list-item-bullet--outline {
+	width: 4px;
+	height: 4px;
+	background: #fff;
+	border: 1px solid #646767;
+	border-radius: 4px;
+	&::before {
+		display: none;
+	}
+}
+
+.blue {
+	color: #3c79c2;
 }

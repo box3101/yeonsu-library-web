@@ -1473,6 +1473,14 @@ img {
   padding: 1rem;
   width: 100%;
 }
+.com-infobox.bg-white {
+  background: #fff;
+  padding: 0;
+  border: none;
+}
+.com-infobox.bg-white .com-infobox__content {
+  padding-left: 0;
+}
 .com-infobox__content {
   padding-left: 1.75rem;
   display: flex;
@@ -1717,6 +1725,36 @@ img {
 .com-infobox--notice {
   background-color: #f8f9fa;
   border-color: #e9ecef;
+}
+
+.com-infobox__list-item--no-bullet {
+  padding-left: 8px;
+}
+
+.com-infobox__list-item-number {
+  width: 24px;
+  padding-left: 8px;
+  color: #4b4d4d;
+  font-size: 13px;
+}
+
+.com-infobox__list-item--indent {
+  padding-left: 16px;
+}
+
+.com-infobox__list-item-bullet--outline {
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border: 1px solid #646767;
+  border-radius: 4px;
+}
+.com-infobox__list-item-bullet--outline::before {
+  display: none;
+}
+
+.blue {
+  color: #3c79c2;
 }
 
 .flex {
@@ -62570,7 +62608,8 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .contact-table-wrp .contact-table caption {
   display: none;
 }
-.contact-table-wrp .contact-table tbody tr th, .contact-table-wrp .contact-table tbody tr td {
+.contact-table-wrp .contact-table tbody tr th,
+.contact-table-wrp .contact-table tbody tr td {
   padding: 18px 0;
   text-align: center;
   line-height: 150% !important;
@@ -62581,7 +62620,8 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   word-break: keep-all;
 }
 @media (max-width: 900px) {
-  .contact-table-wrp .contact-table tbody tr th, .contact-table-wrp .contact-table tbody tr td {
+  .contact-table-wrp .contact-table tbody tr th,
+  .contact-table-wrp .contact-table tbody tr td {
     font-size: 13px;
     padding: 18px 10px;
   }
@@ -62591,7 +62631,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
 }
 .contact-table-wrp .contact-table tbody tr td {
-  border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
+  border: 1px solid var(--color-gray-gy-20, #cbcccc);
   font-size: 1.0625rem;
   font-weight: 400;
   color: #4b4d4d;
@@ -63392,7 +63432,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 
 /* ========================================
-   공연장 달력 컴포넌트 
+   공연장 달력 컴포넌트
 ======================================== */
 .hall-institution-tabs {
   background: #f1f2f2;

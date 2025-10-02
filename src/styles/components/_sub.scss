@@ -38,7 +38,7 @@ ul.movie-card-wrp {
 		overflow-wrap: break-word;
 		line-height: 1.6;
 		font-family: inherit !important;
-}
+	}
 
 	li.movie-card {
 		background: $white;
@@ -60,7 +60,7 @@ ul.movie-card-wrp {
 			margin-bottom: 16px;
 		}
 
-		.movie-card__index{
+		.movie-card__index {
 			@include font(to-rem(15), 700, #191a1a);
 			margin-right: 10px;
 
@@ -69,8 +69,8 @@ ul.movie-card-wrp {
 			}
 		}
 
-		.movie-card__cnt{
-			flex:1;
+		.movie-card__cnt {
+			flex: 1;
 		}
 
 		.movie-card__top {
@@ -126,7 +126,7 @@ ul.movie-card-wrp {
 						gap: 10px;
 					}
 
-					.movie-card__age{
+					.movie-card__age {
 						display: flex;
 						@include mobile {
 							display: flex;
@@ -216,12 +216,12 @@ ul.movie-card-wrp {
 						flex-wrap: nowrap;
 						gap: 8px;
 					}
-					>span{
-						flex:1 1 calc(50% - 8px);
+					> span {
+						flex: 1 1 calc(50% - 8px);
 						max-width: calc(50% - 8px);
 
 						@include mobile {
-							flex:1 1 100%;
+							flex: 1 1 100%;
 							max-width: 100%;
 							word-break: break-word;
 							font-size: 13px;
@@ -341,7 +341,9 @@ ul.movie-card-wrp {
 				@include mobile {
 					font-size: 14px;
 				}
-				return{word-break: break-word;}
+				return {
+					word-break: break-word;
+				}
 			}
 		}
 	}
@@ -463,7 +465,7 @@ ul.movie-card-wrp {
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-left: 1px solid #cbcccc;
 
-				&.text-left{
+				&.text-left {
 					text-align: left;
 				}
 			}
@@ -550,10 +552,11 @@ ul.movie-card-wrp {
 		}
 		tbody {
 			tr {
-				th, td {
+				th,
+				td {
 					padding: 18px 0;
 					text-align: center;
-					line-height: 150%!important;
+					line-height: 150% !important;
 					@include font(to-rem(15), 700, #191919);
 					word-break: keep-all;
 
@@ -567,7 +570,7 @@ ul.movie-card-wrp {
 					border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
 				}
 				td {
-					border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
+					border: 1px solid var(--color-gray-gy-20, #cbcccc);
 					@include font(to-rem(17), 400, #4b4d4d);
 				}
 			}
@@ -1421,7 +1424,7 @@ ul.movie-card-wrp {
 	}
 }
 /* ========================================
-   공연장 달력 컴포넌트 
+   공연장 달력 컴포넌트
 ======================================== */
 .hall-institution-tabs {
 	background: #f1f2f2;
@@ -2691,8 +2694,7 @@ ul.movie-card-wrp {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem; /* 8px */
-		align-items : center;
-		 
+		align-items: center;
 	}
 
 	.info-item {
@@ -2718,8 +2720,7 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		color: #191a1a;
 		text-align: left;
-			width : 11.25rem;
-
+		width: 11.25rem;
 	}
 
 	.info-value-with-copy {
@@ -4148,7 +4149,7 @@ ul.movie-card-wrp {
 			margin-bottom: to-rem(12);
 			margin-top: 12px;
 		}
-	} 
+	}
 
 	&__grid.ui-library-filter__grid {
 		display: grid;
@@ -7283,7 +7284,6 @@ ul.movie-card-wrp {
 	color: #191a1a;
 	width: to-rem(180);
 	flex-shrink: 0;
-
 
 	@include mobile {
 		font-size: to-rem(15);
