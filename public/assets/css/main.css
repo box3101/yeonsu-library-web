@@ -66385,6 +66385,27 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .search-type-tabs.ui-tab--grid-3 .ui-tab__button:last-child {
   border-right: 1px solid #b1b8be;
 }
+.search-type-tabs.ui-tab--grid-4 .ui-tab__list {
+  flex-wrap: wrap;
+  overflow: hidden;
+  border-right: none;
+  border-bottom: none;
+}
+@media (max-width: 900px) {
+  .search-type-tabs.ui-tab--grid-4 .ui-tab__list {
+    margin-top: 1.5rem;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+}
+.search-type-tabs.ui-tab--grid-4 .ui-tab__button {
+  flex: 1 1 calc(100% / min(4, var(--total-tabs, 5)));
+  max-width: calc(100% / min(4, var(--total-tabs, 5)));
+  border-bottom: 1px solid #b1b8be;
+}
+.search-type-tabs.ui-tab--grid-4 .ui-tab__button:last-child {
+  border-right: 1px solid #b1b8be;
+}
 .search-type-tabs.ui-tab--grid-5 .ui-tab__list {
   flex-wrap: wrap;
   overflow: hidden;

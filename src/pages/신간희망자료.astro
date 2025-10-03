@@ -1,0 +1,203 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '신간희망자료' },
+];
+const columns = [
+	{
+		key: 'institution',
+		label: '기관',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+		type: 'badge', // 이 부분 추가!
+	},
+	{
+		key: 'title',
+		label: '제목',
+		sortable: true,
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'date',
+		label: '작성일',
+		width: '150px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'count',
+		label: '조회수',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+];
+const rows = [
+	{
+		number: 438,
+		institution: '선학별빛',
+		title: '[선학] 천체투영관 주말 상영 안내(8/17~)',
+		date: '2025.08.09',
+		count: 53,
+		href: './신간희망자료-상세',
+		isNew: true,
+	},
+	{
+		number: 437,
+		institution: '선학별빛',
+		title: '장기 주차 자전거 폐기 안내(9월 1일)',
+		date: '2025.08.01',
+		count: 98,
+		href: './신간희망자료-상세',
+		isNew: true,
+	},
+	{
+		number: 436,
+		institution: '전체',
+		title: '7월의 특별 혜택 당첨자 안내',
+		date: '2025.08.01',
+		count: 305,
+		href: './신간희망자료-상세',
+		isNew: true,
+	},
+	{
+		number: 435,
+		institution: '청학',
+		title: '[단편소설쓰기 기초특강] (연수 독(讀)한 맛 기행 9월)',
+		date: '2025.07.30',
+		count: 310,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 434,
+		institution: '전체',
+		title: '2025년 하반기 정규프로그램 운영 안내',
+		date: '2025.07.29',
+		count: 620,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 433,
+		institution: '연수꿈담',
+		title: '[연수꿈담도서관] 찾아가는 경제교육 안내',
+		date: '2025.07.25',
+		count: 346,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 432,
+		institution: '전체',
+		title: '새로워진 [2025 책놀이 온에어] 보셨나요?',
+		date: '2025.07.20',
+		count: 254,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 431,
+		institution: '해돋이',
+		title: '해돋이도서관 2025년 희망도서 신청 마감 안내',
+		date: '2025.07.17',
+		count: 283,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 430,
+		institution: '전체',
+		title: '도서관 서버 이전에 따른 독서진흥캠페인 변경사항 안내',
+		date: '2025.07.16',
+		count: 307,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+	{
+		number: 429,
+		institution: '전체',
+		title: '★ 연수구립도서관 이용제한 안내(서버 이전 작업에 따른 서비스 중단)',
+		date: '2025.07.16',
+		count: 1947,
+		href: './신간희망자료-상세',
+		isNew: false,
+	},
+];
+
+const tabMenus = [
+	{ id: 'all', label: '전체', active: true },
+	{ id: 'cheonghak', label: '청학' },
+	{ id: 'yeonsukkumdam', label: '연수꿈담' },
+	{ id: 'songdo', label: '송도국제' },
+	{ id: 'haedogi', label: '해돋이' },
+	{ id: 'sunhak', label: '선학별빛' },
+	{ id: 'dongchun', label: '동춘나래' },
+	{ id: 'hambakriyu', label: '함박비류' },
+];
+---
+
+<Layout title="신간희망자료">
+	<SubLayout title="신간희망자료" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-4" />
+		<div id="panel-all" class="ui-tab-panel ui-tab-panel--active">
+			<!-- 공통 검색바 -->
+			<UiSearchbar
+				selectOptions={[
+					{ value: '', label: '전체' },
+					{ value: 'title', label: '제목' },
+					{ value: 'author', label: '저자' },
+					{ value: 'publisher', label: '출판사' },
+					{ value: 'isbn', label: 'ISBN' },
+				]}
+				libraryOptions={[
+					{ value: '', label: '전체도서관' },
+					{ value: 'central', label: '중앙도서관' },
+					{ value: 'branch1', label: '분관1' },
+					{ value: 'branch2', label: '분관2' },
+				]}
+				titleOptions={[
+					{ value: '', label: '제목' },
+					{ value: 'exact', label: '정확한 제목' },
+					{ value: 'contains', label: '포함된 제목' },
+				]}
+				placeholder="검색어를 입력해주세요."
+				buttonText="검색"
+				fullWidth={true}
+				class="smart-library-searchbar mt24"
+			/>
+
+			<!-- 게시글 헤더 -->
+			<div class="bbs-header">
+				<div class="bbs-total">
+					총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
+				</div>
+				<div class="bbs-actions">
+					<UiButton variant="primary" text="로그인" />
+					<UiButton variant="secondary" text="글쓰기" />
+				</div>
+			</div>
+
+			<!-- 게시글 목록 -->
+			<UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" />
+			<!-- 페이징 네비게이션 -->
+			<div class="pagination-section">
+				<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+			</div>
+
+			<!-- 로그인 , 글쓰기 버튼 -->
+			<div class="bbs-actions flex justify-end items-center gap-8">
+				<UiButton variant="primary" text="로그인" />
+				<UiButton variant="secondary" text="글쓰기" />
+			</div>
+		</div>
+		<div id="panel-cheonghak" class="ui-tab-panel">2</div>
+	</SubLayout>
+</Layout>
