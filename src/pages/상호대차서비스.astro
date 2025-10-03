@@ -20,7 +20,7 @@ const processingTime = [
 ---
 
 <Layout title={title} description={description}>
-	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="안내마당">
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">
 		<div class="sub-layout__content">
 			<section class="sub-layout__content-inner">
 				<!-- 안내 공지 -->
@@ -29,178 +29,409 @@ const processingTime = [
 						<div class="info-notice__icon">
 							<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
 						</div>
-						<h3 class="info-notice__title">상호대차 서비스란?</h3>
+						<h3 class="info-notice__title">상호대차란?</h3>
 					</div>
 					<div class="program-notice__content">
 						<ul class="program-notice__list">
 							<li>
-								우리 도서관에 소장하지 않은 자료를 다른 도서관으로부터 빌려서 이용자에게 제공하는 서비스입니다.
+								이용자가 원하는 자료가 이용하려는 공공도서관에는 없고 다른 연수구립도서관에 비치되어 있는 경우 원하는
+								도서관으로 신청하여 대출할 수 있도록 해주는 도서관 자료 공동 활용 서비스(원하는 자료가 수령도서관에서
+								대출 가능한 경우 신청 불가)
 							</li>
 						</ul>
 					</div>
 				</div>
 
-				<!-- 이용대상 -->
-				<div class="mt40">
-					<h3 class="usage-guide__title">이용대상</h3>
-					<ul class="sub-layout__content-inner-body-item-list mt24">
-						<li>연수구립도서관 회원증을 소지한 연수구민</li>
-					</ul>
-				</div>
-
-				<!-- 신청방법 -->
-				<div class="mt40">
-					<h3 class="usage-guide__title">신청방법</h3>
-					<ul class="sub-layout__content-inner-body-item-list mt24">
-						<li>도서관 홈페이지 로그인 후 자료검색 > 상호대차 신청</li>
-					</ul>
-				</div>
-
-				<!-- 대출권수 및 기간 -->
-				<div class="mt40">
-					<h3 class="usage-guide__title">대출권수 및 기간</h3>
-					<ul class="sub-layout__content-inner-body-item-list mt24">
-						<li>1인 2권 / 14일 (대출 연장 및 예약 불가)</li>
-					</ul>
-				</div>
-
-				<!-- 이용절차 -->
-				<div class="integrated-service-info">
-					<div class="integrated-service-info__header">
-						<img src="./assets/images/icon/guide_check.svg" alt="안내" class="icon icon-md" />
-						<h3 class="integrated-service-info__title">이용절차</h3>
-					</div>
-					<div class="integrated-service-info__content">
-						<ul class="integrated-service-info__list">
-							<li class="integrated-service-info__list-item">
-								<div class="integrated-service-info__item-header">
-									<span class="integrated-service-info__item-number">1.</span>
-									<strong class="integrated-service-info__item-title">신청</strong>
-								</div>
-								<ul class="integrated-service-info__sublist">
-									<li class="integrated-service-info__sublist-item">
-										<span class="integrated-service-info__sublist-text"
-											>홈페이지에서 자료 검색 후 상호대차 신청</span
-										>
-									</li>
-								</ul>
-							</li>
-							<li class="integrated-service-info__list-item">
-								<div class="integrated-service-info__item-header">
-									<span class="integrated-service-info__item-number">2.</span>
-									<strong class="integrated-service-info__item-title">접수</strong>
-								</div>
-								<ul class="integrated-service-info__sublist">
-									<li class="integrated-service-info__sublist-item">
-										<span class="integrated-service-info__sublist-text"
-											>담당자가 신청내용 확인 후 소장 도서관에 대출 신청</span
-										>
-									</li>
-								</ul>
-							</li>
-							<li class="integrated-service-info__list-item">
-								<div class="integrated-service-info__item-header">
-									<span class="integrated-service-info__item-number">3.</span>
-									<strong class="integrated-service-info__item-title">도서 입고</strong>
-								</div>
-								<ul class="integrated-service-info__sublist">
-									<li class="integrated-service-info__sublist-item">
-										<span class="integrated-service-info__sublist-text"
-											>소장 도서관에서 도서 발송 (처리기간 참고)</span
-										>
-									</li>
-								</ul>
-							</li>
-							<li class="integrated-service-info__list-item">
-								<div class="integrated-service-info__item-header">
-									<span class="integrated-service-info__item-number">4.</span>
-									<strong class="integrated-service-info__item-title">도서 수령</strong>
-								</div>
-								<ul class="integrated-service-info__sublist">
-									<li class="integrated-service-info__sublist-item">
-										<span class="integrated-service-info__sublist-text"
-											>문자(SMS) 알림 후 신청 도서관에서 대출</span
-										>
-									</li>
-								</ul>
-							</li>
-							<li class="integrated-service-info__list-item">
-								<div class="integrated-service-info__item-header">
-									<span class="integrated-service-info__item-number">5.</span>
-									<strong class="integrated-service-info__item-title">도서 반납</strong>
-								</div>
-								<ul class="integrated-service-info__sublist">
-									<li class="integrated-service-info__sublist-item">
-										<span class="integrated-service-info__sublist-text"
-											>대출 도서관 자료실 데스크에 반납 (무인반납기, 스마트도서관 반납 불가)</span
-										>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<!-- 처리기간 -->
-				<div class="mt40">
-					<div class="usage-guide">
-						<h3 class="usage-guide__title">처리기간</h3>
-					</div>
-
-					<div class="usage-guide__table-wrapper mt24">
-						<table class="usage-guide__table">
-							<caption class="hide">상호대차 처리기간</caption>
+				<!-- 참여 도서관 : 연수구립도서관 20개관(2025. 6월 기준) -->
+				<div class="mt24">
+					<h3 class="usage-guide__title">참여 도서관 : 연수구립도서관 20개관(2025. 6월 기준)</h3>
+					<div class="usage-guide__table-wrapper">
+						<table class="usage-guide__table overflow-x">
 							<colgroup>
-								<col style="width: 60%;" />
-								<col style="width: 40%;" />
+								<col width="15%" />
+								<col width="40%" />
+								<col width="40%" />
 							</colgroup>
 							<thead>
 								<tr>
-									<th scope="col">도서관</th>
-									<th scope="col">처리기간</th>
+									<th>순번</th>
+									<th>도서관명</th>
+									<th>연락처</th>
 								</tr>
 							</thead>
 							<tbody>
-								{
-									processingTime.map(item => (
-										<tr>
-											<td>{item.library}</td>
-											<td>{item.time}</td>
-										</tr>
-									))
-								}
+								<tr>
+									<td>1</td>
+									<td>연수청학도서관</td>
+									<td>749-8270</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>송도국제어린이도서관</td>
+									<td>749-8220</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>해돋이도서관</td>
+									<td>749-6950</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>선학별빛도서관</td>
+									<td>749-6710</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>동춘나래도서관</td>
+									<td>749-8240</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>함박비류도서관</td>
+									<td>749-6970</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>연수꿈담도서관</td>
+									<td>749-8200</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>옥련1동 작은도서관</td>
+									<td>749-6026</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td>옥련2동 작은도서관</td>
+									<td>749-6084</td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>연수1동 작은도서관</td>
+									<td>749-6151</td>
+								</tr>
+								<tr>
+									<td>11</td>
+									<td>송도2동 작은도서관</td>
+									<td>749-6595</td>
+								</tr>
+								<tr>
+									<td>12</td>
+									<td>송도3동 작은도서관</td>
+									<td>749-6797</td>
+								</tr>
+								<tr>
+									<td>13</td>
+									<td>송도5동 작은도서관</td>
+									<td>721-6330</td>
+								</tr>
+								<tr>
+									<td>14</td>
+									<td>솔안공원 작은도서관</td>
+									<td>719-7210</td>
+								</tr>
+								<tr>
+									<td>15</td>
+									<td>해찬솔공원 작은도서관</td>
+									<td>818-6313</td>
+								</tr>
+								<tr>
+									<td>16</td>
+									<td>누리공원 작은도서관</td>
+									<td>812-7658</td>
+								</tr>
+								<tr>
+									<td>17</td>
+									<td>송도4동 스마트도서관</td>
+									<td rowspan="4">749-8270</td>
+								</tr>
+								<tr>
+									<td>18</td>
+									<td>스퀘어원 스마트도서관</td>
+								</tr>
+								<tr>
+									<td>19</td>
+									<td>연수구청 스마트도서관</td>
+								</tr>
+								<tr>
+									<td>20</td>
+									<td>선학역 스마트도서관</td>
+								</tr>
 							</tbody>
 						</table>
-					</div>
-				</div>
 
-				<!-- 유의사항 -->
-				<div class="mt40">
-					<div class="usage-guide">
-						<h3 class="usage-guide__title">유의사항</h3>
-					</div>
-					<ul class="sub-layout__content-inner-body-item-list mt24">
-						<li>상호대차 신청 도서는 다른 도서관 소장 자료로 신청접수 및 처리기간이 소요됩니다.</li>
-						<li>소장 도서관의 사정에 따라 대출이 불가할 수 있습니다.</li>
-						<li>비치기간 내 대출하지 않을 경우 자동 반납 처리됩니다.</li>
-						<li>
-							연수구립도서관에서 대출 및 예약 중인 도서, 정리 중인 도서, 연속간행물, 참고도서, 향토자료, 귀중본,
-							비도서(DVD 등) 자료는 상호대차 신청이 제한될 수 있습니다.
-						</li>
-						<li>반납 연체 시 연체일수만큼 도서관 자료 대출이 정지됩니다.</li>
-					</ul>
-				</div>
+						<p class="mt24 text-primary"><strong>※ 송도국제도서관(본관)은 2026년부터 상호대차 사업시작</strong></p>
 
-				<!-- 버튼 -->
-				<div class="tac mt40">
-					<UiButton
-						variant="primary"
-						size="medium"
-						text="상호대차 신청하기"
-						icon="icon-arr-right"
-						iconAddClass="icon-xxsm icon-white"
-						href="#"
-					/>
+						<!-- 이용 대상 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">이용 대상</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>연수구립도서관 통합회원</li>
+							</ul>
+						</div>
+						<!-- 대상 자료 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">대상 자료</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>참여도서관 소장자료 중 관외대출 가능한 자료(연간물, DVD는 제외)</li>
+							</ul>
+						</div>
+						<!-- 신청 권수 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">신청 권수</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>1인 3권까지 가능 (보관대기일 : 도착일 포함 3일) <br /> ※ 스마트도서관은 1인 2권까지 가능</li>
+							</ul>
+						</div>
+						<!-- 신청제한 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">신청제한</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>자료 도착 후 미대출(누적)횟수가 3회(=권 기준) 초과된 경우 15일 동안 이용제한</li>
+							</ul>
+						</div>
+						<!-- 차량운행 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">차량운행</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>
+									화/수/목/금/토(매주 5회), 오전10시 이후(1일 1회) <br /> ※ 스마트도서관은 화/금(매주 2회) 오후 2시 이후(1일
+									1회)
+								</li>
+							</ul>
+						</div>
+
+						<!-- 신청방법 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">신청방법</h3>
+							<div class="contact-info">
+								<h3>일반 신청</h3>
+							</div>
+							<p>1.연수구립도서관 홈페이지(www.yspubliclib.go.kr) 로그인</p>
+							<p class="mt16">2.자료마당 페이지에서 타관 자료검색 후 대출상태가 비치중인 자료 선택</p>
+							<p class="mt16">3.상호대차 신청버튼 클릭하여 "수령도서관" 선택 후 신청하기</p>
+						</div>
+
+						<div class="mt24">
+							<div class="contact-info">
+								<h3>스마트모바일기기를 통한 신청</h3>
+							</div>
+							<p>1. 스마트모바일기기에서 리브로피아(Libropia) 어플 접속</p>
+							<p class="mt16">2. 자료 검색 후 타관(=소장도서관)을 선택</p>
+							<p class="mt16">3. 자료상태가 ‘비치자료(대출가능)’인 경우 선택하여 상세정보화면으로 이동</p>
+							<p class="mt16">4. 상호대차 신청버튼 클릭하여 ‘수령도서관’ 선택</p>
+						</div>
+
+						<!-- 신청취소방법법 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">신청취소방법</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>연수구립도서관 홈페이지(www.yspubliclib.go.kr) 로그인</li>
+								<li>자료마당 페이지의 ‘내서재 > 상호대차현황’ 메뉴에서 '신청취소'버튼 선택</li>
+							</ul>
+						</div>
+
+						<!-- 자료상태별 신청가능여부 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">자료상태별 신청가능여부</h3>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>자관 : 참여도서관 중 주 이용도서관으로 상호대차 신청시 ‘수령도서관’</li>
+								<li>타관 : 참여도서관 중 ‘자관’외의 도서관으로 상호대차 신청시 ‘소장도서관’</li>
+							</ul>
+
+							<div class="usage-guide__table-wrapper">
+								<table class="usage-guide__table">
+									<colgroup>
+										<col width="15%" />
+										<col width="25%" />
+										<col width="25%" />
+										<col width="35%" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th rowspan="2">구분</th>
+											<th colspan="2">자료상태</th>
+											<th rowspan="2">자관 기준 <br /> 신청가능 여부</th>
+										</tr>
+										<tr>
+											<th>자관</th>
+											<th>타관</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>관외대출자료(대출중)</td>
+											<td>비치자료(대출가능)</td>
+											<td>신청 가능</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>관외대출자료(대출중)</td>
+											<td>관외대출자료(대출중)</td>
+											<td>신청 불가</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>비치자료(대출가능)</td>
+											<td>비치자료(대출가능)</td>
+											<td>신청 불가</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>비치자료(대출가능)</td>
+											<td>관외대출자료(대출중)</td>
+											<td>신청 불가</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- 신청 자료의 대출가능 시기기 -->
+						<div class="mt24">
+							<h3 class="usage-guide__title">신청 자료의 대출가능 시기</h3>
+						</div>
+
+						<!-- 이용절차 -->
+						<div class="integrated-service-info">
+							<div class="integrated-service-info__header">
+								<img src="./assets/images/icon/guide_check.svg" alt="안내" class="icon icon-md" />
+								<h3 class="integrated-service-info__title">이용절차</h3>
+							</div>
+							<div class="integrated-service-info__content">
+								<ul class="integrated-service-info__list">
+									<li class="integrated-service-info__list-item">
+										<div class="integrated-service-info__item-header">
+											<span class="integrated-service-info__item-number">1.</span>
+											<strong class="integrated-service-info__item-title">신청</strong>
+										</div>
+										<ul class="integrated-service-info__sublist">
+											<li class="integrated-service-info__sublist-item">
+												<span class="integrated-service-info__sublist-text">
+													홈페이지에서 자료 검색 후 상호대차 신청
+												</span>
+											</li>
+										</ul>
+									</li>
+									<li class="integrated-service-info__list-item">
+										<div class="integrated-service-info__item-header">
+											<span class="integrated-service-info__item-number">2.</span>
+											<strong class="integrated-service-info__item-title">접수</strong>
+										</div>
+										<ul class="integrated-service-info__sublist">
+											<li class="integrated-service-info__sublist-item">
+												<span class="integrated-service-info__sublist-text">
+													담당자가 신청내용 확인 후 소장 도서관에 대출 신청
+												</span>
+											</li>
+										</ul>
+									</li>
+									<li class="integrated-service-info__list-item">
+										<div class="integrated-service-info__item-header">
+											<span class="integrated-service-info__item-number">3.</span>
+											<strong class="integrated-service-info__item-title">도서 입고</strong>
+										</div>
+										<ul class="integrated-service-info__sublist">
+											<li class="integrated-service-info__sublist-item">
+												<span class="integrated-service-info__sublist-text">
+													소장 도서관에서 도서 발송 (처리기간 참고)
+												</span>
+											</li>
+										</ul>
+									</li>
+									<li class="integrated-service-info__list-item">
+										<div class="integrated-service-info__item-header">
+											<span class="integrated-service-info__item-number">4.</span>
+											<strong class="integrated-service-info__item-title">도서 수령</strong>
+										</div>
+										<ul class="integrated-service-info__sublist">
+											<li class="integrated-service-info__sublist-item">
+												<span class="integrated-service-info__sublist-text">
+													문자(SMS) 알림 후 신청 도서관에서 대출
+												</span>
+											</li>
+										</ul>
+									</li>
+									<li class="integrated-service-info__list-item">
+										<div class="integrated-service-info__item-header">
+											<span class="integrated-service-info__item-number">5.</span>
+											<strong class="integrated-service-info__item-title">도서 반납</strong>
+										</div>
+										<ul class="integrated-service-info__sublist">
+											<li class="integrated-service-info__sublist-item">
+												<span class="integrated-service-info__sublist-text">
+													대출 도서관 자료실 데스크에 반납 (무인반납기, 스마트도서관 반납 불가)
+												</span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- 처리기간 -->
+						<div class="mt24">
+							<div class="usage-guide">
+								<h3 class="usage-guide__title">처리기간</h3>
+							</div>
+
+							<div class="usage-guide__table-wrapper mt24">
+								<table class="usage-guide__table">
+									<caption class="hide">상호대차 처리기간</caption>
+									<colgroup>
+										<col style="width: 60%;" />
+										<col style="width: 40%;" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">도서관</th>
+											<th scope="col">처리기간</th>
+										</tr>
+									</thead>
+									<tbody>
+										{
+											processingTime.map(item => (
+												<tr>
+													<td>{item.library}</td>
+													<td>{item.time}</td>
+												</tr>
+											))
+										}
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- 유의사항 -->
+						<div class="mt24">
+							<div class="usage-guide">
+								<h3 class="usage-guide__title">유의사항</h3>
+							</div>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>상호대차 신청 도서는 다른 도서관 소장 자료로 신청접수 및 처리기간이 소요됩니다.</li>
+								<li>소장 도서관의 사정에 따라 대출이 불가할 수 있습니다.</li>
+								<li>비치기간 내 대출하지 않을 경우 자동 반납 처리됩니다.</li>
+								<li>
+									연수구립도서관에서 대출 및 예약 중인 도서, 정리 중인 도서, 연속간행물, 참고도서, 향토자료, 귀중본,
+									비도서(DVD 등) 자료는 상호대차 신청이 제한될 수 있습니다.
+								</li>
+								<li>반납 연체 시 연체일수만큼 도서관 자료 대출이 정지됩니다.</li>
+							</ul>
+						</div>
+
+						<!-- 버튼 -->
+						<div class="tac mt24">
+							<UiButton
+								variant="primary"
+								size="medium"
+								text="상호대차 신청하기"
+								icon="icon-arr-right"
+								iconAddClass="icon-xxsm icon-white"
+								href="#"
+							/>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>

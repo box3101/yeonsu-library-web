@@ -1,0 +1,206 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const title = '책나래서비스';
+const description = '연수구립도서관 책나래서비스 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서서비스', link: '#' },
+	{ text: '책나래서비스', link: '#' },
+];
+
+const eligibilityData = [
+	{
+		category: '지원대상',
+		장애인: '보건복지부 등록 장애인',
+		국가유공상이자: '국가보훈처 등록 국가유공상이자',
+		거동불편자: '국민건강보험공단 인정 장기요양 대상자',
+	},
+	{
+		category: '대상자료',
+		content: '연수청학도서관 소장 자료 중 관외대출이 가능한 일반도서',
+	},
+	{
+		category: '대출권수 및 대출기간',
+		content: '1인당 7권, 22일(배송기간 미포함)',
+	},
+];
+
+const usageSteps = [
+	{ step: '1단계', content: '거주지역의 공공도서관 또는 장애인도서관에 회원가입을 합니다.' },
+	{
+		step: '2단계',
+		content:
+			"책나래 홈페이지에서 회원가입을 합니다.(책나래 홈페이지 바로가기)\n* 국립중앙도서관 회원이시면 '회원정보수정'에서 '책나래서비스 이용동의' 내용만 작성하시면 됩니다.",
+	},
+	{
+		step: '3단계',
+		content:
+			"책나래 홈페이지 회원가입 시 선택한 도서관 담당자가 '회원승인' 처리를 합니다.\n* 회원승인 여부는 책나래 홈페이지 로그인 후 '나의 책나래'→'나의 도서관' 메뉴에서 확인 가능합니다.",
+	},
+	{ step: '4단계', content: '회원승인 후, 책나래 홈페이지에서 원하는 자료를 신청합니다.' },
+	{ step: '5단계', content: '신청한 자료는 우체국 택배를 통해 집으로 배달됩니다.' },
+	{ step: '6단계', content: '자료 이용이 끝나면 책나래 홈페이지에서 반납 신청을 합니다.' },
+	{ step: '7단계', content: '우체국에서 집을 방문하여 반납 자료를 회수합니다.' },
+];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 책나래서비스(전국 공공 도서관 대상)란? -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">책나래서비스(전국 공공 도서관 대상)란?</h3>
+
+					<div class="info-notice program-notice mt24">
+						<div class="info-notice__header">
+							<div class="info-notice__icon">
+								<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+							</div>
+							<h4 class="info-notice__title">
+								방문이 어려우신 장애인의 도서관 이용활성화 및 지식정보 접근 기회 확대를 위해 도서관 자료를 집까지 무료로
+								배달해 주는 서비스입니다.
+							</h4>
+						</div>
+					</div>
+				</div>
+
+				<!-- 이용대상 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">이용대상</h3>
+
+					<div class="usage-guide__table-wrapper mt24">
+						<table class="usage-guide__table">
+							<caption class="hide">책나래서비스 이용대상</caption>
+							<colgroup>
+								<col style="width: 20%;" />
+								<col style="width: 40%;" />
+								<col style="width: 40%;" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row" rowspan="3">지원대상</th>
+									<td>장애인</td>
+									<td>보건복지부 등록 장애인</td>
+								</tr>
+								<tr>
+									<td>국가유공 상이자</td>
+									<td>국가보훈처 등록 국가유공상이자</td>
+								</tr>
+								<tr>
+									<td>거동불편자에 해당하는 자</td>
+									<td>국민건강보험공단 인정 장기요양 대상자</td>
+								</tr>
+								<tr>
+									<th scope="row">대상자료</th>
+									<td colspan="2">연수청학도서관 소장 자료 중 관외대출이 가능한 일반도서</td>
+								</tr>
+								<tr>
+									<th scope="row">대출권수 및 대출기간</th>
+									<td colspan="2">1인당 7권, 22일(배송기간 미포함)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- 이용방법 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">이용방법</h3>
+
+					<div class="step-process step-process--5col mt24">
+						<div class="step-item">
+							<div class="step-number">1</div>
+							<div class="step-title">이용자</div>
+							<div class="step-content">
+								도서관<br />
+								회원가입
+							</div>
+							<div class="step-arrow">
+								<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+							</div>
+						</div>
+						<div class="step-item">
+							<div class="step-number">2</div>
+							<div class="step-title">이용자</div>
+							<div class="step-content">
+								책나래<br />
+								홈페이지<br />
+								회원가입
+							</div>
+							<div class="step-arrow">
+								<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+							</div>
+						</div>
+						<div class="step-item">
+							<div class="step-number">3</div>
+							<div class="step-title">도서관</div>
+							<div class="step-content">
+								소속 도서관<br />
+								담당자 승인
+							</div>
+							<div class="step-arrow">
+								<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+							</div>
+						</div>
+						<div class="step-item">
+							<div class="step-number">4</div>
+							<div class="step-title">이용자</div>
+							<div class="step-content">
+								책나래서비스<br />
+								신청
+							</div>
+							<div class="step-arrow">
+								<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+							</div>
+						</div>
+						<div class="step-item">
+							<div class="step-number">4</div>
+							<div class="step-title">이용자</div>
+							<div class="step-content">
+								자료이용<br />
+								/반납
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 이용대상상 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">이용대상</h3>
+
+					<div class="usage-guide__table-wrapper mt24">
+						<table class="usage-guide__table">
+							<caption class="hide">책나래서비스 이용대상</caption>
+							<colgroup>
+								<col style="width: 20%;" />
+								<col style="width: 80%;" />
+							</colgroup>
+							<tbody>
+								{
+									usageSteps.map(item => (
+										<tr>
+											<th>{item.step}</th>
+											<td>
+												{item.content.split('\n').map((line, index) => (
+													<>
+														{line}
+														{index < item.content.split('\n').length - 1 && <br />}
+													</>
+												))}
+											</td>
+										</tr>
+									))
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

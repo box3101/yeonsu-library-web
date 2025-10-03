@@ -365,7 +365,7 @@ ul.movie-card-wrp {
 	&__title {
 		margin: to-rem(40) 0;
 		margin-bottom: to-rem(20);
-		@include font(to-rem(32), 700, #191a1a);
+		@include font(to-rem(28), 700, #191a1a);
 		@include mobile {
 			margin: to-rem(20) 0;
 		}
@@ -5983,6 +5983,69 @@ ul.movie-card-wrp {
 
 	.step-content {
 		color: $warning-color;
+	}
+}
+
+// 6단계 프로세스 (6-column variant)
+.step-process--6col {
+	gap: to-rem(12);
+
+	.step-item {
+		min-width: to-rem(100);
+		padding: to-rem(20);
+	}
+
+	.step-arrow {
+		right: to-rem(-26);
+	}
+
+	@include mobile {
+		flex-direction: column;
+		gap: to-rem(16);
+
+		.step-item {
+			min-width: 100%;
+			padding: to-rem(16);
+		}
+	}
+}
+
+// 5단계 프로세스 (5-column variant)
+.step-process--5col {
+	gap: to-rem(20);
+
+	.step-item {
+		min-width: to-rem(140);
+		padding: to-rem(24) to-rem(16);
+	}
+
+	.step-arrow {
+		right: to-rem(-30);
+	}
+
+	@include mobile {
+		flex-direction: column;
+		gap: to-rem(16);
+
+		.step-item {
+			min-width: 100%;
+			padding: to-rem(16);
+		}
+	}
+}
+
+// 단계 타이틀 (이용자/도서관 구분)
+.step-title {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-size: to-rem(19);
+	font-weight: 700;
+	color: #18304d;
+	line-height: 1.5;
+	text-align: center;
+	margin-bottom: to-rem(4);
+
+	@include mobile {
+		font-size: to-rem(17);
 	}
 }
 

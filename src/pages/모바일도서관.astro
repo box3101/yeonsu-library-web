@@ -1,0 +1,122 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import UiButton from '@/components/UI/UiButton.astro';
+
+const title = '모바일도서관';
+const description = '연수구립도서관 모바일도서관 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서서비스', link: '#' },
+	{ text: '전자정보서비스', link: '#' },
+	{ text: '모바일도서관', link: '#' },
+];
+
+const serviceFeatures = [
+	{ label: '자료검색', value: '도서관 자료' },
+	{ label: '상세 카드식', value: '이용안내 상세' },
+	{ label: '이용증명 조회', value: '관심자료' },
+	{ label: '도서예약', value: 'e-book 서비스 등 참여관외 도서 서비스 제공' },
+	{ label: '편리 알기', value: '' },
+];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 모바일도서관 서비스란? -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">모바일도서관 서비스란?</h3>
+
+					<div class="info-notice program-notice mt24">
+						<div class="info-notice__header">
+							<div class="info-notice__icon">
+								<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+							</div>
+							<h4 class="info-notice__title">
+								언제 어디서나 나만의 문고와 개별 맞춤 알림 알고 모바일도서관 어플리케이션을 이용하여 도서관 서비스를
+								이용할 수 있는 서비스
+							</h4>
+						</div>
+					</div>
+				</div>
+
+				<!-- 주요서비스 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">주요서비스</h3>
+
+					<div class="contact-info">
+						<div class="contact-table-wrp scroll-x mt0">
+							<table class="contact-table mt0">
+								<colgroup>
+									<col width="20%" />
+									<col width="20%" />
+									<col width="20%" />
+									<col width="20%" />
+									<col width="20%" />
+								</colgroup>
+								<tr>
+									<td>자료검색</td>
+									<td>상세 카드식</td>
+									<td>이용증명 조회</td>
+									<td>도서예약</td>
+									<td>편리 알기</td>
+								</tr>
+								<tr>
+									<td>도서관 자료</td>
+									<td>이용안내 상세</td>
+									<td>관심자료</td>
+									<td colspan="2">e-book 서비스 등 참여관외 도서 서비스 제공</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- 회원가입안내 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">회원가입안내</h3>
+
+					<div class="mt24">
+						<img
+							src="./assets/images/libropia-signup-guide.jpg"
+							alt="리브로피아 회원가입 안내 - 1.계정생성 바로 클릭, 2.통합 계정 통합회원 바로 클릭, 3.정보입력 휴대전화번호 클릭 아이핀만 입력할 경우에는 '아이핀'을 클릭 후 인증, 4.계정 입력 통합회원가입 바로 클릭"
+							class="w-full"
+						/>
+					</div>
+				</div>
+
+				<!-- 리브로피아 이용방법 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">리브로피아 이용방법</h3>
+
+					<ul class="sub-layout__content-inner-body-item-list mt24">
+						<li>도서관 검색 시 <span class="text-primary">"연수구립도서관"</span> 검색</li>
+						<li>도서관 직접입력: 공공도서관/도서관명입력/연수구립도서관 클릭하여 이용</li>
+					</ul>
+
+					<div class="mt24">
+						<img src="./assets/images/libropia-usage-guide.jpg" alt="리브로피아 이용방법" class="w-full" />
+					</div>
+					<p class="mt24">※ 자세한 이용 방법은 '바로알람' 앱 전체설명서 참고바랍니다.</p>
+				</div>
+
+				<!-- 버튼 -->
+				<div class="tac mt40">
+					<UiButton
+						variant="secondary"
+						size="medium"
+						text="리브로피아 바로 알림 다운로드"
+						icon="icon-download"
+						iconAddClass="icon-xxsm icon-primary"
+						href="https://www.libropia.net"
+						target="_blank"
+						rel="noopener noreferrer"
+					/>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
