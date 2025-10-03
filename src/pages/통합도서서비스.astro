@@ -1,204 +1,219 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import UiTab from '@/components/UI/UiTab.astro';
-import UiSubTab from '@/components/UI/UiSubTab.astro';
+import UiButton from '@/components/UI/UiButton.astro';
 
 const breadcrumbItems = [
-	{ label: '홈', href: '/' },
-	{ label: '도서검색', href: '/support' },
-	{ label: '통합도서서비스' },
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '통합도서서비스', link: '#' },
 ];
 
-// 탭 메뉴
-const tabMenus = [
-	{ label: '123', active: true, href: './기증안내' },
-	{ label: '223', href: './기증안내-서약서작성' },
-	{ label: '334343', href: './기증안내-기증신청조회' },
-	{ label: '123', active: true, href: './기증안내' },
-	{ label: '223', href: './기증안내-서약서작성' },
-	{ label: '334343', href: './기증안내-기증신청조회' },
-	{ label: '123', active: true, href: './기증안내' },
-	{ label: '223', href: './기증안내-서약서작성' },
-	{ label: '334343', href: './기증안내-기증신청조회' },
+const participatingLibraries = [
+	{
+		region: '연수구립도서관',
+		libraries: [
+			'송도국제도서관',
+			'연수청학도서관',
+			'연수꿈담도서관',
+			'송도국제어린이도서관',
+			'해돋이도서관',
+			'선학별빛도서관',
+			'동춘나래도서관',
+			'함박비류도서관',
+			'국악상영문도서관',
+			'연수1동공동도서관',
+			'연수2동공동도서관',
+			'송도2동공동도서관',
+			'송도3동공동도서관',
+			'송도4동공동도서관',
+			'송도5동공동도서관',
+			'옥련1동공동도서관',
+			'해안동공동도서관',
+			'누리공원작은도서관',
+		],
+		services: '인천광역시 연수구청',
+	},
+	{
+		region: '기타 공공도서관',
+		libraries: ['연수도서관', '명성심곡', '송도국제구수도서관'],
+		services: '인천광역시 교육청',
+	},
 ];
-
-const tabMenu2 = [
-	{ id: 'info', label: '1', active: true },
-	{ id: 'pledge', label: '2' },
-	{ id: 'apply', label: '3' },
-];
-const tabMenu3 = ['10대미만', '10대', '30대', '40대', '50대', '60대', '123', '123123', '12321321'];
 ---
 
 <Layout title="통합도서서비스">
-	<SubLayout title="통합도서서비스" breadcrumbItems={breadcrumbItems} menuType="도서서비스">
-		23
-
-		<UiTab tabs={tabMenus} className="mt40 search-type-tabs ui-tab--grid-4" />
-		<UiTab tabs={tabMenu2} className="mb-4 search-type-tabs ui-tab--grid-2" />
-		<UiSubTab tabs={tabMenu3} activeTab={0} class="mt24" />
-
-		<div id="panel-info" class="ui-tab-panel ui-tab-panel--active">
-			1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
-			내용 1 내용 1 내용 1 내용
-		</div>
-
-		<div id="panel-pledge" class="ui-tab-panel">
-			1 2222내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
-			내용 1 내용 1 내용 1 내용 1 내용
-		</div>
-
-		<div id="panel-apply" class="ui-tab-panel">
-			1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1 내용 1
-			내용 1 내용 1 내용 1 내용333
-		</div>
-
-		<div class="info-notice program-notice">
-			<div class="info-notice__header">
-				<div class="info-notice__icon">
-					<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
-				</div>
-				<h3 class="info-notice__title">신청접수 시 주의사항</h3>
-			</div>
-			<div class="program-notice__content">
-				<ul class="program-notice__list">
-					<li>신청접수 시 주의사항</li>
-					<li>회원님의 PC 시간과 서버 시간은 오차가 있을 수 있습니다.</li>
-					<li>새로 고침을 반복적으로 하시면 접속이 느려질 수 있습니다.</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="usage-guide">
-			<h3 class="usage-guide__title">이용대상</h3>
-			<ul class="usage-guide__content">
-				<li>지역주민 누구나</li>
-			</ul>
-		</div>
-
-		<div class="usage-guide__table-wrapper">
-			<table class="usage-guide__table">
-				<thead>
-					<tr>
-						<th>상영 도서관</th>
-						<th>상영 시간</th>
-						<th>상영 요일</th>
-						<th>좌석수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>연수중앙도서관</td>
-						<td>매주 토요일 오후 2시</td>
-						<td>지하 1층 강당실</td>
-						<td>67석</td>
-					</tr>
-					<tr>
-						<td>연수어린이도서관</td>
-						<td>매주 토요일 오후 2시</td>
-						<td>4층 강당실</td>
-						<td>50석</td>
-					</tr>
-					<tr>
-						<td>송도국제어린이도서관</td>
-						<td>매주 일요일 오후 2시</td>
-						<td>2층 강당실</td>
-						<td>80석</td>
-					</tr>
-					<tr>
-						<td>청학마을도서관</td>
-						<td>매주 토요일 오후 2시</td>
-						<td>2층 세미나실</td>
-						<td>72석</td>
-					</tr>
-					<tr>
-						<td>선학별빛도서관</td>
-						<td>
-							＊ 토요일특별상영 : 매월 셋째주 매주 토요일 오후 2시<br />
-							＊ 일요일특별상영 : 매월 셋째주 매주 일요일 오후 2시
-						</td>
-						<td>5층 전시복합실</td>
-						<td>103석</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<div class="contact-info">
-			<h3>처인구</h3>
-			<div class="contact-table-wrp scroll-x">
-				<table class="contact-table">
-					<colgroup>
-						<col width="20%" />
-						<col width="30%" />
-						<col width="20%" />
-						<col width="30%" />
-					</colgroup>
-					<tr>
-						<th>용인중앙도서관</th>
-						<td>031-6193-1260</td>
-						<th>포곡도서관</th>
-						<td>031-6193-1290</td>
-					</tr>
-					<tr>
-						<th>동백도서관</th>
-						<td>031-6193-1330</td>
-						<th>남사도서관</th>
-						<td>031-6193-1370</td>
-					</tr>
-					<tr>
-						<th>양지백현도서관</th>
-						<td>031-6193-1285</td>
-						<th>어울림도서관</th>
-						<td>031-6193-1390</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-
-		<div class="step-process">
-			{
-				[...Array(5)].map((_, index) => {
-					const stepNumber = index + 1;
-					const stepContent = [
-						{
-							content: "희망전자책신청<br /><span class='step-sub'>(상시, 월 1일 1권)</span>",
-							arrow: true,
-						},
-						{
-							content:
-								"자료 소장여부<br />신청가능/불가 파악<br /><span class='step-sub'>(매월 1일, 전일 신청분까지 처리)</span>",
-							arrow: true,
-						},
-						{
-							content: "목록작성<br />및 발주<br /><span class='step-sub'>(매월 5일 이전)</span>",
-							arrow: true,
-						},
-						{
-							content:
-								"전자도서관 시스템에<br />전자책 서버 탑재<br /><span class='step-sub'>(도서 입수 3~4주 소요)</span>",
-							arrow: true,
-						},
-						{
-							content: '자료대출 실시',
-							arrow: false,
-						},
-					][index];
-
-					return (
-						<div class="step-item" key={stepNumber}>
-							<div class="step-number">{stepNumber}</div>
-							<div class="step-content" set:html={stepContent.content} />
-							{stepContent.arrow && (
-								<div class="step-arrow">
-									<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
-								</div>
-							)}
+	<SubLayout title="통합도서서비스" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 안내 공지 -->
+				<div class="info-notice program-notice">
+					<div class="info-notice__header">
+						<div class="info-notice__icon">
+							<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
 						</div>
-					);
-				})
-			}
+						<h3 class="info-notice__title">하나의 회원증으로 전국어디서든 도서대출 OK!</h3>
+					</div>
+					<div class="program-notice__content">
+						<ul class="program-notice__list">
+							<li>
+								이용자가 하나 이상의 공공도서관에서 서비스를 제공받고자 할 경우, 공공도서관 통합도서서비스
+								회원(통합회원)으로 가입하면 통합도서서비스에 참여하고 있는 공공도서관에서 별도의 회원가입 절차 없이
+								이용할 수 있는 서비스
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 통합도서서비스 모형 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">통합도서서비스 모형</h3>
+					<div class="service-model mt24">
+						<img
+							src="./assets/images/info-notice.jpg"
+							alt="통합도서서비스 모형 - A도서관, B도서관, C도서관이 지역센터1을 통해 통합센터와 연결되고, D도서관, E도서관, F도서관이 지역센터2를 통해 통합센터와 연결되는 구조"
+						/>
+					</div>
+				</div>
+
+				<!-- 통합회원제도 시행 도서관에서 발급받은 독서회원증을 소지한 자 -->
+				<div class="integrated-service-info">
+					<div class="integrated-service-info__header">
+						<img src="./assets/images/icon/guide_check.svg" alt="안내" class="icon icon-md" />
+						<h3 class="integrated-service-info__title">통합회원제도 시행 도서관에서 발급받은 독서회원증을 소지한 자</h3>
+					</div>
+					<div class="integrated-service-info__content">
+						<ul class="integrated-service-info__list">
+							<li class="integrated-service-info__list-item">
+								<div class="integrated-service-info__item-header">
+									<span class="integrated-service-info__item-number">1.</span>
+									<strong class="integrated-service-info__item-title">A도서관 회원가입</strong>
+								</div>
+								<ul class="integrated-service-info__sublist">
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											이용자 공공도서관 A도서관에서 입증 후 통합도서서비스로 회원가입
+										</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">회원정보가 지역센터1로 통합센터에 저장</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">[입대 이용 중 도서관 : A도서관]</span>
+									</li>
+								</ul>
+							</li>
+							<li class="integrated-service-info__list-item">
+								<div class="integrated-service-info__item-header">
+									<span class="integrated-service-info__item-number">2.</span>
+									<strong class="integrated-service-info__item-title">C도서관 회원발행</strong>
+								</div>
+								<ul class="integrated-service-info__sublist">
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											C도서관에서는 통합도서서비스를 이용한 지역센터1에서 회원과 정보를 전달받아 자관에서 이용 가능한
+											회원으로 자동등록 처리
+										</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											1. 제대로 행정기 지역센터1로 통합센터에 저장
+										</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											2. [입대 이용 중 도서관 : A도서관, C도서관]
+										</span>
+									</li>
+								</ul>
+							</li>
+							<li class="integrated-service-info__list-item">
+								<div class="integrated-service-info__item-header">
+									<span class="integrated-service-info__item-number">3.</span>
+									<strong class="integrated-service-info__item-title">F도서관 회원발행</strong>
+								</div>
+								<ul class="integrated-service-info__sublist">
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											F도서관에서는 통합도서서비스를 이용한 통합센터에 원인과 정보를 전달받아 자관에서 이용 가능한
+											회원으로 자동등록 처리
+										</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											1. 제대로 행정기 지역센터2 통합센터에 저장
+										</span>
+									</li>
+									<li class="integrated-service-info__sublist-item">
+										<span class="integrated-service-info__sublist-text">
+											2. [입대 이용 중 도서관 : A도서관, C도서관, F도서관]
+										</span>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<p class="integrated-service-info__note">
+							※ 통합도서관의 개인정보보호를 위해, 통합센터의 이용 및 모든 공공도서관 도서관에서를 제공로 진행 시비가
+							개인정보를 공유받지 않습니다. (서비스스코드와 통합도서서비스의 대응으로 대체 및 처리 개인정보를 공유받지
+							않음)
+						</p>
+					</div>
+				</div>
+
+				<!-- 연수구 통합도서서비스 참여도서관 현황 -->
+				<div class="mt40">
+					<div class="usage-guide">
+						<h3 class="usage-guide__title">연수구 통합도서서비스 참여도서관 현황</h3>
+					</div>
+
+					<div class="usage-guide__table-wrapper mt24">
+						<table class="usage-guide__table">
+							<caption class="hide">연수구 통합도서서비스 참여도서관 현황</caption>
+							<colgroup>
+								<col style="width: 30%;" />
+								<col style="width: 40%;" />
+								<col style="width: 30%;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">참여도서관</th>
+									<th scope="col">소속기관</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									participatingLibraries.map(item => (
+										<tr>
+											<td>{item.region}</td>
+											<td>
+												{item.libraries.map((lib, index) => (
+													<>
+														{lib}
+														{index < item.libraries.length - 1 && <br />}
+													</>
+												))}
+											</td>
+											<td>{item.services}</td>
+										</tr>
+									))
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="tac mt40">
+					<UiButton
+						variant="primary"
+						size="medium"
+						text="전국 참여도서관 보기 바로가기"
+						icon="icon-arr-right"
+						iconAddClass="icon-xxsm icon-white"
+						href="#"
+					/>
+				</div>
+			</section>
 		</div>
 	</SubLayout>
 </Layout>

@@ -1,0 +1,155 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+
+const title = '연수구 지역서점';
+const description = '연수구립도서관 연수구 지역서점 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '연수구 지역서점', link: '#' },
+];
+
+const bookstores = [
+	{
+		no: 1,
+		name: '미래서적',
+		address: '인천 연수구 용담로 153<br>(연수동, 대동월드스포츠센터 104호)',
+		phone: '032-816-7506',
+		hours: '월~금 10:00~20:00<br>(일요일 정기휴무)',
+		lat: 37.41327666840101,
+		lng: 126.68114228039724,
+		url: 'http://kko.to/err5PtHbn',
+	},
+	{
+		no: 2,
+		name: '세종문고',
+		address: '인천 연수구 샘말로8번길 13-2<br>(연수동, 1층)',
+		phone: '032-817-6677',
+		hours: '월~토 09:30~21:30<br>일 11:00~21:00',
+		lat: 37.41159844475554,
+		lng: 126.67861635285631,
+		url: 'http://kko.to/ZmZzMz7Ui',
+	},
+	{
+		no: 3,
+		name: '송도문고',
+		address: '인천 연수구 신송로 161<br>(송도동, 더 하이츠 2층)',
+		phone: '010-4919-4801',
+		hours: '월~금 10:00~22:00<br>토~일 11:00~21:00',
+		lat: 37.3959121927269,
+		lng: 126.64566469495014,
+		url: 'http://kko.to/ibZBTUfCf',
+	},
+	{
+		no: 4,
+		name: '연수국제서림',
+		address: '인천 연수구 앵고개로 262<br>(동춘동, 동경프라자 지하 1층)',
+		phone: '032-822-3844',
+		hours: '월~금 10:00~21:00<br>토 10:00~20:00<br>일 10:00~18:00',
+		lat: 37.40755445605618,
+		lng: 126.67262186210796,
+		url: 'http://kko.to/t3qySfmCf',
+	},
+	{
+		no: 5,
+		name: '열다책방',
+		address: '인천 연수구 앵고개로264번길 30-3<br>(동춘동, 영창빌딩 3층)',
+		phone: '032-816-7169',
+		hours: '월 10:00~18:00<br>화~토 12:00~21:00<br>(일요일 정기휴무)',
+		lat: 37.40670210985449,
+		lng: 126.67149043589379,
+		url: 'https://kko.kakao.com/QKgJwVhl7G',
+	},
+	{
+		no: 6,
+		name: '진영서점',
+		address: '인천 연수구 독배로 52<br>(옥련동, 원흥아파트 상가 지하)',
+		phone: '032-831-7678',
+		hours: '평일 09:30~22:00<br>일 12:00~22:30<br>공휴일 12:30~21:30',
+		lat: 37.42549255154522,
+		lng: 126.64492373822756,
+		url: 'http://kko.to/wupcz99A1',
+	},
+	{
+		no: 7,
+		name: '행복한서점',
+		address: '인천 연수구 컨벤시아대로 81<br>(송도동, 드림시티 지하 1층)',
+		phone: '032-858-1235',
+		hours: '매일 09:45~22:00',
+		lat: 37.394963944942866,
+		lng: 126.65022875032241,
+		url: 'http://kko.to/OvksAz0H6',
+	},
+	{
+		no: 8,
+		name: '달래서점',
+		address: '인천 연수구 새말로46번길 17-17<br>(연수동, 1층 왼쪽 상가)',
+		phone: '010-5692-7453',
+		hours: '월~금 10:00~19:00<br>토 10:00~17:00',
+		lat: 37.41159844475554,
+		lng: 126.67861635285631,
+		url: 'https://kko.kakao.com/I0LiXpNzWl',
+	},
+	{
+		no: 9,
+		name: '위즈덤스퀘어',
+		address: '인천 연수구 청량로 217<br>(옥련동, 2층 207호)',
+		phone: '032-858-0797',
+		hours: '월~금 9:30~16:30',
+		lat: 37.394963944942866,
+		lng: 126.65022875032241,
+		url: 'https://kko.kakao.com/tqvZTN3kII',
+	},
+];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 카카오맵 -->
+				<div class="map-container mt40">
+					<div id="map" style="width: 100%; height: 450px;">맵영역</div>
+				</div>
+
+				<!-- 서점 목록 테이블 -->
+				<div class="usage-guide__table-wrapper">
+					<table class="usage-guide__table">
+						<caption class="hide">연수구 지역서점 목록</caption>
+						<colgroup>
+							<col style="width: 10%;" />
+							<col style="width: 15%;" />
+							<col style="width: 35%;" />
+							<col style="width: 20%;" />
+							<col style="width: 20%;" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">연번</th>
+								<th scope="col">서점명</th>
+								<th scope="col">주소</th>
+								<th scope="col">전화번호</th>
+								<th scope="col">운영시간</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								bookstores.map(store => (
+									<tr>
+										<td>{store.no}</td>
+										<td>{store.name}</td>
+										<td class="left" set:html={store.address} />
+										<td>{store.phone}</td>
+										<td set:html={store.hours} />
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

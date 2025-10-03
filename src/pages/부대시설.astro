@@ -1,0 +1,214 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '부대시설', link: '#' },
+];
+
+const facilities = [
+	{ library: '송도국제도서관', equipment: '복합기', location: '3층 디지털자료실', quantity: '1대', fee: '유료' },
+	{
+		library: '연수청학도서관',
+		equipment: '복합기',
+		location: '3층 디지털자료실',
+		quantity: '1대',
+		fee: '유료',
+		rowspan: 2,
+	},
+	{ library: '', equipment: '스캐너', location: '3층 디지털자료실', quantity: '1대', fee: '무료' },
+	{ library: '연수꿈담도서관', equipment: '복합기', location: '3층 종합자료실', quantity: '1대', fee: '유료' },
+	{
+		library: '송도국제어린이도서관',
+		equipment: '복합기',
+		location: '1층 어린이자료실',
+		quantity: '1대',
+		fee: '유료',
+		rowspan: 2,
+	},
+	{ library: '', equipment: '스캐너', location: '2층 외국어자료실', quantity: '1대', fee: '유료' },
+	{
+		library: '해돋이도서관',
+		equipment: '복합기',
+		location: '2층 어린이자료실',
+		quantity: '1대',
+		fee: '유료',
+		rowspan: 2,
+	},
+	{ library: '', equipment: '스캐너', location: '2층 디지털 존<br>(종합자료실 내)', quantity: '1대', fee: '유료' },
+	{ library: '선학별빛도서관', equipment: '복사기 겸 프린터', location: '3층 디지털실', quantity: '1대', fee: '유료' },
+	{
+		library: '함박비류도서관',
+		equipment: '복사기 겸 프린터',
+		location: '2층 종합자료실',
+		quantity: '1대',
+		fee: '유료',
+	},
+];
+
+const usageFees = [
+	{ size: 'A4', bw: '40원', color: '100원' },
+	{ size: 'B4이상', bw: '50원', color: '150원' },
+];
+---
+
+<Layout title="부대시설">
+	<SubLayout title="부대시설" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 설치장소 -->
+				<div class="mt40">
+					<div class="usage-guide">
+						<h3 class="usage-guide__title">설치장소</h3>
+					</div>
+
+					<div class="usage-guide__table-wrapper mt24">
+						<table class="usage-guide__table">
+							<caption class="hide">설치장소</caption>
+							<colgroup>
+								<col style="width: 20%;" />
+								<col style="width: 20%;" />
+								<col style="width: 30%;" />
+								<col style="width: 15%;" />
+								<col style="width: 15%;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">도서관</th>
+									<th scope="col">설치기기</th>
+									<th scope="col">설치장소</th>
+									<th scope="col">설치대수</th>
+									<th scope="col">요금</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>송도국제도서관</td>
+									<td>복합기</td>
+									<td>3층 디지털자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td rowspan="2">연수청학도서관</td>
+									<td>복합기</td>
+									<td>3층 디지털자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td>스캐너</td>
+									<td>3층 디지털자료실</td>
+									<td>1대</td>
+									<td>무료</td>
+								</tr>
+								<tr>
+									<td>연수꿈담도서관</td>
+									<td>복합기</td>
+									<td>3층 종합자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td rowspan="2">송도국제어린이도서관</td>
+									<td>복합기</td>
+									<td>1층 어린이자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td>스캐너</td>
+									<td>2층 외국어자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td rowspan="2">해돋이도서관</td>
+									<td>복합기</td>
+									<td>2층 어린이자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td>스캐너</td>
+									<td>2층 디지털 존<br />(종합자료실 내)</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td>선학별빛도서관</td>
+									<td>복사기 겸 프린터</td>
+									<td>3층 디지털실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+								<tr>
+									<td>함박비류도서관</td>
+									<td>복사기 겸 프린터</td>
+									<td>2층 종합자료실</td>
+									<td>1대</td>
+									<td>유료</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- 사용료 -->
+				<div class="mt40">
+					<div class="usage-guide">
+						<h3 class="usage-guide__title">사용료</h3>
+					</div>
+
+					<div class="usage-guide__table-wrapper mt24">
+						<table class="usage-guide__table">
+							<caption class="hide">사용료</caption>
+							<colgroup>
+								<col style="width: 20%;" />
+								<col style="width: 20%;" />
+								<col style="width: 10%;" />
+								<col style="width: 10%;" />
+								<col style="width: auto" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col" rowspan="2">기기</th>
+									<th scope="col" rowspan="2">규격</th>
+									<th scope="col" colspan="2">금액(1면당 기준)</th>
+									<th scope="col" rowspan="2">지불방법</th>
+								</tr>
+								<tr>
+									<th scope="col">흑백</th>
+									<th scope="col">컬러</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td rowspan="2">복사기/프린터</td>
+									<td>A4</td>
+									<td>40원</td>
+									<td>100원</td>
+									<td rowspan="2">
+										현금<br />
+										※ <span class="text-link">송도국제도서관(본관)</span>, <span class="text-link">
+											연수청학도서관
+										</span>,<br />
+										<span class="text-link">연수꿈담도서관</span>은 현금불가, 카드 및 삼성페이 가능
+									</td>
+								</tr>
+								<tr>
+									<td>B4이상</td>
+									<td>50원</td>
+									<td>150원</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
+

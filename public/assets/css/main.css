@@ -1757,6 +1757,309 @@ img {
   color: #3c79c2;
 }
 
+.text-red {
+  color: #e53935;
+}
+
+.text-primary {
+  color: #3c79c2;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.planetarium-intro {
+  background: url(../assets/images/bg-shstar.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 32px;
+  color: white;
+  text-align: center;
+}
+.planetarium-intro__text {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.planetarium-intro__image {
+  margin-top: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.planetarium-intro__image img {
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.newsletter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #d8e4f3;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.newsletter-item:hover {
+  border-color: #3c79c2;
+  box-shadow: 0 2px 8px rgba(60, 121, 194, 0.1);
+}
+.newsletter-item__content {
+  flex: 1;
+}
+.newsletter-item__title {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #1e2124;
+  font-weight: 400;
+}
+.newsletter-item__download {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #191a1a;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.newsletter-item__download svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.newsletter-item__download:hover {
+  background: #ecf2f9;
+}
+
+@media (max-width: 768px) {
+  .newsletter-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .newsletter-item__download {
+    align-self: flex-end;
+  }
+}
+.text-link {
+  color: #3c79c2;
+  text-decoration: underline;
+}
+.text-link:hover {
+  color: #30619b;
+}
+
+/* ============================================
+   Integrated Library Service Info Box Styles
+   ============================================ */
+.integrated-service-info {
+  background-color: #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info {
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+}
+.integrated-service-info__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__header {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+}
+.integrated-service-info__icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #3c79c2;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+.integrated-service-info__title {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #191a1a;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__title {
+    font-size: 18px;
+  }
+}
+.integrated-service-info__content {
+  padding-left: 2.25rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__content {
+    padding-left: 30px;
+  }
+}
+.integrated-service-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__list {
+    gap: 14px;
+  }
+}
+.integrated-service-info__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__list-item {
+    gap: 6px;
+  }
+}
+.integrated-service-info__item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__item-header {
+    gap: 6px;
+  }
+}
+.integrated-service-info__item-number {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #191a1a;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__item-number {
+    font-size: 16px;
+  }
+}
+.integrated-service-info__item-title {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #191a1a;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__item-title {
+    font-size: 16px;
+  }
+}
+.integrated-service-info__sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 1.5rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__sublist {
+    gap: 3px;
+    padding-left: 20px;
+  }
+}
+.integrated-service-info__sublist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__sublist-item {
+    gap: 6px;
+  }
+}
+.integrated-service-info__sublist-item::before {
+  content: "-";
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b4d4d;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__sublist-item::before {
+    font-size: 16px;
+  }
+}
+.integrated-service-info__sublist-text {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b4d4d;
+  margin: 0;
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__sublist-text {
+    font-size: 16px;
+  }
+}
+.integrated-service-info__note {
+  margin-top: 1.25rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #646767;
+  padding-left: 2.25rem;
+}
+@media (max-width: 900px) {
+  .integrated-service-info__note {
+    margin-top: 16px;
+    font-size: 14px;
+    padding-left: 30px;
+  }
+}
+
+.tac {
+  text-align: center;
+}
+
 .flex {
   display: flex;
 }
@@ -62466,6 +62769,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .usage-guide__table-wrapper {
   margin-top: 20px;
+  border-top: 2px solid #30619b;
 }
 @media (max-width: 900px) {
   .usage-guide__table-wrapper {
@@ -62577,7 +62881,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background-image: url("./assets/images/icon/icon-check_circle.svg");
+  background-image: url("../assets/images/icon/icon-check_circle.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63653,7 +63957,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .hall-calendar__status--present {
   background: transparent;
-  background-image: url("./assets/images/icon/lib_check_present.svg") !important;
+  background-image: url("../assets/images/icon/lib_check_present.svg") !important;
   background-size: cover;
   width: 81px;
   height: 80px;
@@ -63664,7 +63968,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .hall-calendar__status--absent {
   background: transparent;
-  background-image: url("./assets/images/icon/lib_check_absent.svg") !important;
+  background-image: url("../assets/images/icon/lib_check_absent.svg") !important;
   background-size: cover;
   width: 81px;
   height: 80px;
@@ -64298,7 +64602,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   right: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/card-pattern.svg") no-repeat bottom right;
+  background: url("../assets/images/card-pattern.svg") no-repeat bottom right;
   background-size: cover;
   opacity: 0.6;
   pointer-events: none;
@@ -67637,6 +67941,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   color: #333;
   padding: 0.5rem 1rem;
   position: relative;
+  line-height: 150%;
 }
 .sub-layout__content-inner-body-item-list li p {
   margin-top: 10px;
@@ -67648,12 +67953,17 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  top: 18px;
+  top: 21px;
   left: 0;
   width: 4px;
   height: 4px;
   border-radius: 50%;
   background: #000;
+}
+@media (max-width: 900px) {
+  .sub-layout__content-inner-body-item-list li::before {
+    top: 18px;
+  }
 }
 @media (max-width: 900px) {
   .sub-layout__content-inner-body-item-list li {
@@ -68339,7 +68649,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   left: 0;
   width: 24px;
   height: 24px;
-  background-image: url("./assets/images/icon/sub-title-noti.svg");
+  background-image: url("../assets/images/icon/sub-title-noti.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

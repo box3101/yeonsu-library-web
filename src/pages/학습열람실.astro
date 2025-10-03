@@ -1,0 +1,227 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '학습열람실', link: '#' },
+];
+---
+
+<Layout title="학습열람실">
+	<SubLayout title="학습열람실" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<div class="info-notice program-notice">
+					<div class="info-notice__header">
+						<div class="info-notice__icon">
+							<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+						</div>
+						<h3 class="info-notice__title">
+							[연수청학도서관, 선학별빛도서관]만 이용 가능합니다. (타 도서관에서는 서비스를 하지 않습니다.)
+						</h3>
+					</div>
+				</div>
+
+				<!-- 학습열람실 소개 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">학습열람실 소개</h3>
+					<ul class="sub-layout__content-inner-body-item-list mt24">
+						<li>학습열람실은 지역주민의 자기주도적인 학습을 위하여 운영하는 학습공간입니다.</li>
+					</ul>
+				</div>
+
+				<!-- 연수청학도서관 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">연수청학도서관</h3>
+
+					<!-- 학습열람실 정보 -->
+					<div class="mt24">
+						<div class="contact-info">
+							<h3>학습열람실 정보</h3>
+						</div>
+
+						<div class="contact-info mt24">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>3층</td>
+									</tr>
+									<tr>
+										<th>이용대상</th>
+										<td>연수구립도서관 회원증을 소지한 초등학생 이상</td>
+									</tr>
+									<tr>
+										<th>이용방법</th>
+										<td>
+											1층 좌석예약 KIOSK에서 좌석지정 후 학습열람실 입구 게이트에서 회원증 인식 후 사용 가능<br />
+											좌석배정 후 10분 이내 미 입실시 자동 퇴실처리(외출 및 퇴실 할때도 게이트에 회원증 인식 필요)
+										</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>
+											07:00 ~ 22:00 (휴관일 제외) (※ 단, 25.7.15.부터 화~금 09:00~22:00, 토~일 09:00~18:00 변경 예정)
+										</td>
+									</tr>
+									<tr>
+										<th>규모 / 좌석수</th>
+										<td>263.31㎡ / 146석 ( 칸막이 98석 / 오픈형 48석)</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- 학습열람실 이용시 유의사항 -->
+					<div class="mt40">
+						<div class="usage-guide">
+							<div class="contact-info">
+								<h3>학습열람실 이용시 유의사항</h3>
+							</div>
+						</div>
+
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>본인 회원카드로 배정된 좌석만 이용 가능합니다.(대리 발급 불가)</li>
+							<li>2시간 이상 자리를 비울 경우 자동으로 퇴실 조치됩니다.</li>
+							<li>휴대폰은 진동으로, 통화와 대화는 휴게실을 이용 바랍니다.</li>
+							<li>쾌적한 환경을 위해 물을 제외한 음식물은 반입 금지합니다.</li>
+							<li>노트북은 키스킨을 장착한 경우 사용 가능하며 마우스 사용은 금지합니다.</li>
+						</ul>
+					</div>
+
+					<!-- 바로가기 버튼 -->
+					<div class="centerBox mt40">
+						<UiButton
+							variant="primary"
+							size="large"
+							text="연수청학도서관 열람실좌석현황 바로가기"
+							href="https://seat.yspubliclib.go.kr/"
+							icon="icon-arr-right"
+							iconAddClass="icon-xxsm icon-white"
+							target="_blank"
+						/>
+					</div>
+				</div>
+
+				<!-- 선학별빛도서관 -->
+				<div class="mt40">
+					<h3 class="usage-guide__title">선학별빛도서관</h3>
+
+					<!-- 학습열람실 정보 -->
+					<div class="mt24">
+						<div class="contact-info">
+							<h3>학습열람실 정보</h3>
+						</div>
+						<div class="contact-info mt24">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>1층</td>
+									</tr>
+									<tr>
+										<th>이용대상</th>
+										<td>연수구립도서관 회원증을 소지한 초등학생 이상</td>
+									</tr>
+									<tr>
+										<th>이용방법</th>
+										<td>
+											1층 로비에 있는 좌석예약PC에서 좌석지정 후 학습열람실 입실<br />
+											(퇴실시 1층 좌석예약PC에서 좌석취소 요망)
+										</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>
+											화~금 : 9:00~22:00(매주 월요일 휴관일)<br />
+											토~일 : 9:00~18:00
+										</td>
+									</tr>
+									<tr>
+										<th>규모 / 좌석수</th>
+										<td>32석 ( 칸막이 32석 ) ※ 사회적 거리두기 시행으로 좌석 제한 운영 중</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- 학습열람실 이용시 유의사항 -->
+					<div class="mt40">
+						<div class="usage-guide">
+							<h4 class="usage-guide__subtitle">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+										fill="#3c79c2"
+									>
+									</path>
+								</svg>
+								학습열람실 이용시 유의사항
+							</h4>
+						</div>
+
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>2시간 이상 자리를 비울 경우 퇴실 조치를 할 수 있습니다.</li>
+							<li>반드시 지정된 좌석을 이용해주세요.</li>
+							<li>통화와 대화는 휴게실에서, 휴대폰은 진동으로 해주세요.</li>
+							<li>쾌적한 환경을 위해 음료을 제외한 음식물은 반입금지입니다.</li>
+							<li>노트북 사용시 마우스 사용을 금지합니다.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
+
+<style lang="scss">
+	.infobox {
+		padding: 16px;
+		border-radius: 8px;
+		border: 1px solid;
+
+		&--secondary {
+			background-color: #f1f2f2;
+			border-color: #cbcccc;
+		}
+
+		&__body {
+			font-size: 17px;
+			line-height: 1.5;
+			color: #191a1a;
+		}
+	}
+
+	.usage-guide__subtitle {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+
+		svg {
+			flex-shrink: 0;
+		}
+	}
+
+	.centerBox {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

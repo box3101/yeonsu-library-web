@@ -1,0 +1,592 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '천체투영관', link: '#' },
+];
+
+const tabs = [
+	{ id: 'guide', label: '이용안내', active: true },
+	{ id: 'movies', label: '천문돔영화' },
+];
+---
+
+<Layout title="천체투영관">
+	<SubLayout title="천체투영관" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 탭 메뉴 -->
+				<UiTab tabs={tabs} className="mb-4 search-type-tabs " />
+
+				<!-- 이용안내 탭 -->
+				<div id="panel-guide" class="ui-tab-panel ui-tab-panel--active">
+					<!-- 소개 박스 -->
+					<div class="planetarium-intro mt40">
+						<p class="planetarium-intro__text">
+							선학별빛도서관 천체투영관은 지름 12m 반구형 돔화면에 별자리설명, 천문우주 돔영화를 상영하는 곳입니다.<br
+							/>
+							또한 천체 교육프로그램을 운영해서 학생들에게 교실에서 구현하기 어려운 천체현상을 체험할 수 기회를 제공하고
+							있습니다.
+						</p>
+						<div class="planetarium-intro__image">
+							<img src="./assets/images/shstar.jpg" alt="천체투영관 전경사진" />
+						</div>
+					</div>
+
+					<!-- 천체투영관 프로그램 안내 -->
+					<div class="mt40">
+						<h3 class="usage-guide__title">천체투영관 프로그램 안내</h3>
+
+						<!-- 주말별빛극장 -->
+						<div class="mt24">
+							<div class="contact-info">
+								<h3>주말별빛극장</h3>
+							</div>
+							<div class="contact-info mt24">
+								<div class="contact-table-wrp">
+									<table class="contact-table">
+										<colgroup>
+											<col width="20%" />
+											<col width="auto" />
+										</colgroup>
+										<tr>
+											<th>일시</th>
+											<td>
+												격주 토요일 14:00 ~ 14:50<br />
+												격주 일요일 15:00 ~ 15:30
+											</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>별자리, 우주 또는 태양계 관련 천문돔영화 2편 상영</td>
+										</tr>
+										<tr>
+											<th>참여대상</th>
+											<td>전체</td>
+										</tr>
+										<tr>
+											<th>참여방법</th>
+											<td>당일 선착순 입장</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<!-- 주말별자리여행 -->
+						<div class="mt40">
+							<div class="contact-info">
+								<h3>주말별자리여행</h3>
+							</div>
+							<div class="contact-info mt24">
+								<div class="contact-table-wrp">
+									<table class="contact-table">
+										<colgroup>
+											<col width="20%" />
+											<col width="auto" />
+										</colgroup>
+										<tr>
+											<th>일시</th>
+											<td>
+												격주 토요일 15:00 ~ 16:00<br />
+												격주 일요일 16:00 ~ 17:00
+											</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>당일 별자리 설명 및 단편 천문동영상 상영</td>
+										</tr>
+										<tr>
+											<th>참여대상</th>
+											<td>초등생 이상 개인 또는 가족</td>
+										</tr>
+										<tr>
+											<th>참여방법</th>
+											<td>홈페이지 접수 또는 당일 선착순 입장</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<!-- 유·초·중·고 천체투영관 프로그램 -->
+						<div class="mt40">
+							<div class="contact-info">
+								<h3>유·초·중·고 천체투영관 프로그램</h3>
+							</div>
+							<div class="contact-info mt24">
+								<div class="contact-table-wrp">
+									<table class="contact-table">
+										<colgroup>
+											<col width="20%" />
+											<col width="auto" />
+										</colgroup>
+										<tr>
+											<th>일시</th>
+											<td>평일(화~금) 10:00~12:00, 13:00~17:00</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>천체운동 학습, 계절별자리 학습, 천문돔영상 및 돔영화 상영</td>
+										</tr>
+										<tr>
+											<th>참여대상</th>
+											<td>
+												유치원·초등·중등·고등학생, 단체 20인이상 ~ 80인 이하<br />
+												<strong class="text-red">※ 단, 유치원의 경우 6세 이상만 가능.</strong>
+											</td>
+										</tr>
+										<tr>
+											<th>참여방법</th>
+											<td>내용문의 후 전화예약(☎032-749-6713)</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<!-- 방학 프로그램 -->
+						<div class="mt40">
+							<div class="contact-info">
+								<h3>방학 프로그램</h3>
+							</div>
+							<div class="contact-info mt24">
+								<div class="contact-table-wrp">
+									<table class="contact-table">
+										<colgroup>
+											<col width="20%" />
+											<col width="auto" />
+										</colgroup>
+										<tr>
+											<th>일시</th>
+											<td>여름·겨울방학 기간, 연 2회</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>여름·겨울별자리 설명, 천문돔영화와 단편 동영상 상영 등</td>
+										</tr>
+										<tr>
+											<th>참여대상</th>
+											<td>초등생이상</td>
+										</tr>
+										<tr>
+											<th>참여방법</th>
+											<td>홈페이지 접수 또는 당일 선착순 입장</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 천체관측 프로그램 안내 -->
+					<div class="mt40">
+						<h3 class="usage-guide__title">천체관측 프로그램 안내</h3>
+
+						<!-- 별헤는 금요일밤 -->
+						<div class="mt24">
+							<div class="contact-info">
+								<h3>별헤는 금요일밤</h3>
+							</div>
+							<div class="contact-info mt24">
+								<div class="contact-table-wrp">
+									<table class="contact-table">
+										<colgroup>
+											<col width="20%" />
+											<col width="auto" />
+										</colgroup>
+										<tr>
+											<th>일시</th>
+											<td>매주 금요일 19:00~20:00(일몰 시간에 따라 변경)</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+											<td>달, 행성, 쌍성, 성단 등 천체관측</td>
+										</tr>
+										<tr>
+											<th>참여대상</th>
+											<td>초등생이상</td>
+										</tr>
+										<tr>
+											<th>관측장소</th>
+											<td>4층 실외테라스</td>
+										</tr>
+										<tr>
+											<th>참여방법</th>
+											<td>홈페이지 접수</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 주의 사항 -->
+					<div class="mt40">
+						<h3 class="usage-guide__title">주의 사항</h3>
+
+						<!-- 천체투영관 입장 안내 -->
+						<div class="mt24">
+							<div class="contact-info">
+								<h3>천체투영관 입장 안내</h3>
+							</div>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>만 7세 이상부터 입장할 수 있습니다.</li>
+								<li>
+									만 7세 미만 아동인 경우 보호자 동반하에 입장할 수 있으나, 프로그램 특성상 만 5세 미만 아동은 권장하지
+									않습니다.
+								</li>
+								<li>예약이 되었더라도 선착순 입장하여 착석합니다.</li>
+								<li>
+									상영 시작 이후에는 안전상의 이유로 입장 및 퇴장을 하실 수 없습니다.<br />
+									<strong>
+										※ 천체투영관은 일반 영화관에 비해 완전히 암전되기 때문에 안전상의 이유로 <span class="text-primary">
+											상영 시작 후 절대 입장이 불가능
+										</span> 합니다.
+									</strong>
+								</li>
+								<li>상영관 내 음식물 반입 및 핸드폰, 카메라 사용을 금지합니다.</li>
+							</ul>
+						</div>
+
+						<!-- 예약 확인 및 취소 -->
+						<div class="mt40">
+							<div class="contact-info">
+								<h3>예약 확인 및 취소</h3>
+							</div>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>홈페이지 나의도서관&gt;행사/프로그램신청내역에서 확인 및 취소가 가능합니다.</li>
+								<li>관람일 당일에는 예약취소가 불가능하며, 전화로 취소시 응대가 불가할 수도 있습니다.</li>
+							</ul>
+						</div>
+
+						<!-- 학기 중 단체예약 안내 -->
+						<div class="mt40">
+							<div class="contact-info">
+								<h3>학기 중 단체예약 안내</h3>
+							</div>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>대상 : 초, 중, 고 학생 등 20인 이상의 단체</li>
+								<li>
+									해당 월 2개월 전 1일부터 전화로 신청 가능합니다.<br />
+									(예시: 방문일자 4월 15일인 경우 2월 1일부터 예약 가능)
+								</li>
+								<li>사전연락 없이 당일 미방문시 향후 단체예약이 제한됩니다.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- 천문돔영화 탭 -->
+				<div id="panel-movies" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="textType1">
+							<h3>천문돔영화 목록</h3>
+							<div class="usage-guide__table-wrapper">
+								<table class="usage-guide__table">
+									<caption class="hide">천문돔영화 목록</caption>
+									<colgroup>
+										<col width="60px" />
+										<col width="auto" />
+										<col width="100px" />
+										<col width="200px" />
+										<col width="120px" />
+										<col width="80px" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">순번</th>
+											<th scope="col">돔영화 제목</th>
+											<th scope="col">상영시간</th>
+											<th scope="col" width="200px">내용</th>
+											<th scope="col">관람추천</th>
+											<th scope="col">비고</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Seasonal STARGAZING(봄)</td>
+											<td>14분</td>
+											<td>봄철 별자리</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>Seasonal STARGAZING(여름)</td>
+											<td>14분</td>
+											<td>여름철 별자리</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>Seasonal STARGAZING(가을)</td>
+											<td>14분</td>
+											<td>가을철 별자리</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>Seasonal STARGAZING(겨울)</td>
+											<td>15분</td>
+											<td>겨울철 별자리</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>코코몽 우주탐험</td>
+											<td>19분</td>
+											<td>코코몽의 태양계탐험</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>Larry Cat In Space</td>
+											<td>30분</td>
+											<td>달 여행</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>생명의 빛 오로라</td>
+											<td>30분</td>
+											<td>오로라 실사영상</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>Journey to a billion suns</td>
+											<td>30분</td>
+											<td>항성 발견과 탄생</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>9</td>
+											<td>The ABC of the Stars</td>
+											<td>28분</td>
+											<td>태양계행성</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>Astronomyths</td>
+											<td>26분</td>
+											<td>별자리에 대한 신화</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>11</td>
+											<td>Earth, Moon &amp; Sun</td>
+											<td>29분</td>
+											<td>지구, 달, 태양</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>12</td>
+											<td>Dawn of the Space Age</td>
+											<td>40분</td>
+											<td>우주 탐사 역사</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>13</td>
+											<td>Astronaut</td>
+											<td>24분</td>
+											<td>우주비행사</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>14</td>
+											<td>봄철 별자리(평면)</td>
+											<td>15분</td>
+											<td>봄철 별자리 설명</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>15</td>
+											<td>여름철 별자리(평면)</td>
+											<td>15분</td>
+											<td>여름철 별자리 설명</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>16</td>
+											<td>가을철 별자리(평면)</td>
+											<td>15분</td>
+											<td>가을철 별자리 설명</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>17</td>
+											<td>겨울철 별자리(평면)</td>
+											<td>15분</td>
+											<td>겨울철 별자리 설명</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>18</td>
+											<td>우주의 신비</td>
+											<td>11분</td>
+											<td>태양계 ~ 은하</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>19</td>
+											<td>To the Moon</td>
+											<td>16분</td>
+											<td>달</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>20</td>
+											<td>슈퍼지구</td>
+											<td>15분</td>
+											<td>우주 여행</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>21</td>
+											<td>우주로의 여행</td>
+											<td>12분</td>
+											<td>태양계 ~ 은하</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>22</td>
+											<td>From Earth to the Universe</td>
+											<td>30분</td>
+											<td>태양계 ~ 은하</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>23</td>
+											<td>Back to the Moon</td>
+											<td>25분</td>
+											<td>달 탐사</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>24</td>
+											<td>Journey to the center of the Milky Way</td>
+											<td>6분</td>
+											<td>은하 중심</td>
+											<td>초등 고학년</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>25</td>
+											<td>명왕성</td>
+											<td>16분</td>
+											<td>명왕성</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>26</td>
+											<td>검은해와 붉은달</td>
+											<td>15분</td>
+											<td>일식, 월식</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>27</td>
+											<td>슈퍼문 대모험</td>
+											<td>30분</td>
+											<td>달기지, 우주쓰레기</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+										<tr>
+											<td>28</td>
+											<td>우주 끝으로</td>
+											<td>13분</td>
+											<td>태양계 너머<br />우주 경계 까지</td>
+											<td>초등이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>29</td>
+											<td>우리별 이야기</td>
+											<td>17분</td>
+											<td>우리나라 별 이야기</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>30</td>
+											<td>밤하늘의 숨겨진 세상</td>
+											<td>15분</td>
+											<td>메시에 천체</td>
+											<td>전체</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>31</td>
+											<td>DESI: 암흑에너지 탐사</td>
+											<td>23분</td>
+											<td>암흑에너지</td>
+											<td>초등 이상</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>32</td>
+											<td>길냥이2-우주정거장의 비밀</td>
+											<td>30분</td>
+											<td>우주정거장, 보이저 탐사 오마주</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+										<tr>
+											<td>33</td>
+											<td>놀라운 우주탐사</td>
+											<td>23분</td>
+											<td>태양계 행성탐사 역사</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+										<tr>
+											<td>34</td>
+											<td>(신)한국의 북천</td>
+											<td>13분</td>
+											<td>우리나라 고유 별자리 이야기</td>
+											<td>전체</td>
+											<td>애니</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

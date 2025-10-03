@@ -1817,3 +1817,318 @@ img {
 .blue {
 	color: #3c79c2;
 }
+
+.text-red {
+	color: #e53935;
+}
+
+.text-primary {
+	color: #3c79c2;
+}
+
+.scroll-x {
+	overflow-x: auto;
+}
+
+.planetarium-intro {
+	background: url(../assets/images/bg-shstar.png);
+	background-size: cover;
+	background-position: center;
+	border-radius: 12px;
+	padding: 32px;
+	color: white;
+	text-align: center;
+
+	&__text {
+		font-size: 17px;
+		line-height: 1.7;
+		margin-bottom: 24px;
+	}
+
+	&__image {
+		margin-top: 24px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+
+		img {
+			display: inline-block;
+			max-width: 100%;
+			text-align: center;
+			border-radius: 16px;
+		}
+	}
+}
+
+.newsletter-list {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16);
+}
+
+.newsletter-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: to-rem(20) to-rem(24);
+	background: #fff;
+	border: 1px solid #d8e4f3;
+	border-radius: to-rem(8);
+	transition: all 0.2s ease;
+
+	&:hover {
+		border-color: #3c79c2;
+		box-shadow: 0 2px 8px rgba(60, 121, 194, 0.1);
+	}
+
+	&__content {
+		flex: 1;
+	}
+
+	&__title {
+		font-size: to-rem(17);
+		line-height: 1.5;
+		color: #1e2124;
+		font-weight: 400;
+	}
+
+	&__download {
+		display: flex;
+		align-items: center;
+		gap: to-rem(6);
+		padding: to-rem(8) to-rem(16);
+		background: transparent;
+		color: #191a1a;
+		border: none;
+		border-radius: to-rem(6);
+		font-size: to-rem(15);
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		text-decoration: none;
+
+		svg {
+			width: to-rem(20);
+			height: to-rem(20);
+		}
+
+		&:hover {
+			background: #ecf2f9;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.newsletter-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: to-rem(12);
+
+		&__download {
+			align-self: flex-end;
+		}
+	}
+}
+
+.text-link {
+	color: #3c79c2;
+	text-decoration: underline;
+
+	&:hover {
+		color: #30619b;
+	}
+}
+
+/* ============================================
+   Integrated Library Service Info Box Styles
+   ============================================ */
+
+.integrated-service-info {
+	background-color: #f3f4f6;
+	border-radius: to-rem(12);
+	padding: to-rem(24);
+	margin-top: to-rem(24);
+
+	@include mobile {
+		padding: 20px;
+		border-radius: 10px;
+		margin-top: 20px;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(12);
+		margin-bottom: to-rem(20);
+
+		@include mobile {
+			gap: 10px;
+			margin-bottom: 16px;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: to-rem(24);
+		height: to-rem(24);
+		color: #3c79c2;
+
+		@include mobile {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+
+		@include mobile {
+			font-size: 18px;
+		}
+	}
+
+	&__content {
+		padding-left: to-rem(36);
+
+		@include mobile {
+			padding-left: 30px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		@include mobile {
+			gap: 14px;
+		}
+	}
+
+	&__list-item {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: 6px;
+		}
+	}
+
+	&__item-header {
+		display: flex;
+		align-items: flex-start;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: 6px;
+		}
+	}
+
+	&__item-number {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		flex-shrink: 0;
+
+		@include mobile {
+			font-size: 16px;
+		}
+	}
+
+	&__item-title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+
+		@include mobile {
+			font-size: 16px;
+		}
+	}
+
+	&__sublist {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(4);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		padding-left: to-rem(24);
+
+		@include mobile {
+			gap: 3px;
+			padding-left: 20px;
+		}
+	}
+
+	&__sublist-item {
+		display: flex;
+		align-items: flex-start;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: 6px;
+		}
+
+		&::before {
+			content: '-';
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #4b4d4d;
+			flex-shrink: 0;
+
+			@include mobile {
+				font-size: 16px;
+			}
+		}
+	}
+
+	&__sublist-text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #4b4d4d;
+		margin: 0;
+		flex: 1;
+
+		@include mobile {
+			font-size: 16px;
+		}
+	}
+
+	&__note {
+		margin-top: to-rem(20);
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(15);
+		font-weight: 400;
+		line-height: 1.6;
+		color: #646767;
+		padding-left: to-rem(36);
+
+		@include mobile {
+			margin-top: 16px;
+			font-size: 14px;
+			padding-left: 30px;
+		}
+	}
+}
+
+.tac {
+	text-align: center;
+}

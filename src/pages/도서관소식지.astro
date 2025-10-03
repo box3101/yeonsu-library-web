@@ -1,0 +1,53 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+
+const title = '도서관소식지';
+const description = '연수구립도서관 도서관소식지 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '안내마당', link: '#' },
+	{ text: '도서관소식지', link: '#' },
+];
+
+const newsletters = [
+	{ year: 2027, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2026, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2025, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2024, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2023, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2022, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2021, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2020, fileSize: '1.2MB', fileUrl: '#' },
+];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="도서관소식지" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<div class="usage-guide">
+					<h3 class="usage-guide__title">연수구립도서관 이용안내지 다운로드</h3>
+				</div>
+				<div class="newsletter-list mt40">
+					{
+						newsletters.map(item => (
+							<div class="newsletter-item">
+								<div class="newsletter-item__content">
+									<span class="newsletter-item__title">
+										{item.year}년 이용안내지 [pdf, {item.fileSize}]
+									</span>
+								</div>
+								<a href={item.fileUrl} class="newsletter-item__download" download>
+									<span>다운로드</span>
+									<img src="./assets/images/icon/icon-download.svg" alt="다운로드" />
+								</a>
+							</div>
+						))
+					}
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

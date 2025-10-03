@@ -1,0 +1,610 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiTab, UiInfoBox } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관이용', link: '#' },
+	{ text: '디지털자료실', link: '#' },
+];
+
+const tabs = [
+	{ id: 'songdo', label: '송도국제도서관', active: true },
+	{ id: 'yeonsu', label: '연수청학' },
+	{ id: 'yeonsukkum', label: '연수꿈담' },
+	{ id: 'songdokids', label: '송도국제어린이' },
+	{ id: 'haedoji', label: '해돋이' },
+	{ id: 'sunhak', label: '선학별빛' },
+	{ id: 'dongchun', label: '동춘나래' },
+	{ id: 'hambak', label: '함박비류' },
+];
+---
+
+<Layout title="디지털자료실">
+	<SubLayout title="디지털자료실" breadcrumbItems={breadcrumbItems} menuType="안내마당">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- 탭 메뉴 -->
+				<UiTab tabs={tabs} className="mb-4 search-type-tabs ui-tab--grid-4" />
+
+				<!-- 송도국제도서관 탭 -->
+				<div id="panel-songdo" class="ui-tab-panel ui-tab-panel--active">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>연수청학도서관 3층</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>28석 (인터넷 : 18석, 노트북 : 4석, DVD감상 : 6석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>09시 ~ 18시</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>PC, DVD, 원문DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>
+								디지털 자료실 앞 복도에 비치된 예약전용 KIOSK에 로그인한다.<br />(회원증카드 인식 및 홈페이지 ID/PW
+								입력)
+							</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1일 120분 사용(60분 연장 가능)</li>
+							<li>게임, 도박, 음란물 등 공공장소에 적합하지 않은 용도로 사용시 이용 제한</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+					<div class="centerBox mt40">
+						<a href="https://seat.yspubliclib.go.kr/lib/LibMate/LibMate4/LibMate.php" class="btn1" target="_blank">
+							디지털자료실 현황보기
+						</a>
+					</div>
+				</div>
+
+				<!-- 연수청학학 탭 -->
+				<div id="panel-yeonsu" class="ui-tab-panel ui-tab-panel--active">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>연수청학도서관 3층</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>28석 (인터넷 : 18석, 노트북 : 4석, DVD감상 : 6석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>09시 ~ 18시</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>PC, DVD, 원문DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>
+								디지털 자료실 앞 복도에 비치된 예약전용 KIOSK에 로그인한다.<br />(회원증카드 인식 및 홈페이지 ID/PW
+								입력)
+							</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1일 120분 사용(60분 연장 가능)</li>
+							<li>게임, 도박, 음란물 등 공공장소에 적합하지 않은 용도로 사용시 이용 제한</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+					<div class="centerBox mt40">
+						<a href="https://seat.yspubliclib.go.kr/lib/LibMate/LibMate4/LibMate.php" class="btn1" target="_blank">
+							디지털자료실 현황보기
+						</a>
+					</div>
+				</div>
+
+				<!-- 연수꿈담 탭 -->
+				<div id="panel-yeonsukkum" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td colspan="2">연수꿈담도서관 2층 어린이자료실, 3층 종합자료실 내 PC존</td>
+									</tr>
+									<tr>
+										<th rowspan="2">좌석</th>
+										<td>2층 어린이자료실</td>
+										<td>3좌석</td>
+									</tr>
+									<tr>
+										<td>3층 종합자료실</td>
+										<td>3좌석</td>
+									</tr>
+									<tr>
+										<th rowspan="2">이용시간</th>
+										<td>2층 어린이자료실</td>
+										<td>09:00 ~ 18:00</td>
+									</tr>
+									<tr>
+										<td>3층 종합자료실</td>
+										<td>화 ~ 금 09:00 ~ 22:00<br />토 ~ 일 09:00 ~ 18:00</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td colspan="2">전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td colspan="2">PC, DVD, 원문 DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>각 층 PC존의 비어 있는 좌석에서 연수구립도서관 ID/PW로 로그인 후 이용(별도의 예약절차 없음)</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1일 120분(60분 연장가능) 사용가능</li>
+							<li>게임, 도박, 음란, 기타 유해사이트 접속 금지</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 송도국제어린이 탭 -->
+				<div id="panel-songdokids" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>송도국제어린이도서관 2층 로비</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>총9석(인터넷 4석 / DVD감상 5석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>10시 ~ 18시(단, 목요일 10시~20시)</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>PC 및 DVD</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>디지털 자료실 앞 복도에 비치된 예약전용 KIOSK에 로그인한다.</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1회 예약시 120분 사용가능</li>
+							<li>1일 1회 60분 연장가능(단, DVD감상용은 1회 2시간임 연장불가능)</li>
+							<li>게임, 도박, 음란, 기타 유해사이트 접속 금지</li>
+							<li>본인 계정으로만 사용가능</li>
+							<li>예약 후, 10분 안에 로그인하지 않을 시 예약취소 됨</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 송도국제도서관 탭 -->
+				<div id="panel-songdo" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>송도국제도서관 3층</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>12석 (인터넷 : 8석, 원문DB : 1석, OTT관람석 : 3석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>09시 ~ 18시</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>PC, OTT, 원문DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>디지털자료실 내 비치된 예약전용 KIOSK에 로그인한다.<br />(회원증카드 인식 및 홈페이지 ID/PW 입력)</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한다.</li>
+							<li>예약한 시간에 해당 PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1일 120분 사용(다른 예약자가 없을 경우, 60분 연장 가능)</li>
+							<li>게임, 도박, 음란물 등 공공장소에 적합하지 않은 용도로 사용 시 이용 제한</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 해돋이 탭 -->
+				<div id="panel-haedoji" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td colspan="2">해돋이도서관 1층 북카페, 2층 자료실 내</td>
+									</tr>
+									<tr>
+										<th rowspan="2">좌석</th>
+										<td>1층<br />디지털북카페</td>
+										<td>5좌석 (인터넷 : 5석)</td>
+									</tr>
+									<tr>
+										<td>2층<br />디지털존</td>
+										<td>8좌석 (인터넷 : 4석 / DVD감상 : 3석/ 원문 : 1석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td colspan="2">화~금 09:00~22:00<br />토~일 09:00~18:00</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td colspan="2">전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td colspan="2">PC, DVD, 원문DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>
+								디지털 자료실 앞 복도에 비치된 예약전용 KIOSK에 로그인한다.<br />(회원증카드 인식 및 홈페이지 ID/PW
+								입력)
+							</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>인터넷&원문 – 1회 120분 사용(1회 연장 60분 가능)</li>
+							<li>DVD – 1회 150분 사용 (연장불가)</li>
+							<li>게임, 도박, 음란물 등 공공장소에 적합하지 않은 용도로 사용시 이용 제한</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 선학별빛 탭 -->
+				<div id="panel-sunhak" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td colspan="2">선학별빛도서관 2층 멀티미디어방, 3층 디지털실</td>
+									</tr>
+									<tr>
+										<th rowspan="2">좌석</th>
+										<td>2층 멀티미디어방<br />(어린이자료실 내)</td>
+										<td>1룸 (DVD감상, 초등학생 이하의 구성원이 포함된 가족(최소 3인 ~ 최대 5인))</td>
+									</tr>
+									<tr>
+										<td>3층 디지털실<br />(종합자료실 내)</td>
+										<td>17좌석 (인터넷 12석, 원문DB 2석, 노트북석 3석)</td>
+									</tr>
+									<tr>
+										<th rowspan="2">이용시간</th>
+										<td>멀티미디어방</td>
+										<td>화~일 09시~18시</td>
+									</tr>
+									<tr>
+										<td>3층 디지털실</td>
+										<td>화~금 09시~22시(토·일요일은 09시~18시)</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td colspan="2">전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td colspan="2">PC, DVD, 원문DB</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>
+								3층 디지털실 앞에 비치된 예약전용 KIOSK에 로그인한다.<br />(회원증카드 인식 및 홈페이지 ID/PW 입력)
+							</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>인터넷&원문 – 1회 120분 사용(총 2시간, 1회 연장 60분 가능)</li>
+							<li>DVD – 1회 150분 사용 (총 2시간 30분, 연장불가)</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 동춘나래 탭 -->
+				<div id="panel-dongchun" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>동춘나래도서관 2층</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>3석(DVD감상: 3석)</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>09시 ~ 18시</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>DVD</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>안내데스크 문의</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1회 예약 시 120분 사용가능(연장불가)</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 함박비류 탭 -->
+				<div id="panel-hambak" class="ui-tab-panel">
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용안내</h3>
+						</div>
+						<div class="contact-info">
+							<div class="contact-table-wrp">
+								<table class="contact-table">
+									<colgroup>
+										<col width="20%" />
+										<col width="auto" />
+									</colgroup>
+									<tr>
+										<th>위치</th>
+										<td>함박비류도서관 2층</td>
+									</tr>
+									<tr>
+										<th>좌석</th>
+										<td>9석</td>
+									</tr>
+									<tr>
+										<th>이용시간</th>
+										<td>09시 ~ 18시</td>
+									</tr>
+									<tr>
+										<th>연령대</th>
+										<td>전체 이용가</td>
+									</tr>
+									<tr>
+										<th>이용매체</th>
+										<td>PC, DVD</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">이용절차</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>디지털 자료실 앞 복도에 비치된 예약전용 KIOSK에 로그인한다.<br />(홈페이지 ID/PW 입력)</li>
+							<li>예약할 PC 및 시간대를 선택하여 예약을 한 후 예약확인 후 로그아웃을 한다.</li>
+							<li>예약한 시간에 해당PC에 로그인하여 PC를 이용한다.</li>
+						</ul>
+					</div>
+					<div class="mt40">
+						<div class="usage-guide">
+							<h3 class="usage-guide__title">주의사항</h3>
+						</div>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>1회 예약시 120분 사용 가능</li>
+							<li>예약자 없을 시, 추가 연장 가능</li>
+							<li>게임, 도박, 음란, 기타 유해사이트 접속 금지</li>
+							<li>본인 계정으로만 사용가능</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
