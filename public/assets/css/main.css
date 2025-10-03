@@ -62840,8 +62840,8 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
     top: 11px;
   }
   .usage-guide__table-wrapper .usage-guide__table tr th, .usage-guide__table-wrapper .usage-guide__table tr td {
-    padding: 20px 10px;
-    font-size: 15px;
+    padding: 10px 10px;
+    font-size: 14px;
   }
 }
 

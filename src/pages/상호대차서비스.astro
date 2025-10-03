@@ -291,145 +291,118 @@ const processingTime = [
 						<!-- 신청 자료의 대출가능 시기기 -->
 						<div class="mt24">
 							<h3 class="usage-guide__title">신청 자료의 대출가능 시기</h3>
-						</div>
 
-						<!-- 이용절차 -->
-						<div class="integrated-service-info">
-							<div class="integrated-service-info__header">
-								<img src="./assets/images/icon/guide_check.svg" alt="안내" class="icon icon-md" />
-								<h3 class="integrated-service-info__title">이용절차</h3>
-							</div>
-							<div class="integrated-service-info__content">
-								<ul class="integrated-service-info__list">
-									<li class="integrated-service-info__list-item">
-										<div class="integrated-service-info__item-header">
-											<span class="integrated-service-info__item-number">1.</span>
-											<strong class="integrated-service-info__item-title">신청</strong>
-										</div>
-										<ul class="integrated-service-info__sublist">
-											<li class="integrated-service-info__sublist-item">
-												<span class="integrated-service-info__sublist-text">
-													홈페이지에서 자료 검색 후 상호대차 신청
-												</span>
-											</li>
-										</ul>
-									</li>
-									<li class="integrated-service-info__list-item">
-										<div class="integrated-service-info__item-header">
-											<span class="integrated-service-info__item-number">2.</span>
-											<strong class="integrated-service-info__item-title">접수</strong>
-										</div>
-										<ul class="integrated-service-info__sublist">
-											<li class="integrated-service-info__sublist-item">
-												<span class="integrated-service-info__sublist-text">
-													담당자가 신청내용 확인 후 소장 도서관에 대출 신청
-												</span>
-											</li>
-										</ul>
-									</li>
-									<li class="integrated-service-info__list-item">
-										<div class="integrated-service-info__item-header">
-											<span class="integrated-service-info__item-number">3.</span>
-											<strong class="integrated-service-info__item-title">도서 입고</strong>
-										</div>
-										<ul class="integrated-service-info__sublist">
-											<li class="integrated-service-info__sublist-item">
-												<span class="integrated-service-info__sublist-text">
-													소장 도서관에서 도서 발송 (처리기간 참고)
-												</span>
-											</li>
-										</ul>
-									</li>
-									<li class="integrated-service-info__list-item">
-										<div class="integrated-service-info__item-header">
-											<span class="integrated-service-info__item-number">4.</span>
-											<strong class="integrated-service-info__item-title">도서 수령</strong>
-										</div>
-										<ul class="integrated-service-info__sublist">
-											<li class="integrated-service-info__sublist-item">
-												<span class="integrated-service-info__sublist-text">
-													문자(SMS) 알림 후 신청 도서관에서 대출
-												</span>
-											</li>
-										</ul>
-									</li>
-									<li class="integrated-service-info__list-item">
-										<div class="integrated-service-info__item-header">
-											<span class="integrated-service-info__item-number">5.</span>
-											<strong class="integrated-service-info__item-title">도서 반납</strong>
-										</div>
-										<ul class="integrated-service-info__sublist">
-											<li class="integrated-service-info__sublist-item">
-												<span class="integrated-service-info__sublist-text">
-													대출 도서관 자료실 데스크에 반납 (무인반납기, 스마트도서관 반납 불가)
-												</span>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- 처리기간 -->
-						<div class="mt24">
-							<div class="usage-guide">
-								<h3 class="usage-guide__title">처리기간</h3>
-							</div>
-
-							<div class="usage-guide__table-wrapper mt24">
+							<div class="usage-guide__table-wrapper">
 								<table class="usage-guide__table">
-									<caption class="hide">상호대차 처리기간</caption>
 									<colgroup>
-										<col style="width: 60%;" />
-										<col style="width: 40%;" />
+										<col width="15%" />
+										<col width="25%" />
+										<col width="25%" />
+										<col width="35%" />
 									</colgroup>
 									<thead>
 										<tr>
-											<th scope="col">도서관</th>
-											<th scope="col">처리기간</th>
+											<th colspan="4">대출가능일</th>
 										</tr>
 									</thead>
 									<tbody>
-										{
-											processingTime.map(item => (
-												<tr>
-													<td>{item.library}</td>
-													<td>{item.time}</td>
-												</tr>
-											))
-										}
+										<tr>
+											<td>신청요일</td>
+											<td>
+												연수청학도서관
+												<br /> 연수꿈담도서관
+												<br />송도국제어린이도서관
+												<br />해돋이도서관
+												<br />선학별빛도서관
+												<br />동춘나래도서관
+												<br />함박비류도서관
+												<br />솔안공원 작은도서관
+												<br />해찬솔공원 작은도서관
+												<br />누리공원 작은도서관
+												<br />송도5동 작은도서관
+											</td>
+											<td>
+												옥련1동 작은도서관
+												<br />옥련2동 작은도서관
+												<br />연수1동 작은도서관
+												<br />송도2동 작은도서관
+												<br />송도3동 작은도서관
+											</td>
+											<td>
+												송도4동 스마트도서관
+												<br />스퀘어원 스마트도서관
+												<br />연수구청 스마트도서관
+												<br />선학역 스마트도서관
+											</td>
+										</tr>
+										<tr>
+											<td>토, 일, 월</td>
+											<td>화</td>
+											<td>화</td>
+											<td>화</td>
+										</tr>
+										<tr>
+											<td>화</td>
+											<td>수</td>
+											<td>수</td>
+											<td>금</td>
+										</tr>
+										<tr>
+											<td>수</td>
+											<td>목</td>
+											<td>목</td>
+											<td>금</td>
+										</tr>
+										<tr>
+											<td>목</td>
+											<td>금</td>
+											<td>금</td>
+											<td>금</td>
+										</tr>
+										<tr>
+											<td>금</td>
+											<td>토</td>
+											<td>화</td>
+											<td>화</td>
+										</tr>
 									</tbody>
 								</table>
+
+								<p class="mt24">※ “책두레신청자료도착” 메시지 수신 후 ‘수령도서관’ 방문하여 회원증 제시</p>
+								<p class="mt24">※ 통합대출규정에 따라 대출 (성인도서는 14세미만 회원이 대출불가)</p>
+								<p class="mt24">※ 참여도서관 어디서나 반납 가능</p>
+								<p class="mt24">※ 스마트도서관 도서의 경우 대출한 기기에서만 반납 가능</p>
+								<p class="mt24">※ 화~토요일 오전 9시 이전에 신청한 도서는 당일 수령 가능</p>
 							</div>
 						</div>
 
-						<!-- 유의사항 -->
+						<!-- 홈페이지 신청 방법 상세 -->
 						<div class="mt24">
-							<div class="usage-guide">
-								<h3 class="usage-guide__title">유의사항</h3>
+							<h3 class="usage-guide__title">홈페이지 신청 방법 상세</h3>
+							<div class="img-wrp2">
+								<img src="./assets/images/usage-guide/usage-guide-01.png" alt="홈페이지 신청 방법 상세" />
 							</div>
-							<ul class="sub-layout__content-inner-body-item-list mt24">
-								<li>상호대차 신청 도서는 다른 도서관 소장 자료로 신청접수 및 처리기간이 소요됩니다.</li>
-								<li>소장 도서관의 사정에 따라 대출이 불가할 수 있습니다.</li>
-								<li>비치기간 내 대출하지 않을 경우 자동 반납 처리됩니다.</li>
-								<li>
-									연수구립도서관에서 대출 및 예약 중인 도서, 정리 중인 도서, 연속간행물, 참고도서, 향토자료, 귀중본,
-									비도서(DVD 등) 자료는 상호대차 신청이 제한될 수 있습니다.
-								</li>
-								<li>반납 연체 시 연체일수만큼 도서관 자료 대출이 정지됩니다.</li>
-							</ul>
-						</div>
-
-						<!-- 버튼 -->
-						<div class="tac mt24">
-							<UiButton
-								variant="primary"
-								size="medium"
-								text="상호대차 신청하기"
-								icon="icon-arr-right"
-								iconAddClass="icon-xxsm icon-white"
-								href="#"
-							/>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-02.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-03.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-04.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-05.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-06.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-07.png" alt="홈페이지 신청 방법 상세" />
+							</div>
+							<div class="img-wrp2 mt24">
+								<img src="./assets/images/usage-guide/usage-guide-08.png" alt="홈페이지 신청 방법 상세" />
+							</div>
 						</div>
 					</div>
 				</div>
