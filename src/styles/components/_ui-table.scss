@@ -225,7 +225,7 @@
 		line-height: to-rem(32);
 		border-radius: to-rem(3);
 		font-size: to-rem(17);
-		font-weight: bold!important;
+		font-weight: bold !important;
 		text-align: center;
 		white-space: nowrap;
 
@@ -711,6 +711,10 @@
 		color: #464c53;
 		line-height: 1.5;
 		font-family: $font-family-primary;
+
+		@at-root .ui-book-card .ui-table__text {
+			text-align: center;
+		}
 		// text-overflow: ellipsis;
 		// overflow: hidden;
 		// white-space: nowrap;

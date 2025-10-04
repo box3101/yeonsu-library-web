@@ -78961,6 +78961,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   font-weight: 700;
   color: #191a1a;
   line-height: 1;
+  line-height: 150%;
 }
 @media (max-width: 900px) {
   .recommend-header .book-title h3 {
@@ -79562,6 +79563,337 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 
+.ai-recommendation-section {
+  margin-bottom: 2rem;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section {
+    margin-bottom: 1.5rem;
+  }
+}
+.ai-recommendation-section .ai-recommendation-content {
+  display: flex;
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-recommendation-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.ai-recommendation-section .ai-quote-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ai-recommendation-section .ai-quote-section .section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+  margin: 0;
+}
+.ai-recommendation-section .ai-quote-section .section-title::after {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-quote-section .section-title {
+    font-size: 1.25rem;
+  }
+}
+.ai-recommendation-section .ai-quote-section .ai-quote-card {
+  position: relative;
+  background-color: #d8e4f3;
+  width: 12.5rem;
+  height: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.ai-recommendation-section .ai-quote-section .ai-quote-card::after {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  content: "";
+  width: 69px;
+  height: 65px;
+  background: url("./assets/images/icon/icon-ai.svg") no-repeat center center;
+  background-size: contain;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-quote-section .ai-quote-card {
+    width: 100%;
+    height: auto;
+    min-height: 9.375rem;
+    padding: 1.5rem;
+  }
+}
+.ai-recommendation-section .ai-quote-section .ai-quote-card .quote-text {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #323333;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-quote-section .ai-quote-card .quote-text {
+    font-size: 0.9375rem;
+  }
+}
+.ai-recommendation-section .ai-report-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ai-recommendation-section .ai-report-section .report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-header .section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #191a1a;
+  line-height: 1.5;
+  margin: 0;
+  white-space: nowrap;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+}
+.ai-recommendation-section .ai-report-section .report-header .section-title::after {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header .section-title {
+    font-size: 1.25rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-header .keyword-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header .keyword-tags {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header .keyword-tags .tag-icon {
+    display: none;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag {
+  background-color: #fff;
+  border: 1px solid #58616a;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.625rem;
+  min-width: 3.75rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #1e2124;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag {
+    min-width: 3.125rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag--active {
+  background-color: #f4f5f6;
+}
+.ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag:hover {
+  background-color: #f4f5f6;
+}
+.ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag .tag-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-header .keyword-tags .keyword-tag .tag-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content {
+  display: flex;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content {
+    flex-direction: column;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 9.375rem;
+  border: 1px solid #8aafdb;
+  background-color: #d8e4f3;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-tabs {
+    flex-direction: row;
+    width: 100%;
+    height: 3.5rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab {
+  position: relative;
+  background-color: #d8e4f3;
+  border: none;
+  border-bottom: 1px solid #8aafdb;
+  padding: 1rem;
+  min-height: 3.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #4b4d4d;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab {
+    flex: 1;
+    border-bottom: none;
+    border-right: 1px solid #8aafdb;
+    min-height: auto;
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab:last-child {
+  border-bottom: none;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab:last-child {
+    border-right: none;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab--active {
+  background-color: #3c79c2;
+  color: #fff;
+  border-color: #3c79c2;
+  z-index: 2;
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab--active .tab-icon {
+  display: inline-block;
+  margin-left: 0.25rem;
+  width: 0.9375rem;
+  height: 0.75rem;
+  vertical-align: middle;
+  transform: rotate(90deg);
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab--active .tab-icon {
+    display: none;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab .tab-icon {
+  display: none;
+}
+.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab:hover:not(.ai-recommendation-section .ai-report-section .report-content .report-tabs .report-tab--active) {
+  background-color: #c8ddf0;
+}
+.ai-recommendation-section .ai-report-section .report-content .report-panel {
+  flex: 1;
+  background-color: #ecf2f9;
+  border: 1px solid #8aafdb;
+  border-left: none;
+  min-height: 12.5rem;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-panel {
+    border-left: 1px solid #8aafdb;
+    border-top: none;
+    min-height: 9.375rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content {
+  display: none;
+  padding: 1.5rem;
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content {
+    padding: 1rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content--active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content .typing-text {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #323333;
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content .typing-text {
+    font-size: 0.9375rem;
+  }
+}
+.ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content .empty-message {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #b1b3b3;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .ai-recommendation-section .ai-report-section .report-content .report-panel .report-panel-content .empty-message {
+    font-size: 0.9375rem;
+  }
+}
+
+@keyframes typing-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.typing-text {
+  position: relative;
+}
+.typing-text.typing-active::after {
+  content: "|";
+  animation: typing-cursor 1s infinite;
+  margin-left: 2px;
+}
+
 .notice-detail-page .post-navigation {
   border-bottom: 1px solid #e5e7eb;
   margin: 40px 0;
@@ -80004,6 +80336,12 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   .ui-book-card__actions {
     margin-top: 1rem;
     gap: 0.375rem;
+  }
+}
+@media (max-width: 900px) {
+  .ui-book-card__actions .ui-button {
+    flex: 1;
+    padding: 0 10px;
   }
 }
 .ui-book-card__action-button {
@@ -80825,10 +81163,16 @@ body.modal-open {
 .ui-button--darkBlue:active {
   background: #142940;
 }
+.ui-button--green {
+  border-radius: var(--radius-medium2, 6px);
+  border: 1px solid var(--color-point-green-gn-40, #007e33);
+  background: var(--color-point-green-gn-5, #ecf9f1);
+  color: #007e33;
+}
 .ui-button--gray {
-  background: #7D8181;
+  background: #7d8181;
   color: #ffffff;
-  border-color: #7D8181;
+  border-color: #7d8181;
 }
 .ui-button--darkGray {
   background: #4b4d4d;
@@ -81692,6 +82036,10 @@ body.modal-open {
   line-height: 1.5;
   font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
+.ui-book-card .ui-table__text {
+  text-align: center;
+}
+
 .ui-table__text .bold {
   font-size: 1rem;
   font-weight: 700;

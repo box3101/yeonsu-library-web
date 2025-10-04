@@ -395,6 +395,13 @@
 			margin-top: to-rem(16);
 			gap: to-rem(6);
 		}
+
+		.ui-button {
+			@include mobile {
+				flex: 1;
+				padding: 0 10px;
+			}
+		}
 	}
 
 	&__action-button {

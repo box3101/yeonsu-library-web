@@ -3,29 +3,29 @@
 @use 'sass:color';
 @use 'sass:math';
 
-.book-info.clearfix{
+.book-info.clearfix {
 	padding-bottom: 10px;
 	display: flex;
 	flex-direction: row;
-	gap:20px;
+	gap: 20px;
 	@include mobile {
-		gap:0px;
+		gap: 0px;
 	}
-	.book-cover{
+	.book-cover {
 		width: 130px;
-		img{
+		img {
 			width: 100%;
 		}
 	}
-	.book-details{
-		flex:1;
-		table{
+	.book-details {
+		flex: 1;
+		table {
 			border-collapse: collapse;
-			tr{
-				th{
+			tr {
+				th {
 					@include font(to-rem(17), 700, #191a1a);
 				}
-				td{
+				td {
 					@include font(to-rem(17), 400, #191a1a);
 					padding: 12px;
 				}
@@ -1482,6 +1482,7 @@
 
 		h3 {
 			@include font(to-rem(19), 700, #191a1a);
+			line-height: 150%;
 
 			@include mobile {
 				font-size: to-rem(16);
@@ -2131,6 +2132,327 @@
 	margin-top: 40px;
 	@include mobile {
 		margin-top: 24px;
+	}
+}
+
+// AI 책큐 추천 섹션
+.ai-recommendation-section {
+	margin-bottom: to-rem(32);
+
+	@include mobile {
+		margin-bottom: to-rem(24);
+	}
+
+	.ai-recommendation-content {
+		display: flex;
+		gap: to-rem(32);
+
+		@include mobile {
+			flex-direction: column;
+			gap: to-rem(24);
+		}
+	}
+
+	// AI 책큐 한마디
+	.ai-quote-section {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		.section-title {
+			@include font(to-rem(24), 400, #191a1a, 1.5);
+			border-bottom: none;
+			display: flex;
+			align-items: center;
+			padding-bottom: 0;
+			&::after {
+				display: none !important;
+			}
+			margin: 0;
+
+			@include mobile {
+				font-size: to-rem(20);
+			}
+		}
+
+		.ai-quote-card {
+			position: relative;
+			background-color: #d8e4f3;
+			width: to-rem(200);
+			height: to-rem(200);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: to-rem(16);
+
+			&::after {
+				position: absolute;
+				right: -20px;
+				bottom: -20px;
+				content: '';
+				width: 69px;
+				height: 65px;
+				background: url('./assets/images/icon/icon-ai.svg') no-repeat center center;
+				background-size: contain;
+			}
+
+			@include mobile {
+				width: 100%;
+				height: auto;
+				min-height: to-rem(150);
+				padding: to-rem(24);
+			}
+
+			.quote-text {
+				@include font(to-rem(17), 400, #323333, 1.5, center);
+				margin: 0;
+
+				@include mobile {
+					font-size: to-rem(15);
+				}
+			}
+		}
+	}
+
+	// AI 책큐 추천 리포트
+	.ai-report-section {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+
+		.report-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: to-rem(16);
+
+			@include mobile {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.section-title {
+				@include font(to-rem(24), 400, #191a1a, 1.5);
+				margin: 0;
+				white-space: nowrap;
+				border-bottom: none;
+				display: flex;
+				align-items: center;
+				padding-bottom: 0;
+				&::after {
+					display: none !important;
+				}
+
+				@include mobile {
+					font-size: to-rem(20);
+				}
+			}
+
+			.keyword-tags {
+				display: flex;
+				gap: to-rem(8);
+				flex-wrap: wrap;
+
+				@include mobile {
+					width: 100%;
+				}
+
+				.tag-icon {
+					@include mobile {
+						display: none;
+					}
+				}
+
+				.keyword-tag {
+					background-color: #fff;
+					border: 1px solid #58616a;
+					border-radius: to-rem(4);
+					padding: to-rem(6) to-rem(10);
+					min-width: to-rem(60);
+					height: to-rem(32);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					transition: all 0.2s ease;
+					@include font(to-rem(15), 400, #1e2124, 1.5, center);
+
+					@include mobile {
+						min-width: to-rem(50);
+						padding: to-rem(4) to-rem(8);
+						font-size: to-rem(13);
+					}
+
+					&--active {
+						background-color: #f4f5f6;
+					}
+
+					&:hover {
+						background-color: #f4f5f6;
+					}
+
+					.tag-icon {
+						width: to-rem(24);
+						height: to-rem(24);
+
+						@include mobile {
+							width: to-rem(20);
+							height: to-rem(20);
+						}
+					}
+				}
+			}
+		}
+
+		.report-content {
+			display: flex;
+			position: relative;
+
+			@include mobile {
+				flex-direction: column;
+			}
+
+			.report-tabs {
+				display: flex;
+				flex-direction: column;
+				width: to-rem(150);
+				border: 1px solid #8aafdb;
+				background-color: #d8e4f3;
+
+				@include mobile {
+					flex-direction: row;
+					width: 100%;
+					height: to-rem(56);
+				}
+
+				.report-tab {
+					position: relative;
+					background-color: #d8e4f3;
+					border: none;
+					border-bottom: 1px solid #8aafdb;
+					padding: to-rem(16);
+					min-height: to-rem(56);
+					cursor: pointer;
+					transition: all 0.2s ease;
+					@include font(to-rem(17), 400, #4b4d4d, 1.5, center);
+					white-space: nowrap;
+
+					@include mobile {
+						flex: 1;
+						border-bottom: none;
+						border-right: 1px solid #8aafdb;
+						min-height: auto;
+						font-size: to-rem(14);
+						padding: to-rem(12);
+					}
+
+					&:last-child {
+						border-bottom: none;
+
+						@include mobile {
+							border-right: none;
+						}
+					}
+
+					&--active {
+						background-color: #3c79c2;
+						color: #fff;
+						border-color: #3c79c2;
+						z-index: 2;
+
+						.tab-icon {
+							display: inline-block;
+							margin-left: to-rem(4);
+							width: to-rem(15);
+							height: to-rem(12);
+							vertical-align: middle;
+							transform: rotate(90deg);
+
+							@include mobile {
+								display: none;
+							}
+						}
+					}
+
+					.tab-icon {
+						display: none;
+					}
+
+					&:hover:not(&--active) {
+						background-color: #c8ddf0;
+					}
+				}
+			}
+
+			.report-panel {
+				flex: 1;
+				background-color: #ecf2f9;
+				border: 1px solid #8aafdb;
+				border-left: none;
+				min-height: to-rem(200);
+
+				@include mobile {
+					border-left: 1px solid #8aafdb;
+					border-top: none;
+					min-height: to-rem(150);
+				}
+
+				.report-panel-content {
+					display: none;
+					padding: to-rem(24);
+					height: 100%;
+
+					@include mobile {
+						padding: to-rem(16);
+					}
+
+					&--active {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					.typing-text {
+						@include font(to-rem(17), 400, #323333, 1.5);
+						margin: 0;
+
+						@include mobile {
+							font-size: to-rem(15);
+						}
+					}
+
+					.empty-message {
+						@include font(to-rem(17), 400, #b1b3b3, 1.5, center);
+						margin: 0;
+
+						@include mobile {
+							font-size: to-rem(15);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// 타이핑 애니메이션 효과
+@keyframes typing-cursor {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+.typing-text {
+	position: relative;
+
+	&.typing-active::after {
+		content: '|';
+		animation: typing-cursor 1s infinite;
+		margin-left: 2px;
 	}
 }
 

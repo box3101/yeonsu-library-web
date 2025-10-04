@@ -3,7 +3,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import {
-	UiBookCardDetail,
+	UiBookCardDetail2,
 	UiCollectionAccordion,
 	UiAccordion,
 	UiButton,
@@ -243,66 +243,64 @@ const books = [
 				</div>
 			</div>
 
-			{Array.from({ length: 3 }).map((_, index) => (
-				<div class="ai-bookqueue-card">
-					<!-- 추천도서 99 -->
-					<div class="recommend-book-section">
-						<div class="recommend-header">
-							<div class="recommend-badge">
-								<div class="badge-background">
-									<img src="./assets/images/icon/recommend-badge.svg" alt="추천 배지 배경" />
-								</div>
-								<div class="badge-content">
-									<div class="star-icon">
-										<img src="./assets/images/icon/star-filled.svg" alt="별점" />
+			{
+				Array.from({ length: 3 }).map((_, index) => (
+					<div class="ai-bookqueue-card">
+						<div class="recommend-book-section">
+							<div class="recommend-header">
+								<div class="recommend-badge">
+									<div class="badge-background">
+										<img src="./assets/images/icon/recommend-badge.svg" alt="추천 배지 배경" />
 									</div>
-									<span class="badge-text">추천도서 {99 - index}</span>
+									<div class="badge-content">
+										<div class="star-icon">
+											<img src="./assets/images/icon/star-filled.svg" alt="별점" />
+										</div>
+										<span class="badge-text">추천도서 {99 - index}</span>
+									</div>
+								</div>
+								<div class="book-title">
+									<h3>한나의 역사스캔들 - 저와 함께 역사 속으로 드시지요 – 최한나 (지은이)</h3>
 								</div>
 							</div>
-							<div class="book-title">
-								<h3>한나의 역사스캔들 - 저와 함께 역사 속으로 드시지요 – 최한나 (지은이)</h3>
+							<div class="book-description">
+								<p>
+									한나의 역사스캔들은 저자의 매력적인 스토리텔링과 다양한 역사적 사건들을 흥미진진하게 풀어내어 독자들을
+									사로잡습니다. 이 책은 우리가 잘 알지 못했던 역사 속 인물들과 그들의 이야기를 통해 우리 역사를 더 깊이
+									이해할 수 있게 해줍니다. 또한, 성 소수자와 사회적 약자들의 삶을 다루며 다양한 관점을 제시합니다.
+								</p>
 							</div>
 						</div>
-						<div class="book-description">
-							<p>
-								한나의 역사스캔들은 저자의 매력적인 스토리텔링과 다양한 역사적 사건들을 흥미진진하게 풀어내어 독자들을
-								사로잡습니다. 이 책은 우리가 잘 알지 못했던 역사 속 인물들과 그들의 이야기를 통해 우리 역사를 더 깊이
-								이해할 수 있게 해줍니다. 또한, 성 소수자와 사회적 약자들의 삶을 다루며 다양한 관점을 제시합니다.
-							</p>
-						</div>
-					</div>
 
-					<!-- 도서 상세 정보 섹션 -->
-					<div class="search-detail-section__content">
-						<!-- 검색 결과 목록 -->
-						<div class="search-result-list mt24">
-							<!-- 도서 정보 카드 -->
-							<UiBookCardDetail
-								imageUrl="./assets/images/default-book.png"
-								badges={[
-									{ label: 'DVD', type: 'success', size: 'large' },
-									{ label: '대출불가', type: 'warning' },
-									{ label: '예약 0명', type: 'default' },
-								]}
-								title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
-								titleHighlights={['탐정']}
-								author="김기정 글; 이해정 그림"
-								publisher="천개의바람"
-								publishYear="2023"
-								description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
-								details={{
-									callNumber: '아동 813.5-김18ㅎ',
-									registrationNumber: 'GJ0000027414',
-									isbn: '9791155815755',
-									koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
-									categoryClassification: '문학 > 한국문학 > 소설',
-									supplement: '포함',
-								}}
-							/>
+						<div class="search-detail-section__content">
+							<div class="search-result-list mt24">
+								<UiBookCardDetail2
+									imageUrl="./assets/images/default-book.png"
+									badges={[
+										{ label: 'DVD', type: 'success', size: 'large' },
+										{ label: '대출불가', type: 'warning' },
+										{ label: '예약 0명', type: 'default' },
+									]}
+									title="홍길동, 조선을 박차고 새 나라를 만들다 <span>탐정</span>"
+									titleHighlights={['탐정']}
+									author="김기정 글; 이해정 그림"
+									publisher="천개의바람"
+									publishYear="2023"
+									description="간단한 설명이 들어가는 영역입니다. 최대 3줄까지 작성합니다."
+									details={{
+										callNumber: '아동 813.5-김18ㅎ',
+										registrationNumber: 'GJ0000027414',
+										isbn: '9791155815755',
+										koreanDecimalClassification: '예술 > 회화, 도화 > 만화, 삽화',
+										categoryClassification: '문학 > 한국문학 > 소설',
+										supplement: '포함',
+									}}
+								/>
+							</div>
 						</div>
 					</div>
-				</div>
-			))}
+				))
+			}
 
 			<!-- 추가 질문 제안 -->
 			<div class="additional-questions-section">
@@ -313,29 +311,21 @@ const books = [
 					<h2>추가 질문 제안</h2>
 				</div>
 				<div class="questions-list">
-					<button class="question-item" type="button">
-						💼 직장에서의 인간관계에 대해 배우는 좋은 책은?
-					</button>
-					<button class="question-item" type="button">
-						🤝 직장 내 인간관계를 개선하는 책은?
-					</button>
-					<button class="question-item" type="button">
-						📚 직장인 관계에 관한 인기 도서 추천해줘
-					</button>
+					<button class="question-item" type="button">💼 직장에서의 인간관계에 대해 배우는 좋은 책은?</button>
+					<button class="question-item" type="button">🤝 직장 내 인간관계를 개선하는 책은?</button>
+					<button class="question-item" type="button">📚 직장인 관계에 관한 인기 도서 추천해줘</button>
 				</div>
 			</div>
 		</div>
 
-
-			<!-- AI 로딩 상태 -->
-			<div class="ai-loading-section">
-				<div class="ai-chatbot-icon">
-					<img src="./assets/images/icon/ai-chatbot2.svg" alt="AI 챗봇" />
-				</div>
-				<div class="loading-text">
-					<span class="ai-brand">AI 책큐</span>가 질문에 맞는<br />책을 찾고있어요!
-				</div>
+		<!-- AI 로딩 상태 -->
+		<div class="ai-loading-section">
+			<div class="ai-chatbot-icon">
+				<img src="./assets/images/icon/ai-chatbot2.svg" alt="AI 챗봇" />
 			</div>
+			<div class="loading-text">
+				<span class="ai-brand">AI 책큐</span>가 질문에 맞는<br />책을 찾고있어요!
+			</div>
+		</div>
 	</SubLayout>
 </Layout>
-

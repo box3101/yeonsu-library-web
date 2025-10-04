@@ -234,6 +234,69 @@ const books = [
 					}}
 				/>
 
+				<!-- AI 책큐 추천 섹션 -->
+				<div class="ai-recommendation-section">
+					<div class="ai-recommendation-content">
+						<!-- AI 책큐 한마디 -->
+						<div class="ai-quote-section">
+							<h3 class="section-title">AI책큐 한마디</h3>
+							<div class="ai-quote-card">
+								<p class="quote-text">"알파세대를 위한<br />혁신적인<br />미래교육으로의 여정."</p>
+							</div>
+						</div>
+
+						<!-- AI 책큐 추천 리포트 -->
+						<div class="ai-report-section">
+							<div class="report-header">
+								<h3 class="section-title">AI책큐 추천 리포트</h3>
+								<div class="keyword-tags">
+									<img src="./assets/images/icon/icon-key.svg" alt="" class="tag-icon" />
+									<button class="keyword-tag" type="button">미래교육</button>
+									<button class="keyword-tag" type="button">디지털원주민</button>
+									<button class="keyword-tag" type="button">마크프렌스키</button>
+									<button class="keyword-tag" type="button">알파세대</button>
+								</div>
+							</div>
+
+							<!-- 탭 컨텐츠 -->
+							<div class="report-content">
+								<!-- 좌측 탭 -->
+								<div class="report-tabs">
+									<button class="report-tab" type="button" data-tab="reason">추천하는 이유</button>
+									<button class="report-tab" type="button" data-tab="after">책을 읽고 난 후</button>
+									<button class="report-tab report-tab--active" type="button" data-tab="related">
+										관련 도서
+										<img src="./assets/images/icon/icon-recommend.svg" alt="" class="tab-icon" />
+									</button>
+								</div>
+
+								<!-- 우측 컨텐츠 영역 -->
+								<div class="report-panel">
+									<!-- 추천하는 이유 탭 내용 -->
+									<div class="report-panel-content" data-panel="reason" style="display: none;">
+										<p class="typing-text" data-typing-speed="50">
+											이 책은 미래교육의 패러다임 전환을 제시하며, 알파세대의 특성을 고려한 혁신적인 교육 방법론을
+											소개합니다.
+										</p>
+									</div>
+
+									<!-- 책을 읽고 난 후 탭 내용 -->
+									<div class="report-panel-content" data-panel="after" style="display: none;">
+										<p class="typing-text" data-typing-speed="50">
+											미래교육의 방향성과 알파세대를 위한 교육 전략에 대한 통찰을 얻을 수 있습니다.
+										</p>
+									</div>
+
+									<!-- 관련 도서 탭 내용 (기본 표시) -->
+									<div class="report-panel-content report-panel-content--active" data-panel="related">
+										<p class="empty-message">AI 책큐가 아직 도서를 다 읽지 못했어요!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- 소장정보 아코디언 테이블 -->
 				<UiAccordion
 					title="소장 정보"
@@ -514,5 +577,66 @@ const books = [
 	document.addEventListener('DOMContentLoaded', function () {
 		console.log('DOM 로드 완료, 라이브러리 대기 중...');
 		waitForLibraries();
+	});
+</script>
+
+<!-- AI 추천 섹션 탭 및 타이핑 애니메이션 스크립트 -->
+<script is:inline>
+	$(document).ready(function () {
+		// 탭 전환 기능
+		$('.report-tab').on('click', function () {
+			const targetPanel = $(this).data('tab');
+
+			// 모든 탭과 패널에서 active 클래스 제거
+			$('.report-tab').removeClass('report-tab--active');
+			$('.report-panel-content').removeClass('report-panel-content--active').hide();
+
+			// 클릭된 탭과 해당 패널에 active 클래스 추가
+			$(this).addClass('report-tab--active');
+			const $activePanel = $(`[data-panel="${targetPanel}"]`);
+
+			if ($activePanel.length) {
+				$activePanel.css('display', 'flex').addClass('report-panel-content--active');
+
+				// 타이핑 애니메이션이 있는 텍스트인 경우 애니메이션 실행
+				const $typingText = $activePanel.find('.typing-text');
+				if ($typingText.length && !$typingText.data('typed')) {
+					startTypingAnimation($typingText);
+				}
+			}
+		});
+
+		// 타이핑 애니메이션 함수
+		function startTypingAnimation($element) {
+			const text = $element.text().trim();
+			const speed = parseInt($element.data('typing-speed')) || 50;
+
+			$element.text('').addClass('typing-active').data('typed', true);
+
+			let index = 0;
+
+			function typeCharacter() {
+				if (index < text.length) {
+					$element.text($element.text() + text.charAt(index));
+					index++;
+					setTimeout(typeCharacter, speed);
+				} else {
+					// 타이핑 완료 후 커서 제거
+					setTimeout(() => {
+						$element.removeClass('typing-active');
+					}, 500);
+				}
+			}
+
+			typeCharacter();
+		}
+
+		// 키워드 태그 클릭 이벤트
+		$('.keyword-tag').on('click', function () {
+			// 모든 태그에서 active 클래스 제거
+			$('.keyword-tag').removeClass('keyword-tag--active');
+			// 클릭된 태그에 active 클래스 추가
+			$(this).addClass('keyword-tag--active');
+		});
 	});
 </script>

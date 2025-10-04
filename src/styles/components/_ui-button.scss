@@ -4,374 +4,381 @@
 @use '../variables/typography' as *;
 
 .ui-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: to-rem(4);
-  border: to-rem(1) solid transparent;
-  border-radius: to-rem(8);
-  font-family: $font-family-primary;
-  font-weight: $ui-font-medium;
-  line-height: $line-height-normal;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-sizing: border-box;
-  white-space: nowrap;
-  outline: none;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: to-rem(4);
+	border: to-rem(1) solid transparent;
+	border-radius: to-rem(8);
+	font-family: $font-family-primary;
+	font-weight: $ui-font-medium;
+	line-height: $line-height-normal;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.2s ease;
+	box-sizing: border-box;
+	white-space: nowrap;
+	outline: none;
 
-  &:focus-visible {
-    outline: 2px solid #3c79c2;
-    outline-offset: 2px;
-  }
+	&:focus-visible {
+		outline: 2px solid #3c79c2;
+		outline-offset: 2px;
+	}
 
-  &:disabled,
-  &[aria-disabled='true'],
-  &--disabled {
-    color: #6d7882;
-    background: #cdd1d5;
-    border-color: #cdd1d5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+	&:disabled,
+	&[aria-disabled='true'],
+	&--disabled {
+		color: #6d7882;
+		background: #cdd1d5;
+		border-color: #cdd1d5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 
-  // 크기 variants
-  &--xsmall {
-    padding: to-rem(6) to-rem(12);
-    font-size: $ui-text-xsmall;
-    height: $component-height-xsmall;
-    border-radius: to-rem(4);
+	// 크기 variants
+	&--xsmall {
+		padding: to-rem(6) to-rem(12);
+		font-size: $ui-text-xsmall;
+		height: $component-height-xsmall;
+		border-radius: to-rem(4);
 
-    @include mobile {
-      padding: to-rem(6) to-rem(10);
-      font-size: $ui-text-xsmall-mobile;
-      height: $component-height-xsmall-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(6) to-rem(10);
+			font-size: $ui-text-xsmall-mobile;
+			height: $component-height-xsmall-mobile;
+		}
+	}
 
-  &--small {
-    padding: to-rem(8) to-rem(16);
-    font-size: $ui-text-small;
-    height: $component-height-small;
-    border-radius: to-rem(6);
+	&--small {
+		padding: to-rem(8) to-rem(16);
+		font-size: $ui-text-small;
+		height: $component-height-small;
+		border-radius: to-rem(6);
 
-    @include mobile {
-      padding: to-rem(7) to-rem(14);
-      font-size: $ui-text-small-mobile;
-      height: $component-height-small-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(7) to-rem(14);
+			font-size: $ui-text-small-mobile;
+			height: $component-height-small-mobile;
+		}
+	}
 
-  &--medium {
-    padding: to-rem(12) to-rem(20);
-    font-size: $ui-text-medium;
-    height: $component-height-medium;
-    border-radius: to-rem(6);
+	&--medium {
+		padding: to-rem(12) to-rem(20);
+		font-size: $ui-text-medium;
+		height: $component-height-medium;
+		border-radius: to-rem(6);
 
-    @include mobile {
-      padding: to-rem(10) to-rem(18);
-      font-size: $ui-text-medium-mobile;
-      height: $component-height-medium-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(10) to-rem(18);
+			font-size: $ui-text-medium-mobile;
+			height: $component-height-medium-mobile;
+		}
+	}
 
-  &--large {
-    padding: to-rem(16) to-rem(20);
-    font-size: $ui-text-large;
-    height: $component-height-large;
-    border-radius: to-rem(8);
+	&--large {
+		padding: to-rem(16) to-rem(20);
+		font-size: $ui-text-large;
+		height: $component-height-large;
+		border-radius: to-rem(8);
 
-    @include mobile {
-      padding: to-rem(14) to-rem(20);
-      font-size: $ui-text-large-mobile;
-      height: $component-height-large-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(14) to-rem(20);
+			font-size: $ui-text-large-mobile;
+			height: $component-height-large-mobile;
+		}
+	}
 
-  &--xlarge {
-    padding: to-rem(20) to-rem(32);
-    font-size: $ui-text-xlarge;
-    height: $component-height-xlarge;
-    border-radius: to-rem(8);
+	&--xlarge {
+		padding: to-rem(20) to-rem(32);
+		font-size: $ui-text-xlarge;
+		height: $component-height-xlarge;
+		border-radius: to-rem(8);
 
-    @include mobile {
-      padding: to-rem(16) to-rem(24);
-      font-size: $ui-text-xlarge-mobile;
-      height: $component-height-xlarge-mobile;
-    }
-  }
+		@include mobile {
+			padding: to-rem(16) to-rem(24);
+			font-size: $ui-text-xlarge-mobile;
+			height: $component-height-xlarge-mobile;
+		}
+	}
 
-  // 스타일 variants
-  &--primary {
-    background: #3c79c2;
-    color: $ui-text-white;
-    border-color: #3c79c2;
+	// 스타일 variants
+	&--primary {
+		background: #3c79c2;
+		color: $ui-text-white;
+		border-color: #3c79c2;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #0b50d0;
-      border-color: #0b50d0;
-    }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #0b50d0;
+			border-color: #0b50d0;
+		}
 
-    &:active {
-      background: #083891;
-      border-color: #083891;
-    }
-  }
+		&:active {
+			background: #083891;
+			border-color: #083891;
+		}
+	}
 
-  &--darkBlue {
-    background: #244874;
-    color: $ui-text-white;
-    border-color: #244874;
+	&--darkBlue {
+		background: #244874;
+		color: $ui-text-white;
+		border-color: #244874;
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #1a3555;
-    }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #1a3555;
+		}
 
-    &:active {
-      background: #142940;
-    }
-  }
+		&:active {
+			background: #142940;
+		}
+	}
 
-  &--gray{
-    background: #7D8181;
-    color: $ui-text-white;
-    border-color: #7D8181;
-  }
+	&--green {
+		border-radius: var(--radius-medium2, 6px);
+		border: 1px solid var(--color-point-green-gn-40, #007e33);
+		background: var(--color-point-green-gn-5, #ecf9f1);
+		color: #007e33;
+	}
 
-  &--darkGray {
-    background: #4b4d4d;
-    color: $ui-text-white;
-    border-color: #4b4d4d;
+	&--gray {
+		background: #7d8181;
+		color: $ui-text-white;
+		border-color: #7d8181;
+	}
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #3a3c3c;
-    }
+	&--darkGray {
+		background: #4b4d4d;
+		color: $ui-text-white;
+		border-color: #4b4d4d;
 
-    &:active {
-      background: #2a2c2c;
-      border-color: #2a2c2c;
-    }
-  }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #3a3c3c;
+		}
 
-  &--ghost {
-    background: transparent;
-    color: #244874;
+		&:active {
+			background: #2a2c2c;
+			border-color: #2a2c2c;
+		}
+	}
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #ecf2fe;
-      color: #244874;
-    }
-  }
+	&--ghost {
+		background: transparent;
+		color: #244874;
 
-  &--secondary {
-    background: #ecf2fe;
-    color: #3c79c2;
-    border-color: #3c79c2;
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #ecf2fe;
+			color: #244874;
+		}
+	}
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #d8e5fd;
-    }
+	&--secondary {
+		background: #ecf2fe;
+		color: #3c79c2;
+		border-color: #3c79c2;
 
-    &:active {
-      background: #b1cefb;
-    }
-  }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #d8e5fd;
+		}
 
-  &--tertiary {
-    background: #fff;
-    color: $ui-text-secondary;
-    border-color: $ui-text-secondary;
+		&:active {
+			background: #b1cefb;
+		}
+	}
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #f4f5f6;
-    }
+	&--tertiary {
+		background: #fff;
+		color: $ui-text-secondary;
+		border-color: $ui-text-secondary;
 
-    &:active {
-      background: #e6e8ea;
-    }
-  }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #f4f5f6;
+		}
 
-  &--text {
-    background: transparent;
-    color: #3c79c2;
-    border-color: transparent;
+		&:active {
+			background: #e6e8ea;
+		}
+	}
 
-    &:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
-      background: #eef2f7;
-    }
+	&--text {
+		background: transparent;
+		color: #3c79c2;
+		border-color: transparent;
 
-    &:active {
-      background: #d6e0eb;
-    }
-  }
+		&:hover:not(:disabled):not([aria-disabled='true']):not(.ui-button--disabled) {
+			background: #eef2f7;
+		}
 
-  // 아이콘 전용 버튼
-  &--icon-only {
-    aspect-ratio: 1;
+		&:active {
+			background: #d6e0eb;
+		}
+	}
 
-    &.ui-button--xsmall {
-      padding: to-rem(8);
-      @include mobile {
-        padding: to-rem(6);
-      }
-    }
-    &.ui-button--small {
-      padding: to-rem(12);
-      @include mobile {
-        padding: to-rem(5) to-rem(10);
-      }
-    }
-    &.ui-button--medium {
-      padding: to-rem(14);
-      @include mobile {
-        padding: to-rem(12);
-      }
-    }
-    &.ui-button--large {
-      padding: to-rem(18);
-      @include mobile {
-        padding: to-rem(16);
-      }
-    }
-    &.ui-button--xlarge {
-      padding: to-rem(20);
-      @include mobile {
-        padding: to-rem(18);
-      }
-    }
-  }
+	// 아이콘 전용 버튼
+	&--icon-only {
+		aspect-ratio: 1;
 
-  // 로딩 상태
-  &--loading {
-    pointer-events: none;
+		&.ui-button--xsmall {
+			padding: to-rem(8);
+			@include mobile {
+				padding: to-rem(6);
+			}
+		}
+		&.ui-button--small {
+			padding: to-rem(12);
+			@include mobile {
+				padding: to-rem(5) to-rem(10);
+			}
+		}
+		&.ui-button--medium {
+			padding: to-rem(14);
+			@include mobile {
+				padding: to-rem(12);
+			}
+		}
+		&.ui-button--large {
+			padding: to-rem(18);
+			@include mobile {
+				padding: to-rem(16);
+			}
+		}
+		&.ui-button--xlarge {
+			padding: to-rem(20);
+			@include mobile {
+				padding: to-rem(18);
+			}
+		}
+	}
 
-    .ui-button__text,
-    .ui-button__icon {
-      opacity: 0;
-    }
-  }
+	// 로딩 상태
+	&--loading {
+		pointer-events: none;
 
-  // 스피너
-  &__spinner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		.ui-button__text,
+		.ui-button__icon {
+			opacity: 0;
+		}
+	}
 
-    &-icon {
-      color: currentColor;
-      width: to-rem(16);
-      height: to-rem(16);
+	// 스피너
+	&__spinner {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-      .ui-button--large & {
-        width: to-rem(20);
-        height: to-rem(20);
-      }
+		&-icon {
+			color: currentColor;
+			width: to-rem(16);
+			height: to-rem(16);
 
-      .ui-button--xlarge & {
-        width: to-rem(24);
-        height: to-rem(24);
-      }
+			.ui-button--large & {
+				width: to-rem(20);
+				height: to-rem(20);
+			}
 
-      @include mobile {
-        .ui-button--large & {
-          width: to-rem(18);
-          height: to-rem(18);
-        }
+			.ui-button--xlarge & {
+				width: to-rem(24);
+				height: to-rem(24);
+			}
 
-        .ui-button--xlarge & {
-          width: to-rem(20);
-          height: to-rem(20);
-        }
-      }
-    }
-  }
+			@include mobile {
+				.ui-button--large & {
+					width: to-rem(18);
+					height: to-rem(18);
+				}
 
-  // 텍스트
-  &__text {
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+				.ui-button--xlarge & {
+					width: to-rem(20);
+					height: to-rem(20);
+				}
+			}
+		}
+	}
 
-    .ui-button--icon-only & {
-      display: none;
-    }
-  }
+	// 텍스트
+	&__text {
+		min-width: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
-  // 아이콘
-  &__icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		.ui-button--icon-only & {
+			display: none;
+		}
+	}
 
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+	// 아이콘
+	&__icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    &--left {
-      order: -1;
-    }
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
 
-    &--right {
-      order: 1;
-    }
-  }
+		&--left {
+			order: -1;
+		}
 
-  // 크기별 아이콘 크기
-  &--xsmall &__icon {
-    width: to-rem(16);
-    height: to-rem(16);
-    @include mobile {
-      width: to-rem(14);
-      height: to-rem(14);
-    }
-  }
+		&--right {
+			order: 1;
+		}
+	}
 
-  &--small &__icon {
-    width: to-rem(16);
-    height: to-rem(16);
-    @include mobile {
-      width: to-rem(14);
-      height: to-rem(14);
-    }
-  }
+	// 크기별 아이콘 크기
+	&--xsmall &__icon {
+		width: to-rem(16);
+		height: to-rem(16);
+		@include mobile {
+			width: to-rem(14);
+			height: to-rem(14);
+		}
+	}
 
-  &--medium &__icon {
-    width: to-rem(20);
-    height: to-rem(20);
-    @include mobile {
-      width: to-rem(18);
-      height: to-rem(18);
-    }
-  }
+	&--small &__icon {
+		width: to-rem(16);
+		height: to-rem(16);
+		@include mobile {
+			width: to-rem(14);
+			height: to-rem(14);
+		}
+	}
 
-  &--large &__icon {
-    width: to-rem(20);
-    height: to-rem(20);
-    @include mobile {
-      width: to-rem(18);
-      height: to-rem(18);
-    }
-  }
+	&--medium &__icon {
+		width: to-rem(20);
+		height: to-rem(20);
+		@include mobile {
+			width: to-rem(18);
+			height: to-rem(18);
+		}
+	}
 
-  &--xlarge &__icon {
-    width: to-rem(24);
-    height: to-rem(24);
-    @include mobile {
-      width: to-rem(20);
-      height: to-rem(20);
-    }
-  }
+	&--large &__icon {
+		width: to-rem(20);
+		height: to-rem(20);
+		@include mobile {
+			width: to-rem(18);
+			height: to-rem(18);
+		}
+	}
 
-  // 링크로 사용될 때
-  &[href] {
-    display: inline-flex;
-  }
+	&--xlarge &__icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		@include mobile {
+			width: to-rem(20);
+			height: to-rem(20);
+		}
+	}
+
+	// 링크로 사용될 때
+	&[href] {
+		display: inline-flex;
+	}
 }
