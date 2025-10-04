@@ -524,11 +524,23 @@
 			}
 
 			.notice-empty {
+				@include flex-center;
+				min-height: to-rem(240);
+				padding: to-rem(40) to-rem(20);
+				background: $white;
+				border-radius: to-rem(12);
+				border: 1px solid #ecf2fe;
+
 				p {
 					font-size: to-rem(17);
 					font-weight: 700;
-					color: #191a1a;
+					color: #6b7280;
 					line-height: 1.5;
+					text-align: center;
+
+					@include tablet {
+						font-size: to-rem(15);
+					}
 				}
 			}
 		}
@@ -600,7 +612,7 @@
 		flex-shrink: 0;
 
 		// 도서관 코드별 배경색 (코드 번호 기반)
-		&--0 {
+		&--000000 {
 			background: $institution-전체;
 		}
 
@@ -879,6 +891,49 @@
 			margin-top: to-rem(24);
 		}
 
+		// 이벤트 리스트 컨테이너 (문화행사, 프로그램, 영화상영 공통)
+		.event-section__list-container {
+			.event-list,
+			.program-list,
+			.movie-list {
+				.event-card {
+					opacity: 0;
+					transform: translateY(10px);
+					transition: opacity 0.3s ease, transform 0.3s ease;
+
+					&.hidden {
+						display: none;
+					}
+
+					&.fade-in {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+
+				.event-empty {
+					@include flex-center;
+					min-height: to-rem(240);
+					padding: to-rem(40) to-rem(20);
+					background: $white;
+					border-radius: to-rem(12);
+					border: 1px solid #9da2a2;
+
+					p {
+						font-size: to-rem(17);
+						font-weight: 700;
+						color: #6b7280;
+						line-height: 1.5;
+						text-align: center;
+
+						@include tablet {
+							font-size: to-rem(15);
+						}
+					}
+				}
+			}
+		}
+
 		// 이벤트 카드 목록
 		.event-cards {
 			list-style: none;
@@ -929,6 +984,103 @@
 
 				@include tablet {
 					align-self: flex-start;
+				}
+
+				// 도서관 코드별 배경색 (코드 번호 기반)
+				&--000000 {
+					background: $institution-전체;
+				}
+
+				&--128121 {
+					background: $institution-송도국제;
+				}
+
+				&--128005 {
+					background: $institution-연수어린이;
+				}
+
+				&--128058 {
+					background: $institution-청학;
+				}
+
+				&--128115 {
+					background: $institution-연수꿈담;
+				}
+
+				&--128047 {
+					background: $institution-송도국제어린이;
+				}
+
+				&--128099 {
+					background: $institution-해돋이;
+				}
+
+				&--128104 {
+					background: $institution-선학별빛;
+				}
+
+				&--128108 {
+					background: $institution-동춘나래;
+				}
+
+				&--128109 {
+					background: $institution-함박비류;
+				}
+
+				&--128038 {
+					background: $institution-옥련1동작은;
+				}
+
+				&--128011 {
+					background: $institution-옥련2동어린이작은;
+				}
+
+				&--128100 {
+					background: $institution-연수1동작은;
+				}
+
+				&--128086 {
+					background: $institution-송도2동작은;
+				}
+
+				&--728143 {
+					background: $institution-송도3동작은;
+				}
+
+				&--728211 {
+					background: $institution-송도5동작은;
+				}
+
+				&--128082 {
+					background: $institution-문화공원작은;
+				}
+
+				&--728210 {
+					background: $institution-솔안공원작은;
+				}
+
+				&--728220 {
+					background: $institution-해찬솔공원;
+				}
+
+				&--728222 {
+					background: $institution-누리공원;
+				}
+
+				&--912345 {
+					background: $institution-송도4동스마트;
+				}
+
+				&--912346 {
+					background: $institution-스퀘어원스마트;
+				}
+
+				&--912347 {
+					background: $institution-연수구청스마트;
+				}
+
+				&--912348 {
+					background: $institution-선학역스마트;
 				}
 			}
 
@@ -1269,19 +1421,215 @@
 // 도서관 지도
 .library-map {
 	position: relative;
-	background: #f8f9fa;
-	border-radius: 12px;
-	overflow: hidden;
-	height: 400px;
+	background: $white;
+	border: 1px solid #ddd;
+	border-radius: to-rem(12);
+	padding: to-rem(32);
+	box-sizing: border-box;
 
 	@include tablet {
-		height: 300px;
+		padding: to-rem(16);
+	}
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
 	}
 
 	&__image {
 		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	&__markers {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		pointer-events: none;
+	}
+
+	&__logo-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		pointer-events: none;
+	}
+}
+
+// 도서관 마커
+.library-marker {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	pointer-events: auto;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+
+	@include mobile {
+		width: 20px;
+		height: 20px;
+	}
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	&__icon {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 13px;
+			height: 13px;
+			background-image: url('../../assets/images/marker-icon.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	// 송도 (dark blue)
+	&--db {
+		.library-marker__icon {
+			background-color: #063a74;
+		}
+	}
+
+	// 연수 (purple)
+	&--pu {
+		.library-marker__icon {
+			background-color: #8e63aa;
+		}
+	}
+
+	// 동춘/선학 (orange)
+	&--or {
+		.library-marker__icon {
+			background-color: #ef6601;
+		}
+	}
+
+	// 옥련 (green)
+	&--g {
+		.library-marker__icon {
+			background-color: #a3cf62;
+		}
+	}
+
+	// 기타 (gray)
+	&--gy {
+		.library-marker__icon {
+			background-color: #979a9a;
+		}
+	}
+
+	// 활성화 상태
+	&.is-active {
+		z-index: 100;
+	}
+}
+
+// 도서관 팝업
+.library-popup {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 101;
+	pointer-events: none;
+	transform: translate(-50%, -100%);
+	margin-top: -12px;
+
+	&__location-icon {
+		position: relative;
+		top: 10px;
+		width: auto;
+		height: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		background-color: #18304d;
+		border-radius: 50px;
+		padding: 8px;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		min-width: 150px;
+	}
+
+	&__logo {
+		width: 40px;
+		height: 40px;
+		background-color: white;
+		border-radius: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6px;
+		box-sizing: border-box;
+		flex-shrink: 0;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	&__name {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: 15px;
+		line-height: 1.5;
+		color: white;
+		white-space: nowrap;
+		margin: 0;
+	}
+
+	@include mobile {
+		&__info {
+			min-width: 120px;
+			gap: 6px;
+			padding: 6px;
+		}
+
+		&__logo {
+			width: 32px;
+			height: 32px;
+		}
+
+		&__name {
+			font-size: 13px;
+		}
+
+		&__location-icon {
+			width: 32px;
+			height: 46px;
+		}
 	}
 }
 

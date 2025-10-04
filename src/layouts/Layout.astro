@@ -50,6 +50,9 @@ import '../styles/main.scss';
 		<script is:inline type="text/javascript" src="./assets/js/collectAccordion.js"></script>
 		<script is:inline type="text/javascript" src="./assets/js/swiper.js"></script>
 		<script is:inline type="text/javascript" src="./assets/js/noticePagination.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/eventPagination.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/programPagination.js"></script>
+		<script is:inline type="text/javascript" src="./assets/js/moviePagination.js"></script>
 		<script is:inline type="text/javascript" src="./assets/js/collection.js"></script>
 		<script is:inline type="text/javascript" src="./assets/js/collectionModal.js"></script>
 		<script is:inline type="text/javascript" src="./assets/js/comGnb.js"></script>
@@ -65,16 +68,20 @@ import '../styles/main.scss';
 		<script is:inline type="text/javascript" src="./assets/js/sub/filter.js"></script>
 
 		<script is:inline>
-			document.addEventListener('DOMContentLoaded', function () {
+			window.addEventListener('load', function () {
 				AOS.init({
 					duration: 600, // 자연스러운 지속 시간 (600ms)
 					easing: 'ease-out-cubic', // 부드러운 이징
 					once: true, // 한 번만 애니메이션 실행
-					offset: 80, // 트리거 지점 (80px 전에 시작)
+					offset: 120, // 트리거 지점 (120px 전에 시작)
 					delay: 0, // 지연 시간 없음
 					disable: false, // 모든 기기에서 활성화
-					startEvent: 'DOMContentLoaded', // DOM 로드 후 시작
 				});
+
+				// AOS 강제 리프레시
+				setTimeout(function () {
+					AOS.refresh();
+				}, 100);
 			});
 		</script>
 	</body>

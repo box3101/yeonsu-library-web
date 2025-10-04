@@ -100,12 +100,12 @@ const libraryHours = [
 	},
 ];
 
-// 이벤트 카드 데이터 (더 많은 데이터로 확장)
+// 문화행사 데이터
 const allEventCards = [
 	// 첫 번째 그룹 (4개)
 	{
 		tag: '연수꿈담',
-		tagClass: 'event-card__tag--yeonsu-kkumdham',
+		tagClass: 'event-card__tag--128115',
 		title: '[여름방학 독서교실] 그림책 주인공 뜨기(어린이 손뜨개) (초등 3~4학년)',
 		educationPeriod: '2025-07-30 ~ 2025-08-02',
 		applicationPeriod: '2025-07-17 ~ 2025-07-17',
@@ -114,7 +114,7 @@ const allEventCards = [
 	},
 	{
 		tag: '송도5동',
-		tagClass: 'event-card__tag--songdo5dong',
+		tagClass: 'event-card__tag--728211',
 		title: '[대기자접수] [특화/초등3~5학년] AI 머신러닝 3D LAMP',
 		educationPeriod: '2025-07-19 ~ 2025-08-09',
 		applicationPeriod: '2025-07-16 ~ 2025-07-18',
@@ -123,7 +123,7 @@ const allEventCards = [
 	},
 	{
 		tag: '누리공원',
-		tagClass: 'event-card__tag--nuri-park',
+		tagClass: 'event-card__tag--728222',
 		title: '[한국사 특화/유아] 영어로 소개하는 한국사 위인(여름방학)',
 		educationPeriod: '2025-08-05 ~ 2025-08-14',
 		applicationPeriod: '2025-07-08 ~ 2025-07-18',
@@ -132,8 +132,9 @@ const allEventCards = [
 	},
 	{
 		tag: '송도국제',
-		tagClass: 'event-card__tag--songdo-international',
-		title: '[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
+		tagClass: 'event-card__tag--128121',
+		title:
+			'[★대기자 모집_ 2025 여름방학 독서교실] 1교시 (초등 2~3학년) <뜨거운 태양 아래의 비밀 – 고대문명의 여름 이야기>',
 		educationPeriod: '2025-08-05 ~ 2025-08-08',
 		applicationPeriod: '2025-07-24 ~ 2025-08-04',
 		enrollment: { current: '12', total: '50', status: '(마감)' },
@@ -141,8 +142,8 @@ const allEventCards = [
 	},
 	// 두 번째 그룹 (4개)
 	{
-		tag: '청학',
-		tagClass: 'event-card__tag--cheonghak',
+		tag: '연수청학',
+		tagClass: 'event-card__tag--128058',
 		title: '[청학도서관] 여름방학 코딩 교실 - 스크래치로 게임 만들기',
 		educationPeriod: '2025-08-01 ~ 2025-08-10',
 		applicationPeriod: '2025-07-15 ~ 2025-07-25',
@@ -150,27 +151,27 @@ const allEventCards = [
 		waitlist: { current: '5', total: '20' },
 	},
 	{
-		tag: '논현',
-		tagClass: 'event-card__tag--nonhyeon',
-		title: '[논현도서관] 성인 독서토론 클럽 - 현대문학 읽기',
+		tag: '송도국제어린이',
+		tagClass: 'event-card__tag--128047',
+		title: '[송도국제어린이] 성인 독서토론 클럽 - 현대문학 읽기',
 		educationPeriod: '2025-08-05 ~ 2025-08-26',
 		applicationPeriod: '2025-07-20 ~ 2025-08-02',
 		enrollment: { current: '25', total: '30' },
 		waitlist: { current: '3', total: '15' },
 	},
 	{
-		tag: '옥련',
-		tagClass: 'event-card__tag--okryeon',
-		title: '[옥련도서관] 어린이 영어 스토리텔링',
+		tag: '옥련1동',
+		tagClass: 'event-card__tag--128038',
+		title: '[옥련1동작은도서관] 어린이 영어 스토리텔링',
 		educationPeriod: '2025-08-03 ~ 2025-08-17',
 		applicationPeriod: '2025-07-18 ~ 2025-08-01',
 		enrollment: { current: '40', total: '45' },
 		waitlist: { current: '2', total: '25' },
 	},
 	{
-		tag: '학익',
-		tagClass: 'event-card__tag--hakik',
-		title: '[학익도서관] 시니어 디지털 리터러시 교육',
+		tag: '함박비류',
+		tagClass: 'event-card__tag--128109',
+		title: '[함박비류도서관] 시니어 디지털 리터러시 교육',
 		educationPeriod: '2025-08-07 ~ 2025-08-21',
 		applicationPeriod: '2025-07-22 ~ 2025-08-05',
 		enrollment: { current: '18', total: '25' },
@@ -178,18 +179,18 @@ const allEventCards = [
 	},
 	// 세 번째 그룹 (4개)
 	{
-		tag: '문학',
-		tagClass: 'event-card__tag--literature',
-		title: '[문학도서관] 청소년 창작 워크숍 - 소설 쓰기의 기초',
+		tag: '문화공원',
+		tagClass: 'event-card__tag--128082',
+		title: '[문화공원작은도서관] 청소년 창작 워크숍 - 소설 쓰기의 기초',
 		educationPeriod: '2025-08-09 ~ 2025-08-23',
 		applicationPeriod: '2025-07-25 ~ 2025-08-07',
 		enrollment: { current: '22', total: '30' },
 		waitlist: { current: '4', total: '15' },
 	},
 	{
-		tag: '선학',
-		tagClass: 'event-card__tag--seonhak',
-		title: '[선학도서관] 부모와 함께하는 그림책 만들기',
+		tag: '선학별빛',
+		tagClass: 'event-card__tag--128104',
+		title: '[선학별빛도서관] 부모와 함께하는 그림책 만들기',
 		educationPeriod: '2025-08-12 ~ 2025-08-19',
 		applicationPeriod: '2025-07-28 ~ 2025-08-10',
 		enrollment: { current: '35', total: '40' },
@@ -197,8 +198,8 @@ const allEventCards = [
 	},
 	{
 		tag: '동춘나래',
-		tagClass: 'event-card__tag--dongchun-narae',
-		title: '[동춘나래] 중학생 진로탐색 독서 프로그램',
+		tagClass: 'event-card__tag--128108',
+		title: '[동춘나래도서관] 중학생 진로탐색 독서 프로그램',
 		educationPeriod: '2025-08-14 ~ 2025-08-28',
 		applicationPeriod: '2025-07-30 ~ 2025-08-12',
 		enrollment: { current: '28', total: '35' },
@@ -206,8 +207,8 @@ const allEventCards = [
 	},
 	{
 		tag: '해돋이',
-		tagClass: 'event-card__tag--haedoji',
-		title: '[해돋이] 유아 음악 동화 체험교실',
+		tagClass: 'event-card__tag--128099',
+		title: '[해돋이도서관] 유아 음악 동화 체험교실',
 		educationPeriod: '2025-08-16 ~ 2025-08-30',
 		applicationPeriod: '2025-08-01 ~ 2025-08-14',
 		enrollment: { current: '20', total: '25' },
@@ -215,19 +216,93 @@ const allEventCards = [
 	},
 ];
 
-// 4개씩 그룹으로 나누기
-const eventItemsPerSlide = 4;
-const eventGroups = [];
-for (let i = 0; i < allEventCards.length; i += eventItemsPerSlide) {
-	eventGroups.push(allEventCards.slice(i, i + eventItemsPerSlide));
-}
+// const allProgramCards = [];
+
+const allProgramCards = [
+	{
+		tag: '연수청학',
+		tagClass: 'event-card__tag--128058',
+		title: '[정기 프로그램] 책과 함께하는 인문학 강좌',
+		educationPeriod: '2025-08-01 ~ 2025-08-29',
+		applicationPeriod: '2025-07-15 ~ 2025-07-30',
+		enrollment: { current: '45', total: '50' },
+		waitlist: { current: '3', total: '20' },
+	},
+	{
+		tag: '송도국제',
+		tagClass: 'event-card__tag--128121',
+		title: '[어린이] 창의 코딩 교실 - 로봇 프로그래밍',
+		educationPeriod: '2025-08-03 ~ 2025-08-24',
+		applicationPeriod: '2025-07-20 ~ 2025-08-02',
+		enrollment: { current: '20', total: '20', status: '(마감)' },
+		waitlist: { current: '5', total: '10' },
+	},
+	{
+		tag: '해돋이',
+		tagClass: 'event-card__tag--128099',
+		title: '[성인] 디지털 리터러시 향상 과정',
+		educationPeriod: '2025-08-05 ~ 2025-08-26',
+		applicationPeriod: '2025-07-22 ~ 2025-08-04',
+		enrollment: { current: '15', total: '30' },
+		waitlist: { current: '0', total: '15' },
+	},
+	{
+		tag: '누리공원',
+		tagClass: 'event-card__tag--728222',
+		title: '[청소년] 진로 탐색 멘토링 프로그램',
+		educationPeriod: '2025-08-10 ~ 2025-08-31',
+		applicationPeriod: '2025-07-25 ~ 2025-08-09',
+		enrollment: { current: '12', total: '25' },
+		waitlist: { current: '2', total: '10' },
+	},
+];
+
+// 영화상영 데이터
+const allMovieCards = [
+	{
+		tag: '연수꿈담',
+		tagClass: 'event-card__tag--128115',
+		title: '[가족영화] 인사이드 아웃 2 상영회',
+		educationPeriod: '2025-08-15 ~ 2025-08-15',
+		applicationPeriod: '2025-08-01 ~ 2025-08-14',
+		enrollment: { current: '80', total: '100' },
+		waitlist: { current: '10', total: '30' },
+	},
+	{
+		tag: '송도국제',
+		tagClass: 'event-card__tag--128121',
+		title: '[어린이] 짱구는 못말려 극장판 상영',
+		educationPeriod: '2025-08-17 ~ 2025-08-17',
+		applicationPeriod: '2025-08-03 ~ 2025-08-16',
+		enrollment: { current: '50', total: '60' },
+		waitlist: { current: '5', total: '20' },
+	},
+	{
+		tag: '선학별빛',
+		tagClass: 'event-card__tag--128104',
+		title: '[성인] 클래식 명화 상영 - 시네마 천국',
+		educationPeriod: '2025-08-20 ~ 2025-08-20',
+		applicationPeriod: '2025-08-05 ~ 2025-08-19',
+		enrollment: { current: '35', total: '50' },
+		waitlist: { current: '0', total: '15' },
+	},
+	{
+		tag: '해찬솔공원',
+		tagClass: 'event-card__tag--728220',
+		title: '[청소년] 애니메이션 영화제',
+		educationPeriod: '2025-08-22 ~ 2025-08-22',
+		applicationPeriod: '2025-08-07 ~ 2025-08-21',
+		enrollment: { current: '40', total: '70', status: '(마감)' },
+		waitlist: { current: '8', total: '25' },
+	},
+];
 
 // 공지사항 데이터를 더 많이 준비 (여러 페이지를 위해)
 const allNoticeItems = [
 	// 첫 번째 그룹 (4개)
 	{
-		tag: '송도5동작은',
-		tagClass: 'notice-item__tag--0',
+		tag: '송도5동',
+		tagClass: 'notice-item__tag--728211',
 		title:
 			'선학별빛도서관 2025년 5~6월 유실물 게시 (07.05) 글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트글자테스트',
 		date: '07.05',
@@ -235,83 +310,55 @@ const allNoticeItems = [
 	},
 	{
 		tag: '연수꿈담',
-		tagClass: 'notice-item__tag--128058',
+		tagClass: 'notice-item__tag--128115',
 		title: '[연수꿈담] 2025년 5~6월 유실물 게시 목록 (07.04)',
 		date: '07.05',
 		isBold: true,
 	},
 	{
 		tag: '해돋이',
-		tagClass: 'notice-item__tag--해돋이',
+		tagClass: 'notice-item__tag--128099',
 		title: '해돋이도서관 사서도우미(자원활동(06.26))',
 		date: '07.05',
 		isBold: false,
 	},
 	{
-		tag: '전체',
-		tagClass: 'notice-item__tag--전체',
+		tag: '통합도서관',
+		tagClass: 'notice-item__tag--000000',
 		title: '2025년 전체 도서관 [특화 프로그램(06.26)]',
 		date: '07.05',
 		isBold: false,
 	},
 	// 두 번째 그룹 (4개)
 	{
-		tag: '청학',
-		tagClass: 'notice-item__tag--청학',
+		tag: '연수청학',
+		tagClass: 'notice-item__tag--128058',
 		title: '청학도서관 2025년 5~6월 유실물 게시 (07.05)',
 		date: '07.05',
 		isBold: false,
 	},
 	{
 		tag: '송도국제',
-		tagClass: 'notice-item__tag--송도국제',
+		tagClass: 'notice-item__tag--128121',
 		title: '[송도국제] 도서관 운영시간 변경 안내',
 		date: '07.04',
 		isBold: true,
 	},
 	{
 		tag: '해찬솔공원',
-		tagClass: 'notice-item__tag--해찬솔공원',
+		tagClass: 'notice-item__tag--728220',
 		title: '해찬솔공원도서관 특별 프로그램 안내',
 		date: '07.03',
 		isBold: false,
 	},
 	{
 		tag: '누리공원',
-		tagClass: 'notice-item__tag--누리공원',
+		tagClass: 'notice-item__tag--728222',
 		title: '누리공원도서관 휴관 안내',
 		date: '07.02',
 		isBold: false,
 	},
-	// {
-	// 	tag: '동춘나래',
-	// 	tagClass: 'notice-item__tag--gray',
-	// 	title: '[동춘나래] 2025년 5~6월 유실물 게시 목록 (07.04)',
-	// 	date: '07.05',
-	// 	isBold: true,
-	// },
-	// {
-	// 	tag: '해돋이',
-	// 	tagClass: 'notice-item__tag--orange',
-	// 	title: '해산물공원작은도서관 사서도우미(자원활동(06.26))',
-	// 	date: '07.05',
-	// 	isBold: false,
-	// },
-	// {
-	// 	tag: '솔안공원',
-	// 	tagClass: 'notice-item__tag--navy',
-	// 	title: '2025년 솔안공원 작은도서관 [특화 프로그램(06.26)]',
-	// 	date: '07.05',
-	// 	isBold: false,
-	// },
 ];
-
-// 4개씩 그룹으로 나누기
-const itemsPerSlide = 4;
-const noticeGroups = [];
-for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
-	noticeGroups.push(allNoticeItems.slice(i, i + itemsPerSlide));
-}
 ---
 
 <Layout>
@@ -358,7 +405,12 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 					<div class="search-input">
 						<form class="search-input__form">
 							<div class="search-input__container">
-								<input type="text" class="search-input__field" placeholder="찾고 싶은 도서의 내용을 입력하세요." aria-label="검색어 입력" />
+								<input
+									type="text"
+									class="search-input__field"
+									placeholder="찾고 싶은 도서의 내용을 입력하세요."
+									aria-label="검색어 입력"
+								/>
 								<button type="submit" class="search-input__button" aria-label="검색">
 									<img src="./assets/images/icon/icon-search-large.svg" alt="검색" width="40" height="40" />
 								</button>
@@ -401,19 +453,9 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 							</div>
 
 							<div class="btn-nav">
-								<UiNavButton
-									class="book-recommendation-btn-prev"
-									direction="prev"
-									size={24}
-									ariaLabel="이전 추천"
-								/>
+								<UiNavButton class="book-recommendation-btn-prev" direction="prev" size={24} ariaLabel="이전 추천" />
 
-								<UiNavButton
-									class="book-recommendation-btn-next"
-									direction="next"
-									size={24}
-									ariaLabel="다음 추천"
-								/>
+								<UiNavButton class="book-recommendation-btn-next" direction="next" size={24} ariaLabel="다음 추천" />
 							</div>
 						</div>
 					</div>
@@ -509,7 +551,11 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 								</a>
 								<a href="#" class="quick-link">
 									<div class="quick-link__icon">
-										<img src="./assets/images/icon/quick-link05.svg" alt="열람실좌석현황" class="quick-link__icon-img" />
+										<img
+											src="./assets/images/icon/quick-link05.svg"
+											alt="열람실좌석현황"
+											class="quick-link__icon-img"
+										/>
 									</div>
 									<span class="quick-link__text">열람실좌석현황</span>
 								</a>
@@ -544,72 +590,187 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 					<div class="event-section__content">
 						<!-- 문화행사 탭 패널 -->
 						<div id="panel-culture" class="ui-tab-panel ui-tab-panel--active">
-							<div class="event-section__filter flex justify-between items-center" data-aos="fade-up" data-aos-duration="500">
+							<div
+								class="event-section__filter flex justify-between items-center"
+								data-aos="fade-up"
+								data-aos-duration="500"
+							>
 								<UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
 								<div class="event-section__nav flex items-center gap-4">
-									<UiNavButton class="event-swiper-btn-prev" direction="prev" size={40} ariaLabel="이전 이벤트" />
-									<UiNavButton class="event-swiper-btn-next" direction="next" size={40} ariaLabel="다음 이벤트" />
+									<UiNavButton class="event-prev-btn" direction="prev" size={40} ariaLabel="이전 이벤트" />
+									<UiNavButton class="event-next-btn" direction="next" size={40} ariaLabel="다음 이벤트" />
 								</div>
 							</div>
 
-							<!-- 이벤트 카드 스와이퍼 -->
-							<div class="event-section__swiper" data-aos="fade-up" data-aos-duration="500">
-								<div class="swiper event-swiper">
-									<div class="swiper-wrapper">
-										{
-											eventGroups.map((group, groupIndex) => (
-												<div class="swiper-slide">
-													<ul class="event-cards">
-														{group.map((card, cardIndex) => (
-															<li class="event-card" key={`${groupIndex}-${cardIndex}`}>
-																<a href="#" class="event-card__link">
-																	<div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
-																	<div class="event-card__content">
-																		<h4 class="event-card__title">{card.title}</h4>
-																		<div class="event-card__info">
-																			<div class="event-card__info-left">
-																				<div class="event-card__info-item">
-																					<span class="event-card__label">교육기간</span>
-																					<span class="event-card__value">{card.educationPeriod}</span>
-																				</div>
-																				<div class="event-card__info-item">
-																					<span class="event-card__label">모집인원</span>
-																					<span class="event-card__value">
-																						<span class="event-card__highlight">{card.enrollment.current}</span>/{card.enrollment.total}
-																						{card.enrollment.status || ''}
-																					</span>
-																				</div>
-																			</div>
-																			<div class="event-card__info-right">
-																				<div class="event-card__info-item">
-																					<span class="event-card__label">접수기간</span>
-																					<span class="event-card__value">{card.applicationPeriod}</span>
-																				</div>
-																				<div class="event-card__info-item">
-																					<span class="event-card__label">예비인원</span>
-																					<span class="event-card__value">
-																						<span class="event-card__highlight">{card.waitlist.current}</span>/{card.waitlist.total}
-																					</span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</a>
-															</li>
-														))}
-													</ul>
-												</div>
-											))
-										}
-									</div>
+							<div class="event-section__list-container" data-aos="fade-up" data-aos-duration="500">
+								<div class="event-list" data-items-per-page="4">
+									{
+										allEventCards.map((card, cardIndex) => (
+											<div class="event-card" data-index={cardIndex} key={cardIndex}>
+												<a href="#" class="event-card__link">
+													<div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
+													<div class="event-card__content">
+														<h4 class="event-card__title">{card.title}</h4>
+														<div class="event-card__info">
+															<div class="event-card__info-left">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">교육기간</span>
+																	<span class="event-card__value">{card.educationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">모집인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.enrollment.current}</span>/
+																		{card.enrollment.total}
+																		{card.enrollment.status || ''}
+																	</span>
+																</div>
+															</div>
+															<div class="event-card__info-right">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">접수기간</span>
+																	<span class="event-card__value">{card.applicationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">예비인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.waitlist.current}</span>/
+																		{card.waitlist.total}
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										))
+									}
 								</div>
 							</div>
 						</div>
 						<!-- 프로그램 탭 패널 -->
-						<div id="panel-program" class="ui-tab-panel">프로그램</div>
+						<div id="panel-program" class="ui-tab-panel">
+							<div
+								class="event-section__filter flex justify-between items-center"
+								data-aos="fade-up"
+								data-aos-duration="500"
+							>
+								<UiSelect name="library-filter-program" options={selectOptions} value="all" class="w-180" />
+								<div class="event-section__nav flex items-center gap-4">
+									<UiNavButton class="program-prev-btn" direction="prev" size={40} ariaLabel="이전 프로그램" />
+									<UiNavButton class="program-next-btn" direction="next" size={40} ariaLabel="다음 프로그램" />
+								</div>
+							</div>
+
+							<!-- 프로그램 카드 리스트 (자바스크립트 페이지네이션) -->
+							<div class="event-section__list-container" data-aos="fade-up" data-aos-duration="500">
+								<div class="program-list" data-items-per-page="4">
+									{
+										allProgramCards.map((card, cardIndex) => (
+											<div class="event-card" data-index={cardIndex} key={cardIndex}>
+												<a href="#" class="event-card__link">
+													<div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
+													<div class="event-card__content">
+														<h4 class="event-card__title">{card.title}</h4>
+														<div class="event-card__info">
+															<div class="event-card__info-left">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">교육기간</span>
+																	<span class="event-card__value">{card.educationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">모집인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.enrollment.current}</span>/
+																		{card.enrollment.total}
+																		{card.enrollment.status || ''}
+																	</span>
+																</div>
+															</div>
+															<div class="event-card__info-right">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">접수기간</span>
+																	<span class="event-card__value">{card.applicationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">예비인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.waitlist.current}</span>/
+																		{card.waitlist.total}
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										))
+									}
+								</div>
+							</div>
+						</div>
 						<!-- 프로그램 탭 패널 EEE-->
 						<!-- 영화상영 탭 패널 -->
-						<div id="panel-movie" class="ui-tab-panel">영화상영</div>
+						<div id="panel-movie" class="ui-tab-panel">
+							<div
+								class="event-section__filter flex justify-between items-center"
+								data-aos="fade-up"
+								data-aos-duration="500"
+							>
+								<UiSelect name="library-filter-movie" options={selectOptions} value="all" class="w-180" />
+								<div class="event-section__nav flex items-center gap-4">
+									<UiNavButton class="movie-prev-btn" direction="prev" size={40} ariaLabel="이전 영화" />
+									<UiNavButton class="movie-next-btn" direction="next" size={40} ariaLabel="다음 영화" />
+								</div>
+							</div>
+
+							<!-- 영화상영 카드 리스트 (자바스크립트 페이지네이션) -->
+							<div class="event-section__list-container" data-aos="fade-up" data-aos-duration="500">
+								<div class="movie-list" data-items-per-page="4">
+									{
+										allMovieCards.map((card, cardIndex) => (
+											<div class="event-card" data-index={cardIndex} key={cardIndex}>
+												<a href="#" class="event-card__link">
+													<div class={`event-card__tag ${card.tagClass}`}>{card.tag}</div>
+													<div class="event-card__content">
+														<h4 class="event-card__title">{card.title}</h4>
+														<div class="event-card__info">
+															<div class="event-card__info-left">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">상영일시</span>
+																	<span class="event-card__value">{card.educationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">모집인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.enrollment.current}</span>/
+																		{card.enrollment.total}
+																		{card.enrollment.status || ''}
+																	</span>
+																</div>
+															</div>
+															<div class="event-card__info-right">
+																<div class="event-card__info-item">
+																	<span class="event-card__label">접수기간</span>
+																	<span class="event-card__value">{card.applicationPeriod}</span>
+																</div>
+																<div class="event-card__info-item">
+																	<span class="event-card__label">예비인원</span>
+																	<span class="event-card__value">
+																		<span class="event-card__highlight">{card.waitlist.current}</span>/
+																		{card.waitlist.total}
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										))
+									}
+								</div>
+							</div>
+						</div>
 						<!-- 영화상영 탭 패널 EEE-->
 					</div>
 				</div>
@@ -665,7 +826,125 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 						</div>
 						<!-- 지도 영역 -->
 						<div class="library-map" data-aos="fade-up" data-aos-duration="500">
-							<img src="./assets/images/building-image.png" alt="연수구 도서관 지도" class="library-map__image" />
+							<div class="library-map__wrapper">
+								<!-- 지도 배경 이미지 -->
+								<img src="./assets/images/home-map.png" alt="연수구 도서관 지도" class="library-map__image" />
+
+								<!-- 도서관 마커 레이어 -->
+								<div class="library-map__markers">
+									<!-- 송도 지역 마커들 (청색 - map-db) -->
+									<div class="library-marker library-marker--db" style="left: 30.03%; top: 24.78%;" data-library="songdo-5" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 22.23%; top: 18.16%;" data-library="songdo-1" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 29.50%; top: 29.79%;" data-library="songdo-2" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 23.83%; top: 47.72%;" data-library="songdo-3" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 37.66%; top: 46.59%;" data-library="songdo-4" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 30.56%; top: 63.07%;" data-library="songdo-6" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 53.97%; top: 47.88%;" data-library="songdo-7" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 52.73%; top: 59.19%;" data-library="songdo-8" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 54.32%; top: 69.37%;" data-library="songdo-9" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 76.31%; top: 59.67%;" data-library="songdo-10" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 67.09%; top: 80.51%;" data-library="songdo-11" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 43.33%; top: 38.99%;" data-library="songdo-12" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 36.24%; top: 54.18%;" data-library="songdo-13" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--db" style="left: 62.66%; top: 14.92%;" data-library="songdo-14" data-region="songdo">
+										<span class="library-marker__icon"></span>
+									</div>
+
+									<!-- 연수 지역 마커들 (보라색 - map-pu) -->
+									<div class="library-marker library-marker--pu" style="left: 75.95%; top: 18.16%;" data-library="yeonsu-1" data-region="yeonsu">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--pu" style="left: 71.52%; top: 20.26%;" data-library="yeonsu-2" data-region="yeonsu">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--pu" style="left: 77.90%; top: 23.97%;" data-library="yeonsu-3" data-region="yeonsu">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--pu" style="left: 74.71%; top: 26.23%;" data-library="yeonsu-4" data-region="yeonsu">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--pu" style="left: 78.61%; top: 32.53%;" data-library="yeonsu-5" data-region="yeonsu">
+										<span class="library-marker__icon"></span>
+									</div>
+
+									<!-- 동춘/선학 지역 마커들 (주황색 - map-or) -->
+									<div class="library-marker library-marker--or" style="left: 89.61%; top: 15.89%;" data-library="dongchun-1" data-region="dongchun">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--or" style="left: 72.05%; top: 32.85%;" data-library="sunhak-1" data-region="sunhak">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--or" style="left: 66.38%; top: 30.43%;" data-library="sunhak-2" data-region="sunhak">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--or" style="left: 53.44%; top: 30.27%;" data-library="sunhak-3" data-region="sunhak">
+										<span class="library-marker__icon"></span>
+									</div>
+
+									<!-- 옥련 지역 마커들 (녹색 - map-g) -->
+									<div class="library-marker library-marker--g" style="left: 48.47%; top: 15.57%;" data-library="okryeon-1" data-region="okryeon">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--g" style="left: 54.85%; top: 15.89%;" data-library="okryeon-2" data-region="okryeon">
+										<span class="library-marker__icon"></span>
+									</div>
+
+									<!-- 기타 지역 마커들 (회색 - map-gy) -->
+									<div class="library-marker library-marker--gy" style="left: 81.98%; top: 68.24%;" data-library="etc-1" data-region="etc">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--gy" style="left: 59.11%; top: 41.10%;" data-library="etc-2" data-region="etc">
+										<span class="library-marker__icon"></span>
+									</div>
+									<div class="library-marker library-marker--gy" style="left: 55.21%; top: 74.54%;" data-library="etc-3" data-region="etc">
+										<span class="library-marker__icon"></span>
+									</div>
+								</div>
+
+								<!-- 선택된 도서관 로고 표시 영역 -->
+								<div class="library-map__logo-container" data-logo-display>
+									<!-- 로고는 JavaScript 또는 백엔드에서 동적으로 삽입 -->
+								</div>
+
+								<!-- 마커 클릭 시 팝업 -->
+								<div class="library-popup" style="display: none;">
+									<div class="library-popup__location-icon">
+										<img src="./assets/images/icon/icon-map-location.png" alt="위치 아이콘" />
+									</div>
+									<div class="library-popup__info">
+										<div class="library-popup__logo">
+											<img src="./assets/images/icon/yeosu-logo.png" alt="도서관 로고" />
+										</div>
+										<p class="library-popup__name">연수청학도서관</p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="info-section__right-area">
@@ -673,12 +952,18 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 							<h2 class="info-section__title">
 								도서관 <br class="is-mo-show" /><span>이용시간</span>
 							</h2>
-							<UiButton text="도서관 소개 바로가기" variant="darkBlue" size="large" icon="icon-arr-right-white" iconPosition="right" />
+							<UiButton
+								text="도서관 소개 바로가기"
+								variant="darkBlue"
+								size="large"
+								icon="icon-arr-right-white"
+								iconPosition="right"
+							/>
 						</div>
 						<div class="info-section__schedule-area" data-aos="fade-up" data-aos-duration="500">
 							<!-- 휴관일 안내 -->
 							<div class="holiday-notice flex justify-between items-center">
-								<div class="holiday-notice__left flex gap-2 items-center">
+								<div class="holiday-notice__left flex gap-4 items-center">
 									<div class="holiday-notice__icon">
 										<img src="./assets/images/icon/icon-date.svg" class="icon icon-date" />
 									</div>
@@ -791,7 +1076,7 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 
 							<!-- 이용시간 스와이퍼 -->
 							<div class="library-hours">
-								<div class="holiday-notice__left flex gap-2 items-center">
+								<div class="holiday-notice__left flex gap-4 items-center">
 									<div class="holiday-notice__icon">
 										<img src="./assets/images/icon/icon-calendar.svg" class="icon icon-calendar" />
 									</div>
@@ -827,12 +1112,19 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 								<!-- 페이지네이션 -->
 								<div class="library-hours__pagination">
 									<span class="library-hours__page-info">
-										<span class="library-hours__page-info-current">1</span> / <span class="library-hours__page-info-total">
+										<span class="library-hours__page-info-current">1</span> / <span
+											class="library-hours__page-info-total"
+										>
 											{libraryHours.length}
 										</span>
 									</span>
 									<div class="library-hours__nav">
-										<UiNavButton class="library-hours-autoplay-toggle" direction="stop" size={40} ariaLabel="자동재생 정지" />
+										<UiNavButton
+											class="library-hours-autoplay-toggle"
+											direction="stop"
+											size={40}
+											ariaLabel="자동재생 정지"
+										/>
 										<UiNavButton class="library-hours-btn-prev" direction="prev" size={40} ariaLabel="이전 이용시간" />
 										<UiNavButton class="library-hours-btn-next" direction="next" size={40} ariaLabel="다음 이용시간" />
 									</div>
@@ -923,3 +1215,95 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 		</section>
 	</div>
 </Layout>
+
+<script is:inline>
+	// 도서관 마커 클릭 시 팝업 표시
+	$(document).ready(function() {
+		var $popup = $('.library-popup');
+		var $markers = $('.library-marker');
+		var currentActiveMarker = null;
+
+		// 도서관 데이터 (실제로는 백엔드에서 가져와야 함)
+		var libraryData = {
+			'songdo-1': { name: '송도국제도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-2': { name: '송도한옥마을도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-3': { name: '송도달빛공원도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-4': { name: '송도센트럴파크도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-5': { name: '송도트리플스트리트도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-6': { name: '송도컨벤시아도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-7': { name: '송도더샵센트럴시티도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-8': { name: '송도랜드마크시티도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-9': { name: '송도푸르지오하버뷰도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-10': { name: '송도동문굿모닝힐도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-11': { name: '송도웰카운티도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-12': { name: '송도롯데캐슬도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-13': { name: '송도현대프리미어캠퍼스도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'songdo-14': { name: '송도아메리칸타운도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'yeonsu-1': { name: '연수꿈담도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'yeonsu-2': { name: '연수청학도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'yeonsu-3': { name: '연수문화의거리도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'yeonsu-4': { name: '연수힐스테이트도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'yeonsu-5': { name: '연수e편한세상도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'dongchun-1': { name: '해돋이도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'sunhak-1': { name: '선학별빛도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'sunhak-2': { name: '선학센트럴푸르지오도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'sunhak-3': { name: '선학자이도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'okryeon-1': { name: '해찬솔공원도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'okryeon-2': { name: '누리공원도서관', logo: './assets/images/icon/yeosu-logo.png' },
+			'etc-1': { name: '기타도서관1', logo: './assets/images/icon/yeosu-logo.png' },
+			'etc-2': { name: '기타도서관2', logo: './assets/images/icon/yeosu-logo.png' },
+			'etc-3': { name: '기타도서관3', logo: './assets/images/icon/yeosu-logo.png' }
+		};
+
+		// 마커 클릭 이벤트
+		$markers.on('click', function() {
+			var $marker = $(this);
+			var libraryId = $marker.data('library');
+			var libraryInfo = libraryData[libraryId];
+
+			// 같은 마커 클릭 시 토글
+			if (currentActiveMarker && currentActiveMarker[0] === $marker[0]) {
+				$popup.hide();
+				$marker.removeClass('is-active');
+				currentActiveMarker = null;
+				return;
+			}
+
+			// 이전 활성화 마커 비활성화
+			if (currentActiveMarker) {
+				currentActiveMarker.removeClass('is-active');
+			}
+
+			// 현재 마커 활성화
+			$marker.addClass('is-active');
+			currentActiveMarker = $marker;
+
+			// 팝업 내용 업데이트
+			$popup.find('.library-popup__logo img').attr('src', libraryInfo.logo);
+			$popup.find('.library-popup__name').text(libraryInfo.name);
+
+			// 팝업 위치 설정 (마커 위치에 맞춰서)
+			var markerOffset = $marker.offset();
+			var mapOffset = $('.library-map__wrapper').offset();
+			var markerLeft = markerOffset.left - mapOffset.left + ($marker.outerWidth() / 2);
+			var markerTop = markerOffset.top - mapOffset.top;
+
+			$popup.css({
+				left: markerLeft + 'px',
+				top: markerTop + 'px',
+				display: 'flex'
+			});
+		});
+
+		// 팝업 외부 클릭 시 닫기
+		$(document).on('click', function(e) {
+			if (!$(e.target).closest('.library-marker').length && !$(e.target).closest('.library-popup').length) {
+				$popup.hide();
+				if (currentActiveMarker) {
+					currentActiveMarker.removeClass('is-active');
+					currentActiveMarker = null;
+				}
+			}
+		});
+	});
+</script>
