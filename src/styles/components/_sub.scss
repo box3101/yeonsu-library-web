@@ -522,7 +522,7 @@ ul.movie-card-wrp {
 			transform: translateY(-50%);
 			width: 20px;
 			height: 20px;
-			@include bg-image('../assets/images/icon/icon-check_circle.svg');
+			@include bg-image('../../assets/images/icon/icon-check_circle.svg');
 		}
 		position: relative;
 		padding-left: 25px;
@@ -1670,7 +1670,7 @@ ul.movie-card-wrp {
 
 		&--present {
 			background: transparent;
-			background-image: url('../assets/images/icon/lib_check_present.svg') !important;
+			background-image: url('../../assets/images/icon/lib_check_present.svg') !important;
 			background-size: cover;
 			width: 81px;
 			height: 80px;
@@ -1682,7 +1682,7 @@ ul.movie-card-wrp {
 
 		&--absent {
 			background: transparent;
-			background-image: url('../assets/images/icon/lib_check_absent.svg') !important;
+			background-image: url('../../assets/images/icon/lib_check_absent.svg') !important;
 			background-size: cover;
 			width: 81px;
 			height: 80px;
@@ -2338,7 +2338,7 @@ ul.movie-card-wrp {
 		right: 0;
 		width: 100%;
 		height: 100%;
-		background: url('../assets/images/card-pattern.svg') no-repeat bottom right;
+		background: url('../../assets/images/card-pattern.svg') no-repeat bottom right;
 		background-size: cover;
 		opacity: 0.6;
 		pointer-events: none;
@@ -6538,7 +6538,7 @@ ul.movie-card-wrp {
 		left: 0;
 		width: 24px;
 		height: 24px;
-		@include bg-image('../assets/images/icon/sub-title-noti.svg');
+		@include bg-image('../../assets/images/icon/sub-title-noti.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -9793,5 +9793,27 @@ ul.movie-card-wrp {
 		@include font(to-rem(17), 400, #191a1a);
 		line-height: 1.5;
 		text-align: center;
+	}
+}
+
+// 프로그램 신청 - 참여자이름 입력란
+.form-field__participant-names {
+	display: flex;
+	flex-wrap: wrap;
+	gap: to-rem(10);
+
+	.ui-input-container {
+		// 한 줄에 5개씩 표시 (gap 고려)
+		flex: 0 0 calc((100% - (to-rem(10) * 4)) / 5);
+
+		@include tablet {
+			// 태블릿: 한 줄에 3개씩
+			flex: 0 0 calc((100% - (to-rem(10) * 2)) / 3);
+		}
+
+		@include mobile {
+			// 모바일: 한 줄에 2개씩
+			flex: 0 0 calc((100% - to-rem(10)) / 2);
+		}
 	}
 }

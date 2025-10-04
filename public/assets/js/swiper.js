@@ -286,6 +286,41 @@ function initAiCarouselSwiper() {
 	});
 }
 
+// 메인 AI 책큐 추천 슬라이더
+function initBookRecommendationSwiper() {
+	var $swiper = $('.book-recommendation-swiper');
+	if ($swiper.length === 0) return;
+
+	new Swiper('.book-recommendation-swiper', {
+		slidesPerView: 5,
+		spaceBetween: 12,
+		loop: true,
+		speed: 500,
+		autoHeight: false,
+		observer: true,
+		observeParents: true,
+		observeSlideChildren: true,
+		navigation: {
+			nextEl: '.book-recommendation-btn-next',
+			prevEl: '.book-recommendation-btn-prev',
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 3,
+				spaceBetween: 8,
+			},
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 10,
+			},
+			900: {
+				slidesPerView: 5,
+				spaceBetween: 12,
+			},
+		},
+	});
+}
+
 // 초기화 (jQuery ready 사용)
 $(document).ready(function () {
 	if (typeof Swiper === 'undefined') {
@@ -302,5 +337,6 @@ $(document).ready(function () {
 		initBookSwiper();
 		initBookSliders();
 		initAiCarouselSwiper();
+		initBookRecommendationSwiper();
 	}, 100);
 });

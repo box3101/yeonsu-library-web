@@ -2189,9 +2189,9 @@
 				right: -20px;
 				bottom: -20px;
 				content: '';
-				width: 69px;
-				height: 65px;
-				background: url('./assets/images/icon/icon-ai.svg') no-repeat center center;
+				width: 55px;
+				height: 81px;
+				background: url('../../assets/images/icon/icon-ai.svg') no-repeat center center;
 				background-size: contain;
 			}
 
@@ -2477,6 +2477,7 @@
 				display: flex;
 				align-items: center;
 				gap: 8px;
+				flex-shrink: 0;
 				@include font(to-rem(17), 700, #191a1a);
 
 				img {
@@ -2492,6 +2493,11 @@
 				text-decoration: none;
 				line-height: 1.5;
 				transition: color 0.2s ease;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				flex: 1;
+				min-width: 0;
 
 				&:hover {
 					color: $primary-color;

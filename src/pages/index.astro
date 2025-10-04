@@ -369,15 +369,13 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 					<!-- 책큐 컨텐츠 -->
 					<div class="book-recommendation-slider book-recommendation-slider--hidden" id="bookRecommendationSlider">
 						<div class="book-recommendation-slider__container">
-							<button class="book-recommendation-slider__nav book-recommendation-slider__nav--prev" aria-label="이전 추천"></button>
-
-							<div class="book-recommendation-slider__track">
-								<div class="book-recommendation-slider__slides">
+							<div class="swiper book-recommendation-swiper">
+								<div class="swiper-wrapper">
 									{
 										[
 											{
 												text: '성공한 사람들의\n추천 도서 목록은?',
-												class: 'book-recommendation-card--active',
+												class: '',
 											},
 											{
 												text: '재테크 관련 베스트\n셀러 추천해줘',
@@ -386,10 +384,15 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 											{ text: '현대인의 시간 관리\n도서 목록', class: '' },
 											{ text: '환경 문제에 대한\n최신 책은?', class: '' },
 											{ text: '요리책 중 최근에\n인기 있는 것은?', class: '' },
+											{ text: '자기계발서 추천\n부탁해요', class: '' },
+											{ text: '역사책 중에서\n재미있는 것은?', class: '' },
+											{ text: '과학 분야 최신\n연구 도서는?', class: '' },
 										].map((item, index) => (
-											<div class={`book-recommendation-card ${item.class}`}>
-												<div class="book-recommendation-card__content">
-													<span class="book-recommendation-card__text" set:html={item.text.replace('\n', '<br />')} />
+											<div class="swiper-slide">
+												<div class={`book-recommendation-card ${item.class}`}>
+													<div class="book-recommendation-card__content">
+														<span class="book-recommendation-card__text" set:html={item.text.replace('\n', '<br />')} />
+													</div>
 												</div>
 											</div>
 										))
@@ -399,14 +402,14 @@ for (let i = 0; i < allNoticeItems.length; i += itemsPerSlide) {
 
 							<div class="btn-nav">
 								<UiNavButton
-									class="book-recommendation-slider__nav book-recommendation-slider__nav--prev"
+									class="book-recommendation-btn-prev"
 									direction="prev"
 									size={24}
 									ariaLabel="이전 추천"
 								/>
 
 								<UiNavButton
-									class="book-recommendation-slider__nav book-recommendation-slider__nav--next"
+									class="book-recommendation-btn-next"
 									direction="next"
 									size={24}
 									ariaLabel="다음 추천"

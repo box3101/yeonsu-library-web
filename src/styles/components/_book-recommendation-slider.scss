@@ -5,203 +5,205 @@
 
 // 책큐 AI 도서 추천 슬라이더
 .book-recommendation-slider {
-  width: 100%;
-  &__container {
-    @include flex(row, center, center, nowrap);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: to-rem(126);
-    background-color: #f1f2f2;
-    border: 1px solid #cdd1d5;
-    border-radius: to-rem(8);
-    box-shadow:
-      0px 4px 8px 0px rgba(0, 0, 0, 0.08),
-      0px 0px 2px 0px rgba(0, 0, 0, 0.05);
-    padding: to-rem(24);
-  }
+	width: 100%;
+	&__container {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: to-rem(130);
+		background-color: #f1f2f2;
+		border: 1px solid #cdd1d5;
+		border-radius: to-rem(8);
+		box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.08), 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+		padding: to-rem(24) to-rem(60);
+		position: relative;
 
-  &__nav {
-    position: absolute;
-    width: to-rem(24);
-    height: to-rem(24);
-    top: 50%;
-    transform: translateY(-50%);
-    transition: none !important;
+		.swiper {
+			width: 100%;
+			height: 100%;
+		}
 
-    &:hover {
-      opacity: 1;
-    }
+		.swiper-slide {
+			height: auto;
+		}
+	}
 
-    &--prev {
-      left: 0;
-    }
+	.btn-nav {
+		width: 100%;
+		height: 0;
+	}
+}
 
-    &--next {
-      right: 0;
-    }
+// 책큐 네비게이션 버튼
+.book-recommendation-btn-prev,
+.book-recommendation-btn-next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	transition: none !important;
+	width: to-rem(24);
+	height: to-rem(24);
 
-    svg {
-      width: to-rem(24);
-      height: to-rem(24);
-    }
-  }
+	&:hover {
+		opacity: 1;
+	}
 
-  &__track {
-    width: 100%;
-    height: 100%;
-    @include flex(row, center, center, nowrap);
-  }
+	svg {
+		width: to-rem(24);
+		height: to-rem(24);
+	}
+}
 
-  &__slides {
-    @include flex(row, stretch, stretch, nowrap);
-    gap: to-rem(12);
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-  }
+.book-recommendation-btn-prev {
+	left: to-rem(17);
+}
+
+.book-recommendation-btn-next {
+	right: to-rem(17);
 }
 
 // 책 추천 카드
 .book-recommendation-card {
-  @include flex(row, center, center, nowrap);
-  flex: 1;
-  min-width: 0;
-  height: 100%;
-  background-color: $white;
-  border: 1px solid $gray-300;
-  border-radius: to-rem(6);
-  padding: to-rem(8) to-rem(16);
-  gap: to-rem(4);
-  cursor: pointer;
-  transition: all 0.3s ease;
+	@include flex(row, center, center, nowrap);
+	width: 100%;
+	height: 100%;
+	min-height: to-rem(78);
+	background-color: $white;
+	border: 1px solid $gray-300;
+	border-radius: to-rem(6);
+	padding: to-rem(12) to-rem(10);
+	gap: to-rem(4);
+	cursor: pointer;
+	transition: all 0.3s ease;
 
-  &:hover {
-    transform: translateY(to-rem(-2));
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
-  }
+	&:hover {
+		box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+	}
 
-  &--highlighted {
-    background-color: $blue-50;
-    border: 2px solid $blue-400;
-  }
+	&--highlighted {
+		background-color: $blue-50;
+		border: 2px solid $blue-400;
+	}
 
-  &__content {
-    @include flex(row, center, center, nowrap);
-    gap: to-rem(4);
-    width: 100%;
-    height: 100%;
-  }
+	&__content {
+		@include flex(row, center, center, nowrap);
+		gap: to-rem(4);
+		width: 100%;
+		height: 100%;
+	}
 
-  &__text {
-    @include font(to-rem(15), 400, #191a1a, 1.5, center);
-    white-space: nowrap;
+	&__text {
+		@include font(to-rem(15), 400, #191a1a, 1.5, center);
+		word-break: keep-all;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
 
-    // 하이라이트된 카드의 텍스트는 가운데 정렬
-    .book-recommendation-card--highlighted & {
-      text-align: center;
-    }
-  }
+		// 하이라이트된 카드의 텍스트는 가운데 정렬
+		.book-recommendation-card--highlighted & {
+			text-align: center;
+		}
+	}
 
-  &__icon {
-    @include flex(row, center, center, nowrap);
-    width: to-rem(24);
-    height: to-rem(24);
-    flex-shrink: 0;
+	&__icon {
+		@include flex(row, center, center, nowrap);
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
 
-    svg {
-      width: to-rem(24);
-      height: to-rem(24);
-    }
-  }
+		svg {
+			width: to-rem(24);
+			height: to-rem(24);
+		}
+	}
 }
 
 // 반응형 처리
 @include tablet {
-  .book-recommendation-slider {
-    &__container {
-      width: 100%;
-      max-width: to-rem(768);
-      padding: to-rem(16);
-    }
+	.book-recommendation-slider {
+		&__container {
+			padding: to-rem(16) to-rem(40);
+		}
+	}
 
-    &__slides {
-      gap: to-rem(8);
-    }
-  }
+	.book-recommendation-btn-prev {
+		left: to-rem(6);
+	}
 
-  .book-recommendation-card {
-    padding: to-rem(6) to-rem(12);
-    gap: to-rem(2);
+	.book-recommendation-btn-next {
+		right: to-rem(6);
+	}
 
-    &__text {
-      font-size: to-rem(14);
-    }
+	.book-recommendation-card {
+		min-height: to-rem(70);
+		padding: to-rem(10) to-rem(12);
 
-    &__icon {
-      width: to-rem(20);
-      height: to-rem(20);
+		&__text {
+			font-size: to-rem(14);
+		}
 
-      svg {
-        width: to-rem(20);
-        height: to-rem(20);
-      }
-    }
-  }
+		&__icon {
+			width: to-rem(20);
+			height: to-rem(20);
+
+			svg {
+				width: to-rem(20);
+				height: to-rem(20);
+			}
+		}
+	}
 }
 
 @include mobile {
-  .book-recommendation-slider {
-    &__container {
-      padding: to-rem(12);
-      height: auto;
-      min-height: to-rem(100);
-    }
+	.book-recommendation-slider {
+		&__container {
+			padding: to-rem(16) to-rem(32);
+			height: auto;
+			min-height: to-rem(100);
+		}
+	}
 
-    &__nav {
-      width: to-rem(20);
-      height: to-rem(20);
+	.book-recommendation-btn-prev,
+	.book-recommendation-btn-next {
+		svg {
+			width: to-rem(20);
+			height: to-rem(20);
+		}
+	}
 
-      svg {
-        width: to-rem(20);
-        height: to-rem(20);
-      }
-    }
+	.book-recommendation-btn-prev {
+		left: to-rem(4);
+	}
 
-    &__slides {
-      flex-direction: column;
-      gap: to-rem(6);
-      align-items: stretch;
-    }
-  }
+	.book-recommendation-btn-next {
+		right: to-rem(4);
+	}
 
-  .book-recommendation-card {
-    flex: none;
-    height: to-rem(60);
-    padding: to-rem(8) to-rem(12);
+	.book-recommendation-card {
+		min-height: to-rem(80);
+		padding: to-rem(12) to-rem(12);
 
-    &__content {
-      justify-content: space-between;
-    }
+		&__content {
+			justify-content: center;
+		}
 
-    &__text {
-      font-size: to-rem(13);
-      line-height: 1.4;
-      text-align: left;
+		&__text {
+			font-size: to-rem(13);
+			line-height: 1.5;
+			text-align: center;
+		}
 
-      br {
-        display: none;
-      }
-    }
+		&__icon {
+			width: to-rem(18);
+			height: to-rem(18);
 
-    &__icon {
-      width: to-rem(18);
-      height: to-rem(18);
-
-      svg {
-        width: to-rem(18);
-        height: to-rem(18);
-      }
-    }
-  }
+			svg {
+				width: to-rem(18);
+				height: to-rem(18);
+			}
+		}
+	}
 }
