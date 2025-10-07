@@ -321,6 +321,46 @@ function initBookRecommendationSwiper() {
 	});
 }
 
+// 메인 레이어 팝업 스와이퍼
+function initMainLayerPopupSwiper() {
+	var $swiper = $('[data-popup-swiper]');
+	if ($swiper.length === 0) return;
+
+	new Swiper('[data-popup-swiper]', {
+		slidesPerView: 2,
+		spaceBetween: 48,
+		loop: true,
+		speed: SWIPER_CONFIG.speed,
+		centeredSlides: false,
+		initialSlide: 0,
+		navigation: {
+			nextEl: '.main-layer-popup .swiper-button-next',
+			prevEl: '.main-layer-popup .swiper-button-prev',
+		},
+		pagination: {
+			el: '.main-layer-popup .swiper-pagination',
+			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 20,
+				centeredSlides: true,
+			},
+			768: {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				centeredSlides: true,
+			},
+			1024: {
+				slidesPerView: 2,
+				spaceBetween: 48,
+				centeredSlides: false,
+			},
+		},
+	});
+}
+
 // 초기화 (jQuery ready 사용)
 $(document).ready(function () {
 	if (typeof Swiper === 'undefined') {
@@ -338,5 +378,6 @@ $(document).ready(function () {
 		initBookSliders();
 		initAiCarouselSwiper();
 		initBookRecommendationSwiper();
+		initMainLayerPopupSwiper();
 	}, 100);
 });
