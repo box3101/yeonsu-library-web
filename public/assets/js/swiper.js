@@ -326,68 +326,70 @@ function initMainLayerPopupSwiper() {
 	var $swiper = $('[data-popup-swiper]');
 	if ($swiper.length === 0) return;
 
-	// 슬라이드 개수 확인
 	var slideCount = $swiper.find('.swiper-slide').length;
-	var enableLoop = slideCount > 2;
-	var enableAutoplay = slideCount > 2 ? { delay: 3000, disableOnInteraction: false } : false;
-	var $paginationWrapper = $('.main-layer-popup .swiper-pagination-wrapper');
-	var $pagination = $('.main-layer-popup .swiper-pagination');
-	var $navigation = $('.main-layer-popup .swiper-button-prev, .main-layer-popup .swiper-button-next');
+	var $container = $('.main-layer-popup__container');
 	var $counterCurrent = $('.main-layer-popup .swiper-pagination-counter .current');
+	var $counterTotal = $('.main-layer-popup .swiper-pagination-counter .total');
 
-	// 슬라이드가 2개 이하일 때 페이지네이션과 네비게이션 숨김
+	// 1-2개일 때 컨테이너에 클래스 추가
 	if (slideCount <= 2) {
-		$paginationWrapper.hide();
-		$navigation.hide();
-	} else {
-		$paginationWrapper.show();
-		$navigation.show();
+		$container.addClass('main-layer-popup__container--single');
 	}
 
-	var mainLayerPopupSwiper = new Swiper('[data-popup-swiper]', {
-		slidesPerView: slideCount <= 2 ? 1 : 2,
-		slidesPerGroup: slideCount <= 2 ? 1 : 2,
+	// 페이지 수 계산 함수
+	function updateTotalPages(swiper) {
+		if ($counterTotal.length === 0) return;
+		var perGroup = swiper.params.slidesPerGroup || 1;
+		var totalPages = Math.ceil(slideCount / perGroup);
+		$counterTotal.text(totalPages);
+	}
+
+	var swiper = new Swiper('[data-popup-swiper]', {
+		slidesPerView: 1,
+		slidesPerGroup: 1,
 		spaceBetween: 48,
-		loop: enableLoop,
+		loop: slideCount > 2,
 		speed: SWIPER_CONFIG.speed,
-		centeredSlides: slideCount <= 2 ? true : false,
-		initialSlide: 0,
-		autoplay: enableAutoplay,
-		navigation: {
-			nextEl: '.main-layer-popup .swiper-button-next',
-			prevEl: '.main-layer-popup .swiper-button-prev',
-		},
+		centeredSlides: false,
+		autoplay: slideCount > 2 ? { delay: 3000, disableOnInteraction: false } : false,
+		allowTouchMove: slideCount > 2,
+		navigation:
+			slideCount > 2
+				? {
+						nextEl: '.main-layer-popup .swiper-button-next',
+						prevEl: '.main-layer-popup .swiper-button-prev',
+				  }
+				: false,
 		pagination: {
 			el: '.main-layer-popup .swiper-pagination',
 			clickable: true,
 		},
 		breakpoints: {
-			320: {
-				slidesPerView: 1,
-				slidesPerGroup: 1,
-				spaceBetween: 20,
-				centeredSlides: true,
-			},
-			768: {
-				slidesPerView: 1,
-				slidesPerGroup: 1,
-				spaceBetween: 30,
-				centeredSlides: true,
-			},
-			1024: {
-				slidesPerView: slideCount <= 2 ? 1 : 2,
-				slidesPerGroup: slideCount <= 2 ? 1 : 2,
-				spaceBetween: 48,
-				centeredSlides: slideCount <= 2 ? true : false,
-			},
+			320: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 20 },
+			768: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 30 },
+			1024: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 48 },
 		},
 		on: {
-			slideChange: function () {
-				// 페이지네이션 카운터 업데이트
+			init: function () {
+				// 초기 페이지 수 설정
+				updateTotalPages(this);
+				// 초기 현재 페이지 설정
 				if ($counterCurrent.length > 0) {
-					// loop가 활성화된 경우 실제 인덱스 계산
-					var realIndex = this.realIndex;
-					$counterCurrent.text(realIndex + 1);
+					var perGroup = this.params.slidesPerGroup || 1;
+					var currentPage = Math.floor(this.realIndex / perGroup) + 1;
+					$counterCurrent.text(currentPage);
+				}
+			},
+			breakpoint: function () {
+				// 브레이크포인트 변경 시 페이지 수 재계산
+				updateTotalPages(this);
+			},
+			slideChange: function () {
+				if ($counterCurrent.length > 0) {
+					// 현재 slidesPerGroup에 따라 동적 계산
+					var perGroup = this.params.slidesPerGroup || 1;
+					var currentPage = Math.floor(this.realIndex / perGroup) + 1;
+					$counterCurrent.text(currentPage);
 				}
 			},
 		},

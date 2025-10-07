@@ -95361,6 +95361,9 @@ body:has(.main-layer-popup.is-active) {
   max-width: 73.125rem;
   padding: 0 1.25rem;
 }
+.main-layer-popup__container--single .swiper-wrapper {
+  justify-content: center;
+}
 .main-layer-popup__actions {
   position: relative;
   width: 100%;

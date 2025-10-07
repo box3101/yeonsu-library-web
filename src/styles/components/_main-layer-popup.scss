@@ -62,6 +62,12 @@ body:has(.main-layer-popup.is-active) {
 		width: 100%;
 		max-width: to-rem(1170);
 		padding: 0 to-rem(20);
+
+		&--single {
+			.swiper-wrapper {
+				justify-content: center;
+			}
+		}
 	}
 
 	// 액션 버튼 영역
