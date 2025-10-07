@@ -351,6 +351,11 @@ ul.movie-card-wrp {
 
 // 이용안내 스타일
 .usage-guide {
+	.tac {
+		img {
+			display: inline-block;
+		}
+	}
 	&.type-2 {
 		.usage-guide__content {
 			padding: to-rem(16);
@@ -378,6 +383,7 @@ ul.movie-card-wrp {
 			padding-left: to-rem(12);
 			@include font(to-rem(17), 400, #191a1a);
 			line-height: 150%;
+			letter-spacing: -0.01em;
 
 			ul {
 				margin-top: 10px;
@@ -5813,7 +5819,7 @@ ul.movie-card-wrp {
 				padding: to-rem(12) to-rem(16);
 				text-align: center;
 				border-bottom: 1px solid $border-color;
-        line-height: 150%;
+				line-height: 150%;
 
 				@include mobile {
 					// 모바일에서는 패딩 축소
@@ -9954,6 +9960,82 @@ ul.movie-card-wrp {
 			@include mobile {
 				font-size: 14px;
 				margin-bottom: 6px;
+			}
+		}
+
+		.usage-guide-subitem__list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				position: relative;
+				padding-left: to-rem(28);
+				@include font(to-rem(17), 400, #4b4d4d);
+				line-height: 1.6;
+				margin-bottom: to-rem(8);
+
+				@include mobile {
+					font-size: 14px;
+					padding-left: 20px;
+					margin-bottom: 6px;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: to-rem(8);
+					top: to-rem(10);
+					width: to-rem(4);
+					height: to-rem(4);
+					background: #4b4d4d;
+					border-radius: 50%;
+
+					@include mobile {
+						left: 6px;
+						top: 8px;
+						width: 3px;
+						height: 3px;
+					}
+				}
+
+				// 1단계 들여쓰기 (한 번 들여쓴 항목)
+				&.indent-1 {
+					padding-left: to-rem(40);
+
+					@include mobile {
+						padding-left: 32px;
+					}
+
+					&::before {
+						left: to-rem(20);
+
+						@include mobile {
+							left: 16px;
+						}
+					}
+				}
+
+				// 2단계 들여쓰기 (두 번 들여쓴 항목)
+				&.indent-2 {
+					padding-left: to-rem(52);
+
+					@include mobile {
+						padding-left: 44px;
+					}
+
+					&::before {
+						left: to-rem(32);
+
+						@include mobile {
+							left: 28px;
+						}
+					}
+				}
 			}
 		}
 	}

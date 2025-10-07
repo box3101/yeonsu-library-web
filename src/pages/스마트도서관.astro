@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import UiButton from '@/components/UI/UiButton.astro';
+import UiDetailedOperations from '@/components/UI/UiDetailedOperations.astro';
 
 const title = '스마트도서관';
 const description = '연수구립도서관 스마트도서관 페이지입니다.';
@@ -49,17 +50,17 @@ const breadcrumbItems = [
 									<col width="20%" />
 								</colgroup>
 								<tr>
-									<td>이용절차</td>
-									<td>상세 검색식</td>
-									<td>내부장 조회</td>
-									<td>이용증 등록</td>
-									<td>반납 위치</td>
+									<td>자료검색</td>
+									<td>신착 리스트</td>
+									<td>대출현황 조회</td>
+									<td>도서예약</td>
+									<td>반납 연기</td>
 								</tr>
 								<tr>
-									<td>도서관 회원가입</td>
-									<td>내부도서 조회</td>
-									<td>대출내역 조회</td>
-									<td colspan="2">e-book 서비스 등 참여관내 도서 서비스 제공</td>
+									<td>모바일 회원증</td>
+									<td>희망도서 신청</td>
+									<td>상호대차</td>
+									<td colspan="2">e-book 서비스 등 전반적인 도서 서비스 제공</td>
 								</tr>
 							</table>
 						</div>
@@ -75,10 +76,10 @@ const breadcrumbItems = [
 							<li>
 								<strong>위 치</strong>
 								<ul class="mt12">
-									<li>송도4동스마트도서관: 송도4동행정복지센터 정문 좌측 2층(컨벤시아대로 252번길 79)</li>
-									<li>스퀘어원스마트도서관: 스퀘어원 광장 놀이터 옆(청능대로 210)</li>
-									<li>연수구청스마트도서관: 연수구청 한마음광장(원인재로 115)</li>
-									<li>선학역스마트도서관: 선학역 지하1층 개집표기 좌측(경원대로 480)</li>
+									<li>- 송도4동스마트도서관: 송도4동행정복지센터 정문 좌측 2층(컨벤시아대로 252번길 79)</li>
+									<li>- 스퀘어원스마트도서관: 스퀘어원 광장 놀이터 옆(청능대로 210)</li>
+									<li>- 연수구청스마트도서관: 연수구청 한마음광장(원인재로 115)</li>
+									<li>- 선학역스마트도서관: 선학역 지하1층 개집표기 좌측(경원대로 480)</li>
 								</ul>
 							</li>
 							<li class="mt12"><strong>이용대상:</strong> 연수구립도서관 통합회원</li>
@@ -90,32 +91,39 @@ const breadcrumbItems = [
 				<!-- 1. 바로 및 예약 대출·반납 -->
 				<div class="mt40">
 					<div class="usage-guide">
-						<h4 class="usage-guide__title" style="display: flex; align-items: center; gap: 12px;">
+						<h4 class="usage-guide__title">
 							<span class="numbered-badge">1</span>
 							<span>바로 및 예약 대출·반납</span>
 						</h4>
 
-						<div class="usage-guide__content mt24">
-							<strong>이용규정</strong>
-							<ul class="mt12">
-								<li>대출권수: 1인 3권 이내</li>
-								<li>대출기간: 15일(1회 연장 가능)</li>
-								<li>대출정지: 연체 시, 연체일수만큼 대출정지</li>
-								<li>반납방법: 스마트도서관 기기에서만 반납 가능(타관 반납 불가)</li>
-							</ul>
-						</div>
-
-						<div class="usage-guide__content mt24">
-							<strong>이용방법</strong>
-							<ul class="mt12">
-								<li>바로대출: 기기에서 바로 대출</li>
-								<li>예약대출</li>
-								<li class="ml16">
-									도서관 홈페이지·리브로피아(로그인) → 자료검색 → 스마트도서관(송도4동·스퀘어원·연수구청·선학역) 내 비치중 자료 예약 →
-									4시간 이내 수령
-								</li>
-								<li>예약제한: 시간 내 예약도서 미 수령 시, 72시간 이후 신청 가능</li>
-							</ul>
+						<div class="mt24">
+							<div class="usage-guide">
+								<ul class="usage-guide__content">
+									<li>
+										<strong>이용규정</strong>
+										<ul class="mt12">
+											<li>- 대출권수: 1인 2권 이내</li>
+											<li>- 대출기간: 15일(1회 연장 가능)</li>
+											<li>- 대출정지: 연체 시, 연체일수만큼 대출정지</li>
+											<li>- 반납방법: 스마트도서관 기기에서만 반납 가능(타관 반납 불가)</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="usage-guide__content mt24">
+									<li>
+										<strong>이용방법</strong>
+										<ul class="mt12">
+											<li>- 바로대출: 기기에서 바로 대출</li>
+											<li>- 예약대출</li>
+											<li>
+												- 도서관 홈페이지·리브로피아(로그인) → 자료검색 → 스마트도서관(송도4동·스퀘어원·연수구청·선학역)
+												내 비치중 자료 예약 → 4시간 이내 수령
+											</li>
+											<li>- 예약제한: 시간 내 예약도서 미 수령 시, 72시간 이후 신청 가능</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -123,191 +131,177 @@ const breadcrumbItems = [
 				<!-- 2. 도서 상호대차 대출·반납 -->
 				<div class="mt40">
 					<div class="usage-guide">
-						<h4 class="usage-guide__title" style="display: flex; align-items: center; gap: 12px;">
+						<h4 class="usage-guide__title">
 							<span class="numbered-badge">2</span>
 							<span>도서 상호대차 대출·반납</span>
 						</h4>
 
-						<div class="usage-guide__content mt24">
-							<strong>이용규정</strong>
-							<ul class="mt12">
-								<li>대출권수: 1인 2권 이내</li>
-								<li>대출기간: 15일(1회 연장 가능)</li>
-								<li>대출정지: 연체 시, 연체일수만큼 대출정지</li>
-								<li>대출제한: 3권 이상 신청도서 미수령 시, 15일간 이용 제한 ※ 기기 내 적재 불가 도서 및 부록자료 제외</li>
-								<li>반납방법: 스마트도서관 기기 및 타관 반납 가능</li>
-							</ul>
-						</div>
+						<div class="mt24">
+							<div class="usage-guide">
+								<ul class="usage-guide__content">
+									<li>
+										<strong>이용규정</strong>
+										<ul class="mt12">
+											<li>- 대출권수: 1인 2권 이내</li>
+											<li>- 대출기간: 15일(1회 연장 가능)</li>
+											<li>
+												- 대출제한: 3권 이상 신청도서 미수령 시, 15일간 이용 제한 <br />
+												※ 기기 내 적재 불가 도서 및 부록자료 제외
+											</li>
+											<li>- 반납방법: 스마트도서관 기기에서만 반납 가능(타관 반납 불가)</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="usage-guide__content mt24">
+									<li>
+										<strong>이용방법</strong>
+										<ul class="mt12">
+											<li>
+												- 이용절차: 도서관 홈페이지·리브로피아(로그인) → 자료검색 → 상호대차 신청 →
+												수령도서관(스마트도서관 4개관 중 택 1) 선택 → 화·금요일 상호대차 도서 투입→ 도착 메시지 수신
+											</li>
+											<li>- 신청/대출: 신청가능권수 초과 시, 상호대차 신청 불가</li>
+										</ul>
+									</li>
+								</ul>
 
-						<div class="usage-guide__content mt24">
-							<strong>이용방법</strong>
-							<ul class="mt12">
-								<li>
-									이용절차: 도서관 홈페이지·리브로피아(로그인) → 자료검색 → 상호대차 신청 → 수령도서관(스마트도서관 4개관 중 택 1) 선택
-									→ 화·금요일 상호대차 도서 투입→ 도착 메시지 수신
-								</li>
-								<li>신청/대출: 신청가능권수 초과 시, 상호대차 신청 불가</li>
-							</ul>
-						</div>
-					</div>
+								<!-- 테이블 -->
+								<div class="contact-info mt24">
+									<div class="usage-guide__table-wrapper">
+										<table class="usage-guide__table mt0">
+											<colgroup>
+												<col width="33.33%" />
+												<col width="33.33%" />
+												<col width="33.34%" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>신청일</th>
+													<th>대출일</th>
+													<th>신청가능권수</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>금, 토, 일, 월</td>
+													<td>화요일(16:00)~목요일(23:59) 수령</td>
+													<td>80권(스퀘어원 100권)</td>
+												</tr>
+												<tr>
+													<td>화, 수, 목</td>
+													<td>금요일(16:00)~일요일(23:59) 수령</td>
+													<td>80권(스퀘어원 100권)</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
 
-					<!-- 상호대차 일정 테이블 -->
-					<div class="contact-info mt24">
-						<div class="usage-guide__table-wrapper">
-							<table class="usage-guide__table mt0">
-								<colgroup>
-									<col width="33.33%" />
-									<col width="33.33%" />
-									<col width="33.34%" />
-								</colgroup>
-								<thead>
-									<tr>
-										<th>도서 투입일</th>
-										<th>도착 메시지 발송일</th>
-										<th>수령 기한</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>화요일(오전 11시까지 수령도서 적재)</td>
-										<td>화요일(오후 3시 이후~)</td>
-										<td>금요일(밤 11시 59분)</td>
-									</tr>
-									<tr>
-										<td>금요일(오전 11시까지 수령도서 적재)</td>
-										<td>금요일(오후 3시 이후~)</td>
-										<td>월요일(밤 11시 59분)</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<!-- 안내 박스 -->
-					<div class="info-notice program-notice mt24">
-						<div class="info-notice__content">
-							<div class="info-notice__desc">
-								<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-xsm" style="vertical-align: middle;" />
-								화요일이 공휴일인 경우 금요일(메시지 수신 이후)~일요일(23:59) 수령
+								<!-- 안내 박스 -->
+								<div class="info-box-type2">
+									<div class="info-box-type2__item">
+										<span>※ 화요일이 공휴일인 경우 금요일(메시지 수신 이후)~일요일(23:59) 수령</span>
+									</div>
+									<div class="info-box-type2__item">
+										<span>※ 금요일이 공휴일인 경우 그 다음주 화요일(도착 메시지 수신 이후)~목요일(23:59) 수령</span>
+									</div>
+								</div>
 							</div>
-							<div class="info-notice__desc mt12">
-								<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-xsm" style="vertical-align: middle;" />
-								금요일이 공휴일인 경우 그 다음주 화요일(도착 메시지 수신 이후)~목요일(23:59) 수령
-							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- 이용 시 유의사항 -->
-				<div class="mt40">
-					<h3 class="sub-layout__title">이용 시 유의사항</h3>
+				<div class="usage-guide">
+					<h3 class="usage-guide__title">이용 시 유의사항</h3>
+				</div>
 
-					<div class="usage-guide mt24">
-						<h4 class="usage-guide__subtitle">
-							<img src="./assets/images/icon/icon-check.svg" alt="체크" class="icon icon-sm" style="vertical-align: middle;" />
-							스마트도서관 이용이 불가능한 경우
-						</h4>
-						<ul class="usage-guide__content mt12">
-							<li>대출 중이거나 예약중인 도서</li>
-							<li>통합 대출권수 및 예약권수를 초과한 경우</li>
-							<li>도서 연체 등 대출정지 중인 경우</li>
-							<li>부록자료 이용 불가</li>
-						</ul>
-					</div>
-
-					<div class="usage-guide mt24">
-						<h4 class="usage-guide__subtitle">
-							<img src="./assets/images/icon/icon-check.svg" alt="체크" class="icon icon-sm" style="vertical-align: middle;" />
-							스마트도서관 상호대차가 취소 처리되는 경우
-						</h4>
-						<ul class="usage-guide__content mt12">
-							<li>잘못된 배가로 자료를 찾을 수 없을 경우</li>
-							<li>도서의 크기로 인해 스마트도서관 적재가 불가능한 경우</li>
-							<li>대출이 불가능할 정도로 훼손이 심한 도서</li>
-							<li>부록자료를 신청한 경우</li>
+				<div class="contact-info">
+					<h3>스마트도서관 이용이 불가능한 경우</h3>
+					<div class="usage-guide">
+						<ul class="usage-guide__content mt16">
+							<li class="list-none">- 대출 중이거나 예약중인 도서</li>
+							<li class="list-none">- 통합 대출권수 및 예약권수를 초과한 경우</li>
+							<li class="list-none">- 도서 연체 등 대출정지 중인 경우</li>
+							<li class="list-none">- 부록자료 이용 불가</li>
 						</ul>
 					</div>
 				</div>
 
-				<!-- 문의 -->
-				<div class="mt40">
-					<h3 class="sub-layout__title">문의</h3>
-					<div class="usage-guide mt24">
-						<ul class="usage-guide__content">
-							<li>스마트도서관 기기 장애 처리: 010-8840-8360(주)이씨오</li>
-							<li>회원가입, 도서관 이용 관련 사항: 032-749-8263(연수청학도서관 도서관운영지원팀)</li>
+				<div class="contact-info">
+					<h3>스마트도서관 상호대차가 취소 처리되는 경우</h3>
+					<div class="usage-guide">
+						<ul class="usage-guide__content mt16">
+							<li class="list-none">- 잘못된 배가로 자료를 찾을 수 없을 경우</li>
+							<li class="list-none">- 도서의 크기로 인해 스마트도서관 적재가 불가능한 경우</li>
+							<li class="list-none">- 대출이 불가능할 정도로 훼손이 심한 도서</li>
+							<li class="list-none">- 부록자료를 신청한 경우</li>
 						</ul>
 					</div>
 				</div>
 
-				<!-- 대출방법 -->
-				<div class="mt40">
-					<h3 class="sub-layout__title">대출방법</h3>
-					<div class="mt24 tac">
-						<img
-							src="./assets/images/smart-library-guide-1.jpg"
-							alt="스마트도서관 대출방법 안내"
-							style="max-width: 560px; width: 100%; border-radius: 8px;"
-						/>
+				<div class="usage-guide">
+					<h3 class="usage-guide__title">문의</h3>
+					<ul class="usage-guide__content">
+						<li>스마트도서관 기기 장애 처리: 010-8840-8360(주)이씨오</li>
+						<li>회원가입, 도서관 이용 관련 사항: 032-749-8263(연수청학도서관 도서관운영지원팀)</li>
+					</ul>
+				</div>
+
+				<div class="usage-guide">
+					<h3 class="usage-guide__title">대출방법</h3>
+					<div class="tac">
+						<img src="./assets/images/loan-process.png" alt="대출방법" />
 					</div>
 				</div>
 
-				<!-- 반납방법 -->
-				<div class="mt40">
-					<h3 class="sub-layout__title">반납방법</h3>
-					<div class="mt24 tac">
-						<img
-							src="./assets/images/smart-library-guide-2.jpg"
-							alt="스마트도서관 반납방법 안내"
-							style="max-width: 560px; width: 100%; border-radius: 8px;"
-						/>
+				<div class="usage-guide">
+					<h3 class="usage-guide__title">대출방법</h3>
+					<div class="tac">
+						<img src="./assets/images/loan-process2.png" alt="대출방법" />
 					</div>
 				</div>
 
-				<!-- 버튼 -->
 				<div class="tac mt40">
 					<UiButton
-						variant="secondary"
-						size="medium"
+						variant="primary"
+						href="#"
 						text="스마트도서관 자료검색 바로가기"
-						icon="icon-download"
-						iconAddClass="icon-xxsm icon-primary"
-						href="https://www.libropia.net"
-						target="_blank"
-						rel="noopener noreferrer"
+						icon="icon-arrow-right"
+						iconPosition="right"
+						iconAddClass="icon icon-xsm icon-white"
 					/>
 				</div>
 			</section>
 		</div>
+
+		<style>
+			.numbered-badge {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 24px;
+				height: 24px;
+				background: #3c79c2;
+				color: white;
+				border-radius: 50%;
+				font-weight: 700;
+				font-size: 15px;
+				flex-shrink: 0;
+			}
+
+			.usage-guide__subtitle {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 17px;
+				font-weight: 700;
+				color: #191a1a;
+				margin-bottom: 0;
+			}
+
+			.ml16 {
+				margin-left: 16px;
+			}
+		</style>
 	</SubLayout>
 </Layout>
-
-<style>
-	.numbered-badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 24px;
-		height: 24px;
-		background: #3c79c2;
-		color: white;
-		border-radius: 50%;
-		font-weight: 700;
-		font-size: 15px;
-		flex-shrink: 0;
-	}
-
-	.usage-guide__subtitle {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		font-size: 17px;
-		font-weight: 700;
-		color: #191a1a;
-		margin-bottom: 0;
-	}
-
-	.ml16 {
-		margin-left: 16px;
-	}
-</style>

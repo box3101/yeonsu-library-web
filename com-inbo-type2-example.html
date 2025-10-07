@@ -1,115 +1,133 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>com-inbo-type2 Example</title>
-    <style>
-        /* Minimal reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>com-inbo-type2 Example</title>
+		<style>
+			/* Minimal reset */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-        body {
-            font-family: 'Pretendard GOV', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            padding: 40px;
-            background: #f5f5f5;
-        }
+			body {
+				font-family: 'Pretendard GOV', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+				padding: 40px;
+				background: #f5f5f5;
+			}
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+			.container {
+				max-width: 1280px;
+				margin: 0 auto;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
 
-        h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #191a1a;
-            margin-bottom: 16px;
-        }
+			h2 {
+				font-size: 24px;
+				font-weight: 700;
+				color: #191a1a;
+				margin-bottom: 16px;
+			}
 
-        /* com-inbo-type2 component */
-        .com-inbo-type2 {
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-            padding: 16px;
-            background: #ecf2f9;
-            border: 1px solid #ecf2f9;
-            border-radius: 8px;
-            box-sizing: border-box;
-            width: 100%;
-        }
+			/* com-inbo-type2 component */
+			.com-inbo-type2 {
+				display: flex;
+				gap: 8px;
+				align-items: flex-start;
+				padding: 16px;
+				background: #ecf2f9;
+				border: 1px solid #ecf2f9;
+				border-radius: 8px;
+				box-sizing: border-box;
+				width: 100%;
+			}
 
-        .com-inbo-type2__icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-            height: 26px;
-            flex-shrink: 0;
-        }
+			.com-inbo-type2__icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				height: 26px;
+				flex-shrink: 0;
+			}
 
-        .com-inbo-type2__icon svg,
-        .com-inbo-type2__icon img {
-            width: 16.667px;
-            height: 16.667px;
-            display: block;
-        }
+			.com-inbo-type2__icon svg,
+			.com-inbo-type2__icon img {
+				width: 16.667px;
+				height: 16.667px;
+				display: block;
+			}
 
-        .com-inbo-type2__text {
-            flex: 1;
-            min-width: 0;
-            font-family: 'Pretendard GOV', sans-serif;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #18304d;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>com-inbo-type2 컴포넌트 예시</h2>
+			.com-inbo-type2__text {
+				flex: 1;
+				min-width: 0;
+				font-family: 'Pretendard GOV', sans-serif;
+				font-size: 17px;
+				font-weight: 400;
+				line-height: 1.5;
+				color: #18304d;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>com-inbo-type2 컴포넌트 예시</h2>
 
-        <!-- Example 1: With SVG Icon -->
-        <div class="com-inbo-type2">
-            <div class="com-inbo-type2__icon">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="7.5" stroke="#244874" stroke-width="2"/>
-                    <path d="M8.5 5.5V8.5L10.5 10.5" stroke="#244874" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <p class="com-inbo-type2__text">단, 차량운행일이 휴관일인 경우 다음 도서관 운영일에 소급 처리되며, 도서관 사정에 따라 대출가능일이 다소 지연될 수도 있습니다.</p>
-        </div>
+			<!-- Example 1: With SVG Icon -->
+			<div class="com-inbo-type2">
+				<div class="com-inbo-type2__icon">
+					<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="8.5" cy="8.5" r="7.5" stroke="#244874" stroke-width="2" />
+						<path
+							d="M8.5 5.5V8.5L10.5 10.5"
+							stroke="#244874"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</div>
+				<p class="com-inbo-type2__text">
+					단, 차량운행일이 휴관일인 경우 다음 도서관 운영일에 소급 처리되며, 도서관 사정에 따라 대출가능일이 다소 지연될
+					수도 있습니다.
+				</p>
+			</div>
 
-        <!-- Example 2: Different Icon -->
-        <div class="com-inbo-type2">
-            <div class="com-inbo-type2__icon">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.5" cy="8.5" r="7.5" fill="#244874"/>
-                    <path d="M8.5 4.5V8.5M8.5 11.5H8.51" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <p class="com-inbo-type2__text">회원가입 시 등록하신 정보가 정확해야 도서 예약 및 배송 서비스를 원활하게 이용하실 수 있습니다.</p>
-        </div>
+			<!-- Example 2: Different Icon -->
+			<div class="com-inbo-type2">
+				<div class="com-inbo-type2__icon">
+					<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="8.5" cy="8.5" r="7.5" fill="#244874" />
+						<path d="M8.5 4.5V8.5M8.5 11.5H8.51" stroke="white" stroke-width="2" stroke-linecap="round" />
+					</svg>
+				</div>
+				<p class="com-inbo-type2__text">
+					회원가입 시 등록하신 정보가 정확해야 도서 예약 및 배송 서비스를 원활하게 이용하실 수 있습니다.
+				</p>
+			</div>
 
-        <!-- Example 3: Another Text Example -->
-        <div class="com-inbo-type2">
-            <div class="com-inbo-type2__icon">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.5 1.5L2 5.5V11.5L8.5 15.5L15 11.5V5.5L8.5 1.5Z" stroke="#244874" stroke-width="2" stroke-linejoin="round"/>
-                    <circle cx="8.5" cy="8.5" r="1.5" fill="#244874"/>
-                </svg>
-            </div>
-            <p class="com-inbo-type2__text">도서관 자료의 무단 복사나 대출 기한 연장 없이 장기 보관하는 경우 서비스 이용이 제한될 수 있습니다.</p>
-        </div>
-    </div>
-</body>
+			<!-- Example 3: Another Text Example -->
+			<div class="com-inbo-type2">
+				<div class="com-inbo-type2__icon">
+					<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M8.5 1.5L2 5.5V11.5L8.5 15.5L15 11.5V5.5L8.5 1.5Z"
+							stroke="#244874"
+							stroke-width="2"
+							stroke-linejoin="round"
+						/>
+						<circle cx="8.5" cy="8.5" r="1.5" fill="#244874" />
+					</svg>
+				</div>
+				<p class="com-inbo-type2__text">
+					도서관 자료의 무단 복사나 대출 기한 연장 없이 장기 보관하는 경우 서비스 이용이 제한될 수 있습니다.
+				</p>
+			</div>
+		</div>
+	</body>
 </html>

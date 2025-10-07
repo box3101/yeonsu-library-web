@@ -33,7 +33,8 @@ const monthOptions = [];
 		<UiSubTab tabs={subTabMenus} activeTab={0} class="mt24">
 			<div data-content="0" class="content-panel active">
 				<!-- 달력 섹션 -->
-				<div class="hall-calendar" data-hall-calendar>
+				<div class="hall-calendar-wrp">
+					<div class="hall-calendar" data-hall-calendar>
 					<!-- 달력 헤더 -->
 					<div class="hall-calendar__header">
 						<button class="hall-calendar__nav" data-nav="prev" type="button">
@@ -200,10 +201,11 @@ const monthOptions = [];
 						<div class="hall-calendar__cell hall-calendar__cell--empty"></div>
 					</div>
 
-					<!-- 하단 버튼 영역 -->
-					<div class="hall-calendar__footer">
-						<div class="hall-calendar__actions">
-							<UiButton text="현재 월로 이동" variant="primary" size="medium" data-current-month />
+						<!-- 하단 버튼 영역 -->
+						<div class="hall-calendar__footer">
+							<div class="hall-calendar__actions">
+								<UiButton text="현재 월로 이동" variant="primary" size="medium" data-current-month />
+							</div>
 						</div>
 					</div>
 				</div>

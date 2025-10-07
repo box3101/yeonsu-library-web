@@ -2124,6 +2124,54 @@ img {
   }
 }
 
+.info-box-type2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: #f1f2f2;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .info-box-type2 {
+    margin-top: 16px;
+    padding: 16px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+}
+.info-box-type2__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #191a1a;
+}
+@media (max-width: 900px) {
+  .info-box-type2__item {
+    font-size: 14px;
+    gap: 6px;
+  }
+}
+.info-box-type2__item img.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.1875rem;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .info-box-type2__item img.icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+  }
+}
+
 .flex {
   display: flex;
 }
@@ -62755,6 +62803,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   word-break: break-word;
 }
 
+.usage-guide .tac img {
+  display: inline-block;
+}
 .usage-guide.type-2 .usage-guide__content {
   padding: 1rem;
   border-radius: 8px;
@@ -62785,6 +62836,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   color: #191a1a;
   line-height: 1;
   line-height: 150%;
+  letter-spacing: -0.01em;
 }
 .usage-guide__content li ul {
   margin-top: 10px;
@@ -77779,6 +77831,81 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   .usage-guide-section .usage-guide-subitem .usage-guide-subitem__title {
     font-size: 14px;
     margin-bottom: 6px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #4b4d4d;
+  line-height: 1;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li {
+    font-size: 14px;
+    padding-left: 20px;
+    margin-bottom: 6px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li:last-child {
+  margin-bottom: 0;
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.625rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #4b4d4d;
+  border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li::before {
+    left: 6px;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-1 {
+  padding-left: 2.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-1 {
+    padding-left: 32px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-1::before {
+  left: 1.25rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-1::before {
+    left: 16px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-2 {
+  padding-left: 3.25rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-2 {
+    padding-left: 44px;
+  }
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-2::before {
+  left: 2rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__list li.indent-2::before {
+    left: 28px;
   }
 }
 
@@ -97151,8 +97278,9 @@ body.modal-open {
   }
 }
 .info-section__content .info-section__right-area {
-  flex: 1;
   max-width: 50%;
+  flex: none;
+  width: 50%;
 }
 @media (max-width: 900px) {
   .info-section__content .info-section__right-area {
