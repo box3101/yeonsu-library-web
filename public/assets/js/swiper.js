@@ -333,6 +333,10 @@ function initMainLayerPopupSwiper() {
 		speed: SWIPER_CONFIG.speed,
 		centeredSlides: false,
 		initialSlide: 0,
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
 		navigation: {
 			nextEl: '.main-layer-popup .swiper-button-next',
 			prevEl: '.main-layer-popup .swiper-button-prev',
