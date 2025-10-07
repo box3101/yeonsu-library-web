@@ -13,6 +13,11 @@ body:has(.main-layer-popup:not(.is-active)) {
 	overflow: hidden;
 }
 
+// is-active 클래스가 있을 때는 스크롤 복원
+body:has(.main-layer-popup.is-active) {
+	overflow: auto;
+}
+
 // 메인 레이어 팝업
 .main-layer-popup {
 	position: fixed;
@@ -322,10 +327,13 @@ body:has(.main-layer-popup:not(.is-active)) {
 				padding: 12px;
 			}
 		}
+	}
 
+	// 모바일에서 네비게이션 버튼 숨김
+	@include mobile {
 		.swiper-button-prev,
 		.swiper-button-next {
-			display: none; // 모바일에서는 네비게이션 버튼 숨김
+			display: none !important;
 		}
 	}
 

@@ -95253,6 +95253,10 @@ body:has(.main-layer-popup:not(.is-active)) {
   overflow: hidden;
 }
 
+body:has(.main-layer-popup.is-active) {
+  overflow: auto;
+}
+
 .main-layer-popup {
   position: fixed;
   top: 0;
@@ -95516,9 +95520,11 @@ body:has(.main-layer-popup:not(.is-active)) {
     margin-top: 16px;
     padding: 12px;
   }
+}
+@media (max-width: 900px) {
   .main-layer-popup .swiper-button-prev,
   .main-layer-popup .swiper-button-next {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 900px) {
