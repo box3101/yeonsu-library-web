@@ -7,7 +7,16 @@
 import { menuConfig, isExternalLink } from '../../../src/data/menuData';
 
 // 모바일 메뉴에서 표시할 메뉴 카테고리들 (회원서비스, 기타 제외)
-const menuCategories = ['도서검색', '책 읽는 연수구', '안내마당', '도서서비스', '열린참여마당', '문화마당', '도서관소개', '나의도서관'];
+const menuCategories = [
+	'도서검색',
+	'책 읽는 연수구',
+	'안내마당',
+	'도서서비스',
+	'열린참여마당',
+	'문화마당',
+	'도서관소개',
+	'나의도서관',
+];
 
 // 모바일 메뉴 전용 데이터 구조 (Vanilla JS 방식)
 // MobileMenuItem: { title: string, url?: string, children?: MobileMenuItem[] }
@@ -64,18 +73,24 @@ menuCategories.forEach(category => {
 			</button>
 		</div>
 
-		<!-- 로그인 영역 -->
-		<div class="mobile-menu-login">
-			<img src="./assets/images/icon/icon-login.svg" class="icon icon-login" />
-			<span>로그인을 해주세요</span>
-		</div>
-
-		<!-- 검색 영역 -->
-		<div class="mobile-menu-search">
-			<div class="search-box">
-				<input type="text" placeholder="메뉴명을 입력해주세요" class="search-input" />
-				<img src="./assets/images/icon/icon-search.svg" class="icon icon-search" />
-			</div>
+		<!-- 유틸리티 링크 (회원가입, 로그인, English, 사이트맵) -->
+		<div class="mobile-menu-links">
+			<a href="#" class="mobile-menu-link">
+				<img src="./assets/images/icon/icon-person.svg" class="icon icon-person" />
+				<span>회원가입</span>
+			</a>
+			<a href="#" class="mobile-menu-link">
+				<img src="./assets/images/icon/icon-login.svg" class="icon icon-login" />
+				<span>로그인</span>
+			</a>
+			<a href="#" class="mobile-menu-link">
+				<img src="./assets/images/icon/icon-language.svg" class="icon icon-language" />
+				<span>English</span>
+			</a>
+			<a href="#" class="mobile-menu-link">
+				<img src="./assets/images/icon/icon-sitemap.svg" class="icon icon-sitemap" />
+				<span>사이트맵</span>
+			</a>
 		</div>
 	</div>
 
@@ -85,7 +100,12 @@ menuCategories.forEach(category => {
 		<div class="mobile-menu-depth-bar">
 			{
 				menuCategories.map((category, index) => (
-					<button type="button" class={`depth-bar-item ${index === 0 ? 'selected' : ''}`} data-category={category} data-index={index}>
+					<button
+						type="button"
+						class={`depth-bar-item ${index === 0 ? 'selected' : ''}`}
+						data-category={category}
+						data-index={index}
+					>
 						{category}
 					</button>
 				))
@@ -115,17 +135,29 @@ menuCategories.forEach(category => {
 													<span>{child.title}</span>
 													{/* 외부 링크인 경우 외부 링크 아이콘, 아니면 화살표 아이콘 */}
 													{child.isExternal ? (
-														<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+														<img
+															src="./assets/images/icon/icon-external-link.svg"
+															class="icon icon-external-link"
+															alt="외부 링크"
+														/>
 													) : (
 														<img src="./assets/images/icon/icon-arrow-down.svg" class="icon icon-arrow-down" />
 													)}
 												</button>
 											) : (
-												<a href={child.url} class="menu-item-link" {...(child.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}>
+												<a
+													href={child.url}
+													class="menu-item-link"
+													{...(child.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
+												>
 													<span>{child.title}</span>
 													{/* 외부 링크 아이콘 표시 */}
 													{child.isExternal && (
-														<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+														<img
+															src="./assets/images/icon/icon-external-link.svg"
+															class="icon icon-external-link"
+															alt="외부 링크"
+														/>
 													)}
 												</a>
 											)}
@@ -146,7 +178,11 @@ menuCategories.forEach(category => {
 															<span>{subChild.title}</span>
 															{/* 3depth에서도 외부 링크 아이콘 표시 */}
 															{subChild.isExternal && (
-																<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+																<img
+																	src="./assets/images/icon/icon-external-link.svg"
+																	class="icon icon-external-link"
+																	alt="외부 링크"
+																/>
 															)}
 														</a>
 													))}
