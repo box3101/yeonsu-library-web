@@ -330,19 +330,21 @@ function initMainLayerPopupSwiper() {
 	var slideCount = $swiper.find('.swiper-slide').length;
 	var enableLoop = slideCount > 2;
 	var enableAutoplay = slideCount > 2 ? { delay: 3000, disableOnInteraction: false } : false;
+	var $paginationWrapper = $('.main-layer-popup .swiper-pagination-wrapper');
 	var $pagination = $('.main-layer-popup .swiper-pagination');
 	var $navigation = $('.main-layer-popup .swiper-button-prev, .main-layer-popup .swiper-button-next');
+	var $counterCurrent = $('.main-layer-popup .swiper-pagination-counter .current');
 
 	// 슬라이드가 2개 이하일 때 페이지네이션과 네비게이션 숨김
 	if (slideCount <= 2) {
-		$pagination.hide();
+		$paginationWrapper.hide();
 		$navigation.hide();
 	} else {
-		$pagination.show();
+		$paginationWrapper.show();
 		$navigation.show();
 	}
 
-	new Swiper('[data-popup-swiper]', {
+	var mainLayerPopupSwiper = new Swiper('[data-popup-swiper]', {
 		slidesPerView: slideCount <= 2 ? 1 : 2,
 		slidesPerGroup: slideCount <= 2 ? 1 : 2,
 		spaceBetween: 48,
@@ -377,6 +379,16 @@ function initMainLayerPopupSwiper() {
 				slidesPerGroup: slideCount <= 2 ? 1 : 2,
 				spaceBetween: 48,
 				centeredSlides: slideCount <= 2 ? true : false,
+			},
+		},
+		on: {
+			slideChange: function () {
+				// 페이지네이션 카운터 업데이트
+				if ($counterCurrent.length > 0) {
+					// loop가 활성화된 경우 실제 인덱스 계산
+					var realIndex = this.realIndex;
+					$counterCurrent.text(realIndex + 1);
+				}
 			},
 		},
 	});
