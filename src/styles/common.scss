@@ -88,6 +88,17 @@ body {
 	}
 }
 
+// AOS 라이브러리가 간헐적으로 body에 overflow: hidden을 설정하는 문제 방지
+body {
+	overflow-y: auto !important;
+}
+
+body.modal-open,
+body.layer-popup-active,
+body.mobile-menu-open {
+	overflow: hidden !important;
+}
+
 body {
 	min-width: 1280px; // 최소 너비 보장
 

@@ -99,6 +99,16 @@ body {
 }
 
 body {
+  overflow-y: auto !important;
+}
+
+body.modal-open,
+body.layer-popup-active,
+body.mobile-menu-open {
+  overflow: hidden !important;
+}
+
+body {
   min-width: 1280px;
 }
 @media (max-width: 900px) {
@@ -97584,6 +97594,7 @@ body:has(.main-layer-popup.is-active) {
 @media (max-width: 900px) {
   .info-section__content .info-section__right-area {
     max-width: 100%;
+    width: 100%;
   }
 }
 @media (max-width: 900px) {
