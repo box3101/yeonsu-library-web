@@ -326,17 +326,31 @@ function initMainLayerPopupSwiper() {
 	var $swiper = $('[data-popup-swiper]');
 	if ($swiper.length === 0) return;
 
+	// 슬라이드 개수 확인
+	var slideCount = $swiper.find('.swiper-slide').length;
+	var enableLoop = slideCount > 2;
+	var enableAutoplay = slideCount > 2 ? { delay: 3000, disableOnInteraction: false } : false;
+	var $pagination = $('.main-layer-popup .swiper-pagination');
+	var $navigation = $('.main-layer-popup .swiper-button-prev, .main-layer-popup .swiper-button-next');
+
+	// 슬라이드가 2개 이하일 때 페이지네이션과 네비게이션 숨김
+	if (slideCount <= 2) {
+		$pagination.hide();
+		$navigation.hide();
+	} else {
+		$pagination.show();
+		$navigation.show();
+	}
+
 	new Swiper('[data-popup-swiper]', {
-		slidesPerView: 2,
+		slidesPerView: slideCount <= 2 ? 1 : 2,
+		slidesPerGroup: slideCount <= 2 ? 1 : 2,
 		spaceBetween: 48,
-		loop: true,
+		loop: enableLoop,
 		speed: SWIPER_CONFIG.speed,
-		centeredSlides: false,
+		centeredSlides: slideCount <= 2 ? true : false,
 		initialSlide: 0,
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-		},
+		autoplay: enableAutoplay,
 		navigation: {
 			nextEl: '.main-layer-popup .swiper-button-next',
 			prevEl: '.main-layer-popup .swiper-button-prev',
@@ -348,18 +362,21 @@ function initMainLayerPopupSwiper() {
 		breakpoints: {
 			320: {
 				slidesPerView: 1,
+				slidesPerGroup: 1,
 				spaceBetween: 20,
 				centeredSlides: true,
 			},
 			768: {
 				slidesPerView: 1,
+				slidesPerGroup: 1,
 				spaceBetween: 30,
 				centeredSlides: true,
 			},
 			1024: {
-				slidesPerView: 2,
+				slidesPerView: slideCount <= 2 ? 1 : 2,
+				slidesPerGroup: slideCount <= 2 ? 1 : 2,
 				spaceBetween: 48,
-				centeredSlides: false,
+				centeredSlides: slideCount <= 2 ? true : false,
 			},
 		},
 	});

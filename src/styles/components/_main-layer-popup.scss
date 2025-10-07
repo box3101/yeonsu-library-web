@@ -264,6 +264,10 @@ body:has(.main-layer-popup:not(.is-active)) {
 			padding: 0 16px;
 			font-size: 16px;
 
+			@include tablet {
+				font-size: 14px;
+			}
+
 			&--close,
 			&--hide-today {
 				flex: 1;
@@ -344,6 +348,9 @@ body:has(.main-layer-popup:not(.is-active)) {
 
 		&__actions {
 			padding: 0 20px;
+			@include tablet {
+				padding: 0;
+			}
 		}
 	}
 }

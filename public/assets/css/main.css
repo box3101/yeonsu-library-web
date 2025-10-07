@@ -95466,6 +95466,13 @@ body:has(.main-layer-popup:not(.is-active)) {
     padding: 0 16px;
     font-size: 16px;
   }
+}
+@media (max-width: 900px) and (max-width: 900px) {
+  .main-layer-popup__button {
+    font-size: 14px;
+  }
+}
+@media (max-width: 900px) {
   .main-layer-popup__button--close, .main-layer-popup__button--hide-today {
     flex: 1;
     min-width: 120px;
@@ -95527,6 +95534,11 @@ body:has(.main-layer-popup:not(.is-active)) {
   }
   .main-layer-popup__actions {
     padding: 0 20px;
+  }
+}
+@media (max-width: 900px) and (max-width: 900px) {
+  .main-layer-popup__actions {
+    padding: 0;
   }
 }
 
