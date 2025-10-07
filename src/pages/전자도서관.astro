@@ -1,81 +1,348 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiPagination, UiTable, UiSelect, UiButton, UiDatePicker } from '@components';
+import { UiButton } from '@components';
+
+const title = '전자도서관';
+const description = '연수구립도서관 전자도서관 페이지입니다.';
 
 const breadcrumbItems = [
-  { text: '홈', link: '/' },
-  { text: '내정보', link: '#' },
-  { text: '전자도서관', link: '#' },
+	{ text: '홈', link: '/' },
+	{ text: '도서서비스', link: '#' },
+	{ text: '전자정보서비스', link: '#' },
+	{ text: '전자도서관', link: '#' },
 ];
 ---
 
-<Layout title="전자도서관">
-  <SubLayout title="전자도서관" breadcrumbItems={breadcrumbItems} menuType="나의도서관">
-    <div class="sub-layout__content">
-      <!-- 전자 도서관 소개 -->
-      <section class="sub-layout__content-inner">
-        <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">전자도서관 소개</h2>
-          <p class="sub-layout__content-inner-header-desc">
-            연수구립도서관은 전자책(E-Book), 오디오북(Audio Book) 등 다양한 디지털 콘텐츠를 물리적‧시간적 제약 없이 활용할 수 있는 환경을 제공합니다.
-          </p>
-        </div>
-        <div class="sub-layout__content-inner-body">
-          <div class="sub-layout__content-inner-body-item">
-            <ul class="sub-layout__content-inner-body-item-list">
-              <li>대출정책</li>
-            </ul>
-            <!-- 대출정책 테이블 -->
-            <div class="policy-table">
-              <table class="table table--bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">구분</th>
-                    <th scope="col">대출가능권수</th>
-                    <th scope="col">대출기간</th>
-                    <th scope="col">동시 자료 최대 이용자 수</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>전자책</td>
-                    <td>10권</td>
-                    <td>5일</td>
-                    <td>2~5명</td>
-                  </tr>
-                  <tr>
-                    <td>오버드라이브 (영어전자책)</td>
-                    <td>10권</td>
-                    <td>7일/14일 선택</td>
-                    <td>1명</td>
-                  </tr>
-                  <tr>
-                    <td>오디오북</td>
-                    <td>30권</td>
-                    <td>5일</td>
-                    <td>5명</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- 전자 도서관 소개 EEE -->
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		<div class="sub-layout__content">
+			<!-- 전자도서관 소개 -->
+			<section class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-header">
+					<h2 class="sub-layout__content-inner-header-title">전자도서관 소개</h2>
+				</div>
+				<div class="sub-layout__content-inner-body">
+					<div class="sub-layout__content-inner-body-item">
+						<p class="sub-layout__content-inner-body-item-desc">
+							연수구립도서관은 전자책(E-Book), 오디오북(Audio Book) 등 다양한 디지털 콘텐츠를 물리적‧시간적 제약 없이
+							활용할 수 있는 환경을 제공합니다.
+						</p>
 
-      <!-- 전자 도서관 이용안내 -->
-      <section class="sub-layout__content-inner">
-        <div class="sub-layout__content-inner-header">
-          <h2 class="sub-layout__content-inner-header-title">전자 도서관 이용안내</h2>
-        </div>
-        <div class="sub-layout__content-inner-body">
-          <div class="sub-layout__content-inner-body-item">
-            <!-- 이용안내 테이블 -->
-          </div>
-        </div>
-      </section>
-      <!-- 전자 도서관 이용안내 EEE -->
-    </div>
-  </SubLayout>
+						<ul class="sub-layout__content-inner-body-item-list mt24">
+							<li>대출정책</li>
+						</ul>
+
+						<!-- 대출정책 테이블 -->
+						<div class="policy-table">
+							<table class="table table--bordered">
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">대출가능권수</th>
+										<th scope="col">대출기간</th>
+										<th scope="col">동시 자료 최대 이용자 수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>전자책</td>
+										<td>10권</td>
+										<td>5일</td>
+										<td>2~5명</td>
+									</tr>
+									<tr>
+										<td>오버드라이브 (영어전자책)</td>
+										<td>10권</td>
+										<td>7일/14일 선택</td>
+										<td>1명</td>
+									</tr>
+									<tr>
+										<td>오디오북</td>
+										<td>30권</td>
+										<td>5일</td>
+										<td>5명</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 전자도서관 이용안내 -->
+			<section class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-header">
+					<h2 class="sub-layout__content-inner-header-title">전자도서관 이용안내</h2>
+				</div>
+				<div class="sub-layout__content-inner-body">
+					<!-- 이용안내 테이블 -->
+					<div class="policy-table">
+						<table class="table table--bordered text-left">
+							<colgroup>
+								<col style="width: 150px;" />
+								<col />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">소장자료</th>
+									<td>전자책(E-book), 오디오북(Audio book)</td>
+								</tr>
+								<tr>
+									<th scope="row">이용대상</th>
+									<td>
+										연수구립도서관 정회원<br />
+										※ 전자도서관을 처음 이용하는 분은 전자도서관 홈페이지 <strong class="text-primary text-bold">
+											최초 1회 접속
+										</strong> 필수(아이디 연동)
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">이용안내</th>
+									<td>
+										<div class="usage-guide-section">
+											<!-- 전자책 섹션 -->
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">1</span>
+													PC에서 이용하는 경우
+												</h4>
+												<ul class="usage-guide-item__list">
+													<li>연수구립도서관 홈페이지 로그인 후 안내마당-전자도서관-"연수구립도서관 바로가기" 클릭</li>
+													<li>"PC뷰어" 설치 후 전자책 열람</li>
+												</ul>
+											</div>
+
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">2</span>
+													모바일 기기에서 이용하는 경우
+												</h4>
+
+												<div class="usage-guide-subitem">
+													<h5 class="usage-guide-subitem__title">2-1. 리브로피아 어플을 이용하는 경우</h5>
+													<ul class="usage-guide-item__list">
+														<li>처음 이용하는 경우, 전자도서관 홈페이지 최초 1회 접속 필수 (아이디 연동)</li>
+														<li>스마트 모바일도서관 "리브로피아" 어플 설치 후 전자책 이용</li>
+														<li class="ml12">
+															교보문고 전자책은 리브로피아 내 "교보 전자책" 메뉴에서 이용 가능 (페이지 연결)
+														</li>
+														<li class="ml12">
+															웅진북센 전자책은 리브로피아 내 "웅진북센" 메뉴에서 이용 가능 (페이지 연결)
+														</li>
+														<li class="ml12">yes24 전자책은 "전자책" 메뉴에서 검색 후 대출 후 열람</li>
+														<li class="ml24">바로보기: 별도의 어플 설치 없이, 기기 내의 인터넷 브라우저로 도서 읽기</li>
+														<li class="ml24">뷰어보기: 별도의 어플[예스24 전자도서관(리뉴얼)]로 연동되어 도서 읽기</li>
+													</ul>
+												</div>
+
+												<div class="usage-guide-subitem">
+													<h5 class="usage-guide-subitem__title">
+														2-1. 예스24 전자도서관 어플, 교보문고 전자도서관 어플에서 이용하는 경우
+													</h5>
+													<ul class="usage-guide-item__list">
+														<li>"예스24 전자도서관(리뉴얼) ", "교보문고 전자도서관", "웅진북센 EBOOK" 어플 설치</li>
+														<li>어플 설치 후 "연수구립도서관" 추가</li>
+														<li>도서관 홈페이지 ID와 PW 로그인 후 이용 가능</li>
+														<li class="ml12">yes24 전자책은 "전자책" 메뉴에서 검색 후 대출 후 열람</li>
+													</ul>
+												</div>
+
+												<div class="usage-guide-subitem">
+													<h5 class="usage-guide-subitem__title">
+														2-3. 모바일 웹 브라우저를 이용하는 경우 (※ 예스24, 교보문고만 해당. )
+													</h5>
+													<ul class="usage-guide-item__list">
+														<li>
+															연수구립도서관 홈페이지 로그인 후 안내마당-전자도서관-"연수구립도서관 바로가기" 클릭
+														</li>
+														<li>모바일 웹 브라우저 혹은 어플 연동을 통한 전자책 열람</li>
+														<li class="ml12">
+															바로보기: 별도의 어플 설치 없이, 기기 내의 모바일 웹 브라우저로 도서 읽기
+														</li>
+														<li class="ml12">
+															뷰어보기: 별도의 어플[예스24 전자도서관(리뉴얼), 교보문고 전자도서관]로 연동되어 도서 읽기
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<th scope="row">
+										송도국제<br />
+										어린이도서관<br />
+										(영어전자책)
+									</th>
+									<td>
+										<div class="usage-guide-section">
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">1</span>
+													PC에서 이용하는 경우
+												</h4>
+												<ul class="usage-guide-item__list">
+													<li>
+														연수구립도서관 홈페이지 로그인 후 안내마당-전자도서관-"송도국제어린이도서관 오버드라이브
+														바로가기" 클릭 후 로그인 (홈페이지 아이디)
+													</li>
+													<li>전자책 대출 후 전자책 읽기</li>
+													<li>
+														전용뷰어로 읽기(뷰어 다운로드 필요)
+														<UiButton
+															variant="secondary"
+															size="small"
+															text="뷰어다운로드 바로가기"
+															icon="icon-download"
+															iconAddClass="icon-xxsm icon-primary"
+															href="#"
+															target="_blank"
+															rel="noopener noreferrer"
+															class="ml8"
+														/>
+													</li>
+												</ul>
+											</div>
+
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">2</span>
+													모바일 기기에서 이용하는 경우
+												</h4>
+
+												<div class="usage-guide-subitem">
+													<h5 class="usage-guide-subitem__title">2-1. 리브로피아 어플을 이용하는 경우</h5>
+													<ul class="usage-guide-item__list">
+														<li>처음 이용하는 경우, 전자도서관 홈페이지 최초 1회 접속 필수 (아이디 연동)</li>
+														<li>
+															"Libby" 어플 설치 후 도서관 "Songdo International Chlidren's Library" 검색 후 로그인 후
+															이용
+														</li>
+														<li class="ml12">안드로이드폰: "OverDrive 제작 Libby" 어플 설치</li>
+														<li class="ml12">아이폰: "Libby, by OverDrive" 어플 설치</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">3</span>
+													오버드라이브(영어 전자책) 이용방법(PC용) 매뉴얼 다운로드
+												</h4>
+												<div class="mt16">
+													<UiButton
+														variant="secondary"
+														size="medium"
+														text="송도국제어린이도서관 오버드라이브 바로가기"
+														icon="icon-arrow-right"
+														iconAddClass="icon-xxsm icon-primary"
+														iconPosition="right"
+														href="#"
+														target="_blank"
+														rel="noopener noreferrer"
+													/>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<th scope="row">오디오북</th>
+									<td>
+										<div class="usage-guide-section">
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">1</span>
+													PC에서 이용하는 경우
+												</h4>
+												<ul class="usage-guide-item__list">
+													<li>
+														연수구립도서관 홈페이지 로그인 후 안내마당-전자도서관-"바로가기" 클릭 후 메인화면 우측
+														"오디오북" 클릭
+													</li>
+												</ul>
+											</div>
+
+											<div class="usage-guide-item">
+												<h4 class="usage-guide-item__title">
+													<span class="usage-guide-item__number">2</span>
+													모바일 기기에서 이용하는 경우
+												</h4>
+
+												<div class="usage-guide-subitem">
+													<h5 class="usage-guide-subitem__title">2-1. 리브로피아 어플을 이용하는 경우</h5>
+													<ul class="usage-guide-item__list">
+														<li>
+															처음 이용하는 경우, 전자도서관 홈페이지 1회 접속 후 오디오북 메인페이지에서 "스마트폰
+															등록하여 간편하게 이용하세요" 클릭 후 아이디, 패스워드 등록
+														</li>
+														<li>"오디언도서관" 어플을 다운받은 후 "연수구립도서관" 선택 후 로그인</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<th scope="row">링크바로가기</th>
+									<td>
+										<div class="button-list-vertical">
+											<UiButton
+												variant="secondary"
+												size="large"
+												text="송도국제어린이도서관 오버드라이브 바로가기"
+												icon="icon-arrow-right"
+												iconAddClass="icon-xxsm icon-primary"
+												iconPosition="right"
+												href="#"
+												target="_blank"
+												rel="noopener noreferrer"
+											/>
+											<UiButton
+												variant="secondary"
+												size="large"
+												text="안전한전자책 불법전자책 바로가기"
+												icon="icon-arrow-right"
+												iconAddClass="icon-xxsm icon-primary"
+												iconPosition="right"
+												href="#"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="mt16"
+											/>
+											<UiButton
+												variant="secondary"
+												size="large"
+												text="오디언도서관 바로가기"
+												icon="icon-arrow-right"
+												iconAddClass="icon-xxsm icon-primary"
+												iconPosition="right"
+												href="#"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="mt16"
+											/>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- 안내 메시지 -->
+					<div class="sub-layout__content-inner-body-item-title-text-noti mt24">
+						<img src="./assets/images/icon/icon-noti2.svg" alt="알림" />
+						<p>
+							송도국제어린이도서관 오버드라이브 서비스를 처음 이용하시는 분은 연수구립도서관 전자도서관을 최초1회
+							접속하신 후에 이용바랍니다.
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
 </Layout>

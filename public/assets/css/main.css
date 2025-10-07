@@ -62962,16 +62962,16 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
     overflow-x: auto;
   }
 }
-@media (max-width: 900px) {
-  .contact-table-wrp.scroll-x {
-    min-width: 600px;
-  }
-}
 .contact-table-wrp .contact-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 25px;
   border-top: 2px solid #30619b;
+}
+@media (max-width: 900px) {
+  .contact-table-wrp .contact-table {
+    min-width: 600px;
+  }
 }
 .contact-table-wrp .contact-table caption {
   display: none;
@@ -68059,6 +68059,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   width: 100%;
   margin: 0;
 }
+.policy-table .table.text-left td {
+  text-align: left !important;
+}
 .policy-table .table--bordered {
   border-collapse: collapse;
 }
@@ -68067,6 +68070,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   padding: 0.75rem 1rem;
   text-align: center;
   border-bottom: 1px solid #ecf2fe;
+  line-height: 150%;
 }
 @media (max-width: 900px) {
   .policy-table .table--bordered th,
@@ -77636,6 +77640,156 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 @media (max-width: 900px) {
   .form-field__participant-names .ui-input-container {
     flex: 0 0 calc((100% - 0.625rem) / 2);
+  }
+}
+
+.usage-guide-section .usage-guide-item {
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item {
+    margin-bottom: 20px;
+  }
+}
+.usage-guide-section .usage-guide-item:last-child {
+  margin-bottom: 0;
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #191a1a;
+  line-height: 1;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__title .usage-guide-item__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #3c79c2;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__title .usage-guide-item__number {
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+  }
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #4b4d4d;
+  line-height: 1;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__list li {
+    font-size: 14px;
+    padding-left: 20px;
+    margin-bottom: 6px;
+  }
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list li:last-child {
+  margin-bottom: 0;
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list li::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.625rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #4b4d4d;
+  border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__list li::before {
+    left: 6px;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+  }
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list li.ml12 {
+  padding-left: 2.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__list li.ml12 {
+    padding-left: 32px;
+  }
+}
+.usage-guide-section .usage-guide-item .usage-guide-item__list li.ml24 {
+  padding-left: 3.25rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-item .usage-guide-item__list li.ml24 {
+    padding-left: 44px;
+  }
+}
+.usage-guide-section .usage-guide-subitem {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+  }
+}
+.usage-guide-section .usage-guide-subitem:last-child {
+  margin-bottom: 0;
+}
+.usage-guide-section .usage-guide-subitem .usage-guide-subitem__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #191a1a;
+  line-height: 1;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  .usage-guide-section .usage-guide-subitem .usage-guide-subitem__title {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+}
+
+.button-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .button-list-vertical {
+    gap: 12px;
   }
 }
 
