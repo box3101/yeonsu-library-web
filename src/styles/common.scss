@@ -2132,3 +2132,71 @@ img {
 .tac {
 	text-align: center;
 }
+
+/* ============================================
+   Info Box Type 2 Component
+   ============================================ */
+
+.com-inbo-type2 {
+	margin-top: 24px;
+	display: flex;
+	gap: to-rem(8);
+	align-items: flex-start;
+	padding: to-rem(16);
+	background: #ecf2f9;
+	border: 1px solid #ecf2f9;
+	border-radius: to-rem(8);
+	box-sizing: border-box;
+	width: 100%;
+
+	@include mobile {
+		margin-top: 16px;
+		padding: 16px;
+		gap: 8px;
+		border-radius: 8px;
+	}
+
+	// Icon container
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: to-rem(20);
+		height: to-rem(26);
+		flex-shrink: 0;
+
+		svg,
+		img {
+			width: to-rem(16.667);
+			height: to-rem(16.667);
+			display: block;
+		}
+
+		@include mobile {
+			width: 20px;
+			height: 26px;
+
+			svg,
+			img {
+				width: 16.667px;
+				height: 16.667px;
+			}
+		}
+	}
+
+	// Text content
+	&__text {
+		flex: 1;
+		min-width: 0;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #18304d;
+		margin: 0;
+
+		@include mobile {
+			font-size: 14px;
+		}
+	}
+}

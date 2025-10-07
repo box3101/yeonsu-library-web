@@ -2060,6 +2060,70 @@ img {
   text-align: center;
 }
 
+/* ============================================
+   Info Box Type 2 Component
+   ============================================ */
+.com-inbo-type2 {
+  margin-top: 24px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #ecf2f9;
+  border: 1px solid #ecf2f9;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .com-inbo-type2 {
+    margin-top: 16px;
+    padding: 16px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+}
+.com-inbo-type2__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.625rem;
+  flex-shrink: 0;
+}
+.com-inbo-type2__icon svg,
+.com-inbo-type2__icon img {
+  width: 1.0416875rem;
+  height: 1.0416875rem;
+  display: block;
+}
+@media (max-width: 900px) {
+  .com-inbo-type2__icon {
+    width: 20px;
+    height: 26px;
+  }
+  .com-inbo-type2__icon svg,
+  .com-inbo-type2__icon img {
+    width: 16.667px;
+    height: 16.667px;
+  }
+}
+.com-inbo-type2__text {
+  flex: 1;
+  min-width: 0;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #18304d;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .com-inbo-type2__text {
+    font-size: 14px;
+  }
+}
+
 .flex {
   display: flex;
 }
