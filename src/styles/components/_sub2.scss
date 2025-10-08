@@ -2494,11 +2494,9 @@
 						align-items: center;
 						justify-content: center;
 						gap: to-rem(8);
-						padding: to-rem(16) to-rem(8);
 						position: relative;
 
 						@include mobile {
-							padding: to-rem(12) to-rem(8);
 							gap: to-rem(6);
 						}
 
@@ -2527,17 +2525,39 @@
 									height: to-rem(110);
 								}
 
-								.book-cover {
+								.book-link {
+									display: block;
 									width: to-rem(95);
 									height: to-rem(130);
-									object-fit: cover;
+									transition: transform 0.2s ease, box-shadow 0.2s ease;
 									border-radius: to-rem(4);
-									box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
 									@include mobile {
 										width: to-rem(80);
 										height: to-rem(110);
 									}
+
+									&:hover {
+										transform: translateY(-4px);
+
+										.book-cover {
+											box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+										}
+									}
+
+									&:active {
+										transform: translateY(-2px);
+									}
+								}
+
+								.book-cover {
+									width: 100%;
+									height: 100%;
+									object-fit: cover;
+									border-radius: to-rem(4);
+									box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+									transition: box-shadow 0.2s ease;
+									display: block;
 								}
 							}
 						}
