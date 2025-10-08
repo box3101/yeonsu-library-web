@@ -1,49 +1,49 @@
 ---
 export interface EventRow {
-  category: string;
-  description: string;
-  image?: string;
-  imageAlt?: string;
+	category: string;
+	description: string;
+	image?: string;
+	imageAlt?: string;
 }
 
 export interface Props {
-  class?: string;
-  rows?: EventRow[];
+	class?: string;
+	rows?: EventRow[];
 }
 
 const { class: className = '', rows = [] } = Astro.props;
 ---
 
 <div class={`ui-event-table ${className}`}>
-  <div class="ui-event-table__border-top"></div>
-  {rows.map((row) => (
-    <div class="ui-event-table__row">
-      <div class="ui-event-table__cell ui-event-table__cell--category">
-        <div class="ui-event-table__cell-content">
-          <p>{row.category}</p>
-        </div>
-      </div>
-      <div class="ui-event-table__cell ui-event-table__cell--description">
-        <div class="ui-event-table__cell-content">
-          <div class="ui-event-table__description">
-            <div class="ui-event-table__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11 13.5858V7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7V13.5858L15.2929 11.2929C15.6834 10.9024 16.3166 10.9024 16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L7.29289 12.7071Z" fill="currentColor" transform="rotate(-90 12 12)"/>
-              </svg>
-            </div>
-            <div class="ui-event-table__text" set:html={row.description}></div>
-          </div>
-        </div>
-      </div>
-      <div class="ui-event-table__cell ui-event-table__cell--image">
-        <div class="ui-event-table__cell-content">
-          {row.image && (
-            <div class="ui-event-table__image">
-              <img src={row.image} alt={row.imageAlt || ''} />
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  ))}
+	<div class="ui-event-table__border-top"></div>
+	{
+		rows.map(row => (
+			<div class="ui-event-table__row">
+				<div class="ui-event-table__cell ui-event-table__cell--category">
+					<div class="ui-event-table__cell-content">
+						<p>{row.category}</p>
+					</div>
+				</div>
+				<div class="ui-event-table__cell ui-event-table__cell--description">
+					<div class="ui-event-table__cell-content">
+						<div class="ui-event-table__description">
+							<div class="ui-event-table__icon">
+								<img src="./assets/images/icon/icon-chevron-left-type2.svg" alt="오른쪽 화살표" />
+							</div>
+							<div class="ui-event-table__text" set:html={row.description} />
+						</div>
+					</div>
+				</div>
+				<div class="ui-event-table__cell ui-event-table__cell--image">
+					<div class="ui-event-table__cell-content">
+						{row.image && (
+							<div class="ui-event-table__image">
+								<img src={row.image} alt={row.imageAlt || ''} />
+							</div>
+						)}
+					</div>
+				</div>
+			</div>
+		))
+	}
 </div>

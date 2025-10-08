@@ -14,17 +14,27 @@ export interface Props {
 }
 
 const { title, items = [], class: className = '' } = Astro.props;
+
+// Calculate numbering only for numbered items
+let numberedCount = 0;
+const itemsWithNumbers = items.map(item => {
+  if (item.type === 'numbered') {
+    numberedCount++;
+    return { ...item, number: numberedCount };
+  }
+  return item;
+});
 ---
 
 <div class={`ui-usage-guide ${className}`}>
   {title && <h3 class="ui-usage-guide__title">{title}</h3>}
   <div class="ui-usage-guide__content">
-    {items.map((item) => (
+    {itemsWithNumbers.map((item) => (
       <div class={`ui-usage-guide__item ${item.indent ? `ui-usage-guide__item--indent-${item.indent}` : ''}`}>
         <div class="ui-usage-guide__item-content">
           <div class="ui-usage-guide__bullet">
             {item.type === 'numbered' && (
-              <span class="ui-usage-guide__number">{item.content.match(/^\d+/)?.[0] || ''}.</span>
+              <span class="ui-usage-guide__number">{item.number}.</span>
             )}
             {item.type === 'bullet' && (
               <span class="ui-usage-guide__dot"></span>

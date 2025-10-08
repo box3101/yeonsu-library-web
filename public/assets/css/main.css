@@ -62911,6 +62911,12 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   width: 100%;
   border-collapse: collapse;
 }
+.usage-guide__table.selected-books-table td {
+  text-align: center;
+}
+.usage-guide__table.selected-books-table td img {
+  display: inline-block;
+}
 .usage-guide__table caption {
   display: none;
 }

@@ -9,7 +9,7 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
 const guideItems = [
 	{
 		type: 'numbered',
-		content: '1. <b>부모 신분증, 6개월 이내 발급된 주민등록등본</b> 준비',
+		content: '<b>부모 신분증, 6개월 이내 발급된 주민등록등본</b> 준비',
 
 		subItems: [
 			{
@@ -24,11 +24,11 @@ const guideItems = [
 	},
 	{
 		type: 'numbered',
-		content: '2. 배부단계, 배부시간 확인 후 배부장소 방문(선착순 배부)',
+		content: '배부단계, 배부시간 확인 후 배부장소 방문(선착순 배부)',
 	},
 	{
 		type: 'numbered',
-		content: '3. 아기 개월 수에 맞는 책꾸러미 수령',
+		content: '아기 개월 수에 맞는 책꾸러미 수령',
 	},
 	{
 		type: 'note',
@@ -108,6 +108,94 @@ const guideItems = [
 					</tr>
 				</tbody>
 			</table>
+		</div>
+
+		<!-- 2025년 연수구 북스타트 꾸러미 선정도서서 -->
+		<div class="usage-guide">
+			<h3 class="usage-guide__title">2025년 연수구 북스타트 꾸러미 선정도서</h3>
+		</div>
+
+		<!-- 선정도서 테이블 -->
+		<div class="usage-guide__table-wrapper">
+			<table class="usage-guide__table selected-books-table">
+				<thead>
+					<tr>
+						<th style="width: 100px;">구분</th>
+						<th colspan="2">선정도서</th>
+						<th style="width: 150px;">연령</th>
+						<th style="width: 80px;">대상</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="2">북스타트<br />(1단계)</td>
+						<td>
+							<img src="./assets/images/bookstart/book1-1.png" alt="동글동글 동그라미 책" />
+						</td>
+						<td>
+							<img src="./assets/images/bookstart/book1-2.png" alt="햇살이와 나비" />
+						</td>
+						<td rowspan="2">생후<br />0~18개월<br />영·유아</td>
+						<td rowspan="8">인천<br />시민</td>
+					</tr>
+					<tr>
+						<td>동글동글 동그라미 책/ 이수연 / 키즈엠</td>
+						<td>햇살이와 나비 / 이재희 / 보림</td>
+					</tr>
+					<tr>
+						<td rowspan="2">북스타트<br />플러스<br />(2단계)</td>
+						<td>
+							<img src="./assets/images/bookstart/book2-1.png" alt="타세요, 타!" />
+						</td>
+						<td>
+							<img src="./assets/images/bookstart/book2-2.png" alt="나는 컵이 아니야!" />
+						</td>
+						<td rowspan="2">생후<br />19~35개월<br />유아</td>
+					</tr>
+					<tr>
+						<td>타세요, 타! / 허아성 / 국민서관</td>
+						<td>나는 컵이 아니야! / 나다울 / 토끼섬</td>
+					</tr>
+					<tr>
+						<td rowspan="2">북스타트<br />보물상자<br />(3단계)</td>
+						<td>
+							<img src="./assets/images/bookstart/book3-1.png" alt="감자 감자 뿅" />
+						</td>
+						<td>
+							<img src="./assets/images/bookstart/book3-2.png" alt="어떻게 추는거야?" />
+						</td>
+						<td rowspan="2">생후 36개월<br />~취학 전<br />유아</td>
+					</tr>
+					<tr>
+						<td>감자 감자 뿅 / 재희 / 킨더랜드</td>
+						<td>어떻게 추는거야? / 기요은 / 페이퍼독</td>
+					</tr>
+					<tr>
+						<td rowspan="2">북스타트<br />책날개<br />(4단계)</td>
+						<td>
+							<img src="./assets/images/bookstart/book4-1.png" alt="어느날" />
+						</td>
+						<td>
+							<img src="./assets/images/bookstart/book4-2.png" alt="김밥의 탄생" />
+						</td>
+						<td rowspan="2">초등<br />1~2학년</td>
+					</tr>
+					<tr>
+						<td>어느날 / 서선정 / 향</td>
+						<td>김밥의 탄생 / 신유미 / 봉개울</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 알림 박스 -->
+		<div class="com-inbo-type2">
+			<div class="com-inbo-type2__icon">
+				<p>※</p>
+			</div>
+			<p class="com-inbo-type2__text">
+				6개월 이내 발행된 주민등록등본, 수령자 본인 신분증 (부모 외 수령불가)
+			</p>
 		</div>
 
 		<!-- 북스타트 꾸러미 배부 -->

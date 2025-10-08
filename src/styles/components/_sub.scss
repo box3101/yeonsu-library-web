@@ -443,6 +443,15 @@ ul.movie-card-wrp {
 	}
 
 	&__table {
+
+    &.selected-books-table{
+      td{
+        text-align: center;
+        img{
+          display: inline-block;
+        }
+      }
+    }
 		width: 100%;
 		border-collapse: collapse;
 		caption {
