@@ -161,67 +161,60 @@ const breadcrumbItems = [
 					<!-- 학습열람실 이용시 유의사항 -->
 					<div class="mt40">
 						<div class="usage-guide">
-							<h4 class="usage-guide__subtitle">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
-										fill="#3c79c2"
-									>
-									</path>
-								</svg>
-								학습열람실 이용시 유의사항
-							</h4>
-						</div>
+							<div class="contact-info">
+								<h3>학습열람실 이용시 유의사항</h3>
+							</div>
 
-						<ul class="sub-layout__content-inner-body-item-list mt24">
-							<li>2시간 이상 자리를 비울 경우 퇴실 조치를 할 수 있습니다.</li>
-							<li>반드시 지정된 좌석을 이용해주세요.</li>
-							<li>통화와 대화는 휴게실에서, 휴대폰은 진동으로 해주세요.</li>
-							<li>쾌적한 환경을 위해 음료을 제외한 음식물은 반입금지입니다.</li>
-							<li>노트북 사용시 마우스 사용을 금지합니다.</li>
-						</ul>
+							<ul class="sub-layout__content-inner-body-item-list mt24">
+								<li>2시간 이상 자리를 비울 경우 퇴실 조치를 할 수 있습니다.</li>
+								<li>반드시 지정된 좌석을 이용해주세요.</li>
+								<li>통화와 대화는 휴게실에서, 휴대폰은 진동으로 해주세요.</li>
+								<li>쾌적한 환경을 위해 음료을 제외한 음식물은 반입금지입니다.</li>
+								<li>노트북 사용시 마우스 사용을 금지합니다.</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</SubLayout>
-</Layout>
 
-<style lang="scss">
-	.infobox {
-		padding: 16px;
-		border-radius: 8px;
-		border: 1px solid;
+	<style lang="scss">
+		.infobox {
+			padding: 16px;
+			border-radius: 8px;
+			border: 1px solid;
 
-		&--secondary {
-			background-color: #f1f2f2;
-			border-color: #cbcccc;
+			&--secondary {
+				background-color: #f1f2f2;
+				border-color: #cbcccc;
+			}
+
+			&__body {
+				font-size: 17px;
+				line-height: 1.5;
+				color: #191a1a;
+			}
 		}
 
-		&__body {
-			font-size: 17px;
+		.usage-guide__subtitle {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 24px;
+			font-weight: 400;
 			line-height: 1.5;
 			color: #191a1a;
+
+			svg {
+				flex-shrink: 0;
+			}
 		}
-	}
 
-	.usage-guide__subtitle {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		font-size: 24px;
-		font-weight: 400;
-		line-height: 1.5;
-		color: #191a1a;
-
-		svg {
-			flex-shrink: 0;
+		.centerBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
-	}
-
-	.centerBox {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-</style>
+	</style>
+</Layout>
