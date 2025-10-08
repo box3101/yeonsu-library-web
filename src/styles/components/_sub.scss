@@ -443,15 +443,14 @@ ul.movie-card-wrp {
 	}
 
 	&__table {
-
-    &.selected-books-table{
-      td{
-        text-align: center;
-        img{
-          display: inline-block;
-        }
-      }
-    }
+		&.selected-books-table {
+			td {
+				text-align: center;
+				img {
+					display: inline-block;
+				}
+			}
+		}
 		width: 100%;
 		border-collapse: collapse;
 		caption {
@@ -9651,7 +9650,7 @@ ul.movie-card-wrp {
 		min-height: to-rem(200);
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		// justify-content: center;
 
 		@include mobile {
 			padding: to-rem(0);
@@ -9664,7 +9663,7 @@ ul.movie-card-wrp {
 		flex-direction: column;
 		align-items: center;
 		gap: to-rem(10);
-		text-align: center;
+		// text-align: center;
 	}
 
 	&__content-title {

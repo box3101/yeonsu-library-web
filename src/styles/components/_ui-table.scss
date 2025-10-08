@@ -715,6 +715,11 @@
 		@at-root .ui-book-card .ui-table__text {
 			text-align: center;
 		}
+
+		// 관리자/등록 페이지에서 왼쪽 정렬이 필요한 경우 사용
+		&--left {
+			text-align: left !important;
+		}
 		// text-overflow: ellipsis;
 		// overflow: hidden;
 		// white-space: nowrap;
@@ -898,6 +903,13 @@
 				width: to-rem(100);
 			}
 		}
+	}
+}
+
+// 테이블 내 모든 텍스트를 왼쪽 정렬로 강제 (관리자/등록 페이지용)
+.ui-table-wrapper--text-left {
+	.ui-table__text {
+		text-align: left !important;
 	}
 }
 

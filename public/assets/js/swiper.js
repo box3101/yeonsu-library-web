@@ -396,6 +396,33 @@ function initMainLayerPopupSwiper() {
 	});
 }
 
+// AI 책큐 관련 도서 슬라이더
+function initRelatedBooksSwiper() {
+	var $swiper = $('.related-books-swiper');
+	if ($swiper.length === 0) return;
+
+	new Swiper('.related-books-swiper', {
+		slidesPerView: 5,
+		loop: false,
+		speed: 500,
+		centeredSlides: false,
+		navigation: {
+			nextEl: '.related-books-btn-next',
+			prevEl: '.related-books-btn-prev',
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 3,
+				spaceBetween: 8,
+			},
+			1024: {
+				slidesPerView: 5,
+				spaceBetween: 12,
+			},
+		},
+	});
+}
+
 // 초기화 (jQuery ready 사용)
 $(document).ready(function () {
 	if (typeof Swiper === 'undefined') {
@@ -414,5 +441,6 @@ $(document).ready(function () {
 		initAiCarouselSwiper();
 		initBookRecommendationSwiper();
 		initMainLayerPopupSwiper();
+		initRelatedBooksSwiper();
 	}, 100);
 });

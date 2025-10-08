@@ -2390,26 +2390,34 @@
 				border: 1px solid #8aafdb;
 				border-left: none;
 				min-height: to-rem(200);
+				max-width: to-rem(594);
 
 				@include mobile {
 					border-left: 1px solid #8aafdb;
 					border-top: none;
 					min-height: to-rem(150);
+					max-width: 100%;
 				}
 
 				.report-panel-content {
 					display: none;
 					padding: to-rem(24);
 					height: 100%;
+					width: 100%;
 
 					@include mobile {
 						padding: to-rem(16);
 					}
 
 					&--active {
+						display: block;
+					}
+
+					.report-panel-inner {
+						width: 100%;
 						display: flex;
-						align-items: center;
-						justify-content: center;
+						flex-direction: column;
+						gap: to-rem(20);
 					}
 
 					.typing-text {
@@ -2424,9 +2432,153 @@
 					.empty-message {
 						@include font(to-rem(17), 400, #b1b3b3, 1.5, center);
 						margin: 0;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						min-height: to-rem(150);
 
 						@include mobile {
 							font-size: to-rem(15);
+							min-height: to-rem(120);
+						}
+					}
+
+					.recommended-target {
+						display: flex;
+						align-items: center;
+						gap: to-rem(16);
+						padding-top: to-rem(20);
+						border-top: 1px solid #cbcccc;
+
+						@include mobile {
+							flex-wrap: wrap;
+							gap: to-rem(8);
+							padding-top: to-rem(16);
+						}
+
+						.target-header {
+							display: flex;
+							align-items: center;
+							gap: to-rem(8);
+							flex-shrink: 0;
+
+							.target-icon {
+								width: to-rem(20);
+								height: to-rem(20);
+							}
+
+							.target-label {
+								@include font(to-rem(17), 700, #191a1a, 1.5);
+								white-space: nowrap;
+
+								@include mobile {
+									font-size: to-rem(15);
+								}
+							}
+						}
+
+						.target-text {
+							@include font(to-rem(17), 400, #191a1a, 1.5);
+
+							@include mobile {
+								font-size: to-rem(15);
+								flex: 1 0 100%;
+							}
+						}
+					}
+
+					.related-books-swiper-wrapper {
+						width: 100%;
+						height: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: to-rem(8);
+						padding: to-rem(16) to-rem(8);
+						position: relative;
+
+						@include mobile {
+							padding: to-rem(12) to-rem(8);
+							gap: to-rem(6);
+						}
+
+						.related-books-swiper {
+							flex: 1;
+							max-width: 100%;
+							height: to-rem(152);
+							overflow: hidden;
+
+							@include mobile {
+								height: to-rem(130);
+							}
+
+							.swiper-wrapper {
+								align-items: center;
+								height: 100%;
+							}
+
+							.swiper-slide {
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								height: to-rem(130);
+
+								@include mobile {
+									height: to-rem(110);
+								}
+
+								.book-cover {
+									width: to-rem(95);
+									height: to-rem(130);
+									object-fit: cover;
+									border-radius: to-rem(4);
+									box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+									@include mobile {
+										width: to-rem(80);
+										height: to-rem(110);
+									}
+								}
+							}
+						}
+
+						.related-books-btn-prev,
+						.related-books-btn-next {
+							width: to-rem(24);
+							height: to-rem(24);
+							border-radius: 50%;
+							border: 1px solid #3c79c2;
+							background-color: #fff;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							cursor: pointer;
+							transition: all 0.2s ease;
+							flex-shrink: 0;
+							z-index: 10;
+
+							@include mobile {
+								width: to-rem(24);
+								height: to-rem(24);
+							}
+
+							&:hover {
+								background-color: #ecf2f9;
+							}
+
+							&:active {
+								background-color: #d8e4f3;
+							}
+
+							img {
+								width: to-rem(12);
+								height: to-rem(12);
+
+								@include mobile {
+									width: to-rem(12);
+									height: to-rem(12);
+								}
+							}
 						}
 					}
 				}
