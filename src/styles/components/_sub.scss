@@ -9998,6 +9998,7 @@ ul.movie-card-wrp {
 			list-style: none;
 			padding: 0;
 			margin: 0;
+			counter-reset: list-counter;
 
 			li {
 				position: relative;
@@ -10034,6 +10035,20 @@ ul.movie-card-wrp {
 					}
 				}
 
+				// flex-item 클래스 (버튼과 함께 정렬)
+				&.flex-item {
+					display: flex;
+					align-items: center;
+					gap: to-rem(8);
+					flex-wrap: wrap;
+					padding-left: 0;
+
+					&::before {
+						position: static;
+						flex-shrink: 0;
+					}
+				}
+
 				&.ml12 {
 					padding-left: to-rem(40);
 
@@ -10047,6 +10062,67 @@ ul.movie-card-wrp {
 
 					@include mobile {
 						padding-left: 44px;
+					}
+				}
+			}
+
+			// 순번 있는 리스트 (①, ②, ③ 스타일)
+			&--numbered {
+				li {
+					counter-increment: list-counter;
+
+					&::before {
+						content: '①';
+						position: absolute;
+						left: 0;
+						top: 4px;
+						width: auto;
+						height: auto;
+						background: transparent;
+						border: none;
+						border-radius: 0;
+						@include font(to-rem(17), 400, #4b4d4d);
+
+						@include mobile {
+							font-size: 14px;
+						}
+					}
+
+					&:nth-child(1)::before {
+						content: '①';
+					}
+					&:nth-child(2)::before {
+						content: '②';
+					}
+					&:nth-child(3)::before {
+						content: '③';
+					}
+					&:nth-child(4)::before {
+						content: '④';
+					}
+					&:nth-child(5)::before {
+						content: '⑤';
+					}
+					&:nth-child(6)::before {
+						content: '⑥';
+					}
+					&:nth-child(7)::before {
+						content: '⑦';
+					}
+					&:nth-child(8)::before {
+						content: '⑧';
+					}
+					&:nth-child(9)::before {
+						content: '⑨';
+					}
+					&:nth-child(10)::before {
+						content: '⑩';
+					}
+
+					&.flex-item {
+						&::before {
+							position: static;
+						}
 					}
 				}
 			}
@@ -10079,10 +10155,90 @@ ul.movie-card-wrp {
 			}
 		}
 
+		.usage-guide-subitem__text {
+			@include font(to-rem(17), 400, #4b4d4d);
+			line-height: 1.5;
+			margin-bottom: to-rem(8);
+
+			@include mobile {
+				font-size: 14px;
+				margin-bottom: 6px;
+			}
+		}
+
 		.usage-guide-subitem__list {
 			list-style: none;
 			padding: 0;
 			margin: 0;
+			counter-reset: list-counter;
+
+			// ul 자체에 indent 클래스 적용 시
+			&.indent-1 {
+				padding-left: to-rem(12);
+
+				@include mobile {
+					padding-left: 8px;
+				}
+
+				li {
+					padding-left: to-rem(28);
+
+					@include mobile {
+						padding-left: 20px;
+					}
+
+					&::before {
+						content: '';
+						left: to-rem(8);
+						top: to-rem(11);
+						width: to-rem(4);
+						height: to-rem(4);
+						background: transparent;
+						border: 1px solid #4b4d4d;
+						border-radius: to-rem(4);
+
+						@include mobile {
+							left: 6px;
+							top: 9px;
+							width: 3px;
+							height: 3px;
+						}
+					}
+				}
+			}
+
+			&.indent-2 {
+				padding-left: to-rem(24);
+
+				@include mobile {
+					padding-left: 16px;
+				}
+
+				li {
+					padding-left: to-rem(28);
+
+					@include mobile {
+						padding-left: 20px;
+					}
+
+					&::before {
+						content: '';
+						left: to-rem(8);
+						top: to-rem(13);
+						width: to-rem(6);
+						height: to-rem(1.2);
+						background: #4b4d4d;
+						border-radius: 0;
+
+						@include mobile {
+							left: 6px;
+							top: 11px;
+							width: 5px;
+							height: 1px;
+						}
+					}
+				}
+			}
 
 			li {
 				position: relative;
@@ -10101,6 +10257,7 @@ ul.movie-card-wrp {
 					margin-bottom: 0;
 				}
 
+				// 기본 블릿 (동그라미)
 				&::before {
 					content: '';
 					position: absolute;
@@ -10119,7 +10276,7 @@ ul.movie-card-wrp {
 					}
 				}
 
-				// 1단계 들여쓰기 (한 번 들여쓴 항목)
+				// 1단계 들여쓰기 (한 번 들여쓴 항목) - 사각형 블릿
 				&.indent-1 {
 					padding-left: to-rem(40);
 
@@ -10128,15 +10285,25 @@ ul.movie-card-wrp {
 					}
 
 					&::before {
+						content: '';
 						left: to-rem(20);
+						top: to-rem(11);
+						width: to-rem(4);
+						height: to-rem(4);
+						background: transparent;
+						border: 1px solid #4b4d4d;
+						border-radius: to-rem(4);
 
 						@include mobile {
 							left: 16px;
+							top: 9px;
+							width: 3px;
+							height: 3px;
 						}
 					}
 				}
 
-				// 2단계 들여쓰기 (두 번 들여쓴 항목)
+				// 2단계 들여쓰기 (두 번 들여쓴 항목) - 하이픈
 				&.indent-2 {
 					padding-left: to-rem(52);
 
@@ -10145,11 +10312,77 @@ ul.movie-card-wrp {
 					}
 
 					&::before {
+						content: '';
 						left: to-rem(32);
+						top: to-rem(13);
+						width: to-rem(6);
+						height: to-rem(1.2);
+						background: #4b4d4d;
+						border-radius: 0;
 
 						@include mobile {
 							left: 28px;
+							top: 11px;
+							width: 5px;
+							height: 1px;
 						}
+					}
+				}
+			}
+
+			// 순번 있는 리스트 (①, ②, ③ 스타일)
+			&--numbered {
+				li {
+					counter-increment: list-counter;
+					display: flex;
+					align-items: center;
+
+					&::before {
+						content: '①';
+						position: absolute;
+						left: 0;
+						top:4px;
+						width: auto;
+						height: auto;
+						background: transparent;
+						border: none;
+						border-radius: 0;
+						@include font(to-rem(17), 400, #4b4d4d);
+
+						@include mobile {
+							font-size: 14px;
+						}
+					}
+
+					&:nth-child(1)::before {
+						content: '①';
+					}
+					&:nth-child(2)::before {
+						content: '②';
+					}
+					&:nth-child(3)::before {
+						content: '③';
+					}
+					&:nth-child(4)::before {
+						content: '④';
+					}
+					&:nth-child(5)::before {
+						content: '⑤';
+					}
+					&:nth-child(6)::before {
+						content: '⑥';
+					}
+					&:nth-child(7)::before {
+						content: '⑦';
+					}
+					&:nth-child(8)::before {
+						content: '⑧';
+					}
+					&:nth-child(9)::before {
+						content: '⑨';
+					}
+					&:nth-child(10)::before {
+						content: '⑩';
 					}
 				}
 			}
