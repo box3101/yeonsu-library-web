@@ -370,6 +370,9 @@ ul.movie-card-wrp {
 	&__title {
 		margin: to-rem(40) 0;
 		margin-bottom: to-rem(20);
+		display: flex;
+		align-items: center;
+		gap: 10px;
 		@include font(to-rem(28), 700, #191a1a);
 		@include mobile {
 			margin: to-rem(20) 0;
@@ -5841,6 +5844,11 @@ ul.movie-card-wrp {
 				background: alpha($primary-color, 0.15);
 				font-weight: 600;
 				color: $text-color;
+
+				&.bg-white {
+					background: #fff;
+					border-right: 1px solid $border-color;
+				}
 			}
 
 			td {
@@ -10153,7 +10161,6 @@ ul.movie-card-wrp {
 .button-list-vertical {
 	display: flex;
 	flex-direction: column;
-	gap: to-rem(16);
 
 	@include mobile {
 		gap: 12px;

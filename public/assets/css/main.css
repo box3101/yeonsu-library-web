@@ -2182,6 +2182,22 @@ img {
   }
 }
 
+.numbered-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #3c79c2;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+  border-radius: var(--radius-small1, 4px);
+  background: var(--color-primary-pr07, #244874);
+}
+
 .flex {
   display: flex;
 }
@@ -62827,6 +62843,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .usage-guide__title {
   margin: 2.5rem 0;
   margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.75rem;
   font-weight: 700;
   color: #191a1a;
@@ -68151,6 +68170,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   background: rgba(60, 121, 194, 0.15);
   font-weight: 600;
   color: #333;
+}
+.policy-table .table--bordered th.bg-white {
+  background: #fff;
+  border-right: 1px solid #ecf2fe;
 }
 .policy-table .table--bordered td {
   background: #fff;
@@ -78011,7 +78034,6 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .button-list-vertical {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 @media (max-width: 900px) {
   .button-list-vertical {

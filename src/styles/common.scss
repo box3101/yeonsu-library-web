@@ -2261,3 +2261,19 @@ img {
 		}
 	}
 }
+
+.numbered-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	background: #3c79c2;
+	color: white;
+	border-radius: 50%;
+	font-weight: 700;
+	font-size: 15px;
+	flex-shrink: 0;
+	border-radius: var(--radius-small1, 4px);
+	background: var(--color-primary-pr07, #244874);
+}
