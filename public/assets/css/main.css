@@ -77213,6 +77213,91 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .info-box .info-list li.list-none::before {
   display: none;
 }
+.info-box .privacy-notice {
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #4b4d4d;
+}
+.info-box .privacy-notice p {
+  margin-bottom: 0.5rem;
+}
+.info-box .privacy-notice p:last-child {
+  margin-bottom: 0;
+}
+.info-box .privacy-notice.privacy-notice--footer {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.info-box .privacy-notice .privacy-provider {
+  margin-top: 0.75rem;
+}
+.info-box .privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 0.125rem solid #30619b;
+  border-bottom: 0.0625rem solid #cdd1d5;
+  margin-bottom: 0;
+  font-size: 0.9375rem;
+}
+@media (max-width: 900px) {
+  .info-box .privacy-table {
+    font-size: 13px;
+  }
+}
+.info-box .privacy-table thead th {
+  background: #ecf2f9;
+  border-right: 0.0625rem solid #d8e4f3;
+  border-bottom: 0.0625rem solid #cdd1d5;
+  padding: 0.75rem 0.5rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  line-height: 1.4;
+}
+.info-box .privacy-table thead th:last-child {
+  border-right: none;
+}
+@media (max-width: 900px) {
+  .info-box .privacy-table thead th {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+}
+.info-box .privacy-table tbody td {
+  padding: 1rem;
+  border-right: 0.0625rem solid #d8e4f3;
+  color: #000;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.info-box .privacy-table tbody td:last-child {
+  border-right: none;
+}
+.info-box .privacy-table tbody td.text-center {
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .info-box .privacy-table tbody td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+.info-box .privacy-table .privacy-items p {
+  margin-bottom: 0.5rem;
+}
+.info-box .privacy-table .privacy-items p:last-child {
+  margin-bottom: 0;
+}
+.info-box .text-underline {
+  text-decoration: underline;
+  font-size: 1.0625rem;
+}
+@media (max-width: 900px) {
+  .info-box .text-underline {
+    font-size: 14px;
+  }
+}
 
 /* ========================================
    프로그램신청-상세 페이지 스타일

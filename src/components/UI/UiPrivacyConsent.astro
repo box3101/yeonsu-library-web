@@ -1,0 +1,109 @@
+---
+/**
+ * UiPrivacyConsent 컴포넌트
+ * - 프로그램 신청 시 개인정보 수집·이용 동의 공통 컴포넌트
+ * - 개인정보보호법 준수를 위한 강조 표시 (20% 큰 글씨, 굵게)
+ * - info-box 형식으로 제공
+ */
+export interface Props {
+	/**
+	 * 개인정보를 제공받는 기관명
+	 */
+	organization?: string;
+
+	/**
+	 * 수집·이용 목적
+	 */
+	purpose?: string;
+
+	/**
+	 * 필수 수집 항목
+	 */
+	requiredItems?: string;
+
+	/**
+	 * 선택 수집 항목
+	 */
+	optionalItems?: string;
+
+	/**
+	 * 보유 및 이용기간
+	 */
+	retentionPeriod?: string;
+
+	/**
+	 * 동의 거부 시 제한되는 서비스명
+	 */
+	serviceRestriction?: string;
+
+	/**
+	 * 추가 CSS 클래스
+	 */
+	class?: string;
+}
+
+const {
+	organization = '연수구립도서관',
+	purpose = '프로그램 업무',
+	requiredItems = '성명, 생년월일, 휴대폰번호, 성별, 참여인원',
+	optionalItems = '유선번호, 학교/학년/반, 이메일',
+	retentionPeriod = '수집일로부터 1년',
+	serviceRestriction = '프로그램 신청 접수',
+	class: className = '',
+} = Astro.props;
+---
+
+<div class={`info-box ${className}`.trim()}>
+	<div class="info-box__header">
+		<div class="info-box__icon">
+			<img src="./assets/images/icon/icon-square-filled.svg" alt="정보" />
+		</div>
+		<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
+	</div>
+	<div class="info-box__content">
+		<div class="privacy-notice">
+			<p>
+				연수구립도서관 <strong class="text-primary">[{serviceRestriction}]</strong>를 위해 개인정보보호법에 따라 아래와
+				같이 개인정보를 수집‧이용하고자 합니다. 내용을 자세히 읽으신 후 동의 여부를 결정하여 주시기를 바랍니다.
+			</p>
+			<p class="privacy-provider">
+				<strong>■ 개인정보를 제공받는자: <span class="text-primary">{organization}</span></strong>
+			</p>
+			<p><strong>■ 개인정보 수집‧이용 내역</strong></p>
+		</div>
+
+		<table class="privacy-table">
+			<thead>
+				<tr>
+					<th>수집‧이용 항목</th>
+					<th>수집‧이용 목적</th>
+					<th>보유기간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<div class="privacy-items">
+							<p><strong>(필수항목)</strong>{requiredItems}</p>
+							<p><strong>(선택항목)</strong>{optionalItems}</p>
+						</div>
+					</td>
+					<td class="text-center">
+						{organization}<br />{purpose}
+					</td>
+					<td class="text-center">
+						<strong class="text-primary text-underline">{retentionPeriod}</strong>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="privacy-notice privacy-notice--footer">
+			<p><strong>■ 동의 거부 권리 및 불이익</strong></p>
+			<p>
+				: 개인정보 수집‧이용과 관련하여 동의를 거부할 수 있으며, 거부 시
+				<strong class="text-primary">[{serviceRestriction}]</strong>는 제한됩니다.
+			</p>
+		</div>
+	</div>
+</div>

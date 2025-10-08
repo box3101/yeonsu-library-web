@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton, UiInput, UiSelect, UiTextarea } from '@components';
+import { UiButton, UiInput, UiSelect, UiTextarea, UiPrivacyConsent } from '@components';
 
 const breadcrumbItems = [
 	{ text: '홈', link: '/' },
@@ -90,40 +90,14 @@ const participantOptions = [
 			<h3 class="section-title-type2">개인정보의 수집·이용 동의</h3>
 
 			<!-- 개인정보 수집 이용 내용 박스 -->
-			<div class="info-box">
-				<div class="info-box__header">
-					<div class="info-box__icon">
-						<img src="./assets/images/icon/icon-square-filled.svg" alt="정보" />
-					</div>
-					<h4 class="info-box__title">개인정보의 수집 및 이용</h4>
-				</div>
-				<div class="info-box__content">
-					<ol class="info-list">
-						<li class="list-none">
-							<strong>1. 제공기관 : 행정안전부 행정정보공동이용</strong>
-							<p>
-								<span class="text-primary">프로그램 업무</span>를 목적으로 개인정보를 수집ㆍ이용합니다.
-							</p>
-						</li>
-						<li class="list-none">
-							<strong>2. 수집하려는 개인정보의 항목</strong>
-							<ul>
-								<li>
-									가. 필수항목 : <span class="text-primary">성명, 이동전화번호, 참여인원</span>
-								</li>
-								<li>나. 선택항목 : <span class="text-primary">전화번호, 학교, 학년, 성별, 나이</span></li>
-							</ul>
-						</li>
-						<li class="list-none">
-							<strong>3. 개인정보의 보유 및 이용기간 : 1년</strong>
-						</li>
-						<li class="list-none">
-							<strong>4. 동의 거부 권리 및 불이익</strong>
-							<p>개인정보 수집ㆍ이용과 관련하여 동의를 거부할 수 있으며, 거부시 프로그램 신청을 하실 수 없습니다.</p>
-						</li>
-					</ol>
-				</div>
-			</div>
+			<UiPrivacyConsent
+				organization="연수구립도서관"
+				purpose="프로그램 업무"
+				requiredItems="성명, 생년월일, 휴대폰번호, 성별, 참여인원"
+				optionalItems="유선번호, 학교/학년/반, 이메일"
+				retentionPeriod="수집일로부터 1년"
+				serviceRestriction="프로그램 신청 접수"
+			/>
 
 			<!-- 동의 라디오 버튼 -->
 			<div class="terms-item__radio flex-col items-end gap-15 mt15">
