@@ -2465,6 +2465,55 @@ ul.movie-card-wrp {
 		padding: to-rem(12);
 	}
 
+	&__qr-toggle {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__qr-btn {
+		display: flex;
+		align-items: center;
+		gap: to-rem(8);
+		padding: 0;
+		background: none;
+		border: none;
+		color: #191a1a;
+		cursor: pointer;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&:focus {
+			outline: 2px solid #3c79c2;
+			outline-offset: 2px;
+		}
+	}
+
+	&__qr-icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&__qr-text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+
+		@include mobile {
+			font-size: 17px;
+		}
+	}
+
 	&__timestamp {
 		font-family: 'Pretendard GOV', sans-serif;
 		font-size: to-rem(17);
@@ -2500,6 +2549,24 @@ ul.movie-card-wrp {
 
 			@include mobile {
 				max-width: 100%;
+			}
+		}
+	}
+
+	&__qrcode {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		svg {
+			width: to-rem(120);
+			height: to-rem(120);
+
+			@include mobile {
+				width: 120px;
+				height: 120px;
 			}
 		}
 	}

@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서관소개', href: '/도서관소개' },
+	{ label: '인사말' },
+];
+---
+
+<Layout title="도서관소개 - 인사말">
+	<SubLayout title="인사말" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="greeting-page">
+			<!-- 배너 이미지 -->
+			<div class="greeting-page__banner">
+				<img src="./assets/images/greeting-banner.png" alt="도서관 내부" class="greeting-page__banner-image" />
+				<div class="greeting-page__banner-overlay"></div>
+				<div class="greeting-page__banner-text">
+					<img src="./assets/images/greeting-banner-text.png" alt="삶속에 어우러지는 지식, 문화, 꿈" />
+				</div>
+			</div>
+
+			<!-- 인사말 내용 -->
+			<div class="greeting-page__content">
+				<!-- 환영 인사 -->
+				<div class="greeting-page__welcome">
+					<img src="./assets/images/greeting-welcome.png" alt="연수구립도서관 홈페이지를 찾아오신 여러분을 진심으로 환영합니다." />
+				</div>
+
+				<!-- 섹션 1: 안녕하세요! -->
+				<div class="greeting-page__section">
+					<div class="greeting-page__section-header">
+						<img src="./assets/images/icon/icon-greeting-blue.png" alt="" class="greeting-page__section-icon" />
+						<img src="./assets/images/greeting-hello.png" alt="안녕하세요!" />
+					</div>
+					<p class="greeting-page__text">
+						저희 연수구에서는 2006년 11월 1일 연수어린이도서관(現 연수꿈담도서관) 개관을 시작으로, 송도국제어린이도서관, 옥련1동 작은도서관, 옥련2동 어린이작은도서관, 연수청학도서관, 연수2동 작은도서관, 송도2동 작은도서관, 해돋이도서관, 연수1동 작은도서관, 송도3동 작은도서관, 선학별빛도서관, 동춘나래도서관, 함박비류도서관, 문화·솔안·해찬솔·누리공원작은도서관을 개관하였습니다.<br />
+						연수구는 지역주민들의 정보접근성을 높이고 주민간의 지식정보격차를 해소하고자 지속적으로 도서관 건립을 추진하고 있습니다.
+					</p>
+				</div>
+
+				<!-- 섹션 2: 국제사회를 선도하는 도서관! -->
+				<div class="greeting-page__section">
+					<div class="greeting-page__section-header">
+						<img src="./assets/images/icon/icon-greeting-orange.png" alt="" class="greeting-page__section-icon" />
+						<img src="./assets/images/greeting-international.png" alt="국제사회를 선도하는 도서관!" />
+					</div>
+					<p class="greeting-page__text">
+						연수구립도서관에서는 책을 통해 기쁨과 즐거움을 느낄수있는 공간을 제공함으로써 여러분들의 꿈과 상상력, 미래를 향한 희망을 키울수 있도록 항상 최선을 다하고 있으며, 특히 다양한 종류의 장서를 확충하고 국내도서 뿐만 아니라 다문화 자료도 충분히 확보하여 국제사회를 선도하는 도서관이 될 수 있도록 노력하겠습니다.<br />
+						또한, 각종 문화행사 및 프로그램을 통해 지식과 정보를 제공하고 새로운 독서문화를 정착시켜 지역문화 발전에 기여하겠습니다.
+					</p>
+				</div>
+
+				<!-- 섹션 3: 책읽는 도시 연수구! -->
+				<div class="greeting-page__section">
+					<div class="greeting-page__section-header">
+						<img src="./assets/images/icon/icon-greeting-green.png" alt="" class="greeting-page__section-icon" />
+						<img src="./assets/images/greeting-reading-city.png" alt="책읽는 도시 연수구!" />
+					</div>
+					<p class="greeting-page__text">
+						언제나 지역주민들이 편하게 즐길수 있는 도서관이 되도록 힘쓰고 있습니다.<br />
+						연수구 주민들의 삶속에 어우러지는 지식.문화.꿈의 보고가 되도록 최선을 다하겠습니다.
+					</p>
+				</div>
+
+				<!-- 감사 인사 -->
+				<div class="greeting-page__closing">
+					<img src="./assets/images/greeting-thanks.png" alt="감사합니다" class="greeting-page__closing-image" />
+				</div>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
