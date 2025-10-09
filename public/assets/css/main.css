@@ -1,6 +1,4 @@
-/* Error: It's not clear which file to import. Found:
- *   src\styles\pages\_home.scss
- *   src\styles\pages\home.scss
+/* Error: Can't find stylesheet to import.
  *    ,
  * 75 | @use 'pages/home';
  *    | ^^^^^^^^^^^^^^^^^
@@ -15,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: It's not clear which file to import. Found:\a   src\\styles\\pages\\_home.scss\a   src\\styles\\pages\\home.scss\a    \2577 \a 75 \2502  @use 'pages/home';\d\a    \2502  ^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\styles\\main.scss 75:1  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 75 \2502  @use 'pages/home';\d\a    \2502  ^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\styles\\main.scss 75:1  root stylesheet";
 }

@@ -1,6 +1,10 @@
-@use '../globals' as *;
-@use '../abstracts' as *;
-@use '../variables/colors' as *;
+// Variables (컴포넌트에서 사용)
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins)
+@use 'abstracts' as *;
 
 .main-container {
 	margin-top: to-rem(41);
