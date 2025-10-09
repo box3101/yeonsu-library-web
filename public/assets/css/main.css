@@ -100199,3 +100199,197 @@ body:has(.main-layer-popup.is-active) {
   border: 1px solid #ffc107;
   color: #856404;
 }
+
+.organization-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.org-structure {
+  margin-bottom: 2.5rem;
+}
+
+.org-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #191a1a;
+  margin-bottom: 1.5rem;
+}
+
+.org-chart {
+  width: 100%;
+  max-width: 976px;
+  margin: 0 auto;
+}
+
+.library-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid #ecf2fe;
+  border-bottom: 1px solid #ecf2fe;
+  margin-bottom: 1.25rem;
+}
+
+.library-nav-link {
+  background: #3c79c2;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.library-nav-link:hover {
+  background: #063a74;
+  transform: translateY(-2px);
+}
+
+.library-section {
+  scroll-margin-top: 6.25rem;
+  margin-bottom: 3.75rem;
+}
+
+.library-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #191a1a;
+  margin-bottom: 1rem;
+}
+
+.library-date {
+  font-size: 0.9375rem;
+  color: #131416;
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.library-table {
+  width: 100%;
+  max-width: 976px;
+}
+.library-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.library-table table thead tr th {
+  background: #ecf2f9;
+  border: 1px solid #d8e4f3;
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #191a1a;
+  text-align: center;
+}
+.library-table table thead tr th:first-child {
+  border-left: none;
+}
+.library-table table thead tr th:last-child {
+  border-right: none;
+}
+.library-table table tbody tr.team-header td {
+  background: #ecf2f9;
+  border: 1px solid #d8e4f3;
+  padding: 0.5rem 1rem;
+  height: 48px;
+}
+.library-table table tbody tr.team-header td.team-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #3c79c2;
+}
+.library-table table tbody tr td {
+  background: white;
+  border: 1px solid #cbcccc;
+  padding: 0.75rem 1rem;
+  font-size: 1.0625rem;
+  color: #4b4d4d;
+  vertical-align: top;
+}
+.library-table table tbody tr td:first-child {
+  border-left: none;
+}
+.library-table table tbody tr td:last-child {
+  border-right: none;
+}
+.library-table table tbody tr td.text-center {
+  text-align: center;
+  vertical-align: middle;
+}
+.library-table table tbody tr td ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.library-table table tbody tr td ul li {
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+.library-table table tbody tr td ul li:last-child {
+  margin-bottom: 0;
+}
+.library-table table tbody tr td .sub-item {
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+.library-table table tbody tr td .highlight-blue {
+  color: #3c79c2;
+}
+
+@media (max-width: 900px) {
+  .organization-page {
+    gap: 30px;
+  }
+  .org-structure {
+    margin-bottom: 30px;
+  }
+  .org-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .library-nav {
+    gap: 8px;
+    padding: 15px 0;
+  }
+  .library-nav-link {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .library-section {
+    scroll-margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  .library-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .library-date {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .library-table {
+    overflow-x: auto;
+  }
+  .library-table table {
+    min-width: 600px;
+  }
+  .library-table table thead tr th,
+  .library-table table tbody tr td {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+  .library-table table tbody tr td ul {
+    padding-left: 18px;
+  }
+  .library-table table tbody tr td ul li {
+    font-size: 15px;
+  }
+  .library-table table tbody tr td .sub-item {
+    font-size: 15px;
+    padding-left: 18px;
+  }
+}

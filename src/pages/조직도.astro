@@ -782,36 +782,23 @@ const breadcrumbItems = [
 	</SubLayout>
 </Layout>
 
-<style lang="scss">
-	@import '@styles/components/org';
+<script is:inline>
+	// 앵커 링크를 위한 부드러운 스크롤
+	$(document).ready(function () {
+		$('.library-nav-link').on('click', function (e) {
+			e.preventDefault(); // 기본 앵커 동작 방지
+			const targetId = $(this).attr('href'); // 클릭한 링크의 href 속성 가져오기
+			const targetElement = $(targetId); // 대상 요소 선택
 
-	.org-chart {
-		img {
-			width: 100%;
-			height: auto;
-			display: block;
-		}
-	}
-</style>
-
-<script>
-	// Smooth scroll for anchor links
-	document.addEventListener('DOMContentLoaded', () => {
-		const navLinks = document.querySelectorAll('.library-nav-link');
-
-		navLinks.forEach(link => {
-			link.addEventListener('click', e => {
-				e.preventDefault();
-				const targetId = link.getAttribute('href');
-				const targetElement = document.querySelector(targetId);
-
-				if (targetElement) {
-					targetElement.scrollIntoView({
-						behavior: 'smooth',
-						block: 'start',
-					});
-				}
-			});
+			if (targetElement.length) {
+				// 대상 요소가 존재하는지 확인
+				$('html, body').animate(
+					{
+						scrollTop: targetElement.offset().top, // 대상 요소의 위치로 스크롤
+					},
+					800
+				); // 800ms 동안 부드럽게 스크롤 (속도 조절 가능)
+			}
 		});
 	});
 </script>

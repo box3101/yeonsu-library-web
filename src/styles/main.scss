@@ -69,8 +69,8 @@
 @use 'components/access-restriction';
 @use 'components/error-404';
 @use 'components/material-status';
+@use 'components/org';
 
 // 페이지별 스타일
 @use 'pages/home';
 @use 'pages/notice-detail';
-
