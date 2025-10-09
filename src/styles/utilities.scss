@@ -1,0 +1,20 @@
+// ============================================
+// Utilities Bundle
+// 반복문으로 생성되는 유틸리티 클래스들만 포함
+// ============================================
+
+// Variables (유틸리티 생성에 필요)
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins)
+@use 'abstracts' as *;
+
+// 유틸리티 클래스들 (반복문으로 생성되는 것들)
+@use 'utilities/flex';
+@use 'utilities/spacing';
+@use 'utilities/typography';
+@use 'utilities/width';
+@use 'utilities/grid-system';
+@use 'utilities/accessibility';

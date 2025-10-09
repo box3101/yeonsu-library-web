@@ -1,0 +1,17 @@
+// ============================================
+// Header Bundle
+// 헤더 컴포넌트 스타일
+// ============================================
+
+// Variables (컴포넌트에서 사용)
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins)
+@use 'abstracts' as *;
+
+// 헤더 컴포넌트
+@use 'components/header';
+@use 'components/gnb';
+@use 'components/mobile-menu';

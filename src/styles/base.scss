@@ -1,0 +1,18 @@
+// ============================================
+// Base Bundle
+// 폰트, 변수, 공통 스타일 포함
+// ============================================
+
+// 폰트 선언 먼저 로드 (최우선)
+@use 'fonts';
+
+// Variables
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins)
+@use 'abstracts' as *;
+
+// 공통 스타일
+@use 'common';

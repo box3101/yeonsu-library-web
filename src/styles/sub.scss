@@ -1,0 +1,17 @@
+// ============================================
+// Sub Pages Bundle
+// 서브 페이지 관련 스타일 통합 (sub, sub2, sub3)
+// ============================================
+
+// Variables
+@use 'variables/colors' as *;
+@use 'variables/typography' as *;
+@use 'variables/layout' as *;
+
+// Abstracts (functions, mixins)
+@use 'abstracts' as *;
+
+// 서브 페이지 스타일들
+@use 'components/sub';
+@use 'components/sub2';
+@use 'components/sub3.scss';

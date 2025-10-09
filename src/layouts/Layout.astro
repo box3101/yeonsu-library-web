@@ -1,7 +1,6 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import '../styles/main.scss';
 ---
 
 <html>
@@ -22,8 +21,27 @@ import '../styles/main.scss';
 		<link rel="stylesheet" href="./assets/css/vendor/swiper.css" />
 		<!-- aos -->
 		<link rel="stylesheet" href="./assets/css/vendor/aos.css" />
-		<!-- main -->
-		<link rel="stylesheet" href="./assets/css/main.css" />
+		<!-- 1. 기본 스타일 (폰트, 변수, 리셋) - 최우선 -->
+		<link rel="stylesheet" href="./assets/css/base.css" />
+
+		<!-- 2. 유틸리티 클래스 (spacing, width, flex 등) -->
+		<link rel="stylesheet" href="./assets/css/utilities.css" />
+
+		<!-- 3. 헤더 -->
+		<link rel="stylesheet" href="./assets/css/header.css" />
+
+		<!-- 4. 푸터 -->
+		<link rel="stylesheet" href="./assets/css/footer.css" />
+
+		<!-- 5. 서브 페이지 스타일 (sub, sub2, sub3) -->
+		<link rel="stylesheet" href="./assets/css/sub.css" />
+
+		<!-- 6. 공통 컴포넌트 (모든 UI 컴포넌트 통합) -->
+		<link rel="stylesheet" href="./assets/css/components.css" />
+
+		<!-- 7. 메인 스타일 -->
+		<link rel="stylesheet" href="./assets/css/pages/home.css" />
+
 		<!-- 개발자 스타일 -->
 		<link rel="stylesheet" href="./assets/css/custom.css" />
 		<title>연수구립도서관</title>
