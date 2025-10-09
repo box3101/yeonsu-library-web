@@ -2341,6 +2341,372 @@ img {
   width: 100%;
 }
 
+.history-timeline {
+  position: relative;
+  padding: 2.5rem 0;
+}
+.history-timeline__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #cbcccc;
+  transform: translateX(-50%);
+}
+.history-timeline__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6rem;
+  gap: 3.75rem;
+}
+.history-timeline__item--left {
+  flex-direction: row-reverse;
+  padding-right: calc(50% - 8.125rem);
+}
+.history-timeline__item--right {
+  flex-direction: row;
+  padding-left: calc(50% - 8.125rem);
+}
+.history-timeline__item:last-child {
+  margin-bottom: 0;
+}
+.history-timeline__year-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  height: 3.25rem;
+  min-width: 6.875rem;
+  background-color: #8aafdb;
+  border-radius: 1.625rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  flex-shrink: 0;
+}
+.history-timeline__marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  background-image: url("../../assets/images/icon/icon-circle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.history-timeline__content {
+  position: relative;
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #8aafdb;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 28.75rem;
+}
+.history-timeline__event {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.history-timeline__event-date {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #3c79c2;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.history-timeline__event-library {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  height: 2rem;
+  min-width: 4.6875rem;
+  border-radius: 1.40625rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.history-timeline__event-desc {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #3c79c2;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.history-timeline__arrow {
+  position: absolute;
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.history-timeline__arrow::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.history-timeline__item--left .history-timeline__arrow {
+  right: -0.4375rem;
+}
+.history-timeline__item--right .history-timeline__arrow {
+  left: -0.4375rem;
+}
+.history-timeline__item--left .history-timeline__arrow::before {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 0.4375rem 0 0.4375rem 0.75rem;
+  border-color: transparent transparent transparent #8aafdb;
+}
+.history-timeline__item--right .history-timeline__arrow::before {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 0.4375rem 0.75rem 0.4375rem 0;
+  border-color: transparent #8aafdb transparent transparent;
+}
+
+@media (max-width: 900px) {
+  .history-timeline {
+    padding: 20px 0;
+  }
+  .history-timeline__line {
+    left: 20px;
+  }
+  .history-timeline__item {
+    flex-direction: row !important;
+    padding-left: 100px !important;
+    padding-right: 0 !important;
+    margin-bottom: 40px;
+    gap: 12px;
+  }
+  .history-timeline__item--left, .history-timeline__item--right {
+    padding-left: 100px !important;
+    padding-right: 0 !important;
+  }
+  .history-timeline__year-badge {
+    position: absolute;
+    left: 0;
+    height: 40px;
+    min-width: 80px;
+    padding: 0 8px;
+    font-size: 20px;
+    border-radius: 20px;
+  }
+  .history-timeline__marker {
+    display: none;
+  }
+  .history-timeline__content {
+    min-width: auto;
+    width: 100%;
+    padding: 20px;
+    gap: 12px;
+  }
+  .history-timeline__event {
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 100%;
+  }
+  .history-timeline__event-date {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .history-timeline__event-library {
+    font-size: 13px;
+    height: 28px;
+    min-width: 60px;
+    padding: 2px 10px;
+    flex-shrink: 0;
+  }
+  .history-timeline__event-desc {
+    font-size: 13px;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    flex: 1;
+    min-width: 0;
+  }
+  .history-timeline__arrow {
+    display: none;
+  }
+}
+.symbol-container {
+  padding: 2.5rem 0;
+}
+
+.symbol-intro {
+  margin-bottom: 2rem;
+}
+.symbol-intro__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.5;
+}
+
+.symbol-diagram {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.symbol-diagram__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.symbol-description {
+  margin-bottom: 1.5rem;
+}
+.symbol-description__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.symbol-description__item {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+.symbol-description__item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3c79c2;
+  font-weight: 700;
+}
+
+.symbol-colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 0.75rem;
+}
+.symbol-colors__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.symbol-colors__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2.5rem;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid;
+  background: transparent;
+  cursor: default;
+}
+.symbol-colors__badge--yellow {
+  color: #f5a623;
+  border-color: #f5a623;
+}
+.symbol-colors__badge--green {
+  color: #7ed321;
+  border-color: #7ed321;
+}
+.symbol-colors__badge--blue {
+  color: #4a90e2;
+  border-color: #4a90e2;
+}
+.symbol-colors__plus {
+  display: flex;
+  align-items: center;
+  color: #33363d;
+  flex-shrink: 0;
+}
+.symbol-colors__plus svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.symbol-colors__text {
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #191a1a;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .symbol-container {
+    padding: 20px 0;
+  }
+  .symbol-intro {
+    margin-bottom: 40px;
+  }
+  .symbol-intro__title {
+    font-size: 18px;
+  }
+  .symbol-diagram {
+    margin-bottom: 40px;
+  }
+  .symbol-description {
+    margin-bottom: 40px;
+  }
+  .symbol-description__item {
+    font-size: 14px;
+    padding-left: 16px;
+  }
+  .symbol-colors {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .symbol-colors__row {
+    justify-content: center;
+    gap: 8px;
+  }
+  .symbol-colors__badge {
+    font-size: 14px;
+    padding: 6px 16px;
+  }
+  .symbol-colors__plus svg {
+    width: 20px;
+    height: 20px;
+  }
+  .symbol-colors__text {
+    font-size: 14px;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
 .flex {
   display: flex;
 }

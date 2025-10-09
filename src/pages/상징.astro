@@ -1,0 +1,54 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서관소개', href: '/about' },
+	{ label: '상징' },
+];
+---
+
+<Layout title="상징">
+	<SubLayout title="상징" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="symbol-container">
+			<div class="symbol-intro">
+				<h3 class="symbol-intro__title">연수구립도서관 상징적 의미를 소개합니다.</h3>
+			</div>
+
+			<div class="symbol-diagram">
+				<img src="./assets/images/symbol/symbol-diagram.png" alt="연수구립도서관 상징 다이어그램" class="symbol-diagram__image" />
+			</div>
+
+			<div class="symbol-description">
+				<ul class="symbol-description__list">
+					<li class="symbol-description__item">
+						연수구의 역사와 책의 이미지를 접목한 연수구만의 도서관 이미지
+					</li>
+					<li class="symbol-description__item">
+						끊어진 민족정기(문학,선학,정학의 잘려나간 날개)를 이어주고 높은 이상과 꿈을 향해 한마음 한뜻으로(단일,단원,융합) 같은 방향으로 힘차게 비상하는 의미를 내포하고 있다.
+					</li>
+				</ul>
+			</div>
+
+			<div class="symbol-colors">
+				<div class="symbol-colors__row">
+					<button class="symbol-colors__badge symbol-colors__badge--yellow">문학山</button>
+					<button class="symbol-colors__badge symbol-colors__badge--green">연경山</button>
+					<button class="symbol-colors__badge symbol-colors__badge--blue">청학山</button>
+				</div>
+				<div class="symbol-colors__plus">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+						<path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+				<div class="symbol-colors__row">
+					<button class="symbol-colors__badge symbol-colors__badge--yellow">文黃</button>
+					<button class="symbol-colors__badge symbol-colors__badge--green">仙靑</button>
+					<button class="symbol-colors__badge symbol-colors__badge--blue">蒼靑</button>
+				</div>
+				<span class="symbol-colors__text">이 날아가는 형상을 표현</span>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
