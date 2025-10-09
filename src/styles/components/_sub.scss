@@ -2559,8 +2559,19 @@ ul.movie-card-wrp {
 		align-items: center;
 		justify-content: center;
 		width: 100%;
+		padding-bottom: to-rem(32);
 
 		svg {
+			width: to-rem(120);
+			height: to-rem(120);
+
+			@include mobile {
+				width: 120px;
+				height: 120px;
+			}
+		}
+
+		img {
 			width: to-rem(120);
 			height: to-rem(120);
 

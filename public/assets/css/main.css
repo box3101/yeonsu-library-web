@@ -2687,6 +2687,8 @@ img {
   .symbol-colors {
     flex-direction: column;
     gap: 12px;
+    padding: 20px;
+    border-radius: 8px;
   }
   .symbol-colors__row {
     justify-content: center;
@@ -65460,6 +65462,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding-bottom: 2rem;
 }
 .barcode-section__qrcode svg {
   width: 7.5rem;
@@ -65467,6 +65470,16 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 @media (max-width: 900px) {
   .barcode-section__qrcode svg {
+    width: 120px;
+    height: 120px;
+  }
+}
+.barcode-section__qrcode img {
+  width: 7.5rem;
+  height: 7.5rem;
+}
+@media (max-width: 900px) {
+  .barcode-section__qrcode img {
     width: 120px;
     height: 120px;
   }
