@@ -1,0 +1,391 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서관소개', href: '/library-info' }, { label: '연혁' }];
+
+// Timeline data structure - organized by year
+const historyData = [
+	{
+		year: 2025,
+		position: 'left',
+		items: [{ date: '10.30.', library: '송도국제', libraryColor: '#efc032', description: '송도국제도서관 개관' }],
+	},
+	{
+		year: 2024,
+		position: 'right',
+		items: [
+			{
+				date: '09.20.',
+				library: '문화',
+				libraryColor: '#4d4dff',
+				description: '문화공원작은도서관(북크로싱 센터) 개편',
+			},
+			{ date: '08.27.', library: '송도5동', libraryColor: '#e45f53', description: '송도5동작은도서관 개관' },
+		],
+	},
+	{
+		year: 2022,
+		position: 'left',
+		items: [
+			{ date: '12.29', library: '꿈담', libraryColor: '#a3cf62', description: '연수꿈담도서관 개관' },
+			{ date: '03.30', library: '누리', libraryColor: '#7b19d7', description: '누리공원작은도서관 개관' },
+			{ date: '03.26', library: '해찬솔', libraryColor: '#189ba7', description: '해찬솔공원작은도서관 개관' },
+		],
+	},
+	{
+		year: 2021,
+		position: 'right',
+		items: [
+			{ date: '08.17', library: '문화', libraryColor: '#e45f53', description: '문화공원작은도서관 개관' },
+			{ date: '08.17', library: '솔안', libraryColor: '#40548c', description: '솔안공원작은도서관 개관' },
+		],
+	},
+	{
+		year: 2020,
+		position: 'left',
+		items: [{ date: '05.06', library: '함박', libraryColor: '#653b27', description: '함박비류도서관 개관' }],
+	},
+	{
+		year: 2019,
+		position: 'right',
+		items: [{ date: '10.29', library: '동춘', libraryColor: '#666666', description: '동춘나래도서관 개관' }],
+	},
+	{
+		year: 2018,
+		position: 'left',
+		items: [
+			{ date: '07.20', library: '선학', libraryColor: '#ffacc1', description: '선학별빛도서관 개관' },
+			{ date: '03.27', library: '송도3동', libraryColor: '#86c106', description: '송도3동작은도서관 개관' },
+		],
+	},
+	{
+		year: 2017,
+		position: 'right',
+		items: [
+			{ date: '10.13', library: '송도', libraryColor: '#8e63aa', description: '글로벌전자책 오버드라이브 도입' },
+			{ date: '08.08', library: '청학', libraryColor: '#7fa7d7', description: '연수구립도서관 홈페이지 리뉴얼' },
+		],
+	},
+	{
+		year: 2016,
+		position: 'left',
+		items: [
+			{ date: '09.08', library: '연수1동', libraryColor: '#d4cb27', description: '연수1동작은도서관 개관' },
+			{ date: '04.01', library: '해돋이', libraryColor: '#ef6601', description: '해돋이도서관 개관' },
+		],
+	},
+	{
+		year: 2013,
+		position: 'right',
+		items: [{ date: '06.27', library: '송도2동', libraryColor: '#97681e', description: '송도2동작은도서관 개관' }],
+	},
+	{
+		year: 2012,
+		position: 'left',
+		items: [
+			{ date: '10.19', library: '연수2동', libraryColor: '#4d4dff', description: '연수2동작은도서관 개관' },
+			{ date: '07.27', library: '청학', libraryColor: '#7fa7d7', description: '연수청학도서관 개관' },
+		],
+	},
+	{
+		year: 2011,
+		position: 'right',
+		items: [
+			{ date: '09.30', library: '연수', libraryColor: '#a3cf62', description: '연수구립도서관으로 홈페이지 개편' },
+			{ date: '09.30', library: '송도', libraryColor: '#8e63aa', description: '송도국제어린이도서관 개관' },
+			{ date: '02.11', library: '옥련1동', libraryColor: '#f9a771', description: '옥련1동작은도서관 개관' },
+		],
+	},
+	{
+		year: 2008,
+		position: 'left',
+		items: [
+			{ date: '03.20', library: '옥련2동', libraryColor: '#c28fb9', description: '옥련2동어린이작은도서관 개관' },
+			{ date: '03.18', library: '연수', libraryColor: '#a3cf62', description: '전자도서관 구축' },
+		],
+	},
+	{
+		year: 2006,
+		position: 'right',
+		items: [{ date: '11.01', library: '연수', libraryColor: '#a3cf62', description: '연수어린이도서관 개관' }],
+	},
+];
+---
+
+<Layout title="연혁">
+	<SubLayout title="연혁" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="history-timeline">
+			<div class="history-timeline__line"></div>
+
+			{
+				historyData.map(yearItem => (
+					<div class={`history-timeline__item history-timeline__item--${yearItem.position}`} data-year={yearItem.year}>
+						<div class="history-timeline__year-badge">{yearItem.year}</div>
+						<div class="history-timeline__marker" />
+						<div class="history-timeline__content">
+							{yearItem.items.map(item => (
+								<div class="history-timeline__event">
+									<span class="history-timeline__event-date">{item.date}</span>
+									<span class="history-timeline__event-library" style={`background-color: ${item.libraryColor}`}>
+										{item.library}
+									</span>
+									<span class="history-timeline__event-desc">{item.description}</span>
+								</div>
+							))}
+							<div class="history-timeline__arrow" />
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</SubLayout>
+</Layout>
+
+<style lang="scss">
+	@import '@styles/abstracts';
+
+	.history-timeline {
+		position: relative;
+		padding: to-rem(40) 0;
+
+		&__line {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+			background-color: #cbcccc;
+			transform: translateX(-50%);
+		}
+
+		&__item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			margin-bottom: to-rem(96);
+			gap: to-rem(60);
+
+			&--left {
+				flex-direction: row-reverse;
+				padding-right: calc(50% + to-rem(-130));
+			}
+
+			&--right {
+				flex-direction: row;
+				padding-left: calc(50% + to-rem(-130));
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__year-badge {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 to-rem(12);
+			height: to-rem(52);
+			min-width: to-rem(110);
+			background-color: #8aafdb;
+			border-radius: to-rem(26);
+			font-family: 'Pretendard GOV', sans-serif;
+			font-weight: 700;
+			font-size: to-rem(32);
+			line-height: 1.5;
+			color: #ffffff;
+			text-align: center;
+			flex-shrink: 0;
+		}
+
+		&__marker {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: to-rem(16);
+			height: to-rem(16);
+			background-image: url('../../assets/images/icon/icon-circle.svg');
+			background-size: contain;
+			background-repeat: no-repeat;
+			flex-shrink: 0;
+			z-index: 1;
+		}
+
+		&__content {
+			position: relative;
+			flex: 1;
+			background: #ffffff;
+			border: 1px solid #8aafdb;
+			border-radius: to-rem(12);
+			padding: to-rem(32);
+			display: flex;
+			flex-direction: column;
+			gap: to-rem(16);
+			min-width: to-rem(460);
+		}
+
+		&__event {
+			display: flex;
+			align-items: center;
+			gap: to-rem(12);
+		}
+
+		&__event-date {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-weight: 700;
+			font-size: to-rem(15);
+			line-height: 1.5;
+			color: #3c79c2;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		&__event-library {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: to-rem(4) to-rem(12);
+			height: to-rem(32);
+			min-width: to-rem(75);
+			border-radius: to-rem(22.5);
+			font-family: 'Pretendard GOV', sans-serif;
+			font-weight: 700;
+			font-size: to-rem(15);
+			line-height: 1.5;
+			color: #ffffff;
+			text-align: center;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		&__event-desc {
+			font-family: 'Pretendard GOV', sans-serif;
+			font-weight: 400;
+			font-size: to-rem(15);
+			line-height: 1.5;
+			color: #3c79c2;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		&__arrow {
+			position: absolute;
+			width: to-rem(14);
+			height: to-rem(14);
+			flex-shrink: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-style: solid;
+			}
+		}
+
+		&__item--left &__arrow {
+			right: to-rem(-7);
+		}
+
+		&__item--right &__arrow {
+			left: to-rem(-7);
+		}
+
+		&__item--left &__arrow::before {
+			right: -5px;
+			top: 50%;
+			transform: translateY(-50%);
+			border-width: to-rem(7) 0 to-rem(7) to-rem(12);
+			border-color: transparent transparent transparent #8aafdb;
+		}
+
+		&__item--right &__arrow::before {
+			left: -5px;
+			top: 50%;
+			transform: translateY(-50%);
+			border-width: to-rem(7) to-rem(12) to-rem(7) 0;
+			border-color: transparent #8aafdb transparent transparent;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.history-timeline {
+			padding: 20px 0;
+
+			&__line {
+				left: 20px;
+			}
+
+			&__item {
+				flex-direction: row !important;
+				padding-left: 100px !important;
+				padding-right: 0 !important;
+				margin-bottom: 40px;
+				gap: 12px;
+
+				&--left,
+				&--right {
+					padding-left: 100px !important;
+					padding-right: 0 !important;
+				}
+			}
+
+			&__year-badge {
+				position: absolute;
+				left: 0;
+				height: 40px;
+				min-width: 80px;
+				padding: 0 8px;
+				font-size: 20px;
+				border-radius: 20px;
+			}
+
+			&__marker {
+				display: none;
+			}
+
+			&__content {
+				min-width: auto;
+				width: 100%;
+				padding: 20px;
+				gap: 12px;
+			}
+
+			&__event {
+				flex-wrap: wrap;
+				gap: 8px;
+				max-width: 100%;
+			}
+
+			&__event-date {
+				font-size: 13px;
+				flex-shrink: 0;
+			}
+
+			&__event-library {
+				font-size: 13px;
+				height: 28px;
+				min-width: 60px;
+				padding: 2px 10px;
+				flex-shrink: 0;
+			}
+
+			&__event-desc {
+				font-size: 13px;
+				white-space: normal;
+				word-break: keep-all;
+				overflow-wrap: break-word;
+				flex: 1;
+				min-width: 0;
+			}
+
+			&__arrow {
+				display: none;
+			}
+		}
+	}
+</style>
