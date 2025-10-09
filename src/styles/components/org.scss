@@ -1,0 +1,239 @@
+@import '../variables/colors';
+@import '../abstracts/functions';
+
+.organization-page {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(40);
+}
+
+.org-structure {
+	margin-bottom: to-rem(40);
+}
+
+.org-title {
+	font-size: to-rem(28);
+	font-weight: 700;
+	color: #191a1a;
+	margin-bottom: to-rem(24);
+}
+
+.org-chart {
+	width: 100%;
+	max-width: 976px;
+	margin: 0 auto;
+}
+
+.library-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: to-rem(12);
+	padding: to-rem(20) 0;
+	border-top: 1px solid #ecf2fe;
+	border-bottom: 1px solid #ecf2fe;
+	margin-bottom: to-rem(20);
+}
+
+.library-nav-link {
+	background: $primary-color;
+	color: white;
+	padding: to-rem(10) to-rem(20);
+	border-radius: to-rem(8);
+	font-size: to-rem(15);
+	font-weight: 500;
+	text-decoration: none;
+	transition: all 0.2s;
+
+	&:hover {
+		background: $secondary-color;
+		transform: translateY(-2px);
+	}
+}
+
+.library-section {
+	scroll-margin-top: to-rem(100);
+	margin-bottom: to-rem(60);
+}
+
+.library-title {
+	font-size: to-rem(28);
+	font-weight: 700;
+	color: #191a1a;
+	margin-bottom: to-rem(16);
+}
+
+.library-date {
+	font-size: to-rem(15);
+	color: #131416;
+	text-align: right;
+	margin-bottom: to-rem(16);
+}
+
+.library-table {
+	width: 100%;
+	max-width: 976px;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+
+		thead {
+			tr {
+				th {
+					background: #ecf2f9;
+					border: 1px solid #d8e4f3;
+					padding: to-rem(8) to-rem(16);
+					font-size: to-rem(15);
+					font-weight: 700;
+					color: #191a1a;
+					text-align: center;
+
+					&:first-child {
+						border-left: none;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr {
+				&.team-header {
+					td {
+						background: #ecf2f9;
+						border: 1px solid #d8e4f3;
+						padding: to-rem(8) to-rem(16);
+						height: 48px;
+
+						&.team-name {
+							font-size: to-rem(17);
+							font-weight: 700;
+							color: $primary-color;
+						}
+					}
+				}
+
+				td {
+					background: white;
+					border: 1px solid #cbcccc;
+					padding: to-rem(12) to-rem(16);
+					font-size: to-rem(17);
+					color: #4b4d4d;
+					vertical-align: top;
+
+					&:first-child {
+						border-left: none;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+
+					&.text-center {
+						text-align: center;
+						vertical-align: middle;
+					}
+
+					ul {
+						list-style: disc;
+						padding-left: to-rem(20);
+						margin: 0;
+
+						li {
+							line-height: 1.5;
+							margin-bottom: to-rem(4);
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+
+					.sub-item {
+						padding-left: to-rem(20);
+						margin: to-rem(4) 0;
+						line-height: 1.5;
+					}
+
+					.highlight-blue {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 모바일
+@media (max-width: 900px) {
+	.organization-page {
+		gap: 30px;
+	}
+
+	.org-structure {
+		margin-bottom: 30px;
+	}
+
+	.org-title {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+
+
+	.library-nav {
+		gap: 8px;
+		padding: 15px 0;
+	}
+
+	.library-nav-link {
+		font-size: 14px;
+		padding: 8px 16px;
+	}
+
+	.library-section {
+		scroll-margin-top: 80px;
+		margin-bottom: 40px;
+	}
+
+	.library-title {
+		font-size: 24px;
+		margin-bottom: 12px;
+	}
+
+	.library-date {
+		font-size: 14px;
+		margin-bottom: 12px;
+	}
+
+	.library-table {
+		overflow-x: auto;
+
+		table {
+			min-width: 600px;
+
+			thead tr th,
+			tbody tr td {
+				font-size: 15px;
+				padding: 8px 12px;
+			}
+
+			tbody tr td {
+				ul {
+					padding-left: 18px;
+
+					li {
+						font-size: 15px;
+					}
+				}
+
+				.sub-item {
+					font-size: 15px;
+					padding-left: 18px;
+				}
+			}
+		}
+	}
+}

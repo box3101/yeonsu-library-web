@@ -68,6 +68,7 @@
 @use 'components/faq';
 @use 'components/access-restriction';
 @use 'components/error-404';
+@use 'components/material-status';
 
 // 페이지별 스타일
 @use 'pages/home';

@@ -1,0 +1,592 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@components/UI/UiTab.astro';
+
+const title = '자료현황';
+const description = '연수구립도서관 자료현황 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '자료현황', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'books', label: '도서', active: true },
+	{ id: 'non-books', label: '비도서', active: false },
+];
+
+// 도서 데이터 - 주제별 분류
+const bookData = [
+	{
+		library: '송도국제도서관',
+		categories: {
+			총류: '2,884',
+			철학: '4,211',
+			종교: '1,668',
+			사회과학: '13,316',
+			자연과학: '5,884',
+			기술과학: '6,673',
+			예술: '3,150',
+			언어: '2,270',
+			문학: '36,965',
+			역사: '6,351',
+			total: '83,372',
+		},
+	},
+	{
+		library: '청학',
+		categories: {
+			총류: '2,884',
+			철학: '4,211',
+			종교: '1,668',
+			사회과학: '13,316',
+			자연과학: '5,884',
+			기술과학: '6,673',
+			예술: '3,150',
+			언어: '2,270',
+			문학: '36,965',
+			역사: '6,351',
+			total: '83,372',
+		},
+	},
+	{
+		library: '연수 꿈담',
+		categories: {
+			총류: '1,308',
+			철학: '1,755',
+			종교: '791',
+			사회과학: '6,553',
+			자연과학: '4,027',
+			기술과학: '3,107',
+			예술: '1,684',
+			언어: '3,339',
+			문학: '24,440',
+			역사: '3,528',
+			total: '50,532',
+		},
+	},
+	{
+		library: '송도국제어린이',
+		categories: {
+			총류: '2,295',
+			철학: '1,078',
+			종교: '350',
+			사회과학: '6,399',
+			자연과학: '4,885',
+			기술과학: '2,000',
+			예술: '866',
+			언어: '9,229',
+			문학: '41,488',
+			역사: '3,550',
+			total: '83,372',
+		},
+	},
+	{
+		library: '해돋이',
+		categories: {
+			총류: '2,151',
+			철학: '3,706',
+			종교: '1,287',
+			사회과학: '10,888',
+			자연과학: '4,275',
+			기술과학: '5,515',
+			예술: '2,278',
+			언어: '3,339',
+			문학: '34,340',
+			역사: '4,784',
+			total: '72,563',
+		},
+	},
+	{
+		library: '선학별빛',
+		categories: {
+			총류: '2,024',
+			철학: '3,225',
+			종교: '1,288',
+			사회과학: '9,383',
+			자연과학: '5,833',
+			기술과학: '4,974',
+			예술: '1,868',
+			언어: '1,206',
+			문학: '27,557',
+			역사: '4,201',
+			total: '61,559',
+		},
+	},
+	{
+		library: '동춘나래',
+		categories: {
+			총류: '1,320',
+			철학: '1,798',
+			종교: '568',
+			사회과학: '4,370',
+			자연과학: '2,485',
+			기술과학: '2,334',
+			예술: '8,174',
+			언어: '640',
+			문학: '17,149',
+			역사: '2,034',
+			total: '40,872',
+		},
+	},
+	{
+		library: '함박비류',
+		categories: {
+			총류: '1,032',
+			철학: '1,712',
+			종교: '561',
+			사회과학: '4,484',
+			자연과학: '2,028',
+			기술과학: '2,623',
+			예술: '1,208',
+			언어: '5,356',
+			문학: '17,581',
+			역사: '2,071',
+			total: '38,656',
+		},
+	},
+	{
+		library: '옥련1동',
+		categories: {
+			총류: '431',
+			철학: '1,125',
+			종교: '234',
+			사회과학: '2,529',
+			자연과학: '1,100',
+			기술과학: '1,548',
+			예술: '437',
+			언어: '207',
+			문학: '8,104',
+			역사: '960',
+			total: '16,675',
+		},
+	},
+	{
+		library: '옥련2동',
+		categories: {
+			총류: '665',
+			철학: '702',
+			종교: '228',
+			사회과학: '2,305',
+			자연과학: '2,405',
+			기술과학: '914',
+			예술: '423',
+			언어: '1,011',
+			문학: '12,377',
+			역사: '1,305',
+			total: '22,335',
+		},
+	},
+	{
+		library: '연수1동',
+		categories: {
+			총류: '385',
+			철학: '761',
+			종교: '106',
+			사회과학: '1,782',
+			자연과학: '845',
+			기술과학: '1,118',
+			예술: '426',
+			언어: '285',
+			문학: '7,135',
+			역사: '858',
+			total: '13,701',
+		},
+	},
+	{
+		library: '송도2동',
+		categories: {
+			총류: '442',
+			철학: '709',
+			종교: '217',
+			사회과학: '1,880',
+			자연과학: '1,078',
+			기술과학: '1,126',
+			예술: '396',
+			언어: '564',
+			문학: '11,365',
+			역사: '1,436',
+			total: '19,213',
+		},
+	},
+	{
+		library: '송도3동',
+		categories: {
+			총류: '528',
+			철학: '845',
+			종교: '214',
+			사회과학: '2,396',
+			자연과학: '1,021',
+			기술과학: '1,242',
+			예술: '548',
+			언어: '406',
+			문학: '10,297',
+			역사: '1,162',
+			total: '18,659',
+		},
+	},
+	{
+		library: '솔안공원',
+		categories: {
+			총류: '337',
+			철학: '421',
+			종교: '118',
+			사회과학: '1,374',
+			자연과학: '977',
+			기술과학: '569',
+			예술: '244',
+			언어: '205',
+			문학: '6,499',
+			역사: '983',
+			total: '11,727',
+		},
+	},
+	{
+		library: '해찬솔공원',
+		categories: {
+			총류: '430',
+			철학: '594',
+			종교: '129',
+			사회과학: '1,792',
+			자연과학: '1,100',
+			기술과학: '979',
+			예술: '292',
+			언어: '126',
+			문학: '6,742',
+			역사: '627',
+			total: '12,811',
+		},
+	},
+	{
+		library: '누리공원',
+		categories: {
+			총류: '191',
+			철학: '366',
+			종교: '150',
+			사회과학: '1,391',
+			자연과학: '527',
+			기술과학: '523',
+			예술: '219',
+			언어: '75',
+			문학: '5,393',
+			역사: '1,717',
+			total: '10,552',
+		},
+	},
+	{
+		library: '송도5동작은도서관',
+		categories: {
+			총류: '329',
+			철학: '373',
+			종교: '115',
+			사회과학: '1,197',
+			자연과학: '726',
+			기술과학: '738',
+			예술: '220',
+			언어: '164',
+			문학: '7,028',
+			역사: '714',
+			total: '11,604',
+		},
+	},
+	{
+		library: '송도4동(스마트)',
+		categories: {
+			총류: '23',
+			철학: '81',
+			종교: '4',
+			사회과학: '133',
+			자연과학: '33',
+			기술과학: '49',
+			예술: '22',
+			언어: '39',
+			문학: '418',
+			역사: '40',
+			total: '842',
+		},
+	},
+	{
+		library: '스케어링(스마트)',
+		categories: {
+			총류: '49',
+			철학: '130',
+			종교: '15',
+			사회과학: '291',
+			자연과학: '55',
+			기술과학: '103',
+			예술: '30',
+			언어: '26',
+			문학: '813',
+			역사: '48',
+			total: '1,553',
+		},
+	},
+	{
+		library: '연수구청(스마트)',
+		categories: {
+			총류: '191',
+			철학: '366',
+			종교: '150',
+			사회과학: '1,391',
+			자연과학: '527',
+			기술과학: '523',
+			예술: '219',
+			언어: '75',
+			문학: '5,393',
+			역사: '1,717',
+			total: '10,552',
+		},
+	},
+	{
+		library: '선학역(스마트)',
+		categories: {
+			총류: '49',
+			철학: '130',
+			종교: '15',
+			사회과학: '291',
+			자연과학: '55',
+			기술과학: '116',
+			예술: '33',
+			언어: '29',
+			문학: '827',
+			역사: '52',
+			total: '1,597',
+		},
+	},
+];
+
+const bookTotal = {
+	총류: '16,895',
+	철학: '23,860',
+	종교: '8,067',
+	사회과학: '72,931',
+	자연과학: '39,378',
+	기술과학: '36,339',
+	예술: '22,569',
+	언어: '28,529',
+	문학: '276,998',
+	역사: '36,459',
+	total: '560,985',
+};
+
+// 비도서 데이터
+const nonBookData2 = [
+	{
+		library: '연수청학도서관',
+		electronic: { ebook: '2,260', audiobook: '2,260', subtotal: '2,391' },
+		audiovisual: { dvd: '2,009' },
+		periodical: { magazine: '94' },
+		total: '4,400',
+	},
+	{
+		library: '연수꿈담도서관',
+		electronic: { ebook: '5,321', audiobook: '411', subtotal: '5,732' },
+		audiovisual: { dvd: '2,215' },
+		periodical: { magazine: '58' },
+		total: '7,947',
+	},
+	{
+		library: '송도국제어린이도서관',
+		electronic: { ebook: '22,397', audiobook: '1,558', subtotal: '23,955' },
+		audiovisual: { dvd: '4,638' },
+		periodical: { magazine: '25' },
+		total: '28,593',
+	},
+	{
+		library: '해돋이도서관',
+		electronic: { ebook: '-', audiobook: '-', subtotal: '-' },
+		audiovisual: { dvd: '2,429' },
+		periodical: { magazine: '71' },
+		total: '2,429',
+	},
+	{
+		library: '선학별빛도서관',
+		electronic: { ebook: '-', audiobook: '-', subtotal: '-' },
+		audiovisual: { dvd: '2,948' },
+		periodical: { magazine: '78' },
+		total: '2,948',
+	},
+	{
+		library: '동춘나래도서관',
+		electronic: { ebook: '-', audiobook: '-', subtotal: '-' },
+		audiovisual: { dvd: '1,513' },
+		periodical: { magazine: '39' },
+		total: '1,513',
+	},
+	{
+		library: '함박비류도서관',
+		electronic: { ebook: '-', audiobook: '744', subtotal: '744' },
+		audiovisual: { dvd: '1,731' },
+		periodical: { magazine: '59' },
+		total: '2,475',
+	},
+];
+
+const nonBookTotal2 = {
+	electronic: { ebook: '29,978', audiobook: '2,844', subtotal: '32,822' },
+	audiovisual: { dvd: '17,483' },
+	periodical: { magazine: '424' },
+	total: '50,305',
+};
+---
+
+<Layout>
+	<SubLayout title="자료현황" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" showCount={false} />
+
+				<!-- 도서 Tab Content -->
+				<div class="material-status-content ui-tab-panel ui-tab-panel--active" id="panel-books">
+					<p class="material-status__date">2025. 08. 31. 기준 (단위: 권)</p>
+					<div class="material-status-table">
+						<table>
+							<colgroup>
+								<col style="width: 180px;" />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col style="width: 100px;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th class="bg-primary">도서명</th>
+									<th class="bg-primary">총류</th>
+									<th class="bg-primary">철학</th>
+									<th class="bg-primary">종교</th>
+									<th class="bg-primary">사회<br />과학</th>
+									<th class="bg-primary">자연<br />과학</th>
+									<th class="bg-primary">기술<br />과학</th>
+									<th class="bg-primary">예술</th>
+									<th class="bg-primary">언어</th>
+									<th class="bg-primary">문학</th>
+									<th class="bg-primary">역사</th>
+									<th class="bg-primary">합계</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									bookData.map(item =>
+										item.library === '송도국제도서관' ? (
+											<tr>
+												<td class="bg-light text-center">{item.library}</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center text-gray">적용예정</td>
+												<td class="text-center font-bold">적용예정</td>
+											</tr>
+										) : (
+											<tr>
+												<td class="bg-light text-center">{item.library}</td>
+												<td class="text-center">{item.categories.총류}</td>
+												<td class="text-center">{item.categories.철학}</td>
+												<td class="text-center">{item.categories.종교}</td>
+												<td class="text-center">{item.categories.사회과학}</td>
+												<td class="text-center">{item.categories.자연과학}</td>
+												<td class="text-center">{item.categories.기술과학}</td>
+												<td class="text-center">{item.categories.예술}</td>
+												<td class="text-center">{item.categories.언어}</td>
+												<td class="text-center">{item.categories.문학}</td>
+												<td class="text-center">{item.categories.역사}</td>
+												<td class="text-center font-bold">{item.categories.total}</td>
+											</tr>
+										)
+									)
+								}
+								<tr class="total-row">
+									<td class="bg-light text-center font-bold">합 계</td>
+									<td class="text-center font-bold">{bookTotal.총류}</td>
+									<td class="text-center font-bold">{bookTotal.철학}</td>
+									<td class="text-center font-bold">{bookTotal.종교}</td>
+									<td class="text-center font-bold">{bookTotal.사회과학}</td>
+									<td class="text-center font-bold">{bookTotal.자연과학}</td>
+									<td class="text-center font-bold">{bookTotal.기술과학}</td>
+									<td class="text-center font-bold">{bookTotal.예술}</td>
+									<td class="text-center font-bold">{bookTotal.언어}</td>
+									<td class="text-center font-bold">{bookTotal.문학}</td>
+									<td class="text-center font-bold">{bookTotal.역사}</td>
+									<td class="text-center font-bold">{bookTotal.total}</td>
+								</tr>
+							</tbody>
+						</table>
+						<table></table>
+					</div>
+				</div>
+
+				<!-- 비도서 Tab Content -->
+				<div class="material-status-content ui-tab-panel" id="panel-non-books">
+					<p class="material-status__date">2025. 08. 31. 기준 (단위: 권)</p>
+					<div class="material-status-table">
+						<table>
+							<colgroup>
+								<col style="width: 180px;" />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col style="width: 100px;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th rowspan="2" class="bg-primary">자료<br />구분</th>
+									<th colspan="3" class="bg-primary">전자자료</th>
+									<th class="bg-primary">시청각자료</th>
+									<th class="bg-primary">연속간행물</th>
+									<th rowspan="2" class="bg-primary">합계</th>
+								</tr>
+								<tr>
+									<th class="bg-primary">이북</th>
+									<th class="bg-primary">오디오북</th>
+									<th class="bg-primary">소계</th>
+									<th class="bg-primary">DVD</th>
+									<th class="bg-primary">잡지</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									nonBookData2.map(item => (
+										<tr>
+											<td class="bg-light text-center">{item.library}</td>
+											<td class="text-center">{item.electronic.ebook}</td>
+											<td class="text-center">{item.electronic.audiobook}</td>
+											<td class="text-center">{item.electronic.subtotal}</td>
+											<td class="text-center">{item.audiovisual.dvd}</td>
+											<td class="text-center">{item.periodical.magazine}</td>
+											<td class="text-center font-bold">{item.total}</td>
+										</tr>
+									))
+								}
+								<tr class="total-row">
+									<td class="bg-light text-center font-bold">합 계</td>
+									<td class="text-center font-bold">{nonBookTotal2.electronic.ebook}</td>
+									<td class="text-center font-bold">{nonBookTotal2.electronic.audiobook}</td>
+									<td class="text-center font-bold">{nonBookTotal2.electronic.subtotal}</td>
+									<td class="text-center font-bold">{nonBookTotal2.audiovisual.dvd}</td>
+									<td class="text-center font-bold">{nonBookTotal2.periodical.magazine}</td>
+									<td class="text-center font-bold">{nonBookTotal2.total}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

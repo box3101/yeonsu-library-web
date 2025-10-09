@@ -1,0 +1,817 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiRadio } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '정회원 인증' },
+];
+---
+
+<Layout>
+	<SubLayout title="조직도" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="organization-page">
+			<!-- 조직 및 직원 -->
+			<section class="org-structure">
+				<h2 class="org-title">조직 및 직원</h2>
+				<div class="org-chart">
+					<img src="./assets/images/org-chart.png" alt="조직도" />
+				</div>
+			</section>
+
+			<!-- 도서관 네비게이션 -->
+			<nav class="library-nav">
+				<a href="#yeonsu-director" class="library-nav-link">연수구립도서관장</a>
+				<a href="#songdo-intl" class="library-nav-link">송도국제도서관</a>
+				<a href="#cheonghak" class="library-nav-link">연수청학도서관</a>
+				<a href="#kkumdam" class="library-nav-link">연수꿈담도서관&동춘나래도서관</a>
+				<a href="#songdo-child" class="library-nav-link">송도국제어린이도서관</a>
+				<a href="#haedoji" class="library-nav-link">해돋이도서관</a>
+				<a href="#sunhak" class="library-nav-link">선학별빛도서관&함박비류도서관</a>
+			</nav>
+
+			<!-- 연수구립도서관장 -->
+			<section id="yeonsu-director" class="library-section">
+				<h2 class="library-title">연수구립도서관장</h2>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<ul>
+										<li>연수구립도서관 업무 총괄</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8250</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 송도국제도서관 -->
+			<section id="songdo-intl" class="library-section">
+				<h2 class="library-title">송도국제도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">도서관정책팀</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>연수구립도서관 업무 총괄</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8250</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>도서관정책팀 업무 총괄</li>
+										<li>정책사업 및 특수시책 추진</li>
+										<li>도서관 운영위원회 운영</li>
+										<li>도서관 중․장기 발전 계획 수립 및 시행</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8251</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>연수구립도서관 정보화시스템 구축</li>
+										<li>[총괄, <strong class="highlight-blue">본관</strong>] 도서관 정보화시스템 관리 및 운영</li>
+										<li>[본관]전산장비 및 RFID 장비, CCTV 관리</li>
+										<li>[본관]디지털 홍보매체 및 디지털자료실 관리 및 운영</li>
+										<li>[총괄] 도서관자료관시스템 관리 및 운영</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8252</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[본관및분관] 계약(공사,용역,물품)</li>
+										<li>[본관및분관] 예산, 회계</li>
+										<li>[총괄] 도서관 평가 및 조정</li>
+										<li>도서관 운영 조례 제·개정</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8253</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>연수구립도서관 구축</li>
+										<li>도서관 관계자 및 기관 대외 교류․협력</li>
+										<li>[총괄] 도서관 운영위원회 관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 시설, 공유재산 관리</li>
+										<li>독서문화진흥계획 수립 및 시행</li>
+										<li>이용만족도 조사</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8254</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>서무, 보안, 기록물 관리</li>
+										<li>개관행사 및 개관식 관련준비 (홍보물 제작 포함)</li>
+										<li>연수구립도서관 홍보, 보도자료 관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 시설 대관</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 물품 관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 공용차량 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8256</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>공립작은도서관 업무 총괄</li>
+									</ul>
+									<p class="sub-item">- 행정복지센터 내 작은도서관 지원</p>
+									<p class="sub-item">- 공원 내 작은도서관 지원</p>
+									<ul>
+										<li>연수구 사립작은도서관 업무 총괄</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8257</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>
+											[<strong class="highlight-blue">송도국제</strong>] 근무인력(임기제, 공무직) 및 채용,급여 및 관리
+										</li>
+										<li>
+											[<strong class="highlight-blue">송도국제</strong>,문화,솔안] 보조인력(단시간, 사서도우미) 채용,
+											급여 관리
+										</li>
+										<li>[본관및분관] 세입세출외현금 관리</li>
+										<li>이용안내지 및 소식지 발간</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8268</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도국제] 개관운영준비 TF</li>
+									</ul>
+									<p class="sub-item">- 종합자료실 구성 및 도서구입·관리</p>
+									<p class="sub-item">- 특화자료실 구성 및 운영</p>
+									<p class="sub-item">- 간행물 선정·관리</p>
+								</td>
+								<td class="text-center">749-8260</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도국제] 개관운영준비 TF</li>
+									</ul>
+									<p class="sub-item">- 유아·어린이자료실 구성 및 도서구입·관리</p>
+									<p class="sub-item">- 북큐레이션 공간</p>
+									<p class="sub-item">- 개관식 문화행사 프로그램</p>
+								</td>
+								<td class="text-center">721-330</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도5동] 도서 선정 및 자료실 관리</li>
+										<li>[송도5동] 프로그램 및 문화행사 운영</li>
+										<li>[송도5동] 독서회원 및 자료변상, 이용통계 작성</li>
+										<li>[송도5동] 청사시설 관리</li>
+										<li>[송도5동] 보조인력 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8259</td>
+							</tr>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">도서관운영지원팀</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[도서관운영지원팀] 업무 총괄</li>
+										<li>도서관 통합서비스 개발․운영</li>
+										<li>도서관 세부 운영 규정 수립</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8261</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 상호대차 운영․관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 특화서비스 운영․관리</li>
+										<li>스마트도서관 운영․관리</li>
+										<li>연수 북페스티벌 운영</li>
+										<li>팀 서무</li>
+										<li><strong class="highlight-blue">범구민 책읽어주기 문화운동 추진</strong></li>
+									</ul>
+								</td>
+								<td class="text-center">749-8263</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 독서문화행사 운영</li>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 독서동아리 운영</li>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 이용통계</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 독서토론 활성화 사업 추진</li>
+										<li>북콘서트, 북스타트 운영</li>
+										<li><strong class="highlight-blue">[청학] 독서문화행사 운영</strong></li>
+										<li><strong class="highlight-blue">[청학] 독서동아리 운영</strong></li>
+										<li><strong class="highlight-blue">[청학] 토요영화마당 운영</strong></li>
+									</ul>
+								</td>
+								<td class="text-center">749-8264</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 독서프로그램 운영</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 도서관 견학 프로그램 운영</li>
+										<li>책놀이 온에어</li>
+										<li>정보소외계층 지원 사업</li>
+										<li>사서직업체험학교 운영</li>
+										<li><strong class="highlight-blue">[청학] 독서 프로그램 운영</strong></li>
+										<li><strong class="highlight-blue">[청학] 도서관학교 운영</strong></li>
+									</ul>
+								</td>
+								<td class="text-center">749-8267</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>영유아 전집대여 사업 운영</li>
+										<li>연수구 지역서점 협력 업무</li>
+										<li>자료관리심의회 운영</li>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 장서(비도서 포함) 관리</li>
+										<li>[총괄, <strong class="highlight-blue">송도국제</strong>] 도서관 개관연장 사업</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 독서회원․연체자 관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 기증자료 및 자료변상 관리</li>
+										<li>[<strong class="highlight-blue">송도국제</strong>] 유실물 관리</li>
+										<li><strong class="highlight-blue">[청학] 디지털자료실․학습열람실 관리</strong></li>
+										<li><strong class="highlight-blue">[청학] 공연장 대관 및 YCL갤러리 운영</strong></li>
+									</ul>
+								</td>
+								<td class="text-center">749-8266</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 연수청학도서관 -->
+			<section id="cheonghak" class="library-section">
+				<h2 class="library-title">연수청학도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<ul>
+										<li>[청학, 솔안] 업무 총괄</li>
+										<li>[청학, 솔안] 인력·재용·급여 관리</li>
+										<li>[청학] 예산, 회계</li>
+										<li>[청학] 청사 환경 및 시설 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8259</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[청학] 종합자료실 운영</li>
+										<li>[청학] 종합자료실 자료 구입·관리</li>
+										<li>[청학] 기증·희망도서 및 북크로싱 관리</li>
+										<li>[청학] 비도서(간행물·DVD)선정·관리</li>
+										<li>[청학] 독서회원관리, 연체자관리</li>
+										<li>[청학] 이용통계</li>
+										<li>[청학] 전산장비 유지관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8262</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>북메이트 운영, 독서회약계층 무료택배</li>
+										<li>책나래, 책바다 운영</li>
+										<li>[청학] 어린이자료실 운영</li>
+										<li>[청학] 어린이자료실 자료 구입·관리</li>
+										<li>[청학] 상호대차</li>
+										<li>[청학] 자료 변상 및 유실물 관리</li>
+										<li>[청학] 세외수입, 관용차량 관리</li>
+										<li>[청학] 팀 서무</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8265</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[솔안] 독서회원 및 자료변상, 이용통계 작성</li>
+										<li>[솔안] 도서 선정 및 자료실 관리</li>
+										<li>[솔안] 청사시설 관리</li>
+										<li>[솔안] 보조인력 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">719-7210</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[솔안] 프로그램 및 행사 운영</li>
+									</ul>
+								</td>
+								<td class="text-center">719-7210</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 연수꿈담도서관 동춘나래도서관 -->
+			<section id="kkumdam" class="library-section">
+				<h2 class="library-title">연수꿈담도서관&동춘나래도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">연수꿈담도서관</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[꿈담·동춘] 업무 총괄</li>
+										<li>[꿈담·동춘] 도서관 근무인력 채용 및 관리</li>
+										<li>[꿈담] 청사환경 및 시설관리(공사 및 보수)</li>
+										<li>[꿈담·동춘] 예산, 회계</li>
+										<li>[꿈담·동춘] 도서관 대외협력 및 홍보</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8201</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[꿈담·동춘] 보조인력 급여관리</li>
+										<li>[꿈담] 청사환경 및 시설관리(공유물 및 기상설 처리)</li>
+										<li>[꿈담] RFID 및 전산장비 유지관리</li>
+										<li>[꿈담] 학생·자원봉사자 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8202</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[꿈담] 유아 및 어린이 자료실 운영·관리</li>
+										<li>[꿈담] 비도서 및 간행물 선정·관리</li>
+										<li>[꿈담] 도서관 학교, 독서동아리 운영</li>
+										<li>[꿈담] 공모 및 특화사업(위마어기) 추진</li>
+										<li>[꿈담] 독서교육 프로그램 운영</li>
+										<li>[꿈담] 독서문화진흥행사 운영</li>
+										<li>[꿈담] 물품 및 유실물 관리</li>
+										<li>[꿈담] 팀서무</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8203</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[꿈담] 종합자료실 운영·관리</li>
+										<li>[꿈담] 도서(성인·어린이·유아) 선정·관리</li>
+										<li>[꿈담] 신간·희망·디디다 도서 선정·관리</li>
+										<li>[꿈담] 독서회원, 이용통계, 상호대차 관리</li>
+										<li>[꿈담] 기증도서, 자료변상제 변상 관리</li>
+										<li>[꿈담] 토요영화마당 운영</li>
+										<li>[꿈담] 공연장(다목적실) 운영·관리</li>
+										<li>[꿈담] 시설대관 및 복카페 관리</li>
+										<li>[꿈담] 세외수입 처리</li>
+									</ul>
+								</td>
+								<td class="text-center">719-8204</td>
+							</tr>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">동춘나래도서관</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[동춘] 도서선정 및 자료실 관리</li>
+										<li>[동춘] 독서회원 및 자료변상</li>
+										<li>[동춘] 이용통계 관리</li>
+										<li>[동춘] 자료변상, 유실물 관리, 유실물게 관리</li>
+										<li>[동춘] LTE 신간도서·희망도서 관리</li>
+										<li>[동춘] 기증도서, 상호대차관리</li>
+										<li>[동춘] 비도서(간행물, DVD) 선정 및 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">719-8242</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[동춘] 독서교육프로그램 운영</li>
+										<li>[동춘] 독서문화진흥행사 운영</li>
+										<li>[동춘] 도서관 공모사업 추진</li>
+										<li>[동춘] 메이커스페이스 관리</li>
+										<li>[동춘] 독서동아리운영, 커뮤니티룸 대관</li>
+										<li>[동춘] 팀서무, 자원봉사 관리</li>
+										<li>[동춘] 청사시설관리</li>
+										<li>[동춘] 전산장비 유지관리</li>
+										<li>[동춘] 보조인력관리</li>
+									</ul>
+								</td>
+								<td class="text-center">719-8243</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 송도국제어린이도서관 -->
+			<section id="songdo-child" class="library-section">
+				<h2 class="library-title">송도국제어린이도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<ul>
+										<li>송도국제어린이도서관 업무 총괄</li>
+										<li>[송도] 예산, 회계</li>
+										<li>[송도] 도서관 근무인력 채용 및 관리</li>
+										<li>[송도] 보조인력 급여 관리</li>
+										<li>[송도] 도서관 대외협력 및 홍보</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8221</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도] 독서문화진흥행사 운영</li>
+										<li>[송도] 독서교육프로그램 운영</li>
+										<li>[송도] 간행물 선정·관리</li>
+										<li>[송도] 도서관학교</li>
+										<li>[송도] 신규 공모사업</li>
+										<li>[송도] 독서동아리 운영</li>
+										<li>[송도] 팀서무</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8224</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도] 청사환경, 시설관리 및 물품 관리</li>
+										<li>[송도] RFID 및 전산장비 유지관리</li>
+										<li>[송도] 원요영화마당 운영</li>
+										<li>[송도] 자원봉사 관리</li>
+										<li>[송도] 대관, 유실물 관리 및 세외수입처리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8223</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[누리] 도서 선정 및 자료실 관리</li>
+										<li>[누리] 프로그램 및 행사운영</li>
+										<li>[누리] 독서회원 및 자료변상, 이용통계 작성</li>
+										<li>[누리] 영어 리딩스클, 독서동아리 운영</li>
+										<li>[누리] 청사시설 관리</li>
+										<li>[누리] 보조인력 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">812-7658</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[송도] 도서선정 및 자료실 관리</li>
+										<li>[송도] 독서회원관리 및 자료변상·연체관리</li>
+										<li>[송도] 희망도서 · 신간도서 구입 및 관리</li>
+										<li>[송도] 비도서(전자도서·오디오북·DVD) 구입</li>
+										<li>[송도] 도서관 이용통계 작성</li>
+										<li>[송도] 상호대차 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-8225</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 해돋이도서관 -->
+			<section id="haedoji" class="library-section">
+				<h2 class="library-title">해돋이도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<ul>
+										<li>해돋이도서관 업무 총괄</li>
+										<li>[해돋이] 예산, 회계</li>
+										<li>[해돋이,해찬솔] 도서관 근무인력 채용 및 관리</li>
+										<li>[해돋이,해찬솔] 보조인력 급여관리</li>
+										<li>[해돋이] 해돋이를 대관 업무</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6951</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[해돋이] 팀서무</li>
+										<li>[해돋이] RFID 및 전산장비 유지관리</li>
+										<li>[해돋이] 청사환경, 시설관리 및 물품관리</li>
+										<li>[해돋이] 세외수입 처리</li>
+										<li>[해돋이] 독서동아리 운영 및 관리</li>
+										<li>[해돋이] 토요영화마당 운영</li>
+										<li>[해돋이] 자원봉사 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6955</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[해돋이] 종합자료실(스마트서가) 운영·관리</li>
+										<li>[해돋이] 도서(성인) 선정 및 관리</li>
+										<li>[해돋이] 연혁보안 특화사업 추진</li>
+										<li>[해돋이] 독서회원 및 자료변상, 이용통계 관리</li>
+										<li>[해돋이] 신간·희망·디디다 관리</li>
+										<li>[해돋이] 대학생 협정교육 등</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6952</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[해돋이] 독서문화진흥행사 운영</li>
+										<li>[해돋이] 독서교육프로그램 운영</li>
+										<li>[해돋이] 공모사업 추진, 대외협력 및 홍보</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6954</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[해찬솔] 도서 선정 및 자료실 관리</li>
+										<li>[해찬솔] 프로그램 및 행사운영</li>
+										<li>[해찬솔] 독서회원 및 자료변상, 이용통계 작성</li>
+										<li>[해찬솔] 청사시설 관리</li>
+										<li>[해찬솔] 보조인력 관리</li>
+									</ul>
+								</td>
+								<td class="text-center">818- 6313</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[해돋이] 어린이자료실 관리</li>
+										<li>[해돋이] 도서(어린이) 선정 및 관리</li>
+										<li>[해돋이] 그림책 분야 특화사업 추진</li>
+										<li>[해돋이] 기증도서(북크로싱), 자료연계, 상호대차 관리</li>
+										<li>[해돋이] 비도서/간행물 선정 및 관리</li>
+										<li>[해돋이] 도서관학교, 재능기부 프로그램 운영</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6958</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 선학별빛도서관&함박비류도서관 -->
+			<section id="sunhak" class="library-section">
+				<h2 class="library-title">선학별빛도서관&함박비류도서관</h2>
+				<p class="library-date">2025.07.28기준</p>
+				<div class="library-table">
+					<table>
+						<thead>
+							<tr>
+								<th>담당업무</th>
+								<th>전화번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">선학별빛도서관</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>선학별빛도서관 및 함박비류도서관 업무 총괄</li>
+										<li>[선학, 함박] 예산, 회계</li>
+										<li>[선학, 함박] 도서관 근무인력 채용 및 관리</li>
+										<li>[선학, 함박] 보조인력 급여 관리</li>
+										<li>[선학] 문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6711</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[선학] 도서 선정 및 종합자료실 관리</li>
+										<li>[선학] 독서회원 및 자료변상, 이용통계 관리</li>
+										<li>[선학] 디지털자료실 관리 및 세외수입 처리</li>
+										<li>[선학] LTE 신간도서 · 희망도서 관리</li>
+										<li>[선학] 자료변상, 기증도서 관리</li>
+										<li>[선학] 비도서(간행물·DVD) 선정 및 관리</li>
+										<li>[선학] 팀서무</li>
+										<li>문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6712</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[함박] 도서 선정 및 자료실 관리</li>
+										<li>[함박] 신간도서 · 희망도서 관리</li>
+										<li>[함박] 독서회원 및 자료변상, 이용통계 관리</li>
+										<li>[함박] 자료변상, 기증도서 관리</li>
+										<li>[함박] 상호대차 관리</li>
+										<li>[함박] 비도서(DVD·간행물)선정 및 관리</li>
+										<li>[함박] 유실물 관리, 세외수입 처리</li>
+										<li>문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6973</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[함박] 독서문화프로그램 운영</li>
+										<li>[함박] 독서문화진흥행사 운영</li>
+										<li>[함박] 도서관 공모사업 추진</li>
+										<li>[함박] 독서동아리 운영, 도서관학교 운영</li>
+										<li>[함박] 학생 시간 관리, 신상안위 유치관리</li>
+										<li>[함박] 대관 접수 및 관리</li>
+										<li>[함박] 유시무, 보조인력관리</li>
+										<li>문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">749-6978</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[선학] 전문·과학 분야 특화사업 추진</li>
+										<p class="sub-item">- 초등과학 수업, 독서코칭그룹 운영</p>
+										<li>[선학] 선문관 문화사업 운영</li>
+										<li>[선학] 전시관설 운영·관리</li>
+										<li>[선학] 주말영화극장, 주말영화마법어놀 운영</li>
+										<li>[선학] 유아 환경 및 시설 관리</li>
+										<li>문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">818- 6713</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[선학] 독서문화프로그램 운영</li>
+										<li>[선학] 독서 교육프로그램 운영</li>
+										<li>[선학] 독서동아리 운영</li>
+										<li>[선학] 어린이자료실 관리, 신논나학 관리</li>
+										<li>[선학] 도서관프로그램 운영</li>
+										<li>[선학] 독립(분실부) 관리 및 영업일 관리</li>
+										<li>[선학] RFID 및 전산장비 유치관리</li>
+										<li>문화공원 복구공사센터 운영 지원</li>
+									</ul>
+								</td>
+								<td class="text-center">818- 6713</td>
+							</tr>
+							<tr class="team-header">
+								<td colspan="2" class="text-center team-name">함박비류도서관</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[함박] 도서 선정 및 자료실 관리</li>
+										<li>[함박] 신간도서 · 희망도서 관리</li>
+										<li>[함박] 독서회원 및 자료변상, 이용통계 관리</li>
+										<li>[함박] 자료변상, 기증도서 관리</li>
+										<li>[함박] 상호대차 관리</li>
+										<li>[함박] 비도서(DVD·간행물)선정 및 관리</li>
+										<li>[함박] 유실물 관리, 세외수입 처리</li>
+									</ul>
+								</td>
+								<td class="text-center">818- 6713</td>
+							</tr>
+							<tr>
+								<td>
+									<ul>
+										<li>[함박] 독서문화프로그램 운영</li>
+										<li>[함박] 독서 교육프로그램 운영</li>
+										<li>[함박] 독서동아리 운영</li>
+										<li>[함박] 어린이자료실 관리, 신논나학 관리</li>
+										<li>[함박] 도서관프로그램 운영</li>
+										<li>[함박] 독립(분실부) 관리 및 영업일 관리</li>
+										<li>[함박] RFID 및 전산장비 유치관리</li>
+									</ul>
+								</td>
+								<td class="text-center">818- 6713</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
+
+<style lang="scss">
+	@import '@styles/components/org';
+
+	.org-chart {
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+</style>
+
+<script>
+	// Smooth scroll for anchor links
+	document.addEventListener('DOMContentLoaded', () => {
+		const navLinks = document.querySelectorAll('.library-nav-link');
+
+		navLinks.forEach(link => {
+			link.addEventListener('click', e => {
+				e.preventDefault();
+				const targetId = link.getAttribute('href');
+				const targetElement = document.querySelector(targetId);
+
+				if (targetElement) {
+					targetElement.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start',
+					});
+				}
+			});
+		});
+	});
+</script>
