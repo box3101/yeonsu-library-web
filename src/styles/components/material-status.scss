@@ -1,12 +1,6 @@
 @use '../abstracts/functions' as *;
 @use '../variables/colors' as *;
 
-.material-status-content {
-	display: flex;
-	flex-direction: column;
-	gap: to-rem(16px);
-}
-
 .material-status__date {
 	font-family: 'Pretendard GOV', sans-serif;
 	font-size: to-rem(15px);
@@ -15,6 +9,7 @@
 	text-align: right;
 	line-height: 1.5;
 	margin-bottom: 0;
+	margin-bottom: 15px;
 }
 
 .material-status-table {

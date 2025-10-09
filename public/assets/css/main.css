@@ -97821,12 +97821,6 @@ body:has(.main-layer-popup.is-active) {
   }
 }
 
-.material-status-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .material-status__date {
   font-family: "Pretendard GOV", sans-serif;
   font-size: 0.9375rem;
@@ -97835,6 +97829,7 @@ body:has(.main-layer-popup.is-active) {
   text-align: right;
   line-height: 1.5;
   margin-bottom: 0;
+  margin-bottom: 15px;
 }
 
 .material-status-table {
