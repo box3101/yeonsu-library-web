@@ -1,0 +1,226 @@
+// ============================================================================
+// Sitemap Styles
+// ============================================================================
+
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+
+// Container
+.sitemap-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: to-rem(40px) to-rem(20px);
+
+  @media (max-width: 900px) {
+    padding: 30px 16px;
+  }
+}
+
+// Sitemap Grid
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: to-rem(40px) to-rem(32px);
+  padding-bottom: to-rem(60px);
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+}
+
+.sitemap-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// Category Title (Level 1)
+.sitemap-category-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: to-rem(16px) to-rem(24px);
+  background-color: $primary-color;
+  border-radius: to-rem(8px);
+  margin-bottom: to-rem(24px);
+
+  font-family: 'Pretendard GOV', sans-serif;
+  font-size: to-rem(28px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  color: white;
+
+  @media (max-width: 900px) {
+    font-size: 20px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+  }
+}
+
+// Level 2 - Category Title
+.level-2 {
+  margin-top: to-rem(16px);
+  margin-bottom: to-rem(6px);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  > span,
+  > a {
+    display: block;
+    font-size: to-rem(16px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: $text-color;
+    padding-bottom: to-rem(16px);
+    border-bottom: 1px solid #e0e0e0;
+    transition: color 0.2s;
+
+    @media (max-width: 900px) {
+      font-size: 15px;
+      padding-bottom: 12px;
+    }
+  }
+
+  > a {
+    &:hover {
+      color: $primary-color;
+    }
+
+    .icon-external-link {
+      display: inline-block;
+      width: to-rem(16px);
+      height: to-rem(16px);
+      margin-left: to-rem(4px);
+      vertical-align: middle;
+
+      @media (max-width: 900px) {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  // Remove border-bottom when level-3 exists
+  &:has(+ .level-3) {
+    > span,
+    > a {
+      border-bottom: none;
+      padding-bottom: to-rem(8px);
+
+      @media (max-width: 900px) {
+        padding-bottom: 6px;
+      }
+    }
+  }
+}
+
+// Level 3 - Detail Links
+.level-3 {
+  background-color: #f5f5f5;
+  padding: to-rem(12px) to-rem(16px);
+  border-radius: 0;
+
+  @media (max-width: 900px) {
+    padding: 10px 14px;
+  }
+
+  // First item gets top border radius
+  &:first-of-type {
+    border-radius: to-rem(4px) to-rem(4px) 0 0;
+
+    @media (max-width: 900px) {
+      border-radius: 4px 4px 0 0;
+    }
+  }
+
+  // Last item gets bottom border radius
+  &:last-of-type {
+    border-radius: 0 0 to-rem(4px) to-rem(4px);
+
+    @media (max-width: 900px) {
+      border-radius: 0 0 4px 4px;
+    }
+  }
+
+  // Only one item gets full border radius
+  &:only-of-type {
+    border-radius: to-rem(4px);
+
+    @media (max-width: 900px) {
+      border-radius: 4px;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: to-rem(14px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: #666;
+    transition: color 0.2s;
+    position: relative;
+    padding-left: to-rem(16px);
+
+    @media (max-width: 900px) {
+      font-size: 14px;
+      padding-left: 14px;
+    }
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #999;
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: $primary-color;
+
+      &::before {
+        color: $primary-color;
+      }
+    }
+
+    .icon-external-link {
+      display: inline-block;
+      width: to-rem(14px);
+      height: to-rem(14px);
+      margin-left: to-rem(6px);
+      opacity: 0.6;
+      flex-shrink: 0;
+
+      @media (max-width: 900px) {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+
+// External link icon styling
+a[target="_blank"] {
+  .icon-external-link {
+    filter: invert(47%) sepia(15%) saturate(526%) hue-rotate(177deg) brightness(95%) contrast(88%);
+  }
+
+  &:hover .icon-external-link {
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(191deg) brightness(99%) contrast(84%);
+  }
+}

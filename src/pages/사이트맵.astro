@@ -1,0 +1,66 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { menuConfig } from '@/data/menuData';
+
+const pageTitle = '사이트맵';
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '사이트맵' },
+];
+---
+
+<Layout title="사이트맵">
+	<SubLayout title={pageTitle} menuType="기타" breadcrumbItems={breadcrumbItems}>
+		<div class="sitemap-container">
+			<div class="sitemap-grid">
+				{
+					Object.entries(menuConfig).map(([key, menu]) => (
+						<div class="sitemap-col">
+							{/* Level 1: Main Category Title */}
+							<div class="sitemap-category-title">
+								{menu.title}
+							</div>
+
+							{/* Level 2 & 3: Sections and Items */}
+							{menu.sections.map(section => (
+								<>
+									<div class="level-2">
+										{section.href ? (
+											section.isExternal ? (
+												<a href={section.href} target="_blank" rel="noopener noreferrer">
+													{section.title}
+													<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+												</a>
+											) : (
+												<a href={section.href}>{section.title}</a>
+											)
+										) : (
+											<span>{section.title}</span>
+										)}
+									</div>
+
+									{/* Level 3: Detail items if exist */}
+									{section.items &&
+										section.items.map(item => (
+											<div class="level-3">
+												{item.isExternal ? (
+													<a href={item.href} target="_blank" rel="noopener noreferrer">
+														{item.label}
+														<img src="./assets/images/icon/icon-external-link.svg" class="icon icon-external-link" alt="외부 링크" />
+													</a>
+												) : (
+													<a href={item.href}>{item.label}</a>
+												)}
+											</div>
+										))}
+								</>
+							))}
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
