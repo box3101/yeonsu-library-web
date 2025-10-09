@@ -63045,6 +63045,11 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 
 @media (max-width: 900px) {
+  .contact-table-wrp {
+    overflow-x: auto;
+  }
+}
+@media (max-width: 900px) {
   .contact-table-wrp.scroll-x {
     overflow-x: auto;
   }
@@ -90318,14 +90323,11 @@ body.modal-open {
   line-height: 1.5;
 }
 .ui-usage-guide__text b {
-  color: #D7424E;
+  color: #d7424e;
   font-weight: 400;
 }
 .ui-usage-guide__text--highlighted {
   color: #d7424e;
-}
-.ui-usage-guide__text span {
-  white-space: pre-wrap;
 }
 .ui-usage-guide__sub-items {
   display: flex;

@@ -551,6 +551,9 @@ ul.movie-card-wrp {
 	}
 }
 .contact-table-wrp {
+  	@include mobile {
+			overflow-x: auto;
+		}
 	&.scroll-x {
 		@include mobile {
 			overflow-x: auto;
