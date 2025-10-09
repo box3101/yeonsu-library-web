@@ -1,0 +1,162 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiTab, UiPagination } from '@/components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '나의도서관', href: '/나의도서관' },
+	{ label: '내정보', href: '/내정보' },
+	{ label: '독서마라톤 안내' },
+];
+
+const tabMenus = [
+	{ label: '마라톤 안내', href: './독서마라톤안내' },
+	{ label: '마라톤 모집', active: true, href: './마라톤모집' },
+	{ label: '독서마라톤 참여', href: './독서마라톤참여' },
+];
+---
+
+<Layout title="내정보 - 마라톤 모집">
+	<SubLayout title="독서마라톤 안내" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+		<div class="sub-layout__content-inner-body-item-title-text-noti">
+			<p>※ 참가코스는 마라톤 운영 기간 내 [나의도서관> 마라톤활동> 참가현황] 에서 수정하실 수 있습니다.</p>
+		</div>
+
+		<!-- 마라톤 모집 목록 -->
+		<div class="marathon-list">
+			<!-- 마라톤 카드 1 -->
+			<div class="marathon-card">
+				<div class="marathon-card__header">
+					<span class="marathon-card__index">1.</span>
+					<div class="marathon-card__content">
+						<h3 class="marathon-card__title">[2025년] 독서근력 키우기 3차</h3>
+						<div class="marathon-card__info">
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">신청기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">대회기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">기본코스</span>
+								<span class="marathon-card__value">2km, 4km, 6km, 8, 10 km</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">참가연령</span>
+								<span class="marathon-card__value">유아, 아동, 청소년, 성인</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<UiButton
+					variant="primary"
+					text="참가신청"
+					href="./마라톤모집-신청"
+					size="large"
+					className="marathon-card__button"
+				/>
+			</div>
+
+			<!-- 마라톤 카드 2 -->
+			<div class="marathon-card">
+				<div class="marathon-card__header">
+					<span class="marathon-card__index">2.</span>
+					<div class="marathon-card__content">
+						<h3 class="marathon-card__title">[2024년] 독서근력 키우기, 독서마라톤 코스 신청 3차</h3>
+						<div class="marathon-card__info">
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">신청기간</span>
+								<span class="marathon-card__value">2024-01-01 ~ 2024-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">대회기간</span>
+								<span class="marathon-card__value">2024-01-01 ~ 2024-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">기본코스</span>
+								<span class="marathon-card__value">2km, 4km, 6km, 8, 10 km</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">참가연령</span>
+								<span class="marathon-card__value">유아, 아동, 청소년, 성인</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<UiButton variant="darkGray" text="참가신청" size="large" className="marathon-card__button" disabled />
+			</div>
+
+			<!-- 마라톤 카드 3 -->
+			<div class="marathon-card">
+				<div class="marathon-card__header">
+					<span class="marathon-card__index">3.</span>
+					<div class="marathon-card__content">
+						<h3 class="marathon-card__title">[2025년] 독서근력 키우기 2차</h3>
+						<div class="marathon-card__info">
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">신청기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">대회기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">기본코스</span>
+								<span class="marathon-card__value">2km, 4km, 6km, 8, 10 km</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">참가연령</span>
+								<span class="marathon-card__value">유아, 아동, 청소년, 성인</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<UiButton
+					variant="primary"
+					text="참가신청"
+					href="./마라톤모집-신청"
+					size="large"
+					className="marathon-card__button"
+				/>
+			</div>
+
+			<!-- 마라톤 카드 4 -->
+			<div class="marathon-card">
+				<div class="marathon-card__header">
+					<span class="marathon-card__index">4.</span>
+					<div class="marathon-card__content">
+						<h3 class="marathon-card__title">[2024년] 독서근력 키우기, 독서마라톤 코스 신청 2차</h3>
+						<div class="marathon-card__info">
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">신청기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">대회기간</span>
+								<span class="marathon-card__value">2025-01-01 ~ 2025-12-31</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">기본코스</span>
+								<span class="marathon-card__value">2km, 4km, 6km, 8, 10 km</span>
+							</div>
+							<div class="marathon-card__info-row">
+								<span class="marathon-card__label">참가연령</span>
+								<span class="marathon-card__value">유아, 아동, 청소년, 성인</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<UiButton variant="darkGray" text="참가신청" size="large" className="marathon-card__button" disabled />
+			</div>
+		</div>
+		<!-- 페이징네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

@@ -1,0 +1,187 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiInput, UiSelect, UiTab, UiPrivacyConsent } from '@components';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '열린참여마당', link: '#' },
+	{ text: '독서마라톤', link: '/독서마라톤참여' },
+	{ text: '마라톤 모집' },
+];
+
+const tabMenus = [
+	{ label: '마라톤 안내', href: './독서마라톤안내' },
+	{ label: '마라톤 모집', active: true, href: './마라톤모집' },
+	{ label: '독서마라톤 참여', href: './독서마라톤참여' },
+];
+
+// 마라톤 정보
+const marathonInfo = {
+	title: '[2025년] 독서근력 키우기 3차',
+	applicationPeriod: '2025-01-01 ~ 2025-12-31',
+	eventPeriod: '2025-01-01 ~ 2025-12-31',
+};
+
+// 셀렉트박스 옵션들
+const ageGroupOptions = [
+	{ value: '', label: '선택' },
+	{ value: 'child', label: '유아' },
+	{ value: 'elementary', label: '아동' },
+	{ value: 'youth', label: '청소년' },
+	{ value: 'adult', label: '성인' },
+];
+
+const courseOptions = [
+	{ value: '', label: '선택' },
+	{ value: '2km', label: '2km (1000쪽)' },
+	{ value: '4km', label: '4km (2000쪽)' },
+	{ value: '6km', label: '6km (3000쪽)' },
+	{ value: '8km', label: '8km (4000쪽)' },
+	{ value: '10km', label: '10km (5000쪽)' },
+];
+---
+
+<Layout title="마라톤 모집">
+	<SubLayout title="마라톤 모집" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 탭 -->
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+		<!-- 대회정보 섹션 -->
+		<div class="com-title-type2">
+			<div class="com-title-type2__header">
+				<h2>대회정보</h2>
+			</div>
+			<div class="com-title-type2__detail">
+				<div class="com-title-type2__row">
+					<div class="com-title-type2__column com-title-type2__column--full">
+						<span class="com-title-type2__term">대회명</span>
+						<span class="com-title-type2__description text-primary">{marathonInfo.title}</span>
+					</div>
+				</div>
+				<div class="com-title-type2__row">
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">신청기간</span>
+						<span class="com-title-type2__description">{marathonInfo.applicationPeriod}</span>
+					</div>
+					<div class="com-title-type2__column">
+						<span class="com-title-type2__term">대회기간</span>
+						<span class="com-title-type2__description">{marathonInfo.eventPeriod}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 개인정보의 수집·이용 동의  -->
+		<section class="privacy-section">
+			<h3 class="section-title-type2">이용 약관 내용</h3>
+
+			<!-- 개인정보 수집 이용 내용 박스 -->
+			<UiPrivacyConsent
+				organization="연수구립도서관"
+				purpose="독서마라톤 업무"
+				requiredItems="성명, 단체명, 소재지, 이동전화번호, 참여인원, 이메일"
+				optionalItems="전화번호, 학교, 학년, 성별, 나이"
+				retentionPeriod="1년"
+				serviceRestriction="독서마라톤 신청"
+			/>
+
+			<!-- 동의 라디오 버튼 -->
+			<div class="terms-item__radio flex-col items-end gap-15 mt15">
+				<p class="radio-question">
+					본인은 위 내용과 관련하여 「개인정보보호법」제15조 1항(개인정보의 수집․이용)에 의거하여 개인정보 제공이 아닌
+					수집ㆍ이용에 동의합니다.
+				</p>
+				<div class="radio-group">
+					<div class="ui-radio ui-radio--medium">
+						<div class="ui-radio__item">
+							<input
+								type="radio"
+								id="privacy-agree"
+								name="privacy-collection"
+								value="agree"
+								class="ui-radio__input"
+							/>
+							<div class="ui-radio__control">
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+						<label for="privacy-agree" class="ui-radio__label">
+							<span class="ui-radio__title">동의함</span>
+						</label>
+					</div>
+					<div class="ui-radio ui-radio--medium">
+						<div class="ui-radio__item">
+							<input
+								type="radio"
+								id="privacy-disagree"
+								name="privacy-collection"
+								value="disagree"
+								class="ui-radio__input"
+							/>
+							<div class="ui-radio__control">
+								<div class="ui-radio__dot"></div>
+							</div>
+						</div>
+						<label for="privacy-disagree" class="ui-radio__label">
+							<span class="ui-radio__title">동의안함</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 신청자정보 폼 -->
+		<section class="member-section">
+			<h3 class="section-title-type2">신청자정보</h3>
+
+			<form action="">
+				<div class="form-grid">
+					<!-- 이름 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">이름</label>
+						<UiInput placeholder="홍길동" value="홍길동" disabled size="large" class="w-140-mobile-full" />
+					</div>
+
+					<!-- 생년월일 -->
+					<div class="form-field form-field--full">
+						<label class="form-label required">생년월일</label>
+						<UiInput placeholder="1999.08.10" value="1999.08.10" disabled size="large" class="w-200-mobile-full" />
+					</div>
+
+					<!-- 연락처 -->
+					<div class="form-field">
+						<label class="form-label required">연락처</label>
+						<UiInput placeholder="010-1234-4567" type="tel" size="large" />
+					</div>
+
+					<!-- 이메일 -->
+					<div class="form-field">
+						<label class="form-label required">이메일</label>
+						<UiInput placeholder="이메일을 입력해 주세요." type="email" size="large" />
+					</div>
+
+					<!-- 연령구분 -->
+					<div class="form-field">
+						<label class="form-label required">연령구분</label>
+						<UiSelect placeholder="선택" options={ageGroupOptions} size="large" />
+					</div>
+
+					<!-- 코스구분 -->
+					<div class="form-field">
+						<label class="form-label required">코스구분</label>
+						<UiSelect placeholder="선택" options={courseOptions} size="large" required />
+					</div>
+
+					<!-- 제출 버튼 -->
+					<div class="form-field form-field--full form-field--buttons">
+						<div class="form-buttons flex items-center gap-10 justify-center w-full">
+							<UiButton text="취소" class="w-135-mobile-full" variant="gray" size="large" />
+							<UiButton text="신청" class="w-135-mobile-full" variant="primary" size="large" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
+	</SubLayout>
+</Layout>

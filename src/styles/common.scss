@@ -2277,3 +2277,147 @@ img {
 	border-radius: var(--radius-small1, 4px);
 	background: var(--color-primary-pr07, #244874);
 }
+
+/* ============================================
+   마라톤 모집 카드 스타일
+   ============================================ */
+
+.marathon-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: to-rem(24);
+	margin-top: to-rem(24);
+
+	@include mobile {
+		gap: 16px;
+		margin-top: 16px;
+	}
+}
+
+.marathon-card {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(24);
+	width: calc(50% - to-rem(12));
+	background: white;
+	border: 1px solid #b1b3b3;
+	border-radius: to-rem(12);
+	padding: to-rem(32);
+
+	@include mobile {
+		width: 100%;
+		padding: 20px;
+		gap: 16px;
+		border-radius: 8px;
+	}
+
+	&__header {
+		display: flex;
+		gap: to-rem(16);
+		align-items: flex-start;
+
+		@include mobile {
+			gap: 12px;
+		}
+	}
+
+	&__index {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: to-rem(24);
+		height: to-rem(24);
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(15);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 20px;
+			height: 20px;
+			font-size: 14px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		flex: 1;
+		min-width: 0;
+
+		@include mobile {
+			gap: 12px;
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		height: to-rem(72);
+
+		@include mobile {
+			font-size: 18px;
+			height: auto;
+			min-height: 54px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+
+		@include mobile {
+			gap: 6px;
+		}
+	}
+
+	&__info-row {
+		display: flex;
+		gap: to-rem(8);
+		align-items: flex-start;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		line-height: 1.5;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 14px;
+			gap: 6px;
+		}
+	}
+
+	&__label {
+		font-weight: 700;
+		width: to-rem(64);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 56px;
+		}
+	}
+
+	&__value {
+		font-weight: 400;
+		flex: 1;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__button {
+		width: 100%;
+	}
+}

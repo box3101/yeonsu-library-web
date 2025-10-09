@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton, UiPagination, UiSearchbar, UiTable } from '@components';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiInput, UiSelect } from '@components';
 import { UiTab } from '@components';
 
 const breadcrumbItems = [
@@ -117,49 +117,50 @@ const rows = [
 ];
 
 const tabMenus = [
-	{ label: '독서마라톤 안내', href: './독서마라톤안내' },
+	{ label: '마라톤 안내', href: './독서마라톤안내' },
+	{ label: '마라톤 모집', href: './마라톤모집' },
 	{ label: '독서마라톤 참여', active: true, href: './독서마라톤참여' },
 ];
 ---
 
 <Layout title="독서마라톤참여">
 	<SubLayout title="독서마라톤참여" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
-		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-2" />
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
 
 		<!-- 공통 검색바 -->
-		<UiSearchbar
-			selectOptions={[
-				{ value: '', label: '전체' },
-				{ value: 'title', label: '제목' },
-				{ value: 'author', label: '저자' },
-				{ value: 'publisher', label: '출판사' },
-				{ value: 'isbn', label: 'ISBN' },
-			]}
-			libraryOptions={[
-				{ value: '', label: '전체도서관' },
-				{ value: 'central', label: '중앙도서관' },
-				{ value: 'branch1', label: '분관1' },
-				{ value: 'branch2', label: '분관2' },
-			]}
-			titleOptions={[
-				{ value: '', label: '제목' },
-				{ value: 'exact', label: '정확한 제목' },
-				{ value: 'contains', label: '포함된 제목' },
-			]}
-			placeholder="검색어를 입력해주세요."
-			buttonText="검색"
-			fullWidth={true}
-			class="smart-library-searchbar mt24"
-		/>
+		<div class="com-search">
+			<div class="com-search__filters">
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '전체도서관' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__select">
+					<UiSelect
+						options={[{ value: '', label: '제목' }]}
+						name="library"
+						size="medium"
+						class="w-200-mobile-full"
+						variant="default"
+					/>
+				</div>
+				<div class="com-search__input">
+					<UiInput placeholder="검색어를 입력해주세요." class="w-370-mobile-full" />
+				</div>
+				<div class="com-search__button">
+					<UiButton text="검색" class="w-100-mobile-full" />
+				</div>
+			</div>
+		</div>
 
 		<!-- 게시글 헤더 -->
 		<div class="bbs-header">
 			<div class="bbs-total">
 				총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
-			</div>
-			<div class="bbs-actions">
-				<UiButton variant="primary" text="로그인" />
-				<UiButton variant="secondary" text="글쓰기" />
 			</div>
 		</div>
 
@@ -168,12 +169,6 @@ const tabMenus = [
 		<!-- 페이징 네비게이션 -->
 		<div class="pagination-section">
 			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
-		</div>
-
-		<!-- 로그인 , 글쓰기 버튼 -->
-		<div class="bbs-actions flex justify-end items-center gap-8">
-			<UiButton variant="primary" text="로그인" />
-			<UiButton variant="secondary" text="글쓰기" />
 		</div>
 	</SubLayout>
 </Layout>
