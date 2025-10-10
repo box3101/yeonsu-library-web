@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>정회원 인증 - 연수구립도서관</title>
+		<!-- Pretendard GOV 폰트 로드 -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-gov.min.css"
+		/>
+		<style>
+			/* 전역 스타일 초기화 */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			/* 페이지 전체 레이아웃 */
+			body {
+				font-family: 'Pretendard GOV', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+				background-color: #f1f2f2;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			/* Empty State 컨테이너 */
+			.empty-state-container {
+				width: 100%;
+				max-width: 1280px;
+				padding: 24px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 40px;
+			}
+
+			/* 일러스트레이션 영역 */
+			.empty-state-illustration {
+				width: 100%;
+				max-width: 862px;
+				position: relative;
+			}
+
+			.empty-state-illustration img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+
+			/* 메시지 영역 */
+			.empty-state-message {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 16px;
+				height: 48px;
+			}
+
+			/* 경고 아이콘 */
+			.empty-state-icon {
+				flex-shrink: 0;
+				width: 36px;
+				height: 36px;
+			}
+
+			.empty-state-icon svg {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			/* 메시지 텍스트 */
+			.empty-state-text {
+				font-family: 'Pretendard GOV', sans-serif;
+				font-weight: 700;
+				font-size: 32px;
+				line-height: 1.5;
+				color: #e48088;
+				text-align: center;
+				white-space: nowrap;
+			}
+
+			/* 모바일 반응형 스타일 */
+			@media (max-width: 900px) {
+				.empty-state-container {
+					gap: 24px;
+					padding: 40px 20px;
+				}
+
+				.empty-state-message {
+					gap: 12px;
+					height: auto;
+					flex-direction: column; /* 모바일에서는 세로 배치 */
+				}
+
+				.empty-state-icon {
+					width: 28px;
+					height: 28px;
+				}
+
+				.empty-state-text {
+					font-size: 20px;
+					white-space: normal; /* 모바일에서 줄바꿈 허용 */
+					word-break: keep-all; /* 한글 단어 단위로 줄바꿈 */
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="empty-state-container">
+			<!-- 일러스트레이션 이미지 -->
+			<div class="empty-state-illustration">
+				<img src="./assets/images/empty-state/authentication.svg" alt="Empty State Illustration" />
+			</div>
+
+			<!-- 에러 메시지 -->
+			<div class="empty-state-message">
+				<!-- 경고 아이콘 -->
+				<div class="empty-state-icon">
+					<img src="./assets/images/icon/icon-empty2.svg" alt="Empty State Icon" />
+				</div>
+				<!-- 에러 메시지 텍스트 -->
+				<p class="empty-state-text">로그인 상태에서 사용하실 수 없는 서비스입니다.</p>
+			</div>
+		</div>
+	</body>
+</html>
