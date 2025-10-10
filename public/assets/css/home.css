@@ -2161,8 +2161,28 @@
   height: 40px !important;
 }
 
+.calendar .ui-select__wrapper {
+  position: relative;
+}
+.calendar .ui-select__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url(../../assets/images/icon/arrow-drop-down.svg) no-repeat center center;
+  transition: transform 0.3s ease;
+}
+.ui-select__element:focus ~ .calendar .ui-select__wrapper::after, .calendar .ui-select__wrapper:has(.ui-select__element:focus)::after {
+  transform: translateY(-50%) rotate(180deg);
+}
 .calendar .calendar__selects .ui-select__element {
   font-size: 19px;
+}
+.calendar .calendar__selects .ui-select__arrow {
+  display: none;
 }
 
 /*# sourceMappingURL=home.css.map */

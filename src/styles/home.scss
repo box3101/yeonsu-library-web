@@ -2149,8 +2149,6 @@
 	}
 }
 
-
-
 /* 신규 컨텐츠 아이템 배경색 클래스들 */
 .new-content-item {
 	/* 기본 배경색은 기존 스타일을 유지 */
@@ -2178,13 +2176,33 @@
 	height: 40px !important;
 }
 
-.calendar{
-	.calendar__selects{
-		.ui-select__element{
-			font-size:19px;
+.calendar {
+	.ui-select__wrapper {
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			width: 16px;
+			height: 16px;
+			background: url(../../assets/images/icon/arrow-drop-down.svg) no-repeat center center;
+			transition: transform 0.3s ease; // 부드러운 애니메이션 추가
 		}
-		.ui-select__arrow{
+		 // element가 focus될 때
+		 .ui-select__element:focus ~ &::after,
+		 &:has(.ui-select__element:focus)::after {
+				 transform: translateY(-50%) rotate(180deg);
+		 }
+	}
+	.calendar__selects {
+		.ui-select__element {
+			font-size: 19px;
 
+		}
+		.ui-select__arrow {
+			display: none;
 		}
 	}
 }
