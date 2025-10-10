@@ -1,0 +1,336 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '옥련2동어린이작은도서관';
+const description = '연수구립도서관 옥련2동어린이작은도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '옥련2동어린이작은도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="옥련2동어린이작은도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="옥련2동어린이작은도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<div class="library-banner__title">
+								<p class="library-banner__title-sub">모두가 행복한 도서관, 옥련 2동 주민과 만들겠습니다.</p>
+							</div>
+							<p class="library-banner__subtitle">주민 모두가 함께 만들어가는 도서관</p>
+							<p class="library-banner__name"><span>따듯함과 편안함이 공존하는 도서관,</span><br /> 꿈이 있는 도서관</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 연수구 대표도서관으로 중심 역할을 수행하고, 도서관 간의 긴밀한 네트워크를 구축하여
+								시민들의 삶의 질 향상과 정서 순화를 돕는 지식 · 정보의 전달자로 지식정보격차해소를 통한 사회통합에
+								기여하는 지역정보센터가 되고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 양질의 정보서비스제공을 위한 자료 확보, 지식정보 취약계층을 위한 도서관 서비스를
+								확대하여 시민들의 잠재역량을 키워 나갈 배움의 장으로 자리잡고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 책을 통해 새로운 세상과 소통하고 삶의 지혜를 얻어 Reading에서 Leader로 미래를 이끄는
+								힘을 키울 수 있도록 최신 정보와 다양한 자료를 제공하도록 하겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								또한, 황토와 편백나무로 꾸며진 학습열람실을 운영하여 쾌적한 학습공간과 지역주민의 자기주도적인
+								학습능력을 향상시키는데 이바지하겠 습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">
+									인천광역시 연수구 옥련로 82(옥련동 238) 옥련2동 행정복지센터 5층
+								</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2008. 03. 20.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 322㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">옥련2동 행정복지센터 5층</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 시설배치 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지상5층</td>
+										<td>자료실, 책마루, 엄마랑 아가랑, pc 이용석</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 200px;" />
+									<col style="width: 150px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="4">지상5층</td>
+										<td>자료실</td>
+										<td>26석</td>
+										<td class="text-left">아동·성인 총류(000) ~ 역사(900) 자료실</td>
+									</tr>
+									<tr>
+										<td>책마루</td>
+										<td>30석</td>
+										<td class="text-left">영·유아 총류(000) ~ 역사(900) 자료실</td>
+									</tr>
+									<tr>
+										<td>엄마랑 아가랑</td>
+										<td>30석</td>
+										<td class="text-left">영·유아 자료실 및 책 읽어주는 공간</td>
+									</tr>
+									<tr>
+										<td>pc 이용석</td>
+										<td>3석</td>
+										<td class="text-left">자료검색 및 인터넷 사용</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- Info Box -->
+							<div class="com-inbo-type2 mt-4">
+								<div class="com-inbo-type2__icon">
+									<span class="com-inbo-type2__reference">※</span>
+								</div>
+								<p class="com-inbo-type2__text">좌석수는 입식 및 좌석 포함</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 옥련로 82(옥련동 238) 옥련2동 행정복지센터 5층
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6084</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">521</span>
+												</div>
+												<p class="transportation-route__info">'옥련2동행정복지센터 하차'</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">8, 8A</span>
+												</div>
+												<p class="transportation-route__info">'현대2차아파트 하차' (도보 약 1분, 휠체어 약 2분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 옥련로 82(옥련동 238) 옥련2동 행정복지센터 5층
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6084</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">521</span>
+												</div>
+												<p class="transportation-route__info">'옥련2동행정복지센터 하차'</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">8, 8A</span>
+												</div>
+												<p class="transportation-route__info">'현대2차아파트 하차' (도보 약 1분, 휠체어 약 2분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</UiSubTab>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
