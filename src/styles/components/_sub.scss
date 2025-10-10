@@ -10833,3 +10833,279 @@ ul.movie-card-wrp {
 		}
 	}
 }
+
+// Directions Section
+.library-directions-title {
+	font-family: 'Pretendard GOV', sans-serif;
+	font-weight: 700;
+	font-size: to-rem(28px);
+	line-height: 1;
+	color: #191a1a;
+	margin-bottom: to-rem(24px);
+
+	@include mobile {
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+}
+
+// Subtab Panel
+.subtab-panel {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+// Map Container
+.map-container {
+	margin-bottom: to-rem(24px);
+
+	@include mobile {
+		margin-bottom: 20px;
+	}
+}
+
+.map-placeholder {
+	width: 100%;
+	height: 480px;
+	border: 1px solid #cbcccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: white;
+
+	@include mobile {
+		height: 300px;
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		color: #4b4d4d;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Address Info Box
+.address-info-box {
+	background: #ecf2f9;
+	padding: to-rem(8px) to-rem(32px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: to-rem(10px);
+	margin-bottom: to-rem(24px);
+
+	@include mobile {
+		padding: 12px 16px;
+		margin-bottom: 20px;
+	}
+
+	&__address {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		text-align: center;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__contact {
+		display: flex;
+		gap: to-rem(32px);
+		align-items: center;
+
+		@include mobile {
+			gap: 20px;
+			flex-direction: column;
+		}
+	}
+}
+
+.contact-item {
+	display: flex;
+	gap: to-rem(10px);
+	align-items: center;
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #18304d;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Transportation Section
+.transportation-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.transportation-item {
+	display: flex;
+	gap: to-rem(32px);
+	align-items: center;
+	padding: to-rem(32px) to-rem(60px);
+	border-top: 1px solid #cbcccc;
+	border-bottom: 1px solid #cbcccc;
+	background: white;
+
+	&:not(:first-child) {
+		border-top: 0;
+	}
+
+	@include mobile {
+		gap: 20px;
+		padding: 20px 16px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&__icon {
+		width: 72px;
+		height: 72px;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include mobile {
+			width: 56px;
+			height: 56px;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16px);
+
+		@include mobile {
+			gap: 12px;
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(24px);
+		line-height: 1.5;
+		margin: 0;
+
+		@include mobile {
+			font-size: 20px;
+		}
+
+		&--subway {
+			color: #7fb95e;
+		}
+
+		&--bus {
+			color: #3c79c2;
+		}
+	}
+}
+
+.transportation-routes {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16px);
+
+	@include mobile {
+		gap: 12px;
+	}
+}
+
+.transportation-route {
+	display: flex;
+	gap: to-rem(16px);
+	align-items: center;
+
+	@include mobile {
+		gap: 12px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&__badge {
+		display: flex;
+		gap: to-rem(8px);
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	&__arrow {
+		width: to-rem(24px);
+		height: to-rem(24px);
+
+		@include mobile {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__line {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: 15px;
+		}
+
+		&--incheon {
+			color: #7fb95e;
+		}
+
+		&--bus {
+			color: #3c79c2;
+		}
+	}
+
+	&__info {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
