@@ -37,16 +37,16 @@ const containerClasses = [
 <div class={containerClasses} id={id} {...rest}>
   <div class="subtab-list">
     {tabs.map((tab, index) => (
-      <button 
+      <button
         class={`subtab-item ${index === activeTab ? 'active' : ''}`}
         data-tab={index}
         type="button"
+        set:html={tab}
       >
-        {tab}
       </button>
     ))}
   </div>
-  
+
   <div class="subtab-content">
     <slot />
   </div>

@@ -4,14 +4,14 @@ import SubLayout from '@components/layout/SubLayout.astro';
 import UiTab from '@ui/UiTab.astro';
 import UiSubTab from '@ui/UiSubTab.astro';
 
-const title = '송도국제도서관';
-const description = '연수구립도서관 송도국제도서관 소개 페이지입니다.';
+const title = '연수꿈담도서관';
+const description = '연수구립도서관 연수꿈담도서관 소개 페이지입니다.';
 
 const breadcrumbItems = [
 	{ text: '홈', link: '/' },
 	{ text: '도서관소개', link: '#' },
 	{ text: '구립도서관', link: '#' },
-	{ text: '송도국제도서관', link: '#' },
+	{ text: '연수꿈담도서관', link: '#' },
 ];
 
 const tabMenus = [
@@ -24,7 +24,7 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 ---
 
 <Layout title={title} description={description}>
-	<SubLayout title="송도국제도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+	<SubLayout title="연수꿈담도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
 		<div class="sub-layout__content">
 			<section class="sub-layout__content-inner">
 				<!-- Tab Navigation -->
@@ -36,19 +36,15 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 					<div class="library-banner">
 						<img
 							src="./assets/images/library-banner-placeholder.jpg"
-							alt="송도국제도서관"
+							alt="연수꿈담도서관"
 							class="library-banner__image"
 						/>
 						<div class="library-banner__overlay"></div>
 
 						<!-- Banner Text -->
 						<div class="library-banner__content">
-							<div class="library-banner__title">
-								<p class="library-banner__title-main">지식과 상상</p>
-								<p class="library-banner__title-sub">이 만나는 곳!</p>
-							</div>
-							<p class="library-banner__subtitle">글로벌 문화도시 송도를 대표하는,</p>
-							<p class="library-banner__name">연수청학도서관</p>
+							<p class="library-banner__subtitle">책 속에 꿈을 담는</p>
+							<p class="library-banner__name library-banner__name--highlight">연수꿈담도서관</p>
 						</div>
 					</div>
 
@@ -57,26 +53,28 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 						<div class="library-purpose__item">
 							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
 							<p class="library-purpose__text">
-								송도국제도서관은 오랜 지역주민들의 염원 속에 탄생하여, 송도국제도시의 대표적인 문화·교육 거점으로서
-								시민들의 지적 욕구 충족과 평생학습을 지원하는 지식정보의 허브가 되고자 합니다.
+								2006년 개관하여 연수구립도서관의 시작을 열었던 연수어린이도서관이 2022년 12월, 전 연령층을 아우르는 수 있는 연수꿈담도서관으로 다시 태어났습니다.
 							</p>
 						</div>
 
 						<div class="library-purpose__item">
 							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
 							<p class="library-purpose__text">
-								누구나 도서관을 통해 꿈과 희망을 키우고, 책 속에서 찾은 지혜로 더 나은 미래를 설계할 수 있도록 차별 없는
-								정보서비스와 맞춤형 문화프로그램을 제공하여 모든 지역주민의 삶을 풍요롭게 하는 평생학습의 동반자가
-								되겠습니다.
+								여가·취미를 특색로 하여 지역주민들이 다양한 문화생활을 즐길 수 있는 복합문화공감으로서의 역할을 하고자 합니다.
 							</p>
 						</div>
 
 						<div class="library-purpose__item">
 							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
 							<p class="library-purpose__text">
-								송도국제도서관의 독특한 건물과 다양한 문화공간을 통해 시민들에게 새로운 영감과 창조적 경험을 선사하며,
-								전통적인 도서관의 틀을 넘어 복합문화시설로서 지역사회의 문화적 자긍심을 높이고 국제도시 송도의 랜드마크
-								역할을 수행하겠습니다.
+								연수꿈담도서관은 특색있고 편안한 분위기의 자료실과 동아리실, 프로그램실, 공연장, 북카페 등 독서할 수 있는 공간뿐만 아니라 다양한 문화활동을 할 수 있는 공간으로 구성되어있습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								계층을 불문하고 모든 이용객의 꿈을 담아내는 소중한 공간이라는 의미가 담겨있는 꿈담도서관의 명칭처럼 모두가 즐겁게 이용할 수 있도록 다양한 참신한 특색있는 프로그램을 제공하고자 노력하겠습니다.
 							</p>
 						</div>
 					</div>
@@ -93,19 +91,19 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 						<ul class="library-info-list">
 							<li class="library-info-list__item">
 								<span class="library-info-list__label">위치 :</span>
-								<span class="library-info-list__value">인천광역시 연수구 아카데미로 166</span>
+								<span class="library-info-list__value">인천광역시 연수구 먼우금로 164</span>
 							</li>
 							<li class="library-info-list__item">
 								<span class="library-info-list__label">개관 :</span>
-								<span class="library-info-list__value">2025. 10. 30.</span>
+								<span class="library-info-list__value">2022.12.29.</span>
 							</li>
 							<li class="library-info-list__item">
 								<span class="library-info-list__label">규모 :</span>
-								<span class="library-info-list__value">연면적 2,607㎡</span>
+								<span class="library-info-list__value">연면적 2,274.88㎡ / 건물면적 666.55㎡</span>
 							</li>
 							<li class="library-info-list__item">
 								<span class="library-info-list__label">구조 :</span>
-								<span class="library-info-list__value">지하 1층 ~ 지상 3층</span>
+								<span class="library-info-list__value">지하 1층 ~ 지상 4층</span>
 							</li>
 						</ul>
 					</div>
@@ -131,19 +129,23 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 								<tbody>
 									<tr>
 										<td>지하1층</td>
-										<td>주차장</td>
+										<td>문서고, 자원봉사실</td>
 									</tr>
 									<tr>
 										<td>지상1층</td>
-										<td>안내데스크, 영유아자료실, 어린이자료실, 어린이창작실, 국제홀(공연장, 196석), 북카페, 리브룸</td>
+										<td>안내데스크, 유아자료실(수유실), 사무실</td>
 									</tr>
 									<tr>
 										<td>지상2층</td>
-										<td>2층 일반자료실, 특화자료실, 문화강의실, 커뮤니티룸1·2</td>
+										<td>어린이자료실, 동아리실, 프로그램실, 북카페</td>
 									</tr>
 									<tr>
 										<td>지상3층</td>
-										<td>3층 일반자료실, 디지털자료실, 이용자 휴게공간, 사무실</td>
+										<td>종합자료실, 휴게실</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>공연장(80석)</td>
 									</tr>
 								</tbody>
 							</table>
@@ -174,91 +176,75 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 								</thead>
 								<tbody>
 									<tr>
-										<td rowspan="1">지하1층</td>
-										<td>주차장</td>
+										<td rowspan="2">지하1층</td>
+										<td>문서고</td>
 										<td>-</td>
-										<td class="text-left">지하주차장 40대</td>
+										<td class="text-left">도서관 자료 보관</td>
 									</tr>
 									<tr>
-										<td rowspan="7">지상1층</td>
+										<td>자원봉사실</td>
+										<td>-</td>
+										<td class="text-left">자원봉사가 및 물여원 휴게실</td>
+									</tr>
+									<tr>
+										<td rowspan="3">지상1층</td>
 										<td>안내데스크</td>
 										<td>-</td>
 										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
 									</tr>
 									<tr>
-										<td>영유아자료실</td>
+										<td>유아자료실</td>
 										<td>30석</td>
-										<td class="text-left">영·유아 도서, 수유실 포함</td>
-									</tr>
-									<tr>
-										<td>어린이자료실</td>
-										<td>50석</td>
-										<td class="text-left">아동 도서</td>
-									</tr>
-									<tr>
-										<td>어린이창작실</td>
-										<td>15석</td>
-										<td class="text-left">견학 및 인터랙티브 체험 공간</td>
-									</tr>
-									<tr>
-										<td>국제홀</td>
-										<td>196석</td>
-										<td class="text-left">공연 관람 및 대관(사전예약) 이용 가능</td>
-									</tr>
-									<tr>
-										<td>북카페</td>
-										<td>15석</td>
-										<td class="text-left">휴게공간</td>
-									</tr>
-									<tr>
-										<td>리브룸</td>
-										<td>20석</td>
-										<td class="text-left">계단서가(1층~2층 연결), 문학전집</td>
-									</tr>
-									<tr>
-										<td rowspan="4">지상2층</td>
-										<td>2층 일반자료실</td>
-										<td>140석</td>
-										<td class="text-left">외국어 도서, 성인 도서 [총류(000) ~ 언어(700)], 정기간행물, 신문</td>
-									</tr>
-									<tr>
-										<td>특화자료실</td>
-										<td>10석</td>
-										<td class="text-left">특화 자료 전시 및 체험 공간</td>
-									</tr>
-									<tr>
-										<td>문화강의실</td>
-										<td>30석</td>
-										<td class="text-left">프로그램 및 문화행사 진행</td>
-									</tr>
-									<tr>
-										<td>커뮤니티룸 1<br />커뮤니티룸 2</td>
-										<td>12석<br />12석</td>
-										<td class="text-left">
-											1. 소속 독서동아리 활동 및 프로그램 진행<br />
-											2. 예약대관 방식의 소규모 독서 토론 공간
-										</td>
-									</tr>
-									<tr>
-										<td rowspan="4">지상3층</td>
-										<td>3층 일반자료실</td>
-										<td>130석</td>
-										<td class="text-left">청소년 도서, 성인 도서 [문학(800) ~ 역사(900)]</td>
-									</tr>
-									<tr>
-										<td>디지털자료실</td>
-										<td>12석</td>
-										<td class="text-left">예약제 방식의 정보검색 공간 (일반PC, OTT관람석, 원문DB)</td>
-									</tr>
-									<tr>
-										<td>이용자 휴게공간</td>
-										<td>20석</td>
-										<td class="text-left">휴게공간</td>
+										<td class="text-left">영·유아 총류(000) ~ 역사(900) 자료실, 수유실 포함</td>
 									</tr>
 									<tr>
 										<td>사무실</td>
 										<td>-</td>
-										<td class="text-left">사무공간</td>
+										<td class="text-left">직원 사무실 및 회의 장소</td>
+									</tr>
+									<tr>
+										<td rowspan="4">지상2층</td>
+										<td>어린이자료실</td>
+										<td>40석</td>
+										<td class="text-left">아동 총류(000) ~ 역사(900) 자료실, PC존(3석, 원문DB)</td>
+									</tr>
+									<tr>
+										<td>동아리실1</td>
+										<td>8석</td>
+										<td class="text-left">독서동아리 활동실상소</td>
+									</tr>
+									<tr>
+										<td>동아리실2</td>
+										<td>8석</td>
+										<td class="text-left">예약제 방식의 소규모 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td>프로그램실</td>
+										<td>20석</td>
+										<td class="text-left">프로그램 및 문화행사 진행</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>북카페</td>
+										<td>12석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td rowspan="2">지상3층</td>
+										<td>종합자료실</td>
+										<td>90석</td>
+										<td class="text-left">청소년·성인 총류(000) ~ 역사(900), 청소년·성인 정기간행물, PC존(3석, 프린터, 원문DB) 포함</td>
+									</tr>
+									<tr>
+										<td>휴게실</td>
+										<td>12석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>공연장</td>
+										<td>80석</td>
+										<td class="text-left">문화행사 및 프로그램, 공연, 영화상영 진행 (예약대관 가능)</td>
 									</tr>
 								</tbody>
 							</table>
@@ -292,16 +278,16 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 							<!-- Address Info Box -->
 							<div class="address-info-box">
 								<p class="address-info-box__address">
-									인천광역시 연수구 송도동 115-2(아카데미로 166) | (우편번호) 22009
+									인천광역시 연수구 먼우금로 164 | (우편번호) 21967
 								</p>
 								<div class="address-info-box__contact">
 									<div class="contact-item">
 										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-749-8270</span>
+										<span class="contact-item__value">032-749-8200</span>
 									</div>
 									<div class="contact-item">
 										<span class="contact-item__label">FAX</span>
-										<span class="contact-item__value">032-749-8279</span>
+										<span class="contact-item__value">032-749-8209</span>
 									</div>
 								</div>
 							</div>
@@ -322,10 +308,12 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 													alt=""
 													class="transportation-route__arrow"
 												/>
-												<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												<span class="transportation-route__line transportation-route__line--incheon">
+													인천지하철
+												</span>
 											</div>
 											<p class="transportation-route__info">
-												인천대입구역 하차, 2번 출구(도보 약 17분, 휠체어 약 51분)
+												동춘역 하차, 4번 출구 연수구청 방향(도보 약 20분, 휠체어 약 1시간 30분)
 											</p>
 										</div>
 									</div>
@@ -346,49 +334,12 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 														alt=""
 														class="transportation-route__arrow"
 													/>
-													<span class="transportation-route__line transportation-route__line--bus">순환41</span>
-												</div>
-												<p class="transportation-route__info">'인천대학교북문' 하차(도보 약 3분, 휠체어 약 9분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
 													<span class="transportation-route__line transportation-route__line--bus">
-														8, 8A, 16, 4401, 순환41,3002
+														6, 65-1, 68, 81, 103, 320, 522
 													</span>
 												</div>
 												<p class="transportation-route__info">
-													'송도더샵마스터뷰23단지' 하차(도보 약 5분, 휠체어 약 15분)
-												</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">58, 순환43</span>
-												</div>
-												<p class="transportation-route__info">
-													'인천과학예술영재학교' 하차(도보 약 3분, 휠체어 약 9분)
-												</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">16-1, 4401</span>
-												</div>
-												<p class="transportation-route__info">
-													'송도더샵마스터뷰22단지' 하차(도보 약 5분, 휠체어 약 15분)
+													'연수꿈담도서관' 하차(도보 1분, 휠체어 1분)
 												</p>
 											</div>
 										</div>
@@ -408,16 +359,16 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 							<!-- Address Info Box -->
 							<div class="address-info-box">
 								<p class="address-info-box__address">
-									인천광역시 연수구 송도동 115-2(아카데미로 166) | (우편번호) 22009
+									인천광역시 연수구 먼우금로 164 | (우편번호) 21967
 								</p>
 								<div class="address-info-box__contact">
 									<div class="contact-item">
 										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-749-8270</span>
+										<span class="contact-item__value">032-749-8200</span>
 									</div>
 									<div class="contact-item">
 										<span class="contact-item__label">FAX</span>
-										<span class="contact-item__value">032-749-8279</span>
+										<span class="contact-item__value">032-749-8209</span>
 									</div>
 								</div>
 							</div>
@@ -438,10 +389,12 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 													alt=""
 													class="transportation-route__arrow"
 												/>
-												<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												<span class="transportation-route__line transportation-route__line--incheon">
+													인천지하철
+												</span>
 											</div>
 											<p class="transportation-route__info">
-												인천대입구역 하차, 2번 출구(도보 약 17분, 휠체어 약 51분)
+												동춘역 하차, 4번 출구 연수구청 방향(도보 약 20분, 휠체어 약 1시간 30분)
 											</p>
 										</div>
 									</div>
@@ -462,49 +415,12 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 														alt=""
 														class="transportation-route__arrow"
 													/>
-													<span class="transportation-route__line transportation-route__line--bus">순환41</span>
-												</div>
-												<p class="transportation-route__info">'인천대학교북문' 하차(도보 약 3분, 휠체어 약 9분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
 													<span class="transportation-route__line transportation-route__line--bus">
-														8, 8A, 16, 4401, 순환41,3002
+														6, 65-1, 68, 81, 103, 320, 522
 													</span>
 												</div>
 												<p class="transportation-route__info">
-													'송도더샵마스터뷰23단지' 하차(도보 약 5분, 휠체어 약 15분)
-												</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">58, 순환43</span>
-												</div>
-												<p class="transportation-route__info">
-													'인천과학예술영재학교' 하차(도보 약 3분, 휠체어 약 9분)
-												</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">16-1, 4401</span>
-												</div>
-												<p class="transportation-route__info">
-													'송도더샵마스터뷰22단지' 하차(도보 약 5분, 휠체어 약 15분)
+													'연수꿈담도서관' 하차(도보 1분, 휠체어 1분)
 												</p>
 											</div>
 										</div>
