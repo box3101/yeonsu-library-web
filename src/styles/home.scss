@@ -485,7 +485,7 @@
 
 	&__nav {
 		@include flex;
-		gap: to-rem(4);
+		gap: to-rem(8);
 	}
 
 	// 공지사항 목록

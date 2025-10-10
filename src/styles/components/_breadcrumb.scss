@@ -4,8 +4,8 @@
 // SCSS 7-1 아키텍처에 따른 컴포넌트별 스타일 정의
 
 .breadcrumb {
-  margin-top: to-rem(40);
-  margin-bottom: to-rem(24);
+  margin-top: to-rem(42);
+  margin-bottom: to-rem(40);
 
   @include mobile {
     margin-top: to-rem(20);
@@ -25,6 +25,7 @@
     flex-shrink: 0;
     width: to-rem(16);
     height: to-rem(16);
+    filter: invert(37%) sepia(12%) saturate(3017%) hue-rotate(172deg) brightness(89%) contrast(86%);
   }
 
   .breadcrumb-list {
@@ -40,11 +41,11 @@
       display: flex;
       align-items: center;
       gap: to-rem(8);
-      font-size: to-rem(14);
+      font-size: to-rem(15);
       line-height: $line-height-normal;
 
       .breadcrumb-link {
-        color: $gray-600;
+        color: #4B4D4D;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         border-radius: to-rem(4);
@@ -62,7 +63,7 @@
       }
 
       .breadcrumb-current {
-        color: $gray-900;
+        color:#4B4D4D;
         font-weight: $font-semibold;
         padding: to-rem(4) to-rem(6);
       }
