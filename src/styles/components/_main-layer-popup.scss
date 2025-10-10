@@ -81,7 +81,7 @@ body:has(.main-layer-popup.is-active) {
 		padding: 0;
 		margin-bottom: to-rem(16);
 		z-index: 11;
-		padding: 0 20px;
+		padding: 0 62px;
 	}
 
 	// 콘텐츠
@@ -96,7 +96,7 @@ body:has(.main-layer-popup.is-active) {
 	&__swiper {
 		position: relative;
 		width: 100%;
-		max-width: to-rem(1088); // 520px * 2 + 48px gap
+		max-width: to-rem(1008); // 520px * 2 + 48px gap
 		margin: 0 auto;
 
 		.swiper {
@@ -114,8 +114,8 @@ body:has(.main-layer-popup.is-active) {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: to-rem(520) !important;
-			height: to-rem(736);
+			width: to-rem(480) !important;
+			height: to-rem(650);
 			max-height: calc(100vh - 180px); // 액션 버튼과 여백을 위한 공간 확보
 			background-color: $white;
 			border-radius: to-rem(8);

@@ -2177,3 +2177,14 @@
 	width: 40px !important;
 	height: 40px !important;
 }
+
+.calendar{
+	.calendar__selects{
+		.ui-select__element{
+			font-size:19px;
+		}
+		.ui-select__arrow{
+
+		}
+	}
+}
