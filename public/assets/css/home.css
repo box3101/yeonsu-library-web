@@ -507,7 +507,7 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 .notice-section__list {
   display: flex;

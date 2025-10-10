@@ -14,7 +14,7 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		gap: to-rem(16);
+		gap: to-rem(32);
 
 		@media (max-width: 768px) {
 			gap: to-rem(10);

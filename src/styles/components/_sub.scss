@@ -4157,10 +4157,10 @@ ul.movie-card-wrp {
 	}
 
 	&__box {
-		border: 1px solid $gray-500;
+		// border: 1px solid $gray-500;
 		border-radius: to-rem(8);
 		padding: to-rem(24) to-rem(20);
-		background-color: $gray-100;
+		background-color: #ecf2f9;
 
 		@include tablet {
 			padding: to-rem(16);
@@ -4686,10 +4686,10 @@ ul.movie-card-wrp {
 		}
 		.ui-tab__button {
 			flex: 1 1 calc(100% / min(5, var(--total-tabs, 5)));
-			border-bottom: 1px solid #b1b8be;
+			border-bottom: 1px solid #B1B3B3;
 
 			&:last-child {
-				border-right: 1px solid #b1b8be;
+				border-right: 1px solid #B1B3B3;
 			}
 		}
 	}
@@ -4723,7 +4723,7 @@ ul.movie-card-wrp {
 
 	.ui-tab__list {
 		gap: 0;
-		border: 1px solid #b1b8be;
+		border: 1px solid #B1B3B3;
 		border-radius: to-rem(4);
 		display: flex;
 		flex-wrap: nowrap;
@@ -4762,7 +4762,7 @@ ul.movie-card-wrp {
 	.ui-tab__button {
 		background: transparent;
 		border: none;
-		border-right: 1px solid #b1b8be;
+		border-right: 1px solid #B1B3B3;
 		padding: to-rem(12) to-rem(16);
 		font-size: to-rem(17);
 		font-weight: 700;
@@ -5036,7 +5036,8 @@ ul.movie-card-wrp {
 	}
 
 	strong {
-		color: #30619b;
+		// color: #30619b;
+		color: #3C79C2;
 		font-weight: 700;
 	}
 

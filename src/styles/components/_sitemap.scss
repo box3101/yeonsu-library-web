@@ -216,11 +216,11 @@
 
 // External link icon styling
 a[target="_blank"] {
-  .icon-external-link {
-    filter: invert(47%) sepia(15%) saturate(526%) hue-rotate(177deg) brightness(95%) contrast(88%);
-  }
+  // .icon-external-link {
+  //   filter: invert(47%) sepia(15%) saturate(526%) hue-rotate(177deg) brightness(95%) contrast(88%);
+  // }
 
-  &:hover .icon-external-link {
-    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(191deg) brightness(99%) contrast(84%);
-  }
+  // &:hover .icon-external-link {
+  //   filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(191deg) brightness(99%) contrast(84%);
+  // }
 }

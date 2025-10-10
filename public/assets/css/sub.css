@@ -4009,10 +4009,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 .ui-library-filter__box {
-  border: 1px solid #6b7280;
   border-radius: 0.5rem;
   padding: 1.5rem 1.25rem;
-  background-color: #f3f4f6;
+  background-color: #ecf2f9;
 }
 @media (max-width: 900px) {
   .ui-library-filter__box {
@@ -4504,10 +4503,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .search-type-tabs.ui-tab--grid-5 .ui-tab__button {
   flex: 1 1 calc(100% / min(5, var(--total-tabs, 5)));
-  border-bottom: 1px solid #b1b8be;
+  border-bottom: 1px solid #B1B3B3;
 }
 .search-type-tabs.ui-tab--grid-5 .ui-tab__button:last-child {
-  border-right: 1px solid #b1b8be;
+  border-right: 1px solid #B1B3B3;
 }
 .search-type-tabs.ui-tab--grid-6 .ui-tab__list {
   flex-wrap: wrap;
@@ -4534,7 +4533,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .search-type-tabs .ui-tab__list {
   gap: 0;
-  border: 1px solid #b1b8be;
+  border: 1px solid #B1B3B3;
   border-radius: 0.25rem;
   display: flex;
   flex-wrap: nowrap;
@@ -4567,7 +4566,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .search-type-tabs .ui-tab__button {
   background: transparent;
   border: none;
-  border-right: 1px solid #b1b8be;
+  border-right: 1px solid #B1B3B3;
   padding: 0.75rem 1rem;
   font-size: 1.0625rem;
   font-weight: 700;
@@ -4823,7 +4822,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 .search-info-summary strong {
-  color: #30619b;
+  color: #3C79C2;
   font-weight: 700;
 }
 .search-info-summary .search-keyword-info {
