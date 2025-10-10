@@ -495,7 +495,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 .usage-guide__table tr th {
-  padding: 0.875rem 0;
+  padding: 1rem 0;
   border-right: 1px solid var(--color-primary-pr01, #d8e4f3);
   border-bottom: 1px solid var(--color-primary-pr01, #d8e4f3);
   border-left: 1px solid var(--color-primary-pr01, #d8e4f3);
@@ -19325,3 +19325,5 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
     font-size: 25px;
   }
 }
+
+/*# sourceMappingURL=sub.css.map */
