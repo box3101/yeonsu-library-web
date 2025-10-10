@@ -1462,6 +1462,7 @@ ul.movie-card-wrp {
 .hall-calendar-wrp {
 	@include mobile {
 		overflow-x: auto;
+
 	}
 }
 .hall-calendar {
@@ -1690,6 +1691,9 @@ ul.movie-card-wrp {
 		min-width: to-rem(54);
 
 		&--present {
+			position: absolute;
+			bottom: .5rem;
+			right: .5rem;
 			background: transparent;
 			background-image: url('../../assets/images/icon/lib_check_present.svg') !important;
 			background-size: cover;
@@ -1699,9 +1703,19 @@ ul.movie-card-wrp {
 			text-indent: -9999px;
 			margin-left: auto;
 			pointer-events: none;
+
+			@include mobile {
+				width: to-rem(51);
+				height: to-rem(52);
+				right:4px;
+				bottom: 8px;
+			}
 		}
 
 		&--absent {
+			position: absolute;
+			bottom: .5rem;
+			right: .5rem;
 			background: transparent;
 			background-image: url('../../assets/images/icon/lib_check_absent.svg') !important;
 			background-size: cover;
@@ -1711,6 +1725,14 @@ ul.movie-card-wrp {
 			text-indent: -9999px;
 			margin-left: auto;
 			pointer-events: none;
+
+			@include mobile {
+				width: to-rem(51);
+				height: to-rem(52);
+				right: 4px;
+				bottom: 8px;
+			}
+
 		}
 
 		&--app-able {
@@ -1776,6 +1798,18 @@ ul.movie-card-wrp {
 		transition: background-color 0.2s ease;
 		min-height: to-rem(28);
 		min-width: to-rem(54);
+
+		@include mobile {
+			gap:2px;
+			align-items: center;
+		}
+
+		img{
+			@include mobile {
+				width: to-rem(16);
+				height: to-rem(16);
+			}
+		}
 
 		&--check-in {
 			border-radius: 18px;

@@ -126,15 +126,17 @@
   text-decoration: none;
 }
 .gnb-main-link:hover {
-  background: #f8fafc;
+  background: #ECF2F9;
+}
+.gnb-main-link:active {
+  background: #D8E4F3;
+  outline: none;
+  border: none;
 }
 .gnb-main-link.selected {
   border-bottom: 4px solid #244874;
   background: #ffffff;
-}
-.gnb-main-link:focus {
-  outline: 2px solid #244874;
-  outline-offset: 2px;
+  color: #244874;
 }
 .gnb-main-text {
   flex: 1;
@@ -225,10 +227,17 @@
   transition: all 0.2s ease;
 }
 .gnb-sub-item.selected {
-  background: #ecf2f9;
+  background: #ECF2F9;
+  font-weight: 700;
+  color: #18304D;
 }
 .gnb-sub-item:hover {
-  background: #f8fafc;
+  background: #ECF2F9;
+}
+.gnb-sub-item:active {
+  background: #D8E4F3;
+  outline: none;
+  border: none;
 }
 .gnb-sub-link {
   display: flex;

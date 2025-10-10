@@ -44,18 +44,22 @@
 		text-decoration: none;
 
 		&:hover {
-			background: #f8fafc;
+			background: #ECF2F9;
+		}
+
+		&:active {
+			background: #D8E4F3;
+			outline: none;
+			border: none;
 		}
 
 		&.selected {
 			border-bottom: 4px solid #244874;
 			background: #ffffff;
+			color:#244874;
 		}
 
-		&:focus {
-			outline: 2px solid #244874;
-			outline-offset: 2px;
-		}
+	
 	}
 
 	&-text {
@@ -150,11 +154,19 @@
 		// position: relative; // 3depth 메뉴 위치 참조점
 
 		&.selected {
-			background: #ecf2f9;
+			background: #ECF2F9;
+			font-weight: 700;
+			color: #18304D;
 		}
 
 		&:hover {
-			background: #f8fafc;
+			background: #ECF2F9;
+		}
+
+		&:active {
+			background: #D8E4F3;
+			outline: none;
+			border: none;
 		}
 	}
 

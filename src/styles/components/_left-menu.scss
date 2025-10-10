@@ -20,7 +20,7 @@
 
 	.left-menu-title {
 		padding: to-rem(32) 0;
-		border-bottom: 1px solid #B1B3B3;
+		border-bottom: 1px solid #b1b3b3;
 
 		.left-menu-title-text {
 			color: #1e2124;
@@ -142,10 +142,12 @@
 				}
 				&.is-active {
 					.menu-link {
-						border-radius: var(--radius-medium2, 6px);
-						background: var(--color-action-secondary-selected, #eef2f7);
-						color: var(--color-primary-pr08, #18304d);
-						font-weight: 700;
+						background: #d8e4f3;
+						outline: none;
+						border: none;
+						span{
+							font-weight: 700;
+						}
 					}
 				}
 
@@ -176,37 +178,19 @@
 					}
 
 					&:hover {
-						border-radius: var(--radius-medium2, 6px);
-						background: var(--color-action-secondary-selected, #eef2f7);
-						transform: translateX(2px);
+						background: #ecf2f9;
 					}
-
 					// 클릭 효과 (활성화 시뮬레이션)
 					&:active {
-						transform: translateX(1px);
-						background-color: #e3f2fd;
-
-						&::before {
-							background: #1976d2;
-							transform: translateY(-50%) scale(0.9);
-						}
+						background: #d8e4f3;
+						outline: none;
+						border: none;
 					}
 
-					&.active {
-						background-color: #e1effc;
-						color: $primary-color;
-						font-weight: 500;
-						position: relative;
-
-						&::before {
-							content: '';
-							position: absolute;
-							left: 0;
-							top: 0;
-							bottom: 0;
-							width: 3px;
-							background: $primary-color;
-						}
+					&.selected {
+						background: #ecf2f9;
+						font-weight: 700;
+						color: #18304d;
 					}
 				}
 			}
