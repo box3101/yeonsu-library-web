@@ -10480,3 +10480,356 @@ ul.movie-card-wrp {
 		gap: 12px;
 	}
 }
+
+// Library Introduction Page Styles (송도국제도서관 등)
+// Banner Section
+.library-banner {
+	position: relative;
+	height: 260px;
+	width: 100%;
+	margin-bottom: to-rem(32px);
+	border-radius: to-rem(12px);
+	overflow: hidden;
+
+	@include mobile {
+		height: 180px;
+		margin-bottom: 20px;
+		border-radius: 8px;
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.25);
+		border-radius: to-rem(12px);
+
+		@include mobile {
+			border-radius: 8px;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		color: white;
+		width: 100%;
+		padding: 0 16px;
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(4px);
+		margin-bottom: to-rem(4px);
+
+		@include mobile {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+
+	&__title-main {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(40px);
+		line-height: 1.5;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: 24px;
+		}
+	}
+
+	&__title-sub {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(24px);
+		line-height: 1.5;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: 16px;
+		}
+	}
+
+	&__subtitle {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(40px);
+		line-height: 1.5;
+		color: #fbbc53;
+		margin-bottom: to-rem(4px);
+
+		@include mobile {
+			font-size: 20px;
+			margin-bottom: 4px;
+		}
+	}
+
+	&__name {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(44px);
+		line-height: 1.5;
+		color: #00b248;
+
+		@include mobile {
+			font-size: 22px;
+		}
+	}
+}
+
+// Purpose Section
+.library-purpose {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(16px);
+
+	@include mobile {
+		gap: 12px;
+	}
+
+	&__item {
+		display: flex;
+		gap: to-rem(8px);
+		align-items: flex-start;
+
+		@include mobile {
+			gap: 8px;
+		}
+	}
+
+	&__icon {
+		width: to-rem(24px);
+		height: to-rem(24px);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		flex: 1;
+		position: relative;
+		top: -2px;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Facility Section
+.library-facility-section {
+	margin-bottom: to-rem(32px);
+
+	&__header {
+		display: flex;
+		gap: to-rem(12px);
+		align-items: center;
+		margin-bottom: to-rem(24px);
+	}
+
+	&__icon {
+		width: to-rem(24px);
+		height: to-rem(24px);
+		flex-shrink: 0;
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(28px);
+		line-height: 1;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 22px;
+		}
+	}
+}
+
+// Info List
+.library-info-list {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(8px);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	&__item {
+		display: flex;
+		gap: to-rem(8px);
+		align-items: center;
+		padding-left: to-rem(8px);
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 6px;
+			height: 6px;
+			background: #191a1a;
+			border-radius: 4px;
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #4b4d4d;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Scroll wrapper for tables
+.scroll-x {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+
+	@include mobile {
+		width: 100%;
+	}
+}
+
+// Facility Table
+.facility-table {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 1px solid #d8e4f3;
+
+	@include mobile {
+		min-width: 700px;
+	}
+
+	thead {
+		background: #ecf2f9;
+
+		th {
+			padding: to-rem(8px) to-rem(16px);
+			border: 1px solid #d8e4f3;
+			border-top: 0;
+			font-family: 'Pretendard GOV', sans-serif;
+			font-weight: 700;
+			font-size: to-rem(17px);
+			line-height: 1.5;
+			color: #191a1a;
+			text-align: center;
+
+			@include mobile {
+				font-size: 15px;
+				padding: 8px 12px;
+			}
+		}
+	}
+
+	tbody {
+		td {
+			padding: to-rem(12px) to-rem(16px);
+			border: 1px solid #cbcccc;
+			border-top: 0;
+			font-family: 'Pretendard GOV', sans-serif;
+			font-size: to-rem(17px);
+			line-height: 1.5;
+			color: #4b4d4d;
+			text-align: center;
+			vertical-align: middle;
+
+			&.text-left {
+				text-align: left;
+			}
+
+			@include mobile {
+				font-size: 15px;
+				padding: 10px 12px;
+			}
+		}
+	}
+}
+
+// Info Box Type 2
+.com-inbo-type2 {
+	display: flex;
+	gap: to-rem(8px);
+	align-items: flex-start;
+	padding: to-rem(16px);
+	background: #ecf2f9;
+	border: 1px solid #ecf2f9;
+	border-radius: to-rem(8px);
+
+	@include mobile {
+		padding: 12px;
+	}
+
+	&__icon {
+		width: to-rem(20px);
+		height: to-rem(26px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	&__reference {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(14px);
+		line-height: 1.5;
+		color: #191a1a;
+	}
+
+	&__text {
+		flex: 1;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #18304d;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
