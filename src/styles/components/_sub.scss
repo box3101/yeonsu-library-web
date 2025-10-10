@@ -10551,6 +10551,7 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		white-space: nowrap;
 
+
 		@include mobile {
 			font-size: 24px;
 		}
@@ -10588,6 +10589,12 @@ ul.movie-card-wrp {
 		font-size: to-rem(44px);
 		line-height: 1.5;
 		color: #00b248;
+
+		span{
+			font-size: 35px;
+			font-weight: 700;
+			color: #fff;
+		}
 
 		@include mobile {
 			font-size: 22px;

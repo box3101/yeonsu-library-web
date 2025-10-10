@@ -15998,6 +15998,11 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   line-height: 1.5;
   color: #00b248;
 }
+.library-banner__name span {
+  font-size: 35px;
+  font-weight: 700;
+  color: #fff;
+}
 @media (max-width: 900px) {
   .library-banner__name {
     font-size: 22px;

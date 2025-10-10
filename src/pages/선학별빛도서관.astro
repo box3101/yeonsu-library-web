@@ -1,0 +1,495 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '선학별빛도서관';
+const description = '연수구립도서관 선학별빛도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '선학별빛도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="선학별빛도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="선학별빛도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<div class="library-banner__title">
+								<p class="library-banner__title-main">책과 우주</p>
+								<p class="library-banner__title-sub">가 만나는 공간,</p>
+							</div>
+							<p class="library-banner__subtitle library-banner__subtitle--highlight">천체투영관을 갖춘</p>
+							<p class="library-banner__name library-banner__name--green">
+								<span>인천 최초의 도서관</span> 선학별빛도서관
+							</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								선학별빛도서관은 인천 최초의 천체투영관을 갖추어 천문 · 과학분야를 특화하는 도서관으로, 책과 우주가 함께
+								어우러져 우리의 미래를 이끌어 나갈 수 있는 힘을 키우는 공간입니다. 이를 위해 천문 · 과학분야의 다양한
+								콘텐츠를 구성하고 창의적인 프로그램을 기획 · 운영하고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								선학별빛도서관은 천체 교육프로그램 운영과 천문우주 돔영화 상영으로 자라나는 어린이들에게 과학에 대한
+								호기심을 불어넣고, 성인들에게는 과학문화 향유에 기여하겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								선학별빛도서관은 노인 인구가 증가하고 맞벌이 가족이 늘어남에 따라, 은빛세대와 미취학 아동 대상의 맞춤형
+								서비스를 제공하여 지식복지 행정을 구현하고자 합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">인천광역시 연수구 넘말로 30</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2018. 7. 20.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 1,772㎡ / 건물면적 437㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">지하 1층 ~ 지상 4층</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 시설배치 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지하1층</td>
+										<td>문서고, 자원봉사자실, 기계실, 안내데스크, 열람실, 다목적실, 사무실</td>
+									</tr>
+									<tr>
+										<td>지상1층</td>
+										<td>안내데스크, 어린이자료실, 유아방, 수유실, 디지털 북카페, 사무실</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>어린이자료실, 책읽어주는방, 영유아실, 수유실, 멀티미디어방</td>
+									</tr>
+									<tr>
+										<td>지상3층</td>
+										<td>종합자료실, 디지털실</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>천체투영관, 프로그램실, 휴게공간(로비, 휴게실), 야외테라스</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 150px;" />
+									<col style="width: 100px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="3">지하1층</td>
+										<td>문서고</td>
+										<td>-</td>
+										<td class="text-left">도서관 자료 보관</td>
+									</tr>
+									<tr>
+										<td>자원봉사자실</td>
+										<td>-</td>
+										<td class="text-left">자원활동가 및 용역원 휴게실</td>
+									</tr>
+									<tr>
+										<td>기계실</td>
+										<td>-</td>
+										<td class="text-left">기계실</td>
+									</tr>
+									<tr>
+										<td rowspan="4">지상1층</td>
+										<td>안내데스크</td>
+										<td>-</td>
+										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
+									</tr>
+									<tr>
+										<td>열람실</td>
+										<td>32석</td>
+										<td class="text-left">예약제 방식의 학습 공간(칸막이석)</td>
+									</tr>
+									<tr>
+										<td>다목적실</td>
+										<td>14석</td>
+										<td class="text-left">독서동아리 활동 진행</td>
+									</tr>
+									<tr>
+										<td>사무실</td>
+										<td>-</td>
+										<td class="text-left">직원 사무실 및 회의 장소</td>
+									</tr>
+									<tr>
+										<td rowspan="3">지상2층</td>
+										<td>어린이자료실 / 책읽어주는방</td>
+										<td>89석</td>
+										<td class="text-left">아동 총류(000) ~ 역사(900) 자료실, 어린이 독서공간</td>
+									</tr>
+									<tr>
+										<td>영유아방 및 수유실</td>
+										<td>15석</td>
+										<td class="text-left">영·유아총류(000) ~ 역사(900) 자료실, 영·유아 프로그램 진행 등</td>
+									</tr>
+									<tr>
+										<td>멀티비디어방</td>
+										<td>-</td>
+										<td class="text-left">DVD 영화 관람(초등학생 가족 단위 대상)</td>
+									</tr>
+									<tr>
+										<td rowspan="2">지상3층</td>
+										<td>종합자료실</td>
+										<td>33석</td>
+										<td class="text-left">
+											청소년·성인 총류(000) ~ 역사(900) 자료실, 청소년·성인 정기간행물, 신문 열람
+										</td>
+									</tr>
+									<tr>
+										<td>디지털실</td>
+										<td>17석</td>
+										<td class="text-left">예약제 방식의 정보검색 공간 (일반PC, 프린터, DVD관람, 원문DB)</td>
+									</tr>
+									<tr>
+										<td rowspan="4">지상4층</td>
+										<td>천체투영관</td>
+										<td>100석</td>
+										<td class="text-left">천문 돔영화 상영 및 문화행사 진행</td>
+									</tr>
+									<tr>
+										<td>프로그램실</td>
+										<td>22석</td>
+										<td class="text-left">문화행사 및 프로그램 진행</td>
+									</tr>
+									<tr>
+										<td>휴게공간(로비, 휴게실)</td>
+										<td>25석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td>야외테라스</td>
+										<td>-</td>
+										<td class="text-left">휴게공간, 천체관측 프로그램 진행 등</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- Info Box -->
+						<div class="com-inbo-type2 mt-4">
+							<div class="com-inbo-type2__icon">
+								<span class="com-inbo-type2__reference">※</span>
+							</div>
+							<p class="com-inbo-type2__text">좌석수는 입식 및 좌식 포함</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">인천광역시 연수구 넘말로 30 | (우편번호) 21909</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6710</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-6719</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">선학역 하차, 4번 출구(도보 약 7분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">55, 522</span>
+												</div>
+												<p class="transportation-route__info">'윤성아파트' 하차(도보 약 3분, 휠체어 약 8분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														55, 6, 63, 522, 523, 303
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'선학체육관(하키경기장)' 하차(도보 약 7분, 휠체어 약 25분)
+												</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														55, 6-1, 63, 522, 523, 1300, 303, 304
+													</span>
+												</div>
+												<p class="transportation-route__info">'선학역' 하차(도보 약 7분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">인천광역시 연수구 넘말로 30 | (우편번호) 21909</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6710</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-6719</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">선학역 하차, 4번 출구(도보 약 7분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">55, 522</span>
+												</div>
+												<p class="transportation-route__info">'윤성아파트' 하차(도보 약 3분, 휠체어 약 8분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														55, 6, 63, 522, 523, 303
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'선학체육관(하키경기장)' 하차(도보 약 7분, 휠체어 약 25분)
+												</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														55, 6-1, 63, 522, 523, 1300, 303, 304
+													</span>
+												</div>
+												<p class="transportation-route__info">'선학역' 하차(도보 약 7분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</UiSubTab>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

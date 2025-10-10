@@ -1,0 +1,488 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '동춘나래도서관';
+const description = '연수구립도서관 동춘나래도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '동춘나래도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="동춘나래도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="동춘나래도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<div class="library-banner__title">
+								<p class="library-banner__title-main">동심과 상상력</p>
+								<p class="library-banner__title-sub">이 가득한</p>
+							</div>
+							<p class="library-banner__subtitle library-banner__subtitle--highlight">창의 · 놀이형 문화 공간</p>
+							<p class="library-banner__name library-banner__name--green">
+								<span>웹툰 · 메이커 특화</span> 동춘나래도서관
+							</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								동춘나래도서관은 메이커스페이스 특화도서관으로, 메이커문화 활성화를 통한 미래사회 대비 창의인재 육성
+								목표를 실현하고자 합니다. <br /> STEAM(과학 · 기술 · 공학 · 예술 · 수학) 교육과 연계한 창의 학습을 통해 어린이들의
+								문제해결 능력과 상상력, 창의력 향상에 기여하고 창작의 지식 · 경험의 공유를 통해 스스로 실패를 보완하면서
+								배우는 자발적 학습을 도우며, 더 나아가 미래 사회를 대비하는 창의적인 인재를 양성하고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								동춘나래도서관은 웹툰 특화 도서관으로, 기존 공공도서관의 역할과 함께 창의형·놀이형 문화공간으로
+								거듭나고자 합니다. <br /> 어린이들에게는 마음껏 꿈꾸고 상상하는 공간이 되고, 성인들에게는 동심의 세계로 가는
+								문화 공간이 되겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								동춘나래도서관은 기존의 도서관 분위기와는 다른 편안하고 안락한 분위기를 조성하고 있습니다. <br /> 별, 구름
+								모양의 조명을 통해 어린이들의 호기심을 자극하며 흥미를 유발하고, 톡톡 튀는 차별화된 인테리어를 통해 도서관에
+								대한 진입장벽을 낮췄습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								동춘나래도서관은 봉재산의 아름다운 풍경 아래에서, 책과 자연이 하나가 되어 자연 속에서 숨 쉬는 생명력
+								넘치고 따뜻한 도서관으로 다가가고자 합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">인천광역시 연수구 봉재산로54번길 30, 2층</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2019. 10. 29.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 1,074㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">지상 2층 (국제언어체험센터 내)</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 시설배치 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지상2층</td>
+										<td>
+											안내데스크, 성인 자료실, 어린이 자료실, DVD 시청룸, 웹툰 자료실, 메이커스페이스, 커뮤니티룸1,
+											커뮤니티룸2, 휴게실, 야외 테라스, 수유실, 사무실,
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 150px;" />
+									<col style="width: 100px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="11">지상2층</td>
+										<td>안내데스크</td>
+										<td>-</td>
+										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
+									</tr>
+									<tr>
+										<td>성인 자료실</td>
+										<td>16석</td>
+										<td class="text-left">청소년·성인 총류(000) ~ 역사(900) 자료실, 노트북 사용, 자료 열람</td>
+									</tr>
+									<tr>
+										<td>어린이 자료실</td>
+										<td>70석</td>
+										<td class="text-left">영·유아·아동 총류(000) ~ 역사(900) 자료실</td>
+									</tr>
+									<tr>
+										<td>DVD 시청룸</td>
+										<td>3팀</td>
+										<td class="text-left">DVD 시청 (당일 현장예약 가능)</td>
+									</tr>
+									<tr>
+										<td>웹툰 자료실</td>
+										<td>-</td>
+										<td class="text-left">웹툰 특화도서 자료실</td>
+									</tr>
+									<tr>
+										<td>메이커스페이스 : 연수상상공작소</td>
+										<td>20석</td>
+										<td class="text-left">프로그램 진행(웹툰 창작 및 메이커 특화 포함)</td>
+									</tr>
+									<tr>
+										<td>커뮤니티룸 1</td>
+										<td>6석</td>
+										<td class="text-left">동아리 활동 진행</td>
+									</tr>
+									<tr>
+										<td>커뮤니티룸 2</td>
+										<td>8석</td>
+										<td class="text-left">동아리 활동 진행 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td>쉼터 및 휴게실</td>
+										<td>20석</td>
+										<td class="text-left">28석</td>
+									</tr>
+									<tr>
+										<td>야외 테라스</td>
+										<td>-</td>
+										<td class="text-left">휴게 공간(현재 이용자 출입제한)</td>
+									</tr>
+									<tr>
+										<td>수유실</td>
+										<td>-</td>
+										<td class="text-left">영아 부모 수유 및 휴게공간</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- Info Box -->
+						<div class="com-inbo-type2 mt-4">
+							<div class="com-inbo-type2__icon">
+								<span class="com-inbo-type2__reference">※</span>
+							</div>
+							<p class="com-inbo-type2__text">좌석수는 입식 및 좌식 포함</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 봉재산로 54번길 30 (연수구국제언어체험센터 2층) | (우편번호) 21970
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-8240</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													동막역 하차, 3번출구 인천e음 45 '대림3차아파트 301동앞'하차
+												</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													동막역 하차, 1번출구 6,8 '나사렛국제병원앞'하차(도보 약 26분, 휠체어 약 1시간 50분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														8, 8A, 55, 65-1, 111-2, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'동춘마을아파트' 하차(도보 약 9분, 휠체어 약 40분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6, 8, 8A, 103, 103-1, 111-2, 522, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'나사렛국제병원앞' 하차(도보 약 11분, 휠체어 약 40분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6-1, 8, 103, 103-1, 111-2, 522, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'건영아파트' 하차(도보 약 11분, 휠체어 약 45분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 봉재산로 54번길 30 (연수구국제언어체험센터 2층) | (우편번호) 21970
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-8240</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													동막역 하차, 3번출구 인천e음 45 '대림3차아파트 301동앞'하차
+												</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													동막역 하차, 1번출구 6,8 '나사렛국제병원앞'하차(도보 약 26분, 휠체어 약 1시간 50분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														8, 8A, 55, 65-1, 111-2, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'동춘마을아파트' 하차(도보 약 9분, 휠체어 약 40분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6, 8, 8A, 103, 103-1, 111-2, 522, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'나사렛국제병원앞' 하차(도보 약 11분, 휠체어 약 40분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6-1, 8, 103, 103-1, 111-2, 522, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">'건영아파트' 하차(도보 약 11분, 휠체어 약 45분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</UiSubTab>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

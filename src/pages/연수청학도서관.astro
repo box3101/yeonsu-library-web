@@ -1,0 +1,482 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '연수청학도서관';
+const description = '연수구립도서관 연수청학도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '연수청학도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="연수청학도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="연수청학도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<div class="library-banner__title">
+								<p class="library-banner__title-main">미래</p>
+								<p class="library-banner__title-sub">를 이끄는 힘!</p>
+							</div>
+							<p class="library-banner__subtitle">책 읽는 문화도시</p>
+							<p class="library-banner__name"><span>연수구 대표도서관,</span> 연수청학도서관</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 연수구 대표도서관으로 중심 역할을 수행하고, 도서관 간의 긴밀한 네트워크를 구축하여
+								시민들의 삶의 질 향상과 정서 순화를 돕는 지식 · 정보의 전달자로 지식정보격차해소를 통한 사회통합에
+								기여하는 지역정보센터가 되고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 양질의 정보서비스제공을 위한 자료 확보, 지식정보 취약계층을 위한 도서관 서비스를
+								확대하여 시민들의 잠재역량을 키워 나갈 배움의 장으로 자리잡고자 됩니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수청학도서관은 책을 통해 새로운 세상과 소통하고 삶의 지혜를 얻어 Reading에서 Leader로 미래를 이끄는
+								힘을 키울 수 있도록 최신 정보와 다양한 자료를 제공하도록 하겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								또한, 황토와 편백나무로 꾸며진 학습열람실을 운영하여 쾌적한 학습공간과 지역주민의 자기주도적인
+								학습능력을 향상시키는데 이바지하겠 습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">인천광역시 연수구 청학로 146</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2012. 7. 27.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 2,645.36㎡ / 건물면적 701.77㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">지하 1층 ~ 지상 4층, 옥상</span>
+							</li>
+						</ul>
+					</div>
+
+					<!--   Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지하1층</td>
+										<td>세미나실, 공연장(57석)</td>
+									</tr>
+									<tr>
+										<td>지상1층</td>
+										<td>안내데스크, 어린이자료실(엄마랑아가랑, 수유실)</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>종합자료실</td>
+									</tr>
+									<tr>
+										<td>지상3층</td>
+										<td>학습열람실, 디지털자료실, YCL갤러리, 휴게실</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>사무실, 문서고, 야외정원, 자원봉사실</td>
+									</tr>
+									<tr>
+										<td>옥상</td>
+										<td>하늘빛정원</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 200px;" />
+									<col style="width: 150px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="2">지하1층</td>
+										<td>세미나실</td>
+										<td>16석</td>
+										<td class="text-left">프로그램 진행 및 동아리 활동 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td>공연장</td>
+										<td>57석</td>
+										<td class="text-left">문화행사 및 프로그램, 공연, 영화상영 진행 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td rowspan="2">지상1층</td>
+										<td>안내데스크</td>
+										<td>-</td>
+										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
+									</tr>
+									<tr>
+										<td>어린이자료실</td>
+										<td>86석</td>
+										<td class="text-left">영·유아·아동 총류(000) ~ 역사(900) 자료실, 아동 정기간행물, 엄마랑아가랑방, 수유실 포함</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>종합자료실</td>
+										<td>70석</td>
+										<td class="text-left">청소년·성인 총류(000) ~ 역사(900) 자료실, 청소년·성인 정기간행물</td>
+									</tr>
+									<tr>
+										<td rowspan="5">지상3층</td>
+										<td>학습열람실</td>
+										<td>146석</td>
+										<td class="text-left">예약제 방식의 학습 공간</td>
+									</tr>
+									<tr>
+										<td>디지털자료실</td>
+										<td>28석</td>
+										<td class="text-left">예약제 방식의 정보검색 공간 (일반PC, 노트북존, 프린터, DVD관람, 원문DB)</td>
+									</tr>
+									<tr>
+										<td>YCL갤러리</td>
+										<td>-</td>
+										<td class="text-left">미술작품 감상 공간 (예약전시 가능)</td>
+									</tr>
+									<tr>
+										<td>쉼터 및 휴게실</td>
+										<td>-</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td>커뮤니티룸 2</td>
+										<td>-</td>
+										<td class="text-left">-</td>
+									</tr>
+									<tr>
+										<td rowspan="3">지상4층</td>
+										<td>사무실</td>
+										<td>-</td>
+										<td class="text-left">직원 사무실 및 회의 장소</td>
+									</tr>
+									<tr>
+										<td>문서고</td>
+										<td>-</td>
+										<td class="text-left">도서관 자료 보관</td>
+									</tr>
+									<tr>
+										<td>야외정원</td>
+										<td>-</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td>옥상</td>
+										<td>하늘빛정원</td>
+										<td>70석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- Info Box -->
+						<div class="com-inbo-type2 mt-4">
+							<div class="com-inbo-type2__icon">
+								<span class="com-inbo-type2__reference">※</span>
+							</div>
+							<p class="com-inbo-type2__text">좌석수는 입식 및 좌석 포함</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 청학동 100-15(청학로 146) | (우편번호) 21923
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-7110</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-7117</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-route">
+											<div class="transportation-route__badge">
+												<img
+													src="./assets/images/icon/icon-arrow-right.svg"
+													alt=""
+													class="transportation-route__arrow"
+												/>
+												<span class="transportation-route__line transportation-route__line--suinbundang">
+													수인선
+												</span>
+											</div>
+											<p class="transportation-route__info">
+												남동인더스파크역 하차, 1번 출구 (도보 약 7분)
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														65-1, 112, 72, 523
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'청학동' 하차
+												</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														12, 15, 103, 103-1
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'주안경찰서·청학동' 하차
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+											<div class="map-container">
+												<div class="map-placeholder">
+													<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+												</div>
+											</div>
+
+											<!-- Address Info Box -->
+											<div class="address-info-box">
+												<p class="address-info-box__address">
+													인천광역시 연수구 청학동 100-15(청학로 146) | (우편번호) 21923
+												</p>
+												<div class="address-info-box__contact">
+													<div class="contact-item">
+														<span class="contact-item__label">TEL</span>
+														<span class="contact-item__value">032-749-7110</span>
+													</div>
+													<div class="contact-item">
+														<span class="contact-item__label">FAX</span>
+														<span class="contact-item__value">032-749-7117</span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Transportation Info -->
+											<div class="transportation-section">
+												<!-- 지하철 -->
+												<div class="transportation-item">
+													<div class="transportation-item__icon">
+														<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+													</div>
+													<div class="transportation-item__content">
+														<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+														<div class="transportation-route">
+															<div class="transportation-route__badge">
+																<img
+																	src="./assets/images/icon/icon-arrow-right.svg"
+																	alt=""
+																	class="transportation-route__arrow"
+																/>
+																<span class="transportation-route__line transportation-route__line--suinbundang">
+																	수인선
+																</span>
+															</div>
+															<p class="transportation-route__info">남동인더스파크역 하차, 1번 출구 (도보 약 7분)</p>
+														</div>
+													</div>
+												</div>
+
+												<!-- 버스 -->
+												<div class="transportation-item">
+													<div class="transportation-item__icon">
+														<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+													</div>
+													<div class="transportation-item__content">
+														<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+														<div class="transportation-routes">
+															<div class="transportation-route">
+																<div class="transportation-route__badge">
+																	<img
+																		src="./assets/images/icon/icon-arrow-right.svg"
+																		alt=""
+																		class="transportation-route__arrow"
+																	/>
+																	<span class="transportation-route__line transportation-route__line--bus">
+																		65-1, 112, 72, 523
+																	</span>
+																</div>
+																<p class="transportation-route__info">'청학동' 하차</p>
+															</div>
+															<div class="transportation-route">
+																<div class="transportation-route__badge">
+																	<img
+																		src="./assets/images/icon/icon-arrow-right.svg"
+																		alt=""
+																		class="transportation-route__arrow"
+																	/>
+																	<span class="transportation-route__line transportation-route__line--bus">
+																		12, 15, 103, 103-1
+																	</span>
+																</div>
+																<p class="transportation-route__info">'주안경찰서·청학동' 하차</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</UiSubTab>
+								</div>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

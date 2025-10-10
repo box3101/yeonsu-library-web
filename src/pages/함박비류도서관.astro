@@ -1,0 +1,441 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '함박비류도서관';
+const description = '연수구립도서관 함박비류도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '함박비류도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="함박비류도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="함박비류도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<div class="library-banner__title">
+								<p class="library-banner__title-main">건강과 테라피</p>
+								<p class="library-banner__title-sub">가 함께 하는</p>
+							</div>
+							<p class="library-banner__subtitle library-banner__subtitle--highlight">행복이 가득한 열린 공간</p>
+							<p class="library-banner__name library-banner__name--green">함박비류도서관</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								함박비류도서관은 건강&테라피Therapy를 특화로 하여 함박·비류마을 지역주민에게 지친 심신을 치유하고
+								안정시켜 주는 공간이 되고자 합니다. <br /> 건강에 관련한 정보제공 뿐만 아니라 책으로부터 위로 받고 휴식을
+								얻을 수 있도록 도서관의 역할을 수행하여 지역주민의 삶의 행복지수 향상에 최선을 다하겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								함박비류도서관은 남녀노소 참여 가능하고 상상력과 창의력을 발휘할 수 있는 프로그램을 운영하고자
+								창의놀이공간을 조성하였습니다. <br /> 창의놀이 프로그램을 운영하여 지역사회 창의공동체 장으로서의 역할을
+								수행하고, 도서관과 함께 새로운 가능성과 꿈을 그릴 수 있도록 지역 주민에게 다가가겠습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								함박비류도서관은 지역특색에 맞게 이주민을 위한 다국어도서를 비치하여 적극적인 정보 서비스 제공으로
+								생활밀착형 독서문화생활을 확산 하고자 합니다. <br /> 또 도서관 내 개방형 계단식 좌식데크를 조성하여 자유롭고
+								편안한 독서 공간을 마련하고 장애물이 없는 생활환경(Barrier Free)인증을 통해 안전하고 편리한 도서관이 되고자
+								합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								함박비류도서관은 함박마을종합복지센터 내에 위치하여 복지관·어린이집과 연계 협력 운영을 통해 지역 특성에
+								맞는 최상의 서비스를 제공 하고자 합니다. <br /> 지역에 관한 많은 정보를 얻고 활용하는 열린 공간으로써 지역주민의
+								발걸음이 끊이지 않는 도서관이 되고자 노력하겠습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">인천광역시 연수구 함박안로 217 함박비류도서관</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2020. 5. 6.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 1,016㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">지상 1층 ~ 지상 3층</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 시설배치 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지상1층</td>
+										<td>안내데스크, 어린이자료실, 유아가족실, 수유실, 창의놀이공간, 프로그램실1</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>종합자료실, 정기간행물실, 디지털자료실, 프로그램실2</td>
+									</tr>
+									<tr>
+										<td>지상3층</td>
+										<td>행사마당(야외)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 150px;" />
+									<col style="width: 100px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="6">지상1층</td>
+										<td>안내데스크</td>
+										<td>-</td>
+										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
+									</tr>
+									<tr>
+										<td>어린이자료실</td>
+										<td>-</td>
+										<td class="text-left">유아·아동 총류(000) ~ 역사(900) 자료실, 아동 정기간행물</td>
+									</tr>
+									<tr>
+										<td>유아가족실</td>
+										<td>4석</td>
+										<td class="text-left">영·유아 총류(000) ~ 역사(900) 자료실</td>
+									</tr>
+									<tr>
+										<td>수유실</td>
+										<td>-</td>
+										<td class="text-left">영아 수유실</td>
+									</tr>
+									<tr>
+										<td>창의놀이공간</td>
+										<td>15석</td>
+										<td class="text-left">창의놀이 프로그램 진행</td>
+									</tr>
+									<tr>
+										<td>프로그램실 1</td>
+										<td>12석</td>
+										<td class="text-left">문화행사 및 프로그램 진행</td>
+									</tr>
+									<tr>
+										<td rowspan="4">지상 2층</td>
+										<td>종합자료실</td>
+										<td>35석</td>
+										<td class="text-left">성인 총류(000) ~ 역사(900) 자료실</td>
+									</tr>
+									<tr>
+										<td>정기간행물실</td>
+										<td>6석</td>
+										<td class="text-left">청소년 (000) ~ 역사(900) 자료실, 청소년·성인 정기간행물, 신문 열람</td>
+									</tr>
+									<tr>
+										<td>디지털자료실</td>
+										<td>9석</td>
+										<td class="text-left">예약제 방식의 정보검색 공간 (일반PC, 프린터, DVD관람, 원문DB)</td>
+									</tr>
+									<tr>
+										<td>프로그램실 2</td>
+										<td>12석</td>
+										<td class="text-left">문화행사 및 프로그램 진행 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td rowspan="1">지상3층</td>
+										<td>(야외)</td>
+										<td>-</td>
+										<td class="text-left">도서관 야외 행사 진행</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- Info Box -->
+							<div class="com-inbo-type2 mt-4">
+								<div class="com-inbo-type2__icon">
+									<span class="com-inbo-type2__reference">※</span>
+								</div>
+								<p class="com-inbo-type2__text">좌석수는 입식 및 좌식 포함</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 함박안로 217 (함박마을문화복지센터 내) | (우편번호) 21912
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6970</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-6979</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													1호선 선학역 3번 출구(도보 약 25분, 휠체어 약 1시간 40분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">4, 6-1, 112</span>
+												</div>
+												<p class="transportation-route__info">'함박마을 입구' 하차(도보 약 5분, 휠체어 약 20분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">4, 6, 112</span>
+												</div>
+												<p class="transportation-route__info">'가천과학대학교' 하차(도보 약 6분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 함박안로 217 (함박마을문화복지센터 내) | (우편번호) 21912
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-6970</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-6979</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--incheon">인천1호선</span>
+												</div>
+												<p class="transportation-route__info">
+													1호선 선학역 3번 출구(도보 약 25분, 휠체어 약 1시간 40분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">4, 6-1, 112</span>
+												</div>
+												<p class="transportation-route__info">'함박마을 입구' 하차(도보 약 5분, 휠체어 약 20분)</p>
+											</div>
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">4, 6, 112</span>
+												</div>
+												<p class="transportation-route__info">'가천과학대학교' 하차(도보 약 6분, 휠체어 약 20분)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</UiSubTab>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>

@@ -1,0 +1,436 @@
+---
+import Layout from '@layouts/Layout.astro';
+import SubLayout from '@components/layout/SubLayout.astro';
+import UiTab from '@ui/UiTab.astro';
+import UiSubTab from '@ui/UiSubTab.astro';
+
+const title = '연수꿈담도서관';
+const description = '연수구립도서관 연수꿈담도서관 소개 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서관소개', link: '#' },
+	{ text: '구립도서관', link: '#' },
+	{ text: '연수꿈담도서관', link: '#' },
+];
+
+const tabMenus = [
+	{ id: 'purpose', label: '설립목적', active: true },
+	{ id: 'facilities', label: '시설현황', active: false },
+	{ id: 'directions', label: '오시는길', active: false },
+];
+
+const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로벌, 백지도, 영문, 중문, 일문, 교육용 백지도)'];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title="연수꿈담도서관" breadcrumbItems={breadcrumbItems} menuType="도서관소개">
+		<div class="sub-layout__content">
+			<section class="sub-layout__content-inner">
+				<!-- Tab Navigation -->
+				<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-3" />
+
+				<!-- Tab Content: 설립목적 -->
+				<div id="panel-purpose" class="ui-tab-panel ui-tab-panel--active" aria-labelledby="tab-purpose">
+					<!-- Banner Image Section -->
+					<div class="library-banner">
+						<img
+							src="./assets/images/library-banner-placeholder.jpg"
+							alt="연수꿈담도서관"
+							class="library-banner__image"
+						/>
+						<div class="library-banner__overlay"></div>
+
+						<!-- Banner Text -->
+						<div class="library-banner__content">
+							<p class="library-banner__subtitle">책 속에 꿈을 담는</p>
+							<p class="library-banner__name library-banner__name--highlight">연수꿈담도서관</p>
+						</div>
+					</div>
+
+					<!-- Content Section with Check Icons -->
+					<div class="library-purpose">
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								2006년 개관하여 연수구립도서관의 시작을 열었던 연수어린이도서관이 2022년 12월, 전 연령층을 아우르는 수 있는 연수꿈담도서관으로 다시 태어났습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								여가·취미를 특색로 하여 지역주민들이 다양한 문화생활을 즐길 수 있는 복합문화공감으로서의 역할을 하고자 합니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								연수꿈담도서관은 특색있고 편안한 분위기의 자료실과 동아리실, 프로그램실, 공연장, 북카페 등 독서할 수 있는 공간뿐만 아니라 다양한 문화활동을 할 수 있는 공간으로 구성되어있습니다.
+							</p>
+						</div>
+
+						<div class="library-purpose__item">
+							<img src="./assets/images/icon/icon-check_circle.svg" alt="체크" class="library-purpose__icon" />
+							<p class="library-purpose__text">
+								계층을 불문하고 모든 이용객의 꿈을 담아내는 소중한 공간이라는 의미가 담겨있는 꿈담도서관의 명칭처럼 모두가 즐겁게 이용할 수 있도록 다양한 참신한 특색있는 프로그램을 제공하고자 노력하겠습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 시설현황 -->
+				<div id="panel-facilities" class="ui-tab-panel" aria-labelledby="tab-facilities">
+					<!-- 시설현황 Section -->
+					<div class="library-facility-section">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type3.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설현황</h3>
+						</div>
+						<ul class="library-info-list">
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">위치 :</span>
+								<span class="library-info-list__value">인천광역시 연수구 먼우금로 164</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">개관 :</span>
+								<span class="library-info-list__value">2022.12.29.</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">규모 :</span>
+								<span class="library-info-list__value">연면적 2,274.88㎡ / 건물면적 666.55㎡</span>
+							</li>
+							<li class="library-info-list__item">
+								<span class="library-info-list__label">구조 :</span>
+								<span class="library-info-list__value">지하 1층 ~ 지상 4층</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 시설배치 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type4.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">시설배치</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 250px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>주요시설</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>지하1층</td>
+										<td>문서고, 자원봉사실</td>
+									</tr>
+									<tr>
+										<td>지상1층</td>
+										<td>안내데스크, 유아자료실(수유실), 사무실</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>어린이자료실, 동아리실, 프로그램실, 북카페</td>
+									</tr>
+									<tr>
+										<td>지상3층</td>
+										<td>종합자료실, 휴게실</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>공연장(80석)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- 층별현황 Section -->
+					<div class="library-facility-section mt40">
+						<div class="library-facility-section__header">
+							<img src="./assets/images/icon/icon-info-type5.svg" alt="" class="library-facility-section__icon" />
+							<h3 class="library-facility-section__title">층별현황</h3>
+						</div>
+						<div class="scroll-x">
+							<table class="facility-table">
+								<colgroup>
+									<col style="width: 120px;" />
+									<col style="width: 200px;" />
+									<col style="width: 150px;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>층별</th>
+										<th>실명</th>
+										<th>좌석수</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="2">지하1층</td>
+										<td>문서고</td>
+										<td>-</td>
+										<td class="text-left">도서관 자료 보관</td>
+									</tr>
+									<tr>
+										<td>자원봉사실</td>
+										<td>-</td>
+										<td class="text-left">자원봉사가 및 물여원 휴게실</td>
+									</tr>
+									<tr>
+										<td rowspan="3">지상1층</td>
+										<td>안내데스크</td>
+										<td>-</td>
+										<td class="text-left">도서관 이용안내, 대출반납, 회원가입 등</td>
+									</tr>
+									<tr>
+										<td>유아자료실</td>
+										<td>30석</td>
+										<td class="text-left">영·유아 총류(000) ~ 역사(900) 자료실, 수유실 포함</td>
+									</tr>
+									<tr>
+										<td>사무실</td>
+										<td>-</td>
+										<td class="text-left">직원 사무실 및 회의 장소</td>
+									</tr>
+									<tr>
+										<td rowspan="4">지상2층</td>
+										<td>어린이자료실</td>
+										<td>40석</td>
+										<td class="text-left">아동 총류(000) ~ 역사(900) 자료실, PC존(3석, 원문DB)</td>
+									</tr>
+									<tr>
+										<td>동아리실1</td>
+										<td>8석</td>
+										<td class="text-left">독서동아리 활동실상소</td>
+									</tr>
+									<tr>
+										<td>동아리실2</td>
+										<td>8석</td>
+										<td class="text-left">예약제 방식의 소규모 (예약대관 가능)</td>
+									</tr>
+									<tr>
+										<td>프로그램실</td>
+										<td>20석</td>
+										<td class="text-left">프로그램 및 문화행사 진행</td>
+									</tr>
+									<tr>
+										<td>지상2층</td>
+										<td>북카페</td>
+										<td>12석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td rowspan="2">지상3층</td>
+										<td>종합자료실</td>
+										<td>90석</td>
+										<td class="text-left">청소년·성인 총류(000) ~ 역사(900), 청소년·성인 정기간행물, PC존(3석, 프린터, 원문DB) 포함</td>
+									</tr>
+									<tr>
+										<td>휴게실</td>
+										<td>12석</td>
+										<td class="text-left">휴게공간</td>
+									</tr>
+									<tr>
+										<td>지상4층</td>
+										<td>공연장</td>
+										<td>80석</td>
+										<td class="text-left">문화행사 및 프로그램, 공연, 영화상영 진행 (예약대관 가능)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- Info Box -->
+						<div class="com-inbo-type2 mt-4">
+							<div class="com-inbo-type2__icon">
+								<span class="com-inbo-type2__reference">※</span>
+							</div>
+							<p class="com-inbo-type2__text">좌석수는 입식 및 좌식 포함</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab Content: 오시는길 -->
+				<div id="panel-directions" class="ui-tab-panel" aria-labelledby="tab-directions">
+					<h3 class="library-directions-title">이용자별 맞춤 지도</h3>
+
+					<!-- Sub Tab -->
+					<UiSubTab tabs={mapTabs} activeTab={0} class="library-directions-subtab">
+						<!-- 일반지도 Content -->
+						<div data-content="0" class="subtab-panel active">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<!-- 지도 영역 (개발자가 추후 작업) -->
+									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 먼우금로 164 | (우편번호) 21967
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-8200</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-8209</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-route">
+											<div class="transportation-route__badge">
+												<img
+													src="./assets/images/icon/icon-arrow-right.svg"
+													alt=""
+													class="transportation-route__arrow"
+												/>
+												<span class="transportation-route__line transportation-route__line--incheon">
+													인천지하철
+												</span>
+											</div>
+											<p class="transportation-route__info">
+												동춘역 하차, 4번 출구 연수구청 방향(도보 약 20분, 휠체어 약 1시간 30분)
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6, 65-1, 68, 81, 103, 320, 522
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'연수꿈담도서관' 하차(도보 1분, 휠체어 1분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 분류별 지도 Content -->
+						<div data-content="1" class="subtab-panel">
+							<div class="map-container">
+								<div class="map-placeholder">
+									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
+								</div>
+							</div>
+
+							<!-- Address Info Box -->
+							<div class="address-info-box">
+								<p class="address-info-box__address">
+									인천광역시 연수구 먼우금로 164 | (우편번호) 21967
+								</p>
+								<div class="address-info-box__contact">
+									<div class="contact-item">
+										<span class="contact-item__label">TEL</span>
+										<span class="contact-item__value">032-749-8200</span>
+									</div>
+									<div class="contact-item">
+										<span class="contact-item__label">FAX</span>
+										<span class="contact-item__value">032-749-8209</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Transportation Info -->
+							<div class="transportation-section">
+								<!-- 지하철 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+										<div class="transportation-route">
+											<div class="transportation-route__badge">
+												<img
+													src="./assets/images/icon/icon-arrow-right.svg"
+													alt=""
+													class="transportation-route__arrow"
+												/>
+												<span class="transportation-route__line transportation-route__line--incheon">
+													인천지하철
+												</span>
+											</div>
+											<p class="transportation-route__info">
+												동춘역 하차, 4번 출구 연수구청 방향(도보 약 20분, 휠체어 약 1시간 30분)
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<!-- 버스 -->
+								<div class="transportation-item">
+									<div class="transportation-item__icon">
+										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+									</div>
+									<div class="transportation-item__content">
+										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+										<div class="transportation-routes">
+											<div class="transportation-route">
+												<div class="transportation-route__badge">
+													<img
+														src="./assets/images/icon/icon-arrow-right.svg"
+														alt=""
+														class="transportation-route__arrow"
+													/>
+													<span class="transportation-route__line transportation-route__line--bus">
+														6, 65-1, 68, 81, 103, 320, 522
+													</span>
+												</div>
+												<p class="transportation-route__info">
+													'연수꿈담도서관' 하차(도보 1분, 휠체어 1분)
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</UiSubTab>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
+</Layout>
