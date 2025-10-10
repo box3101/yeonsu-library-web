@@ -1380,6 +1380,7 @@
 
 			@include tablet {
 				max-width: 100%;
+				min-height: auto;
 			}
 		}
 		.info-section__right-area {
@@ -1412,6 +1413,7 @@
 	&__schedule-area {
 		flex: 1;
 		margin-top: to-rem(24);
+		min-height: 727px;
 
 		@include flex(column, flex-start, stretch);
 		padding: to-rem(32);
@@ -1421,6 +1423,7 @@
 		@include tablet {
 			padding: to-rem(20);
 			margin-top: to-rem(16);
+			min-height: auto;
 		}
 	}
 }
@@ -1433,9 +1436,13 @@
 	border-radius: to-rem(12);
 	padding: to-rem(32);
 	box-sizing: border-box;
+	min-height: 723px;
+	display: flex;
+	align-items: center;
 
 	@include tablet {
 		padding: to-rem(16);
+		min-height: auto;
 	}
 
 	&__wrapper {
@@ -1783,7 +1790,7 @@
 		font-size: 14px;
 		cursor: pointer;
 		transition: background-color 0.2s;
-		padding: 8px 0;
+		padding: 12px 0;
 		border: 1px solid #e0e0e0;
 		margin-left: -1px;
 		margin-top: -1px;

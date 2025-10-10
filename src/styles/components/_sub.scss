@@ -3835,13 +3835,13 @@ ul.movie-card-wrp {
 	&__content {
 		border: 1px solid #cbcccc;
 		border-radius: to-rem(12);
-		padding: to-rem(40);
+		padding: to-rem(16);
 		display: flex;
 		flex-direction: column;
 		gap: to-rem(24);
 
 		@include mobile {
-			padding: to-rem(20);
+			padding: to-rem(6);
 			gap: to-rem(20);
 		}
 	}
@@ -3898,10 +3898,10 @@ ul.movie-card-wrp {
 .terms-list {
 	display: flex;
 	flex-direction: column;
-	gap: to-rem(32);
+	gap: to-rem(4);
 
 	@include mobile {
-		gap: to-rem(24);
+		gap: to-rem(2);
 	}
 }
 
@@ -3911,10 +3911,15 @@ ul.movie-card-wrp {
 	gap: to-rem(16);
 	padding-bottom: to-rem(32);
 	border-bottom: 1px solid #cbcccc;
+	margin-top: 16px;
 
 	@include mobile {
 		gap: to-rem(12);
 		padding-bottom: to-rem(24);
+	}
+
+	&:first-child {
+		margin-top: 0;
 	}
 
 	&:last-child {
@@ -4013,6 +4018,222 @@ ul.movie-card-wrp {
 		background-color: #d8e4f3;
 		border-radius: to-rem(2);
 		flex-shrink: 0;
+	}
+}
+
+// 약관 테이블 스타일
+.terms-table-wrapper {
+	.mobile-info {
+		display: none;
+		font-size: to-rem(13);
+		color: #666;
+		margin-bottom: to-rem(8);
+
+		@include mobile {
+			display: block;
+		}
+	}
+}
+
+.terms-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: to-rem(14);
+	line-height: 1.6;
+
+	@include mobile {
+		font-size: to-rem(12);
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	th,
+	td {
+		border: 1px solid #e5e5e5;
+		padding: to-rem(12) to-rem(8);
+		text-align: center;
+		vertical-align: middle;
+
+		@include mobile {
+			padding: to-rem(8) to-rem(6);
+		}
+	}
+
+	thead {
+		background-color: #f8f9fa;
+
+		th {
+			font-weight: 600;
+			color: #1e2124;
+			word-break: keep-all;
+		}
+	}
+
+	tbody {
+		td {
+			color: #333;
+			word-break: keep-all;
+
+			&.highlight {
+				color: #3c79c2;
+				font-weight: 600;
+				font-size: to-rem(15);
+				background: #fff;
+
+				@include mobile {
+					font-size: to-rem(13);
+				}
+			}
+		}
+	}
+}
+
+.terms-notice {
+	margin-top: to-rem(16);
+	padding-left: to-rem(20);
+	list-style: none;
+
+	li {
+		position: relative;
+		font-size: to-rem(13);
+		line-height: 1.6;
+		color: #666;
+		margin-bottom: to-rem(8);
+		padding-left: to-rem(12);
+
+		@include mobile {
+			font-size: to-rem(12);
+		}
+
+		&:before {
+			content: '•';
+			position: absolute;
+			left: 0;
+			color: #666;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// 약관 텍스트 콘텐츠 스타일
+.terms-text-content {
+	font-size: to-rem(14);
+	line-height: 1.6;
+	color: #333;
+
+	@include mobile {
+		font-size: to-rem(13);
+	}
+}
+
+.terms-section {
+	margin-bottom: to-rem(32);
+
+	@include mobile {
+		margin-bottom: to-rem(24);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.terms-chapter {
+	font-size: to-rem(16);
+	font-weight: 700;
+	color: #1e2124;
+	margin-bottom: to-rem(20);
+	padding-bottom: to-rem(12);
+	border-bottom: 2px solid #3c79c2;
+
+	@include mobile {
+		font-size: to-rem(15);
+		margin-bottom: to-rem(16);
+		padding-bottom: to-rem(10);
+	}
+}
+
+.terms-article {
+	margin-bottom: to-rem(8);
+
+	@include mobile {
+		margin-bottom: to-rem(20);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.terms-article-title {
+	font-size: to-rem(15);
+	font-weight: 600;
+	color: #1e2124;
+	margin-bottom: to-rem(12);
+
+	@include mobile {
+		font-size: to-rem(14);
+		margin-bottom: to-rem(10);
+	}
+}
+
+.terms-paragraph {
+	font-size: to-rem(15);
+	line-height: 1.7;
+	color: #333;
+	margin-bottom: to-rem(12);
+
+	@include mobile {
+		font-size: to-rem(13);
+		margin-bottom: to-rem(10);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.highlight-red {
+		color: #ef4444;
+		font-weight: 600;
+	}
+}
+
+.terms-list {
+	margin: to-rem(12) 0;
+	list-style: none;
+
+	@include mobile {
+		margin: to-rem(10) 0;
+		padding-left: 0;
+	}
+
+	li {
+		font-size: to-rem(15);
+		line-height: 1.7;
+		color: #333;
+		margin-bottom: to-rem(8);
+
+		@include mobile {
+			font-size: to-rem(13);
+			margin-bottom: to-rem(6);
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -4134,7 +4355,7 @@ ul.movie-card-wrp {
 
 	@include mobile {
 		padding: 0 to-rem(16);
-		justify-content: center;
+		justify-content: flex-end;
 	}
 }
 
@@ -4662,7 +4883,7 @@ ul.movie-card-wrp {
 		}
 		.ui-tab__button {
 			flex: 1 1 calc(100% / min(4, var(--total-tabs, 5)));
-			max-width: calc(100% / min(4, var(--total-tabs, 5)));
+			// max-width: calc(100% / min(4, var(--total-tabs, 5)));
 			border-bottom: 1px solid #b1b8be;
 
 			&:last-child {

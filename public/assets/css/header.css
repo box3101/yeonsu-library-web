@@ -12,6 +12,7 @@
 @media (max-width: 900px) {
   .header .header-top {
     height: 3.75rem;
+    border-bottom: 1px solid #cdd1d5;
   }
 }
 .header-right {

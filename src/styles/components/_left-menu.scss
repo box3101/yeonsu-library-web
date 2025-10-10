@@ -130,7 +130,7 @@
 			width: 100%;
 
 			&.expanded {
-				max-height: to-rem(500);
+				max-height: max-content;
 				display: block;
 			}
 

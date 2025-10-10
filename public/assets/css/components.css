@@ -124,7 +124,7 @@
   width: 100%;
 }
 .left-menu-nav .menu-section .menu-list.expanded {
-  max-height: 31.25rem;
+  max-height: max-content;
   display: block;
 }
 .left-menu-nav .menu-section .menu-list .menu-item {
@@ -9263,10 +9263,10 @@
 }
 
 .icon-external-link {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-left: 0.25rem;
-  opacity: 0.7;
+  opacity: 1;
   flex-shrink: 0;
 }
 a:hover .icon-external-link {
@@ -15436,13 +15436,6 @@ body.modal-open {
     width: 12px;
     height: 12px;
   }
-}
-
-a[target=_blank] .icon-external-link {
-  filter: invert(47%) sepia(15%) saturate(526%) hue-rotate(177deg) brightness(95%) contrast(88%);
-}
-a[target=_blank]:hover .icon-external-link {
-  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(191deg) brightness(99%) contrast(84%);
 }
 
 /* FAQ 검색 영역 */

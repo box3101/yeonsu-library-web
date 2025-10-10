@@ -1423,6 +1423,7 @@
 @media (max-width: 900px) {
   .info-section__content .info-section__map-area {
     max-width: 100%;
+    min-height: auto;
   }
 }
 .info-section__content .info-section__right-area {
@@ -1454,6 +1455,7 @@
 .info-section__schedule-area {
   flex: 1;
   margin-top: 1.5rem;
+  min-height: 727px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1467,6 +1469,7 @@
   .info-section__schedule-area {
     padding: 1.25rem;
     margin-top: 1rem;
+    min-height: auto;
   }
 }
 
@@ -1477,10 +1480,14 @@
   border-radius: 0.75rem;
   padding: 2rem;
   box-sizing: border-box;
+  min-height: 723px;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 900px) {
   .library-map {
     padding: 1rem;
+    min-height: auto;
   }
 }
 .library-map__wrapper {
@@ -1779,7 +1786,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s;
-  padding: 8px 0;
+  padding: 12px 0;
   border: 1px solid #e0e0e0;
   margin-left: -1px;
   margin-top: -1px;
