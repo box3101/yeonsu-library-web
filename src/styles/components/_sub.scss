@@ -11089,7 +11089,7 @@ ul.movie-card-wrp {
 		font-weight: 700;
 		font-size: to-rem(17px);
 		line-height: 1.5;
-		white-space: nowrap;
+		white-space: normal;
 
 		@include mobile {
 			font-size: 15px;

@@ -2135,3 +2135,32 @@
 		}
 	}
 }
+
+
+
+/* 신규 컨텐츠 아이템 배경색 클래스들 */
+.new-content-item {
+	/* 기본 배경색은 기존 스타일을 유지 */
+
+	/* 각 컨텐츠별 배경색 클래스 */
+	&--life-library {
+		background-color: #aecdff;
+	}
+
+	&--school-books {
+		background-color: #a5d5dc;
+	}
+
+	&--infant-books {
+		background-color: #ffee99;
+	}
+
+	&--attendance-event {
+		background-color: #ffc4c4;
+	}
+}
+
+.size-40x40 {
+	width: 40px !important;
+	height: 40px !important;
+}
