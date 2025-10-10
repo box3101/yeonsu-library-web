@@ -2122,13 +2122,20 @@
 .banner-section .inner .banner-section__content .banner-section__item .banner-section__link {
   display: block;
   transition: transform 0.2s ease;
+  max-height: 62px;
 }
 .banner-section .inner .banner-section__content .banner-section__item .banner-section__link img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 8px;
   border: 1px solid #c9cccc;
+  max-height: 62px;
+}
+@media (max-width: 900px) {
+  .banner-section .inner .banner-section__content .banner-section__item .banner-section__link img {
+    max-height: 40px;
+  }
 }
 
 /* 신규 컨텐츠 아이템 배경색 클래스들 */
