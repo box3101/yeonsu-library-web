@@ -15872,6 +15872,9 @@ body.modal-open {
   background-size: contain;
   margin-top: -85px;
 }
+.org-chart__connector-mobile {
+  display: none;
+}
 .org-chart__libraries {
   display: flex;
   gap: 0.5rem;
@@ -16032,30 +16035,89 @@ body.modal-open {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  .org-structure {
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin: 0 -20px;
-    padding: 0 20px;
-  }
-  .org-structure::-webkit-scrollbar {
-    height: 8px;
-  }
-  .org-structure::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-  .org-structure::-webkit-scrollbar-thumb {
-    background: #d8e4f3;
-    border-radius: 4px;
-  }
-  .org-structure::-webkit-scrollbar-thumb:hover {
-    background: #b1cae7;
-  }
   .org-chart {
-    min-width: 796px;
-    width: 796px;
+    gap: 20px;
+    padding: 20px 0;
+    max-width: 100%;
+  }
+  .org-chart__main-library {
+    width: 100%;
+    max-width: 320px;
+    height: 140px;
+    border-width: 6px;
+    border-radius: 70px;
+  }
+  .org-chart__main-title {
+    font-size: 18px;
+  }
+  .org-chart__main-link {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+  .org-chart__main-subtitle {
+    font-size: 14px;
+  }
+  .org-chart__committee {
+    position: static;
+    width: 100%;
+    max-width: 200px;
     margin: 0 auto;
+  }
+  .org-chart__committee-box {
+    min-width: auto;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 16px 0 16px 0;
+    position: relative;
+    left: -76px;
+    max-width: 152px;
+    font-size: 8px;
+    top: -4px;
+  }
+  .org-chart__committee-box p {
+    font-size: 15px;
+  }
+  .org-chart__connector {
+    display: none;
+  }
+  .org-chart__connector-mobile {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 200px;
+    background-image: url("../../assets/images/org-line-mobile.gif");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    margin-top: -87px;
+  }
+  .org-chart__libraries {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 0;
+    margin-top: -137px;
+  }
+  .org-chart__library-btn {
+    position: relative;
+    font-size: 15px;
+    padding: 14px 20px;
+    min-height: 56px;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 12px;
+  }
+  .org-chart__library-btn::after {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translate(-50%, -50%);
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 63px;
+    background: #ddd;
+    z-index: -1;
   }
   .library-nav {
     gap: 8px;
