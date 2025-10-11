@@ -17,21 +17,48 @@ const breadcrumbItems = [
 			<!-- 조직 및 직원 -->
 			<section class="org-structure">
 				<h2 class="org-title">조직 및 직원</h2>
+
+				<!-- 조직도 -->
 				<div class="org-chart">
-					<img src="./assets/images/org-chart.png" alt="조직도" />
+					<!-- 연수구립도서관 (상단 헤더) -->
+					<div class="org-chart__header">
+						<div class="org-chart__main-library">
+							<p class="org-chart__main-title">연수구립도서관</p>
+							<a href="#songdo-intl" class="org-chart__main-link">송도국제도서관</a>
+							<p class="org-chart__main-subtitle">(연수구립 대표 공공도서관)</p>
+						</div>
+					</div>
+
+					<!-- 도서관 운영위원회 (좌측) -->
+					<div class="org-chart__committee">
+						<div class="org-chart__committee-box">
+							<p>도서관 운영위원회</p>
+						</div>
+					</div>
+
+					<!-- 연결선 -->
+					<div class="org-chart__connector"></div>
+
+					<!-- 하위 도서관들 -->
+					<div class="org-chart__libraries">
+						<a href="#cheonghak" class="org-chart__library-btn">
+							연수청학도서관
+						</a>
+						<a href="#kkumdam" class="org-chart__library-btn">
+							연수꿈담&동춘나래도서관
+						</a>
+						<a href="#songdo-child" class="org-chart__library-btn">
+							송도국제어린이도서관
+						</a>
+						<a href="#haedoji" class="org-chart__library-btn">
+							해돋이도서관
+						</a>
+						<a href="#sunhak" class="org-chart__library-btn">
+							선학별빛&함박비류도서관
+						</a>
+					</div>
 				</div>
 			</section>
-
-			<!-- 도서관 네비게이션 -->
-			<nav class="library-nav">
-				<a href="#yeonsu-director" class="library-nav-link">연수구립도서관장</a>
-				<a href="#songdo-intl" class="library-nav-link">송도국제도서관</a>
-				<a href="#cheonghak" class="library-nav-link">연수청학도서관</a>
-				<a href="#kkumdam" class="library-nav-link">연수꿈담도서관&동춘나래도서관</a>
-				<a href="#songdo-child" class="library-nav-link">송도국제어린이도서관</a>
-				<a href="#haedoji" class="library-nav-link">해돋이도서관</a>
-				<a href="#sunhak" class="library-nav-link">선학별빛도서관&함박비류도서관</a>
-			</nav>
 
 			<!-- 연수구립도서관장 -->
 			<section id="yeonsu-director" class="library-section">
@@ -781,24 +808,3 @@ const breadcrumbItems = [
 		</div>
 	</SubLayout>
 </Layout>
-
-<script is:inline>
-	// 앵커 링크를 위한 부드러운 스크롤
-	$(document).ready(function () {
-		$('.library-nav-link').on('click', function (e) {
-			e.preventDefault(); // 기본 앵커 동작 방지
-			const targetId = $(this).attr('href'); // 클릭한 링크의 href 속성 가져오기
-			const targetElement = $(targetId); // 대상 요소 선택
-
-			if (targetElement.length) {
-				// 대상 요소가 존재하는지 확인
-				$('html, body').animate(
-					{
-						scrollTop: targetElement.offset().top, // 대상 요소의 위치로 스크롤
-					},
-					800
-				); // 800ms 동안 부드럽게 스크롤 (속도 조절 가능)
-			}
-		});
-	});
-</script>

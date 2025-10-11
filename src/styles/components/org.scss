@@ -22,6 +22,135 @@
 	width: 100%;
 	max-width: 976px;
 	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: to-rem(48);
+	padding: to-rem(40) 0;
+
+	// 상단 메인 도서관
+	&__header {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	&__main-library {
+		background: #3c79c2;
+		border: 8px solid #b1cae7;
+		border-radius: to-rem(75);
+		width: to-rem(380);
+		height: to-rem(150);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(4);
+		position: relative;
+	}
+
+	&__main-title {
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: white;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	&__main-link {
+		font-size: to-rem(19);
+		font-weight: 700;
+		color: white;
+		text-decoration: none;
+		padding: to-rem(8) to-rem(16);
+		border-radius: to-rem(8);
+		transition: all 0.2s;
+		line-height: 1.5;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.15);
+		}
+	}
+
+	&__main-subtitle {
+		font-size: to-rem(19);
+		font-weight: 400;
+		color: white;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	// 도서관 운영위원회 (좌측)
+	&__committee {
+		position: absolute;
+		left: 0;
+		top: to-rem(225);
+	}
+
+	&__committee-box {
+		background: #00993e;
+		border-radius: to-rem(20) 0 to-rem(20) 0;
+		padding: to-rem(16) to-rem(24);
+		min-width: to-rem(221);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		p {
+			font-size: to-rem(17);
+			font-weight: 700;
+			color: white;
+			margin: 0;
+			line-height: 1.5;
+		}
+	}
+
+	// 연결선
+	&__connector {
+		width: 796px;
+		height: 296px;
+		background-image: url('../../assets/images/org-line.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		margin-top: -85px;
+	}
+
+	// 하위 도서관 버튼들
+	&__libraries {
+		display: flex;
+		gap: to-rem(8);
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: -59px;
+	}
+
+	&__library-btn {
+		background: #d8e4f3;
+		color: #30619b;
+		font-size: to-rem(15);
+		font-weight: 700;
+		padding: to-rem(12) to-rem(12);
+		border-radius: to-rem(8);
+		text-decoration: none;
+		transition: all 0.2s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		min-height: to-rem(56);
+		flex: 1;
+		min-width: to-rem(180);
+		max-width: to-rem(188);
+		line-height: 1.5;
+
+		&:hover {
+			background: #c0d4ec;
+			transform: translateY(-2px);
+		}
+	}
 }
 
 .library-nav {
@@ -182,6 +311,37 @@
 		margin-bottom: 20px;
 	}
 
+	.org-structure {
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin: 0 -20px;
+		padding: 0 20px;
+
+		// 스크롤바 스타일링
+		&::-webkit-scrollbar {
+			height: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #f1f1f1;
+			border-radius: 4px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #d8e4f3;
+			border-radius: 4px;
+
+			&:hover {
+				background: #b1cae7;
+			}
+		}
+	}
+
+	.org-chart {
+		min-width: 796px;
+		width: 796px;
+		margin: 0 auto;
+	}
 
 	.library-nav {
 		gap: 8px;

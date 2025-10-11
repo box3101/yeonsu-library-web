@@ -15790,6 +15790,118 @@ body.modal-open {
   width: 100%;
   max-width: 976px;
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 2.5rem 0;
+}
+.org-chart__header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.org-chart__main-library {
+  background: #3c79c2;
+  border: 8px solid #b1cae7;
+  border-radius: 4.6875rem;
+  width: 23.75rem;
+  height: 9.375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  position: relative;
+}
+.org-chart__main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+}
+.org-chart__main-link {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  line-height: 1.5;
+}
+.org-chart__main-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.org-chart__main-subtitle {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+}
+.org-chart__committee {
+  position: absolute;
+  left: 0;
+  top: 14.0625rem;
+}
+.org-chart__committee-box {
+  background: #00993e;
+  border-radius: 1.25rem 0 1.25rem 0;
+  padding: 1rem 1.5rem;
+  min-width: 13.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.org-chart__committee-box p {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+}
+.org-chart__connector {
+  width: 796px;
+  height: 296px;
+  background-image: url("../../assets/images/org-line.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: -85px;
+}
+.org-chart__libraries {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -59px;
+}
+.org-chart__library-btn {
+  background: #d8e4f3;
+  color: #30619b;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 3.5rem;
+  flex: 1;
+  min-width: 11.25rem;
+  max-width: 11.75rem;
+  line-height: 1.5;
+}
+.org-chart__library-btn:hover {
+  background: #c0d4ec;
+  transform: translateY(-2px);
 }
 
 .library-nav {
@@ -15919,6 +16031,31 @@ body.modal-open {
   .org-title {
     font-size: 24px;
     margin-bottom: 20px;
+  }
+  .org-structure {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+  .org-structure::-webkit-scrollbar {
+    height: 8px;
+  }
+  .org-structure::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  .org-structure::-webkit-scrollbar-thumb {
+    background: #d8e4f3;
+    border-radius: 4px;
+  }
+  .org-structure::-webkit-scrollbar-thumb:hover {
+    background: #b1cae7;
+  }
+  .org-chart {
+    min-width: 796px;
+    width: 796px;
+    margin: 0 auto;
   }
   .library-nav {
     gap: 8px;
