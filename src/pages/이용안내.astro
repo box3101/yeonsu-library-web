@@ -11,6 +11,17 @@ const tabs = [
 	{ label: '이용시간', id: 'hours', active: false },
 	{ label: '이용안내지', id: 'manual', active: false },
 ];
+
+const newsletters = [
+	{ year: 2027, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2026, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2025, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2024, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2023, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2022, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2021, fileSize: '1.2MB', fileUrl: '#' },
+	{ year: 2020, fileSize: '1.2MB', fileUrl: '#' },
+];
 ---
 
 <Layout title="이용안내">
@@ -211,7 +222,46 @@ const tabs = [
 
 		<!-- 이용안내지 탭 -->
 		<div id="panel-manual" class="ui-tab-panel">
-			<p>이용안내지 콘텐츠가 여기에 들어갑니다.</p>
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">연수구립도서관 이용안내지</h3>
+			</div>
+			<div class="newsletter-list mt40">
+				{
+					newsletters.map(item => (
+						<div class="newsletter-item">
+							<div class="newsletter-item__content">
+								<span class="newsletter-item__title">
+									{item.year}년 이용안내지 [pdf, {item.fileSize}]
+								</span>
+							</div>
+							<a href={item.fileUrl} class="newsletter-item__download" download>
+								<span>다운로드</span>
+								<img src="./assets/images/icon/icon-download.svg" alt="다운로드" />
+							</a>
+						</div>
+					))
+				}
+			</div>
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">연수구립도서관 도서관 소식지</h3>
+			</div>
+			<div class="newsletter-list mt40">
+				{
+					newsletters.map(item => (
+						<div class="newsletter-item">
+							<div class="newsletter-item__content">
+								<span class="newsletter-item__title">
+									{item.year}년 이용안내지 [pdf, {item.fileSize}]
+								</span>
+							</div>
+							<a href={item.fileUrl} class="newsletter-item__download" download>
+								<span>다운로드</span>
+								<img src="./assets/images/icon/icon-download.svg" alt="다운로드" />
+							</a>
+						</div>
+					))
+				}
+			</div>
 		</div>
 	</SubLayout>
 </Layout>

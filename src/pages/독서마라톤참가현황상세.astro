@@ -1,0 +1,198 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '참가현황', href: '/독서마라톤참가현황목록' },
+];
+
+// 참가현황 상세 정보
+const marathonStatus = {
+	participationCourse: '2km',
+	participationAge: '성인',
+	distanceRun: '800m',
+	completionDate: '-',
+};
+
+// 마라톤 참가 정보
+const marathonInfo = {
+	eventName: '[2025년] 독서근력 키우기 3차',
+	applicationCourse: '2km',
+	participationAge: '성인',
+	applicationDate: '2025-05-05',
+	termsAgreed: '동의',
+};
+
+// 신청자 정보
+const applicantInfo = {
+	name: '홍길동',
+	contact: '010-0000-0000',
+	birthDate: '1999.08.01',
+	applicationDate: '2025-05-05',
+	email: 'test@test.com',
+};
+---
+
+<Layout title="독서마라톤 참가현황 상세">
+	<SubLayout title="참가현황" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 마라톤 진행 상황 -->
+		<div class="marathon-progress">
+			<div class="marathon-progress__track">
+				<div class="marathon-progress__bar"></div>
+				<div class="marathon-progress__filled" style="width: 39.25%"></div>
+				<div class="marathon-progress__labels">
+					<span class="marathon-progress__label">0m</span>
+					<span class="marathon-progress__label">1,000m</span>
+					<span class="marathon-progress__label">2,000m</span>
+				</div>
+				<div class="marathon-progress__runner" style="left: 39.25%">
+					<div class="marathon-progress__runner-badge">
+						<img src="./assets/images/icon/icon-gradient-blue.svg" alt="달린 거리" />
+						<div class="marathon-progress__runner-content">
+							<div class="marathon-progress__runner-top">
+								<div class="marathon-progress__runner-icon">
+									<img src="./assets/images/icon/icon-face_smile.svg" alt="참가자" />
+								</div>
+								<span class="marathon-progress__runner-name">{applicantInfo.name} <span>님</span></span>
+							</div>
+							<span class="marathon-progress__runner-distance">{marathonStatus.distanceRun}</span>
+						</div>
+					</div>
+				</div>
+				<!-- 100% 목표시점 도딜 시 삭제 -->
+				<div class="marathon-progress__flag">
+					<img src="./assets/images/icon/icon-flag.svg" alt="목표 지점" />
+				</div>
+			</div>
+		</div>
+
+		<!-- 참가현황 카드 -->
+		<div class="marathon-status-card">
+			<div class="marathon-status-card__header">
+				<div class="marathon-status-card__icon">
+					<div class="marathon-status-card__icon-image">
+						<img src="./assets/images/icon/icon-marathon.svg" alt="참가현황" />
+					</div>
+				</div>
+				<h2 class="marathon-status-card__title">참가현황</h2>
+			</div>
+			<div class="marathon-status-card__content">
+				<div class="marathon-status-card__row">
+					<div class="marathon-status-card__item">
+						<span class="marathon-status-card__label">참가코스</span>
+						<span class="marathon-status-card__value">{marathonStatus.participationCourse}</span>
+					</div>
+					<div class="marathon-status-card__item">
+						<span class="marathon-status-card__label">참가연령</span>
+						<span class="marathon-status-card__value">{marathonStatus.participationAge}</span>
+					</div>
+				</div>
+				<div class="marathon-status-card__row">
+					<div class="marathon-status-card__item">
+						<span class="marathon-status-card__label">달린거리</span>
+						<span class="marathon-status-card__value">{marathonStatus.distanceRun}</span>
+					</div>
+					<div class="marathon-status-card__item">
+						<span class="marathon-status-card__label">완주일자</span>
+						<span class="marathon-status-card__value">{marathonStatus.completionDate}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 마라톤 참가정보 섹션 -->
+		<div class="detail-section">
+			<h2 class="detail-section__title">마라톤 참가정보</h2>
+			<div class="detail-section__content">
+				<div class="detail-section__row">
+					<div class="detail-section__item detail-section__item--full">
+						<span class="detail-section__label">대회명</span>
+						<span class="detail-section__value">{marathonInfo.eventName}</span>
+					</div>
+				</div>
+				<div class="detail-section__row">
+					<div class="detail-section__item">
+						<span class="detail-section__label">신청코스</span>
+						<span class="detail-section__value">{marathonInfo.applicationCourse}</span>
+					</div>
+					<div class="detail-section__item">
+						<span class="detail-section__label">참가연령</span>
+						<span class="detail-section__value">{marathonInfo.participationAge}</span>
+					</div>
+				</div>
+				<div class="detail-section__row">
+					<div class="detail-section__item">
+						<span class="detail-section__label">신청일</span>
+						<span class="detail-section__value">{marathonInfo.applicationDate}</span>
+					</div>
+					<div class="detail-section__item">
+						<span class="detail-section__label">약관동의</span>
+						<span class="detail-section__value">{marathonInfo.termsAgreed}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 신청자 정보 섹션 -->
+		<div class="detail-section">
+			<h2 class="detail-section__title">신청자 정보</h2>
+			<div class="detail-section__content">
+				<div class="detail-section__row">
+					<div class="detail-section__item detail-section__item--full">
+						<span class="detail-section__label">이름</span>
+						<span class="detail-section__value">{applicantInfo.name}</span>
+					</div>
+				</div>
+				<div class="detail-section__row">
+					<div class="detail-section__item">
+						<span class="detail-section__label">연락처</span>
+						<span class="detail-section__value">{applicantInfo.contact}</span>
+					</div>
+					<div class="detail-section__item">
+						<span class="detail-section__label">생년월일</span>
+						<span class="detail-section__value">{applicantInfo.birthDate}</span>
+					</div>
+				</div>
+				<div class="detail-section__row">
+					<div class="detail-section__item">
+						<span class="detail-section__label">신청일</span>
+						<span class="detail-section__value">{applicantInfo.applicationDate}</span>
+					</div>
+					<div class="detail-section__item">
+						<span class="detail-section__label">이메일</span>
+						<span class="detail-section__value">{applicantInfo.email}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 안내 정보 박스 -->
+		<div class="com-inbo-type2 com-inbo-type2--notice">
+			<div class="com-inbo-type2__text-group">
+				<p class="com-inbo-type2__text">※ 접수 기간 동안은 자유롭게 코스 수정/신청취소 가능합니다.</p>
+				<p class="com-inbo-type2__text">
+					※ 하위 코스 완주 후 상위 코스로 변경 시, 달린 거리가 부족할 경우 하위 코스의 완주가 취소됩니다.
+				</p>
+				<p class="com-inbo-type2__text">
+					※ 코스 변경 또는 신청 취소 후 재신청한 경우에도 작성했던 기록일지는 그대로 유지 됩니다.
+				</p>
+			</div>
+		</div>
+
+		<!-- 하단 버튼 -->
+		<div class="marathon-detail-page__actions">
+			<UiButton
+				class="w-160-mobile-full"
+				text="목록"
+				variant="secondary"
+				size="large"
+				href="./독서마라톤참가현황목록"
+			/>
+			<UiButton class="w-160-mobile-full" text="수정" variant="darkBlue" size="large" />
+			<UiButton class="w-160-mobile-full" text="신청취소" variant="darkGray" size="large" />
+		</div>
+	</SubLayout>
+</Layout>
