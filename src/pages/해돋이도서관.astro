@@ -246,111 +246,6 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
 								</div>
 							</div>
-
-							<!-- Address Info Box -->
-							<div class="address-info-box">
-								<p class="address-info-box__address">인천광역시 연수구 해돋이로 7 | (우편번호) 21997</p>
-								<div class="address-info-box__contact">
-									<div class="contact-item">
-										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-749-6950</span>
-									</div>
-									<div class="contact-item">
-										<span class="contact-item__label">FAX</span>
-										<span class="contact-item__value">032-749-6959</span>
-									</div>
-								</div>
-							</div>
-
-							<!-- Transportation Info -->
-							<div class="transportation-section">
-								<!-- 지하철 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
-												</div>
-												<p class="transportation-route__info">캠퍼스타운역 3번출구 (도보 약 10분, 휠체어 약 40분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
-												</div>
-												<p class="transportation-route__info">테크노파크역 1,4번출구 (도보 약 10분, 휠체어 약 40분)</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- 버스 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">55</span>
-												</div>
-												<p class="transportation-route__info">'해돋이도서관' 하차(도보 약 3분, 휠체어 약 10분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														4, 81, 순환41, 순환42, 9201, M6450, M6751, 급행91, 급행99, 320
-														<p class="transportation-route__info mt5">
-															'캠퍼스타운역' 하차 (도보 약 10분, 휠체어 약 40분)
-														</p>
-													</span>
-												</div>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														6, 6-1, 8, 58, 순환41, 순환46, 순환42, 1301, M6405, M6724, 303, 320, 330
-														<p class="transportation-route__info mt5">
-															'한진아파트, 성지아파트' 하차 (도보 약 12분, 휠체어 약 45분)
-														</p>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 
 						<!-- 분류별 지도 Content -->
@@ -360,113 +255,91 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
 								</div>
 							</div>
+						</div>
+					</UiSubTab>
 
-							<!-- Address Info Box -->
-							<div class="address-info-box">
-								<p class="address-info-box__address">인천광역시 연수구 해돋이로 7 | (우편번호) 21997</p>
-								<div class="address-info-box__contact">
-									<div class="contact-item">
-										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-749-6950</span>
+					<!-- Address Info Box (공통 정보 - 탭과 무관하게 항상 표시) -->
+					<div class="address-info-box">
+						<p class="address-info-box__address">인천광역시 연수구 해돋이로 7 | (우편번호) 21997</p>
+						<div class="address-info-box__contact">
+							<div class="contact-item">
+								<span class="contact-item__label">TEL</span>
+								<span class="contact-item__value">032-749-6950</span>
+							</div>
+							<div class="contact-item">
+								<span class="contact-item__label">FAX</span>
+								<span class="contact-item__value">032-749-6959</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Transportation Info (공통 정보 - 탭과 무관하게 항상 표시) -->
+					<div class="transportation-section">
+						<!-- 지하철 -->
+						<div class="transportation-item">
+							<div class="transportation-item__icon">
+								<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+							</div>
+							<div class="transportation-item__content">
+								<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+								<div class="transportation-routes">
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="transportation-route__arrow" />
+											<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
+										</div>
+										<p class="transportation-route__info">캠퍼스타운역 3번출구 (도보 약 10분, 휠체어 약 40분)</p>
 									</div>
-									<div class="contact-item">
-										<span class="contact-item__label">FAX</span>
-										<span class="contact-item__value">032-749-6959</span>
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="transportation-route__arrow" />
+											<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
+										</div>
+										<p class="transportation-route__info">테크노파크역 1,4번출구 (도보 약 10분, 휠체어 약 40분)</p>
 									</div>
 								</div>
 							</div>
+						</div>
 
-							<!-- Transportation Info -->
-							<div class="transportation-section">
-								<!-- 지하철 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+						<!-- 버스 -->
+						<div class="transportation-item">
+							<div class="transportation-item__icon">
+								<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+							</div>
+							<div class="transportation-item__content">
+								<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+								<div class="transportation-routes">
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="transportation-route__arrow" />
+											<span class="transportation-route__line transportation-route__line--bus">55</span>
+										</div>
+										<p class="transportation-route__info">'해돋이도서관' 하차(도보 약 3분, 휠체어 약 10분)</p>
 									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
-												</div>
-												<p class="transportation-route__info">캠퍼스타운역 3번출구 (도보 약 10분, 휠체어 약 40분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--incheon">인천지하철</span>
-												</div>
-												<p class="transportation-route__info">테크노파크역 1,4번출구 (도보 약 10분, 휠체어 약 40분)</p>
-											</div>
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="transportation-route__arrow" />
+											<span class="transportation-route__line transportation-route__line--bus">
+												4, 81, 순환41, 순환42, 9201, M6450, M6751, 급행91, 급행99, 320
+												<p class="transportation-route__info mt5">'캠퍼스타운역' 하차 (도보 약 10분, 휠체어 약 40분)</p>
+											</span>
 										</div>
 									</div>
-								</div>
-
-								<!-- 버스 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">55</span>
-												</div>
-												<p class="transportation-route__info">'해돋이도서관' 하차(도보 약 3분, 휠체어 약 10분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														4, 81, 순환41, 순환42, 9201, M6450, M6751, 급행91, 급행99, 320
-														<p class="transportation-route__info mt5">
-															'캠퍼스타운역' 하차 (도보 약 10분, 휠체어 약 40분)
-														</p>
-													</span>
-												</div>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														6, 6-1, 8, 58, 순환41, 순환46, 순환42, 1301, M6405, M6724, 303, 320, 330
-														<p class="transportation-route__info mt5">
-															'한진아파트, 성지아파트' 하차 (도보 약 12분, 휠체어 약 45분)
-														</p>
-													</span>
-												</div>
-											</div>
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img src="./assets/images/icon/icon-arrow-right.svg" alt="" class="transportation-route__arrow" />
+											<span class="transportation-route__line transportation-route__line--bus">
+												6, 6-1, 8, 58, 순환41, 순환46, 순환42, 1301, M6405, M6724, 303, 320, 330
+												<p class="transportation-route__info mt5">
+													'한진아파트, 성지아파트' 하차 (도보 약 12분, 휠체어 약 45분)
+												</p>
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</UiSubTab>
+					</div>
 				</div>
 			</section>
 		</div>

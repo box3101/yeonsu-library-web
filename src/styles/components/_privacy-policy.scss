@@ -1,0 +1,515 @@
+@use '../abstracts' as *;
+@use '../variables/colors' as *;
+@use '../variables/typography' as *;
+
+// 개인정보처리방침 페이지 스타일
+.personal_wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: to-rem(24) to-rem(20);
+
+	@media (max-width: 900px) {
+		padding: 16px 16px;
+	}
+}
+
+.personal_box {
+	font-size: to-rem(17);
+	line-height: 1.5;
+	color: $text-color;
+
+	@media (max-width: 900px) {
+		font-size: 15px;
+	}
+}
+
+.mar_bot50 {
+	margin-bottom: to-rem(24);
+
+	@media (max-width: 900px) {
+		margin-bottom: 16px;
+	}
+}
+
+// 라벨링 영역 (아이콘 표)
+.label_layerArea {
+	position: relative;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		background: #fff;
+
+		caption {
+			&.hide {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				padding: 0;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				border: 0;
+			}
+		}
+
+		thead {
+			th {
+				background: $primary-color;
+				color: #fff;
+				padding: to-rem(16) to-rem(8);
+				font-size: to-rem(18);
+				font-weight: 700;
+				text-align: center;
+				border: 1px solid $primary-color;
+
+				&.title {
+					font-size: to-rem(20);
+					padding: to-rem(20) to-rem(16);
+				}
+
+				@media (max-width: 900px) {
+					font-size: 15px;
+					padding: 12px 8px;
+
+					&.title {
+						font-size: 16px;
+						padding: 16px 12px;
+					}
+				}
+			}
+		}
+
+		tbody {
+			td {
+				padding: to-rem(20) to-rem(12);
+				text-align: center;
+				border: 1px solid $border-color;
+				vertical-align: middle;
+
+				@media (max-width: 900px) {
+					padding: 16px 8px;
+				}
+
+				a {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: to-rem(8);
+					color: $text-color;
+					text-decoration: none;
+					position: relative;
+					font-size: to-rem(14);
+					line-height: 1.4;
+
+					@media (max-width: 900px) {
+						font-size: 12px;
+						gap: 6px;
+					}
+
+					img {
+						width: to-rem(40);
+						height: to-rem(40);
+						display: block;
+
+						@media (max-width: 900px) {
+							width: 32px;
+							height: 32px;
+						}
+					}
+
+					&.on {
+						color: $primary-color;
+						font-weight: 700;
+					}
+
+					&:hover {
+						color: $primary-color;
+
+						.label_layer {
+							display: block;
+						}
+					}
+
+					.label_layer {
+						display: none;
+						position: absolute;
+						bottom: 100%;
+						left: 50%;
+						transform: translateX(-50%);
+						background: #fff;
+						border: 2px solid $primary-color;
+						border-radius: to-rem(8);
+						padding: to-rem(12);
+						box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+						z-index: 100;
+						min-width: to-rem(200);
+						margin-bottom: to-rem(8);
+						white-space: normal;
+						text-align: center;
+
+						@media (max-width: 900px) {
+							min-width: 150px;
+							padding: 10px;
+							font-size: 12px;
+						}
+
+						&::after {
+							content: '';
+							position: absolute;
+							top: 100%;
+							left: 50%;
+							transform: translateX(-50%);
+							width: 0;
+							height: 0;
+							border-style: solid;
+							border-width: 8px 8px 0 8px;
+							border-color: $primary-color transparent transparent transparent;
+						}
+
+						.label_top {
+							font-weight: 700;
+							color: $primary-color;
+							margin-bottom: to-rem(8);
+							font-size: to-rem(15);
+
+							@media (max-width: 900px) {
+								font-size: 13px;
+								margin-bottom: 6px;
+							}
+						}
+
+						.label_txt {
+							font-size: to-rem(14);
+							color: $text-color;
+							line-height: 1.5;
+
+							@media (max-width: 900px) {
+								font-size: 12px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	> p {
+		margin-top: to-rem(12);
+		font-size: to-rem(14);
+		color: #666;
+		line-height: 1.5;
+
+		@media (max-width: 900px) {
+			font-size: 12px;
+			margin-top: 10px;
+		}
+	}
+}
+
+// 목차 테이블
+.personal_table_list {
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border-top: 2px solid #004d80;
+
+		&.type1 {
+			thead {
+				th {
+					background: #ecf2f9;
+					border-bottom: 1px solid #d8e4f3;
+					color: $text-color;
+					padding: to-rem(12) to-rem(16);
+					font-size: to-rem(19);
+					font-weight: 700;
+					text-align: center;
+					line-height: 1.5;
+
+					@media (max-width: 900px) {
+						font-size: 16px;
+						padding: 10px 12px;
+					}
+
+					&.title {
+						letter-spacing: 0.3em;
+					}
+				}
+			}
+
+			tbody {
+				td {
+					border-right: 1px solid #cbcccc;
+					border-bottom: 1px solid #cbcccc;
+					padding: to-rem(12);
+					vertical-align: middle;
+					text-align: center;
+
+					@media (max-width: 900px) {
+						padding: 10px 8px;
+					}
+
+					&:last-child {
+						border-right: none;
+					}
+
+					img {
+						width: to-rem(40);
+						height: to-rem(40);
+						display: block;
+						margin: 0 auto;
+
+						@media (max-width: 900px) {
+							width: 32px;
+							height: 32px;
+						}
+					}
+
+					a {
+						color: #4b4d4d;
+						text-decoration: none;
+						font-size: to-rem(15);
+						line-height: 1.5;
+						font-weight: 400;
+						display: block;
+						width: 100%;
+
+						@media (max-width: 900px) {
+							font-size: 13px;
+						}
+
+						&:hover {
+							color: $primary-color;
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// 개인정보 섹션
+.personal_list_box {
+	padding: to-rem(16) 0;
+	border-bottom: 1px solid $border-color;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: to-rem(12);
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: $text-color;
+		margin-bottom: to-rem(12);
+		line-height: 1.5;
+
+		@media (max-width: 900px) {
+			font-size: 18px;
+			gap: 8px;
+			margin-bottom: 10px;
+		}
+
+		img {
+			width: to-rem(40);
+			height: to-rem(40);
+			flex-shrink: 0;
+
+			@media (max-width: 900px) {
+				width: 32px;
+				height: 32px;
+			}
+		}
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			margin-bottom: to-rem(8);
+			line-height: 1.5;
+			font-size: to-rem(17);
+			color: $text-color;
+
+			@media (max-width: 900px) {
+				font-size: 15px;
+				margin-bottom: 6px;
+			}
+
+			&.personal_li_none {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ul {
+				margin-top: to-rem(8);
+				padding-left: to-rem(16);
+
+				@media (max-width: 900px) {
+					padding-left: 12px;
+					margin-top: 6px;
+				}
+
+				li {
+					position: relative;
+					padding-left: to-rem(12);
+					font-size: to-rem(15);
+					color: #4b4d4d;
+
+					@media (max-width: 900px) {
+						font-size: 14px;
+						padding-left: 10px;
+					}
+				}
+			}
+
+			p {
+				margin: to-rem(8) 0;
+				line-height: 1.6;
+
+				@media (max-width: 900px) {
+					margin: 6px 0;
+				}
+			}
+
+			a {
+				color: $primary-color;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				&.blue {
+					color: #0066cc;
+				}
+
+				&.red {
+					color: #d9534f;
+				}
+			}
+
+			br {
+				line-height: 1.8;
+			}
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: to-rem(12) 0;
+		background: #fff;
+
+		@media (max-width: 900px) {
+			margin: 10px 0;
+			font-size: 13px;
+		}
+
+		caption {
+			&.hide {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				padding: 0;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				border: 0;
+			}
+		}
+
+		thead {
+			th {
+				background: #ecf2f9;
+				border: 1px solid #d8e4f3;
+				padding: to-rem(12) to-rem(16);
+				font-size: to-rem(15);
+				font-weight: 700;
+				color: $text-color;
+				text-align: center;
+				line-height: 1.5;
+
+				@media (max-width: 900px) {
+					padding: 10px 8px;
+					font-size: 13px;
+				}
+			}
+		}
+
+		tbody {
+			td {
+				border: 1px solid #cbcccc;
+				padding: to-rem(12) to-rem(16);
+				font-size: to-rem(17);
+				color: #4b4d4d;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 1.5;
+
+				@media (max-width: 900px) {
+					padding: 10px 8px;
+					font-size: 14px;
+				}
+
+				a {
+					color: $primary-color;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					&.blue {
+						color: #0066cc;
+					}
+				}
+
+				br {
+					line-height: 1.6;
+				}
+			}
+		}
+	}
+}
+
+// 반응형 테이블 처리
+@media (max-width: 900px) {
+	.personal_table_list2 {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+
+		table {
+			min-width: 600px;
+		}
+	}
+
+	.personal_list_box {
+		.table-wrapper {
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+
+			table {
+				min-width: 600px;
+			}
+		}
+	}
+}
+
+// 숨김 클래스
+.hide {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
