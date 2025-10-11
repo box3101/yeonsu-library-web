@@ -16780,9 +16780,6 @@ body.modal-open {
 .personal_table_list table.type1 thead th.title {
   letter-spacing: 0.3em;
 }
-.personal_table_list table.type1 tbody tr:first-child td:first-child {
-  background: #f1f2f2;
-}
 .personal_table_list table.type1 tbody td {
   border-right: 1px solid #cbcccc;
   border-bottom: 1px solid #cbcccc;
@@ -16797,9 +16794,6 @@ body.modal-open {
 }
 .personal_table_list table.type1 tbody td:last-child {
   border-right: none;
-}
-.personal_table_list table.type1 tbody td.first-row-icon {
-  background: #f1f2f2;
 }
 .personal_table_list table.type1 tbody td img {
   width: 2.5rem;
@@ -16829,11 +16823,6 @@ body.modal-open {
 }
 .personal_table_list table.type1 tbody td a:hover {
   color: #3c79c2;
-  text-decoration: underline;
-}
-.personal_table_list table.type1 tbody td a.first-link {
-  color: #3c79c2;
-  font-weight: 700;
   text-decoration: underline;
 }
 
@@ -17015,16 +17004,12 @@ body.modal-open {
   .personal_table_list2 table {
     min-width: 600px;
   }
-  .personal_list_box table {
-    display: block;
+  .personal_list_box .table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .personal_list_box table thead,
-  .personal_list_box table tbody,
-  .personal_list_box table tr {
-    display: table;
-    width: 100%;
+  .personal_list_box .table-wrapper table {
+    min-width: 600px;
   }
 }
 .hide {

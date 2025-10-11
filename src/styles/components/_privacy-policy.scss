@@ -238,14 +238,6 @@
 			}
 
 			tbody {
-				tr {
-					&:first-child {
-						td:first-child {
-							background: #f1f2f2;
-						}
-					}
-				}
-
 				td {
 					border-right: 1px solid #cbcccc;
 					border-bottom: 1px solid #cbcccc;
@@ -259,11 +251,6 @@
 
 					&:last-child {
 						border-right: none;
-					}
-
-					// 첫 번째 행 첫 번째 아이콘 셀
-					&.first-row-icon {
-						background: #f1f2f2;
 					}
 
 					img {
@@ -293,13 +280,6 @@
 
 						&:hover {
 							color: $primary-color;
-							text-decoration: underline;
-						}
-
-						// 첫 번째 행 링크 스타일
-						&.first-link {
-							color: $primary-color;
-							font-weight: 700;
 							text-decoration: underline;
 						}
 					}
@@ -511,16 +491,12 @@
 	}
 
 	.personal_list_box {
-		table {
-			display: block;
+		.table-wrapper {
 			overflow-x: auto;
 			-webkit-overflow-scrolling: touch;
 
-			thead,
-			tbody,
-			tr {
-				display: table;
-				width: 100%;
+			table {
+				min-width: 600px;
 			}
 		}
 	}
