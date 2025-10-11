@@ -11638,9 +11638,67 @@ ul.movie-card-wrp {
 	align-items: center;
 	justify-content: center;
 	background: white;
+	position: relative;
+	overflow: hidden;
 
 	@include mobile {
 		height: 300px;
+	}
+
+	/* 카카오맵 컨테이너 스타일 */
+	.map-placeholder .root_daum_roughmap {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	/* 분류별 지도(NGII) 스타일 */
+	.map-placeholder--ngii {
+		padding: 0;
+	}
+
+	.ngii-map-wrapper {
+		width: 100% !important;
+		height: 480px !important;
+		position: relative;
+	}
+	@media (max-width: 900px) {
+		.ngii-map-wrapper {
+			height: 300px !important;
+		}
+	}
+
+	.ngii-map-toolbar {
+		position: absolute;
+		top: 170px;
+		right: 20px;
+		width: 54px;
+		height: 200px;
+		z-index: 1000000;
+	}
+	@media (max-width: 900px) {
+		.ngii-map-toolbar {
+			top: 80px;
+			right: 10px;
+			width: 44px;
+			height: 150px;
+		}
+	}
+
+	.ngii-toolbar-inner {
+		width: 39px;
+		margin-top: 10px;
+		margin-left: 30px;
+	}
+	@media (max-width: 900px) {
+		.ngii-toolbar-inner {
+			width: 34px;
+			margin-left: 10px;
+			margin-top: 5px;
+		}
+		.ngii-toolbar-inner img {
+			max-width: 100%;
+			height: auto;
+		}
 	}
 
 	&__text {
@@ -11866,6 +11924,7 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		color: #191a1a;
 		margin: 0;
+		font-weight: 400;
 
 		@include mobile {
 			font-size: 15px;

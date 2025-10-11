@@ -17012,10 +17012,63 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   align-items: center;
   justify-content: center;
   background: white;
+  position: relative;
+  overflow: hidden;
+  /* 카카오맵 컨테이너 스타일 */
+  /* 분류별 지도(NGII) 스타일 */
 }
 @media (max-width: 900px) {
   .map-placeholder {
     height: 300px;
+  }
+}
+.map-placeholder .map-placeholder .root_daum_roughmap {
+  width: 100% !important;
+  height: 100% !important;
+}
+.map-placeholder .map-placeholder--ngii {
+  padding: 0;
+}
+.map-placeholder .ngii-map-wrapper {
+  width: 100% !important;
+  height: 480px !important;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .map-placeholder .ngii-map-wrapper {
+    height: 300px !important;
+  }
+}
+.map-placeholder .ngii-map-toolbar {
+  position: absolute;
+  top: 170px;
+  right: 20px;
+  width: 54px;
+  height: 200px;
+  z-index: 1000000;
+}
+@media (max-width: 900px) {
+  .map-placeholder .ngii-map-toolbar {
+    top: 80px;
+    right: 10px;
+    width: 44px;
+    height: 150px;
+  }
+}
+.map-placeholder .ngii-toolbar-inner {
+  width: 39px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+@media (max-width: 900px) {
+  .map-placeholder .ngii-toolbar-inner {
+    width: 34px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  .map-placeholder .ngii-toolbar-inner img {
+    max-width: 100%;
+    height: auto;
   }
 }
 .map-placeholder__text {
@@ -17236,6 +17289,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   line-height: 1.5;
   color: #191a1a;
   margin: 0;
+  font-weight: 400;
 }
 @media (max-width: 900px) {
   .transportation-route__info {
