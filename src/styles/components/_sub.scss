@@ -5928,12 +5928,39 @@ ul.movie-card-wrp {
 	}
 	&:hover {
 		border-radius: var(--radius-medium2, 6px);
-		background: var(--color-primary-pr01, #d8e4f3);
+		// background: var(--color-primary-pr01, #d8e4f3);
+		background-color: #ECF2F9;
 		.gnb-third-text {
-			color: $primary-color !important;
-			font-weight: 700 !important;
+			// color: $primary-color !important;
+			// font-weight: 700 !important;
+			color: #191A1A !important;
+			font-weight: 400 !important;
+
 		}
 	}
+
+	// 추가  ley 251011
+	
+	&:active {
+		background: #D8E4F3;
+		.gnb-third-text {
+			font-size: to-rem(16) !important;  
+			font-weight: 700 !important;
+			color: #244874 !important;
+		}
+		
+	}
+	&.selected {
+		background: #ECF2F9;
+		.gnb-third-text {
+			font-size: to-rem(16) !important;
+			font-weight: 700 !important;
+			color: #244874 !important;
+		}
+		
+	}
+
+	
 }
 .statistics-content {
 	flex: 1;
@@ -7373,18 +7400,57 @@ ul.movie-card-wrp {
 	/* 각 컨텐츠별 배경색 클래스 */
 	&--life-library {
 		background-color: #aecdff;
+
+		&::before {
+			content: ''; 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("./assets/images/banner_img-01.png") no-repeat bottom right;
+		  }
+
+
 	}
 
 	&--school-books {
-		background-color: #a5d5dc;
+		background-color: #D6C9F2;
+		&::before {
+			content: ''; 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("./assets/images/banner_img-02.png") no-repeat bottom right;
+		  }
 	}
 
 	&--infant-books {
 		background-color: #ffee99;
+		&::before {
+			content: ''; 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("./assets/images/banner_img-03.png") no-repeat bottom right;
+		  }
 	}
 
 	&--attendance-event {
-		background-color: #ffc4c4;
+		background-color: #B6D6F2;
+		&::before {
+			content: ''; 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("./assets/images/banner_img-04.png") no-repeat bottom right;
+		  }
 	}
 }
 

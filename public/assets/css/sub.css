@@ -5783,11 +5783,27 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .gnb-third-item:hover {
   border-radius: var(--radius-medium2, 6px);
-  background: var(--color-primary-pr01, #d8e4f3);
+  background-color: #ECF2F9;
 }
 .gnb-third-item:hover .gnb-third-text {
-  color: #3c79c2 !important;
+  color: #191A1A !important;
+  font-weight: 400 !important;
+}
+.gnb-third-item:active {
+  background: #D8E4F3;
+}
+.gnb-third-item:active .gnb-third-text {
+  font-size: 1rem !important;
   font-weight: 700 !important;
+  color: #244874 !important;
+}
+.gnb-third-item.selected {
+  background: #ECF2F9;
+}
+.gnb-third-item.selected .gnb-third-text {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #244874 !important;
 }
 
 .statistics-content {
@@ -17900,7 +17916,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   object-fit: contain;
 }
 .ai-book-queue .ai-description-card .info-notice .info-text {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
   color: #7d8181;
