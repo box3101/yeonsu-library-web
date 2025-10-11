@@ -17297,6 +17297,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 
+.root_daum_roughmap_landing {
+  width: 100% !important;
+}
+
 .book-info.clearfix {
   padding-bottom: 10px;
   display: flex;
