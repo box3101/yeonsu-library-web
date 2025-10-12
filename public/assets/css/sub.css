@@ -516,6 +516,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
   border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
   border-left: 1px solid #cbcccc;
+  word-break: keep-all;
 }
 .usage-guide__table tr td.text-left {
   text-align: left;
@@ -673,6 +674,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .program-notice__content {
   padding-left: 1.75rem;
+  margin-top: 0.5rem;
 }
 .program-notice__list {
   list-style: none;
@@ -1750,6 +1752,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   gap: 0.125rem;
   align-items: flex-end;
   align-self: flex-end;
+  position: absolute;
 }
 .hall-calendar__button {
   display: inline-flex;
@@ -3001,7 +3004,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .form-field .form-label.required::after {
   content: "*";
   color: #d7424e;
-  margin-left: 0.125rem;
+  margin-left: 0.5rem;
   font-size: 1rem;
   vertical-align: super;
   position: absolute;
@@ -3050,7 +3053,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .form-field .address-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 .form-field .address-group .input-with-button {
   flex-direction: row;
@@ -3068,9 +3071,6 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   font-size: 1.5rem;
   font-weight: bold;
   color: #191a1a;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #ecf2fe;
 }
 
 .age-checkbox {
@@ -4780,13 +4780,12 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .search-type-tabs .ui-tab__list {
   gap: 0;
   border: 1px solid #b1b3b3;
-  border-radius: 0.25rem;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  margin-top: 1.5rem !important;
+  border-radius: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
 }
@@ -6828,8 +6827,9 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem;
   margin-bottom: 0.0625rem;
+  border-top: 2px solid #244874;
 }
 @media (max-width: 900px) {
   .com-title-type2__header {
@@ -6852,7 +6852,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .com-title-type2__detail {
   border-top: 1px solid #b1b4b4;
   border-bottom: 1px solid #b1b4b4;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
 }
 @media (max-width: 900px) {
   .com-title-type2__detail {
@@ -7217,14 +7217,50 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .new-content-item--life-library {
   background-color: #aecdff;
 }
+.new-content-item--life-library::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/images/banner_img-01.png") no-repeat bottom right;
+}
 .new-content-item--school-books {
-  background-color: #a5d5dc;
+  background-color: #D6C9F2;
+}
+.new-content-item--school-books::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/images/banner_img-02.png") no-repeat bottom right;
 }
 .new-content-item--infant-books {
   background-color: #ffee99;
 }
+.new-content-item--infant-books::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/images/banner_img-03.png") no-repeat bottom right;
+}
 .new-content-item--attendance-event {
-  background-color: #ffc4c4;
+  background-color: #B6D6F2;
+}
+.new-content-item--attendance-event::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/images/banner_img-04.png") no-repeat bottom right;
 }
 
 /* 이벤트 카드 태그 색상 클래스들 */
@@ -7736,7 +7772,6 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 .info-notice__header {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .info-notice__icon {
@@ -7760,6 +7795,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   line-height: 1.5;
   color: #191a1a;
   margin: 0;
+  word-break: keep-all;
 }
 
 .info-notice__content {
@@ -16355,7 +16391,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding-left: 0.5rem;
+  padding-left: 1.25rem;
   position: relative;
 }
 .library-info-list__item::before {
@@ -17804,7 +17840,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 
 .integrated-member-notice {
   margin-bottom: 1.25rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: #333;
   line-height: 1.5;
 }
@@ -17837,7 +17873,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   margin-bottom: 1.25rem;
 }
 .attendance-check-modal .attendance-description p {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: #333;
   line-height: 1.5;
   margin: 0;
@@ -17916,7 +17952,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   list-style: none;
 }
 .library-schedule-modal .schedule-content ul li {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: #333;
   line-height: 1.6;
   margin-bottom: 0.5rem;

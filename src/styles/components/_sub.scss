@@ -482,6 +482,7 @@ ul.movie-card-wrp {
 				border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-left: 1px solid #cbcccc;
+				word-break: keep-all;
 
 				&.text-left {
 					text-align: left;
@@ -626,6 +627,7 @@ ul.movie-card-wrp {
 
 	&__content {
 		padding-left: to-rem(28);
+		margin-top: 0.5rem;
 	}
 
 	&__list {
@@ -1776,6 +1778,7 @@ ul.movie-card-wrp {
 		gap: to-rem(2);
 		align-items: flex-end;
 		align-self: flex-end;
+		position: absolute; // 테이블 높이 맞춤(ley)
 	}
 
 	&__button {
@@ -3089,7 +3092,8 @@ ul.movie-card-wrp {
 		&.required::after {
 			content: '*';
 			color: #d7424e;
-			margin-left: to-rem(2);
+			// margin-left: to-rem(2);
+			margin-left: to-rem(8);
 			font-size: to-rem(16);
 			vertical-align: super;
 			position: absolute;
@@ -3144,7 +3148,8 @@ ul.movie-card-wrp {
 	.address-group {
 		display: flex;
 		flex-direction: column;
-		gap: to-rem(8);
+		// gap: to-rem(8);
+		gap: to-rem(12);
 
 		.input-with-button {
 			flex-direction: row;
@@ -3163,9 +3168,9 @@ ul.movie-card-wrp {
 		font-size: to-rem(24);
 		font-weight: bold;
 		color: #191a1a;
-		margin-bottom: to-rem(20);
-		padding-bottom: to-rem(8);
-		border-bottom: 2px solid #ecf2fe;
+		// margin-bottom: to-rem(20);
+		// padding-bottom: to-rem(8);
+		// border-bottom: 2px solid #ecf2fe;
 	}
 }
 
@@ -4977,13 +4982,14 @@ ul.movie-card-wrp {
 	.ui-tab__list {
 		gap: 0;
 		border: 1px solid #b1b3b3;
-		border-radius: to-rem(4);
+		// border-radius: to-rem(4);
 		display: flex;
 		flex-wrap: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
 		width: 100%;
-		margin-top: to-rem(24) !important;
+		// margin-top: to-rem(24) !important;
+		border-radius: to-rem(8);
 
 		@include mobile {
 			margin-bottom: 35px;
@@ -6999,8 +7005,9 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		padding: to-rem(12) 0;
+		padding: to-rem(12) to-rem(16);
 		margin-bottom: to-rem(1);
+		border-top: 2px solid #244874;
 
 		@include mobile {
 			padding: to-rem(8) 0;
@@ -7023,7 +7030,7 @@ ul.movie-card-wrp {
 	&__detail {
 		border-top: 1px solid #b1b4b4;
 		border-bottom: 1px solid #b1b4b4;
-		padding: to-rem(24) 0;
+		padding: to-rem(24) to-rem(16);
 
 		@include mobile {
 			padding: to-rem(16) 0;
@@ -8005,7 +8012,7 @@ ul.movie-card-wrp {
 .info-notice__header {
 	display: flex;
 	gap: 0.5rem;
-	margin-bottom: 0.5rem;
+	// margin-bottom: 0.5rem;
 }
 
 .info-notice__icon {
@@ -8025,9 +8032,11 @@ ul.movie-card-wrp {
 	font-family: 'Pretendard GOV', sans-serif;
 	font-size: 1.0625rem; /* 17px */
 	font-weight: 700;
+	// font-weight: 400;
 	line-height: 1.5;
 	color: #191a1a;
 	margin: 0;
+	word-break: keep-all;
 }
 .info-notice__content {
 	width: 100%;
@@ -11010,7 +11019,8 @@ ul.movie-card-wrp {
 		display: flex;
 		gap: to-rem(8px);
 		align-items: center;
-		padding-left: to-rem(8px);
+		// padding-left: to-rem(8px);
+		padding-left: to-rem(20px);
 		position: relative;
 
 		&::before {

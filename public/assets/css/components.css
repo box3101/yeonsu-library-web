@@ -146,6 +146,7 @@
   max-height: 600px;
   opacity: 1;
   visibility: visible;
+  margin: 10px 0;
   transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.25s ease-out 0.1s, visibility 0s linear 0s;
 }
 .left-menu-nav .menu-section .menu-list:not(.expanding) {
@@ -387,8 +388,8 @@
   pointer-events: none;
 }
 .ui-button--xsmall {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 15px;
   height: 2rem;
   border-radius: 0.25rem;
 }
@@ -1347,6 +1348,7 @@
   color: #464c53;
   line-height: 1.5;
   font-family: "PretendardVariable", "PretendardGOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
 }
 .ui-book-card .ui-table__text {
   text-align: center;
@@ -10431,6 +10433,7 @@ a:hover .icon-external-link {
 
 .ui-select-container {
   position: relative;
+  flex: 1 1 auto;
 }
 
 .ui-textarea-container {

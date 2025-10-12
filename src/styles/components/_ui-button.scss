@@ -38,8 +38,10 @@
 
 	// 크기 variants
 	&--xsmall {
-		padding: to-rem(6) to-rem(12);
-		font-size: $ui-text-xsmall;
+		// padding: to-rem(6) to-rem(12);
+		// font-size: $ui-text-xsmall;
+		padding: to-rem(4) to-rem(10);
+		 font-size: 15px;
 		height: $component-height-xsmall;
 		border-radius: to-rem(4);
 
