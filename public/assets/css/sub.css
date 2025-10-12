@@ -6223,6 +6223,34 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   color: #ffb114;
 }
 
+.step-item--highlight {
+  background: #3c79c2;
+}
+.step-item--highlight .step-number {
+  border-radius: 1.0625rem;
+  background: #ffffff;
+  color: #3c79c2;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.1875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-align: center;
+}
+.step-item--highlight .step-content {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Pretendard GOV", sans-serif;
+  font-size: 1.0625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+.step-item--highlight .step-content .step-sub {
+  color: #ffffff;
+}
+
 .step-process--6col {
   gap: 0.75rem;
 }
@@ -20518,6 +20546,141 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   color: #191a1a;
   margin: 0;
   word-break: break-all;
+}
+
+/* 시설물사용료 테이블 스타일 */
+.facility-fee-table tbody td {
+  vertical-align: middle;
+}
+.facility-fee-table .facility-category {
+  font-weight: 700;
+  text-align: center;
+}
+.facility-fee-table .remark-cell {
+  text-align: left;
+  vertical-align: top;
+  padding: 1rem;
+  line-height: 1.8;
+}
+
+/* 빨간색 텍스트 */
+.text-red {
+  color: #d7424e;
+}
+
+/* 안내 메시지 박스 - 책마중서비스 등에서 사용 */
+.info-notice {
+  background: #f4f5f6;
+  border: 1px solid #cdd1d5;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.info-notice__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.info-notice__icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-notice__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.info-notice__title {
+  flex: 1;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #191a1a;
+  margin: 0;
+  word-break: keep-all;
+}
+@media (max-width: 900px) {
+  .info-notice {
+    padding: 0.75rem;
+  }
+  .info-notice__title {
+    font-size: 0.9375rem;
+  }
+}
+
+/* 파란색 인포박스 */
+.com-infobox-blue {
+  background-color: #f0f7ff;
+  border: 1px solid #d4e6f7;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+.com-infobox-blue__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.com-infobox-blue__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+.com-infobox-blue__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #003456;
+  margin: 0;
+}
+.com-infobox-blue__content {
+  padding-left: 2rem;
+}
+.com-infobox-blue__list {
+  list-style: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+.com-infobox-blue__list li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.com-infobox-blue__list li:last-child {
+  margin-bottom: 0;
+}
+.com-infobox-blue__list li::before {
+  content: counter(item) ". ";
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: #003456;
+}
+
+/* 반응형 조정 */
+@media (max-width: 900px) {
+  .com-infobox-blue {
+    padding: 1rem;
+  }
+  .com-infobox-blue__content {
+    padding-left: 1rem;
+  }
+  .com-infobox-blue__list li {
+    font-size: 0.875rem;
+    padding-left: 1.25rem;
+  }
+  .facility-fee-table .remark-cell {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
 }
 
 /*# sourceMappingURL=sub.css.map */

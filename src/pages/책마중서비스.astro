@@ -1,0 +1,18 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton } from '@components';
+
+const title = '책마중서비스';
+const description = '연수구립도서관 책마중서비스 페이지입니다.';
+
+const breadcrumbItems = [
+	{ text: '홈', link: '/' },
+	{ text: '도서서비스', link: '#' },
+	{ text: '책마중서비스', link: '#' },
+];
+---
+
+<Layout title={title} description={description}>
+	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">23</SubLayout>
+</Layout>

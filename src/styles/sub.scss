@@ -293,3 +293,160 @@
 		word-break: break-all;
 	}
 }
+/* 시설물사용료 테이블 스타일 */
+.facility-fee-table {
+	tbody {
+		td {
+			vertical-align: middle;
+		}
+	}
+
+	.facility-category {
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.remark-cell {
+		text-align: left;
+		vertical-align: top;
+		padding: to-rem(16);
+		line-height: 1.8;
+	}
+}
+
+/* 빨간색 텍스트 */
+.text-red {
+	color: #d7424e;
+}
+
+/* 안내 메시지 박스 - 책마중서비스 등에서 사용 */
+.info-notice {
+	background: #f4f5f6;
+	border: 1px solid #cdd1d5;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+	
+	&__header {
+		display: flex;
+		align-items: flex-start;
+		gap: to-rem(8);
+	}
+	
+	&__icon {
+		flex-shrink: 0;
+		width: to-rem(24);
+		height: to-rem(24);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	
+	&__title {
+		flex: 1;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+		word-break: keep-all;
+	}
+	
+	@include mobile {
+		padding: to-rem(12);
+		
+		&__title {
+			font-size: to-rem(15);
+		}
+	}
+}
+
+/* 파란색 인포박스 */
+.com-infobox-blue {
+	background-color: #f0f7ff;
+	border: 1px solid #d4e6f7;
+	border-radius: to-rem(8);
+	padding: to-rem(24);
+	margin-top: to-rem(24);
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(8);
+		margin-bottom: to-rem(16);
+	}
+
+	&__icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
+	}
+
+	&__title {
+		font-size: to-rem(18);
+		font-weight: 700;
+		color: #003456;
+		margin: 0;
+	}
+
+	&__content {
+		padding-left: to-rem(32);
+	}
+
+	&__list {
+		list-style: none;
+		counter-reset: item;
+		margin: 0;
+		padding: 0;
+
+		li {
+			counter-increment: item;
+			position: relative;
+			padding-left: to-rem(24);
+			font-size: to-rem(16);
+			line-height: 1.8;
+			color: #333;
+			margin-bottom: to-rem(8);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&::before {
+				content: counter(item) '. ';
+				position: absolute;
+				left: 0;
+				font-weight: 600;
+				color: #003456;
+			}
+		}
+	}
+}
+
+/* 반응형 조정 */
+@media (max-width: 900px) {
+	.com-infobox-blue {
+		padding: to-rem(16);
+
+		&__content {
+			padding-left: to-rem(16);
+		}
+
+		&__list li {
+			font-size: to-rem(14);
+			padding-left: to-rem(20);
+		}
+	}
+
+	.facility-fee-table {
+		.remark-cell {
+			padding: to-rem(12);
+			font-size: to-rem(14);
+		}
+	}
+}
