@@ -1587,7 +1587,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 @media (max-width: 900px) {
   .hall-calendar__cell {
-    min-height: 5rem;
+    min-height: 6.5625rem;
     padding: 0.25rem;
   }
 }
@@ -5782,14 +5782,14 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .gnb-third-item:hover {
   border-radius: var(--radius-medium2, 6px);
-  background-color: #ECF2F9;
+  background-color: #ecf2f9;
 }
 .gnb-third-item:hover .gnb-third-text {
-  color: #191A1A !important;
+  color: #191a1a !important;
   font-weight: 400 !important;
 }
 .gnb-third-item:active {
-  background: #D8E4F3;
+  background: #d8e4f3;
 }
 .gnb-third-item:active .gnb-third-text {
   font-size: 1rem !important;
@@ -5797,7 +5797,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   color: #244874 !important;
 }
 .gnb-third-item.selected {
-  background: #ECF2F9;
+  background: #ecf2f9;
 }
 .gnb-third-item.selected .gnb-third-text {
   font-size: 1rem !important;
@@ -7252,10 +7252,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/banner_img-01.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-01.png") no-repeat bottom right;
 }
 .new-content-item--school-books {
-  background-color: #D6C9F2;
+  background-color: #d6c9f2;
 }
 .new-content-item--school-books::before {
   content: "";
@@ -7264,7 +7264,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/banner_img-02.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-02.png") no-repeat bottom right;
 }
 .new-content-item--infant-books {
   background-color: #ffee99;
@@ -7276,10 +7276,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/banner_img-03.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-03.png") no-repeat bottom right;
 }
 .new-content-item--attendance-event {
-  background-color: #B6D6F2;
+  background-color: #b6d6f2;
 }
 .new-content-item--attendance-event::before {
   content: "";
@@ -7288,7 +7288,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("./assets/images/banner_img-04.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-04.png") no-repeat bottom right;
 }
 
 /* 이벤트 카드 태그 색상 클래스들 */

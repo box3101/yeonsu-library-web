@@ -325,13 +325,13 @@
 	border: 1px solid #cdd1d5;
 	border-radius: to-rem(12);
 	padding: to-rem(16);
-	
+
 	&__header {
 		display: flex;
 		align-items: flex-start;
 		gap: to-rem(8);
 	}
-	
+
 	&__icon {
 		flex-shrink: 0;
 		width: to-rem(24);
@@ -339,14 +339,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		
+
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
 		}
 	}
-	
+
 	&__title {
 		flex: 1;
 		font-size: to-rem(17);
@@ -356,10 +356,10 @@
 		margin: 0;
 		word-break: keep-all;
 	}
-	
+
 	@include mobile {
 		padding: to-rem(12);
-		
+
 		&__title {
 			font-size: to-rem(15);
 		}

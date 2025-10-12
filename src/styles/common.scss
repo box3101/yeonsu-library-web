@@ -929,12 +929,12 @@ img {
 		flex-grow: 1;
 		text-align: left;
 	}
-	
+
 	@media (max-width: 900px) {
 		.related-site-button &__text {
 			font-size: 15px;
 		}
-	  }
+	}
 
 	&__icon {
 		width: 20px;
@@ -1286,7 +1286,7 @@ img {
 							overflow: hidden;
 							opacity: 0;
 							transition: max-height 0.25s ease-in-out, opacity 0.2s ease-in-out;
-							
+
 							&.active {
 								max-height: 1000px;
 								opacity: 1;
@@ -1306,11 +1306,11 @@ img {
 								&:hover {
 									background: #ecf2f9;
 								}
-								
+
 								&:active {
 									background: #d8e4f3;
 								}
-								
+
 								&.selected,
 								&.active {
 									background: #ecf2f9;
