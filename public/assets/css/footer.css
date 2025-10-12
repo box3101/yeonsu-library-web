@@ -250,7 +250,7 @@
 }
 @media (max-width: 900px) {
   .footer__library-item-details-text {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 }
 .footer__library-item-details-text--medium {
@@ -345,7 +345,7 @@
 }
 @media (max-width: 900px) {
   .footer__copyright-links-button-text {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
   }
 }
 .footer__copyright-links-button-text--bold {
@@ -374,7 +374,7 @@
 }
 @media (max-width: 900px) {
   .footer__copyright-text span {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 }
 

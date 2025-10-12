@@ -734,26 +734,11 @@ img {
 .filter-row-type2 .filter-select--library {
   width: 9.375rem;
 }
-@media (max-width: 900px) {
-  .filter-row-type2 .filter-select--library {
-    width: 120px;
-  }
-}
 .filter-row-type2 .filter-select--year {
   width: 7.5rem;
 }
-@media (max-width: 900px) {
-  .filter-row-type2 .filter-select--year {
-    width: 100px;
-  }
-}
 .filter-row-type2 .filter-select--month {
   width: 7.5rem;
-}
-@media (max-width: 900px) {
-  .filter-row-type2 .filter-select--month {
-    width: 100px;
-  }
 }
 @media (max-width: 900px) {
   .filter-row-type2 .filter-select {
@@ -885,6 +870,11 @@ img {
   color: #1e2124;
   flex-grow: 1;
   text-align: left;
+}
+@media (max-width: 900px) {
+  .related-site-button .related-site-button__text {
+    font-size: 15px;
+  }
 }
 .related-site-button__icon {
   width: 20px;
@@ -1220,22 +1210,26 @@ img {
   color: #1e2124;
   text-align: left;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle:hover {
   background: #f9fafb;
 }
-.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.selected {
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.expanded, .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.selected {
   background: #ecf2f9;
   font-weight: 700;
   color: #244874;
 }
-.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.selected .icon {
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.expanded .icon,
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.expanded .icon-arrow-down, .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.selected .icon,
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle.selected .icon-arrow-down {
   transform: rotate(180deg);
 }
-.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle .icon {
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle .icon,
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-toggle .icon-arrow-down {
   width: 1.25rem;
   height: 1.25rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease-in-out;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-item-link {
   display: flex;
@@ -1259,10 +1253,14 @@ img {
   background: #f9fafb;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease-in-out, opacity 0.2s ease-in-out;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu.active {
-  display: block;
+  max-height: 1000px;
+  opacity: 1;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link {
   display: flex;
@@ -1277,9 +1275,18 @@ img {
   font-weight: 400;
   color: #1e2124;
   border-radius: 0.375rem;
+  transition: all 0.2s ease;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link:hover {
-  background: #f9fafb;
+  background: #ecf2f9;
+}
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link:active {
+  background: #d8e4f3;
+}
+.mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link.selected, .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link.active {
+  background: #ecf2f9;
+  color: #244874;
+  font-weight: 700;
 }
 .mobile-menu-detail .menu-detail-content .menu-section-items .menu-item-group .menu-submenu .menu-submenu-link .bullet {
   width: 0.25rem;

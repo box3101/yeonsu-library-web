@@ -39,9 +39,23 @@
 		font-size: to-rem(19);
 		font-weight: 700;
 		line-height: 1.5;
-		color: #464c53;
+		color: #4B4D4D;
 		transition: all 0.2s ease;
 		text-decoration: none;
+		position: relative;
+
+		// 하단 라인 (중앙에서 양쪽으로)
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 0;
+			height: 4px;
+			background: #244874;
+			transform: translateX(-50%);
+			transition: width 0.3s ease;
+		}
 
 		&:hover {
 			background: #ECF2F9;
@@ -54,12 +68,19 @@
 		}
 
 		&.selected {
-			border-bottom: 4px solid #244874;
-			background: #ffffff;
-			color:#244874;
+			background: #ffffff !important;
+			color: #244874 !important;
+			font-weight: 700 !important;
+			
+			&::after {
+				width: 100%;
+			}
+			
+			// 화살표 위로 회전
+			.icon-arrow-down {
+				transform: rotate(180deg);
+			}
 		}
-
-	
 	}
 
 	&-text {
@@ -67,6 +88,15 @@
 		text-align: left;
 		white-space: nowrap;
 		// display: none;
+	}
+	
+	&-icon {
+		transition: transform 0.3s ease;
+	}
+	
+	// 화살표 아이콘 transition
+	.icon-arrow-down {
+		transition: transform 0.3s ease;
 	}
 }
 
@@ -103,25 +133,39 @@
 	left: 0;
 	right: 0;
 	z-index: 999;
+	border-top: 1px solid #cdd1d5;
+	max-height: 0;
+	overflow: hidden;
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(-12px);
-	transition: all 0.3s ease;
-	border-top: 1px solid #cdd1d5;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: max-height 0.35s ease-out, 
+	            opacity 0.25s ease-out, 
+	            transform 0.35s ease-out,
+	            visibility 0s linear 0.35s;
 
 	&[hidden] {
-		display: none !important;
+		max-height: 0 !important;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		transform: scaleY(0) !important;
 	}
 
 	&:not([hidden]) {
 		opacity: 1;
 		visibility: visible;
-		transform: translateY(0);
+		max-height: 600px;
+		transform: scaleY(1);
+		transition: max-height 0.35s ease-out, 
+		            opacity 0.25s ease-out, 
+		            transform 0.35s ease-out,
+		            visibility 0s linear 0s;
 	}
 
 	&-content {
 		@include flex(row, flex-start, stretch);
-		padding: to-rem(16) 0;
+		padding: to-rem(16) 0 to-rem(80) 0;
 		gap: to-rem(24);
 	}
 
@@ -160,20 +204,21 @@
 		}
 
 		&:hover {
-			background: #ECF2F9;
+			background: #ECF2F9;			
 		}
 
 		&:active {
 			background: #D8E4F3;
 			outline: none;
 			border: none;
+			
 		}
 	}
 
 	&-link {
 		@include flex(row, space-between, center);
 		width: 100%;
-		padding: to-rem(12) to-rem(16);
+		padding: to-rem(16) to-rem(16);
 		text-decoration: none;
 		background: none;
 		border: none;
@@ -182,9 +227,31 @@
 		color: inherit;
 
 		&:focus {
-			outline: 2px solid #244874;
-			outline-offset: 2px;
+			// outline: 2px solid #244874;
+			// outline-offset: 2px;
 			background: #f8fafc;
+		}
+		// 추가  ley 251011
+		&:hover {
+			background: #ECF2F9;
+			
+			.gnb-sub-text {
+				font-weight: 700;
+			}
+		}
+
+		&:active {
+			
+			background: #D8E4F3;
+			
+		}
+		&.selected {
+			background: #ECF2F9;
+			color: #244874;
+			
+			.gnb-sub-text {
+				font-weight: 700;
+			}
 		}
 	}
 
@@ -247,7 +314,12 @@
 		transition: all 0.2s ease;
 
 		&.selected {
-			background: var(--color-primary-pr01);
+			background: #ECF2F9;
+			
+			.gnb-third-text {
+				color: #244874 !important;
+				font-weight: 700 !important;
+			}
 		}
 
 		@include makeBefore {
@@ -280,8 +352,9 @@
 		color: inherit;
 
 		&:focus {
-			outline: 2px solid #244874;
-			outline-offset: 2px;
+			// outline: 2px solid #244874;
+			// outline-offset: 2px;
+			outline: none;
 		}
 	}
 
@@ -293,10 +366,10 @@
 // 3depth 메뉴를 서브메뉴 전체 영역 기준으로 위치 조정
 .gnb-third-list {
 	position: absolute;
-	top: 0; // 서브메뉴 전체 영역 맨 위부터 시작
+	// top: 0; // 서브메뉴 전체 영역 맨 위부터 시작
 	left: 50%;
 	width: to-rem(298);
-	height: 100%;
+	// height: 100%;
 	overflow: auto;
 	background: white;
 	border-left: 1px solid #cdd1d5;
@@ -304,15 +377,39 @@
 	list-style: none;
 	margin: 0;
 	z-index: 1001;
-	padding-top: 20px;
+	// padding-top: 20px;
+	padding: 0 24px;
+
+	top: 1rem;
+	height: calc(100% - 32px);
 
 	// 기본적으로 숨김
-	display: none;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(10px);
+	transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+	
+	// 3depth 타이틀
+	.title {
+		margin-bottom: to-rem(12);
+		// padding: to-rem(8) to-rem(16);
+		padding: to-rem(0) to-rem(0);
+	}
+	
+	.gnb-third-title-text {
+		font-size: to-rem(18);
+		font-weight: 700;
+		color: #18304D;
+	}
+
 
 	// 부모 li가 hover되거나 선택되었을 때 표시
 	.gnb-sub-item:hover &,
 	.gnb-sub-item.selected & {
-		display: block;
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+		transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
 	}
 }
 

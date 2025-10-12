@@ -13360,17 +13360,7 @@
 .section-title {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: 3px solid #3c79c2;
   position: relative;
-}
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 3.75rem;
-  height: 3px;
-  background: #063a74;
 }
 
 .sub-section-title {

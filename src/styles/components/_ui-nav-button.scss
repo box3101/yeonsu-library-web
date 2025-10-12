@@ -78,12 +78,13 @@
 
   // Default hover state
   &:hover:not(:disabled) {
-    background: $gray-100;
     border-color: $gray-600;
+    background: #244874;
 
     .icon,
     i[class*='icon'] {
-      color: $text-color;
+      // img 태그를 흰색으로 변경
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
     }
   }
 

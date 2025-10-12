@@ -52,10 +52,11 @@ $(document).ready(function () {
 			if ($thirdList.length > 0) {
 				$thirdList.show();
 			}
-			
-			// 선택 상태 업데이트
+			// 선택 상태 업데이트 - .gnb-sub-item과 .gnb-sub-link 모두에 클래스 추가
 			$subItem.parent().find('.gnb-sub-item').removeClass('selected');
+			$subItem.parent().find('.gnb-sub-link').removeClass('selected');
 			$subItem.addClass('selected');
+			$subItem.find('.gnb-sub-link').addClass('selected');
 		}
 
 		// 각 메인 아이템에 이벤트 등록
@@ -66,48 +67,68 @@ $(document).ready(function () {
 
 			if ($submenu.length === 0) return;
 
-			// 호버 이벤트
-			$item.on('mouseenter', function () {
-				showSubmenu($submenu);
-				// 첫 번째 서브메뉴 항목의 3depth 표시 (있을 경우)
-				var $firstSubItem = $submenu.find('.gnb-sub-item').first();
-				if ($firstSubItem.length > 0) {
-					showThirdMenu($firstSubItem);
+			// 클릭 이벤트 (토글 방식)
+			$mainLink.on('click', function (e) {
+				e.preventDefault();
+				
+				var isHidden = $submenu.attr('hidden') === 'hidden';
+				
+				// 모든 1depth 메뉴에서 selected 제거
+				$gnb.find('.gnb-main-link').removeClass('selected');
+				
+				if (isHidden) {
+					// 서브메뉴 열기
+					showSubmenu($submenu);
+					// 현재 메뉴에 selected 추가
+					$mainLink.addClass('selected');
+					// 첫 번째 서브메뉴 항목의 3depth 표시 (있을 경우)
+					var $firstSubItem = $submenu.find('.gnb-sub-item').first();
+					if ($firstSubItem.length > 0) {
+						showThirdMenu($firstSubItem);
+					}
+				} else {
+					// 서브메뉴 닫기
+					hideAllSubmenus();
 				}
 			});
 
-			$item.on('mouseleave', function (e) {
-				if (!$submenu[0].contains(e.relatedTarget)) {
-					setTimeout(function () {
-						$submenu.attr('hidden', true);
-					}, 100);
-				}
-			});
-
-			// 포커스 이벤트
-			$mainLink.on('focus', function () {
-				showSubmenu($submenu);
-				// 첫 번째 서브메뉴 항목의 3depth 표시 (있을 경우)
-				var $firstSubItem = $submenu.find('.gnb-sub-item').first();
-				if ($firstSubItem.length > 0) {
-					showThirdMenu($firstSubItem);
-				}
-			});
-
-			// 2depth 호버/포커스 시 3depth 메뉴 표시
+			// 2depth 클릭/호버/포커스 시 3depth 메뉴 표시
 			var $subItems = $submenu.find('.gnb-sub-item');
 			$subItems.each(function () {
 				var $subItem = $(this);
 				var $subLink = $subItem.find('.gnb-sub-link');
+				var $thirdList = $subItem.find('.gnb-third-list');
 
+				// 클릭 이벤트
+				$subLink.on('click', function (e) {
+					console.log('2depth 클릭됨:', $subLink.text().trim());
+					
+					// 3depth가 있으면 페이지 이동 막고 3depth 표시
+					if ($thirdList.length > 0) {
+						e.preventDefault();
+						showThirdMenu($subItem);
+						console.log('3depth 표시됨, selected 클래스:', $subItem.hasClass('selected'));
+					}
+					// 3depth가 없으면 페이지 이동 (기본 동작)
+				});
+
+				// 호버/포커스 시에도 3depth 표시
 				$subLink.on('mouseenter focus', function () {
-					showThirdMenu($subItem);
+					if ($thirdList.length > 0) {
+						showThirdMenu($subItem);
+					}
+				});
+				
+				// 3depth 메뉴 클릭 이벤트
+				$thirdList.find('.gnb-third-link').on('click', function () {
+					// 모든 3depth 아이템에서 selected 제거
+					$thirdList.find('.gnb-third-item').removeClass('selected');
+					// 클릭한 아이템에 selected 추가
+					$(this).closest('.gnb-third-item').addClass('selected');
+					console.log('3depth 클릭됨:', $(this).text().trim());
 				});
 			});
 		});
-
-		// GNB 전체 벗어날 때 숨기기
-		$gnb.on('mouseleave', hideAllSubmenus);
 
 		// 딤 오버레이 클릭 시 메뉴 닫기
 		$dim.on('click', hideAllSubmenus);
@@ -336,8 +357,8 @@ $(document).ready(function () {
 				$button.addClass('expanded selected');
 				$targetSubmenu.addClass('active');
 
-				// 펼친 메뉴로 스크롤
-				smoothScrollTo($detailArea, $button);
+				// 스크롤 제거 - 메뉴가 위로 올라가는 문제 해결
+				// smoothScrollTo($detailArea, $button);
 			}
 		}
 

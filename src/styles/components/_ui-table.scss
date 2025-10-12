@@ -711,6 +711,7 @@
 		color: #464c53;
 		line-height: 1.5;
 		font-family: $font-family-primary;
+		word-break: keep-all;
 
 		@at-root .ui-book-card .ui-table__text {
 			text-align: center;

@@ -766,7 +766,7 @@ img {
 			width: to-rem(150);
 
 			@include mobile {
-				width: 120px;
+				// width: 120px;
 			}
 		}
 
@@ -774,7 +774,7 @@ img {
 			width: to-rem(120);
 
 			@include mobile {
-				width: 100px;
+				// width: 100px;
 			}
 		}
 
@@ -782,7 +782,7 @@ img {
 			width: to-rem(120);
 
 			@include mobile {
-				width: 100px;
+				// width: 100px;
 			}
 		}
 
@@ -929,6 +929,12 @@ img {
 		flex-grow: 1;
 		text-align: left;
 	}
+	
+	@media (max-width: 900px) {
+		.related-site-button &__text {
+			font-size: 15px;
+		}
+	  }
 
 	&__icon {
 		width: 20px;
@@ -1230,25 +1236,29 @@ img {
 							color: #1e2124;
 							text-align: left;
 							cursor: pointer;
+							transition: all 0.2s ease;
 
 							&:hover {
 								background: #f9fafb;
 							}
 
+							&.expanded,
 							&.selected {
 								background: #ecf2f9;
 								font-weight: 700;
 								color: #244874;
 
-								.icon {
+								.icon,
+								.icon-arrow-down {
 									transform: rotate(180deg);
 								}
 							}
 
-							.icon {
+							.icon,
+							.icon-arrow-down {
 								width: to-rem(20);
 								height: to-rem(20);
-								transition: transform 0.2s ease;
+								transition: transform 0.25s ease-in-out;
 							}
 						}
 
@@ -1272,9 +1282,14 @@ img {
 						}
 
 						.menu-submenu {
-							display: none;
+							max-height: 0;
+							overflow: hidden;
+							opacity: 0;
+							transition: max-height 0.25s ease-in-out, opacity 0.2s ease-in-out;
+							
 							&.active {
-								display: block;
+								max-height: 1000px;
+								opacity: 1;
 							}
 
 							.menu-submenu-link {
@@ -1286,9 +1301,21 @@ img {
 								font-weight: 400;
 								color: #1e2124;
 								border-radius: to-rem(6);
+								transition: all 0.2s ease;
 
 								&:hover {
-									background: #f9fafb;
+									background: #ecf2f9;
+								}
+								
+								&:active {
+									background: #d8e4f3;
+								}
+								
+								&.selected,
+								&.active {
+									background: #ecf2f9;
+									color: #244874;
+									font-weight: 700;
 								}
 
 								.bullet {

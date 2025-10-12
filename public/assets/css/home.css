@@ -372,7 +372,7 @@
 .notice-section {
   width: 100%;
   padding: 3.75rem 0;
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
 }
 .notice-section .notice-section__list-container {
   overflow: hidden;
@@ -380,12 +380,13 @@
 @media (max-width: 900px) {
   .notice-section {
     padding: 2rem 0;
-    padding-bottom: 0;
+    /* padding-bottom: 0; */
   }
 }
 .notice-section__content {
   display: flex;
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
+  gap: 40px;
   align-items: flex-start;
 }
 @media (max-width: 900px) {
@@ -849,7 +850,7 @@
 .event-section {
   width: 100%;
   padding: 3.75rem 0;
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
   background-image: url("../images/bg-event-section.png");
   background-size: cover;
   background-position: center;
@@ -858,7 +859,7 @@
 @media (max-width: 900px) {
   .event-section {
     padding: 2rem 0;
-    padding-bottom: 0;
+    /* padding-bottom: 0; */
   }
 }
 .event-section .container {
@@ -867,7 +868,8 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
+  gap: 40px;
 }
 @media (max-width: 900px) {
   .event-section .container {
@@ -1243,6 +1245,7 @@
   position: relative;
   overflow: hidden;
   height: 10.25rem;
+  justify-content: flex-end;
 }
 @media (max-width: 900px) {
   .event-section .event-section__right .new-content-item {
@@ -1280,25 +1283,22 @@
   object-fit: contain;
 }
 .event-section .event-section__right .new-content-item__content {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 .event-section .event-section__right .new-content-item__title {
   font-family: "Pretendard GOV", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0;
   color: #191a1a;
-  padding-right: 5.625rem;
+  padding-right: 0rem !important;
 }
 .event-section .event-section__right .new-content-item__title span {
   color: #f98512;
@@ -1309,10 +1309,6 @@
   }
 }
 .event-section .event-section__right .new-content-item__arrow {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   width: 2rem;
   height: 2rem;
   display: flex;
@@ -1320,7 +1316,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  background: rgba(255, 255, 255, 0.2);
+  background: #ffffff;
   border-radius: 50%;
   color: #ffffff;
 }
@@ -2018,7 +2014,7 @@
 }
 .library-hours__nav {
   display: flex;
-  gap: 4px;
+  gap: 8px;
 }
 .library-hours__nav-btn {
   background: none;
@@ -2152,8 +2148,43 @@
 .new-content-item--infant-books {
   background-color: #ffee99;
 }
+.new-content-item--infant-books .new-content-item__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.new-content-item--infant-books .new-content-item__title .title-line1 {
+  color: #FF8C00 !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
+.new-content-item--infant-books .new-content-item__title .title-line2 {
+  color: #191A1A !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+.new-content-item--infant-books .new-content-item__title .title-line3 {
+  color: #2251A5 !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
 .new-content-item--attendance-event {
   background-color: #ffc4c4;
+}
+.new-content-item--attendance-event .new-content-item__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.new-content-item--attendance-event .new-content-item__title .title-line3 {
+  color: #2251A5 !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
+.new-content-item--attendance-event .new-content-item__title .title-line2 {
+  color: #191A1A !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
 }
 
 .size-40x40 {
@@ -2184,5 +2215,3 @@
 .calendar .calendar__selects .ui-select__arrow {
   display: none;
 }
-
-/*# sourceMappingURL=home.css.map */

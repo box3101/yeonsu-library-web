@@ -69,13 +69,15 @@
     var isExpanded = $button.attr('aria-expanded') === 'true';
     var isActive = $menuContent.hasClass('expanded');
 
-    // 다른 모든 메뉴 닫기 (현재 클릭한 메뉴 제외)
-    closeOtherMenus(toggleIndex);
-
+    // 클릭한 메뉴만 토글
     if (isExpanded || isActive) {
       // 현재 메뉴 닫기
       closeMenu($button, $menuContent);
     } else {
+      // 다른 메뉴들 먼저 닫기
+      closeOtherMenus(toggleIndex);
+      // 2depth 직접 링크의 active 상태 제거
+      $('.menu-section-title.direct-link.active').removeClass('active');
       // 현재 메뉴 열기
       openMenu($button, $menuContent);
     }
@@ -86,14 +88,10 @@
    * @param {string} excludeIndex - 제외할 메뉴의 인덱스 (현재 클릭한 메뉴)
    */
   function closeOtherMenus(excludeIndex) {
-    // 현재 열려있는 모든 메뉴 버튼 찾기
     var $openButtons = $('[data-menu-toggle][aria-expanded="true"]');
-
     $openButtons.each(function () {
       var $button = $(this);
       var buttonIndex = $button.attr('data-menu-toggle');
-
-      // 현재 클릭한 메뉴가 아닌 경우에만 닫기
       if (buttonIndex !== excludeIndex) {
         var $content = $('[data-menu-content="' + buttonIndex + '"]');
         closeMenu($button, $content);

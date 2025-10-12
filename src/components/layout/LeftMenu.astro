@@ -18,10 +18,14 @@ const detectedMenuType = menuType || getMenuTypeFromPath(currentPath);
 // 현재 페이지에 해당하는 메뉴 데이터 가져오기
 const currentMenu = menuConfig[detectedMenuType];
 const menuItems = currentMenu?.sections || [];
-
 // 현재 URL에 따른 메뉴 섹션 확장 상태 설정
 // 사용자가 현재 보고 있는 페이지와 관련된 메뉴 항목들을 자동으로 열어서 보여줌
 const expandedSections = getExpandedSectionsForPath(currentPath, detectedMenuType);
+
+// 디버깅 로그
+console.log('=== LeftMenu Debug (Server) ===');
+console.log('currentPath:', currentPath);
+console.log('decodedCurrentPath:', decodedCurrentPath);
 
 /**
  * URL 경로 비교 함수
@@ -29,7 +33,9 @@ const expandedSections = getExpandedSectionsForPath(currentPath, detectedMenuTyp
  * 한글 URL 인코딩/디코딩 문제를 해결하기 위해 여러 방식으로 비교
  */
 const isActivePath = (href: string) => {
-	return currentPath === href || decodedCurrentPath === href || currentPath === encodeURIComponent(href);
+	const normalizedHref = href.startsWith('./') ? '/' + href.slice(2) : href;
+	const decodedHref = decodeURIComponent(normalizedHref);
+	return currentPath === normalizedHref || decodedCurrentPath === decodedHref;
 };
 
 /**
@@ -103,3 +109,11 @@ const shouldBeExpanded = section => {
 		))
 	}
 </nav>
+
+<script define:vars={{ currentPath, detectedMenuType, expandedSections }}>
+	// 클라이언트 사이드 디버깅
+	console.log('=== LeftMenu Debug (Client) ===');
+	console.log('currentPath:', currentPath);
+	console.log('detectedMenuType:', detectedMenuType);
+	console.log('expandedSections:', expandedSections);
+</script>
