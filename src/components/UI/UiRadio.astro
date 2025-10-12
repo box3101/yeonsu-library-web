@@ -1,63 +1,55 @@
 ---
 // UiRadio 컴포넌트의 Props 인터페이스 정의
 export interface Props {
-  name: string; // 라디오 버튼 그룹명 (필수)
-  value: string; // 라디오 버튼의 값 (필수)
-  checked?: boolean; // 선택 상태 여부 (선택사항)
-  disabled?: boolean; // 비활성화 상태 여부 (선택사항)
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'; // 라디오 버튼 크기
-  label?: string; // 라디오 버튼의 메인 라벨 텍스트 (선택사항)
-  description?: string; // 라디오 버튼의 부가 설명 텍스트 (선택사항)
-  id?: string; // HTML id 속성 (선택사항)
+	name: string; // 라디오 버튼 그룹명 (필수)
+	value: string; // 라디오 버튼의 값 (필수)
+	checked?: boolean; // 선택 상태 여부 (선택사항)
+	disabled?: boolean; // 비활성화 상태 여부 (선택사항)
+	size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'; // 라디오 버튼 크기
+	label?: string; // 라디오 버튼의 메인 라벨 텍스트 (선택사항)
+	description?: string; // 라디오 버튼의 부가 설명 텍스트 (선택사항)
+	id?: string; // HTML id 속성 (선택사항)
 }
 
 // Astro.props에서 전달받은 속성들을 구조분해할당으로 추출
 const {
-  name, // 라디오 버튼 그룹명
-  value, // 라디오 버튼 값
-  checked = false, // 기본값: 선택되지 않음
-  disabled = false, // 기본값: 활성화 상태
-  size = 'medium', // 기본값: medium 크기
-  label, // 메인 라벨 텍스트
-  description, // 부가 설명 텍스트
-  id = `radio-${name}-${value}`, // 기본값: radio-{name}-{value} 형태의 고유 ID
+	name, // 라디오 버튼 그룹명
+	value, // 라디오 버튼 값
+	checked = false, // 기본값: 선택되지 않음
+	disabled = false, // 기본값: 활성화 상태
+	size = 'medium', // 기본값: medium 크기
+	label, // 메인 라벨 텍스트
+	description, // 부가 설명 텍스트
+	id = `radio-${name}-${value}`, // 기본값: radio-{name}-{value} 형태의 고유 ID
 } = Astro.props;
 ---
 
 <!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
-<div
-  class={`ui-radio ui-radio--${size} ${disabled ? 'ui-radio--disabled' : ''}`}
->
-  <!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
-  <div class="ui-radio__item">
-    <!-- 숨겨진 실제 라디오 input 요소 -->
-    <input
-      type="radio"
-      {id}
-      {name}
-      {value}
-      {checked}
-      {disabled}
-      class="ui-radio__input"
-    />
-    <!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
-    <div class="ui-radio__control">
-      <!-- 선택 시 표시될 내부 원형 도트 -->
-      <div class="ui-radio__dot"></div>
-    </div>
-  </div>
-
-  {
-    // 라벨이나 설명이 있을 때만 label 요소 렌더링
-    (label || description) && (
-      <label for={id} class="ui-radio__label">
-        {/* 메인 라벨이 있을 때만 title 스팬 렌더링 */}
-        {label && <span class="ui-radio__title">{label}</span>}
-        {/* 부가 설명이 있을 때만 description 스팬 렌더링 */}
-        {description && (
-          <span class="ui-radio__description">{description}</span>
-        )}
-      </label>
-    )
-  }
+<div class={`ui-radio ui-radio--${size} ${disabled ? 'ui-radio--disabled' : ''}`}>
+	{
+		// 라벨이 있으면 label로 전체를 감싸고, 없으면 그냥 div로
+		label || description ? (
+			<label for={id} class="ui-radio__wrapper">
+				<div class="ui-radio__item">
+					<input type="radio" {id} {name} {value} {checked} {disabled} class="ui-radio__input" />
+					<div class="ui-radio__control">
+						<div class="ui-radio__dot" />
+					</div>
+				</div>
+				<div class="ui-radio__label">
+					{/* 메인 라벨이 있을 때만 title 스팬 렌더링 */}
+					{label && <span class="ui-radio__title">{label}</span>}
+					{/* 부가 설명이 있을 때만 description 스팬 렌더링 */}
+					{description && <span class="ui-radio__description">{description}</span>}
+				</div>
+			</label>
+		) : (
+			<div class="ui-radio__item">
+				<input type="radio" {id} {name} {value} {checked} {disabled} class="ui-radio__input" />
+				<div class="ui-radio__control">
+					<div class="ui-radio__dot" />
+				</div>
+			</div>
+		)
+	}
 </div>

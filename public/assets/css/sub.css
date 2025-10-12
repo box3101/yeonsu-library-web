@@ -20126,4 +20126,130 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 
+.notice-detail-page .post-detail__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 4px 24px;
+  height: 32px;
+  border-radius: 32px;
+  margin-right: 5px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .notice-detail-page .post-detail__badge {
+    margin-right: 8px;
+    padding: 4px 16px;
+    height: 28px;
+    border-radius: 28px;
+    margin-right: 5px;
+    font-size: 0.8125rem;
+  }
+}
+.notice-detail-page .post-detail__badge--0, .notice-detail-page .post-detail__badge--000000 {
+  background: #008f37;
+}
+.notice-detail-page .post-detail__badge--128121 {
+  background: #F2CC3D;
+}
+.notice-detail-page .post-detail__badge--128005 {
+  background: #4ade80;
+}
+.notice-detail-page .post-detail__badge--128058 {
+  background: #7fa7d7;
+}
+.notice-detail-page .post-detail__badge--128115 {
+  background: #a3cf62;
+}
+.notice-detail-page .post-detail__badge--128047 {
+  background: #a855f7;
+}
+.notice-detail-page .post-detail__badge--128099 {
+  background: #ef6601;
+}
+.notice-detail-page .post-detail__badge--128104 {
+  background: #ffacc1;
+}
+.notice-detail-page .post-detail__badge--128108 {
+  background: #06b6d4;
+}
+.notice-detail-page .post-detail__badge--128109 {
+  background: #f59e0b;
+}
+.notice-detail-page .post-detail__badge--128038 {
+  background: #10b981;
+}
+.notice-detail-page .post-detail__badge--128011 {
+  background: #8b5cf6;
+}
+.notice-detail-page .post-detail__badge--128100 {
+  background: #f97316;
+}
+.notice-detail-page .post-detail__badge--128086 {
+  background: #ec4899;
+}
+.notice-detail-page .post-detail__badge--728143 {
+  background: #14b8a6;
+}
+.notice-detail-page .post-detail__badge--728211 {
+  background: #84cc16;
+}
+.notice-detail-page .post-detail__badge--128082 {
+  background: #6366f1;
+}
+.notice-detail-page .post-detail__badge--728210 {
+  background: #d946ef;
+}
+.notice-detail-page .post-detail__badge--728220 {
+  background: #189ba7;
+}
+.notice-detail-page .post-detail__badge--728222 {
+  background: #7b19d7;
+}
+.notice-detail-page .post-detail__badge--912345 {
+  background: #22d3ee;
+}
+.notice-detail-page .post-detail__badge--912346 {
+  background: #fb7185;
+}
+.notice-detail-page .post-detail__badge--912347 {
+  background: #34d399;
+}
+.notice-detail-page .post-detail__badge--912348 {
+  background: #fbbf24;
+}
+.notice-detail-page .post-detail__badge--status-pending {
+  background: #d8e4f3;
+  border: 1px solid #6494ce;
+  color: #30619b;
+}
+.notice-detail-page .post-detail__badge--status-progress {
+  background: #00993e;
+}
+.notice-detail-page .post-detail__badge--status-end {
+  background: #6b7280;
+}
+.notice-detail-page .post-detail__badge--status-child {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+}
+
+/* 국토지리정보원 지도 */
+.ol-rotate.ol-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s linear, visibility 0s linear 0.25s;
+}
+
+.ol-attribution.ol-logo-only button,
+.ol-attribution.ol-uncollapsible button {
+  display: none;
+}
+
 /*# sourceMappingURL=sub.css.map */

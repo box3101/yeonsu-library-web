@@ -23,6 +23,7 @@
 		}
 
 		// 기관별 배경색 적용 (기관 코드 기반)
+		&--0,
 		&--000000 {
 			background: $institution-전체;
 		}
@@ -133,11 +134,11 @@
 			background: #6b7280;
 		}
 
-    // 어린이 전문
-    &--status-child {
-      background: #fff3cd;
-      border: 1px solid #ffc107;
-      color: #856404;
-    }
+		// 어린이 전문
+		&--status-child {
+			background: #fff3cd;
+			border: 1px solid #ffc107;
+			color: #856404;
+		}
 	}
 }

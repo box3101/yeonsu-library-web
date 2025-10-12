@@ -3,6 +3,7 @@ export interface Props {
   tabs: Array<{
     id: string;
     label: string;
+    description?: string; // 탭 하단 설명 추가
     count?: number;
     active?: boolean;
     icon?: string;
@@ -33,7 +34,7 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
         tab.href ? (
           <a
             href={tab.href}
-            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''}`}
+            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''} ${tab.description ? 'ui-tab__button--with-description' : ''}`}
             role="tab"
             aria-selected={tab.active}
             aria-controls={`panel-${tab.id}`}
@@ -45,11 +46,14 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
                 <img src={tab.icon} alt={tab.label} />
               </div>
             )}
-            <span class="ui-tab__label">{tab.label}</span>
+            <div class="ui-tab__content">
+              <span class="ui-tab__label">{tab.label}</span>
+              {tab.description && <span class="ui-tab__description">{tab.description}</span>}
+            </div>
           </a>
         ) : (
           <button
-            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''}`}
+            class={`ui-tab__button ${tab.active ? 'ui-tab__button--active' : ''} ${tab.description ? 'ui-tab__button--with-description' : ''}`}
             role="tab"
             aria-selected={tab.active}
             aria-controls={`panel-${tab.id}`}
@@ -62,7 +66,10 @@ const tabClasses = ['ui-tab', `ui-tab--${variant}`, `ui-tab--${size}`, className
               </div>
             )}
             {tab.number && <p class="ui-tab__number">{tab.number}</p>}
-            <span class="ui-tab__label">{tab.label}</span>
+            <div class="ui-tab__content">
+              <span class="ui-tab__label">{tab.label}</span>
+              {tab.description && <span class="ui-tab__description">{tab.description}</span>}
+            </div>
             {showCount && tab.count !== undefined && <span class="ui-tab__count">({tab.count.toString().padStart(4, '0')})</span>}
           </button>
         )

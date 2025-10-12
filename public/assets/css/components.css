@@ -9449,6 +9449,17 @@ a:hover .icon-external-link {
   }
 }
 
+.ui-radio__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+}
+.ui-radio--disabled .ui-radio__wrapper {
+  cursor: not-allowed;
+}
+
 .ui-checkbox-container {
   display: flex;
   flex-direction: column;

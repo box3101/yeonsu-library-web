@@ -15,3 +15,15 @@
 @use 'components/sub';
 @use 'components/sub2';
 @use 'components/sub3.scss';
+@use 'pages/notice-detail';
+
+/* 국토지리정보원 지도 */
+.ol-rotate.ol-hidden {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s linear, visibility 0s linear 0.25s;
+}
+.ol-attribution.ol-logo-only button,
+.ol-attribution.ol-uncollapsible button {
+	display: none;
+}

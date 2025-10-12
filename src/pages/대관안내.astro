@@ -1,0 +1,568 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiTab } from '@components';
+
+const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '문화마당', href: '#' }, { label: '대관안내' }];
+
+const tabMenus = [
+	{ id: 'performance', label: '공연장', active: true, href: './대관안내' },
+	{ id: 'seminar', label: '세미나실', href: './대관안내' },
+	{ id: 'community', label: '커뮤니티룸', href: './대관안내' },
+	{ id: 'program', label: '프로그램실', href: './대관안내' },
+	{ id: 'discussion', label: '독서토론실', href: './대관안내' },
+	{ id: 'gallery', label: 'YCL갤러리', href: './대관안내' },
+	{ id: 'garden', label: '하늘빛정원', href: './대관안내' },
+	{ id: 'club', label: '동아리실', href: './대관안내' },
+];
+---
+
+<Layout title="대관안내">
+	<SubLayout title="대관안내" breadcrumbItems={breadcrumbItems} menuType="문화마당">
+		<!-- 상단 탭 메뉴 (도서관 선택) -->
+		<UiTab tabs={tabMenus} className="mb-4 search-type-tabs ui-tab--grid-4" />
+
+		<div class="facility-guide">
+			<!-- 이용기간 -->
+			<div class="usage-guide">
+				<h3 class="usage-guide__title">이용기간</h3>
+				<ul class="usage-guide__content">
+					<li>연중(제외: 휴관일, 법정 공휴일 및 임시 공휴일)</li>
+				</ul>
+			</div>
+
+			<!-- 이용시간 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">이용시간</h3>
+				<ul class="usage-guide__content">
+					<li>10:00 ~ 22:00까지 가능</li>
+				</ul>
+			</div>
+
+			<!-- 이용시설 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">이용시설</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="18%" />
+						<col width="15%" />
+						<col width="10%" />
+						<col width="10%" />
+						<col width="47%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>도서관</th>
+							<th>시설명</th>
+							<th>면적(㎡)</th>
+							<th>좌석</th>
+							<th>부대시설</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>송도국제도서관<br />(본관)</td>
+							<td>1층 공연장</td>
+							<td>205</td>
+							<td>196</td>
+							<td>
+								조명, 음향, 대형모니터, 마이크(무선2, 유선6) 등<br />
+								<span class="text-primary">※단, 26년부터 대관 사업시작</span>
+							</td>
+						</tr>
+						<tr>
+							<td>연수청학도서관</td>
+							<td>지하 1층 공연장</td>
+							<td>109</td>
+							<td>57</td>
+							<td>조명, 음향, 프로젝터, 피아노(디지털피아노), 마이크(무선2, 유선4) 등</td>
+						</tr>
+						<tr>
+							<td>연수꿈담도서관</td>
+							<td>4층 공연장</td>
+							<td>194</td>
+							<td>80</td>
+							<td>조명, 음향, 프로젝터, 마이크(무선4) 등</td>
+						</tr>
+						<tr>
+							<td>송도국제어린이도서관</td>
+							<td>2층 공연장</td>
+							<td>250</td>
+							<td>80</td>
+							<td>음향, 프로젝터, 피아노(디지털피아노) , 마이크(무선2) 등</td>
+						</tr>
+						<tr>
+							<td>해돋이도서관</td>
+							<td>2층 공연장</td>
+							<td>184</td>
+							<td>72</td>
+							<td>조명, 음향, 프로젝터, 피아노(디지털피아노), 마이크(무선2, 유선3) 등</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 이용대상 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">이용대상</h3>
+				<ul class="usage-guide__content">
+					<li>인천광역시에 주소를 둔 주민이나 직장 단체의 구성원</li>
+				</ul>
+			</div>
+
+			<!-- 사용제한 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">사용제한</h3>
+				<ul class="usage-guide__content">
+					<li>
+						정치적, 종교적 행사 및 영리적 행사 등 불특정 다수가 아닌 특정단체나 개인의 이익을 위한 것이라고 인정될 때
+					</li>
+				</ul>
+			</div>
+
+			<!-- 시설물사용료 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">시설물사용료</h3>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="33%" />
+						<col width="12%" />
+						<col width="12%" />
+						<col width="43%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>도서관</th>
+							<th>평일<br />주간</th>
+							<th>평일<br />야간</th>
+							<th>비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="5">
+								<div style="display: flex; flex-direction: column; gap: 8px;">
+									<div>연수청학도서관</div>
+									<div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.9em;">
+										<div>세미나실(1)</div>
+										<div>세미나실(2)</div>
+										<div>세미나실(3)</div>
+										<div>시청각실</div>
+										<div>전시실</div>
+									</div>
+								</div>
+							</td>
+							<td rowspan="2">무료</td>
+							<td rowspan="2">무료</td>
+							<td rowspan="5">
+								<div style="display: flex; flex-direction: column; gap: 8px; text-align: left; padding-left: 16px;">
+									<div>• 주간 : 09:00 ~ 18:00</div>
+									<div>• 야간 : 18:00 ~ 22:00</div>
+									<div>• 10:00 이전은 주간 요금의 50%</div>
+									<div>• 22:00 이후는 야간 요금의 50%</div>
+									<div>• 휴일 : 주간 100%, 야간 150%</div>
+									<div>• 전시실은 1일 단위 사용 가능(09:00 ~ 18:00까지)</div>
+								</div>
+							</td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td>전일무료</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.9em;">
+									<div>세미나실 1 : 30,000원</div>
+									<div>세미나실 2 : 30,000원</div>
+									<div>세미나실 3 : 15,000원</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.9em;">
+									<div>세미나실 1 : 30,000원</div>
+									<div>세미나실 2 : 30,000원</div>
+									<div>세미나실 3 : 15,000원</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<!-- 인포박스 -->
+				<div class="com-infobox mt24">
+					<div class="com-infobox__content">
+						<div class="com-infobox__list-group">
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">
+									개인정보 보호를 위해 사용신청서에 주민등록번호 기재를 생략합니다.
+								</p>
+							</div>
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">
+									사용료 감면 신청서를 작성하여 제출한 후 결재가 완료되어야 사용료가 감면됩니다.
+								</p>
+							</div>
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet"></div>
+								<p class="com-infobox__list-item-text">
+									지방세외수입 금액을 우선 입금하신 후 결재 완료되어 환불될 때까지 시일이 걸립니다. (최소 7~15일)
+								</p>
+							</div>
+							<div class="com-infobox__list-item">
+								<div class="com-infobox__list-item-bullet com-infobox__list-item-bullet--reference"></div>
+								<p class="com-infobox__list-item-text">
+									사용일 1일 전까지 취소 시 100% 환불 가능합니다. (단, 전액 감면일 경우 환불 불필요)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 감면조례 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">감면조례</h3>
+			</div>
+
+			<!-- 인천광역시 연수구 공공도서관 설립 및 운영에 관한 조례 -->
+			<div class="com-infobox">
+				<div class="com-infobox__header">
+					<div class="com-infobox__icon">
+						<img src="./assets/images/icon/icon-guide-check.svg" alt="체크" class="icon icon-md" />
+					</div>
+					<h4 class="com-infobox__title">인천광역시 연수구 공공도서관 설립 및 운영에 관한 조례</h4>
+				</div>
+				<div class="com-infobox__content">
+					<div class="com-infobox__list-group">
+						<div class="com-infobox__list-item">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">제19조(사용료의 감면)</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>1.</strong> 국가 또는 지방자치단체에서 주최하거나 후원하는 경우: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>2.</strong> 사회복지법인 또는 비영리단체가 주최하는 사회봉사, 교육·문화 활동: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>3.</strong> 구민의 생활체육활동, 자원봉사활동, 주민자치활동: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>4.</strong> 도서관장이 시설 운영상 필요하다고 인정하는 경우: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>5.</strong> 그 밖에 공익상 필요하다고 인정되는 경우: 사용료의 50% 이상 100% 이하
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 인천광역시 연수구 청사시설물 관리운영 조례 시행규칙 -->
+			<div class="com-infobox mt24">
+				<div class="com-infobox__header">
+					<div class="com-infobox__icon">
+						<img src="./assets/images/icon/icon-guide-check.svg" alt="체크" class="icon icon-md" />
+					</div>
+					<h4 class="com-infobox__title">인천광역시 연수구 청사시설물 관리운영 조례 시행규칙</h4>
+				</div>
+				<div class="com-infobox__content">
+					<div class="com-infobox__list-group">
+						<div class="com-infobox__list-item">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">제5조(사용료의 감면)</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>1.</strong> 국가, 지방자치단체, 그 밖의 공공단체: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>2.</strong> 구청장이 주최 또는 후원하는 행사: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>3.</strong> 비영리법인 및 단체가 공익을 목적으로 사용하는 경우: 사용료의 100%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>4.</strong> 국가유공자 및 장애인 단체가 사용하는 경우: 사용료의 50%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>5.</strong> 그 밖에 구청장이 필요하다고 인정하는 경우: 사용료의 50%
+							</p>
+						</div>
+						<div class="com-infobox__list-item ml32">
+							<div class="com-infobox__list-item-bullet"></div>
+							<p class="com-infobox__list-item-text">
+								<strong>6.</strong> 천재지변, 그 밖의 재난에 의한 이재민을 위하여 사용하는 경우: 사용료의 100%
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 허가조건 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">허가조건</h3>
+				<ul class="usage-guide__content">
+					<li>대관 시설 또는 설비를 망실, 훼손 하였을 시 지체없이 손해배상 및 원상 복구 조치하여야 함.</li>
+					<li>도서관에 특별한 사정이 발생하였을 경우 시설물 사용을 취소 또는 사용정지 할 수 있음</li>
+					<li>설물 사용종료 후 주변 청소를 실시하여야 함</li>
+				</ul>
+			</div>
+
+			<!-- 신청방법 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">신청방법</h3>
+				<ul class="usage-guide__content">
+					<li>도서관 홈페이지를 통한 온라인 사전 신청 예약(주말은 전화예약)</li>
+					<li>신청일(오늘) 기준 익일(다음일)부터 한달(30일) 범위 안에서 신청 가능(0시부터 신청가능)</li>
+					<li>월별 신청가능범위표</li>
+				</ul>
+			</div>
+
+			<div class="usage-guide__table-wrapper">
+				<table class="usage-guide__table">
+					<colgroup>
+						<col width="50%" />
+						<col width="50%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>신청기간(오늘)</th>
+							<th>예약가능범위</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1월 1일(수)<br />~ 1월 31일(금)</td>
+							<td>
+								<div style="display: flex; flex-direction: column; gap: 8px;">
+									<div>1월 1일 0시(신청 당일 포함)</div>
+									<div>~ 1월 31일 24시(신청일 다음날로부터 30일 범위 내)</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>2월 1일(토)<br />~ 2월 28일(금)</td>
+							<td>
+								<div style="display: flex; flex-direction: column; gap: 8px;">
+									<div>2월 1일 0시(신청 당일 포함)</div>
+									<div>~ 2월 28일 24시(신청일 다음날로부터 30일 범위 내)</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="2">12월 1일(화)<br />~ 12월 31일(목)</td>
+							<td>신청가능일 당월 : 12월 2일 ~ 12월 31일</td>
+						</tr>
+						<tr>
+							<td>신청가능일 다음 달 : 1월 1일 ~ 1월 1일</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- 처리절차 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">처리절차</h3>
+			</div>
+
+			<div class="step-process mt24">
+				<div class="step-item">
+					<div class="step-number">1</div>
+					<div class="step-content">
+						신청인<br />
+						<span class="step-sub">홈페이지 대관신청</span>
+					</div>
+					<div class="step-arrow">
+						<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+					</div>
+				</div>
+				<div class="step-item">
+					<div class="step-number">2</div>
+					<div class="step-content">
+						도서관<br />
+						<span class="step-sub">승인 및 통보, 세외수입징수결의<br />(신청 후 5일 이내)</span>
+					</div>
+					<div class="step-arrow">
+						<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+					</div>
+				</div>
+				<div class="step-item">
+					<div class="step-number">3</div>
+					<div class="step-content">
+						신청인<br />
+						<span class="step-sub">사용허가서 및<br />고지서 수령</span>
+					</div>
+					<div class="step-arrow">
+						<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+					</div>
+				</div>
+				<div class="step-item">
+					<div class="step-number">4</div>
+					<div class="step-content">
+						신청인<br />
+						<span class="step-sub">사용료 납부<br />(사용 3일 전까지)</span>
+					</div>
+					<div class="step-arrow">
+						<img src="./assets/images/icon/icon-arrow-right.svg" alt="다음 단계" class="step-arrow-icon" />
+					</div>
+				</div>
+				<div class="step-item">
+					<div class="step-number">5</div>
+					<div class="step-content">
+						신청인<br />
+						<span class="step-sub">시설물 이용</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 기타 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">기 타</h3>
+				<ul class="usage-guide__content">
+					<li>주차공간이 협소한 관계로 가급적 대중교통 이용 바람</li>
+				</ul>
+			</div>
+
+			<!-- 도서관 사진 갤러리 -->
+			<div class="usage-guide mt40">
+				<h3 class="usage-guide__title">도서관 둘러보기</h3>
+			</div>
+
+			<div class="library-gallery mt24">
+				<div class="library-gallery__grid">
+					<div class="library-gallery__item">
+						<div class="library-gallery__image">
+							<img src="./assets/images/library-cheonghak.jpg" alt="송도국제도서관" />
+						</div>
+						<p class="library-gallery__title">송도국제도서관</p>
+					</div>
+					<div class="library-gallery__item">
+						<div class="library-gallery__image">
+							<img src="./assets/images/library-cheonghak.jpg" alt="연수청학도서관" />
+						</div>
+						<p class="library-gallery__title">연수청학도서관</p>
+					</div>
+					<div class="library-gallery__item">
+						<div class="library-gallery__image">
+							<img src="./assets/images/library-kkumdarm.jpg" alt="연수꿈담도서관" />
+						</div>
+						<p class="library-gallery__title">연수꿈담도서관</p>
+					</div>
+					<div class="library-gallery__item">
+						<div class="library-gallery__image">
+							<img src="./assets/images/library-songdo-kids.jpg" alt="송도국제어린이도서관" />
+						</div>
+						<p class="library-gallery__title">송도국제어린이도서관</p>
+					</div>
+					<div class="library-gallery__item">
+						<div class="library-gallery__image">
+							<img src="./assets/images/library-haedoji.jpg" alt="해돋이도서관" />
+						</div>
+						<p class="library-gallery__title">해돋이도서관</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- 도서관 정보 바로가기 버튼 -->
+			<div class="bbs-actions mt40">
+				<UiButton
+					variant="primary"
+					size="medium"
+					text="도서관 정보 바로가기"
+					icon="icon-arr-right"
+					iconPosition="right"
+					iconAddClass="icon icon-xxxsm icon-white"
+				/>
+			</div>
+		</div>
+	</SubLayout>
+</Layout>
+
+<style is:inline lang="scss">
+	@import '../styles/sub';
+
+	.library-gallery {
+		&__grid {
+			display: flex;
+			gap: 24px;
+			overflow-x: auto;
+			padding-bottom: 16px;
+
+			@media (max-width: 900px) {
+				gap: 16px;
+			}
+		}
+
+		&__item {
+			flex: 0 0 auto;
+			width: 170px;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		&__image {
+			width: 170px;
+			height: 128px;
+			border-radius: 8px;
+			overflow: hidden;
+			background-color: #f5f5f5;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__title {
+			font-size: 14px;
+			font-weight: 500;
+			text-align: center;
+			color: #333;
+		}
+	}
+
+	.ml32 {
+		margin-left: 32px;
+	}
+</style>
