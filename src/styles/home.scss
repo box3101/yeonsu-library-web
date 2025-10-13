@@ -1908,6 +1908,15 @@
 		border-radius: 8px;
 		min-height: to-rem(118);
 
+		&.is-empty {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.library-hours__section-title{
+				margin-bottom: 0;
+			}
+		}
+
 		@include tablet {
 			padding: 12px;
 		}
