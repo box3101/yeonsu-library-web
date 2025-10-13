@@ -20912,5 +20912,8 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
     font-size: 0.875rem;
   }
 }
+.facility-guide .usage-guide__table th {
+  text-align: center;
+}
 
 /*# sourceMappingURL=sub.css.map */
