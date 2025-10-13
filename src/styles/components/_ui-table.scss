@@ -734,6 +734,12 @@
 		&--link {
 			text-decoration: none;
 			color: #464c53;
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 100%;
+			
 			&:hover {
 				color: $primary-color;
 				text-decoration: underline;

@@ -2214,4 +2214,58 @@
   display: none;
 }
 
+/* 신규 컨텐츠 아이템 배경색 클래스들 */
+.new-content-item {
+  /* 기본 배경색은 기존 스타일을 유지 */
+  /* 각 컨텐츠별 배경색 클래스 */
+}
+.new-content-item--life-library {
+  background-color: #aecdff;
+}
+.new-content-item--life-library::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/banner_img-01.png") no-repeat bottom right;
+}
+.new-content-item--school-books {
+  background-color: #d6c9f2;
+}
+.new-content-item--school-books::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/banner_img-02.png") no-repeat bottom right;
+}
+.new-content-item--infant-books {
+  background-color: #ffee99;
+}
+.new-content-item--infant-books::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/banner_img-03.png") no-repeat bottom right;
+}
+.new-content-item--attendance-event {
+  background-color: #b6d6f2;
+}
+.new-content-item--attendance-event::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/banner_img-04.png") no-repeat bottom right;
+}
+
 /*# sourceMappingURL=home.css.map */

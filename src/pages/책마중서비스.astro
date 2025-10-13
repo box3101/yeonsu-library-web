@@ -3,9 +3,6 @@ import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
 import { UiButton } from '@components';
 
-const title = '책마중서비스';
-const description = '연수구립도서관 책마중서비스 페이지입니다.';
-
 const breadcrumbItems = [
 	{ text: '홈', link: '/' },
 	{ text: '도서서비스', link: '#' },
@@ -13,6 +10,257 @@ const breadcrumbItems = [
 ];
 ---
 
-<Layout title={title} description={description}>
-	<SubLayout title={title} breadcrumbItems={breadcrumbItems} menuType="도서서비스">23</SubLayout>
+<Layout title="책마중서비스">
+	<SubLayout title="책마중서비스" breadcrumbItems={breadcrumbItems} menuType="도서서비스">
+		<div class="sub-layout__content">
+			<!-- 예약도서 무인대출 [리브박스] 서비스 -->
+			<section class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-header bd-none">
+					<h2 class="sub-layout__content-inner-header-title mt0">예약도서 무인대출 [리브박스] 서비스</h2>
+				</div>
+
+				<!-- 리브박스 서비스란 -->
+				<div class="lib-box-info">
+					<div class="lib-box-info__header">
+						<div class="lib-box-info__icon">
+							<img src="./assets/images/icon/icon-info.svg" alt="안내" class="icon icon-sm" />
+						</div>
+						<h3 class="lib-box-info__title">[리브박스(Lib_Box)] 서비스란?</h3>
+					</div>
+					<div class="lib-box-info__content">
+						<p class="lib-box-info__text">
+							도서관 이용시간 내에 도서관 방문이 어려운 이용자가 홈페이지 또는 모바일 어플(리브로피아)을 통해 희망하는
+							도서를 예약신청한 후,<br />
+							송도국제도서관 실외에 위치한 예약대출기에서 신청도서를 무인대출하는 서비스
+						</p>
+						<div class="lib-box-info__divider"></div>
+						<div class="lib-box-info__notice">
+							<span class="lib-box-info__notice-icon">※</span>
+							<p class="lib-box-info__notice-text">
+								자료 선점을 위한 예약시스템이 아닌, [자료실 운영시간 외 대출]을 위한 서비스입니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- [리브박스(Lib_Box)] 서비스 이용안내 -->
+			<section class="sub-layout__content-inner">
+				<div class="sub-layout__content-inner-header bd-none">
+					<h2 class="sub-layout__content-inner-header-title">[리브박스(Lib_Box)] 서비스 이용안내</h2>
+				</div>
+
+				<div class="sub-layout__content-inner-body">
+					<!-- 이용위치 -->
+					<div class="lib-box-item">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용위치</strong>
+							<span class="lib-box-item__text">: 송도국제도서관 1층 서문 예약대출기 (실외, 1층 야외주차장 방향)</span>
+						</div>
+					</div>
+
+					<!-- 이용대상 -->
+					<div class="lib-box-item">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용대상</strong>
+							<span class="lib-box-item__text">: 연수구립도서관 통합회원</span>
+						</div>
+					</div>
+
+					<!-- 이용시간 -->
+					<div class="lib-box-item">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용시간</strong>
+						</div>
+					</div>
+
+					<!-- 이용시간 테이블 -->
+					<div class="policy-table mt15">
+						<table class="table table--bordered">
+							<thead>
+								<tr>
+									<th scope="col">신청일</th>
+									<th scope="col">대출일</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>월, 화 (10:00 ~ 16:00)</td>
+									<td>화요일 18:00 ~ 다음날 09:00까지</td>
+								</tr>
+								<tr>
+									<td>수, 목, 금, 토 (10:00 ~ 16:00)</td>
+									<td>신청일 18:00 ~ 다음날 09:00까지</td>
+								</tr>
+								<tr>
+									<td>일 (10:00 ~ 16:00)</td>
+									<td>신청일 18:00 ~ 화요일 09:00까지</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- 신청가능권수 -->
+					<div class="lib-box-item mt24">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">신청가능권수</strong>
+							<span class="lib-box-item__text">: 1인당 2권 (총 대출권수 5권에 포함)</span>
+						</div>
+					</div>
+
+					<!-- 신청가능권수 주의사항 -->
+					<div class="lib-box-notice mt15">
+						<div class="lib-box-notice__item">
+							<span class="lib-box-notice__icon">※</span>
+							<p class="lib-box-notice__text">
+								단, 현재 대출중인 도서가 4권 이상일 경우, 대출가능 문자를 수령하더라도 신청한
+								<strong class="text-point-red">[리브박스] 예약신청</strong> 권수를 합산하여 대출권수 5권 초과 시 대출불가.
+							</p>
+						</div>
+						<div class="lib-box-notice__item lib-box-notice__item--primary">
+							<span class="lib-box-notice__icon">※</span>
+							<p class="lib-box-notice__text">
+								(예시) 대출 중 4권, [리브박스] 2권 예약신청 시 총 6권으로, [리브박스] 예약신청 도서 대출 불가, 기존 대출
+								중 도서 반납 후 대출 가능
+							</p>
+						</div>
+					</div>
+
+					<!-- 대상도서 -->
+					<div class="lib-box-item mt24">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">대상도서</strong>
+						</div>
+					</div>
+
+					<!-- 대상도서 하위 목록 -->
+					<div class="lib-box-sublist mt15">
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">송도국제도서관 내 비치중 도서 자료 (대출자료 및 타관 자료 신청 불가)</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">예약이 취소되는 경우 (SMS 또는 유선통보)</p>
+						</div>
+						<div class="lib-box-sublist__item lib-box-sublist__item--sub">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--circle"></div>
+							<p class="lib-box-sublist__text">
+								도서관 내에서 방문 이용자가 해당 자료 열람하고 있거나 먼저 대출한 경우
+							</p>
+						</div>
+						<div class="lib-box-sublist__item lib-box-sublist__item--sub">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--circle"></div>
+							<p class="lib-box-sublist__text">도서의 사이즈 및 부피가 커서 기기에 투입이 되지 않는 경우</p>
+						</div>
+						<div class="lib-box-sublist__item lib-box-sublist__item--sub">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--circle"></div>
+							<p class="lib-box-sublist__text">자료의 소재불명, 훼손 또는 시스템 오류의 경우</p>
+						</div>
+					</div>
+
+					<!-- 이용방법 -->
+					<div class="lib-box-item mt24">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용방법</strong>
+							<span class="lib-box-item__text">(비치 상태인 도서만 신청가능)</span>
+						</div>
+					</div>
+
+					<!-- 이용방법 하위 목록 -->
+					<div class="lib-box-sublist mt15">
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<div class="lib-box-sublist__content">
+								<strong class="lib-box-sublist__label">홈페이지 신청</strong>
+								<span class="lib-box-sublist__text">
+									: 페이지 접속 → 자료검색 → <strong class="text-point-red">[리브박스 예약신청]</strong> 버튼 선택 → 대출가능
+									안내 SMS 확인 후, 기간 내 방문수령
+								</span>
+							</div>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<div class="lib-box-sublist__content">
+								<strong class="lib-box-sublist__label">모바일 신청</strong>
+								<span class="lib-box-sublist__text">
+									: 리브로피아(Libropia) 모바일 어플 접속 → 자료 검색 → <strong class="text-point-red">
+										[리브박스 예약신청]
+									</strong> 버튼 선택 → 대출가능 안내 SMS 확인 후,<br class="mobile-none" /> 기간 내 방문수령
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- 이용제한 -->
+					<div class="lib-box-item mt24">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용제한</strong>
+						</div>
+					</div>
+
+					<!-- 이용제한 하위 목록 -->
+					<div class="lib-box-sublist mt15">
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">신청가능권수(2권) 초과 시, 신청 불가</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">
+								기기 투입가능권수(<strong class="text-point-red">■■■권</strong>, 기기의 수용 한도) 초과 시, 신청 불가
+							</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">대출가능권수(5권) 초과 시, 대출 불가</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">연체자료가 있거나 대출정지 상태인 경우, 대출 불가</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">
+								3회 이상 신청도서를 수령하지 않은 경우, <strong class="text-point-red">■■</strong>일간 서비스 정지
+							</p>
+						</div>
+					</div>
+
+					<!-- 이용 시 주의사항 -->
+					<div class="lib-box-item mt24">
+						<div class="lib-box-item__bullet"></div>
+						<div class="lib-box-item__content">
+							<strong class="lib-box-item__label">이용 시 주의사항</strong>
+						</div>
+					</div>
+
+					<!-- 이용 시 주의사항 하위 목록 -->
+					<div class="lib-box-sublist mt15">
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">
+								[리브박스] 무인대출 시 반드시 회원증을 지참해야 하며, 비밀번호 입력 후 대출 가능
+							</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">부록이 있는 도서는 도서만 대출 가능(부록 대출 불가)</p>
+						</div>
+						<div class="lib-box-sublist__item">
+							<div class="lib-box-sublist__bullet lib-box-sublist__bullet--dash"></div>
+							<p class="lib-box-sublist__text">휴대폰 번호가 정확하지 않을 시, 대출가능 안내 SMS 발송 불가</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</SubLayout>
 </Layout>
