@@ -68,19 +68,19 @@
   & {
     margin-bottom: to-rem(40);
     padding-bottom: to-rem(16);
-    border-bottom: 3px solid $primary-color;
+    // border-bottom: 3px solid $primary-color;
     position: relative;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: to-rem(60);
-    height: 3px;
-    background: $secondary-color;
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: -3px;
+  //   left: 0;
+  //   width: to-rem(60);
+  //   height: 3px;
+  //   background: $secondary-color;
+  // }
 }
 
 // 서브 섹션 타이틀

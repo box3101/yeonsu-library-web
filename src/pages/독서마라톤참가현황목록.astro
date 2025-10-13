@@ -1,0 +1,117 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SubLayout from '@/components/layout/SubLayout.astro';
+import { UiButton, UiPagination, UiSearchbar, UiTable, UiInput, UiSelect } from '@components';
+import { UiTab } from '@components';
+
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '열림참여마당', href: '/support' },
+	{ label: '참가현황' },
+];
+const columns = [
+	{
+		key: 'title',
+		label: '대화명',
+		sortable: true,
+		headerAlign: 'center',
+		align: 'left',
+	},
+	{
+		key: 'course',
+		label: '코스',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'applicationDate',
+		label: '신청일',
+		width: '120px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+	{
+		key: 'status',
+		label: '신청상태',
+		width: '100px',
+		headerAlign: 'center',
+		align: 'center',
+	},
+];
+
+const rows = [
+	{
+		number: 99,
+		title: '[2025년] 독서근력 키우기 3차',
+		course: '2km',
+		applicationDate: '2025-07-02',
+		status: '신청',
+	},
+	{
+		number: 98,
+		title: '[2024년] 독서근력 키우기 3차',
+		course: '8km',
+		applicationDate: '2025-07-02',
+		status: '신청',
+	},
+	{
+		number: 97,
+		title: '[2023년] 독서근력 키우기 3차',
+		course: '10km',
+		applicationDate: '2025-07-02',
+		status: '신청',
+	},
+	{
+		number: 96,
+		title: '[2022년] 독서근력 키우기 3차',
+		course: '8km',
+		applicationDate: '2025-06-03',
+		status: '신청',
+	},
+];
+---
+
+<Layout title="참가현황">
+	<SubLayout title="참가현황" breadcrumbItems={breadcrumbItems} menuType="열린참여마당">
+		<!-- 공통 검색바 -->
+		<UiSearchbar
+			selectOptions={[
+				{ value: '', label: '전체' },
+				{ value: 'title', label: '제목' },
+				{ value: 'author', label: '저자' },
+				{ value: 'publisher', label: '출판사' },
+				{ value: 'isbn', label: 'ISBN' },
+			]}
+			libraryOptions={[
+				{ value: '', label: '전체도서관' },
+				{ value: 'central', label: '중앙도서관' },
+				{ value: 'branch1', label: '분관1' },
+				{ value: 'branch2', label: '분관2' },
+			]}
+			titleOptions={[
+				{ value: '', label: '제목' },
+				{ value: 'exact', label: '정확한 제목' },
+				{ value: 'contains', label: '포함된 제목' },
+			]}
+			placeholder="검색어를 입력해주세요."
+			buttonText="검색"
+			fullWidth={true}
+			class="smart-library-searchbar mt24"
+		/>
+
+		<!-- 게시글 헤더 -->
+		<div class="bbs-header">
+			<div class="bbs-total">
+				총 <strong>459</strong>건 ( <strong>1</strong> / 46 )
+			</div>
+		</div>
+
+		<!-- 게시글 목록 -->
+		<UiTable columns={columns} rows={rows} showIndex={true} showCheckbox={false} caption="도서관 건의사항 목록" />
+		<!-- 페이징 네비게이션 -->
+		<div class="pagination-section">
+			<UiPagination currentPage={1} totalPages={10} maxVisiblePages={8} />
+		</div>
+	</SubLayout>
+</Layout>

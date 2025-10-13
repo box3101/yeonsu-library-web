@@ -185,96 +185,6 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 									<p class="map-placeholder__text">지도가 표시될 영역입니다</p>
 								</div>
 							</div>
-
-							<!-- Address Info Box -->
-							<div class="address-info-box">
-								<p class="address-info-box__address">
-									인천광역시 연수구 송도문화로 20 (누리공원 내) | (우편번호) 21986
-								</p>
-								<div class="address-info-box__contact">
-									<div class="contact-item">
-										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-812-7658</span>
-									</div>
-								</div>
-							</div>
-
-							<!-- Transportation Info -->
-							<div class="transportation-section">
-								<!-- 지하철 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--subway">
-														인천1호선
-													</span>
-												</div>
-												<p class="transportation-route__info">테크노파크역 2번 출구(도보 약 8분, 휠체어 약 20분)</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- 버스 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														9, 81, 글랭99, 순천41, 순천43
-													</span>
-												</div>
-												<p class="transportation-route__info">'송도누리공원' 하차(도보 약 5분, 휠체어 약 15분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">4</span>
-												</div>
-												<p class="transportation-route__info">'글로벌파크' 하차(도보 약 7분, 휠체어 약 20분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														303-1, 320, 글랭91
-													</span>
-												</div>
-												<p class="transportation-route__info">'웰카운티2단지' 하차(도보 7분, 휠체어 약 20분)</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 
 						<!-- 분류별 지도 Content -->
@@ -284,98 +194,98 @@ const mapTabs = ['일반지도', '분류별 지도<br />(일반, 색각, 글로�
 									<p class="map-placeholder__text">분류별 지도가 표시될 영역입니다</p>
 								</div>
 							</div>
+						</div>
+					</UiSubTab>
 
-							<!-- Address Info Box -->
-							<div class="address-info-box">
-								<p class="address-info-box__address">
-									인천광역시 연수구 송도문화로 20 (누리공원 내) | (우편번호) 21986
-								</p>
-								<div class="address-info-box__contact">
-									<div class="contact-item">
-										<span class="contact-item__label">TEL</span>
-										<span class="contact-item__value">032-812-7658</span>
-									</div>
-								</div>
+					<!-- Address Info Box (공통 정보 - 탭과 무관하게 항상 표시) -->
+					<div class="address-info-box">
+						<p class="address-info-box__address">
+							인천광역시 연수구 송도문화로 20 (누리공원 내) | (우편번호) 21986
+						</p>
+						<div class="address-info-box__contact">
+							<div class="contact-item">
+								<span class="contact-item__label">TEL</span>
+								<span class="contact-item__value">032-812-7658</span>
 							</div>
+						</div>
+					</div>
 
-							<!-- Transportation Info -->
-							<div class="transportation-section">
-								<!-- 지하철 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--subway">
-														인천1호선
-													</span>
-												</div>
-												<p class="transportation-route__info">테크노파크역 2번 출구(도보 약 8분, 휠체어 약 20분)</p>
-											</div>
+					<!-- Transportation Info (공통 정보 - 탭과 무관하게 항상 표시) -->
+					<div class="transportation-section">
+						<!-- 지하철 -->
+						<div class="transportation-item">
+							<div class="transportation-item__icon">
+								<img src="./assets/images/icon/icon-subway.svg" alt="지하철" />
+							</div>
+							<div class="transportation-item__content">
+								<h4 class="transportation-item__title transportation-item__title--subway">지하철</h4>
+								<div class="transportation-routes">
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img
+												src="./assets/images/icon/icon-arrow-right.svg"
+												alt=""
+												class="transportation-route__arrow"
+											/>
+											<span class="transportation-route__line transportation-route__line--subway">
+												인천1호선
+											</span>
 										</div>
-									</div>
-								</div>
-
-								<!-- 버스 -->
-								<div class="transportation-item">
-									<div class="transportation-item__icon">
-										<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
-									</div>
-									<div class="transportation-item__content">
-										<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
-										<div class="transportation-routes">
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														9, 81, 글랭99, 순천41, 순천43
-													</span>
-												</div>
-												<p class="transportation-route__info">'송도누리공원' 하차(도보 약 5분, 휠체어 약 15분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">4</span>
-												</div>
-												<p class="transportation-route__info">'글로벌파크' 하차(도보 약 7분, 휠체어 약 20분)</p>
-											</div>
-											<div class="transportation-route">
-												<div class="transportation-route__badge">
-													<img
-														src="./assets/images/icon/icon-arrow-right.svg"
-														alt=""
-														class="transportation-route__arrow"
-													/>
-													<span class="transportation-route__line transportation-route__line--bus">
-														303-1, 320, 글랭91
-													</span>
-												</div>
-												<p class="transportation-route__info">'웰카운티2단지' 하차(도보 7분, 휠체어 약 20분)</p>
-											</div>
-										</div>
+										<p class="transportation-route__info">테크노파크역 2번 출구(도보 약 8분, 휠체어 약 20분)</p>
 									</div>
 								</div>
 							</div>
 						</div>
-					</UiSubTab>
+
+						<!-- 버스 -->
+						<div class="transportation-item">
+							<div class="transportation-item__icon">
+								<img src="./assets/images/icon/icon-bus.svg" alt="버스" />
+							</div>
+							<div class="transportation-item__content">
+								<h4 class="transportation-item__title transportation-item__title--bus">버스</h4>
+								<div class="transportation-routes">
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img
+												src="./assets/images/icon/icon-arrow-right.svg"
+												alt=""
+												class="transportation-route__arrow"
+											/>
+											<span class="transportation-route__line transportation-route__line--bus">
+												9, 81, 글랭99, 순천41, 순천43
+											</span>
+										</div>
+										<p class="transportation-route__info">'송도누리공원' 하차(도보 약 5분, 휠체어 약 15분)</p>
+									</div>
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img
+												src="./assets/images/icon/icon-arrow-right.svg"
+												alt=""
+												class="transportation-route__arrow"
+											/>
+											<span class="transportation-route__line transportation-route__line--bus">4</span>
+										</div>
+										<p class="transportation-route__info">'글로벌파크' 하차(도보 약 7분, 휠체어 약 20분)</p>
+									</div>
+									<div class="transportation-route">
+										<div class="transportation-route__badge">
+											<img
+												src="./assets/images/icon/icon-arrow-right.svg"
+												alt=""
+												class="transportation-route__arrow"
+											/>
+											<span class="transportation-route__line transportation-route__line--bus">
+												303-1, 320, 글랭91
+											</span>
+										</div>
+										<p class="transportation-route__info">'웰카운티2단지' 하차(도보 7분, 휠체어 약 20분)</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>

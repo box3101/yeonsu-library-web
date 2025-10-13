@@ -18,8 +18,28 @@ function convertToGnbFormat(menuKey) {
 	const menu = menuConfig[menuKey];
 	if (!menu) return null;
 
+	// 현재 페이지가 이 메뉴에 속하는지 확인
+	const isMenuSelected = menu.sections.some(section => {
+		// href가 있는 경우 정확한 매칭
+		if (section.href) {
+			const cleanHref = section.href.replace('./', '').replace('/', '');
+			const cleanPath = currentPath.replace('/', '');
+			if (cleanPath.includes(cleanHref) && cleanHref !== '') return true;
+		}
+		// 하위 아이템이 있는 경우
+		if (section.items) {
+			return section.items.some(item => {
+				const cleanHref = item.href.replace('./', '').replace('/', '');
+				const cleanPath = currentPath.replace('/', '');
+				return cleanPath.includes(cleanHref) && cleanHref !== '';
+			});
+		}
+		return false;
+	});
+
 	return {
 		title: menu.title,
+		isSelected: isMenuSelected, // 1depth 선택 상태 추가
 		// 3depth가 있는 메뉴인지 확인 (하위 아이템에 items가 있는 경우)
 		type: menu.sections.some(section => section.items && section.items.length > 0) ? '3depth' : '2depth',
 		items: menu.sections.map(section => {

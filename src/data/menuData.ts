@@ -545,80 +545,99 @@ export const menuConfig: Record<string, MenuConfig> = {
  */
 export const getExpandedSectionsForPath = (pathname: string, menuType: string): Record<string, boolean> => {
 	const expandedSections: Record<string, boolean> = {};
+	
+	// URL 디코딩 처리 (한글 경로 지원)
+	const decodedPath = decodeURIComponent(pathname);
 
 	// 도서검색 메뉴의 확장 상태 결정
 	if (menuType === '도서검색') {
 		if (
-			pathname.includes('인기도서') ||
-			pathname.includes('신착도서') ||
-			pathname.includes('추천도서') ||
-			pathname.includes('life-library') ||
-			pathname.includes('school-books')
+			decodedPath.includes('인기도서') ||
+			decodedPath.includes('신착도서') ||
+			decodedPath.includes('추천도서') ||
+			decodedPath.includes('인생서가') ||
+			decodedPath.includes('스쿨북스') ||
+			decodedPath.includes('life-library') ||
+			decodedPath.includes('school-books')
 		) {
 			expandedSections['인기/신착/추천도서'] = true;
-		} else if (pathname.includes('카테고리분류') || pathname.includes('한국십진분류')) {
+		}
+		if (decodedPath.includes('카테고리분류') || decodedPath.includes('한국십진분류')) {
 			expandedSections['도서탐색'] = true;
+		}
+		if (decodedPath.includes('대출급상승도서') || decodedPath.includes('이달의키워드') || decodedPath.includes('도서별이용분석')) {
+			expandedSections['공공도서관 빅데이터'] = true;
 		}
 	}
 
 	// 책 읽는 연수구 메뉴의 확장 상태 결정
 	else if (menuType === '책 읽는 연수구') {
-		if (pathname.includes('reading-club')) {
-			expandedSections['독서동아리 지원 사업'] = true;
-		} else if (pathname.includes('infant-books')) {
-			expandedSections['영유아 전집 대여 사업'] = true;
+		if (decodedPath.includes('독서동아리') || decodedPath.includes('reading-club')) {
+			expandedSections['독서동아리지원사업'] = true;
+		}
+		if (decodedPath.includes('영유아전집') || decodedPath.includes('infant-books')) {
+			expandedSections['영유아전집대여사업'] = true;
 		}
 	}
 
 	// 도서서비스 메뉴의 확장 상태 결정
 	else if (menuType === '도서서비스') {
-		if (pathname.includes('희망도서신청')) {
-			expandedSections['희망도서 신청'] = true;
-		} else if (pathname.includes('ebook-request')) {
-			expandedSections['희망전자책 신청'] = true;
-		} else if (pathname.includes('delivery-loan')) {
+		if (decodedPath.includes('희망도서신청')) {
+			expandedSections['희망도서신청'] = true;
+		}
+		if (decodedPath.includes('희망전자책신청') || decodedPath.includes('ebook-request')) {
+			expandedSections['희망전자책신청'] = true;
+		}
+		if (decodedPath.includes('무료택배도서대출') || decodedPath.includes('delivery-loan')) {
 			expandedSections['무료택배도서대출'] = true;
 		}
 	}
 
 	// 열린참여마당 메뉴의 확장 상태 결정
 	else if (menuType === '열린참여마당') {
-		if (pathname.includes('도서관견학')) {
+		if (decodedPath.includes('도서관견학')) {
 			expandedSections['도서관견학'] = true;
-		} else if (pathname.includes('기증안내')) {
+		}
+		if (decodedPath.includes('기증안내')) {
 			expandedSections['도서기증'] = true;
-		} else if (pathname.includes('reading-marathon')) {
+		}
+		if (decodedPath.includes('독서마라톤') || decodedPath.includes('reading-marathon') || decodedPath.includes('마라톤')) {
 			expandedSections['독서마라톤'] = true;
-		} else if (pathname.includes('reading-king')) {
+		}
+		if (decodedPath.includes('독서왕') || decodedPath.includes('reading-king')) {
 			expandedSections['독서왕'] = true;
-		} else if (pathname.includes('출석체크') || pathname.includes('출석하기')) {
+		}
+		if (decodedPath.includes('출석체크') || decodedPath.includes('출석하기')) {
 			expandedSections['출석체크이벤트'] = true;
 		}
 	}
 
 	// 문화마당 메뉴의 확장 상태 결정
 	else if (menuType === '문화마당') {
-		if (pathname.includes('영화상영')) {
+		if (decodedPath.includes('영화상영')) {
 			expandedSections['영화상영'] = true;
-		} else if (pathname.includes('대관신청') || pathname.includes('공연장')) {
+		}
+		if (decodedPath.includes('대관신청') || decodedPath.includes('공연장') || decodedPath.includes('세미나실') || decodedPath.includes('커뮤니티룸') || decodedPath.includes('프로그램실') || decodedPath.includes('독서토론실') || decodedPath.includes('하늘빛정원') || decodedPath.includes('동아리실')) {
 			expandedSections['대관안내'] = true;
 		}
 	}
 
 	// 도서관소개 메뉴의 확장 상태 결정
 	else if (menuType === '도서관소개') {
-		if (pathname.includes('district-libraries')) {
+		if (decodedPath.includes('district-libraries') || decodedPath.includes('송도국제도서관') || decodedPath.includes('연수청학도서관') || decodedPath.includes('연수꿈담도서관') || decodedPath.includes('송도국제어린이도서관') || decodedPath.includes('해돋이도서관') || decodedPath.includes('선학별빛도서관') || decodedPath.includes('동춘나래도서관') || decodedPath.includes('함박비류도서관')) {
 			expandedSections['구립도서관'] = true;
-		} else if (pathname.includes('small-libraries')) {
+		}
+		if (decodedPath.includes('small-libraries') || decodedPath.includes('작은도서관') || decodedPath.includes('북크로싱센터')) {
 			expandedSections['공립작은도서관'] = true;
 		}
 	}
 
 	// 나의도서관 메뉴의 확장 상태 결정
 	else if (menuType === '나의도서관') {
-		if (pathname.includes('회원정보수정')) {
+		if (decodedPath.includes('회원정보수정')) {
 			expandedSections['회원정보수정'] = true;
-		} else if (pathname.includes('대관신청조회') || pathname.includes('공연장대관신청조회')) {
+		}
+		if (decodedPath.includes('대관신청조회') || decodedPath.includes('공연장대관신청조회')) {
 			expandedSections['대관신청조회'] = true;
 		}
 	}
@@ -631,111 +650,134 @@ export const getExpandedSectionsForPath = (pathname: string, menuType: string): 
  * 현재 페이지 URL을 분석하여 해당하는 메뉴 카테고리를 반환
  */
 export const getMenuTypeFromPath = (pathname: string): string => {
+	// URL 디코딩 처리 (한글 경로 지원)
+	const decodedPath = decodeURIComponent(pathname);
 	// 도서검색 관련 페이지
 	if (
-		pathname.includes('소장도서검색') ||
-		pathname.includes('통합검색') ||
-		pathname.includes('인기도서') ||
-		pathname.includes('신착도서') ||
-		pathname.includes('추천도서') ||
-		pathname.includes('카테고리분류') ||
-		pathname.includes('한국십진분류') ||
-		pathname.includes('스마트도서관비치도서') ||
-		pathname.includes('life-library') ||
-		pathname.includes('school-books')
+		decodedPath.includes('소장도서검색') ||
+		decodedPath.includes('통합검색') ||
+		decodedPath.includes('인기도서') ||
+		decodedPath.includes('신착도서') ||
+		decodedPath.includes('추천도서') ||
+		decodedPath.includes('카테고리분류') ||
+		decodedPath.includes('한국십진분류') ||
+		decodedPath.includes('스마트도서관비치도서') ||
+		decodedPath.includes('대출급상승도서') ||
+		decodedPath.includes('이달의키워드') ||
+		decodedPath.includes('도서별이용분석') ||
+		decodedPath.includes('AI책큐') ||
+		decodedPath.includes('life-library') ||
+		decodedPath.includes('school-books')
 	) {
 		return '도서검색';
 	}
 
 	// 책 읽는 연수구 관련 페이지
-	if (pathname.includes('reading-yeonsu')) {
+	if (decodedPath.includes('reading-yeonsu') || decodedPath.includes('연수북페스티벌') || decodedPath.includes('희희낙락북콘서트') || decodedPath.includes('북스타트') || decodedPath.includes('북메이트') || decodedPath.includes('독서동아리') || decodedPath.includes('범구민책읽어주기') || decodedPath.includes('북크로싱센터') || decodedPath.includes('영유아전집대여사업')) {
 		return '책 읽는 연수구';
 	}
 
 	// 안내마당 관련 페이지
-	if (pathname.includes('공지사항') || pathname.includes('info')) {
+	if (decodedPath.includes('공지사항') || decodedPath.includes('이용안내') || decodedPath.includes('도서관일정') || decodedPath.includes('회원대출규정') || decodedPath.includes('신간희망자료') || decodedPath.includes('디지털자료실') || decodedPath.includes('학습열람실') || decodedPath.includes('천체투영관') || decodedPath.includes('도서관유튜브') || decodedPath.includes('도서관소식지') || decodedPath.includes('연수구지역서점') || decodedPath.includes('부대시설') || decodedPath.includes('자주하는질문') || decodedPath.includes('국가전자도서관') || decodedPath.includes('인천광역시통합도서관') || decodedPath.includes('info')) {
 		return '안내마당';
 	}
 
 	// 도서서비스 관련 페이지
 	if (
-		pathname.includes('희망도서신청') ||
-		pathname.includes('희망전자책신청') ||
-		pathname.includes('무료택배도서대출') ||
-		pathname.includes('영유아전집대여사업') ||
-		pathname.includes('services')
+		decodedPath.includes('통합도서서비스') ||
+		decodedPath.includes('상호대차서비스') ||
+		decodedPath.includes('책바다서비스') ||
+		decodedPath.includes('책나래서비스') ||
+		decodedPath.includes('모바일도서관') ||
+		decodedPath.includes('스마트도서관') ||
+		decodedPath.includes('전자도서관') ||
+		decodedPath.includes('희망도서신청') ||
+		decodedPath.includes('희망전자책신청') ||
+		decodedPath.includes('무료택배도서대출') ||
+		decodedPath.includes('services')
 	) {
 		return '도서서비스';
 	}
 
 	// 열린참여마당 관련 페이지
 	if (
-		pathname.includes('도서관에바란다') ||
-		pathname.includes('도서관견학') ||
-		pathname.includes('기증안내') ||
-		pathname.includes('출석체크') ||
-		pathname.includes('출석하기') ||
-		pathname.includes('participation')
+		decodedPath.includes('도서관에바란다') ||
+		decodedPath.includes('도서관견학') ||
+		decodedPath.includes('기증안내') ||
+		decodedPath.includes('독서마라톤') ||
+		decodedPath.includes('독서왕') ||
+		decodedPath.includes('출석체크') ||
+		decodedPath.includes('출석하기') ||
+		decodedPath.includes('자원봉사') ||
+		decodedPath.includes('participation')
 	) {
 		return '열린참여마당';
 	}
 
 	// 문화마당 관련 페이지
 	if (
-		pathname.includes('프로그램신청') ||
-		pathname.includes('영화상영') ||
-		pathname.includes('대관신청') ||
-		pathname.includes('공연장') ||
-		pathname.includes('culture')
+		decodedPath.includes('문화행사신청') ||
+		decodedPath.includes('프로그램신청') ||
+		decodedPath.includes('영화상영') ||
+		decodedPath.includes('대관신청') ||
+		decodedPath.includes('공연장') ||
+		decodedPath.includes('세미나실') ||
+		decodedPath.includes('커뮤니티룸') ||
+		decodedPath.includes('프로그램실') ||
+		decodedPath.includes('독서토론실') ||
+		decodedPath.includes('하늘빛정원') ||
+		decodedPath.includes('동아리실') ||
+		decodedPath.includes('culture')
 	) {
 		return '문화마당';
 	}
 
 	// 도서관소개 관련 페이지
-	if (pathname.includes('about')) {
+	if (decodedPath.includes('인사말') || decodedPath.includes('연혁') || decodedPath.includes('상징') || decodedPath.includes('조직도') || decodedPath.includes('자료현황') || decodedPath.includes('구립도서관') || decodedPath.includes('공립작은도서관') || decodedPath.includes('송도국제도서관') || decodedPath.includes('연수청학도서관') || decodedPath.includes('연수꿈담도서관') || decodedPath.includes('송도국제어린이도서관') || decodedPath.includes('해돋이도서관') || decodedPath.includes('선학별빛도서관') || decodedPath.includes('동춘나래도서관') || decodedPath.includes('함박비류도서관') || decodedPath.includes('작은도서관') || decodedPath.includes('about')) {
 		return '도서관소개';
 	}
 
 	// 나의도서관 관련 페이지
 	if (
-		pathname.includes('내정보') ||
-		pathname.includes('회원정보수정') ||
-		pathname.includes('회원탈퇴') ||
-		pathname.includes('모바일회원증') ||
-		pathname.includes('정회원인증') ||
-		pathname.includes('통합회원조회') ||
-		pathname.includes('대출현황') ||
-		pathname.includes('대출이력') ||
-		pathname.includes('일반예약현황') ||
-		pathname.includes('상호대차현황') ||
-		pathname.includes('희망도서신청현황') ||
-		pathname.includes('희망전자책신청현황') ||
-		pathname.includes('내책장') ||
-		pathname.includes('전자도서관') ||
-		pathname.includes('행사신청조회') ||
-		pathname.includes('프로그램신청조회') ||
-		pathname.includes('견학신청조회') ||
-		pathname.includes('대관신청조회') ||
-		pathname.includes('공연장대관신청조회') ||
-		pathname.includes('영유아전집신청조회') ||
-		pathname.includes('my-library')
+		decodedPath.includes('내정보') ||
+		decodedPath.includes('회원정보수정') ||
+		decodedPath.includes('회원탈퇴') ||
+		decodedPath.includes('모바일회원증') ||
+		decodedPath.includes('정회원인증') ||
+		decodedPath.includes('통합회원조회') ||
+		decodedPath.includes('대출현황') ||
+		decodedPath.includes('대출이력') ||
+		decodedPath.includes('일반예약현황') ||
+		decodedPath.includes('상호대차현황') ||
+		decodedPath.includes('희망도서신청현황') ||
+		decodedPath.includes('희망전자책신청현황') ||
+		decodedPath.includes('내책장') ||
+		decodedPath.includes('행사신청조회') ||
+		decodedPath.includes('프로그램신청조회') ||
+		decodedPath.includes('견학신청조회') ||
+		decodedPath.includes('대관신청조회') ||
+		decodedPath.includes('공연장대관신청조회') ||
+		decodedPath.includes('영유아전집신청조회') ||
+		decodedPath.includes('my-library')
 	) {
 		return '나의도서관';
 	}
 
 	// 회원서비스 관련 페이지
 	if (
-		pathname.includes('로그인') ||
-		pathname.includes('비밀번호찾기') ||
-		pathname.includes('회원가입') ||
-		pathname.includes('도서관고양이') ||
-		pathname.includes('member')
+		decodedPath.includes('로그인') ||
+		decodedPath.includes('아이디찾기') ||
+		decodedPath.includes('비밀번호찾기') ||
+		decodedPath.includes('회원가입') ||
+		decodedPath.includes('도서관고양이') ||
+		decodedPath.includes('열람실현황') ||
+		decodedPath.includes('member')
 	) {
 		return '회원서비스';
 	}
 
 	// 기타 관련 페이지
-	if (pathname.includes('etc')) {
+	if (decodedPath.includes('사이트맵') || decodedPath.includes('개인정보처리방침') || decodedPath.includes('etc')) {
 		return '기타';
 	}
 

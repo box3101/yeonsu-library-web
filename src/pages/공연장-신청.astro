@@ -96,48 +96,50 @@ const hallApplicationTabs = [
 					<div class="radio-group">
 						<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
 						<div class="ui-radio ui-radio--medium">
-							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
-							<div class="ui-radio__item">
-								<!-- 숨겨진 실제 라디오 input 요소 -->
-								<input
-									type="radio"
-									id="privacy-disagree"
-									name="privacy-collection"
-									value="disagree"
-									class="ui-radio__input"
-								/>
-								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
-								<div class="ui-radio__control">
-									<!-- 선택 시 표시될 내부 원형 도트 -->
-									<div class="ui-radio__dot"></div>
+							<label for="privacy-disagree" class="ui-radio__wrapper">
+								<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+								<div class="ui-radio__item">
+									<!-- 숨겨진 실제 라디오 input 요소 -->
+									<input
+										type="radio"
+										id="privacy-disagree"
+										name="privacy-collection"
+										value="disagree"
+										class="ui-radio__input"
+									/>
+									<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+									<div class="ui-radio__control">
+										<!-- 선택 시 표시될 내부 원형 도트 -->
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-
-							<label for="privacy-disagree" class="ui-radio__label">
-								<span class="ui-radio__title">동의안함</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">동의안함</span>
+								</div>
 							</label>
 						</div>
 						<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
 						<div class="ui-radio ui-radio--medium">
-							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
-							<div class="ui-radio__item">
-								<!-- 숨겨진 실제 라디오 input 요소 -->
-								<input
-									type="radio"
-									id="privacy-agree"
-									name="privacy-collection"
-									value="agree"
-									class="ui-radio__input"
-								/>
-								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
-								<div class="ui-radio__control">
-									<!-- 선택 시 표시될 내부 원형 도트 -->
-									<div class="ui-radio__dot"></div>
+							<label for="privacy-agree" class="ui-radio__wrapper">
+								<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+								<div class="ui-radio__item">
+									<!-- 숨겨진 실제 라디오 input 요소 -->
+									<input
+										type="radio"
+										id="privacy-agree"
+										name="privacy-collection"
+										value="agree"
+										class="ui-radio__input"
+									/>
+									<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+									<div class="ui-radio__control">
+										<!-- 선택 시 표시될 내부 원형 도트 -->
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-
-							<label for="privacy-agree" class="ui-radio__label">
-								<span class="ui-radio__title">동의함</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">동의함</span>
+								</div>
 							</label>
 						</div>
 					</div>
@@ -210,7 +212,7 @@ const hallApplicationTabs = [
 
 						<!-- 인원 라디오 버튼 -->
 						<div class="form-field form-field--full">
-							<label class="form-label required">인원2</label>
+							<label class="form-label required">인원</label>
 							<div class="radio-group">
 								<UiRadio
 									name="participant_count"

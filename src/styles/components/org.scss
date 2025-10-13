@@ -22,6 +22,140 @@
 	width: 100%;
 	max-width: 976px;
 	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: to-rem(48);
+	padding: to-rem(40) 0;
+
+	// 상단 메인 도서관
+	&__header {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	&__main-library {
+		background: #3c79c2;
+		border: 8px solid #b1cae7;
+		border-radius: to-rem(75);
+		width: to-rem(380);
+		height: to-rem(150);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(4);
+		position: relative;
+	}
+
+	&__main-title {
+		font-size: to-rem(24);
+		font-weight: 700;
+		color: white;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	&__main-link {
+		font-size: to-rem(19);
+		font-weight: 700;
+		color: white;
+		text-decoration: none;
+		padding: to-rem(8) to-rem(16);
+		border-radius: to-rem(8);
+		transition: all 0.2s;
+		line-height: 1.5;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.15);
+		}
+	}
+
+	&__main-subtitle {
+		font-size: to-rem(19);
+		font-weight: 400;
+		color: white;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	// 도서관 운영위원회 (좌측)
+	&__committee {
+		position: absolute;
+		left: 0;
+		top: to-rem(225);
+	}
+
+	&__committee-box {
+		background: #00993e;
+		border-radius: to-rem(20) 0 to-rem(20) 0;
+		padding: to-rem(16) to-rem(24);
+		min-width: to-rem(221);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		p {
+			font-size: to-rem(17);
+			font-weight: 700;
+			color: white;
+			margin: 0;
+			line-height: 1.5;
+		}
+	}
+
+	// 연결선
+	&__connector {
+		width: 796px;
+		height: 296px;
+		background-image: url('../../assets/images/org-line.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		margin-top: -85px;
+	}
+
+	// 모바일용 연결선 (세로 분기형)
+	&__connector-mobile {
+		display: none; // 데스크톱에서는 숨김
+	}
+
+	// 하위 도서관 버튼들
+	&__libraries {
+		display: flex;
+		gap: to-rem(8);
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: -59px;
+	}
+
+	&__library-btn {
+		background: #d8e4f3;
+		color: #30619b;
+		font-size: to-rem(15);
+		font-weight: 700;
+		padding: to-rem(12) to-rem(12);
+		border-radius: to-rem(8);
+		text-decoration: none;
+		transition: all 0.2s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		min-height: to-rem(56);
+		flex: 1;
+		min-width: to-rem(180);
+		max-width: to-rem(188);
+		line-height: 1.5;
+
+		&:hover {
+			background: #c0d4ec;
+			transform: translateY(-2px);
+		}
+	}
 }
 
 .library-nav {
@@ -182,6 +316,106 @@
 		margin-bottom: 20px;
 	}
 
+	.org-chart {
+		gap: 20px;
+		padding: 20px 0;
+		max-width: 100%;
+
+		// 메인 도서관 헤더
+		&__main-library {
+			width: 100%;
+			max-width: 320px;
+			height: 140px;
+			border-width: 6px;
+			border-radius: 70px;
+		}
+
+		&__main-title {
+			font-size: 18px;
+		}
+
+		&__main-link {
+			font-size: 16px;
+			padding: 6px 12px;
+		}
+
+		&__main-subtitle {
+			font-size: 14px;
+		}
+
+		// 운영위원회 - 상단으로 이동
+		&__committee {
+			position: static;
+			width: 100%;
+			max-width: 200px;
+			margin: 0 auto;
+		}
+
+		&__committee-box {
+			min-width: auto;
+			width: 100%;
+			padding: 12px 20px;
+			border-radius: 16px 0 16px 0;
+			position: relative;
+			left: -76px;
+			max-width: 152px;
+			font-size: 8px;
+			top: -4px;
+
+			p {
+				font-size: 15px;
+			}
+		}
+
+		// 데스크톱용 연결선 숨김
+		&__connector {
+			display: none;
+		}
+
+		// 모바일용 연결선 표시 (세로 분기형)
+		&__connector-mobile {
+			display: block;
+			width: 100%;
+			max-width: 320px;
+			height: 200px;
+			background-image: url('../../assets/images/org-line-mobile.gif');
+			background-repeat: no-repeat;
+			background-position: center top;
+			background-size: contain;
+			margin-top: -87px;
+		}
+
+		// 하위 도서관들 - 세로 배치
+		&__libraries {
+			flex-direction: column;
+			gap: 12px;
+			width: 100%;
+			margin-top: 0;
+			margin-top: -137px;
+		}
+
+		&__library-btn {
+			position: relative;
+			font-size: 15px;
+			padding: 14px 20px;
+			min-height: 56px;
+			max-width: 100%;
+			min-width: 100%;
+			border-radius: 12px;
+			&::after {
+				position: absolute;
+				left: 50%;
+				top: 15px;
+				transform: translate(-50%, -50%);
+				content: '';
+				display: inline-block;
+				width: 1px;
+				height: 63px;
+				background: #ddd;
+				z-index: -1;
+			}
+		}
+	}
 
 	.library-nav {
 		gap: 8px;

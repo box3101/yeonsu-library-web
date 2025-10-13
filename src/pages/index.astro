@@ -22,29 +22,29 @@ const newContentItems = [
 	{
 		id: 'life-library',
 		title: '인생서가',
-		image: './assets/images/content-life-library.png',
-		backgroundColor: '#AECDFF',
+		// image: './assets/images/banner_img-01.png',
+		// backgroundColor: '#CEE4F2',
 		link: '#',
 	},
 	{
 		id: 'school-books',
 		title: '스쿨북스',
-		image: './assets/images/content-school-books.png',
-		backgroundColor: '#A5D5DC',
+		// image: './assets/images/content-school-books.png',
+		// backgroundColor: '#A5D5DC',
 		link: '#',
 	},
 	{
 		id: 'infant-books',
 		title: '영유아\n전집 대여',
-		image: './assets/images/contents_img.png',
-		backgroundColor: '#FFEE99',
+		// image: './assets/images/contents_img.png',
+		// backgroundColor: '#FFEE99',
 		link: '#',
 	},
 	{
 		id: 'attendance-event',
 		title: '출석체크\n이벤트',
-		image: './assets/images/content-attendance.png',
-		backgroundColor: '#FFC4C4',
+		// image: './assets/images/content-attendance.png',
+		// backgroundColor: '#FFC4C4',
 		link: '#',
 	},
 ];
@@ -620,7 +620,7 @@ const popupSlides = [
 								data-aos-duration="500"
 							>
 								<UiSelect name="library-filter" options={selectOptions} value="all" class="w-180" />
-								<div class="event-section__nav flex items-center gap-4">
+								<div class="event-section__nav flex items-center gap-8">
 									<UiNavButton class="event-prev-btn" direction="prev" size={40} ariaLabel="이전 이벤트" />
 									<UiNavButton class="event-next-btn" direction="next" size={40} ariaLabel="다음 이벤트" />
 								</div>
@@ -807,13 +807,25 @@ const popupSlides = [
 							{
 								newContentItems.map(item => (
 									<a href={item.link} class={`new-content-item new-content-item--${item.id}`}>
-										<div class="new-content-item__image">
-											<img src={item.image} alt={item.title} />
-										</div>
+										{/* <div class="new-content-item__image">
+											<img src={item.image} />
+										</div> */}
 										<div class="new-content-item__content">
-											<h4 class="new-content-item__title title-single-line" set:html={item.title} />
+											{item.id === 'infant-books' ? (
+												<h4 class="new-content-item__title title-single-line">
+													<span class="title-line1">영유아</span>
+													<span class="title-line2">전집 대여</span>
+												</h4>
+											) : item.id === 'attendance-event' ? (
+												<h4 class="new-content-item__title title-single-line">
+													<span class="title-line3">출석체크</span>
+													<span class="title-line2">이벤트</span>
+												</h4>
+											) : (
+												<h4 class="new-content-item__title title-single-line" set:html={item.title} />
+											)}
 											<div class="new-content-item__arrow">
-												<img src="./assets/images/icon/icon-arr-right.svg" alt="arrow-right" />
+												<img src="./assets/images/icon/icon-carousel__atomic.svg" alt="arrow-right" />
 											</div>
 										</div>
 									</a>
@@ -1303,7 +1315,7 @@ const popupSlides = [
 			<div class="inner">
 				<div class="banner-section__content">
 					<div class="banner-section__left">
-						<div class="banner-section__nav flex gap-4">
+						<div class="banner-section__nav flex gap-8">
 							<UiNavButton
 								class="ui-nav-button--primary banner-swiper-btn-prev"
 								direction="prev"

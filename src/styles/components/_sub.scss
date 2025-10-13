@@ -482,6 +482,7 @@ ul.movie-card-wrp {
 				border-bottom: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-right: 1px solid var(--color-gray-gy-20, #cbcccc);
 				border-left: 1px solid #cbcccc;
+				word-break: keep-all;
 
 				&.text-left {
 					text-align: left;
@@ -551,9 +552,9 @@ ul.movie-card-wrp {
 	}
 }
 .contact-table-wrp {
-  	@include mobile {
-			overflow-x: auto;
-		}
+	@include mobile {
+		overflow-x: auto;
+	}
 	&.scroll-x {
 		@include mobile {
 			overflow-x: auto;
@@ -626,6 +627,7 @@ ul.movie-card-wrp {
 
 	&__content {
 		padding-left: to-rem(28);
+		margin-top: 0.5rem;
 	}
 
 	&__list {
@@ -1462,7 +1464,6 @@ ul.movie-card-wrp {
 .hall-calendar-wrp {
 	@include mobile {
 		overflow-x: auto;
-
 	}
 }
 .hall-calendar {
@@ -1605,7 +1606,7 @@ ul.movie-card-wrp {
 		}
 
 		@include mobile {
-			min-height: to-rem(80);
+			min-height: to-rem(105);
 			padding: to-rem(4);
 		}
 
@@ -1692,8 +1693,8 @@ ul.movie-card-wrp {
 
 		&--present {
 			position: absolute;
-			bottom: .5rem;
-			right: .5rem;
+			bottom: 0.5rem;
+			right: 0.5rem;
 			background: transparent;
 			background-image: url('../../assets/images/icon/lib_check_present.svg') !important;
 			background-size: cover;
@@ -1707,15 +1708,15 @@ ul.movie-card-wrp {
 			@include mobile {
 				width: to-rem(51);
 				height: to-rem(52);
-				right:4px;
+				right: 4px;
 				bottom: 8px;
 			}
 		}
 
 		&--absent {
 			position: absolute;
-			bottom: .5rem;
-			right: .5rem;
+			bottom: 0.5rem;
+			right: 0.5rem;
 			background: transparent;
 			background-image: url('../../assets/images/icon/lib_check_absent.svg') !important;
 			background-size: cover;
@@ -1732,7 +1733,6 @@ ul.movie-card-wrp {
 				right: 4px;
 				bottom: 8px;
 			}
-
 		}
 
 		&--app-able {
@@ -1778,6 +1778,7 @@ ul.movie-card-wrp {
 		gap: to-rem(2);
 		align-items: flex-end;
 		align-self: flex-end;
+		position: absolute; // 테이블 높이 맞춤(ley)
 	}
 
 	&__button {
@@ -1800,11 +1801,11 @@ ul.movie-card-wrp {
 		min-width: to-rem(54);
 
 		@include mobile {
-			gap:2px;
+			gap: 2px;
 			align-items: center;
 		}
 
-		img{
+		img {
 			@include mobile {
 				width: to-rem(16);
 				height: to-rem(16);
@@ -3091,7 +3092,8 @@ ul.movie-card-wrp {
 		&.required::after {
 			content: '*';
 			color: #d7424e;
-			margin-left: to-rem(2);
+			// margin-left: to-rem(2);
+			margin-left: to-rem(8);
 			font-size: to-rem(16);
 			vertical-align: super;
 			position: absolute;
@@ -3146,7 +3148,8 @@ ul.movie-card-wrp {
 	.address-group {
 		display: flex;
 		flex-direction: column;
-		gap: to-rem(8);
+		// gap: to-rem(8);
+		gap: to-rem(12);
 
 		.input-with-button {
 			flex-direction: row;
@@ -3165,9 +3168,9 @@ ul.movie-card-wrp {
 		font-size: to-rem(24);
 		font-weight: bold;
 		color: #191a1a;
-		margin-bottom: to-rem(20);
-		padding-bottom: to-rem(8);
-		border-bottom: 2px solid #ecf2fe;
+		// margin-bottom: to-rem(20);
+		// padding-bottom: to-rem(8);
+		// border-bottom: 2px solid #ecf2fe;
 	}
 }
 
@@ -4941,10 +4944,10 @@ ul.movie-card-wrp {
 		}
 		.ui-tab__button {
 			flex: 1 1 calc(100% / min(5, var(--total-tabs, 5)));
-			border-bottom: 1px solid #B1B3B3;
+			border-bottom: 1px solid #b1b3b3;
 
 			&:last-child {
-				border-right: 1px solid #B1B3B3;
+				border-right: 1px solid #b1b3b3;
 			}
 		}
 	}
@@ -4978,14 +4981,15 @@ ul.movie-card-wrp {
 
 	.ui-tab__list {
 		gap: 0;
-		border: 1px solid #B1B3B3;
-		border-radius: to-rem(4);
+		border: 1px solid #b1b3b3;
+		// border-radius: to-rem(4);
 		display: flex;
 		flex-wrap: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
 		width: 100%;
-		margin-top: to-rem(24) !important;
+		// margin-top: to-rem(24) !important;
+		border-radius: to-rem(8);
 
 		@include mobile {
 			margin-bottom: 35px;
@@ -5017,7 +5021,7 @@ ul.movie-card-wrp {
 	.ui-tab__button {
 		background: transparent;
 		border: none;
-		border-right: 1px solid #B1B3B3;
+		border-right: 1px solid #b1b3b3;
 		padding: to-rem(12) to-rem(16);
 		font-size: to-rem(17);
 		font-weight: 700;
@@ -5292,7 +5296,7 @@ ul.movie-card-wrp {
 
 	strong {
 		// color: #30619b;
-		color: #3C79C2;
+		color: #3c79c2;
 		font-weight: 700;
 	}
 
@@ -5928,10 +5932,32 @@ ul.movie-card-wrp {
 	}
 	&:hover {
 		border-radius: var(--radius-medium2, 6px);
-		background: var(--color-primary-pr01, #d8e4f3);
+		// background: var(--color-primary-pr01, #d8e4f3);
+		background-color: #ecf2f9;
 		.gnb-third-text {
-			color: $primary-color !important;
+			// color: $primary-color !important;
+			// font-weight: 700 !important;
+			color: #191a1a !important;
+			font-weight: 400 !important;
+		}
+	}
+
+	// 추가  ley 251011
+
+	&:active {
+		background: #d8e4f3;
+		.gnb-third-text {
+			font-size: to-rem(16) !important;
 			font-weight: 700 !important;
+			color: #244874 !important;
+		}
+	}
+	&.selected {
+		background: #ecf2f9;
+		.gnb-third-text {
+			font-size: to-rem(16) !important;
+			font-weight: 700 !important;
+			color: #244874 !important;
 		}
 	}
 }
@@ -6350,6 +6376,38 @@ ul.movie-card-wrp {
 
 	.step-content {
 		color: $warning-color;
+	}
+}
+
+// 강조된 단계 스타일 (도서관 담당 단계)
+.step-item--highlight {
+	background: #3c79c2;
+
+	.step-number {
+		border-radius: to-rem(17);
+		background: #ffffff;
+		color: #3c79c2;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(19);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 150%;
+		text-align: center;
+	}
+
+	.step-content {
+		color: #ffffff;
+		text-align: center;
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+		letter-spacing: 0;
+
+		.step-sub {
+			color: #ffffff;
+		}
 	}
 }
 
@@ -6974,8 +7032,9 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		padding: to-rem(12) 0;
+		padding: to-rem(12) to-rem(16);
 		margin-bottom: to-rem(1);
+		border-top: 2px solid #244874;
 
 		@include mobile {
 			padding: to-rem(8) 0;
@@ -6998,7 +7057,7 @@ ul.movie-card-wrp {
 	&__detail {
 		border-top: 1px solid #b1b4b4;
 		border-bottom: 1px solid #b1b4b4;
-		padding: to-rem(24) 0;
+		padding: to-rem(24) to-rem(16);
 
 		@include mobile {
 			padding: to-rem(16) 0;
@@ -7366,6 +7425,68 @@ ul.movie-card-wrp {
 	text-align: right;
 }
 
+<<<<<<< HEAD
+=======
+/* 신규 컨텐츠 아이템 배경색 클래스들 */
+.new-content-item {
+	/* 기본 배경색은 기존 스타일을 유지 */
+
+	/* 각 컨텐츠별 배경색 클래스 */
+	&--life-library {
+		background-color: #aecdff;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../../assets/images/banner_img-01.png') no-repeat bottom right;
+		}
+	}
+
+	&--school-books {
+		background-color: #d6c9f2;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../../assets/images/banner_img-02.png') no-repeat bottom right;
+		}
+	}
+
+	&--infant-books {
+		background-color: #ffee99;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../../assets/images/banner_img-03.png') no-repeat bottom right;
+		}
+	}
+
+	&--attendance-event {
+		background-color: #b6d6f2;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../../assets/images/banner_img-04.png') no-repeat bottom right;
+		}
+	}
+}
+
+>>>>>>> 26e2d91e02f0e3f6a3a086846eb6329bd1f8412f
 /* 이벤트 카드 태그 색상 클래스들 */
 .event-card__tag {
 	/* 기본 배경색 */
@@ -7919,7 +8040,7 @@ ul.movie-card-wrp {
 .info-notice__header {
 	display: flex;
 	gap: 0.5rem;
-	margin-bottom: 0.5rem;
+	// margin-bottom: 0.5rem;
 }
 
 .info-notice__icon {
@@ -7939,9 +8060,11 @@ ul.movie-card-wrp {
 	font-family: 'Pretendard GOV', sans-serif;
 	font-size: 1.0625rem; /* 17px */
 	font-weight: 700;
+	// font-weight: 400;
 	line-height: 1.5;
 	color: #191a1a;
 	margin: 0;
+	word-break: keep-all;
 }
 .info-notice__content {
 	width: 100%;
@@ -10656,7 +10779,7 @@ ul.movie-card-wrp {
 						content: '①';
 						position: absolute;
 						left: 0;
-						top:4px;
+						top: 4px;
 						width: auto;
 						height: auto;
 						background: transparent;
@@ -10785,7 +10908,6 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		white-space: nowrap;
 
-
 		@include mobile {
 			font-size: 24px;
 		}
@@ -10824,7 +10946,7 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		color: #00b248;
 
-		span{
+		span {
 			font-size: 35px;
 			font-weight: 700;
 			color: #fff;
@@ -10925,7 +11047,8 @@ ul.movie-card-wrp {
 		display: flex;
 		gap: to-rem(8px);
 		align-items: center;
-		padding-left: to-rem(8px);
+		// padding-left: to-rem(8px);
+		padding-left: to-rem(20px);
 		position: relative;
 
 		&::before {
@@ -11073,6 +11196,509 @@ ul.movie-card-wrp {
 			font-size: 15px;
 		}
 	}
+
+	&__text-group {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8px);
+
+		.com-inbo-type2__text {
+			margin: 0;
+		}
+	}
+
+	&--notice {
+		background: #eef2f7;
+		border: 1px solid #d6e0eb;
+		border-radius: to-rem(12px);
+		padding: to-rem(16px);
+
+		@include mobile {
+			padding: 12px;
+		}
+
+		.com-inbo-type2__text {
+			color: $primary-color;
+		}
+	}
+}
+
+// Marathon Progress Bar
+.marathon-progress {
+	background: #f1f2f2;
+	padding: to-rem(26px) to-rem(16px);
+	border-radius: to-rem(6px);
+	margin-bottom: to-rem(40px);
+	position: relative;
+	height: 200px;
+
+	@include mobile {
+		padding: 20px 12px;
+		height: 180px;
+		margin-bottom: 24px;
+	}
+
+	&__track {
+		position: relative;
+		margin: 0 to-rem(70px);
+		padding-top: to-rem(96px);
+
+		@include mobile {
+			margin: 0px;
+			padding-top: 80px;
+		}
+	}
+
+	&__bar {
+		width: 100%;
+		height: 10px;
+		background: #cbcccc;
+		border-radius: 5px;
+		position: relative;
+	}
+
+	&__filled {
+		position: absolute;
+		bottom: 37px;
+		left: 0;
+		height: 10px;
+		background: linear-gradient(90deg, #3c79c2 0%, #6494ce 100%);
+		border-radius: 5px;
+		transition: width 0.3s ease;
+
+		@include mobile {
+			bottom: 29px;
+		}
+	}
+
+	&__labels {
+		display: flex;
+		justify-content: space-between;
+		margin-top: to-rem(12px);
+		position: relative;
+
+		@include mobile {
+			margin-top: 8px;
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 14px;
+		}
+	}
+
+	&__runner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 140px;
+		height: 80px;
+		transition: left 0.3s ease;
+		transform: translateX(-70px);
+
+		@include mobile {
+			width: 100px;
+			height: 60px;
+			transform: translateX(-50px);
+		}
+	}
+
+	&__runner-badge {
+		position: relative;
+		width: 140px;
+		height: 80px;
+
+		@include mobile {
+			width: 100px;
+			height: 60px;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__runner-content {
+		position: absolute;
+		top: 10px;
+		left: 21px;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+
+		@include mobile {
+			top: 6px;
+			left: 16px;
+		}
+	}
+
+	&__runner-top {
+		display: flex;
+		align-items: center;
+		gap: to-rem(5px);
+		margin-bottom: 0;
+
+		@include mobile {
+			gap: 4px;
+		}
+	}
+
+	&__runner-icon {
+		width: to-rem(24px);
+		height: to-rem(24px);
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 18px;
+			height: 18px;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__runner-name {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #ffffff;
+		white-space: nowrap;
+
+		span {
+			font-weight: 400;
+		}
+
+		@include mobile {
+			font-size: 14px;
+		}
+	}
+
+	&__runner-distance {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #ffffff;
+		text-align: center;
+		width: 100%;
+		margin-top: to-rem(8px);
+		position: relative;
+		left: -6px;
+		top: -4px;
+
+		@include mobile {
+			font-size: 14px;
+			margin-top: 4px;
+		}
+	}
+
+	&__flag {
+		position: absolute;
+		top: to-rem(32px);
+		right: -19px;
+
+		@include mobile {
+			top: 20px;
+			right: -11px;
+		}
+
+		img {
+			width: 40px;
+			height: 40px;
+
+			@include mobile {
+				width: 32px;
+				height: 32px;
+			}
+		}
+	}
+}
+
+// Marathon Status Card
+.marathon-status-card {
+	background: #ffffff;
+	border: 1px solid #b1b3b3;
+	border-radius: to-rem(6px);
+	padding: to-rem(32px);
+	margin-bottom: to-rem(40px);
+	display: flex;
+	gap: to-rem(36px);
+
+	@include mobile {
+		padding: 20px;
+		margin-bottom: 24px;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__header {
+		display: flex;
+		gap: to-rem(8px);
+		padding-right: to-rem(36px);
+		border-right: 1px solid #b1b3b3;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+
+		@include mobile {
+			border-right: none;
+			border-bottom: 1px solid #b1b3b3;
+			padding-right: 0;
+			padding-bottom: 16px;
+			justify-content: flex-start;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: to-rem(36px);
+		height: to-rem(36px);
+		position: relative;
+
+		@include mobile {
+			width: 30px;
+			height: 30px;
+		}
+	}
+
+	&__icon-bg {
+		width: to-rem(36px);
+		height: to-rem(36px);
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		@include mobile {
+			width: 30px;
+			height: 30px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__icon-image {
+		width: to-rem(24px);
+		height: to-rem(24px);
+		position: absolute;
+		left: to-rem(6px);
+		top: to-rem(6px);
+
+		@include mobile {
+			width: 18px;
+			height: 18px;
+			left: 6px;
+			top: 6px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(24px);
+		line-height: 1.5;
+		color: #000000;
+		margin: 0;
+		white-space: nowrap;
+
+		@include mobile {
+			font-size: 20px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16px);
+		flex: 1;
+		padding: to-rem(24px) 0;
+
+		@include mobile {
+			gap: 12px;
+			padding: 0;
+		}
+	}
+
+	&__row {
+		display: flex;
+		gap: to-rem(16px);
+
+		@include mobile {
+			flex-direction: column;
+			gap: 12px;
+		}
+	}
+
+	&__item {
+		flex: 1;
+		display: flex;
+		gap: to-rem(24px);
+		align-items: flex-start;
+
+		@include mobile {
+			gap: 16px;
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		width: 120px;
+		flex-shrink: 0;
+
+		@include mobile {
+			font-size: 15px;
+			width: 100px;
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 400;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #4b4d4d;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Detail Section
+.detail-section {
+	margin-bottom: to-rem(40px);
+
+	@include mobile {
+		margin-bottom: 24px;
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(28px);
+		line-height: 1;
+		color: #191a1a;
+		margin-bottom: to-rem(12px);
+		padding: to-rem(12px) 0;
+
+		@include mobile {
+			font-size: 22px;
+			margin-bottom: 8px;
+			padding: 8px 0;
+		}
+	}
+
+	&__content {
+		border-top: 1px solid #b1b3b3;
+		border-bottom: 1px solid #b1b3b3;
+		padding: to-rem(24px) 0;
+
+		@include mobile {
+			padding: 16px 0;
+		}
+	}
+
+	&__row {
+		display: flex;
+		gap: to-rem(8px);
+		margin-bottom: to-rem(16px);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include mobile {
+			flex-direction: column;
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+	}
+
+	&__item {
+		flex: 1;
+		display: flex;
+		gap: to-rem(24px);
+		align-items: flex-start;
+
+		&--full {
+			flex: 1 1 100%;
+		}
+
+		@include mobile {
+			gap: 16px;
+		}
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 700;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #191a1a;
+		width: 120px;
+		flex-shrink: 0;
+
+		@include mobile {
+			font-size: 15px;
+			width: 100px;
+		}
+	}
+
+	&__value {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-weight: 400;
+		font-size: to-rem(17px);
+		line-height: 1.5;
+		color: #4b4d4d;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// Marathon Detail Page Actions
+.marathon-detail-page__actions {
+	display: flex;
+	gap: to-rem(16px);
+	justify-content: center;
+	padding: to-rem(64px) 0;
+
+	@include mobile {
+		flex-direction: column;
+		gap: 12px;
+		padding: 32px 0;
+	}
 }
 
 // Directions Section
@@ -11116,9 +11742,67 @@ ul.movie-card-wrp {
 	align-items: center;
 	justify-content: center;
 	background: white;
+	position: relative;
+	overflow: hidden;
 
 	@include mobile {
 		height: 300px;
+	}
+
+	/* 카카오맵 컨테이너 스타일 */
+	.map-placeholder .root_daum_roughmap {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	/* 분류별 지도(NGII) 스타일 */
+	.map-placeholder--ngii {
+		padding: 0;
+	}
+
+	.ngii-map-wrapper {
+		width: 100% !important;
+		height: 480px !important;
+		position: relative;
+	}
+	@media (max-width: 900px) {
+		.ngii-map-wrapper {
+			height: 300px !important;
+		}
+	}
+
+	.ngii-map-toolbar {
+		position: absolute;
+		top: 170px;
+		right: 20px;
+		width: 54px;
+		height: 200px;
+		z-index: 1000000;
+	}
+	@media (max-width: 900px) {
+		.ngii-map-toolbar {
+			top: 80px;
+			right: 10px;
+			width: 44px;
+			height: 150px;
+		}
+	}
+
+	.ngii-toolbar-inner {
+		width: 39px;
+		margin-top: 10px;
+		margin-left: 30px;
+	}
+	@media (max-width: 900px) {
+		.ngii-toolbar-inner {
+			width: 34px;
+			margin-left: 10px;
+			margin-top: 5px;
+		}
+		.ngii-toolbar-inner img {
+			max-width: 100%;
+			height: auto;
+		}
 	}
 
 	&__text {
@@ -11344,9 +12028,13 @@ ul.movie-card-wrp {
 		line-height: 1.5;
 		color: #191a1a;
 		margin: 0;
+		font-weight: 400;
 
 		@include mobile {
 			font-size: 15px;
 		}
 	}
+}
+.root_daum_roughmap_landing {
+	width: 100% !important;
 }

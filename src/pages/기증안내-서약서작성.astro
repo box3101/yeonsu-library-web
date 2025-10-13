@@ -95,42 +95,44 @@ const rows = [
 				<div class="radio-group">
 					<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
 					<div class="ui-radio ui-radio--medium">
-						<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
-						<div class="ui-radio__item">
-							<!-- 숨겨진 실제 라디오 input 요소 -->
-							<input
-								type="radio"
-								id="privacy-disagree"
-								name="privacy-collection"
-								value="disagree"
-								class="ui-radio__input"
-							/>
-							<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
-							<div class="ui-radio__control">
-								<!-- 선택 시 표시될 내부 원형 도트 -->
-								<div class="ui-radio__dot"></div>
+						<label for="privacy-disagree" class="ui-radio__wrapper">
+							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+							<div class="ui-radio__item">
+								<!-- 숨겨진 실제 라디오 input 요소 -->
+								<input
+									type="radio"
+									id="privacy-disagree"
+									name="privacy-collection"
+									value="disagree"
+									class="ui-radio__input"
+								/>
+								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+								<div class="ui-radio__control">
+									<!-- 선택 시 표시될 내부 원형 도트 -->
+									<div class="ui-radio__dot"></div>
+								</div>
 							</div>
-						</div>
-
-						<label for="privacy-disagree" class="ui-radio__label">
-							<span class="ui-radio__title">동의안함</span>
+							<div class="ui-radio__label">
+								<span class="ui-radio__title">동의안함</span>
+							</div>
 						</label>
 					</div>
 					<!-- 라디오 버튼 컨테이너 - 크기와 비활성화 상태에 따른 클래스 적용 -->
 					<div class="ui-radio ui-radio--medium">
-						<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
-						<div class="ui-radio__item">
-							<!-- 숨겨진 실제 라디오 input 요소 -->
-							<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
-							<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
-							<div class="ui-radio__control">
-								<!-- 선택 시 표시될 내부 원형 도트 -->
-								<div class="ui-radio__dot"></div>
+						<label for="privacy-agree" class="ui-radio__wrapper">
+							<!-- 실제 라디오 버튼과 커스텀 디자인 요소를 포함하는 컨테이너 -->
+							<div class="ui-radio__item">
+								<!-- 숨겨진 실제 라디오 input 요소 -->
+								<input type="radio" id="privacy-agree" name="privacy-collection" value="agree" class="ui-radio__input" />
+								<!-- 커스텀 라디오 버튼 디자인 컨테이너 -->
+								<div class="ui-radio__control">
+									<!-- 선택 시 표시될 내부 원형 도트 -->
+									<div class="ui-radio__dot"></div>
+								</div>
 							</div>
-						</div>
-
-						<label for="privacy-agree" class="ui-radio__label">
-							<span class="ui-radio__title">동의함</span>
+							<div class="ui-radio__label">
+								<span class="ui-radio__title">동의함</span>
+							</div>
 						</label>
 					</div>
 				</div>
@@ -249,38 +251,42 @@ const rows = [
 					<label class="form-label required">등록제한자료 반입여부</label>
 					<div class="radio-group">
 						<div class="ui-radio ui-radio--medium">
-							<div class="ui-radio__item">
-								<input
-									type="radio"
-									id="material-allowed"
-									name="restrictedMaterial"
-									value="allowed"
-									class="ui-radio__input"
-									checked
-								/>
-								<div class="ui-radio__control">
-									<div class="ui-radio__dot"></div>
+							<label for="material-allowed" class="ui-radio__wrapper">
+								<div class="ui-radio__item">
+									<input
+										type="radio"
+										id="material-allowed"
+										name="restrictedMaterial"
+										value="allowed"
+										class="ui-radio__input"
+										checked
+									/>
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-							<label for="material-allowed" class="ui-radio__label">
-								<span class="ui-radio__title">등록제한자료 반입여부</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">등록제한자료 반입여부</span>
+								</div>
 							</label>
 						</div>
 						<div class="ui-radio ui-radio--medium">
-							<div class="ui-radio__item">
-								<input
-									type="radio"
-									id="material-restricted"
-									name="restrictedMaterial"
-									value="restricted"
-									class="ui-radio__input"
-								/>
-								<div class="ui-radio__control">
-									<div class="ui-radio__dot"></div>
+							<label for="material-restricted" class="ui-radio__wrapper">
+								<div class="ui-radio__item">
+									<input
+										type="radio"
+										id="material-restricted"
+										name="restrictedMaterial"
+										value="restricted"
+										class="ui-radio__input"
+									/>
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-							<label for="material-restricted" class="ui-radio__label">
-								<span class="ui-radio__title">반입(기증 불가)</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">반입(기증 불가)</span>
+								</div>
 							</label>
 						</div>
 					</div>
@@ -291,36 +297,42 @@ const rows = [
 					<label class="form-label required">연령</label>
 					<div class="radio-group">
 						<div class="ui-radio ui-radio--medium">
-							<div class="ui-radio__item">
-								<input type="radio" id="age-10-20" name="age" value="10-20" class="ui-radio__input" checked />
-								<div class="ui-radio__control">
-									<div class="ui-radio__dot"></div>
+							<label for="age-10-20" class="ui-radio__wrapper">
+								<div class="ui-radio__item">
+									<input type="radio" id="age-10-20" name="age" value="10-20" class="ui-radio__input" checked />
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-							<label for="age-10-20" class="ui-radio__label">
-								<span class="ui-radio__title">10~20명</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">10~20명</span>
+								</div>
 							</label>
 						</div>
 						<div class="ui-radio ui-radio--medium">
-							<div class="ui-radio__item">
-								<input type="radio" id="age-20-30" name="age" value="20-30" class="ui-radio__input" />
-								<div class="ui-radio__control">
-									<div class="ui-radio__dot"></div>
+							<label for="age-20-30" class="ui-radio__wrapper">
+								<div class="ui-radio__item">
+									<input type="radio" id="age-20-30" name="age" value="20-30" class="ui-radio__input" />
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-							<label for="age-20-30" class="ui-radio__label">
-								<span class="ui-radio__title">20~30명</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">20~30명</span>
+								</div>
 							</label>
 						</div>
 						<div class="ui-radio ui-radio--medium">
-							<div class="ui-radio__item">
-								<input type="radio" id="age-30-40" name="age" value="30-40" class="ui-radio__input" />
-								<div class="ui-radio__control">
-									<div class="ui-radio__dot"></div>
+							<label for="age-30-40" class="ui-radio__wrapper">
+								<div class="ui-radio__item">
+									<input type="radio" id="age-30-40" name="age" value="30-40" class="ui-radio__input" />
+									<div class="ui-radio__control">
+										<div class="ui-radio__dot"></div>
+									</div>
 								</div>
-							</div>
-							<label for="age-30-40" class="ui-radio__label">
-								<span class="ui-radio__title">30~40명</span>
+								<div class="ui-radio__label">
+									<span class="ui-radio__title">30~40명</span>
+								</div>
 							</label>
 						</div>
 					</div>

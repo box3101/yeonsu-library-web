@@ -15,3 +15,438 @@
 @use 'components/sub';
 @use 'components/sub2';
 @use 'components/sub3.scss';
+@use 'pages/notice-detail';
+
+/* 국토지리정보원 지도 */
+.ol-rotate.ol-hidden {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s linear, visibility 0s linear 0.25s;
+}
+.ol-attribution.ol-logo-only button,
+.ol-attribution.ol-uncollapsible button {
+	display: none;
+}
+
+/* UiTab with Description - 대관안내 페이지용 */
+.search-type-tabs .ui-tab__button--with-description {
+	min-height: to-rem(72);
+	padding: to-rem(12) to-rem(16);
+
+	.ui-tab__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: to-rem(2);
+		white-space: pre-wrap;
+		text-align: center;
+	}
+
+	.ui-tab__label {
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: inherit;
+	}
+
+	.ui-tab__description {
+		font-size: to-rem(15);
+		font-weight: 400;
+		line-height: 1.5;
+		color: inherit;
+	}
+
+	// Active state - 기존 search-type-tabs 스타일 따라감
+	&.ui-tab__button--active {
+		background: #003456;
+		color: white;
+		z-index: 2;
+
+		.ui-tab__label {
+			color: white;
+		}
+
+		.ui-tab__description {
+			color: white;
+		}
+	}
+
+	// Hover state
+	&:hover:not(.ui-tab__button--active) {
+		background: rgba(255, 255, 255, 0.5);
+		z-index: 1;
+
+		.ui-tab__label {
+			color: #5a5a5a;
+		}
+	}
+
+	// Non-active state
+	&:not(.ui-tab__button--active) {
+		background: transparent;
+		color: #7d8181;
+
+		.ui-tab__label {
+			color: #7d8181;
+		}
+
+		.ui-tab__description {
+			color: #7d8181;
+		}
+	}
+}
+
+/* 도서관 갤러리 - 대관안내 페이지 기타 섹션 */
+.library-gallery {
+	background: #f1f2f2;
+	border-radius: to-rem(12);
+	padding: to-rem(32);
+	width: 100%;
+
+	&__grid {
+		display: flex;
+		gap: to-rem(16);
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(12);
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	&__image {
+		width: to-rem(170);
+		height: to-rem(128);
+		overflow: hidden;
+		border-radius: to-rem(8);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	&__title {
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+		text-align: center;
+		margin: 0;
+		width: to-rem(152.5);
+	}
+
+	// 반응형
+	@media (max-width: 900px) {
+		padding: 24px;
+
+		&__grid {
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+
+		&__item {
+			width: calc(50% - 10px);
+			min-width: 0;
+		}
+
+		&__image {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 170 / 128;
+		}
+
+		&__title {
+			width: 100%;
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		padding: 16px;
+
+		&__grid {
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		&__item {
+			width: 100%;
+		}
+	}
+}
+
+/* 감면조례 인포박스 - 대관안내 페이지 전용 */
+.rental-infobox {
+	background: #f1f2f2;
+	border: 1px solid #cbcccc;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+	width: 100%;
+
+	// 헤더 영역
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(8);
+		margin-bottom: to-rem(16);
+	}
+
+	// 아이콘
+	&__icon {
+		flex-shrink: 0;
+		width: to-rem(32);
+		height: to-rem(32);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// 제목
+	&__title {
+		font-size: to-rem(24);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+	}
+
+	// 컨텐츠 영역
+	&__content {
+		padding-left: to-rem(28);
+	}
+
+	// 리스트 그룹
+	&__list-group {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(8);
+	}
+
+	// 리스트 아이템
+	&__list-item {
+		display: flex;
+		gap: to-rem(4);
+		align-items: flex-start;
+
+		// 2단계 들여쓰기 (동그라미 숫자용 - 8px)
+		&--indent-8 {
+			padding-left: to-rem(8);
+		}
+
+		// 3단계 들여쓰기 (일반 숫자용 - 36px = 8px + 28px)
+		&--indent-36 {
+			padding-left: to-rem(36);
+		}
+	}
+
+	// 불릿 포인트
+	&__list-item-bullet {
+		flex-shrink: 0;
+		width: to-rem(16);
+		height: to-rem(23);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		// dot 불릿 (1단계)
+		&--dot::before {
+			content: '';
+			display: block;
+			width: 6px;
+			height: 6px;
+			background: #4b4d4d;
+			border-radius: 4px;
+		}
+
+		// 동그라미 숫자 불릿 (2단계: ① ② ③)
+		&--circle {
+			font-size: to-rem(15);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #4b4d4d;
+		}
+
+		// 일반 숫자 불릿 (3단계: 1. 2. 3.)
+		&--number {
+			font-size: to-rem(17);
+			font-weight: 400;
+			line-height: 1.5;
+			color: #4b4d4d;
+		}
+	}
+
+	// 리스트 텍스트
+	&__list-item-text {
+		flex: 1;
+		font-size: to-rem(15);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+		word-break: break-all;
+	}
+}
+/* 시설물사용료 테이블 스타일 */
+.facility-fee-table {
+	tbody {
+		td {
+			vertical-align: middle;
+		}
+	}
+
+	.facility-category {
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.remark-cell {
+		text-align: left;
+		vertical-align: top;
+		padding: to-rem(16);
+		line-height: 1.8;
+	}
+}
+
+/* 빨간색 텍스트 */
+.text-red {
+	color: #d7424e;
+}
+
+/* 안내 메시지 박스 - 책마중서비스 등에서 사용 */
+.info-notice {
+	background: #f4f5f6;
+	border: 1px solid #cdd1d5;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+
+	&__header {
+		display: flex;
+		align-items: flex-start;
+		gap: to-rem(8);
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: to-rem(24);
+		height: to-rem(24);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__title {
+		flex: 1;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+		word-break: keep-all;
+	}
+
+	@include mobile {
+		padding: to-rem(12);
+
+		&__title {
+			font-size: to-rem(15);
+		}
+	}
+}
+
+/* 파란색 인포박스 */
+.com-infobox-blue {
+	background-color: #f0f7ff;
+	border: 1px solid #d4e6f7;
+	border-radius: to-rem(8);
+	padding: to-rem(24);
+	margin-top: to-rem(24);
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: to-rem(8);
+		margin-bottom: to-rem(16);
+	}
+
+	&__icon {
+		width: to-rem(24);
+		height: to-rem(24);
+		flex-shrink: 0;
+	}
+
+	&__title {
+		font-size: to-rem(18);
+		font-weight: 700;
+		color: #003456;
+		margin: 0;
+	}
+
+	&__content {
+		padding-left: to-rem(32);
+	}
+
+	&__list {
+		list-style: none;
+		counter-reset: item;
+		margin: 0;
+		padding: 0;
+
+		li {
+			counter-increment: item;
+			position: relative;
+			padding-left: to-rem(24);
+			font-size: to-rem(16);
+			line-height: 1.8;
+			color: #333;
+			margin-bottom: to-rem(8);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&::before {
+				content: counter(item) '. ';
+				position: absolute;
+				left: 0;
+				font-weight: 600;
+				color: #003456;
+			}
+		}
+	}
+}
+
+/* 반응형 조정 */
+@media (max-width: 900px) {
+	.com-infobox-blue {
+		padding: to-rem(16);
+
+		&__content {
+			padding-left: to-rem(16);
+		}
+
+		&__list li {
+			font-size: to-rem(14);
+			padding-left: to-rem(20);
+		}
+	}
+
+	.facility-fee-table {
+		.remark-cell {
+			padding: to-rem(12);
+			font-size: to-rem(14);
+		}
+	}
+}

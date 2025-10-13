@@ -25,7 +25,7 @@
     flex-shrink: 0;
     width: to-rem(16);
     height: to-rem(16);
-    filter: invert(37%) sepia(12%) saturate(3017%) hue-rotate(172deg) brightness(89%) contrast(86%);
+    filter: invert(22%) sepia(20%) saturate(1888%) hue-rotate(173deg) brightness(103%) contrast(88%);
   }
 
   .breadcrumb-list {
@@ -49,23 +49,26 @@
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         border-radius: to-rem(4);
-        padding: to-rem(4) to-rem(6);
+        // padding: to-rem(4) to-rem(6);
+        padding: to-rem(0) to-rem(4);
 
         &:hover {
-          color: $primary-color;
+          // color: $primary-color;
           background-color: alpha($primary-color, 0.08);
         }
 
         &:focus {
-          outline: 2px solid $primary-color;
-          outline-offset: 2px;
+          // outline: 1px solid $primary-color;
+          outline-offset: 1px;
+          outline: 1px solid #3C79C2;
         }
       }
 
       .breadcrumb-current {
         color:#4B4D4D;
         font-weight: $font-semibold;
-        padding: to-rem(4) to-rem(6);
+        padding: to-rem(0) to-rem(4);
+        border-bottom: 1px solid #4B4D4D;
       }
 
       .breadcrumb-separator {
@@ -105,7 +108,7 @@
       gap: to-rem(2);
 
       .breadcrumb-item {
-        font-size: to-rem(13);
+        font-size: to-rem(14);
         gap: to-rem(6);
 
         .breadcrumb-link,
