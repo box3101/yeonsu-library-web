@@ -1,9 +1,22 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiSelect, UiSearchbar, UiRadio, UiCheckbox, UiPagination, UiSmartLibraryBookCard, UiSearchEmpty } from '@components';
+import {
+	UiSelect,
+	UiSearchbar,
+	UiRadio,
+	UiCheckbox,
+	UiPagination,
+	UiSmartLibraryBookCard,
+	UiSearchEmpty,
+} from '@components';
+import { UiButton } from '@components';
 
-const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', href: '/support' }, { label: '스마트 도서관 비치도서' }];
+const breadcrumbItems = [
+	{ label: '홈', href: '/' },
+	{ label: '도서검색', href: '/support' },
+	{ label: '스마트 도서관 비치도서' },
+];
 ---
 
 <Layout title="스마트 도서관 비치도서">
@@ -19,9 +32,27 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
 				</div>
 				<div class="infobox__content">
 					<ul class="infobox__list">
-						<li class="infobox__list-item">스마트도서관 비치도서는 해당 기기에서만 대출/반납이 가능합니다.(타 도서관 반납 불가)</li>
+						<li class="infobox__list-item">
+							스마트도서관 비치도서는 해당 기기에서만 대출/반납이 가능합니다.(타 도서관 반납 불가)
+						</li>
 						<li class="infobox__list-item">1인당 3권까지 15일간 대출(1회 연장 가능)</li>
-						<li class="infobox__list-item">스마트도서관으로 상호대차 신청은 1인 2권까지 가능합니다.(해당 기기 및 타 도서관 반납 가능)</li>
+						<li class="infobox__list-item">
+							스마트도서관으로 상호대차 신청은 1인 2권까지 가능합니다.(해당 기기 및 타 도서관 반납 가능)
+						</li>
+						<li class="list-none">
+							<!-- 바로가기 버튼 -->
+							<div class="go-to-smart-library-button">
+								<UiButton
+									variant="primary"
+									size="medium"
+									text="스마트도서관 안내페이지 바로가기"
+									icon="icon-arr-right"
+									iconPosition="right"
+									iconAddClass="icon icon-xxxsm icon-white"
+									href="#"
+								/>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -60,7 +91,13 @@ const breadcrumbItems = [{ label: '홈', href: '/' }, { label: '도서검색', h
 					</h3>
 					<div class="search-result__controls">
 						<div class="search-result__checkbox">
-							<UiCheckbox name="availableOnly" value="available" size="large" label="대출 가능 도서만 보기" class="search-result__checkbox-input" />
+							<UiCheckbox
+								name="availableOnly"
+								value="available"
+								size="large"
+								label="대출 가능 도서만 보기"
+								class="search-result__checkbox-input"
+							/>
 						</div>
 						<div class="search-result__select">
 							<UiSelect
