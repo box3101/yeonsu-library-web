@@ -135,7 +135,8 @@
 	z-index: 999;
 	border-top: 1px solid #cdd1d5;
 	max-height: 0;
-	overflow: hidden;
+	// overflow: hidden;
+	
 	opacity: 0;
 	visibility: hidden;
 	transform: scaleY(0);
@@ -150,22 +151,26 @@
 		opacity: 0 !important;
 		visibility: hidden !important;
 		transform: scaleY(0) !important;
+		overflow: hidden !important;
 	}
 
 	&:not([hidden]) {
 		opacity: 1;
 		visibility: visible;
-		max-height: 600px;
+		// max-height: 600px;
 		transform: scaleY(1);
 		transition: max-height 0.35s ease-out, 
 		            opacity 0.25s ease-out, 
 		            transform 0.35s ease-out,
 		            visibility 0s linear 0s;
+								//add css 
+								 max-height: none;
+								 overflow: visible !important;
 	}
 
 	&-content {
 		@include flex(row, flex-start, stretch);
-		padding: to-rem(16) 0 to-rem(80) 0;
+		padding: to-rem(16) 0 to-rem(32) 0;
 		gap: to-rem(24);
 	}
 

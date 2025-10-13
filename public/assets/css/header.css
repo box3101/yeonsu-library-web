@@ -201,7 +201,6 @@
   z-index: 999;
   border-top: 1px solid #cdd1d5;
   max-height: 0;
-  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transform: scaleY(0);
@@ -213,13 +212,15 @@
   opacity: 0 !important;
   visibility: hidden !important;
   transform: scaleY(0) !important;
+  overflow: hidden !important;
 }
 .gnb-sub:not([hidden]) {
   opacity: 1;
   visibility: visible;
-  max-height: 600px;
   transform: scaleY(1);
   transition: max-height 0.35s ease-out, opacity 0.25s ease-out, transform 0.35s ease-out, visibility 0s linear 0s;
+  max-height: none;
+  overflow: visible !important;
 }
 .gnb-sub-content {
   display: flex;
@@ -227,7 +228,7 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-  padding: 1rem 0 5rem 0;
+  padding: 1rem 0 2rem 0;
   gap: 1.5rem;
 }
 .gnb-sub-title {
