@@ -1871,6 +1871,14 @@
   border-radius: 8px;
   min-height: 7.375rem;
 }
+.library-hours__section.is-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.library-hours__section.is-empty .library-hours__section-title {
+  margin-bottom: 0;
+}
 @media (max-width: 900px) {
   .library-hours__section {
     padding: 12px;
