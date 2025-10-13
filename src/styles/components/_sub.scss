@@ -4989,7 +4989,7 @@ ul.movie-card-wrp {
 		overflow-y: hidden;
 		width: 100%;
 		// margin-top: to-rem(24) !important;
-		border-radius: to-rem(8);
+		border-radius: to-rem(0);
 
 		@include mobile {
 			margin-bottom: 35px;
