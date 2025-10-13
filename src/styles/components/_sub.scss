@@ -6063,6 +6063,7 @@ ul.movie-card-wrp {
 		margin-top: to-rem(35);
 		color: $text-color;
 		font-weight: 700;
+		word-break: keep-all;
 		@include mobile {
 			// 모바일에서는 폰트 크기 축소 (85%)
 			font-size: 24px; // 28px의 85%
@@ -6785,13 +6786,13 @@ ul.movie-card-wrp {
 			padding: to-rem(16) 0;
 			border-bottom: 1px solid #e5e7eb;
 			padding-left: 28px;
+			word-break: break-all;
 
 			// 모바일에서는 폰트 크기와 마진 조정 (px 단위 사용)
 			@include mobile {
 				font-size: 20px;
 				margin-bottom: 0px;
 				border-bottom: none;
-				word-break: keep-all;
 				padding-left: 5px;
 				align-items: flex-start;
 			}
@@ -11975,4 +11976,311 @@ ul.movie-card-wrp {
 }
 .root_daum_roughmap_landing {
 	width: 100% !important;
+}
+
+// 책마중서비스 (리브박스) 스타일
+// 책마중서비스 페이지 전용 gap 조정
+.sub-layout__content-inner-body:has(.lib-box-info),
+.sub-layout__content-inner-body:has(.lib-box-item) {
+	gap: to-rem(6);
+
+	@include mobile {
+		gap: to-rem(2);
+	}
+}
+
+.lib-box-info {
+	background-color: #f1f2f2;
+	border: 1px solid #cbcccc;
+	border-radius: to-rem(12);
+	padding: to-rem(16);
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(8);
+
+	&__header {
+		display: flex;
+		gap: to-rem(8);
+		align-items: center;
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 20px;
+		height: 20px;
+	}
+
+	&__title {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(12);
+		padding-left: to-rem(28);
+
+		@include mobile {
+			padding-left: to-rem(20);
+		}
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #4b4d4d;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__divider {
+		height: 0;
+		border-bottom: 1px solid #979a9a;
+		margin: 0;
+	}
+
+	&__notice {
+		display: flex;
+		gap: to-rem(4);
+		align-items: flex-start;
+	}
+
+	&__notice-icon {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #3c79c2;
+		min-width: to-rem(16);
+		text-align: center;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__notice-text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		line-height: 1.5;
+		color: #3c79c2;
+		margin: 0;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// 리브박스 아이템 (메인 bullet 리스트)
+.lib-box-item {
+	display: flex;
+	gap: to-rem(8);
+	align-items: flex-start;
+
+	&__bullet {
+		width: to-rem(24);
+		height: to-rem(26);
+		display: flex;
+		align-items: center;
+		padding-left: to-rem(8);
+
+		&::before {
+			content: '';
+			width: to-rem(6);
+			height: to-rem(6);
+			background-color: #4b4d4d;
+			border-radius: to-rem(4);
+		}
+	}
+
+	&__content {
+		flex: 1;
+		display: flex;
+		gap: to-rem(8);
+		align-items: center;
+		flex-wrap: wrap;
+		line-height: 1.5;
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #191a1a;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// 리브박스 주의사항 (※ 표시)
+.lib-box-notice {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(12);
+
+	&__item {
+		display: flex;
+		gap: to-rem(4);
+		align-items: flex-start;
+
+		&--primary {
+			.lib-box-notice__icon,
+			.lib-box-notice__text {
+				color: #3c79c2;
+			}
+
+			.lib-box-notice__text {
+				font-weight: 700;
+			}
+		}
+	}
+
+	&__icon {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+		min-width: to-rem(24);
+		text-align: center;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		line-height: 1.5;
+		color: #191a1a;
+		margin: 0;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+
+// 리브박스 서브리스트 (하위 목록)
+.lib-box-sublist {
+	display: flex;
+	flex-direction: column;
+	gap: to-rem(12);
+
+	&__item {
+		display: flex;
+		gap: to-rem(8);
+		align-items: flex-start;
+		padding-left: to-rem(24);
+
+		&--sub {
+			padding-left: to-rem(40);
+		}
+
+		@include mobile {
+			padding-left: to-rem(20);
+
+			&--sub {
+				padding-left: to-rem(32);
+			}
+		}
+	}
+
+	&__bullet {
+		width: to-rem(20);
+		height: to-rem(26);
+		display: flex;
+		align-items: center;
+		padding-left: to-rem(8);
+
+		&--dash {
+			&::before {
+				content: '';
+				width: to-rem(6);
+				height: 1.2px;
+				background-color: #4b4d4d;
+			}
+		}
+
+		&--circle {
+			width: to-rem(16);
+			height: to-rem(23);
+
+			&::before {
+				content: '';
+				width: to-rem(4);
+				height: to-rem(4);
+				border: 1px solid #646767;
+				border-radius: to-rem(4);
+			}
+		}
+	}
+
+	&__content {
+		flex: 1;
+		display: flex;
+		gap: to-rem(8);
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	&__label {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 700;
+		color: #191a1a;
+		line-height: 1.5;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__text {
+		font-family: 'Pretendard GOV', sans-serif;
+		font-size: to-rem(17);
+		font-weight: 400;
+		color: #191a1a;
+		line-height: 1.5;
+		margin: 0;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
 }
