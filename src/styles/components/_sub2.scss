@@ -1494,6 +1494,7 @@
 
 	.recommend-badge {
 		position: relative;
+		flex: none;
 
 		@include mobile {
 			flex: none;
