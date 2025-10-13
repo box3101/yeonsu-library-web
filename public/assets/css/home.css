@@ -2229,7 +2229,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../../assets/images/banner_img-01.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-01.png") no-repeat center left/contain;
+  min-height: 100px;
 }
 .new-content-item--school-books {
   background-color: #d6c9f2;
@@ -2241,7 +2242,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../../assets/images/banner_img-02.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-02.png") no-repeat center left/contain;
+  min-height: 100px;
 }
 .new-content-item--infant-books {
   background-color: #ffee99;
@@ -2253,7 +2255,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../../assets/images/banner_img-03.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-03.png") no-repeat center left/contain;
+  min-height: 100px;
 }
 .new-content-item--attendance-event {
   background-color: #b6d6f2;
@@ -2265,7 +2268,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../../assets/images/banner_img-04.png") no-repeat bottom right;
+  background: url("../../assets/images/banner_img-04.png") no-repeat center left/contain;
+  min-height: 100px;
 }
 
 /*# sourceMappingURL=home.css.map */

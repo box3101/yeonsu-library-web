@@ -2278,7 +2278,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url('../../assets/images/banner_img-01.png') no-repeat bottom right;
+			background: url('../../assets/images/banner_img-01.png') no-repeat center left / contain;
+			min-height: 100px;
 		}
 	}
 
@@ -2291,7 +2292,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url('../../assets/images/banner_img-02.png') no-repeat bottom right;
+			background: url('../../assets/images/banner_img-02.png') no-repeat center left / contain;
+			min-height: 100px;
 		}
 	}
 
@@ -2304,7 +2306,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url('../../assets/images/banner_img-03.png') no-repeat bottom right;
+			background: url('../../assets/images/banner_img-03.png') no-repeat center left / contain;
+			min-height: 100px;
 		}
 	}
 
@@ -2317,7 +2320,8 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url('../../assets/images/banner_img-04.png') no-repeat bottom right;
+			background: url("../../assets/images/banner_img-04.png") no-repeat center left / contain;
+			min-height: 100px;
 		}
 	}
 }
