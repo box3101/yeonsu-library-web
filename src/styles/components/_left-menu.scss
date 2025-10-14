@@ -50,6 +50,17 @@
 			.menu-section-title .menu-title-text {
 				color: var(--color-primary-pr08, #18304d);
 			}
+
+			.menu-section-title {
+				&:hover {
+					&::after {
+						display: none;
+					}
+					&.direct-link {
+						background: #ecf2f9;
+					}
+				}
+			}
 		}
 
 		&:last-child {
@@ -72,7 +83,7 @@
 			padding-right: to-rem(20);
 			position: relative;
 			transition: all 0.25s ease-in-out;
-			
+
 			// 왼쪽에서 오른쪽으로 라인 애니메이션
 			&::after {
 				content: '';
@@ -88,7 +99,7 @@
 			&:hover {
 				background: #f3f4f6;
 				color: $primary-color;
-				
+
 				&::after {
 					width: 100%;
 				}
@@ -96,11 +107,11 @@
 
 			&.expanded {
 				background: var(--color-action-secondary-selected, #eef2f7);
-				
+
 				&::after {
 					width: 100%;
 				}
-				
+
 				.menu-title-text {
 					color: var(--color-primary-pr08, #18304d);
 				}
@@ -112,9 +123,9 @@
 
 			&.active,
 			&.direct-link.active {
-				background: #ECF2F9;
+				background: #ecf2f9;
 				color: $primary-color;
-				
+
 				&::after {
 					width: 100%;
 				}
@@ -149,11 +160,13 @@
 			max-height: 0;
 			overflow: hidden;
 			opacity: 0;
-		visibility: hidden;
-			  // ⭐ 닫힐 때: 매우 빠르게
-			  transition: max-height 0.12s cubic-bezier(0.6, 0, 1, 1),  // 급격한 가속
-			  opacity 0.08s ease-in,                         // 빠른 페이드
-			  visibility 0s linear 0.12s;
+			visibility: hidden;
+			// ⭐ 닫힐 때: 매우 빠르게
+			transition: max-height 0.12s cubic-bezier(0.6, 0, 1, 1),
+				// 급격한 가속
+				opacity 0.08s ease-in,
+				// 빠른 페이드
+				visibility 0s linear 0.12s;
 			background: #ffffff;
 			width: 100%;
 
@@ -162,17 +175,14 @@
 				opacity: 1;
 				visibility: visible;
 				margin: 10px 0;
-				
+
 				// 열릴 때: 부드럽게
-				transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-							opacity 0.25s ease-out 0.1s,
-							visibility 0s linear 0s;
-
-
+				transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.25s ease-out 0.1s,
+					visibility 0s linear 0s;
 			}
 
-			 // 애니메이션 완료 후 최적화 해제
-			 &:not(.expanding) {
+			// 애니메이션 완료 후 최적화 해제
+			&:not(.expanding) {
 				will-change: auto;
 			}
 
@@ -187,7 +197,7 @@
 						background: #d8e4f3;
 						outline: none;
 						border: none;
-						span{
+						span {
 							font-weight: 700;
 						}
 					}
@@ -234,7 +244,7 @@
 					&.active {
 						background: #ecf2f9;
 						color: #18304d;
-						
+
 						.menu-link-text {
 							font-weight: 700;
 						}

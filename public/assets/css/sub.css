@@ -19320,6 +19320,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .recommend-header .recommend-badge {
   position: relative;
+  flex: none;
 }
 @media (max-width: 900px) {
   .recommend-header .recommend-badge {
@@ -21207,6 +21208,14 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 }
 .facility-guide .usage-guide__table th {
   text-align: center;
+}
+
+.search-detail-section .ui-accordion.ui-accordion--default.ui-accordion--medium .ui-accordion__trigger .ui-accordion__header {
+  justify-content: center;
+}
+
+.search-detail-section__content .ui-tab.ui-tab--default.ui-tab--medium.mb-4.search-type-tabs.ui-tab--grid-5 .ui-tab__list {
+  margin-top: 24px;
 }
 
 /*# sourceMappingURL=sub.css.map */
