@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import SubLayout from '@/components/layout/SubLayout.astro';
-import { UiButton, UiInput, UiSelect, UiTextarea, UiRadio } from '@components';
+import { UiButton, UiInput, UiSelect, UiTextarea, UiRadio, UiCheckbox } from '@components';
 
 const breadcrumbItems = [
 	{ label: '홈', href: '/' },
@@ -85,6 +85,108 @@ const breadcrumbItems = [
 				<div class="radio-group">
 					<UiRadio name="visibility" value="public" id="public" label="공개" size="medium" checked />
 					<UiRadio name="visibility" value="private" id="private" label="비공개" size="medium" />
+				</div>
+			</div>
+
+			<!-- 파일첨부 -->
+			<div class="form-field form-field--full">
+				<div class="file-upload">
+					<div class="file-upload__dropzone">
+						<p class="file-upload__dropzone-text">
+							첨부할 파일을 여기에 끌어다 놓거나. 파일 선택 버튼을 직접 선택해주세요.
+						</p>
+						<button type="button" class="file-upload__button">파일선택</button>
+					</div>
+
+					<div class="file-upload__list">
+						<div class="file-upload__count">
+							<span class="file-upload__count-current">3개</span>
+							<span class="file-upload__count-total">/ 5개</span>
+						</div>
+
+						<div class="file-upload__items">
+							<!-- 업로드된 파일-->
+							<div class="file-upload__item">
+								<div class="file-upload__item-content">
+									<UiCheckbox size="medium" id="file-1" />
+									<label for="file-1" class="file-upload__item-name">
+										위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]
+									</label>
+									<button type="button" class="file-upload__item-delete">
+										<span>삭제</span>
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="file-upload__icon" />
+									</button>
+								</div>
+							</div>
+							<!-- 업로드된 파일-->
+							<div class="file-upload__item">
+								<div class="file-upload__item-content">
+									<UiCheckbox size="medium" id="file-2" />
+									<label for="file-2" class="file-upload__item-name">
+										위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]
+									</label>
+									<button type="button" class="file-upload__item-delete">
+										<span>삭제</span>
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="file-upload__icon" />
+									</button>
+								</div>
+							</div>
+							<!-- 업로드된 파일-->
+							<div class="file-upload__item">
+								<div class="file-upload__item-content">
+									<UiCheckbox size="medium" id="file-3" />
+									<label for="file-3" class="file-upload__item-name">
+										위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]
+									</label>
+									<button type="button" class="file-upload__item-delete">
+										<span>삭제</span>
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="file-upload__icon" />
+									</button>
+								</div>
+							</div>
+							<!-- 업로드된 파일-->
+							<div class="file-upload__item">
+								<div class="file-upload__item-content">
+									<UiCheckbox size="medium" id="file-4" />
+									<label for="file-4" class="file-upload__item-name">
+										위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]
+									</label>
+									<button type="button" class="file-upload__item-delete">
+										<span>삭제</span>
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="file-upload__icon" />
+									</button>
+								</div>
+							</div>
+
+							<!-- 에러 상태 -->
+							<div class="file-upload__item file-upload__item--error">
+								<div class="file-upload__item-content">
+									<UiCheckbox size="medium" id="file-5" />
+									<label for="file-5" class="file-upload__item-name">
+										위임장(주민등록법 시행령 별지 제15호의2호서식) [hwp, 17KB]
+									</label>
+									<button type="button" class="file-upload__item-delete">
+										<span>삭제</span>
+										<img src="./assets/images/icon/icon-delete.svg" alt="" class="file-upload__icon" />
+									</button>
+								</div>
+								<div class="file-upload__item-error">
+									<img src="./assets/images/icon/icon-error.svg" alt="에러" class="file-upload__icon" />
+									<p class="file-upload__item-error-text">
+										등록 가능한 파일 용량을 초과하였습니다.<br />
+										20MB 미만의 파일만 등록할 수 있습니다.
+									</p>
+								</div>
+							</div>
+						</div>
+						<p class="file-upload__helper-text">
+							<button type="button" class="file-upload__delete-all">
+								<span>파일 삭제</span>
+								<img src="./assets/images/icon/icon-close.svg" alt="삭제" class="file-upload__icon icon icn-xxsm" />
+							</button>
+							삭제할 파일을 체크하세요
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>

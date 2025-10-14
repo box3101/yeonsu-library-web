@@ -12284,3 +12284,300 @@ ul.movie-card-wrp {
 		}
 	}
 }
+
+// 파일 업로드
+.file-upload {
+	background: $white;
+	border: 1px solid #b1b8be;
+	border-radius: to-rem(12);
+	padding: to-rem(24);
+
+	@include mobile {
+		padding: 12px;
+	}
+
+	// 헤더
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+		margin-bottom: to-rem(24);
+	}
+
+	&__title {
+		@include font(to-rem(24), 700, #131416);
+		line-height: 1.5;
+	}
+
+	&__description {
+		@include font(to-rem(17), 500, #464c53);
+		line-height: 1.5;
+	}
+
+	// 드롭존
+	&__dropzone {
+		background: #e6e8ea;
+		border-radius: to-rem(12);
+		padding: to-rem(40);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: to-rem(24);
+		margin-bottom: to-rem(24);
+
+		@include mobile {
+			padding: 32px 24px;
+			gap: 16px;
+		}
+	}
+
+	&__dropzone-text {
+		@include font(to-rem(19), 400, #1e2124);
+		line-height: 1.5;
+		text-align: center;
+
+		@include mobile {
+			font-size: to-rem(17);
+		}
+	}
+
+	&__button {
+		background: $primary-color;
+		color: $white;
+		border: none;
+		border-radius: to-rem(6);
+		padding: 0 to-rem(16);
+		height: to-rem(48);
+		@include font(to-rem(17), 400, $white);
+		cursor: pointer;
+		transition: background 0.2s;
+
+		&:hover {
+			background: darken($primary-color, 5%);
+		}
+
+		@include mobile {
+			height: 44px;
+			font-size: 15px;
+		}
+	}
+
+	// 파일 리스트
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(24);
+	}
+
+	&__count {
+		display: flex;
+		align-items: center;
+		gap:10px;
+		@include font(to-rem(17), 700, #1e2124);
+		line-height: 1.5;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	&__count-current {
+		color: #0b50d0;
+	}
+
+	&__count-total {
+		color: #1e2124;
+	}
+
+	&__delete-all {
+		background: $white;
+		border: 1px solid #58616a;
+		border-radius: to-rem(4);
+		padding: 0 to-rem(10);
+		height: to-rem(32);
+		display: flex;
+		align-items: center;
+		gap: to-rem(2);
+		@include font(to-rem(15), 400, #1e2124);
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background: #f5f6f7;
+		}
+
+		svg {
+			width: to-rem(11);
+			height: to-rem(11);
+		}
+	}
+
+	// 파일 아이템들
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(16);
+	}
+
+	&__item {
+		background: $white;
+		border: 1px solid #cdd1d5;
+		border-radius: to-rem(8);
+		padding: to-rem(16);
+
+		&:hover{
+			border:1px solid $primary-color;
+		}
+
+		&--error {
+			background: #fdefec;
+			border: 2px solid #de3412;
+			display: flex;
+			flex-direction: column;
+			gap: to-rem(12);
+
+			&:hover{
+					border: 2px solid #de3412;
+			}
+		}
+
+		@include mobile {
+			padding: 12px;
+		}
+	}
+
+	&__item-content {
+		display: flex;
+		align-items: center;
+		gap: to-rem(16);
+	}
+
+	&__item-name {
+		flex: 1;
+		@include font(to-rem(17), 500, #131416);
+		line-height: 1.5;
+		cursor: pointer;
+		user-select: none;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	// 스피너 (업로드 중)
+	&__item-spinner {
+		flex-shrink: 0;
+
+		svg {
+			width: to-rem(20);
+			height: to-rem(20);
+			animation: spin 1s linear infinite;
+		}
+	}
+
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	// 체크 아이콘 (완료)
+	&__item-check {
+		flex-shrink: 0;
+
+		svg {
+			width: to-rem(17);
+			height: to-rem(17);
+		}
+	}
+
+	// 삭제 버튼
+	&__item-delete {
+		background: transparent;
+		border: none;
+		padding: to-rem(2);
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+		@include font(to-rem(17), 400, #1e2124);
+		cursor: pointer;
+		transition: color 0.2s;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		svg {
+			width: to-rem(17);
+			height: to-rem(17);
+		}
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	// 에러 메시지
+	&__item-error {
+		display: flex;
+		align-items: flex-start;
+		gap: to-rem(4);
+
+		svg {
+			width: to-rem(17);
+			height: to-rem(17);
+			flex-shrink: 0;
+			margin-top: to-rem(4);
+		}
+	}
+
+	&__item-error-text {
+		@include font(to-rem(17), 500, #bd2c0f);
+		line-height: 1.5;
+		flex: 1;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+
+	// 액션 버튼들 (다운로드, 바로보기)
+	&__item-actions {
+		display: flex;
+		align-items: center;
+		gap: to-rem(16);
+	}
+
+	&__item-action {
+		background: transparent;
+		border: none;
+		padding: to-rem(2);
+		display: flex;
+		align-items: center;
+		gap: to-rem(4);
+		@include font(to-rem(17), 400, #1e2124);
+		cursor: pointer;
+		transition: color 0.2s;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		svg {
+			width: to-rem(17);
+			height: to-rem(17);
+		}
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}
+.file-upload__helper-text{
+	display: flex; align-items: center;
+	gap:7px;
+}
