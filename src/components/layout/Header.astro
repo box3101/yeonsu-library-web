@@ -6,7 +6,6 @@ const navItems = [
   { href: './0.공통팝업', icon: 'icon-person', text: '팝업모음' },
   { href: '#', icon: 'icon-person', text: '회원가입' },
   { href: '#', icon: 'icon-login', text: '로그인' },
-  { href: '#', icon: 'icon-language', text: 'English' },
   { href: '#', icon: 'icon-sitemap', text: '사이트맵' },
 ];
 ---
@@ -29,6 +28,137 @@ const navItems = [
           </a>
         ))
       }
+
+      <!-- 다국어 번역 -->
+      <div class="lang-wrap">
+        <!-- 다국어 번역 (주요 언어) -->
+        <div class="lang-box multilang-box">
+          <button type="button" class="lang-toggle" onclick="this.parentElement.classList.toggle('on')">
+            <img src="./assets/images/icon/icon-language.svg" class="icon icon-sm" />
+            <span>다국어 번역</span>
+          </button>
+          <ul class="lang-list">
+            <li><a href="javascript:void(0);" onclick="setPageLang('ko');" title="한국어"><span>한국어</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('en');" title="english"><span>english</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('zh-CN');" title="简体中文"><span>简体中文</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('zh-TW');" title="繁体中文"><span>繁体中文</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ja');" title="日本語"><span>日本語</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('vi');" title="tiếng Việt"><span>tiếng Việt</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mn');" title="Монгол"><span>Монгол</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('tl');" title="Filipino"><span>Filipino</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('my');" title="မြန်မာ"><span>မြန်မာ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ne');" title="नेपाली"><span>नेपाली</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('th');" title="แบบไทย"><span>แบบไทย</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('uz');" title="o'zbek tili"><span>o'zbek tili</span></a></li>
+          </ul>
+          <button type="button" class="lang-close" onclick="this.parentElement.classList.remove('on')"><span class="hidden">다국어 번역 목록 닫기</span></button>
+        </div>
+
+        <!-- 기타언어 번역 -->
+        <div class="lang-box otherlang-box">
+          <button type="button" class="lang-toggle" onclick="this.parentElement.classList.toggle('on')">
+            <img src="./assets/images/icon/icon-language.svg" class="icon icon-sm" />
+            <span>기타언어 번역</span>
+          </button>
+          <ul class="lang-list">
+            <li><a href="javascript:void(0);" onclick="setPageLang('af');" title="Afrikaans"><span>Afrikaans</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('am');" title="አማርኛ"><span>አማርኛ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ar');" title="العربية"><span>العربية</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('az');" title="azərbaycan dili"><span>azərbaycan dili</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('be');" title="беларуская"><span>беларуская</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('bg');" title="български"><span>български</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('bn');" title="বাংলা"><span>বাংলা</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('bs');" title="bosanski"><span>bosanski</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ca');" title="català"><span>català</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ceb');" title="Cebuano"><span>Cebuano</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('cs');" title="čeština"><span>čeština</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('cy');" title="Cymraeg"><span>Cymraeg</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('da');" title="dansk"><span>dansk</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('de');" title="Deutsch"><span>Deutsch</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('el');" title="Ελληνικά"><span>Ελληνικά</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('eo');" title="Esperanto"><span>Esperanto</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('es');" title="español"><span>español</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('et');" title="eesti"><span>eesti</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('eu');" title="euskara"><span>euskara</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('fa');" title="فارسی"><span>فارسی</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('fi');" title="suomi"><span>suomi</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('fil');" title="Filipino"><span>Filipino</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('fr');" title="français"><span>français</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('fy');" title="Frysk"><span>Frysk</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ga');" title="Gaeilge"><span>Gaeilge</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('gd');" title="Gàidhlig"><span>Gàidhlig</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('gl');" title="galego"><span>galego</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('gu');" title="ગુજરાતી"><span>ગુજરાતી</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ha');" title="Hausa"><span>Hausa</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('haw');" title="ʻŌlelo Hawaiʻi"><span>ʻŌlelo Hawaiʻi</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('he');" title="עברית"><span>עברית</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('hi');" title="हिन्दी"><span>हिन्दी</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('hmn');" title="Hmong"><span>Hmong</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('hr');" title="hrvatski"><span>hrvatski</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ht');" title="Kreyòl ayisyen"><span>Kreyòl ayisyen</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('hu');" title="magyar"><span>magyar</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('hy');" title="հայերեն"><span>հայերեն</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('id');" title="Bahasa Indonesia"><span>Bahasa Indonesia</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ig');" title="Igbo"><span>Igbo</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('is');" title="íslenska"><span>íslenska</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('it');" title="italiano"><span>italiano</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('jv');" title="basa Jawa"><span>basa Jawa</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ka');" title="ქართული"><span>ქართული</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('kk');" title="қазақ тілі"><span>қазақ тілі</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('km');" title="ខ្មែរ"><span>ខ្មែរ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('kn');" title="ಕನ್ನಡ"><span>ಕನ್ನಡ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ku');" title="Kurdî"><span>Kurdî</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ky');" title="кыргызча"><span>кыргызча</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('lb');" title="Lëtzebuergesch"><span>Lëtzebuergesch</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('la');" title="Latina"><span>Latina</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('lo');" title="ລາວ"><span>ລາວ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('lt');" title="lietuvių"><span>lietuvių</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('lv');" title="latviešu"><span>latviešu</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mg');" title="Malagasy"><span>Malagasy</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mi');" title="Māori"><span>Māori</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mk');" title="македонски"><span>македонски</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ml');" title="മലയാളം"><span>മലയാളം</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mr');" title="मराठी"><span>मराठी</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ms');" title="Bahasa Melayu"><span>Bahasa Melayu</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('mt');" title="Malti"><span>Malti</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('nl');" title="Nederlands"><span>Nederlands</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('no');" title="norsk"><span>norsk</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ny');" title="Chichewa"><span>Chichewa</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('pa');" title="ਪੰਜਾਬੀ"><span>ਪੰਜਾਬੀ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('pl');" title="polski"><span>polski</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ps');" title="پښتو"><span>پښتو</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('pt');" title="português"><span>português</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ro');" title="română"><span>română</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ru');" title="русский"><span>русский</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('rw');" title="Kinyarwanda"><span>Kinyarwanda</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sd');" title="سنڌي"><span>سنڌي</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('si');" title="සිංහල"><span>සිංහල</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sk');" title="slovenčina"><span>slovenčina</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sl');" title="slovenščina"><span>slovenščina</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sm');" title="Gagana Samoa"><span>Gagana Samoa</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sn');" title="chiShona"><span>chiShona</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('so');" title="Soomaali"><span>Soomaali</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sq');" title="shqip"><span>shqip</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sr');" title="српски"><span>српски</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('st');" title="Sesotho"><span>Sesotho</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('su');" title="Basa Sunda"><span>Basa Sunda</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sv');" title="svenska"><span>svenska</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('sw');" title="Kiswahili"><span>Kiswahili</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ta');" title="தமிழ்"><span>தமிழ்</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('te');" title="తెలుగు"><span>తెలుగు</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('tg');" title="тоҷикӣ"><span>тоҷикӣ</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('tr');" title="Türkçe"><span>Türkçe</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('uk');" title="українська"><span>українська</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('ur');" title="اردو"><span>اردو</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('xh');" title="isiXhosa"><span>isiXhosa</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('yi');" title="ייִדיש"><span>ייִדיש</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('yo');" title="Yorùbá"><span>Yorùbá</span></a></li>
+            <li><a href="javascript:void(0);" onclick="setPageLang('zu');" title="isiZulu"><span>isiZulu</span></a></li>
+          </ul>
+          <button type="button" class="lang-close" onclick="this.parentElement.classList.remove('on')"><span class="hidden">기타언어 번역 목록 닫기</span></button>
+        </div>
+      </div>
+      <!-- // 다국어 번역 -->
     </div>
     <!-- // TOP 메뉴 -->
 

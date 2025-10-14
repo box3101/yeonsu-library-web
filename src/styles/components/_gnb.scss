@@ -363,9 +363,13 @@
 		color: inherit;
 
 		&:focus {
+			// outline: 2px solid #244874;
+			// outline-offset: 2px;
+			outline: none;
+		}
+		&:focus-visible{
 			outline: 2px solid #244874;
 			outline-offset: 2px;
-			// outline: none;
 		}
 	}
 

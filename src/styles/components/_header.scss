@@ -38,6 +38,116 @@
     }
   }
 
+  // Language translation dropdowns
+  .lang-wrap {
+    display: flex;
+    gap: to-rem(8);
+    align-items: center;
+  }
+
+  .lang-box {
+    position: relative;
+
+    .lang-toggle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: to-rem(8);
+      padding: 0 to-rem(8);
+      color: #797d7d;
+      font-size: to-rem(15);
+      font-weight: 500;
+      line-height: 150%;
+      cursor: pointer;
+      background: none;
+      border: none;
+
+      &:hover {
+        color: #33363d;
+      }
+    }
+
+    .lang-list {
+      position: absolute;
+      top: calc(100% + to-rem(10));
+      right: 0;
+      background: #fff;
+      border: to-rem(1) solid #cdd1d5;
+      border-radius: to-rem(8);
+      box-shadow: 0 to-rem(4) to-rem(12) rgba(0, 0, 0, 0.1);
+      padding: to-rem(12) 0;
+      min-width: to-rem(200);
+      max-height: to-rem(400);
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+
+      li {
+        list-style: none;
+
+        a {
+          display: block;
+          padding: to-rem(8) to-rem(16);
+          color: #464c53;
+          font-size: to-rem(14);
+          text-decoration: none;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: #f5f7fa;
+          }
+        }
+      }
+    }
+
+    .lang-close {
+      position: absolute;
+      top: to-rem(8);
+      right: to-rem(8);
+      width: to-rem(24);
+      height: to-rem(24);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: to-rem(16);
+        height: to-rem(2);
+        background-color: #797d7d;
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      &:hover::before,
+      &:hover::after {
+        background-color: #33363d;
+      }
+    }
+
+    // Show dropdown when active
+    &.on {
+      .lang-list {
+        display: block;
+      }
+
+      .lang-close {
+        display: block;
+      }
+    }
+  }
+
   // 모바일 메뉴 트리거 래퍼
   .mobile-menu-trigger-wrapper {
     display: none;

@@ -33,6 +33,95 @@
 .header-right .nav-item:hover {
   color: #33363d;
 }
+.header .lang-wrap {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.header .lang-box {
+  position: relative;
+}
+.header .lang-box .lang-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+  color: #797d7d;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 150%;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.header .lang-box .lang-toggle:hover {
+  color: #33363d;
+}
+.header .lang-box .lang-list {
+  position: absolute;
+  top: calc(100% + 0.625rem);
+  right: 0;
+  background: #fff;
+  border: 0.0625rem solid #cdd1d5;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
+  min-width: 12.5rem;
+  max-height: 25rem;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+.header .lang-box .lang-list li {
+  list-style: none;
+}
+.header .lang-box .lang-list li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #464c53;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.header .lang-box .lang-list li a:hover {
+  background-color: #f5f7fa;
+}
+.header .lang-box .lang-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+.header .lang-box .lang-close::before, .header .lang-box .lang-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 0.125rem;
+  background-color: #797d7d;
+}
+.header .lang-box .lang-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.header .lang-box .lang-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.header .lang-box .lang-close:hover::before, .header .lang-box .lang-close:hover::after {
+  background-color: #33363d;
+}
+.header .lang-box.on .lang-list {
+  display: block;
+}
+.header .lang-box.on .lang-close {
+  display: block;
+}
 .header .mobile-menu-trigger-wrapper {
   display: none;
 }
@@ -402,6 +491,9 @@
   color: inherit;
 }
 .gnb-third-link:focus {
+  outline: none;
+}
+.gnb-third-link:focus-visible {
   outline: 2px solid #244874;
   outline-offset: 2px;
 }
