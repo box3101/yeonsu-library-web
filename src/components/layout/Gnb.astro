@@ -122,12 +122,13 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																		) : null}
 																	</a>
 
-																	{/* 3depth 메뉴 구조 - 완전한 ol 구조 */}
+																	{/* 3depth 메뉴 구조 */}
 																	{item.subItems && item.subItems.length > 0 && (
 																		<ol class="gnb-third-list">
 																			<div class="title">
 																				<h3 class="gnb-third-title-text">{item.label}</h3>
 																			</div>
+																			<div class="gnb-third-item-wrp">
 																			{item.subItems.map(subItem => (
 																				<li class={`gnb-third-item ${subItem.isSelected ? 'selected' : ''}`}>
 																					<a
@@ -148,6 +149,7 @@ const menuData = gnbMenuItems.map(menuKey => convertToGnbFormat(menuKey)).filter
 																					</a>
 																				</li>
 																			))}
+																			</div>
 																		</ol>
 																	)}
 																</li>

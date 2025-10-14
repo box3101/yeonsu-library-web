@@ -331,7 +331,6 @@ export const menuConfig: Record<string, MenuConfig> = {
 				items: [
 					{ label: '대관신청', href: './대관신청' },
 					{ label: '공연장', href: './공연장' },
-					{ label: '공연장신청', href: './공연장-신청' },
 					{ label: '세미나실대관', href: './세미나실대관' },
 					{ label: '커뮤니티룸대관', href: './커뮤니티룸대관' },
 					{ label: '프로그램실', href: './프로그램실' },
