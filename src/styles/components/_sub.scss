@@ -4557,7 +4557,7 @@ ul.movie-card-wrp {
 		display: flex;
 		align-items: flex-start;
 		gap: to-rem(8);
-		margin-top: to-rem(24) !important;
+		margin-top: to-rem(0) !important;
 
 		@include tablet {
 			margin-top: to-rem(20) !important;

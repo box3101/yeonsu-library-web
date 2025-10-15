@@ -4386,7 +4386,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  margin-top: 1.5rem !important;
+  margin-top: 0rem !important;
   /* 검색어 드롭다운 */
   /* 탭 버튼 */
   /* 검색어 목록 */
@@ -17973,7 +17973,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   }
 }
 .delivery-application-detail .application-info .info-row .info-label {
-  height: 100%;
+  align-self: stretch;
   background-color: #ecf2f9;
   padding: 14px 0;
   display: flex;

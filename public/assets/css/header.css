@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   background: #fff;
   position: relative;
@@ -35,92 +36,155 @@
 }
 .header .lang-wrap {
   display: flex;
-  gap: 0.5rem;
-  align-items: center;
+  position: relative;
+  z-index: 9999;
 }
-.header .lang-box {
+.header .lang {
   position: relative;
 }
-.header .lang-box .lang-toggle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0 0.5rem;
-  color: #797d7d;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 150%;
-  cursor: pointer;
-  background: none;
+.header .lang .ctrl-tnb {
+  display: block;
+  position: relative;
+  border-radius: 9em;
+  padding: 1rem 1.875rem 1rem 2.625rem;
+  background: #f4f4f4;
+  font-weight: 400;
+  z-index: 0;
+  margin-left: 0.125rem;
+  font-family: "NotoSans", "맑은고딕", Malgun Gothic, "Noto Sans KR", sans-serif;
   border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #464c53;
 }
-.header .lang-box .lang-toggle:hover {
-  color: #33363d;
+.header .lang .ctrl-tnb span {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -1px;
 }
-.header .lang-box .lang-list {
+.header .lang .ctrl-tnb:before {
+  content: "";
+  display: block;
   position: absolute;
-  top: calc(100% + 0.625rem);
-  right: 0;
-  background: #fff;
-  border: 0.0625rem solid #cdd1d5;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  padding: 0.75rem 0;
-  min-width: 12.5rem;
-  max-height: 25rem;
-  overflow-y: auto;
-  z-index: 1000;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: url(../../assets/images/icon/ico_tnb_lang02.svg) no-repeat 50% 50%;
+  left: 0.625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 5px;
+  background-size: contain;
+}
+.header .lang .ctrl-tnb.infoBox:before {
+  background: url(../../assets/images/icon/ico_tnb_lang01.svg) no-repeat 50% 50%;
+  left: 0.21875rem;
+  margin-left: 0.1875rem;
+}
+.header .lang .ctrl-tnb:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url(../../assets/images/icon/ico_dropdown.svg) no-repeat 50% 50%;
+  right: 0.46875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -0.0625rem;
+  transition: 0.3s all;
+}
+.header .lang .ctrl-tnb.close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 1;
   display: none;
 }
-.header .lang-box .lang-list li {
+.header .lang ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #fff;
+  margin-top: 0.15625rem;
+  border: 1px solid #ddd;
+  border-radius: 0.625rem;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -999999;
+  transition: 0.3s all;
+  margin-top: -1.25rem;
+  padding: 0;
   list-style: none;
 }
-.header .lang-box .lang-list li a {
+.header .lang ul li {
+  list-style: none;
+}
+.header .lang ul li a {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   color: #464c53;
   font-size: 0.875rem;
   text-decoration: none;
   transition: background-color 0.2s;
 }
-.header .lang-box .lang-list li a:hover {
+.header .lang ul li a:hover {
   background-color: #f5f7fa;
 }
-.header .lang-box .lang-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+.header .lang.on .ctrl-tnb.close {
+  display: block;
+  opacity: 1;
+  background: transparent;
+  color: transparent;
+}
+.header .lang.on .ctrl-tnb.close:after, .header .lang.on .ctrl-tnb.close:before {
   display: none;
 }
-.header .lang-box .lang-close::before, .header .lang-box .lang-close::after {
+.header .lang.on ul {
+  visibility: visible;
+  opacity: 1;
+  z-index: 0;
+  margin-top: 0.15625rem;
+}
+.header .lang.on .ctrl-tnb:after {
+  transform: rotate(-180deg) translateY(50%);
+}
+.header .lang.Other_lang {
+  z-index: 1;
+}
+.header .lang.Other_lang ul {
+  left: auto;
+  width: 50rem;
+  padding: 0.3125rem 0 0.3125rem 0.75rem;
+  text-align: left;
+  z-index: 999;
+}
+.header .lang.Other_lang ul li {
+  width: 16%;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.header .lang.Other_lang ul li:before {
   content: "";
+  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1rem;
-  height: 0.125rem;
-  background-color: #797d7d;
+  width: 3px;
+  height: 3px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+  margin-top: 20px;
 }
-.header .lang-box .lang-close::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.header .lang-box .lang-close::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-.header .lang-box .lang-close:hover::before, .header .lang-box .lang-close:hover::after {
-  background-color: #33363d;
-}
-.header .lang-box.on .lang-list {
-  display: block;
-}
-.header .lang-box.on .lang-close {
-  display: block;
+.header .lang.Other_lang ul li a {
+  padding-left: 0.3125rem;
 }
 .header .mobile-menu-trigger-wrapper {
   display: none;
@@ -167,6 +231,77 @@
     display: none;
   }
 }
+/****************************************************************
+	TNB
+****************************************************************/
+.tnbWrap {
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  padding: 0.3em 0;
+}
+
+.tnbWrap .tnb {
+  display: block;
+  position: relative;
+  float: left;
+}
+
+.tnbWrap .lang {
+  display: block;
+  position: relative;
+  float: right;
+  font-family: "Roboto", sans-serif;
+  order: 1;
+}
+
+.tnbWrap .lang button span {
+  font-size: 0.7em;
+}
+
+#google_translate_element {
+  display: block;
+  position: relative;
+  float: right;
+}
+
+.tnbWrap a span,
+.tnbWrap button span {
+  font-size: 0.75em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tnbWrap button span {
+  display: block;
+}
+
+.tnbWrap a,
+.tnbWrap button {
+  height: 2.1em;
+}
+
+.tnbWrap a {
+  line-height: 1.8em;
+}
+
+.tnbWrap .tnb li a.tour {
+  color: #D22259;
+}
+
+.tnbWrap a, .tnbWrap button {
+  height: 2.1em;
+}
+
+caption, .hide, .hidden, legend {
+  position: absolute;
+  width: 0;
+  height: 0 !important;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
 .gnb {
   position: relative;
   z-index: 1000;
