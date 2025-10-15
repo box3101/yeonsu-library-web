@@ -98,7 +98,6 @@
 		flex-shrink: 0;
 		@include flex(column, flex-start, stretch);
 		gap: to-rem(4);
-		overflow-y: hidden;
 	}
 
 	// 유틸리티 영역 (닫기 버튼)
@@ -132,7 +131,7 @@
 	// 유틸리티 링크 영역 (회원가입, 로그인, English, 사이트맵)
 	&-links {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 8px;
 		width: 100%;
 	}
@@ -140,7 +139,7 @@
 	&-link {
 		@include flex(row, center, center);
 		gap: 6px;
-		padding: 12px 16px;
+		padding: 12px 12px;
 		background: $white;
 		border: 1px solid $gray-200;
 		border-radius: 8px;

@@ -42,6 +42,10 @@
     display: flex;
     position: relative;
     z-index: 9999;
+
+    @include mobile {
+      margin-bottom: 5px;
+    }
   }
 
   .lang {
@@ -62,10 +66,19 @@
       font-size: to-rem(14);
       color: #464c53;
 
+      @include mobile {
+        padding: to-rem(10) to-rem(32) to-rem(10) to-rem(32);
+        font-size: to-rem(13);
+      }
+
       span {
         font-weight: 600;
         font-size: 14px;
         letter-spacing: -1px;
+
+        @include mobile {
+          font-size: 13px;
+        }
       }
 
       &:before {
@@ -80,12 +93,22 @@
         transform: translateY(-50%);
         margin-right: 5px;
         background-size: contain;
+
+        @include mobile {
+          width: to-rem(20);
+          height: to-rem(20);
+          left: to-rem(8);
+        }
       }
 
       &.infoBox:before {
         background: url(../../assets/images/icon/ico_tnb_lang01.svg) no-repeat 50% 50%;
         left: to-rem(3.5);
         margin-left: to-rem(3);
+
+        @include mobile {
+          left: to-rem(3);
+        }
       }
 
       &:after {
@@ -100,6 +123,12 @@
         transform: translateY(-50%);
         margin-top: to-rem(-1);
         transition: 0.3s all;
+
+        @include mobile {
+          width: to-rem(16);
+          height: to-rem(16);
+          right: to-rem(6);
+        }
       }
 
       &.close {
@@ -143,6 +172,11 @@
           text-decoration: none;
           transition: background-color 0.2s;
 
+          @include mobile {
+            padding: to-rem(6) to-rem(12);
+            font-size: to-rem(13);
+          }
+
           &:hover {
             background-color: #f5f7fa;
           }
@@ -185,6 +219,11 @@
         padding: to-rem(5) 0 to-rem(5) to-rem(12);
         text-align: left;
         z-index: 999;
+
+        @include mobile {
+          left: 0;
+          width: 330px;
+        }
 
         li {
           width: 16%;
