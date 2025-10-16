@@ -1778,7 +1778,7 @@ ul.movie-card-wrp {
 		gap: to-rem(2);
 		align-items: flex-end;
 		align-self: flex-end;
-		position: absolute; // 테이블 높이 맞춤(ley)
+		// position: absolute; // 테이블 높이 맞춤(ley)
 	}
 
 	&__button {
@@ -9137,7 +9137,7 @@ ul.movie-card-wrp {
 	line-height: 1.5;
 	color: #4b4d4d;
 	margin: 0;
-	height: to-rem(23);
+    height: auto;
 
 	@include mobile {
 		font-size: 13px;

@@ -1752,7 +1752,6 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   gap: 0.125rem;
   align-items: flex-end;
   align-self: flex-end;
-  position: absolute;
 }
 .hall-calendar__button {
   display: inline-flex;
@@ -14546,7 +14545,7 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   line-height: 1.5;
   color: #4b4d4d;
   margin: 0;
-  height: 1.4375rem;
+  height: auto;
 }
 @media (max-width: 900px) {
   .subtitle {
@@ -18370,6 +18369,13 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
   min-height: 9.375rem;
   display: flex;
 }
+.post-reply__content > * {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+  font-family: inherit !important;
+}
 @media (max-width: 900px) {
   .post-reply__content {
     padding: 1.25rem;
@@ -21216,6 +21222,10 @@ ul.movie-card-wrp li.movie-card .movie-card__description p return {
 
 .search-detail-section__content .ui-tab.ui-tab--default.ui-tab--medium.mb-4.search-type-tabs.ui-tab--grid-5 .ui-tab__list {
   margin-top: 24px;
+}
+
+.ui-library-filter__search.flex.gap-8.mt20 {
+  margin-top: 20px !important;
 }
 
 /*# sourceMappingURL=sub.css.map */

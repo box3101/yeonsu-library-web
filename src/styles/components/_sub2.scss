@@ -68,7 +68,7 @@
 			}
 
 			.info-label {
-				    align-self: stretch;
+				align-self: stretch;
 				background-color: #ecf2f9;
 				padding: 14px 0;
 				display: flex;
@@ -483,6 +483,14 @@
 		border-radius: to-rem(4);
 		min-height: to-rem(150);
 		display: flex;
+
+		> * {
+			white-space: normal;
+			word-break: break-word;
+			overflow-wrap: break-word;
+			line-height: 1.6;
+			font-family: inherit !important;
+		}
 
 		@include mobile {
 			padding: to-rem(20);
