@@ -2881,3 +2881,44 @@ img {
 .text-point-red{
 	color: #D7424E;
 }
+
+/* ============================================
+   모바일 회원증 버튼
+   ============================================ */
+.mobileCard {
+	display: none; // 기본적으로 숨김
+
+	// 모바일에서만 표시
+	@include mobile {
+		display: block;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		left: 0;
+		right: 0;
+		z-index: 999;
+		background-color: #fff;
+		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+		a {
+			display: block;
+			width: 100%;
+			padding: 16px 20px;
+			text-align: center;
+			background-color: #0066cc;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 700;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+
+			&:hover {
+				background-color: #0052a3;
+			}
+
+			&:active {
+				background-color: #003d7a;
+			}
+		}
+	}
+}
