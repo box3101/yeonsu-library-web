@@ -49,6 +49,9 @@ import '../styles/sub.scss';
 		<title>연수구립도서관</title>
 	</head>
 	<body>
+		<!-- Google Translate Container -->
+		<div id="google_translate_element"></div>
+
 		<!-- 스킵 링크 (접근성) -->
 		<a href="#main-content" class="skip-link">주요 콘텐츠로 바로가기</a>
 		<Header />
@@ -95,6 +98,12 @@ import '../styles/sub.scss';
 
 		<!-- 서브 -->
 		<script is:inline type="text/javascript" src="./assets/js/sub/filter.js"></script>
+
+		<!-- Translation System - Load before Google Translate API -->
+		<script is:inline src="./assets/js/translate.js"></script>
+
+		<!-- Google Translate API - Must load after translate.js -->
+		<script is:inline src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 		<!-- TODO 20251005: aos 이벤트 변경 -->
 		<script is:inline>

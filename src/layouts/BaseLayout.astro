@@ -20,6 +20,9 @@ const { title = '연수구립도서관', withRadio = false } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<!-- Google Translate Container -->
+		<div id="google_translate_element"></div>
+
 		<Header />
 		<main>
 			<slot name="main" />
@@ -37,7 +40,10 @@ const { title = '연수구립도서관', withRadio = false } = Astro.props;
 		</main>
 		<Footer />
 
-		<!-- JavaScript 로드 -->
-		<script is:inline src="/assets/js/common.js"></script>
+		<!-- Translation System - Load before Google Translate API -->
+		<script is:inline src="/assets/js/translate.js"></script>
+
+		<!-- Google Translate API - Must load after translate.js -->
+		<script is:inline src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	</body>
 </html>
