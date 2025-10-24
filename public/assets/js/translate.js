@@ -78,8 +78,26 @@ function hideGoogleTranslateUI() {
 function checkSavedLanguage() {
 	var savedLang = localStorage.getItem('preferredLanguage');
 	if (savedLang && savedLang !== 'ko') {
-		console.log('Applying saved language:', savedLang);
-		triggerTranslation(savedLang);
+		// Check if translation cookie already exists to prevent reload loop
+		var cookies = document.cookie.split(';');
+		var hasTranslateCookie = false;
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i].trim();
+			if (cookie.indexOf('googtrans=') === 0) {
+				var value = cookie.substring('googtrans='.length);
+				if (value && value !== '' && value.indexOf('/ko/' + savedLang) >= 0) {
+					hasTranslateCookie = true;
+					console.log('Translation already applied:', savedLang);
+					break;
+				}
+			}
+		}
+
+		// Only trigger translation if not already applied
+		if (!hasTranslateCookie) {
+			console.log('Applying saved language:', savedLang);
+			triggerTranslation(savedLang);
+		}
 	}
 }
 
@@ -137,13 +155,15 @@ function triggerTranslation(langCode) {
 		selectField.value = langCode;
 		selectField.dispatchEvent(new Event('change'));
 		console.log('✓ Translation triggered:', langCode);
+		// Clear reload attempts on success
+		sessionStorage.removeItem('translateReloadAttempts');
 		return;
 	}
 
 	// Method 2: Use iframe approach
 	var iframe = document.querySelector('.goog-te-menu-frame');
 	if (!iframe) {
-		iframe = document.querySelector('iframe.goog-te-menu-frame:first');
+		iframe = document.querySelector('iframe.goog-te-menu-frame');
 	}
 
 	if (iframe) {
@@ -155,6 +175,8 @@ function triggerTranslation(langCode) {
 			if (langLink.textContent && langLink.textContent.includes(langCode)) {
 				langLink.click();
 				console.log('✓ Translation triggered via iframe:', langCode);
+				// Clear reload attempts on success
+				sessionStorage.removeItem('translateReloadAttempts');
 				return;
 			}
 		}
@@ -162,7 +184,19 @@ function triggerTranslation(langCode) {
 
 	// Method 3: Cookie-based approach (fallback)
 	console.log('Using cookie-based translation');
+
+	// Set a flag to prevent infinite reload loop
+	var reloadAttempts = parseInt(sessionStorage.getItem('translateReloadAttempts') || '0');
+	if (reloadAttempts >= 2) {
+		console.error('Translation reload limit reached. Please refresh the page manually.');
+		alert('번역을 적용할 수 없습니다. 페이지를 새로고침한 후 다시 시도해주세요.');
+		sessionStorage.removeItem('translateReloadAttempts');
+		return;
+	}
+
+	sessionStorage.setItem('translateReloadAttempts', String(reloadAttempts + 1));
 	document.cookie = 'googtrans=/ko/' + langCode + '; path=/';
+
 	setTimeout(function () {
 		location.reload();
 	}, 100);
@@ -174,6 +208,9 @@ function triggerTranslation(langCode) {
 function resetToKorean() {
 	console.log('Resetting to Korean');
 	localStorage.setItem('preferredLanguage', 'ko');
+
+	// Clear reload attempts counter
+	sessionStorage.removeItem('translateReloadAttempts');
 
 	// Clear cookies
 	document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
