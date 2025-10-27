@@ -36,10 +36,6 @@
 		flex-direction: column !important;
 	}
 
-	.ui-pagination__button--page {
-		width: auto !important;
-	}
-
 	.history-timeline__event,
 	.subtab-container.library-directions-subtab .subtab-item {
 		flex-direction: column !important;
@@ -74,10 +70,37 @@
 		}
 	}
 
-	@media (max-width: 900px) {
-		.search-type-tabs .ui-tab__button {
-			min-height: 151px;
-		}
+	
+
+	.footer__content .related-site-button{
+		padding: 0 12px !important;
+	}
+
+	.holiday-notice__legends{
+		flex-direction: column;
+	}
+
+	.breadcrumb .breadcrumb-list .breadcrumb-item .breadcrumb-current{
+		white-space: nowrap;
+		text-overflow: clip;
+	}
+	.breadcrumb .breadcrumb-list .breadcrumb-item{
+		max-width: none!important;
+	}
+	.gnb-container{
+		padding: 8px 0;
+	}
+	.quick-link__text{
+		line-height: 1.5;
+	}
+	.search-type-tabs .ui-tab__button{
+		    flex-direction: column;
+    padding: 8px 12px;
+    height: auto;
+		max-height: 72px;
+	}
+	.ui-tab__label{
+		height: 100%;
 	}
 }
 
@@ -102,12 +125,6 @@
    ============================================ */
 
 /* 모든 flex 컨테이너에 적용 - 아이템이 범위를 벗어나지 않도록 */
-#lang-i18n [class*='__'],
-#lang-i18n [class*='flex'],
-#lang-i18n .flex,
-#lang-i18n .d-flex {
-	min-width: 0; /* flex 아이템의 기본 min-width: auto 문제 해결 */
-}
 
 /* 텍스트 줄바꿈 허용 */
 #lang-i18n {
@@ -128,31 +145,7 @@
    버튼 및 네비게이션 아이템
    ============================================ */
 
-/* 버튼 텍스트가 길 경우 자동 축소 또는 줄바꿈 */
-#lang-i18n .button,
-#lang-i18n button {
-	padding-left: 12px;
-	padding-right: 12px;
-	min-width: 0; /* flex 환경에서 축소 가능하도록 */
-}
 
-/* 이미지가 있는 버튼은 좌우 패딩 제거 */
-#lang-i18n .button:has(img),
-#lang-i18n .button:has(svg),
-#lang-i18n .button:has(.icon),
-#lang-i18n .button:has([class*='icon']),
-#lang-i18n button:has(img),
-#lang-i18n button:has(svg),
-#lang-i18n button:has(.icon),
-#lang-i18n button:has([class*='icon']) {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-
-#lang-i18n .ui-tab__list .ui-tab__button {
-	flex-direction: column;
-	padding: 12px 0;
-}
 
 /* 탭 네비게이션 - 가변 너비 */
 #lang-i18n [class*='tab'],
