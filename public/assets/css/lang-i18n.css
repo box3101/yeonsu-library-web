@@ -4,6 +4,185 @@
 #lang-i18n {
 	font-size: 88%; /* 12% 축소 */
 	letter-spacing: -0.03em; /* 자간 축소 */
+
+	.gnb-main-link,
+	.gnb-main-list {
+		height: auto !important;
+	}
+	.gnb-main-list {
+		align-items: center;
+	}
+
+	.left-menu-nav .menu-section .menu-section-title {
+		padding-left: 10px !important;
+	}
+	.header .lang .ctrl-tnb {
+		padding: 1rem 1.875rem 1rem 2.625rem;
+	}
+
+	.wordcloud-canvas {
+		overflow: auto;
+	}
+
+	.ui-table__badge {
+		word-break: keep-all !important;
+	}
+
+	.program-card__index {
+		width: auto !important;
+	}
+
+	.program-detail {
+		flex-direction: column !important;
+	}
+
+	.ui-pagination__button--page {
+		width: auto !important;
+	}
+
+	.history-timeline__event,
+	.subtab-container.library-directions-subtab .subtab-item {
+		flex-direction: column !important;
+	}
+
+	.filter-badge {
+		display: none !important;
+	}
+
+	/* 모든 w-숫자 패턴 한방에 */
+	/* 모바일 전용 클래스도 */
+	#lang-i18n [class*='-mobile-'],
+	#lang-i18n [class*='mobile-'] {
+		width: auto !important;
+		height: auto !important;
+	}
+
+	.w-auto {
+		width: auto !important; /* 이것도 유지 */
+	}
+
+	.title-with-badge {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	@media (max-width: 900px) {
+		.selected-filters-container {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.search-type-tabs .ui-tab__button {
+			min-height: 151px;
+		}
+	}
+}
+
+#lang-i18n .banner {
+	overflow-y: hidden;
+	height: auto;
+	padding: 20px 0;
+}
+
+#lang-i18n .search-tabs__tab {
+	width: auto !important;
+}
+
+#lang-i18n .event-section .event-section__left .event-card__info-item {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+/* ============================================
+   Flex 레이아웃 오버플로우 방지
+   ============================================ */
+
+/* 모든 flex 컨테이너에 적용 - 아이템이 범위를 벗어나지 않도록 */
+#lang-i18n [class*='__'],
+#lang-i18n [class*='flex'],
+#lang-i18n .flex,
+#lang-i18n .d-flex {
+	min-width: 0; /* flex 아이템의 기본 min-width: auto 문제 해결 */
+}
+
+/* 텍스트 줄바꿈 허용 */
+#lang-i18n {
+	word-break: break-word; /* 한글/영어 단어 단위 줄바꿈 */
+	overflow-wrap: break-word; /* 긴 단어는 강제 줄바꿈 */
+}
+
+/* 특정 요소는 필요시 강제 줄바꿈 */
+#lang-i18n button,
+#lang-i18n .button,
+#lang-i18n a,
+#lang-i18n span {
+	word-break: break-word;
+	white-space: normal; /* 줄바꿈 허용 */
+}
+
+/* ============================================
+   버튼 및 네비게이션 아이템
+   ============================================ */
+
+/* 버튼 텍스트가 길 경우 자동 축소 또는 줄바꿈 */
+#lang-i18n .button,
+#lang-i18n button {
+	padding-left: 12px;
+	padding-right: 12px;
+	min-width: 0; /* flex 환경에서 축소 가능하도록 */
+}
+
+/* 이미지가 있는 버튼은 좌우 패딩 제거 */
+#lang-i18n .button:has(img),
+#lang-i18n .button:has(svg),
+#lang-i18n .button:has(.icon),
+#lang-i18n .button:has([class*='icon']),
+#lang-i18n button:has(img),
+#lang-i18n button:has(svg),
+#lang-i18n button:has(.icon),
+#lang-i18n button:has([class*='icon']) {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+#lang-i18n .ui-tab__list .ui-tab__button {
+	flex-direction: column;
+	padding: 12px 0;
+}
+
+/* 탭 네비게이션 - 가변 너비 */
+#lang-i18n [class*='tab'],
+#lang-i18n [class*='nav'] {
+	flex-shrink: 1; /* 공간이 부족하면 축소 */
+}
+
+/* ============================================
+   카드 및 리스트 아이템
+   ============================================ */
+
+/* 카드 내부 flex 아이템 */
+#lang-i18n [class*='card__'],
+#lang-i18n [class*='item__'] {
+	min-width: 0;
+	flex-shrink: 1;
+}
+
+/* 카드 타이틀 - 말줄임 또는 줄바꿈 */
+#lang-i18n [class*='__title'],
+#lang-i18n [class*='__name'] {
+	word-break: keep-all;
+	overflow-wrap: break-word;
+}
+
+/* 메타 정보 flex 레이아웃 */
+#lang-i18n [class*='__meta'],
+#lang-i18n [class*='__info'] {
+	flex-wrap: wrap; /* 공간 부족시 줄바꿈 */
+	gap: 4px 8px; /* 간격 조정 */
 }
 
 /* ============================================
@@ -14,393 +193,31 @@
 #lang-i18n table {
 	table-layout: auto !important;
 	width: auto !important;
-	min-width: 100%; /* 최소 너비는 100% */
+	min-width: 100% !important; /* 최소 너비는 100% */
 }
 
-/* colgroup 활성화 - 원래 너비 유지 */
-#lang-i18n colgroup,
-#lang-i18n col {
-	display: table-column !important;
-}
-
-#lang-i18n col[width],
-#lang-i18n col[class*="col-width"] {
-	/* width 속성 그대로 유지 */
-}
-
-/* 테이블 셀 기본 스타일 */
+/* 테이블 셀 텍스트 처리 */
 #lang-i18n td,
 #lang-i18n th {
-	word-break: break-word !important;
-	overflow-wrap: break-word !important;
-	white-space: normal !important;
-	padding: 12px 8px !important;
-	vertical-align: middle !important;
-	/* colgroup의 width를 존중하므로 여기서 width 지정 안 함 */
-}
-
-/* 테이블 컨테이너 스크롤 - 강제 적용 */
-#lang-i18n .table-wrapper,
-#lang-i18n .table-container,
-#lang-i18n .ui-table-wrapper {
-	overflow-x: auto !important;
-	width: 100%;
-	-webkit-overflow-scrolling: touch;
-}
-
-/* 테이블 부모 요소에 스크롤 적용 */
-#lang-i18n table {
-	display: table !important;
-}
-
-/* 테이블을 포함하는 모든 컨테이너에 스크롤 - 모든 경우 대응 */
-#lang-i18n .sub-content,
-#lang-i18n .content,
-#lang-i18n .content-wrapper,
-#lang-i18n .section,
-#lang-i18n .table-section,
-#lang-i18n .result-section,
-#lang-i18n .list-section,
-#lang-i18n .notice-list,
-#lang-i18n .board-list,
-#lang-i18n main,
-#lang-i18n article,
-#lang-i18n section {
-	overflow-x: auto !important;
-	-webkit-overflow-scrolling: touch;
-}
-
-/* 직접 테이블 부모 div */
-#lang-i18n div:has(> table),
-#lang-i18n div:has(> .ui-table),
-#lang-i18n *:has(> table),
-#lang-i18n *:has(> .ui-table) {
-	overflow-x: auto !important;
-	display: block !important;
-}
-
-/* 테이블 배지 텍스트 줄바꿈 방지 */
-#lang-i18n .ui-table__badge {
-	white-space: nowrap !important;
-	font-size: 13px !important;
-	padding: 4px 8px !important;
-}
-
-/* 테이블 내 링크 텍스트 */
-#lang-i18n .ui-table__text--link {
-	display: inline-block;
-	max-width: 100%;
-	word-break: break-word;
-	white-space: normal;
-}
-
-/* 스크롤바 스타일 */
-#lang-i18n .table-wrapper::-webkit-scrollbar,
-#lang-i18n .table-container::-webkit-scrollbar,
-#lang-i18n .ui-table-wrapper::-webkit-scrollbar {
-	height: 8px;
-}
-
-#lang-i18n .table-wrapper::-webkit-scrollbar-track,
-#lang-i18n .table-container::-webkit-scrollbar-track,
-#lang-i18n .ui-table-wrapper::-webkit-scrollbar-track {
-	background: #f1f1f1;
-	border-radius: 4px;
-}
-
-#lang-i18n .table-wrapper::-webkit-scrollbar-thumb,
-#lang-i18n .table-container::-webkit-scrollbar-thumb,
-#lang-i18n .ui-table-wrapper::-webkit-scrollbar-thumb {
-	background: #888;
-	border-radius: 4px;
-}
-
-#lang-i18n .table-wrapper::-webkit-scrollbar-thumb:hover,
-#lang-i18n .table-container::-webkit-scrollbar-thumb:hover,
-#lang-i18n .ui-table-wrapper::-webkit-scrollbar-thumb:hover {
-	background: #555;
-}
-
-/* 전역 텍스트 처리 */
-#lang-i18n * {
-	word-break: break-word;
+	word-break: keep-all;
 	overflow-wrap: break-word;
-	hyphens: auto;
-	min-width: 0; /* flex/grid 오버플로우 방지 */
-}
-
-/* 태그 요소 말줄임 처리 */
-#lang-i18n .event-card__tag,
-#lang-i18n .notice-item__tag {
-	max-width: 150px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	display: inline-block;
-	line-height: 30px;
+	white-space: normal; /* 줄바꿈 허용 */
 }
 
 /* ============================================
-   범용 말줄임표 유틸리티 클래스
+   반응형 조정 (필요시)
    ============================================ */
 
-/* 한 줄 말줄임 */
-#lang-i18n .truncate {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-/* 여러 줄 말줄임 */
-#lang-i18n .line-clamp-1 {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 1;
-	overflow: hidden;
-}
-
-#lang-i18n .line-clamp-2 {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	overflow: hidden;
-}
-
-#lang-i18n .line-clamp-3 {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
-	overflow: hidden;
-}
-
-#lang-i18n .line-clamp-4 {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 4;
-	overflow: hidden;
-}
-
-/* ============================================
-   탭 컴포넌트 오버플로우 처리
-   ============================================ */
-
-/* 기본 탭 버튼 */
-#lang-i18n .ui-tab__button {
-	white-space: normal !important;
-	word-break: break-word;
-	line-height: 1.3 !important;
-	height: auto !important;
-	min-height: 52px;
-	padding: 8px 4px !important;
-}
-
-/* 탭 라벨 텍스트 */
-#lang-i18n .ui-tab__label {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	line-height: 1.3;
-}
-
-/* 그리드 탭 특별 처리 */
-#lang-i18n .ui-tab--grid .ui-tab__button {
-	font-size: 14px !important;
-	min-height: 48px;
-	padding: 8px !important;
-}
-
-/* 탭 리스트 가로 스크롤 */
-#lang-i18n .ui-tab__list {
-	overflow-x: auto;
-	flex-wrap: nowrap;
-	scrollbar-width: thin;
-  padding-top:2px;
-}
-
-#lang-i18n .ui-tab__list::-webkit-scrollbar {
-	height: 4px;
-}
-
-#lang-i18n .ui-tab__list::-webkit-scrollbar-thumb {
-	background: #ccc;
-	border-radius: 2px;
-}
-
-/* ============================================
-   GNB 메뉴 오버플로우 처리
-   ============================================ */
-
-/* GNB 메인 링크 */
-#lang-i18n .gnb-main-link {
-	width: auto !important;
-	min-width: 120px;
-	max-width: 180px;
-	padding: 8px 10px !important;
-	white-space: normal !important;
-	line-height: 1.25 !important;
-	font-size: 15px !important;
-	letter-spacing: -0.04em !important;
-	height: auto !important;
-	min-height: 56px;
-	height: 100% !important;
-}
-
-/* GNB 텍스트 - 전체 텍스트 보이기 */
-#lang-i18n .gnb-main-text {
-	white-space: normal !important;
-	word-break: keep-all;
-	line-height: 1.25;
-	overflow: visible !important;
-	text-overflow: clip !important;
-}
-
-/* GNB 서브메뉴 */
-#lang-i18n .gnb-sub-link {
-	white-space: normal !important;
-	word-break: keep-all;
-	line-height: 1.3 !important;
-	padding: 8px 16px !important;
-	min-height: 40px;
-	font-size: 14px !important;
-	letter-spacing: -0.03em !important;
-}
-
-/* ============================================
-   프로그램 상세 정보 오버플로우 처리
-   ============================================ */
-
-/* program-detail 레이아웃 */
-#lang-i18n .program-detail {
-	flex-wrap: wrap;
-	gap: 4px 8px;
-}
-
-#lang-i18n .program-detail__label {
-	min-width: 80px !important;
-	flex-shrink: 0;
-	word-break: keep-all;
-}
-
-#lang-i18n .program-detail__value {
-	white-space: normal !important;
-	word-break: break-word;
-	overflow: visible !important;
-	text-overflow: clip !important;
-	flex: 1;
-	min-width: 0;
-}
-
-/* program-detail-page 전역 처리 */
-#lang-i18n .program-detail-page * {
-	word-break: break-word;
-	overflow-wrap: break-word;
-}
-
-/* ============================================
-   모바일 전용 스타일
-   ============================================ */
-
-@media screen and (max-width: 768px) {
-	/* 모바일에서도 테이블 colgroup 유지 */
-	#lang-i18n table {
-		table-layout: auto !important;
-		width: auto !important;
-		min-width: 100%;
-	}
-
-	#lang-i18n colgroup,
-	#lang-i18n col {
-		display: table-column !important;
-	}
-
-	/* 모바일 테이블 스크롤 강제 */
-	#lang-i18n .sub-content,
-	#lang-i18n .content,
-	#lang-i18n main,
-	#lang-i18n section,
-	#lang-i18n article,
-	#lang-i18n div:has(> table),
-	#lang-i18n div:has(> .ui-table) {
-		overflow-x: auto !important;
-		-webkit-overflow-scrolling: touch !important;
-	}
-
-	/* 모바일 테이블 셀 */
-	#lang-i18n td,
-	#lang-i18n th {
-		padding: 8px 6px !important;
-		font-size: 13px !important;
-		min-width: 60px !important;
-	}
-
-	/* 모바일 번호 컬럼 최소 너비 */
-	#lang-i18n .ui-table__cell--index {
-		min-width: 50px !important;
-		width: 50px !important;
-	}
-
-	/* 모바일 기관/도서관 컬럼 */
-	#lang-i18n .ui-table__col--institution,
-	#lang-i18n .ui-table__col--category {
-		min-width: 80px !important;
-	}
-
-	/* 모바일 제목 컬럼 */
-	#lang-i18n .ui-table__col--title {
-		min-width: 150px !important;
-	}
-
-	/* 모바일 날짜 컬럼 */
-	#lang-i18n .ui-table__col--date {
-		min-width: 90px !important;
-	}
-
-	/* 모바일 조회수/횟수 컬럼 */
-	#lang-i18n .ui-table__col--count {
-		min-width: 50px !important;
-	}
-
-	/* 모바일 상태 컬럼 */
-	#lang-i18n .ui-table__col--status {
-		min-width: 70px !important;
-	}
-
-	/* 모바일 작성자 컬럼 */
-	#lang-i18n .ui-table__col--author {
-		min-width: 70px !important;
-	}
-
-	/* 모바일 배지 크기 조정 */
-	#lang-i18n .ui-table__badge {
-		font-size: 11px !important;
-		padding: 3px 6px !important;
-	}
-
-	/* 모바일 GNB */
-	#lang-i18n .gnb-main-link {
-		font-size: 13px !important;
-		padding: 6px 8px !important;
-		min-width: 100px;
-	}
-
-	/* 모바일 탭 */
-	#lang-i18n .ui-tab__button {
-		font-size: 14px !important;
-		padding: 6px 4px !important;
-		min-height: 40px;
-	}
-
-	/* 모바일 자간 더 축소 */
+/* 모바일 환경에서 추가 축소 */
+@media (max-width: 900px) {
 	#lang-i18n {
-		font-size: 85% !important;
-		letter-spacing: -0.04em !important;
+		font-size: 85%; /* 모바일에서 15% 축소 */
 	}
-}
 
-/* 이게 전부! */
-
-#lang-i18n .gnb-main-list {
-	height: auto !important;
+	/* 모바일에서 flex 아이템 세로 정렬 */
+	#lang-i18n [class*='__row'],
+	#lang-i18n .flex-row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
