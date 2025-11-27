@@ -1,0 +1,153 @@
+@media (min-width: 900px ) {
+	/* 3. 소장도서검색화면 */
+	.ui-library-filter__search.flex.gap-8.mt20 .w-577 {
+		width: 100% !important;
+	}
+	.ui-library-filter__search-dropdown {
+		max-width: 40.5625rem;
+	}
+	.worldword-wrap {
+		right: 109%;
+		max-width: 40.6625rem;
+	}
+	/* 3. 소장도서검색화면 EEE */
+
+	/* 5. PC]에서 다국어입력기 팝업을 입력란에 넓이에 맞춰서 보이도록 수정  */
+	.keyboard-wrapper.keyboard-wrapper--inline .worldword-wrap {
+		max-width: 670px;
+	}
+	/* 5. PC]에서 다국어입력기 팝업을 입력란에 넓이에 맞춰서 보이도록 수정 EEE */
+
+	/* 6. 소장도서검색 목록화면 */
+	#contentsTypeContainer.ui-tab.search-type-tabs.ui-tab--grid-5 {
+		margin-bottom: 20px !important;
+	}
+	#reSearchCntContainer.search-info-summary {
+		margin-top: 20px !important;
+	}
+	#reSearchCntContainer + .search-filter-section {
+		margin-top: 0.5rem !important;
+	}
+	/* 6. 소장도서검색 목록화면 EEE */
+
+  /* 7. 소장도서검색 목록화면 카드 */
+  .ui-book-card__main{
+    flex-direction: row;
+  }
+  .ui-book-card__actions{
+    flex-direction: column;
+    margin-top: 0!important;
+  }
+  .ui-book-card__image-container {
+    width: 134px!important; /* 원하는 크기로 조정 */
+    aspect-ratio: 3 / 4; /* 최신 CSS로 비율 유지 */
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  .ui-book-card__image-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ui-book-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 이미지 전체 표시, 빈 공간 허용 */
+    /* 또는 */
+    object-fit: cover; /* 이미지 채우기, 잘림 허용 */
+  }
+  /* 7. 소장도서검색 목록화면 카드 EEE */
+}
+
+@media (max-width: 900px) {
+	/* 3. [모바일]에서 카테고리 셀렉트 박스 영역 잘림 수정 */
+	.search-detail-section__content .filter-group--classification {
+		flex-wrap: wrap;
+	}
+	.search-detail-section__content .filter-group--classification .filter-badge {
+		width: 100%;
+		margin-bottom: 8px;
+    justify-content: center;
+	}
+	.search-detail-section__content .filter-group--classification .ui-select-container,
+	.search-detail-section__content .filter-group--sort .ui-select-container {
+		flex: 1 1 0;
+		min-width: 0;
+	}
+	.search-detail-section__content .filter-group--classification .ui-select.ui-select--width-auto,
+	.search-detail-section__content .filter-group--sort .ui-select.ui-select--width-auto {
+		width: 100% !important;
+		max-width: none !important;
+		min-width: 0 !important;
+	}
+	.search-detail-section__content .filter-group--classification .ui-select__wrapper,
+	.search-detail-section__content .filter-group--sort .ui-select__wrapper {
+		width: 100%;
+	}
+  #reSearchCntContainer + .search-filter-section {
+    gap:0.5rem!important;
+  }
+	/* 3. [모바일]에서 카테고리 셀렉트 박스 영역 잘림 수정 EEE */
+
+	/* 1. 배너존 모바일 옵션 */
+	.banner-section .inner .banner-section__content {
+		flex-direction: row;
+	}
+	.banner-section .inner .banner-section__content .banner-section__right {
+		max-width: 180px;
+	}
+	/* 1. 배너존 모바일 옵션 EEE */
+
+	/* 2. 모바일 회원증 */
+	.mobileCard {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 99;
+		background: #fff;
+		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+		padding: 0;
+		height: 56px;
+	}
+
+	.mobileCard a {
+		display: block;
+		width: 100%;
+		padding: 16px 20px;
+		text-align: center;
+		background-color: #0066cc;
+		color: #fff;
+		font-size: 16px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background-color 0.3s ease;
+		box-sizing: border-box;
+		border: none;
+	}
+
+	/* .mobileCard 바로 앞 요소에 여백 추가 */
+	.mobileCard + * {
+		margin-bottom: 56px;
+	}
+
+	.footer:has(+ .mobileCard) {
+		padding-bottom: 56px;
+	}
+	/* 2. 모바일 회원증 EEE */
+
+	/* 4.  [모바일]에서 다국어입력기 버튼 위치 변경 */
+	/* .ui-keyboard-container {
+		margin-left: 8px;
+		width: auto !important;
+	}
+	.ui-button {
+		gap: 0px;
+	}
+	.ui-library-filter__search-dropdown + .flex.gap-5 {
+		justify-content: flex-end;
+	} */
+	/* 4.  [모바일]에서 다국어입력기 버튼 위치 변경 EEE */
+}

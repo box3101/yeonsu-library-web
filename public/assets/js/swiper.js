@@ -150,7 +150,7 @@ function initBannerSwiper() {
 	var $autoplayToggle = $('.banner-swiper-autoplay-toggle');
 
 	var bannerSwiper = new Swiper('.banner-swiper', {
-		slidesPerView: 2, // 2개 슬라이드 표시 (모바일)
+		slidesPerView: 1, // 2개 슬라이드 표시 (모바일)
 		spaceBetween: 16, // 슬라이드 간격
 		speed: SWIPER_CONFIG.speed,
 		autoplay: SWIPER_CONFIG.autoplay,
